@@ -7,7 +7,16 @@
    Light is the default on :root; the dark set is applied by the .dark class,
    which main.jsx sets from the saved choice, the host's data-theme, or the OS. */
 :root {
-  --radius: 0.75rem;
+  --radius: 1rem;
+  /* Press colours: the hard offset "sticker" shadow under a chunky control is
+     the same hue, darker. Pressing the control shortens the shadow and drops
+     the face onto it, so a button behaves like a physical key. */
+  --primary-press: #0a5a4e;
+  --secondary-press: #c3d0cc;
+  --destructive-press: #8f4c28;
+  --outline-press: #bccac7;
+  --lift: 4px;
+  --lift-press: 1px;
   --background: #f4f7f6;
   --foreground: #16211f;
   --card: #ffffff;
@@ -47,6 +56,10 @@
 }
 
 .dark {
+  --primary-press: #2b9385;
+  --secondary-press: #151c1a;
+  --destructive-press: #a8703f;
+  --outline-press: #3a4744;
   --background: #101614;
   --foreground: #e6edea;
   --card: #18201e;

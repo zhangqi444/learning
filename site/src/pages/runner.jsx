@@ -37,8 +37,12 @@ export function Choice({ k, text, checked, onSelect }) {
       value={LTR[k]}
       data-testid="choice"
       className={cn(
-        "group/opt bg-card hover:bg-accent/50 focus-visible:ring-ring/50 flex w-full cursor-pointer items-start gap-3 rounded-lg border p-3 text-left text-[15px] leading-snug shadow-xs transition-colors outline-none focus-visible:ring-[3px]",
-        "data-[state=checked]:border-primary data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground"
+        // Pressable like a game control, but the text itself stays plain: on the
+        // day it counts the question is black on white, so the choice must not
+        // train her to read anything more decorated than that.
+        "group/opt bg-card hover:bg-accent/50 focus-visible:ring-ring/50 flex w-full cursor-pointer items-start gap-3 rounded-xl border-2 p-3 text-left text-[15px] leading-snug transition-all duration-100 ease-out outline-none focus-visible:ring-[3px]",
+        "shadow-[0_3px_0_0_var(--outline-press)] active:translate-y-[2px] active:shadow-[0_1px_0_0_var(--outline-press)]",
+        "data-[state=checked]:border-primary data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground data-[state=checked]:shadow-[0_3px_0_0_var(--primary-press)]"
       )}
       onClick={() => onSelect(k)}
     >

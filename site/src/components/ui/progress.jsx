@@ -12,7 +12,11 @@ function Progress({ className, value, indicatorClassName, ...props }) {
     >
       <ProgressPrimitive.Indicator
         data-slot="progress-indicator"
-        className={cn("bg-primary h-full w-full flex-1 transition-all", indicatorClassName)}
+        className={cn(
+          // a sheen along the top edge so the bar reads as a filling tube, not a flat rectangle
+          "bg-primary relative h-full w-full flex-1 rounded-full transition-all duration-300 ease-out before:absolute before:inset-x-0 before:top-0 before:h-1/2 before:rounded-full before:bg-white/25 before:content-['']",
+          indicatorClassName
+        )}
         style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
       />
     </ProgressPrimitive.Root>
