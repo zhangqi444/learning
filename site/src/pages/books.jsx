@@ -16,7 +16,6 @@ import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 const today = () => dayOf()
 const fmtDay = (on) => new Date(on + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })
@@ -42,7 +41,13 @@ function BookRow({ b, open, onToggle }) {
   const [on, setOn] = React.useState(today)
   const readOn = (b.sessions || []).some((s) => s.on === today())
   const sessions = b.sessions || []
-  function log(day) { logSession(b.id, { on: day, page: page || null }); setPage(""); setOn(today()); syncBadges() }
+  // The form doubles as the editor: picking a logged day loads it, so a tap can never
+  // delete one by accident — removing is its own button, only while a day is loaded.
+  const editing = sessions.find((s) => s.on === on) || null
+  function reset() { setOn(today()); setPage("") }
+  function pick(s) { setOn(s.on); setPage(s.page == null ? "" : String(s.page)) }
+  function log(day) { logSession(b.id, { on: day, page: page || null }); reset(); syncBadges() }
+  function removeDay(day) { undoSession(b.id, day); reset() }
   function finish() { finishBook(b.id); syncBadges() }
   return (
     <li className="flex flex-col gap-3 px-4 py-3" data-testid="book" data-status={b.status} data-id={b.id}>
@@ -76,34 +81,45 @@ function BookRow({ b, open, onToggle }) {
           {/* 1. Log a reading day — today by default, or a day she forgot to tap. */}
           {!done ? (
             <div className="flex flex-col gap-2">
-              <span className="text-muted-foreground flex items-center gap-1.5 text-xs"><CalendarDays className="size-3.5" /> Log a reading day</span>
+              <span className="text-muted-foreground flex items-center gap-1.5 text-xs">
+                <CalendarDays className="size-3.5" /> {editing ? `Editing ${fmtDay(on)}` : "Log a reading day"}
+              </span>
               <div className="flex flex-wrap items-end gap-2">
                 <label className="flex flex-col gap-1 text-xs">
                   <span className="text-muted-foreground">Day</span>
                   <Input type="date" value={on} max={today()} onChange={(e) => setOn(e.target.value || today())} className="h-8 w-40 tabular-nums" data-testid="log-date" />
                 </label>
                 <label className="flex flex-col gap-1 text-xs">
-                  <span className="text-muted-foreground">Up to page</span>
+                  <span className="text-muted-foreground">Read to page</span>
                   <Input type="number" min="0" value={page} onChange={(e) => setPage(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") log(on) }} className="h-8 w-24 tabular-nums" placeholder="optional" data-testid="log-page" />
                 </label>
-                <Button size="sm" onClick={() => log(on)} data-testid="log-add"><Check /> {on === today() ? "Read today" : `Read on ${fmtDay(on)}`}</Button>
+                <Button size="sm" onClick={() => log(on)} data-testid="log-add">
+                  <Check /> {editing ? "Update" : on === today() ? "Read today" : `Read on ${fmtDay(on)}`}
+                </Button>
+                {editing ? <Button size="sm" variant="ghost" className="text-muted-foreground" onClick={() => removeDay(on)} data-testid="log-remove"><Trash2 /> Remove this day</Button> : null}
+                {editing || on !== today() ? <Button size="sm" variant="ghost" onClick={reset} data-testid="log-cancel">Cancel</Button> : null}
               </div>
+              <span className="text-muted-foreground text-xs">“Read to page” is the page she <em>reached</em> that day — a bookmark, not a count.</span>
             </div>
           ) : null}
           {sessions.length ? (
             <div className="flex flex-col gap-1.5">
-              <span className="text-muted-foreground text-xs">{sessions.length} reading day{sessions.length === 1 ? "" : "s"} · tap one to take it back</span>
+              <span className="text-muted-foreground text-xs">{sessions.length} reading day{sessions.length === 1 ? "" : "s"} · tap one to edit or remove it</span>
               <div className="flex flex-wrap gap-1.5" data-testid="sessions">
-                {sessions.slice(-21).reverse().map((s) => (
-                  <Tooltip key={s.on}>
-                    <TooltipTrigger asChild>
-                      <button type="button" className="text-muted-foreground hover:text-foreground hover:border-destructive/50 rounded border px-1.5 py-0.5 text-xs tabular-nums" onClick={() => undoSession(b.id, s.on)} data-on={s.on}>
-                        {fmtDay(s.on)}{s.page ? ` · p${s.page}` : ""}
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent>Remove this day from the log</TooltipContent>
-                  </Tooltip>
-                ))}
+                {sessions.slice(-21).reverse().map((s, i, rows) => {
+                  // pages read that day, when both bookmarks are known
+                  const prev = rows[i + 1]
+                  const delta = s.page && prev && prev.page && s.page > prev.page ? s.page - prev.page : null
+                  return (
+                    <button
+                      key={s.on} type="button" onClick={() => pick(s)} data-on={s.on} data-selected={on === s.on ? "1" : "0"}
+                      title={delta ? `${delta} pages that day` : undefined}
+                      className={cn("rounded border px-1.5 py-0.5 text-xs tabular-nums", on === s.on ? "border-primary text-primary" : "text-muted-foreground hover:text-foreground")}
+                    >
+                      {fmtDay(s.on)}{s.page ? ` · p${s.page}` : ""}{delta ? <span className="opacity-60"> +{delta}</span> : null}
+                    </button>
+                  )
+                })}
               </div>
             </div>
           ) : null}

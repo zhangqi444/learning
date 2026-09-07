@@ -401,9 +401,27 @@ async function runThrough(pg, pick, max = 60) {
   const back = await pg.evaluate((y) => { const s = JSON.parse(localStorage.getItem('isee.v1')); const b = s.books['little-women']; const ses = b.sessions.find((x) => x.on === y); return { n: b.sessions.length, on: ses && ses.on, at: ses && ses.at.slice(0, 10), page: b.page, order: b.sessions.map((x) => x.on) }; }, yday);
   check('a back-dated reading day is stored on that day and does not move the page back', back.n === 2 && back.on === yday && back.page === 120 && back.order[0] === yday && /2 reading days/.test(await body(pg)), JSON.stringify(back));
   check('the date picker cannot go into the future', await pg.$eval('[data-testid=book][data-id=little-women] >> [data-testid=log-date]', (i) => { const d = new Date(); return i.max === `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; }));
-  await pg.click('[data-testid=book][data-id=little-women] >> [data-testid=sessions] >> button >> nth=-1');
+  // tapping a logged day loads it for editing — it must never delete on one tap
+  const bk1 = '[data-testid=book][data-id=little-women]';
+  await pg.click(`${bk1} >> [data-testid=sessions] >> button[data-on="${yday}"]`);
   await pg.waitForTimeout(150);
-  check('tapping a logged day takes it back', await pg.evaluate((y) => !JSON.parse(localStorage.getItem('isee.v1')).books['little-women'].sessions.some((x) => x.on === y), yday));
+  check('tapping a logged day loads it instead of deleting it', (await pg.$eval(`${bk1} >> [data-testid=log-date]`, (i) => i.value)) === yday
+    && (await pg.$eval(`${bk1} >> [data-testid=log-page]`, (i) => i.value)) === '90'
+    && /Editing/.test(await pg.textContent(`${bk1} >> [data-testid=book-detail]`))
+    && await pg.evaluate((y) => JSON.parse(localStorage.getItem('isee.v1')).books['little-women'].sessions.some((x) => x.on === y), yday));
+  // and the loaded day can be corrected
+  await pg.fill(`${bk1} >> [data-testid=log-page]`, '95');
+  await pg.click(`${bk1} >> [data-testid=log-add]`);
+  await pg.waitForTimeout(200);
+  check('editing a logged day updates it, without adding a second one', await pg.evaluate((y) => { const s = JSON.parse(localStorage.getItem('isee.v1')).books['little-women'].sessions; return s.length === 2 && s.find((x) => x.on === y).page === 95; }, yday));
+  // removing is its own button, only offered while a day is loaded
+  await pg.click(`${bk1} >> [data-testid=sessions] >> button[data-on="${yday}"]`);
+  await pg.waitForSelector(`${bk1} >> [data-testid=log-remove]`);
+  await pg.click(`${bk1} >> [data-testid=log-remove]`);
+  await pg.waitForTimeout(200);
+  check('Remove this day is what actually deletes it, and the form goes back to today', await pg.evaluate((y) => { const s = JSON.parse(localStorage.getItem('isee.v1')).books['little-women'].sessions; return s.length === 1 && !s.some((x) => x.on === y); }, yday)
+    && (await pg.$eval(`${bk1} >> [data-testid=log-date]`, (i) => { const d = new Date(); return i.value === `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; })));
+  check('the page label says it is a bookmark, not a count', /reached.*that day/.test(await pg.textContent(`${bk1} >> [data-testid=book-detail]`)) && /Read to page/.test(await pg.textContent(`${bk1} >> [data-testid=book-detail]`)));
   check('adding her own book lives with the suggestions, not on the shelf', (await pg.$('[data-testid=book-own] [data-testid=book-title]')) !== null && (await pg.$eval('[data-testid=book-add]', (b) => b.disabled)));
   await pg.click('[data-testid=suggestion] >> nth=0 >> button');
   await pg.waitForTimeout(200);
