@@ -40,7 +40,8 @@ async function runThrough(pg, pick, max = 60) {
   console.log('== sidebar + dashboard');
   const side = await pg.$$eval('[data-slot=sidebar-menu-button]', (n) => n.map((x) => x.textContent.trim()));
   check('sidebar has Essay / Mock exams / Calendar', ['Essay', 'Mock exams', 'Calendar'].every((t) => side.includes(t)), side.join(','));
-  check('Essay sits with the subjects (after Reading)', side.indexOf('Essay') === side.indexOf('Reading') + 1);
+  check('Essay sits with the subjects (after Reading Comprehension)', side.indexOf('Essay') === side.indexOf('Reading Comprehension') + 1);
+  check('the ISEE subject and the reading log are told apart in the nav', side.indexOf('Reading Comprehension') >= 0 && side.indexOf('Reading') > side.indexOf('Reading Comprehension'), side.join(','));
   check('Essay sits in the Subjects card as its own row', /Essay/.test(await pg.textContent('[data-testid=subjects]')) && /0 of 8 weeks/.test(await pg.textContent('[data-testid=subjects]')));
   check('dashboard Coming up lists a mock', /Coming up.*Split diagnostic/.test(await body(pg)));
 

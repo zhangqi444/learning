@@ -5,7 +5,7 @@ export const SUBJ = {
   vr: { name: "Verbal Reasoning", short: "Verbal", blurb: "Vocabulary and sentence completion", color: "var(--chart-1)" },
   qr: { name: "Quantitative Reasoning", short: "Quantitative", blurb: "Reasoning with numbers, no calculator", color: "var(--chart-2)" },
   ma: { name: "Mathematics", short: "Math", blurb: "Arithmetic, geometry, data", color: "var(--chart-3)" },
-  rc: { name: "Reading", short: "Reading", blurb: "Passages and comprehension", color: "var(--chart-4)" },
+  rc: { name: "Reading Comprehension", short: "Reading", blurb: "Passages and comprehension", color: "var(--chart-4)" },
 }
 export const ORDER = ["vr", "qr", "ma", "rc"]
 export const SETSIZE = 12
