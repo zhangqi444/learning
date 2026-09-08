@@ -7,6 +7,7 @@
  * consonant note, not a buzzer: it marks the moment without making it feel like
  * a failure. Nothing here plays unprompted, and `muted` silences all of it. */
 import { Store } from "./store"
+import { callHz } from "./glim"
 
 let ctx = null
 
@@ -47,13 +48,39 @@ const VOICES = {
   badge: (a) => [784, 1047, 1319].forEach((f, i) => note(a, f, i * 0.06, 0.3, { type: "triangle", gain: 0.1 })),
 }
 
-export function sfx(name) {
+/* ---------- the cats' own voices ----------
+ * Every cat's call comes out of the same hash as its coat (lib/glim.js), so
+ * `benign` sounds like `benign` on every device forever. It is two rising notes
+ * from a pentatonic scale, which is why five gates in a row never produce a sour
+ * interval. She stops hearing "a correct-answer noise" and starts hearing which
+ * cat arrived — and on a wrong call she hears that it is the wrong one before
+ * she has read a word of the explanation. That is the lesson, delivered in
+ * 300 milliseconds. */
+
+/** The cat you called, arriving: its two notes, up, bright. */
+VOICES.call = (a, word) => {
+  const [lo, hi] = callHz(word)
+  note(a, lo, 0, 0.13, { type: "triangle", gain: 0.08 })
+  note(a, hi, 0.105, 0.24, { type: "triangle", gain: 0.085, slide: hi * 1.03 })
+}
+
+/** Somebody else's cat, arriving. The same shape, so it is unmistakably a cat
+ *  answering — just not the one she wanted. Softer and lower, with one quiet
+ *  note underneath. Never a buzzer (hard rule 3). */
+VOICES.miscall = (a, word) => {
+  const [lo, hi] = callHz(word)
+  note(a, lo * 0.5, 0, 0.2, { type: "sine", gain: 0.05 })
+  note(a, lo, 0.06, 0.16, { type: "triangle", gain: 0.055 })
+  note(a, hi * 0.5, 0.17, 0.26, { type: "triangle", gain: 0.05 })
+}
+
+export function sfx(name, arg) {
   if (Store.s && Store.s.muted) return
   const voice = VOICES[name]
   if (!voice) return
   const a = audio()
   if (!a) return
-  try { voice(a) } catch { /* an audio failure must never break the page */ }
+  try { voice(a, arg) } catch { /* an audio failure must never break the page */ }
 }
 
 export const muted = () => !!(Store.s && Store.s.muted)

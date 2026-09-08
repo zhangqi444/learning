@@ -9,15 +9,12 @@
  * Rule: no component writes a world noun as a literal. If a word belongs to the
  * fiction, it belongs here. */
 export const W = {
-  // placeholders — Sheila's to replace
   world: "Wildlight",
   cat: "Glim",
   cats: "Glims",
   home: "the Hearth",
   homeTitle: "Hearth",
   currency: "Hum",
-
-  // settled
   role: "Lampwright",
   book: "Glimbook",
   wood: "the Wordwood",
@@ -38,6 +35,16 @@ export const W = {
     Mastered: "Radiant",
   },
 }
+
+/** The same six, dimmest first, for anywhere that needs to compare them. */
+export const GLOW_ORDER = ["Unseen", "Glimpsed", "Flickering", "Steady", "Bright", "Radiant"]
+
+/** Never draw a cat that just came when called as barely-there. Being right is
+ *  allowed to look like something, even the first time — the honest number is on
+ *  the score page, and dimming a cat she just called correctly would read as the
+ *  game arguing with her. */
+export const atLeast = (stage, floor = "Steady") =>
+  GLOW_ORDER.indexOf(stage) < GLOW_ORDER.indexOf(floor) ? floor : stage
 
 /** "3 Glims" / "1 Glim" — the plural is a fiction word, so it lives here too. */
 export const nCats = (n) => `${n} ${n === 1 ? W.cat : W.cats}`

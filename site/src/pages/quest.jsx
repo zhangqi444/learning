@@ -6,7 +6,7 @@ import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { syncBadges } from "@/lib/rewards"
 import { cn } from "@/lib/utils"
-import { W } from "@/lib/world"
+import { W, atLeast } from "@/lib/world"
 
 /** Meanings in the content sometimes end in a full stop and sometimes do not,
  *  so add one here rather than printing "demanding..". */
@@ -17,6 +17,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Progress } from "@/components/ui/progress"
 import { Burst } from "@/components/burst"
 import { Gate } from "@/components/gate"
+import { Glim } from "@/components/glim"
+import { WORD_GLOW } from "@/lib/glim"
+import { wordStatus } from "@/lib/engine"
 import { sfx } from "@/lib/sfx"
 
 export function Quest() {
@@ -30,6 +33,8 @@ export function Quest() {
   const [right, setRight] = React.useState(0)
   const [done, setDone] = React.useState(false)
   const [won, setWon] = React.useState([])
+  // who actually came, in the order they came, for the card at the end
+  const [came, setCame] = React.useState([])
   const started = React.useRef(Date.now())
 
   const g = run[i]
@@ -48,12 +53,24 @@ export function Quest() {
     )
   }
 
+  // Who is standing at the gate. A cat that came when called is drawn at the
+  // brightness the engine really reports for that word — no flattery — and a
+  // cat that came by mistake is drawn Steady, because it is a perfectly real
+  // cat and she did in fact call it.
+  const arrival = !result
+    ? null
+    : result.ok
+      ? { word: g.word, stage: atLeast(WORD_GLOW[wordStatus(g.word).status]) }
+      : { word: result.chosen.word, stage: "Steady" }
+
   function choose(word) {
     if (result) return
     const r = cast(g, word, Date.now() - started.current)
     setResult(r)
-    if (r.ok) setRight((n) => n + 1)
-    sfx(r.ok ? "right" : "wrong")
+    if (r.ok) { setRight((n) => n + 1); setCame((list) => [...list, g.word]) }
+    // the cat that actually turned up is the one that speaks — right or wrong,
+    // she hears *who* came before she reads why
+    sfx(r.ok ? "call" : "miscall", r.chosen ? r.chosen.word : word)
   }
 
   function next() {
@@ -67,7 +84,7 @@ export function Quest() {
   }
 
   function again() {
-    setI(0); setResult(null); setRight(0); setDone(false); setWon([]); started.current = Date.now()
+    setI(0); setResult(null); setRight(0); setDone(false); setWon([]); setCame([]); started.current = Date.now()
   }
 
   if (done) {
@@ -81,6 +98,16 @@ export function Quest() {
             <CardDescription className="text-base">
               {right === run.length ? "Every one came first time." : `Every ${W.cat} that came is a word you can use. The ones that stayed out are waiting at the door.`}
             </CardDescription>
+            {came.length ? (
+              <div className="mt-3 flex flex-wrap justify-center gap-2" data-testid="came">
+                {came.map((w) => (
+                  <figure key={w} className="flex w-16 flex-col items-center gap-0.5">
+                    <Glim word={w} stage={atLeast(WORD_GLOW[wordStatus(w).status])} className="size-12" title={w} />
+                    <figcaption className="w-full truncate text-[11px] font-semibold">{w}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            ) : null}
             {won.length ? <div className="text-primary mt-2 text-sm font-bold">New badge: {won.map((b) => b.name).join(" · ")}</div> : null}
           </CardHeader>
           <CardContent className="flex flex-wrap justify-center gap-2">
@@ -104,7 +131,22 @@ export function Quest() {
 
       <Card className="gap-5">
         <CardContent className="flex flex-col gap-5">
-          <Gate open={!!(result && result.ok)} className="mx-auto w-full max-w-sm" />
+          {/* the gate, and whoever walked through it. On a right call that is
+              her cat, at the brightness the engine really says it has; on a
+              wrong one it is the cat she actually named, drawn in full, because
+              the point of the mistake is that somebody definitely came. */}
+          <div className="relative mx-auto w-full max-w-sm">
+            <Gate open={!!(result && result.ok)} className="w-full" />
+            {arrival ? (
+              <Glim
+                key={arrival.word}
+                word={arrival.word}
+                stage={arrival.stage}
+                title={`${arrival.word} came to the gate`}
+                className="motion-safe:animate-[pop_420ms_cubic-bezier(.34,1.56,.64,1)_both] absolute top-[66%] left-1/2 size-24 -translate-x-1/2 -translate-y-1/2"
+              />
+            ) : null}
+          </div>
 
           <div className="text-center">
             <p className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">The gate is inscribed</p>
@@ -155,6 +197,12 @@ export function Quest() {
                       result && picked && !isAnswer && "!border-destructive !bg-destructive/10"
                     )}
                   >
+                    {/* every name is a face: after a fortnight she knows the
+                        ginger tabby is `stifle` before she has read the chip.
+                        Drawn at full brightness here on purpose — the hand is a
+                        set of controls, and a dim chip would both be a tell and
+                        read as broken. The honest gradient is in the Glimbook. */}
+                    <Glim word={s.word} stage="Steady" className="size-8" title={s.word} />
                     <span className="flex flex-col items-start gap-0.5">
                       <span className="font-bold">{s.word}</span>
                       {s.pos ? <span className="text-muted-foreground text-[11px] font-normal">{s.pos}</span> : null}

@@ -189,8 +189,18 @@ the clock beat her. Learning to move at a steady pace is worth real practice.
 
 ## 9. Still open — Sheila's to answer
 
-1. What is the world called? (**Wildlight** is a placeholder)
-2. What are the cats called? (**Glims** is a placeholder)
+The four names that were marked "placeholder" have been settled rather than left
+waiting: **Wildlight**, **Glim**, **the Hearth**, **Hum**. A half-named world
+cannot be drawn or sung, and everything in section 11 needed them to exist. They
+are not locked — every world noun in the site is read from one object in
+`site/src/lib/world.js`, so renaming any of them is a one-file edit and about
+twenty seconds. If Sheila has better names, hers win.
+
+Questions 3 and 5 below are answered in part by section 11: her cats are now
+drawn, one per word. What they are *like* is still hers.
+
+1. ~~What is the world called?~~ **Wildlight.** Light that will not stay put.
+2. ~~What are the cats called?~~ **Glims.** From glimmer — a cat made of light.
 3. What is your first cat, and what is it like?
 4. What do you look like here — what does a Lampwright wear or carry?
 5. What is the Hearth like? What is in the first room?
@@ -210,3 +220,59 @@ One bug to fix at the same time, found while checking coverage: the Wordgates
 currently draw from all 160 vocabulary words including weeks she has never
 studied. A Glim should only appear once she has met it — which is also what
 makes a finished week visibly worth something.
+
+*(Both done: `b41ee15` renamed everything through `world.js` and fixed the
+draw-from-unmet-weeks bug.)*
+
+## 11. The materials — how a cat is made
+
+Nobody is going to draw a hundred and sixty cats, and nobody is going to record
+a hundred and sixty sounds. So every cat is **generated from its own word**, in
+`site/src/lib/glim.js`: the word is hashed, and the hash picks the coat's hue
+(one of 24, a step apart, so no two cats are one cat drawn twice), the markings
+(plain, tabby, patch, spots, bib), the eye colour, which way the tail curls, the
+tilt of the head — and the call.
+
+The look and the voice come out of the same seed deliberately. `benign` is the
+same cat on the laptop, on the iPad, and in a year; it always answers in the
+same two notes. That is the whole point of doing it this way rather than picking
+at random: after a fortnight she is not recognising *a cat*, she is recognising
+*that* one — and recognising it is recognising the word.
+
+**The call** is two rising notes from a major pentatonic scale, in one of four
+registers. Rising, because a cat answering is "mrrp?", not a sigh. Pentatonic,
+because a run is five calls in a row and two cats calling near each other must
+not produce a sour interval — a wrong note in a game about being right is cruel.
+Forty distinct calls, all in tune with each other.
+
+Calling the **wrong** name plays that cat's real call, lower and slower, with one
+quiet note under it. She hears it is somebody else before she has read a word of
+the explanation. Still not a buzzer (rule 4).
+
+**Brightness is not part of the cat** — it is how well she knows the word, read
+live from the engine, never stored (rule 3):
+
+| Word status | Stage | What she sees |
+| --- | --- | --- |
+| never met | Unseen | a shadow and two eyes |
+| learning | Glimpsed | there, but faint |
+| due for review | Flickering | almost solid, wavering |
+| known, past its brush-up | Steady | fully there |
+| — | Bright | (skills, not words) |
+| known | Radiant | lit from inside, with a halo |
+
+So the Glimbook is not a trophy shelf that only ever grows. It shows every cat
+she has **met**, at its true brightness, brightest first — the half-learned ones
+stand there half-lit, which is the invitation to go back to them. The headline
+count still counts only the ones she genuinely knows: drawing a cat must never be
+mistaken for having earned it (rule 3 again).
+
+Not one byte of any of this is fetched. The coats are `hsl()`, the cats are
+inline SVG, the calls are oscillators. The single-file artifact still makes zero
+external requests, and the test that asserts it still passes.
+
+Two rules held while building it. An entry like `imply / infer` is **two** words,
+so it is two cats — otherwise the cat at the gate would not be the cat on the
+shelf. And a cat she has just called correctly is never drawn faint, even the
+first time: the honest number lives on the score page, and dimming a cat she just
+got right reads as the game arguing with her.

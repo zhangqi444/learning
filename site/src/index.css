@@ -193,4 +193,17 @@
     62%  { transform: scale(1.05); opacity: 1; }
     100% { transform: scale(1); opacity: 1; }
   }
+  /* A cat breathing. Used by components/glim.jsx for the two brightest stages;
+     the resting frame is the picture, so reduced motion loses nothing. */
+  @keyframes glim-breathe {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.035); }
+  }
+  /* A cat that is nearly there. Never below the stage's own opacity, so a
+     flickering cat is never briefly invisible. */
+  @keyframes glim-flicker {
+    0%, 100% { opacity: 1; }
+    45%      { opacity: 0.62; }
+    60%      { opacity: 0.95; }
+  }
 }

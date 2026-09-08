@@ -299,7 +299,13 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=collections]');
   const coll = await pg.textContent('[data-testid=collections]');
   check('collections are earned, with nothing to buy and no rarity', !/Sparks|rare|chance|Build/i.test(coll), coll.slice(0, 80));
-  check('with nothing known yet it says so, rather than showing an empty shelf', (await pg.$('[data-testid=word-cards]')) === null && /yet\b/.test(coll));
+  // The shelf draws every cat she has MET, at the brightness the engine really
+  // reports, so a half-learned word is a half-lit cat rather than absent. The
+  // headline count still only ever counts the ones she genuinely knows —
+  // drawing something must never be mistaken for having earned it.
+  const shelfBefore = await pg.$$eval('[data-testid=word-card]', (n) => n.map((e) => e.dataset.status));
+  check('nothing is known yet, so nothing on the shelf claims to be', shelfBefore.length > 0 && shelfBefore.every((s) => s !== 'known'), shelfBefore.join(',') || 'empty');
+  check('the headline count counts only what is known, not everything drawn', /\b0 \/ \d+/.test(coll), coll.slice(0, 90));
   // Now make one word genuinely known — explained on one day, answered right in
   // the quiz on another — and the card must appear without anything being stored
   // about the collection itself.
@@ -319,6 +325,18 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=word-cards]');
   check('knowing a word for real puts its card on the shelf', /benign/.test(await pg.textContent('[data-testid=word-cards]')));
   check('and the collection is derived, not stored anywhere', await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return !s.collection && !s.cards && !(s.base && Object.keys(s.base).some((k) => k.includes('card'))); }));
+  // The cat itself. Its coat comes out of the word and its brightness out of the
+  // engine, and neither is written down anywhere — so the same word is the same
+  // cat on every device, and a cat cannot be brighter than the record behind it.
+  check('the word she now knows is drawn Radiant', (await pg.$eval('[data-testid=word-card][data-status=known] [data-testid=glim]', (e) => e.dataset.stage)) === 'Radiant');
+  const coats = await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => e.dataset.word + ':' + e.dataset.marking + ':' + e.dataset.coat));
+  check('every cat is drawn, not fetched — nothing on the shelf is an image', (await pg.$$('[data-testid=word-cards] img')).length === 0 && coats.length > 1);
+  check('two different words are two different cats', new Set(coats).size === coats.length, coats.slice(0, 3).join(' | '));
+  const benignCoat = coats.find((c) => c.startsWith('benign:'));
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=word-cards]');
+  check('and the same word is the same cat after a reload — nothing about it is stored',
+    (await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => e.dataset.word + ':' + e.dataset.marking + ':' + e.dataset.coat))).includes(benignCoat), benignCoat);
 
   console.log('== calendar');
   await pg.evaluate(() => { location.hash = '#/calendar'; });
@@ -593,9 +611,18 @@ async function runThrough(pg, pick, max = 60) {
   check('a gate is a real sentence with the word taken out', /_{3,}/.test(ins) && ins.trim().length > 25, ins.trim().slice(0, 60));
   const hand = await pg.$$eval('[data-testid=spell]', (n) => n.map((e) => e.dataset.word));
   check('the hand is six different spells', hand.length === 6 && new Set(hand.map((w) => w.toLowerCase())).size === 6, hand.join(','));
+  // Every name in the hand wears its own face, so the cat at the gate can be
+  // recognised as the one she named without reading a word.
+  const faces = await pg.$$eval('[data-testid=spell] [data-testid=glim]', (n) => n.map((e) => e.dataset.word + ':' + e.dataset.coat));
+  check('every name in the hand is a face', faces.length === hand.length && new Set(faces).size === faces.length, faces.slice(0, 2).join(' | '));
+  check('and nothing is standing at the gate until she calls', (await pg.$('[data-testid=gate] ~ [data-testid=glim]')) === null);
   // Cast a wrong spell: the world must say what THAT word does, not just "wrong".
+  const called = hand[0];
   await pg.click('[data-testid=spell] >> nth=0');
   await pg.waitForSelector('[data-testid=cast-result]');
+  const arrived = await pg.$eval('[data-testid=gate] ~ [data-testid=glim]', (e) => e.dataset.word + ':' + e.dataset.coat);
+  check('the cat that turned up is the one she actually called, same face and all',
+    arrived.startsWith(called + ':') && faces.includes(arrived), arrived + ' after calling ' + called);
   const castMsg = (await pg.textContent('[data-testid=cast-result]')).replace(/\s+/g, ' ');
   const opened = /It comes when you call/.test(castMsg);
   check('a cast is recorded as ordinary vocabulary practice', await pg.evaluate(() => {

@@ -6,7 +6,9 @@ import { SUBJ } from "@/lib/content"
 import { wallet } from "@/lib/rewards"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
-import { W } from "@/lib/world"
+import { W, GLOW_ORDER } from "@/lib/world"
+import { Glim } from "@/components/glim"
+import { WORD_GLOW } from "@/lib/glim"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -134,29 +136,53 @@ export function Base() {
 /* Collections are earned, never bought, and never random. A card is here because
  * she genuinely knows the word — the same "known" the precision review uses —
  * and a crest is here because the skill is genuinely Mastered. That is the whole
- * anti-loot-box design: no duplicates to chase, no rarity, nothing to gamble on. */
+ * anti-loot-box design: no duplicates to chase, no rarity, nothing to gamble on.
+ *
+ * The book shows every cat she has MET, at the brightness her real record says,
+ * rather than only the finished ones. A collection you can only ever add to is a
+ * scoreboard; a collection where the ones you are half-way through stand there
+ * half-lit is a reason to go back to them. Nothing here is stored: the coat comes
+ * from the word, the brightness comes from the engine. */
 function Collections() {
   const cards = wordCards()
   const known = cards.filter((c) => c.status === "known")
+  const met = cards.filter((c) => c.status !== "new")
   const crests = skillCrests()
+  // Brightest first, so the ones she owns lead and the dim ones are the
+  // invitation. An entry like "imply / infer" is two words, and the Wordwood
+  // calls each of them by its own name — so the book draws each of them as its
+  // own cat, or the cat at the gate would not be the cat on the shelf. The
+  // COUNT stays per entry, because that is what the engine actually knows about
+  // (hard rule 4): drawing two cats must not turn one word into two.
+  const shelf = met
+    .flatMap((c) => String(c.word).split("/").map((s) => s.trim()).filter(Boolean).map((name) => ({ ...c, name })))
+    .sort((a, b) => GLOW_ORDER.indexOf(WORD_GLOW[b.status]) - GLOW_ORDER.indexOf(WORD_GLOW[a.status]) || a.name.localeCompare(b.name))
   return (
     <div className="grid grid-cols-1 gap-4 @2xl/main:grid-cols-2" data-testid="collections">
       <Card className="gap-3">
         <CardHeader>
           <CardTitle className="text-base">{W.book} · words</CardTitle>
-          <CardDescription>One {W.cat} for every word you really know — written in your own words, then called right on a later day.</CardDescription>
+          <CardDescription>Every {W.cat} you have met. It brightens as you get to know it, and it is Radiant once you have written it in your own words and called it right on a later day.</CardDescription>
           <CardAction><Badge variant="outline" className="tabular-nums">{known.length} / {cards.length}</Badge></CardAction>
         </CardHeader>
         <CardContent>
-          {known.length ? (
-            <div className="flex flex-wrap gap-1.5" data-testid="word-cards">
-              {known.map((c) => (
-                <span key={c.word} className="border-primary/40 bg-primary/10 rounded-lg border-2 px-2.5 py-1 text-xs font-semibold" title={c.meaning || undefined}>{c.word}</span>
+          {shelf.length ? (
+            <div className="flex flex-wrap gap-2" data-testid="word-cards">
+              {shelf.map((c) => (
+                <figure key={c.name} className="flex w-16 flex-col items-center gap-0.5" data-testid="word-card" data-status={c.status} title={c.meaning || undefined}>
+                  <Glim word={c.name} stage={WORD_GLOW[c.status]} className="size-12" title={`${c.name} — ${WORD_GLOW[c.status]}`} />
+                  <figcaption className="w-full truncate text-center text-[11px] font-semibold">{c.name}</figcaption>
+                </figure>
               ))}
             </div>
           ) : (
             <p className="text-muted-foreground text-sm">No {W.cats} here yet. Write a word in your own words, then call it right on another day, and it moves in.</p>
           )}
+          {shelf.length ? (
+            <p className="text-muted-foreground mt-3 text-xs tabular-nums">
+              {known.length} Radiant · {met.length - known.length} still finding their light · {cards.length - met.length} not met yet
+            </p>
+          ) : null}
         </CardContent>
       </Card>
 
