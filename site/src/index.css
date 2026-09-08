@@ -3,98 +3,108 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* shadcn/ui theme tokens — "Calm Scholar" teal palette.
+/* shadcn/ui theme tokens — "Arcade" indigo palette.
    Light is the default on :root; the dark set is applied by the .dark class,
-   which main.jsx sets from the saved choice, the host's data-theme, or the OS. */
+   which main.jsx sets from the saved choice, the host's data-theme, or the OS.
+
+   The palette is split on purpose. The SHELL is game chrome: the sidebar is
+   deep indigo in both themes, the way a game app's chrome is dark whatever the
+   OS is doing. The READING SURFACE stays a plain light card with near-black
+   type, because on the day it counts the question is black on white paper and
+   practice should not train her to read anything more decorated than that.
+
+   Semantics are unchanged and still one meaning each: destructive/red is due
+   now, warning/amber is still to do this week, success/green is done or earned.
+   Indigo is identity only and never carries one of those meanings. */
 :root {
   --radius: 1rem;
   /* Press colours: the hard offset "sticker" shadow under a chunky control is
      the same hue, darker. Pressing the control shortens the shadow and drops
      the face onto it, so a button behaves like a physical key. */
-  --primary-press: #0a5a4e;
-  --secondary-press: #c3d0cc;
-  --destructive-press: #8f4c28;
-  --outline-press: #bccac7;
+  --primary-press: #3b2ea8;
+  --secondary-press: #c9c8e4;
+  --destructive-press: #a03d26;
+  --outline-press: #c2c3da;
   --lift: 4px;
   --lift-press: 1px;
-  --background: #f4f7f6;
-  --foreground: #16211f;
+  --background: #f0f1f8;
+  --foreground: #141327;
   --card: #ffffff;
-  --card-foreground: #16211f;
+  --card-foreground: #141327;
   --popover: #ffffff;
-  --popover-foreground: #16211f;
-  --primary: #0f7a6b;
+  --popover-foreground: #141327;
+  --primary: #5b4bdb;
   --primary-foreground: #ffffff;
-  --secondary: #e7ecea;
-  --secondary-foreground: #16211f;
-  --muted: #eaefed;
-  --muted-foreground: #5c6b68;
-  --accent: #dcebe7;
-  --accent-foreground: #0a5a4e;
-  --destructive: #b4653a;
-  --success: #2e7d5b;
-  --success-soft: #ddeee4;
-  --warning: #9c6f16;
-  --warning-soft: #f5ead2;
-  --border: #d8e0dd;
-  --input: #d8e0dd;
-  --ring: #0f7a6b;
-  --chart-1: #0f7a6b;
-  --chart-2: #3b6fb6;
-  --chart-3: #9c6f16;
-  --chart-4: #b4653a;
-  --chart-5: #2e7d5b;
-  --sidebar: #edf2f0;
-  --sidebar-foreground: #16211f;
-  --sidebar-primary: #0f7a6b;
+  --secondary: #e7e7f4;
+  --secondary-foreground: #141327;
+  --muted: #ececf5;
+  --muted-foreground: #57567a;
+  --accent: #e6e3ff;
+  --accent-foreground: #3b2ea8;
+  --destructive: #c9502f;
+  --success: #1a8d55;
+  --success-soft: #d9f2e5;
+  --warning: #9a6a0c;
+  --warning-soft: #fbeecd;
+  --border: #d5d6e8;
+  --input: #d5d6e8;
+  --ring: #5b4bdb;
+  --chart-1: #5b4bdb;
+  --chart-2: #2f8fe0;
+  --chart-3: #c98a0d;
+  --chart-4: #d9603a;
+  --chart-5: #1a8d55;
+  --sidebar: #171633;
+  --sidebar-foreground: #e9e8fa;
+  --sidebar-primary: #7c6cf5;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #dcebe7;
-  --sidebar-accent-foreground: #0a5a4e;
-  --sidebar-border: #d8e0dd;
-  --sidebar-ring: #0f7a6b;
+  --sidebar-accent: #262450;
+  --sidebar-accent-foreground: #c4bcff;
+  --sidebar-border: #2c2a5c;
+  --sidebar-ring: #7c6cf5;
   color-scheme: light;
 }
 
 .dark {
-  --primary-press: #2b9385;
-  --secondary-press: #151c1a;
-  --destructive-press: #a8703f;
-  --outline-press: #3a4744;
-  --background: #101614;
-  --foreground: #e6edea;
-  --card: #18201e;
-  --card-foreground: #e6edea;
-  --popover: #18201e;
-  --popover-foreground: #e6edea;
-  --primary: #5fc7b2;
-  --primary-foreground: #06201b;
-  --secondary: #222b29;
-  --secondary-foreground: #e6edea;
-  --muted: #1c2523;
-  --muted-foreground: #9daea9;
-  --accent: #1b322d;
-  --accent-foreground: #8fdccb;
-  --destructive: #df9a6e;
-  --success: #63be92;
-  --success-soft: #172c22;
+  --primary-press: #4a3ac4;
+  --secondary-press: #16152c;
+  --destructive-press: #a8613f;
+  --outline-press: #3a3870;
+  --background: #0e0d1c;
+  --foreground: #e9e8fa;
+  --card: #17162e;
+  --card-foreground: #e9e8fa;
+  --popover: #17162e;
+  --popover-foreground: #e9e8fa;
+  --primary: #8b7cff;
+  --primary-foreground: #100c2e;
+  --secondary: #232244;
+  --secondary-foreground: #e9e8fa;
+  --muted: #1c1b38;
+  --muted-foreground: #a09ec4;
+  --accent: #262450;
+  --accent-foreground: #c4bcff;
+  --destructive: #e08a68;
+  --success: #56c08d;
+  --success-soft: #152f23;
   --warning: #d8ae5c;
   --warning-soft: #2b2415;
-  --border: #2a3532;
-  --input: #2a3532;
-  --ring: #5fc7b2;
-  --chart-1: #5fc7b2;
+  --border: #2c2a5c;
+  --input: #2c2a5c;
+  --ring: #8b7cff;
+  --chart-1: #8b7cff;
   --chart-2: #7fa7e8;
   --chart-3: #d8ae5c;
-  --chart-4: #df9a6e;
-  --chart-5: #63be92;
-  --sidebar: #0c1210;
-  --sidebar-foreground: #e6edea;
-  --sidebar-primary: #5fc7b2;
-  --sidebar-primary-foreground: #06201b;
-  --sidebar-accent: #1b322d;
-  --sidebar-accent-foreground: #8fdccb;
-  --sidebar-border: #2a3532;
-  --sidebar-ring: #5fc7b2;
+  --chart-4: #e08a68;
+  --chart-5: #56c08d;
+  --sidebar: #0a0918;
+  --sidebar-foreground: #e9e8fa;
+  --sidebar-primary: #8b7cff;
+  --sidebar-primary-foreground: #100c2e;
+  --sidebar-accent: #232244;
+  --sidebar-accent-foreground: #c4bcff;
+  --sidebar-border: #2c2a5c;
+  --sidebar-ring: #8b7cff;
   color-scheme: dark;
 }
 
