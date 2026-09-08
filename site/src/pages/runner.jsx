@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Gauge, Home, RotateCcw, Timer, XCircle } from "lucide-react"
+import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { BUDGET, CAUSES, findItem, paceFlag, rec, recordAttempts, setTag } from "@/lib/engine"
@@ -14,6 +14,8 @@ import { Progress } from "@/components/ui/progress"
 import { RadioGroup, RadioGroupPrimitive } from "@/components/ui/radio-group"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { Burst, useCountUp } from "@/components/burst"
+import { sfx } from "@/lib/sfx"
 
 const { useState, useEffect, useRef } = React
 
@@ -30,26 +32,34 @@ export function Passage({ id }) {
   )
 }
 
-/** One choice, rendered as a card-sized radio so the whole row is the target. */
-export function Choice({ k, text, checked, onSelect }) {
+/** One choice, rendered as a card-sized radio so the whole row is the target.
+ *  `mark` is set only once an answer has been revealed in instant mode:
+ *  "right" on the key, "wrong" on what she picked instead. */
+export function Choice({ k, text, checked, onSelect, mark }) {
   return (
     <RadioGroupPrimitive.Item
       value={LTR[k]}
       data-testid="choice"
+      data-mark={mark || undefined}
       className={cn(
         // Pressable like a game control, but the text itself stays plain: on the
         // day it counts the question is black on white, so the choice must not
         // train her to read anything more decorated than that.
         "group/opt bg-card hover:bg-accent/50 focus-visible:ring-ring/50 flex w-full cursor-pointer items-start gap-3 rounded-xl border-2 p-3 text-left text-[15px] leading-snug transition-all duration-100 ease-out outline-none focus-visible:ring-[3px]",
         "shadow-[0_3px_0_0_var(--outline-press)] active:translate-y-[2px] active:shadow-[0_1px_0_0_var(--outline-press)]",
-        "data-[state=checked]:border-primary data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground data-[state=checked]:shadow-[0_3px_0_0_var(--primary-press)]"
+        "data-[state=checked]:border-primary data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground data-[state=checked]:shadow-[0_3px_0_0_var(--primary-press)]",
+        // A revealed answer overrides the picked styling entirely, so the mark
+        // is never ambiguous about which row was right.
+        "data-[mark=right]:!border-success data-[mark=right]:!bg-success-soft data-[mark=right]:!text-foreground data-[mark=right]:!shadow-[0_3px_0_0_var(--success)]",
+        "data-[mark=wrong]:!border-destructive data-[mark=wrong]:!bg-destructive/10 data-[mark=wrong]:!text-foreground data-[mark=wrong]:!shadow-[0_3px_0_0_var(--destructive)]"
       )}
       onClick={() => onSelect(k)}
     >
-      <span className="bg-muted text-muted-foreground group-data-[state=checked]/opt:bg-primary group-data-[state=checked]/opt:text-primary-foreground flex size-7 shrink-0 items-center justify-center rounded-md text-xs font-semibold transition-colors">
+      <span className="bg-muted text-muted-foreground group-data-[state=checked]/opt:bg-primary group-data-[state=checked]/opt:text-primary-foreground group-data-[mark=right]/opt:!bg-success group-data-[mark=right]/opt:!text-white group-data-[mark=wrong]/opt:!bg-destructive group-data-[mark=wrong]/opt:!text-white flex size-7 shrink-0 items-center justify-center rounded-md text-xs font-semibold transition-colors">
         {LTR[k]}
       </span>
       <span className="pt-0.5">{text}</span>
+      {mark ? <span className="ml-auto pt-0.5">{mark === "right" ? <CheckCircle2 className="text-success size-5" /> : <XCircle className="text-destructive size-5" />}</span> : null}
     </RadioGroupPrimitive.Item>
   )
 }
@@ -127,16 +137,33 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
   const [picks, setPicks] = useState(() => (prior ? picksFromResult(items, prior) : []))
   const [done, setDone] = useState(() => (prior ? { right: prior.right, at: prior.at, attempts: prior.attempts || 1, reopened: true, times: prior.times || null } : null))
   const [won, setWon] = useState([])           // badges earned by finishing this set
+  const [shown, setShown] = useState({})       // question index -> revealed, instant mode only
   const spent = useRef({})                    // question index -> ms
   const entered = useRef(Date.now())
   const it = items[i], total = items.length
   const pacing = !!store.s.pacing
   const budget = BUDGET[subOf(it || items[0], subHint)] || 50
+  /* Instant marking is practice only. A mock's timed sections have their own
+   * screens and never reach the Runner; corrections already show the answers,
+   * so revealing there would be meaningless. Everything else — sets, the review
+   * pile, mixed practice, the word quiz — marks as she goes, because a game
+   * answers in well under a second and a set that says nothing for ten minutes
+   * is the least game-like thing on the site. */
+  const instant = store.s.instant !== false && kind !== "corr"
+  // Called unconditionally: the finished-set screen is an early return below,
+  // and a hook may not live behind it.
+  const counted = useCountUp(done ? done.right : 0)
 
   function leave() { spent.current[i] = (spent.current[i] || 0) + (Date.now() - entered.current); entered.current = Date.now() }
-  function retry() { setPicks([]); setDone(null); setWon([]); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
+  function retry() { setPicks([]); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
 
-  function choose(k) { const np = picks.slice(); np[i] = k; setPicks(np) }
+  function choose(k) {
+    if (instant && shown[i]) return          // an answered question stays answered
+    const np = picks.slice(); np[i] = k; setPicks(np)
+    if (!instant) { sfx("pick"); return }
+    setShown({ ...shown, [i]: true })
+    sfx(LTR[k] === keyOf(items[i]) ? "right" : "wrong")
+  }
   function step(d) {
     if (d > 0 && picks[i] == null) return
     if (d > 0 && i === total - 1) return finish()
@@ -168,8 +195,10 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
     }
     if (record) recordAttempts(entries, kind)
     if (onFinish) onFinish({ right, n: items.length, at, wrong, bySub, times })
-    if (record) setWon(syncBadges())
+    const badges = record ? syncBadges() : []
+    if (record) setWon(badges)
     setDone({ right, at, attempts: prior ? (prior.attempts || 1) + 1 : 1, times })
+    sfx(badges.length ? "badge" : "finish")
     window.scrollTo(0, 0)
   }
 
@@ -203,11 +232,13 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
     const avg = timed.length ? timed.reduce((a, b) => a + b, 0) / timed.length : null
     return (
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
-        <Card className="from-primary/5 to-card bg-gradient-to-t items-center text-center" data-testid="score">
+        <Card className="from-primary/5 to-card relative items-center bg-gradient-to-t text-center" data-testid="score">
+          {/* Only for a set just finished — reopening an old result is not an event. */}
+          {!done.reopened ? <Burst seed={done.at} /> : null}
           <CardHeader className="w-full">
             <CardDescription>{title}{done.reopened && when ? ` · completed ${when}` : ""}{done.attempts > 1 ? ` · attempt ${done.attempts}` : ""}</CardDescription>
-            <CardTitle className="text-5xl font-semibold tabular-nums">
-              {done.right}<span className="text-muted-foreground text-xl font-normal"> / {total}</span>
+            <CardTitle className="text-5xl font-extrabold tracking-tight tabular-nums">
+              {done.reopened ? done.right : counted}<span className="text-muted-foreground text-xl font-normal"> / {total}</span>
             </CardTitle>
             <CardDescription className="text-base">{pct}% · {msg}</CardDescription>
             {avg != null && (
@@ -220,10 +251,14 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
               <CardDescription className="text-xs" data-testid="tag-progress">{tagged} of {misses.length} miss{misses.length === 1 ? "" : "es"} tagged — one tap each below says why it went wrong.</CardDescription>
             ) : null}
             {won.length ? (
-              <div className="border-primary/40 bg-primary/5 mt-3 flex flex-col items-center gap-1.5 rounded-lg border p-3" data-testid="badges-won">
-                <span className="text-primary flex items-center gap-1.5 text-sm font-medium"><Award className="size-4" /> {won.length === 1 ? "New badge" : `${won.length} new badges`}</span>
-                <span className="text-sm">{won.map((b) => b.name).join(" · ")}</span>
-                <Button size="sm" variant="ghost" onClick={() => go("/rewards")}>See rewards</Button>
+              <div
+                className="border-primary bg-primary/10 mt-4 flex flex-col items-center gap-2 rounded-2xl border-2 p-4 shadow-[0_3px_0_0_var(--primary-press)] motion-safe:animate-[pop_420ms_cubic-bezier(.34,1.56,.64,1)_both]"
+                data-testid="badges-won"
+              >
+                <Award className="text-primary size-7" />
+                <span className="text-primary text-base font-extrabold tracking-tight">{won.length === 1 ? "New badge earned" : `${won.length} new badges earned`}</span>
+                <span className="text-lg font-bold">{won.map((b) => b.name).join(" · ")}</span>
+                <Button size="sm" onClick={() => go("/rewards")}>See rewards</Button>
               </div>
             ) : null}
             {!custom && (
@@ -274,6 +309,8 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
   }
 
   const last = i === total - 1
+  const revealed = instant && !!shown[i] && picks[i] != null
+  const gotIt = revealed && LTR[picks[i]] === keyOf(it)
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
       <div className="flex flex-col gap-2">
@@ -281,6 +318,14 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
           <span className="truncate font-medium">{title}</span>
           <span className="flex shrink-0 items-center gap-2">
             {pacing ? <SoftTimer key={i} since={entered.current} budget={budget} /> : null}
+            {kind !== "corr" ? (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button size="sm" variant={instant ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("instant", !instant)} data-testid="instant-toggle"><Zap /> Instant {instant ? "on" : "off"}</Button>
+                </TooltipTrigger>
+                <TooltipContent>Marks each answer as you go. Turn it off to sit the set the way the real test works — everything at the end.</TooltipContent>
+              </Tooltip>
+            ) : null}
             <Tooltip>
               <TooltipTrigger asChild>
                 <Button size="sm" variant={pacing ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("pacing", !pacing)} data-testid="pacing-toggle"><Gauge /> Pacing {pacing ? "on" : "off"}</Button>
@@ -297,8 +342,24 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
           {it.p ? <Passage id={it.p} /> : null}
           <p className="text-lg leading-snug font-medium" data-testid="question">{it.q}</p>
           <RadioGroup value={picks[i] == null ? "" : LTR[picks[i]]} onValueChange={(v) => choose(LTR.indexOf(v))} className="gap-2.5" aria-label="Answer choices">
-            {it.c.map((c, k) => <Choice key={k} k={k} text={c} onSelect={choose} />)}
+            {it.c.map((c, k) => (
+              <Choice
+                key={k}
+                k={k}
+                text={c}
+                onSelect={choose}
+                mark={!revealed ? null : LTR[k] === keyOf(it) ? "right" : picks[i] === k ? "wrong" : null}
+              />
+            ))}
           </RadioGroup>
+          {revealed ? (
+            <div className="motion-safe:animate-[pop_260ms_ease-out_both]" data-testid="reveal">
+              <div className={cn("flex items-center gap-2 text-sm font-bold", gotIt ? "text-success" : "text-destructive")}>
+                {gotIt ? <><CheckCircle2 className="size-4" /> Right</> : <><XCircle className="size-4" /> The answer is {keyOf(it)}</>}
+              </div>
+              {it.e ? <p className="bg-muted/60 text-muted-foreground mt-2 rounded-lg p-3 text-sm leading-relaxed">{it.e}</p> : null}
+            </div>
+          ) : null}
         </CardContent>
       </Card>
       <ActionBar>

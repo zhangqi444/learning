@@ -179,3 +179,18 @@
     * { transition: none !important; animation: none !important; }
   }
 }
+
+@layer utilities {
+  /* One spark thrown outward and fading. Direction comes from --dx/--dy, set
+     per particle by components/burst.jsx. */
+  @keyframes spark {
+    from { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    to   { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.2); opacity: 0; }
+  }
+  /* Something arriving: overshoot slightly, then settle. */
+  @keyframes pop {
+    0%   { transform: scale(0.82); opacity: 0; }
+    62%  { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+}

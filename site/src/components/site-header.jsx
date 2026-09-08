@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Cloud, CloudOff, Home as HomeIcon, Loader2, Moon, Sun } from "lucide-react"
+import { Cloud, CloudOff, Home as HomeIcon, Loader2, Moon, Sun, Volume2, VolumeX } from "lucide-react"
 
 import { D, SUBJ } from "@/lib/content"
 import { go } from "@/lib/router"
@@ -155,6 +155,16 @@ export function SiteHeader({ route }) {
               {status === "connecting" || status === "syncing" ? <Loader2 className="animate-spin" /> : status === "error" ? <CloudOff className="text-destructive" /> : <Cloud className={cn(status === "live" && "text-success", status === "expired" && "text-warning")} />}
             </Button>
           )}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="size-8"
+            onClick={() => store.setPref("muted", !store.s.muted)}
+            aria-label={store.s.muted ? "Turn sound on" : "Turn sound off"}
+            data-testid="mute-toggle"
+          >
+            {store.s.muted ? <VolumeX /> : <Volume2 />}
+          </Button>
           <Button variant="ghost" size="icon" className="size-8" onClick={toggleTheme} aria-label="Toggle theme">
             {isDark ? <Sun /> : <Moon />}
           </Button>

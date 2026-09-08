@@ -231,6 +231,25 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/checklist/W4'; }); await pg.waitForSelector('[data-testid=ck-item]');
   check('a month digest can put an item in a named week', /Book the October mock slot/.test(await body(pg)));
 
+  console.log('== instant marking');
+  await pg.evaluate(() => { location.hash = '#/run/vr/W3/0'; });
+  await pg.waitForSelector('[data-testid=question]');
+  check('instant marking is on by default in practice', /Instant on/.test(await pg.textContent('[data-testid=instant-toggle]')));
+  await pg.click('[data-testid=choice] >> nth=0');
+  await pg.waitForSelector('[data-testid=reveal]');
+  const marks = await pg.$$eval('[data-testid=choice]', (n) => n.map((e) => e.getAttribute('data-mark')));
+  check('the key is marked right and exactly one row is marked', marks.filter((m) => m === 'right').length === 1, marks.join(','));
+  // the transition has to settle before the colour is readable
+  await pg.waitForTimeout(400);
+  const badge = await pg.$eval('[data-testid=choice][data-mark=right] >> nth=0', (e) => getComputedStyle(e.querySelector('span')).backgroundColor);
+  check('the right answer actually turns green, not just gets an attribute', badge === 'rgb(26, 141, 85)', badge);
+  await pg.click('[data-testid=choice] >> nth=2');
+  check('an answered question cannot be changed', (await pg.$$eval('[data-testid=choice][data-state=checked]', (n) => n.length)) === 1);
+  await pg.click('[data-testid=instant-toggle]');
+  check('instant can be turned off', /Instant off/.test(await pg.textContent('[data-testid=instant-toggle]')) && (await pg.$('[data-testid=reveal]')) === null);
+  await pg.click('[data-testid=instant-toggle]');
+  check('sound has a mute control in the header', (await pg.$('[data-testid=mute-toggle]')) !== null);
+
   console.log('== calendar');
   await pg.evaluate(() => { location.hash = '#/calendar'; });
   await pg.waitForSelector('[data-testid=test-date]');
