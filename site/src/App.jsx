@@ -20,6 +20,7 @@ import { Checklist } from "@/pages/checklist"
 import { Mixed, MixedRun } from "@/pages/mixed"
 import { Score } from "@/pages/score"
 import { Base } from "@/pages/base"
+import { Quest } from "@/pages/quest"
 import { Rewards } from "@/pages/rewards"
 import { Books } from "@/pages/books"
 import { Import } from "@/pages/import"
@@ -67,6 +68,7 @@ function Screen({ route }) {
   if (top === "mixed") return b === undefined && a === "run" ? <MixedRun key="mixed-run" /> : <Mixed />
   if (top === "score") return <Score />
   if (top === "base") return <Base />
+  if (top === "quest") return <Quest />
   if (top === "rewards") return <Rewards />
   if (top === "books") return <Books />
   if (top === "essay" && a && D.essay.weeks[a]) return <EssayWeek key={a} wk={a} />

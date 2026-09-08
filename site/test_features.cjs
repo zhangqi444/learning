@@ -564,6 +564,43 @@ async function runThrough(pg, pick, max = 60) {
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=rewards-card]');
   check('a badge stays earned even if the work behind it is gone', (await pg.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('isee.v1')).badges).length)) === pinned, pinned + ' pinned');
 
+  /* ---- everything below runs LAST, and must stay last ----
+     These sections write learner records (word casts, throwaway review history).
+     The stubbed Drive keeps whatever they write and the merge unions it back on
+     the next reload — hard rule 1 working exactly as designed — so a check
+     earlier in the file that counts records exactly will see the extra ones and
+     fail. Add new state-writing sections here, not in the middle. */
+  console.log('== Wordkeep (runs last: casting writes word records)');
+  await pg.evaluate(() => { location.hash = '#/quest'; });
+  await pg.waitForSelector('[data-testid=inscription]');
+  const ins = await pg.textContent('[data-testid=inscription]');
+  check('a gate is a real sentence with the word taken out', /_{3,}/.test(ins) && ins.trim().length > 25, ins.trim().slice(0, 60));
+  const hand = await pg.$$eval('[data-testid=spell]', (n) => n.map((e) => e.dataset.word));
+  check('the hand is six different spells', hand.length === 6 && new Set(hand.map((w) => w.toLowerCase())).size === 6, hand.join(','));
+  // Cast a wrong spell: the world must say what THAT word does, not just "wrong".
+  await pg.click('[data-testid=spell] >> nth=0');
+  await pg.waitForSelector('[data-testid=cast-result]');
+  const castMsg = (await pg.textContent('[data-testid=cast-result]')).replace(/\s+/g, ' ');
+  const opened = /The gate opens/.test(castMsg);
+  check('a cast is recorded as ordinary vocabulary practice', await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    return Object.keys(s.items).some((k) => k.startsWith('w:') && (s.items[k].hist || []).some((h) => h.ctx === 'vocab'));
+  }));
+  if (!opened) {
+    check('a wrong spell explains what the word you cast actually means', /that means/i.test(castMsg), castMsg.slice(0, 90));
+    const want = (/It wanted\s+([\w-]+)/.exec(castMsg) || [])[1];
+    check('and it names the word the gate wanted', !!want && hand.some((w) => w.toLowerCase() === want.toLowerCase()), want + ' in ' + hand.join(','));
+    // the day's gates are deterministic, so a reload gives the same gate back
+    await pg.reload({ waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=inscription]');
+    await pg.click(`[data-testid=spell][data-word="${want}"]`);
+    await pg.waitForSelector('[data-testid=cast-result]');
+    check('casting the word the sentence wants opens the gate', /The gate opens/.test(await pg.textContent('[data-testid=cast-result]')));
+  } else {
+    check('the right spell opens the gate', true);
+  }
+
+
   console.log('== Sparks cannot be farmed (runs last: it writes throwaway history)');
   // Two review answers to the same question on the same day must pay once; on
   // different days they pay twice. Written against the store directly so the

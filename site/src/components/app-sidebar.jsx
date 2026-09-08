@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Award, Blocks, BookA, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy } from "lucide-react"
+import { Award, Blocks, BookA, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, subjProgress } from "@/lib/content"
 import { reviewQueue } from "@/lib/engine"
@@ -115,6 +115,12 @@ export function AppSidebar({ route, ...props }) {
                 <SidebarMenuButton tooltip="Score" isActive={top === "score"} onClick={() => nav("/score")}>
                   <Trophy />
                   <span>Score</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Wordkeep" isActive={top === "quest"} onClick={() => nav("/quest")}>
+                  <Wand2 />
+                  <span>Wordkeep</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>

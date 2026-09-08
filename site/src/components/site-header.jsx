@@ -45,6 +45,8 @@ function crumbs(route) {
     if (a === "run") out.push({ label: "Mixed set", path: "/mixed/run" })
   } else if (top === "score") {
     out.push({ label: "Score", path: "/score" })
+  } else if (top === "quest") {
+    out.push({ label: "Wordkeep", path: "/quest" })
   } else if (top === "base") {
     out.push({ label: "Base", path: "/base" })
   } else if (top === "rewards") {
