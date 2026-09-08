@@ -499,7 +499,25 @@ function eachTimestamp(fn) {
   const s = Store.s
   for (const k of Object.keys(s.results)) { const r = s.results[k]; if (r && r.at) fn(r.at, "set", r); if (r && r.first && r.first.at) fn(r.first.at, "set", r.first) }
   for (const k of Object.keys(s.mixed || {})) { const r = s.mixed[k]; if (r && r.at) fn(r.at, "mixed", r) }
-  for (const id of Object.keys(s.items || {})) for (const h of (s.items[id].hist || [])) if (h.ctx === "review" || h.ctx === "vocab") fn(h.at, h.ctx, h)
+  /* Review and vocabulary answers pay once per question per day. Every other
+   * source here is already self-limiting — a set replaces its own timestamp, a
+   * reading day replaces its own entry — but these two append to `hist`, and
+   * "Everything" in the review pile serves questions that are merely scheduled,
+   * not due. Without this cap the cheapest way to earn is to re-run work she
+   * has already done, which is the failure mode that turns a metric into
+   * something to farm instead of something to learn from.
+   * Deduping by day, not outright, keeps `activityDays` honest: a day with work
+   * on it still emits a timestamp. */
+  const paid = {}
+  for (const id of Object.keys(s.items || {})) {
+    for (const h of s.items[id].hist || []) {
+      if (h.ctx !== "review" && h.ctx !== "vocab") continue
+      const once = id + "|" + h.ctx + "|" + dayKey(ts(h.at))
+      if (paid[once]) continue
+      paid[once] = 1
+      fn(h.at, h.ctx, h)
+    }
+  }
   for (const wk of Object.keys(s.precision || {})) { const st = s.precision[wk]; for (const w of Object.keys(st.words || {})) { const e = st.words[w]; if (e && e.text && e.at) fn(e.at, "word", e) } }
   for (const wk of Object.keys(s.essays || {})) { const e = s.essays[wk]; if (e && e.at) fn(e.at, "essay", e); if (e && e.completedAt) fn(e.completedAt, "essay-done", e) }
   for (const id of Object.keys(s.books || {})) {

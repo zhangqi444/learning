@@ -91,7 +91,7 @@ export function TodayCard() {
       </CardContent>
       <CardFooter className="text-muted-foreground flex-wrap gap-x-4 gap-y-1 text-xs">
         <span className="flex items-center gap-1.5"><Flame className={cn("size-3.5", st.current ? "text-warning" : "")} />{st.current ? `${st.current}-day streak` : "No streak yet"}{st.activeToday ? " · something done today" : ""}</span>
-        <span className="flex items-center gap-1.5"><Sparkles className="text-primary size-3.5" />{pts} effort points this week</span>
+        <span className="flex items-center gap-1.5"><Sparkles className="text-primary size-3.5" />{pts} Sparks this week</span>
         <span>{o.acc == null ? "No accuracy yet" : `${o.acc}% correct across every finished set`}</span>
       </CardFooter>
     </Card>

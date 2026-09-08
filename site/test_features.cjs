@@ -302,7 +302,7 @@ async function runThrough(pg, pick, max = 60) {
   console.log('== learning engine');
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=readiness-score]');
   check('readiness score on the dashboard', /^\d+$/.test((await pg.textContent('[data-testid=readiness-score]')).trim()));
-  check('streak + effort points on the Today card', /streak/.test(await pg.textContent('[data-testid=today]')) && /\d+ effort points this week/.test(await pg.textContent('[data-testid=today]')));
+  check('streak + effort points on the Today card', /streak/.test(await pg.textContent('[data-testid=today]')) && /\d+ Sparks this week/.test(await pg.textContent('[data-testid=today]')));
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('[data-testid=score-parts]');
   check('score page lists the six parts with weights', (await pg.$eval('[data-testid=score-parts]', (e) => e.children.length)) === 6 && (await pg.$('[data-testid=streak]')) !== null && /% of the score/.test(await body(pg)));
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=today]');
@@ -362,7 +362,7 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
   check('subject page lists skill levels', (await pg.$$('[data-testid=skills] [data-level]')).length >= 3 && /Proficient|Familiar|Needs work/.test(await body(pg)));
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('text=How the number is built');
-  check('score page explains the parts and lists subjects', /Accuracy · 30%/.test(await body(pg)) && /Effort points/.test(await body(pg)));
+  check('score page explains the parts and lists subjects', /Accuracy · 30%/.test(await body(pg)) && /Sparks come from attempts/.test(await body(pg)));
   // checklist carries the new items
   await pg.evaluate(() => { location.hash = '#/checklist/W2'; }); await pg.waitForSelector('[data-testid=ck-item]');
   const ck2 = await body(pg);
@@ -482,7 +482,7 @@ async function runThrough(pg, pick, max = 60) {
   console.log('== rewards');
   await pg.evaluate(() => { location.hash = '#/rewards'; }); await pg.waitForSelector('[data-testid=level]');
   const rw = await body(pg);
-  check('level + points + badge count', /Level \d+ · \w+/.test(rw) && /points earned/.test(rw) && /\d+ of \d+ badges/.test(rw));
+  check('level + points + badge count', /Level \d+ · \w+/.test(rw) && /Sparks earned/.test(rw) && /\d+ of \d+ badges/.test(rw));
   const earned = await pg.$$('[data-testid=badge][data-done="1"]');
   check('badges earned from the work already done', earned.length >= 5, earned.length + ' earned');
   check('finishing a book earned a reading badge', /Cover to cover/.test(rw) && (await pg.$('[data-testid=badge][data-id=book-1][data-done="1"]')) !== null);
@@ -502,10 +502,54 @@ async function runThrough(pg, pick, max = 60) {
   check('shelf, claim and badges survive a reload', /Pick Friday's movie/.test(await body(pg)) && (await pg.$$('[data-testid=badge][data-done="1"]')).length >= 5);
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=rewards-card]');
   const card = await pg.textContent('[data-testid=rewards-card]');
-  check('dashboard rewards card shows the level and the closest badge', /Level \d/.test(card) && /points to spend/.test(card) && (await pg.$('[data-testid=next-badge]')) !== null);
+  check('dashboard rewards card shows the level and the closest badge', /Level \d/.test(card) && /Sparks to spend/.test(card) && (await pg.$('[data-testid=next-badge]')) !== null);
   const pinned = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.results = {}; localStorage.setItem('isee.v1', JSON.stringify(s)); return Object.keys(s.badges).length; });
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=rewards-card]');
   check('a badge stays earned even if the work behind it is gone', (await pg.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('isee.v1')).badges).length)) === pinned, pinned + ' pinned');
+
+  console.log('== Sparks cannot be farmed (runs last: it writes throwaway history)');
+  // Two review answers to the same question on the same day must pay once; on
+  // different days they pay twice. Written against the store directly so the
+  // rule is tested, not the route that happens to reach it today.
+  const spark = await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    return { id: 'SPARK-TEST-ITEM', base: '[]' };
+  });
+  const withHist = async (hist) => {
+    await pg.evaluate(({ id, hist }) => {
+      const s = JSON.parse(localStorage.getItem('isee.v1'));
+      s.items[id] = { ...s.items[id], hist };
+      localStorage.setItem('isee.v1', JSON.stringify(s));
+      location.hash = '#/score';           // land somewhere the total is printed
+    }, { id: spark.id, hist });
+    await pg.reload({ waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=sparks-note]');
+    const t = await pg.textContent('[data-testid=sparks-note]');
+    const m = /Sparks: \d+ this week · (\d+) all time/.exec(t);
+    if (!m) throw new Error('could not read the Sparks total from: ' + t);
+    return +m[1];
+  };
+  const once = await withHist([{ at: '2026-09-02T10:00:00Z', ok: true, ms: 1000, ctx: 'review', pick: 'A' }]);
+  const twiceSameDay = await withHist([
+    { at: '2026-09-02T10:00:00Z', ok: true, ms: 1000, ctx: 'review', pick: 'A' },
+    { at: '2026-09-02T18:00:00Z', ok: true, ms: 1000, ctx: 'review', pick: 'A' },
+  ]);
+  const twoDays = await withHist([
+    { at: '2026-09-02T10:00:00Z', ok: true, ms: 1000, ctx: 'review', pick: 'A' },
+    { at: '2026-09-03T10:00:00Z', ok: true, ms: 1000, ctx: 'review', pick: 'A' },
+  ]);
+  check('redoing a review question the same day earns nothing extra', twiceSameDay === once, `${once} -> ${twiceSameDay}`);
+  check('answering it again on another day still earns', twoDays === once + 1, `${once} -> ${twoDays}`);
+  // put her real history back before anything else reads it
+  await pg.evaluate(({ id, hist }) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.items[id] = { ...s.items[id], hist: JSON.parse(hist) };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    location.hash = '#/';
+  }, { id: spark.id, hist: spark.base });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=today]');
+
 
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });

@@ -78,13 +78,13 @@ export function RewardsCard() {
       <CardHeader>
         <CardDescription className="flex items-center gap-2"><Trophy className="size-4" /> Rewards</CardDescription>
         <CardTitle className="text-xl">Level {w.level.n} · {w.level.title}</CardTitle>
-        <CardDescription className="tabular-nums">{counts.earned} of {counts.total} badges · {w.balance} points to spend</CardDescription>
+        <CardDescription className="tabular-nums">{counts.earned} of {counts.total} badges · {w.balance} Sparks to spend</CardDescription>
         <CardAction><Button size="sm" variant="ghost" onClick={() => go("/rewards")}>Open <Gift /></Button></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
         <div className="flex flex-col gap-1">
           <Progress value={w.level.pct} className="h-1.5" />
-          <span className="text-muted-foreground text-xs tabular-nums">{w.level.next ? `${w.level.next.at - w.lifetime} points to Level ${w.level.next.n} · ${w.level.next.title}` : "Top level reached"}</span>
+          <span className="text-muted-foreground text-xs tabular-nums">{w.level.next ? `${w.level.next.at - w.lifetime} Sparks to Level ${w.level.next.n} · ${w.level.next.title}` : "Top level reached"}</span>
         </div>
         {recent.length ? (
           <div className="flex flex-col gap-1.5">
@@ -128,7 +128,7 @@ function Shelf() {
       <Card className="gap-3 py-5">
         <CardHeader className="px-5">
           <CardTitle>Reward shelf</CardTitle>
-          <CardDescription>Points are earned for doing the work, not for being right — so a hard set pays the same as an easy one. Qi sets what they buy; Sheila claims one when she has enough.</CardDescription>
+          <CardDescription>Sparks are earned for doing the work, not for being right — so a hard set pays the same as an easy one. Qi sets what they buy; Sheila claims one when she has enough.</CardDescription>
           <CardAction><Badge variant={w.balance ? "success" : "outline"} className="tabular-nums" data-testid="balance">{w.balance} to spend</Badge></CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-3 px-5">
@@ -156,7 +156,7 @@ function Shelf() {
           )}
           <div className="flex flex-wrap gap-2">
             <Input value={name} onChange={(e) => setName(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") add() }} placeholder="Add a reward Sheila can work toward" className="h-9 min-w-48 flex-1" data-testid="reward-add" />
-            <Input type="number" min="10" step="10" value={cost} onChange={(e) => setCost(+e.target.value || 0)} aria-label="Cost in points" className="h-9 w-24 tabular-nums" />
+            <Input type="number" min="10" step="10" value={cost} onChange={(e) => setCost(+e.target.value || 0)} aria-label="Cost in Sparks" className="h-9 w-24 tabular-nums" />
             <Button variant="outline" onClick={add}><Plus /> Add</Button>
           </div>
           <div className="flex flex-wrap gap-1.5">
@@ -173,7 +173,7 @@ function Shelf() {
         <Card className="gap-3 py-5">
           <CardHeader className="px-5">
             <CardTitle className="text-base">Claimed</CardTitle>
-            <CardDescription>Points come off when a reward is claimed. Cancelling puts them straight back.</CardDescription>
+            <CardDescription>Sparks come off when a reward is claimed. Cancelling puts them straight back.</CardDescription>
           </CardHeader>
           <CardContent className="px-5">
             <ul className="divide-y rounded-md border">
@@ -213,7 +213,7 @@ export function Rewards() {
         <CardHeader>
           <CardDescription className="flex items-center gap-2"><Trophy className="size-4" /> Rewards</CardDescription>
           <CardTitle className="text-2xl font-semibold tracking-tight">Level {w.level.n} · {w.level.title}</CardTitle>
-          <CardDescription>Points are for showing up and doing the work — every set, review, word, essay and mock pays, whatever the score. Badges are earned once and kept for good.</CardDescription>
+          <CardDescription>Sparks are for showing up and doing the work — every set, review, word, essay and mock pays, whatever the score. Badges are earned once and kept for good.</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap items-center gap-6">
           <Ring value={w.level.pct} size={112} color="text-primary">
@@ -222,13 +222,13 @@ export function Rewards() {
           </Ring>
           <div className="flex min-w-48 flex-1 flex-col gap-2">
             <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
-              <span><span className="text-2xl font-semibold tabular-nums">{w.lifetime}</span> <span className="text-muted-foreground">points earned</span></span>
+              <span><span className="text-2xl font-semibold tabular-nums">{w.lifetime}</span> <span className="text-muted-foreground">Sparks earned</span></span>
               <span><span className="text-2xl font-semibold tabular-nums" data-testid="wallet-balance">{w.balance}</span> <span className="text-muted-foreground">to spend</span></span>
               <span><span className="text-2xl font-semibold tabular-nums">{counts.earned}</span> <span className="text-muted-foreground">of {counts.total} badges</span></span>
             </div>
             <Progress value={w.level.pct} className="h-1.5" />
             <span className="text-muted-foreground text-xs tabular-nums">
-              {w.level.next ? `${w.level.next.at - w.lifetime} points to Level ${w.level.next.n} · ${w.level.next.title}` : "Top level reached"} · {week} earned this week{w.spent ? ` · ${w.spent} spent so far` : ""}
+              {w.level.next ? `${w.level.next.at - w.lifetime} Sparks to Level ${w.level.next.n} · ${w.level.next.title}` : "Top level reached"} · {week} earned this week{w.spent ? ` · ${w.spent} spent so far` : ""}
             </span>
           </div>
         </CardContent>
