@@ -64,6 +64,22 @@ function TimeBadge({ wk }) {
 }
 
 /** Debounced textarea bound to one field of one essay week. */
+const TASK_HINT = "text-muted-foreground text-sm leading-relaxed"
+
+/** One numbered revision job. The number is the point: three things to do, in
+ *  order, not an open invitation to "revise". */
+function Task({ n, title, children }) {
+  return (
+    <div className="flex flex-col gap-2.5 rounded-xl border-2 p-4" data-testid={`revise-task-${n}`}>
+      <div className="flex items-center gap-2.5">
+        <span className="bg-primary text-primary-foreground flex size-7 shrink-0 items-center justify-center rounded-lg text-sm font-bold tabular-nums">{n}</span>
+        <h3 className="text-base font-bold tracking-tight">{title}</h3>
+      </div>
+      {children}
+    </div>
+  )
+}
+
 function Field({ wk, group, name, label, placeholder, rows = 3, multiline = true }) {
   const st = essayState(wk)
   const stored = ((st[group] || {})[name]) || ""
@@ -288,29 +304,39 @@ export function EssayWeek({ wk }) {
 
         <TabsContent value="feedback">
           <div className="flex flex-col gap-4">
+            {/* Three jobs, in the order guide.revision_order sets out: meaning
+                first, then sentences, then the one visible before→after record
+                it asks for. Each produces something she can see she changed.
+                What used to be here — four "rate this 1–4" checks on qualities
+                like "Focus answers the actual prompt" — is below, under For a
+                grown-up. Her Week-1 answers to them were "wdym?" and "um what?",
+                which is a fair response: judging your own focus is a reviewer's
+                job, and asking a ten-year-old to do it teaches nothing. */}
             <Card className="gap-4">
               <CardHeader>
-                <CardTitle className={PHASE_SPAN}>Phase 3 — Feedback and revision</CardTitle>
-                <CardDescription className={PHASE_SPAN}>Target: 5 minutes. Self-check first; an adult or peer can add to it.</CardDescription>
+                <CardTitle className={PHASE_SPAN}>Phase 3 — Revise</CardTitle>
+                <CardDescription className={PHASE_SPAN}>Target: 5 minutes. Three small jobs on the draft you just wrote.</CardDescription>
                 <CardAction className={PHASE_ACTION}><PhaseTimer wk={wk} phase="revise" label="Revise" minutes={5} /></CardAction>
               </CardHeader>
-              <CardContent className="flex flex-col gap-4">
-                {e.feedback_checks.map((check) => {
-                  const f = (st.feedback || {})[check] || {}
-                  return (
-                    <div key={check} className="flex flex-col gap-2 rounded-md border p-3">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <span className="text-sm font-medium">{check}</span>
-                        <Rating value={f.rating} onChange={(n) => setFeedback(check, { rating: n })} />
-                      </div>
-                      <Input value={f.note || ""} onChange={(ev) => setFeedback(check, { note: ev.target.value })} placeholder="Evidence from the draft, and one precise suggestion" />
-                    </div>
-                  )
-                })}
-                <Field wk={wk} group="meta" name="worked" label="What worked" placeholder="One thing to keep doing" rows={2} />
-                <Field wk={wk} group="meta" name="next" label="Next improvement" placeholder="One change for next week" rows={2} />
-                <div className="text-muted-foreground text-xs">{D.essay.guide.revision_order}</div>
-                <div className="flex gap-2">
+              <CardContent className="flex flex-col gap-5" data-testid="revise-tasks">
+                <Task n={1} title="Find the sentence that says what you learned">
+                  <p className={TASK_HINT}>Read your ending. One sentence should say what you learned or what changed. Copy it here. If you cannot find one, that is the useful answer — write it now, and put it in the draft too.</p>
+                  <Field wk={wk} group="revise" name="learned" label="The sentence" placeholder="I learned that…" rows={2} />
+                </Task>
+
+                <Task n={2} title="Read the middle out loud and breathe">
+                  <p className={TASK_HINT}>Read your middle paragraph aloud. Every place you run out of breath is where a full stop belongs. Split the longest one, then write down what it was and what you turned it into.</p>
+                  <Field wk={wk} group="revise" name="splitBefore" label="The long sentence" placeholder="Paste it as it was" rows={2} />
+                  <Field wk={wk} group="revise" name="splitAfter" label="Split up" placeholder="The same thing, as two or three sentences" rows={2} />
+                </Task>
+
+                <Task n={3} title="Make one sentence better">
+                  <p className={TASK_HINT}>Pick the sentence you like least anywhere in the draft. Change one thing about it — a vaguer word for a sharper one, or a detail nobody could guess.</p>
+                  <Field wk={wk} group="revise" name="betterBefore" label="Before" placeholder="The sentence you picked" rows={2} />
+                  <Field wk={wk} group="revise" name="betterAfter" label="After" placeholder="Your new version" rows={2} />
+                </Task>
+
+                <div className="flex flex-wrap gap-2">
                   {status === "complete" ? (
                     <Button variant="secondary" onClick={reopen}><RotateCcw /> Reopen</Button>
                   ) : (
@@ -321,26 +347,52 @@ export function EssayWeek({ wk }) {
               </CardContent>
             </Card>
 
+            {/* Kept, not deleted: her Week-1 ratings live in these two slices and
+                hard rule 1 says they are hers. They are a reviewer's tools, so
+                they sit behind a summary rather than in a ten-year-old's way. */}
             <Card className="gap-4">
               <CardHeader>
-                <CardTitle>Growth rubric</CardTitle>
-                <CardDescription>Rate the current level 1–4 in each dimension; the matching next step appears.</CardDescription>
+                <CardTitle>For a grown-up</CardTitle>
+                <CardDescription>The judgement calls — whether the essay answers the prompt, and where it sits on the rubric. Sheila does not need to fill these in.</CardDescription>
               </CardHeader>
-              <CardContent className="flex flex-col gap-3">
-                {D.essay.rubric.dimensions.map((dim, i) => {
-                  const v = (st.rubric || {})[dim.name]
-                  const step = D.essay.rubric.next_steps[i]
-                  return (
-                    <div key={dim.name} className="flex flex-col gap-2 rounded-md border p-3">
-                      <div className="flex flex-wrap items-center justify-between gap-2">
-                        <span className="text-sm font-medium">{dim.name}</span>
-                        <Rating value={v} onChange={(n) => setRubric(dim.name, n)} />
-                      </div>
-                      <div className="text-muted-foreground text-xs">{v ? `${v} — ${dim.levels[v - 1]}` : dim.levels.map((l, k) => `${k + 1} ${l}`).join(" · ")}</div>
-                      {v && step ? <div className="bg-accent text-accent-foreground rounded-md px-3 py-2 text-sm">Next step: {step.steps[v - 1]}</div> : null}
-                    </div>
-                  )
-                })}
+              <CardContent>
+                <details className="group/adult" data-testid="adult-checks">
+                  <summary className="text-muted-foreground marker:content-[''] flex cursor-pointer list-none items-center gap-1.5 text-sm font-medium">
+                    <ChevronRight className="size-4 transition-transform group-open/adult:rotate-90" />
+                    Checks and growth rubric
+                  </summary>
+                  <div className="mt-4 flex flex-col gap-4">
+                    {e.feedback_checks.map((check) => {
+                      const f = (st.feedback || {})[check] || {}
+                      return (
+                        <div key={check} className="flex flex-col gap-2 rounded-lg border p-3">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="text-sm font-medium">{check}</span>
+                            <Rating value={f.rating} onChange={(n) => setFeedback(check, { rating: n })} />
+                          </div>
+                          <Input value={f.note || ""} onChange={(ev) => setFeedback(check, { note: ev.target.value })} placeholder="Evidence from the draft, and one precise suggestion" />
+                        </div>
+                      )
+                    })}
+                    <Field wk={wk} group="meta" name="worked" label="What worked" placeholder="One thing to keep doing" rows={2} />
+                    <Field wk={wk} group="meta" name="next" label="Next improvement" placeholder="One change for next week" rows={2} />
+                    <div className="text-muted-foreground text-xs">{D.essay.guide.revision_order}</div>
+                    {D.essay.rubric.dimensions.map((dim, i) => {
+                      const v = (st.rubric || {})[dim.name]
+                      const step = D.essay.rubric.next_steps[i]
+                      return (
+                        <div key={dim.name} className="flex flex-col gap-2 rounded-lg border p-3">
+                          <div className="flex flex-wrap items-center justify-between gap-2">
+                            <span className="text-sm font-medium">{dim.name}</span>
+                            <Rating value={v} onChange={(n) => setRubric(dim.name, n)} />
+                          </div>
+                          <div className="text-muted-foreground text-xs">{v ? `${v} — ${dim.levels[v - 1]}` : dim.levels.map((l, k) => `${k + 1} ${l}`).join(" · ")}</div>
+                          {v && step ? <div className="bg-accent text-accent-foreground rounded-md px-3 py-2 text-sm">Next step: {step.steps[v - 1]}</div> : null}
+                        </div>
+                      )
+                    })}
+                  </div>
+                </details>
               </CardContent>
             </Card>
           </div>

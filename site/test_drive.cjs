@@ -98,7 +98,14 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
     drive.body = JSON.stringify(remote);
   }
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('button:has-text("Saved to Drive")', { timeout: 8000 });
-  await pg.waitForTimeout(300);
+  // Wait for the merge itself, not for a status chip plus a guessed 300 ms. The
+  // chip can already read "Saved to Drive" from the previous sync before this
+  // reload's pull has landed, which made this check fail about one run in ten.
+  // A timeout here fails loudly, so this is still an assertion, not a sleep.
+  await pg.waitForFunction((id) => {
+    const r = JSON.parse(localStorage.getItem('isee.v1')).items[id];
+    return r && (r.hist || []).length >= 2;
+  }, missId, { timeout: 8000 });
   const merged = await pg.evaluate((id) => JSON.parse(localStorage.getItem('isee.v1')).items[id], missId);
   check('newer remote learning record wins tag + schedule, histories merged', merged.tag === 'misread' && merged.step === 1 && merged.hist.length === 2 && merged.hist[1].ctx === 'review', JSON.stringify(merged).slice(0, 160));
 

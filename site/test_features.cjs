@@ -87,6 +87,15 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForTimeout(700);
   check('word count updates', /\d{2,} words/.test(await body(pg)));
   await pg.click('text=Revise · 5');
+  await pg.waitForSelector('[data-testid=revise-tasks]');
+  check('revise is three concrete jobs, not a self-rating', (await pg.$$('[data-testid^=revise-task-]')).length === 3);
+  check('the judgement calls are put away for a grown-up', await pg.$eval('[data-testid=adult-checks]', (d) => !d.open) && /Sheila does not need to fill these in/.test(await body(pg)));
+  await pg.fill('#W2-revise-learned', 'I learned that listening to someone else can change what I think.');
+  await pg.fill('#W2-revise-splitBefore', 'She had measured every plant for three weeks and I had only mixed baking soda once and I realized a real experiment needs data so I changed my project.');
+  await pg.fill('#W2-revise-splitAfter', 'She had measured every plant for three weeks. I had only mixed baking soda once. A real experiment needs data, so I changed my project.');
+  await pg.waitForTimeout(700);
+  await pg.click('[data-testid=adult-checks] >> summary');
+  check('the rubric is still there underneath, with her ratings intact', (await pg.$$('[data-testid=adult-checks] [data-slot=card] , [data-testid=adult-checks] textarea')).length >= 1 && /Growth|Idea generation/.test(await body(pg)));
   await pg.waitForSelector('[data-testid=essay-complete]');
   await pg.click('[data-testid=essay-complete]');
   await pg.waitForSelector('text=Complete');
@@ -94,6 +103,8 @@ async function runThrough(pg, pick, max = 60) {
   const completeBadge = /Complete/.test(await pg.textContent('[data-slot=card-action]'));
   await pg.click('text=Plan · 5'); await pg.waitForSelector('#W2-plan-focus');
   check('essay draft + completion persist', completeBadge && (await pg.$eval('#W2-plan-focus', (t) => t.value)).includes('listening'));
+  await pg.click('text=Revise · 5'); await pg.waitForSelector('[data-testid=revise-tasks]');
+  check('the revision work is kept too', (await pg.$eval('#W2-revise-learned', (t) => t.value)).includes('change what I think') && (await pg.$eval('#W2-revise-splitAfter', (t) => t.value)).includes('needs data'));
   // time log: typed by hand next to each phase timer, totalled in the header, kept
   const logMinutes = async (phase, tab, m) => { await pg.click(`text=${tab}`); await pg.click(`[data-testid=timer-log-${phase}]`); await pg.fill(`[data-testid=essay-time-${phase}]`, m); await pg.press(`[data-testid=essay-time-${phase}]`, 'Enter'); };
   await logMinutes('plan', 'Plan · 5', '6');
