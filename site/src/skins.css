@@ -1,0 +1,183 @@
+/* Skins — alternate palettes, one block pair each.
+ *
+ * The default skin (Arcade indigo) lives in index.css on :root/.dark. Everything
+ * here is an alternate, selected by a `data-skin` attribute on <html>, which
+ * main.jsx sets from the SKIN constant. To change the site's look, change that
+ * one constant — nothing else moves.
+ *
+ * Specificity note, and the reason for the `:not(.dark)`: `.dark` in index.css
+ * scores (0,1,0). A bare `[data-skin=x]` also scores (0,1,0) and, coming later
+ * in the cascade, its LIGHT values would win in dark mode. Pinning each block to
+ * `:root[data-skin=x]:not(.dark)` and `:root[data-skin=x].dark` makes the pair
+ * equal at (0,2,1) and mutually exclusive, so the right one always wins.
+ *
+ * A skin only overrides tokens that carry hue. The semantic four —
+ * destructive/red (due now), warning/amber (still to do this week),
+ * success/green (done or earned) and the neutral type colours — stay as
+ * index.css sets them, so no skin can change what a colour on the page MEANS.
+ */
+
+/* ---------- Roblox Red ----------
+ * The most literally Roblox of the set, and the reason it is not the default:
+ * its primary is the same red that already means "due now", so the one colour
+ * that means ACT ON THIS ends up on every button. Before enabling this, move
+ * the due-now signal to amber, or hard rule 3's "one meaning per colour" is
+ * broken on every page. */
+:root[data-skin="red"]:not(.dark) {
+  --background: #f2f2f4; --foreground: #15161a;
+  --muted: #ececed; --muted-foreground: #5b5c66;
+  --secondary: #e9e9ec; --secondary-press: #cfcfd6;
+  --border: #dcdce2; --input: #dcdce2; --outline-press: #cbcbd3;
+  --primary: #e02020; --primary-press: #a30f0f; --primary-foreground: #ffffff;
+  --accent: #fde3e3; --accent-foreground: #a30f0f; --ring: #e02020; --chart-1: #e02020;
+  --sidebar: #16171c; --sidebar-foreground: #eceef4;
+  --sidebar-primary: #e02020; --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #26282f; --sidebar-accent-foreground: #ff9a9a;
+  --sidebar-border: #2c2e36; --sidebar-ring: #e02020;
+}
+:root[data-skin="red"].dark {
+  --background: #111216; --card: #191a20; --popover: #191a20;
+  --muted: #1d1e25; --muted-foreground: #a3a4b0;
+  --secondary: #24252d; --secondary-press: #16171c;
+  --border: #2c2e36; --input: #2c2e36; --outline-press: #3a3c47;
+  --primary: #ff5a5a; --primary-press: #c32020; --primary-foreground: #2a0606;
+  --accent: #2e1c1e; --accent-foreground: #ff9a9a; --ring: #ff5a5a; --chart-1: #ff5a5a;
+  --sidebar: #0d0e12; --sidebar-foreground: #eceef4;
+  --sidebar-primary: #ff5a5a; --sidebar-primary-foreground: #2a0606;
+  --sidebar-accent: #24252d; --sidebar-accent-foreground: #ff9a9a;
+  --sidebar-border: #2c2e36; --sidebar-ring: #ff5a5a;
+}
+
+/* ---------- Neon Night ---------- dark-first, electric teal. */
+:root[data-skin="neon"]:not(.dark) {
+  --background: #0d1117; --foreground: #e6edf5;
+  --card: #141c25; --card-foreground: #e6edf5; --popover: #141c25; --popover-foreground: #e6edf5;
+  --muted: #161e27; --muted-foreground: #93a4b8;
+  --secondary: #1b2530; --secondary-foreground: #e6edf5; --secondary-press: #111820;
+  --border: #233040; --input: #233040; --outline-press: #2e3d4f;
+  --primary: #12d6c8; --primary-press: #0a8e85; --primary-foreground: #04201e;
+  --accent: #0f2f2e; --accent-foreground: #7ff0e5; --ring: #12d6c8; --chart-1: #12d6c8;
+  --sidebar: #080c11; --sidebar-foreground: #e6edf5;
+  --sidebar-primary: #12d6c8; --sidebar-primary-foreground: #04201e;
+  --sidebar-accent: #152229; --sidebar-accent-foreground: #7ff0e5;
+  --sidebar-border: #1d2a35; --sidebar-ring: #12d6c8;
+}
+:root[data-skin="neon"].dark {
+  --background: #080c11; --card: #111922; --popover: #111922;
+  --muted: #131b24; --muted-foreground: #8fa0b4;
+  --secondary: #18222c; --secondary-press: #0e151c;
+  --border: #1f2b38; --input: #1f2b38; --outline-press: #2a3746;
+  --primary: #2ae2d3; --primary-press: #0f9c92; --primary-foreground: #04201e;
+  --accent: #0d2b2a; --accent-foreground: #7ff0e5; --ring: #2ae2d3; --chart-1: #2ae2d3;
+  --sidebar: #05080c; --sidebar-foreground: #e6edf5;
+  --sidebar-primary: #2ae2d3; --sidebar-primary-foreground: #04201e;
+  --sidebar-accent: #12202a; --sidebar-accent-foreground: #7ff0e5;
+  --sidebar-border: #1b2733; --sidebar-ring: #2ae2d3;
+}
+
+/* ---------- Candy ---------- hot pink, highest energy of the set. */
+:root[data-skin="candy"]:not(.dark) {
+  --background: #fdf1f7; --foreground: #211320;
+  --muted: #f8e8f1; --muted-foreground: #6d5266;
+  --secondary: #f6e2ee; --secondary-press: #e4c2d8;
+  --border: #f0d3e2; --input: #f0d3e2; --outline-press: #e2c0d4;
+  --primary: #e0409a; --primary-press: #a81a6c; --primary-foreground: #ffffff;
+  --accent: #fcdcee; --accent-foreground: #a81a6c; --ring: #e0409a; --chart-1: #e0409a;
+  --sidebar: #2a1226; --sidebar-foreground: #fbe8f4;
+  --sidebar-primary: #ff6fc0; --sidebar-primary-foreground: #2a0620;
+  --sidebar-accent: #3d1c36; --sidebar-accent-foreground: #ffb3e0;
+  --sidebar-border: #452340; --sidebar-ring: #ff6fc0;
+}
+:root[data-skin="candy"].dark {
+  --background: #1a0e18; --card: #241021; --popover: #241021;
+  --muted: #271423; --muted-foreground: #bfa2b6;
+  --secondary: #331a2e; --secondary-press: #1d0f1a;
+  --border: #3d2036; --input: #3d2036; --outline-press: #4d2a44;
+  --primary: #ff6fc0; --primary-press: #c33e8d; --primary-foreground: #2a0620;
+  --accent: #3a1a33; --accent-foreground: #ffb3e0; --ring: #ff6fc0; --chart-1: #ff6fc0;
+  --sidebar: #150a13; --sidebar-foreground: #fbe8f4;
+  --sidebar-primary: #ff6fc0; --sidebar-primary-foreground: #2a0620;
+  --sidebar-accent: #2e1729; --sidebar-accent-foreground: #ffb3e0;
+  --sidebar-border: #3d2036; --sidebar-ring: #ff6fc0;
+}
+
+/* ---------- Sunset ---------- warm coral. Sits closest to the amber that means
+ * "still to do this week", so watch the checklist chips if you enable it. */
+:root[data-skin="sunset"]:not(.dark) {
+  --background: #fdf4ee; --foreground: #231710;
+  --muted: #f7ebe0; --muted-foreground: #6b5748;
+  --secondary: #f5e6d8; --secondary-press: #e0c9b3;
+  --border: #ecd8c7; --input: #ecd8c7; --outline-press: #dfc7b1;
+  --primary: #e0651c; --primary-press: #a63f08; --primary-foreground: #ffffff;
+  --accent: #fbe3d0; --accent-foreground: #a63f08; --ring: #e0651c; --chart-1: #e0651c;
+  --sidebar: #241610; --sidebar-foreground: #fbeade;
+  --sidebar-primary: #ff8f4d; --sidebar-primary-foreground: #2b1206;
+  --sidebar-accent: #3a231a; --sidebar-accent-foreground: #ffb98a;
+  --sidebar-border: #42291e; --sidebar-ring: #ff8f4d;
+}
+:root[data-skin="sunset"].dark {
+  --background: #170f0a; --card: #221510; --popover: #221510;
+  --muted: #261811; --muted-foreground: #c0a794;
+  --secondary: #322016; --secondary-press: #1b110c;
+  --border: #3b2619; --input: #3b2619; --outline-press: #4b3122;
+  --primary: #ff8f4d; --primary-press: #c05f21; --primary-foreground: #2b1206;
+  --accent: #352014; --accent-foreground: #ffb98a; --ring: #ff8f4d; --chart-1: #ff8f4d;
+  --sidebar: #120b07; --sidebar-foreground: #fbeade;
+  --sidebar-primary: #ff8f4d; --sidebar-primary-foreground: #2b1206;
+  --sidebar-accent: #2c1c13; --sidebar-accent-foreground: #ffb98a;
+  --sidebar-border: #3b2619; --sidebar-ring: #ff8f4d;
+}
+
+/* ---------- Forest ---------- earthy green, closest to a Minecraft palette.
+ * Its primary is near the green that means "done or earned"; keep an eye on
+ * the success badges if you enable it. */
+:root[data-skin="forest"]:not(.dark) {
+  --background: #f3f6ef; --foreground: #161d13;
+  --muted: #e9efe4; --muted-foreground: #55624f;
+  --secondary: #e3ebdd; --secondary-press: #c8d5c1;
+  --border: #d7e2d0; --input: #d7e2d0; --outline-press: #c6d4be;
+  --primary: #3f8f3a; --primary-press: #28661f; --primary-foreground: #ffffff;
+  --accent: #dcf0d6; --accent-foreground: #28661f; --ring: #3f8f3a; --chart-1: #3f8f3a;
+  --sidebar: #161f14; --sidebar-foreground: #e9f2e5;
+  --sidebar-primary: #6fc35f; --sidebar-primary-foreground: #0b2208;
+  --sidebar-accent: #233020; --sidebar-accent-foreground: #a8e39c;
+  --sidebar-border: #2a3826; --sidebar-ring: #6fc35f;
+}
+:root[data-skin="forest"].dark {
+  --background: #0e140c; --card: #161e13; --popover: #161e13;
+  --muted: #192216; --muted-foreground: #a2b39c;
+  --secondary: #212c1d; --secondary-press: #121810;
+  --border: #283420; --input: #283420; --outline-press: #35452b;
+  --primary: #6fc35f; --primary-press: #47893a; --primary-foreground: #0b2208;
+  --accent: #1d2c19; --accent-foreground: #a8e39c; --ring: #6fc35f; --chart-1: #6fc35f;
+  --sidebar: #0a0f08; --sidebar-foreground: #e9f2e5;
+  --sidebar-primary: #6fc35f; --sidebar-primary-foreground: #0b2208;
+  --sidebar-accent: #1c2718; --sidebar-accent-foreground: #a8e39c;
+  --sidebar-border: #283420; --sidebar-ring: #6fc35f;
+}
+
+/* ---------- Ocean ---------- vivid blue, the most app-like of the set. */
+:root[data-skin="ocean"]:not(.dark) {
+  --background: #eef4fb; --foreground: #101a26;
+  --muted: #e7eef7; --muted-foreground: #4e6379;
+  --secondary: #e2ebf5; --secondary-press: #c3d3e5;
+  --border: #cfdcea; --input: #cfdcea; --outline-press: #bdcee0;
+  --primary: #1273d4; --primary-press: #0a4d92; --primary-foreground: #ffffff;
+  --accent: #d8e9fb; --accent-foreground: #0a4d92; --ring: #1273d4; --chart-1: #1273d4;
+  --sidebar: #0e1a28; --sidebar-foreground: #e6eff9;
+  --sidebar-primary: #4ba3f0; --sidebar-primary-foreground: #04182e;
+  --sidebar-accent: #1b2c3f; --sidebar-accent-foreground: #96c8f5;
+  --sidebar-border: #213448; --sidebar-ring: #4ba3f0;
+}
+:root[data-skin="ocean"].dark {
+  --background: #0a121c; --card: #121d2a; --popover: #121d2a;
+  --muted: #15202e; --muted-foreground: #9db1c6;
+  --secondary: #1c2b3c; --secondary-press: #0e1723;
+  --border: #223449; --input: #223449; --outline-press: #2e435b;
+  --primary: #4ba3f0; --primary-press: #1f6cb5; --primary-foreground: #04182e;
+  --accent: #16283c; --accent-foreground: #96c8f5; --ring: #4ba3f0; --chart-1: #4ba3f0;
+  --sidebar: #070e17; --sidebar-foreground: #e6eff9;
+  --sidebar-primary: #4ba3f0; --sidebar-primary-foreground: #04182e;
+  --sidebar-accent: #182739; --sidebar-accent-foreground: #96c8f5;
+  --sidebar-border: #223449; --sidebar-ring: #4ba3f0;
+}

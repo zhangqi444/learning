@@ -2,6 +2,7 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 
 import "./index.css"
+import "./skins.css"
 import App from "./App"
 import { setBundle } from "./lib/content"
 import { DRIVE_ENABLED, Store } from "./lib/store"
@@ -9,16 +10,30 @@ import { backfill } from "./lib/engine"
 import { syncBadges } from "./lib/rewards"
 import { seedBooks } from "./lib/books"
 
+/* The site's palette. "" is the default Arcade indigo defined in index.css; the
+ * alternates live in skins.css — "red", "neon", "candy", "sunset", "forest",
+ * "ocean". Changing this one string changes the whole look, both themes, and
+ * nothing else has to move. Read the note above each block in skins.css first:
+ * two of them sit close to a colour that already carries a meaning. */
+const SKIN = ""
+
 /* Theme: saved choice > host's data-theme (the artifact viewer sets it) > OS. */
 function applyTheme() {
   const pref = Store.s && Store.s.theme
   const host = document.documentElement.getAttribute("data-theme")
   const sys = matchMedia("(prefers-color-scheme: dark)").matches
   const dark = pref ? pref === "dark" : host ? host === "dark" : sys
-  document.documentElement.classList.toggle("dark", dark)
+  const root = document.documentElement
+  root.classList.toggle("dark", dark)
+  if (SKIN) root.dataset.skin = SKIN
   Store.setDark(dark)
+  // Read the browser chrome colour off the skin actually in force rather than
+  // hardcoding one, so a skin change cannot leave a stale colour behind.
   const meta = document.querySelector('meta[name="theme-color"]')
-  if (meta) meta.setAttribute("content", dark ? "#101614" : "#0F7A6B")
+  if (meta) {
+    const bar = getComputedStyle(root).getPropertyValue(dark ? "--background" : "--sidebar").trim()
+    if (bar) meta.setAttribute("content", bar)
+  }
 }
 
 function boot(bundle) {
