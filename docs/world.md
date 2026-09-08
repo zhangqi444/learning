@@ -9,9 +9,10 @@ each invented on the day the feature was. Nothing explained why a base has gates
 This document is the answer to "why", and nothing should be named in code that
 is not named here first.
 
-Names marked **(Sheila's)** are hers to change. She likes Roblox, Pokémon and
-music games, and the design leans on all three deliberately: a place you inhabit,
-creatures you collect and grow, and things that run on a beat.
+Names marked **(Sheila's)** are hers to change. She likes Roblox, Pokémon, music
+games and — most usefully of all — cats, and the design leans on all four
+deliberately: a place you inhabit, creatures you come to know, things that run on
+a beat, and an animal whose whole nature is deciding whether to come when called.
 
 ---
 
@@ -29,14 +30,28 @@ Nothing in this world is fixed by luck, by paying, or by turning up. It is fixed
 by understanding, which is why the game cannot be cheated: the light is a readout
 of what she genuinely knows.
 
-## 2. Glims
+## 2. Glims — the cats
 
-The creatures. Every meaning in the world is a small living thing called a
+The creatures. Every meaning in the world is a small cat made of light, called a
 **Glim** *(Sheila's)*.
 
-A word is a Glim. A skill is a Glim. When she does not know it, it is faint and
-shy and keeps its distance. When she knows it, it is bright and it comes with
-her. Glims hum — a known Glim is one you can hear clearly.
+A word is a cat. A skill is a cat. Sheila likes cats a great deal, and that is
+lucky, because cat behaviour turns out to be an almost exact description of what
+the learning engine already models — which is why they are cats rather than
+anything else:
+
+| What a cat does | What it already means here |
+|---|---|
+| A cat that does not know you **keeps its distance** and watches from somewhere high | a word she has not learned yet |
+| A cat that knows you **comes when you call its name** | recall — the exact thing the test measures |
+| A cat **comes back and sits at your door** | the spaced review schedule, arriving rather than accusing |
+| A cat **cannot be bought**; it decides about you | no luck, no purchase — enforced by the fiction, not just by a rule |
+| Cats gather **wherever it is warm** | why Hum exists at all |
+
+Calling a name is the whole verb of this world. Call the right name and that cat
+comes out of the dark. Call the wrong one and **a different cat turns up** — call
+`rigid` and something stiff and unbendable stalks in, which tells her what
+`rigid` means far better than being marked wrong does.
 
 **Glims never evolve by luck, and they are never lost.** A Glim's brightness is
 read live from the engine's real mastery level and is never stored, so it cannot
@@ -62,22 +77,30 @@ The **Glimbook** is the collection: one page per Glim, silhouettes for the ones
 not yet met. It replaces "word cards" and "skill crests", which were the same
 idea under two names.
 
-## 3. The Roost
+## 3. The Hearth
 
 Her home in the light *(Sheila's)*. This is the Base, renamed and given a
-reason: it is where Glims gather, and every room she rebuilds is somewhere for
-more of them to be. A room's lights are its Glims — which is why the lights read
-from real mastery rather than from anything stored.
+reason: cats gather where it is warm, and every room she rebuilds is one more
+warm place for them to be. A room's lights are the cats living in it — which is
+why the lights read from real mastery rather than from anything stored.
+
+It was called the Roost in the first draft of this document. A roost is for
+birds. The Hearth is both correct and better: keeping it lit is precisely what a
+Lampwright does, and it gives the currency below something to be for.
 
 ## 4. Hum
 
-The currency *(Sheila's)*. Practice makes warmth, and warmth is what draws Glims
-in and keeps the Roost lit.
+The currency *(Sheila's)*. Practice makes warmth, and warmth is what draws the
+cats in and keeps the Hearth lit.
 
 **Hum is made by trying, not by being right**, which is exactly what
 `effortPoints()` already does — so a hard day where everything goes wrong still
 makes Hum. It is spent on rooms. It is never taken away, never expires, and the
 same Hum can never be spent twice.
+
+Hum is warmth, and warmth is what cats come for. That is the whole economy: work
+makes warmth, warmth makes somewhere worth being, and the cats arrive on their
+own. Nothing is ever bought from a shop.
 
 "Sparks" was a placeholder word for "points". Hum is what the world actually
 uses.
@@ -105,16 +128,20 @@ hardest and comes last.
 
 ## 6. The events
 
-**Wordgates.** At the edge of a Reach stands a gate with a sentence carved into
-it, one word missing. Cast the Glim whose meaning fits and it opens. Cast the
-wrong one and the gate does what *that* word means instead — which is how you
-learn what it meant.
+**Calling.** At the edge of a Reach stands a gate with a sentence carved into it,
+one word missing. She calls a name into the dark. The right name and that cat
+comes through the gate; the wrong name and **the wrong cat comes** — call `rigid`
+and something stiff and unbendable stalks in, sits down, and will not be moved.
+Nobody is told off. She simply sees what she actually asked for.
 
-**Glims at the door.** The review pile. A Glim you missed does not run away and
-is not lost; it comes back and knocks — after a day, then three, then a week —
-asking to be remembered. Twice remembered on different days and it stays for
-good, with one check-in three weeks later. **Missing something is not a debt.**
-It is how the world knows who to send back to you.
+**Cats at the door.** The review pile. A cat whose name she got wrong does not
+run away and is not lost. It comes and sits outside — after a day, then three,
+then a week — waiting to be called again. Get its name right on two different
+days and it moves in for good, with one look-in three weeks later.
+
+**Missing something is not a debt.** A cat at the door is not a bailiff. This is
+the single most important reframing in the document, because the review pile is
+the one surface that could most easily feel like a punishment for being wrong.
 
 **The Long Night.** A mock exam. Once in a while the quiet comes back for a
 whole night and she holds the light through it, timed, alone, no help. **You beat
@@ -138,11 +165,11 @@ the clock beat her. Learning to move at a steady pace is worth real practice.
 
 | Was | Is | Why it was wrong |
 |---|---|---|
-| Base, rooms | **the Roost** | "Base" belongs to a construction game, not to a world |
+| Base, rooms | **the Hearth** | "Base" belongs to a construction game, not to a world |
 | Sparks | **Hum** | a placeholder word for "points" |
-| Wordkeep | **the Wordwood**, with **Wordgates** | a castle with no country around it |
+| Wordkeep | **the Wordwood** | a castle with no country around it |
 | Boss fight | **the Long Night** | borrowed from a genre we are not in |
-| To rescue / rescue run | **Glims at the door** | "rescue" implies she stranded them |
+| To rescue / rescue run | **cats at the door** | "rescue" implies she stranded them |
 | Skill crests, word cards | **the Glimbook** | two names for one idea |
 | Effort points | **Hum** | as above |
 
@@ -163,10 +190,10 @@ the clock beat her. Learning to move at a steady pace is worth real practice.
 ## 9. Still open — Sheila's to answer
 
 1. What is the world called? (**Wildlight** is a placeholder)
-2. What are the creatures called? (**Glims** is a placeholder)
-3. What is your first one, and what is it like?
+2. What are the cats called? (**Glims** is a placeholder)
+3. What is your first cat, and what is it like?
 4. What do you look like here — what does a Lampwright wear or carry?
-5. What is the Roost like? What is in the first room?
+5. What is the Hearth like? What is in the first room?
 6. What happens at the very end, when the whole world is lit?
 7. What should a Long Night feel like?
 8. Is there anyone else in the world? (Aria is welcome in it if Sheila wants
@@ -175,9 +202,9 @@ the clock beat her. Learning to move at a steady pace is worth real practice.
 ## 10. What this changes in code
 
 Nothing yet. The next commits rename what exists rather than adding to it:
-`Base → Roost`, `Sparks → Hum`, `Wordkeep → Wordwood`, one Glimbook replacing
+`Base → Hearth`, `Sparks → Hum`, `Wordkeep → Wordwood`, one Glimbook replacing
 word cards and skill crests, and the review pile's language rewritten around
-Glims at the door.
+cats at the door.
 
 One bug to fix at the same time, found while checking coverage: the Wordgates
 currently draw from all 160 vocabulary words including weeks she has never
