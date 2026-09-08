@@ -6,6 +6,7 @@ import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { syncBadges } from "@/lib/rewards"
 import { cn } from "@/lib/utils"
+import { W } from "@/lib/world"
 
 /** Meanings in the content sometimes end in a full stop and sometimes do not,
  *  so add one here rather than printing "demanding..". */
@@ -39,8 +40,8 @@ export function Quest() {
         <Card className="items-center py-12 text-center">
           <CardHeader className="items-center">
             <Wand2 className="text-primary mb-2 size-8" />
-            <CardTitle>No spells yet</CardTitle>
-            <CardDescription>The Wordkeep opens once the vocabulary lists are loaded.</CardDescription>
+            <CardTitle>No {W.cats} yet</CardTitle>
+            <CardDescription>{W.wood} fills up as you meet words. Write this week\u2019s precision words in your own words and they will be here.</CardDescription>
           </CardHeader>
         </Card>
       </div>
@@ -75,10 +76,10 @@ export function Quest() {
         <Card className="from-primary/5 to-card relative items-center bg-gradient-to-t text-center" data-testid="quest-done">
           <Burst seed={right} />
           <CardHeader className="w-full">
-            <CardDescription>Wordkeep · today's gates</CardDescription>
+            <CardDescription>{W.wood} · today's gates</CardDescription>
             <CardTitle className="text-4xl font-extrabold tabular-nums">{right} / {run.length}</CardTitle>
             <CardDescription className="text-base">
-              {right === run.length ? "Every gate opened first time." : "Every gate you opened is a word you can use. The ones that fought back are in your review pile now."}
+              {right === run.length ? "Every one came first time." : `Every ${W.cat} that came is a word you can use. The ones that stayed out are waiting at the door.`}
             </CardDescription>
             {won.length ? <div className="text-primary mt-2 text-sm font-bold">New badge: {won.map((b) => b.name).join(" · ")}</div> : null}
           </CardHeader>
@@ -95,7 +96,7 @@ export function Quest() {
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
       <div className="flex flex-col gap-2">
         <div className="text-muted-foreground flex items-center justify-between gap-2 text-sm">
-          <span className="font-medium">Wordkeep</span>
+          <span className="font-medium">{W.woodTitle}</span>
           <span className="tabular-nums" data-testid="quest-counter">Gate {i + 1} / {run.length}</span>
         </div>
         <Progress value={(i / run.length) * 100} className="h-1.5" />
@@ -120,22 +121,22 @@ export function Quest() {
             >
               {result.ok ? (
                 <>
-                  <p className="text-success font-bold">The gate opens.</p>
+                  <p className="text-success font-bold">It comes when you call.</p>
                   <p className="mt-1"><b>{g.word}</b> — {sentence(result.answer.meaning)}</p>
                   {result.answer.usage ? <p className="text-muted-foreground mt-1">{result.answer.usage}</p> : null}
                 </>
               ) : (
                 <>
                   {/* the wrong spell still does something — what THAT word means */}
-                  <p className="text-destructive font-bold">You cast <b>{result.chosen.word}</b> — that means {sentence(result.meaning)}</p>
-                  <p className="mt-1">Not what the inscription asked for, so the gate holds. It wanted <b>{g.word}</b>: {sentence(result.answer.meaning)}</p>
+                  <p className="text-destructive font-bold">You called <b>{result.chosen.word}</b>, so that is who turned up — {sentence(result.meaning)}</p>
+                  <p className="mt-1">Not the one the sentence wanted. It was after <b>{g.word}</b>: {sentence(result.answer.meaning)}</p>
                 </>
               )}
             </div>
           ) : null}
 
           <div>
-            <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-wide uppercase">Your spells</p>
+            <p className="text-muted-foreground mb-2 text-xs font-semibold tracking-wide uppercase">Names you know</p>
             <div className="grid grid-cols-2 gap-2 @md/main:grid-cols-3" data-testid="spellbook">
               {g.hand.map((s) => {
                 const isAnswer = s.word.toLowerCase() === g.word.toLowerCase()
@@ -169,13 +170,13 @@ export function Quest() {
               <Button onClick={next} data-testid="quest-next">{i + 1 >= run.length ? "Finish" : "Walk on"} <ArrowRight /></Button>
             </div>
           ) : (
-            <p className="text-muted-foreground text-center text-xs">Cast the word the sentence is missing. A wrong spell still does something.</p>
+            <p className="text-muted-foreground text-center text-xs">Call the name the sentence is missing. Call the wrong one and the wrong {W.cat} comes.</p>
           )}
         </CardContent>
       </Card>
 
       <p className="text-muted-foreground text-center text-xs">
-        Every cast counts as real vocabulary practice — the same evidence the word quiz gives, feeding the same mastery and review pile.
+        Every call counts as real vocabulary practice — the same evidence the word quiz gives, feeding the same mastery and the same door.
       </p>
     </div>
   )

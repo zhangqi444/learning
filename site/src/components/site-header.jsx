@@ -2,6 +2,7 @@ import * as React from "react"
 import { Cloud, CloudOff, Home as HomeIcon, Loader2, Moon, Sun, Volume2, VolumeX } from "lucide-react"
 
 import { D, SUBJ } from "@/lib/content"
+import { W } from "@/lib/world"
 import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
@@ -46,9 +47,9 @@ function crumbs(route) {
   } else if (top === "score") {
     out.push({ label: "Score", path: "/score" })
   } else if (top === "quest") {
-    out.push({ label: "Wordkeep", path: "/quest" })
+    out.push({ label: W.woodTitle, path: "/quest" })
   } else if (top === "base") {
-    out.push({ label: "Base", path: "/base" })
+    out.push({ label: W.homeTitle, path: "/base" })
   } else if (top === "rewards") {
     out.push({ label: "Rewards", path: "/rewards" })
   } else if (top === "books") {

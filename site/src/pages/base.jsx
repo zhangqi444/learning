@@ -6,6 +6,7 @@ import { SUBJ } from "@/lib/content"
 import { wallet } from "@/lib/rewards"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
+import { W } from "@/lib/world"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -55,7 +56,7 @@ function RoomCard({ room, balance, onBuild }) {
           {room.built ? (
             <Badge variant="success">Built</Badge>
           ) : (
-            <Badge variant="outline" className="tabular-nums">{room.cost} Sparks</Badge>
+            <Badge variant="outline" className="tabular-nums">{room.cost} {W.currency}</Badge>
           )}
         </CardAction>
       </CardHeader>
@@ -70,12 +71,12 @@ function RoomCard({ room, balance, onBuild }) {
             </div>
             <Progress value={pct == null ? 0 : pct} className="h-1.5" />
             <span className="text-muted-foreground text-xs">
-              {pct == null ? "No work here yet — the lights come on as you practise." : "Reads live from your real mastery. Nothing here is stored."}
+              {pct == null ? `No ${W.cats} live here yet — the lights come on as you practise.` : "Reads live from what you really know. Nothing here is stored."}
             </span>
           </div>
         ) : (
           <Button size="sm" disabled={!affordable} onClick={() => onBuild(room)} data-testid={`build-${room.id}`}>
-            {affordable ? <><Hammer /> Build for {room.cost}</> : <><Lock /> {room.cost - balance} more Sparks</>}
+            {affordable ? <><Hammer /> Build for {room.cost}</> : <><Lock /> {room.cost - balance} more {W.currency}</>}
           </Button>
         )}
       </CardContent>
@@ -99,24 +100,24 @@ export function Base() {
       <Card className="from-primary/5 to-card relative bg-gradient-to-t">
         {cheer ? <Burst seed={cheer} /> : null}
         <CardHeader>
-          <CardDescription>Your Base</CardDescription>
+          <CardDescription>{W.world} · {W.home}</CardDescription>
           <CardTitle className="text-2xl">{counts.built} of {counts.total} rooms built</CardTitle>
           <CardDescription className="max-w-prose">
-            Every question you try makes Sparks — for trying, not for being right. Sparks build rooms.
-            Once a room is built its lights show how well you actually know that subject, and nothing you
-            build is ever taken away.
+            Every question you try makes {W.currency} — for trying, not for being right, so a hard day still
+            counts. {W.currency} is warmth, and warmth is what the {W.cats} come for. Once a room is warm its
+            lights show how well you really know that subject, and nothing you build is ever taken away.
           </CardDescription>
           <CardAction>
             <div className="text-right">
               <div className="text-2xl font-extrabold tabular-nums" data-testid="base-balance">{w.balance}</div>
-              <div className="text-muted-foreground text-xs">Sparks to spend</div>
+              <div className="text-muted-foreground text-xs">{W.currency} to spend</div>
             </div>
           </CardAction>
         </CardHeader>
         <CardContent>
           <Progress value={(counts.built / counts.total) * 100} className="h-2" />
           <p className="text-muted-foreground mt-2 text-xs tabular-nums">
-            {w.lifetime} earned all time{w.onBase ? ` · ${w.onBase} spent on rooms` : ""}{w.onRewards ? ` · ${w.onRewards} on rewards` : ""}
+            {w.lifetime} made all time{w.onBase ? ` · ${w.onBase} spent on rooms` : ""}{w.onRewards ? ` · ${w.onRewards} on rewards` : ""}
           </p>
         </CardContent>
       </Card>
@@ -142,8 +143,8 @@ function Collections() {
     <div className="grid grid-cols-1 gap-4 @2xl/main:grid-cols-2" data-testid="collections">
       <Card className="gap-3">
         <CardHeader>
-          <CardTitle className="text-base">Word cards</CardTitle>
-          <CardDescription>One for every word you really know — written in your own words, then answered right on a later day.</CardDescription>
+          <CardTitle className="text-base">{W.book} · words</CardTitle>
+          <CardDescription>One {W.cat} for every word you really know — written in your own words, then called right on a later day.</CardDescription>
           <CardAction><Badge variant="outline" className="tabular-nums">{known.length} / {cards.length}</Badge></CardAction>
         </CardHeader>
         <CardContent>
@@ -154,15 +155,15 @@ function Collections() {
               ))}
             </div>
           ) : (
-            <p className="text-muted-foreground text-sm">No cards yet. Write a word in your own words, then get it right in the quiz on another day, and it lands here.</p>
+            <p className="text-muted-foreground text-sm">No {W.cats} here yet. Write a word in your own words, then call it right on another day, and it moves in.</p>
           )}
         </CardContent>
       </Card>
 
       <Card className="gap-3">
         <CardHeader>
-          <CardTitle className="text-base">Skill crests</CardTitle>
-          <CardDescription>One for every skill taken all the way to Mastered.</CardDescription>
+          <CardTitle className="text-base">{W.book} · skills</CardTitle>
+          <CardDescription>One {W.cat} for every skill taken all the way to Radiant.</CardDescription>
           <CardAction><Badge variant="outline" className="tabular-nums">{crests.length}</Badge></CardAction>
         </CardHeader>
         <CardContent>
@@ -176,7 +177,7 @@ function Collections() {
               ))}
             </div>
           ) : (
-            <p className="text-muted-foreground text-sm">No crests yet. A skill is Mastered once you get it right in mixed sets or a mock on two different days — not by doing the same set twice.</p>
+            <p className="text-muted-foreground text-sm">None yet. A skill goes Radiant once you get it right in mixed sets or a {W.longNight} on two different days — not by doing the same set twice.</p>
           )}
         </CardContent>
       </Card>

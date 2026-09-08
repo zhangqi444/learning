@@ -3,6 +3,7 @@ import { ArrowRight, Flame, Sparkles, Trophy } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import { ORDER, SUBJ } from "@/lib/content"
+import { W } from "@/lib/world"
 import { LEVELS, effortPoints, readiness, readinessHistory, skillsFor, thisWeekRange } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
@@ -79,7 +80,7 @@ export function ReadinessCard({ full }) {
               ) : null}
               <div className="text-muted-foreground text-xs">{R.streak && R.streak.activeToday ? "Something done today ✓" : "Nothing yet today — any set, review or word keeps the streak"}</div>
               <div className="text-muted-foreground text-xs">Best {plural(R.streak ? R.streak.best : 0, "day")} · {plural(R.streak ? R.streak.activeDays : 0, "active day")}</div>
-              <div className="flex items-baseline gap-1.5 text-sm" data-testid="effort"><Sparkles className="text-primary size-3.5 self-center" /> <span className="font-medium tabular-nums">{pts} Sparks</span> <span className="text-muted-foreground text-xs">this week</span></div>
+              <div className="flex items-baseline gap-1.5 text-sm" data-testid="effort"><Sparkles className="text-primary size-3.5 self-center" /> <span className="font-medium tabular-nums">{pts} {W.currency}</span> <span className="text-muted-foreground text-xs">this week</span></div>
             </div>
           ) : (
             <div className="flex min-w-40 flex-1 flex-col gap-1.5">
@@ -181,7 +182,7 @@ export function Score() {
               <div className="text-muted-foreground flex h-[180px] items-center justify-center text-sm">The trend line starts in Week 2.</div>
             )}
           </CardContent>
-          <CardFooter className="text-muted-foreground text-xs" data-testid="sparks-note">Sparks: {pts} this week · {total} all time. Sparks come from attempts, not accuracy — sets 10, mixed sets 12, mock sections 25, essays 15, precision words 2, review answers 1, tagging a miss 3. A review answer pays once a day per question, so doing the same one again does not earn twice.</CardFooter>
+          <CardFooter className="text-muted-foreground text-xs" data-testid="sparks-note">{W.currency}: {pts} this week · {total} all time. {W.currency} comes from attempts, not accuracy — sets 10, mixed sets 12, mock sections 25, essays 15, precision words 2, review answers 1, tagging a miss 3. A review answer pays once a day per question, so doing the same one again does not earn twice.</CardFooter>
         </Card>
       </div>
 

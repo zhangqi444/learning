@@ -2,6 +2,7 @@ import * as React from "react"
 import { CalendarClock, Play, ShieldCheck, Sparkles } from "lucide-react"
 
 import { ORDER, SUBJ, fmtDate } from "@/lib/content"
+import { W } from "@/lib/world"
 import { CAUSES, INTERVALS, causeBreakdown, missProfile, reviewQueue, skillOf } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
@@ -39,7 +40,7 @@ export function Review() {
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-semibold tracking-tight">Review</h1>
         <p className="text-muted-foreground max-w-prose text-sm">
-          A question you missed is stuck. It comes back after {INTERVALS[0]} day, then {INTERVALS[1]} days, then a week — get it right on two different days and it is out for good, with one check-in three weeks later to be sure. Words you rated shaky are in here too. Missing something is not a mistake to pay for; it is how the pile knows what to bring back.
+          A {W.cat} whose name you got wrong does not run away. It comes and sits outside — after {INTERVALS[0]} day, then {INTERVALS[1]}, then a week — waiting to be called again. Get it right on two different days and it moves in for good, with one look-in three weeks later. Words you rated shaky are out there too. Missing something is not a debt; it is how the world knows who to send back to you.
         </p>
       </div>
 
@@ -58,7 +59,7 @@ export function Review() {
           <CardHeader className="items-center">
             <Sparkles className="text-primary mb-2 size-8" />
             <CardTitle>Everyone is home</CardTitle>
-            <CardDescription>Nothing is stuck right now. Finish a set and anything you miss waits here for you.</CardDescription>
+            <CardDescription>Nobody is waiting outside. Finish a set and anything you miss will come and sit by the door.</CardDescription>
           </CardHeader>
           <CardContent>
             <Button onClick={() => go("/")}>Back to dashboard</Button>
@@ -81,7 +82,7 @@ export function Review() {
                     {SUBJ[s].name}
                   </CardTitle>
                   <CardDescription>
-                    {due.length ? `${due.length} to rescue now` : "Nothing stuck today"}
+                    {due.length ? `${due.length} at the door` : "Nobody waiting today"}
                     {sched.length ? ` · ${sched.length} scheduled${next ? `, next ${fmtDate(next.rec.due)}` : ""}` : ""}
                     {chk.length ? ` · ${chk.length} check-in${chk.length === 1 ? "" : "s"}` : ""}
                   </CardDescription>
@@ -99,7 +100,7 @@ export function Review() {
                   return worst && worst[1] >= 2 ? <CardContent><AopsHint sub={s} skill={worst[0]} /></CardContent> : null
                 })()}
                 <CardFooter className="flex-wrap gap-2">
-                  {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Rescue {due.length}</Button> : null}
+                  {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Let {due.length} in</Button> : null}
                   {sched.length ? <Button size="sm" variant={due.length ? "ghost" : "outline"} onClick={() => go(`/review/${s}/all`)}>Everything · {due.length + sched.length}</Button> : null}
                   {chk.length ? <Button size="sm" variant="outline" onClick={() => go(`/review/${s}/checkin`)}><ShieldCheck /> Check-in · {chk.length}</Button> : null}
                 </CardFooter>

@@ -1,4 +1,4 @@
-/* Wordkeep — the vocabulary content AS the game mechanic.
+/* The Wordwood — the vocabulary content AS the game mechanic (docs/world.md).
  *
  * The point of CodeCombat is not that a game sits around the lesson. It is that
  * the thing you are learning IS the control language: you write code, the code
@@ -10,17 +10,19 @@
  * cannot BE one, which is why wrapping quiz items in combat (Prodigy's model)
  * leaves the maths a toll booth between the fun parts.
  *
- * Vocabulary can do it. A word with a part of speech and a meaning is a typed
- * function: `benign` does something specific to whatever it is aimed at. So her
- * words are spells, the gate's inscription is a sentence with the spell missing,
- * and casting the wrong word visibly does what THAT word means instead. She is
- * not eliminating three distractors; she is choosing from everything she knows.
+ * Vocabulary can do it, and cats are the reason it works. Every word is a cat;
+ * knowing a word is the cat coming when you call its name, which is exactly what
+ * recall is. The gate's inscription is a sentence with one word taken out, and
+ * calling the wrong name brings the WRONG CAT — call `rigid` and something stiff
+ * and unbendable stalks in. She is not eliminating three distractors; she is
+ * calling into the dark from everything she knows.
  *
  * Every cast is recorded through the ordinary engine as a `vocab` attempt, so
  * this is not a side activity that happens to be fun — it is the same practice,
  * feeding the same mastery and the same review pile.
  */
 import { D } from "./content"
+import { Store } from "./store"
 import { recordAttempts } from "./engine"
 
 /** Small deterministic PRNG. The day's gates are fixed, so reloading cannot
@@ -36,11 +38,42 @@ function shuffle(arr, rand) {
   return a
 }
 
-/** Every precision word, flattened. This is the spellbook. */
-export function spells() {
+/** Every precision word in the content, flattened. */
+export function allWords() {
   const out = []
   for (const wk of Object.keys(D.precision || {})) {
     for (const e of (D.precision[wk].words || [])) if (e && e.word) out.push({ ...e, wk })
+  }
+  return out
+}
+
+/** Has she actually met this word? Either she has written it in her own words in
+ *  a precision review, or she has answered it somewhere and it has a record.
+ *  This is the fix for a real bug: the wood was drawing cats from all eight
+ *  weeks, so she could be asked to call a word from a week she has never opened.
+ *  A cat you have never met cannot come when called, and being marked wrong for
+ *  that is exactly the kind of thing hard rule 3 exists to stop. */
+function met(entry) {
+  const wk = entry.wk
+  const st = (Store.s.precision || {})[wk]
+  const written = st && st.words && st.words[entry.word] && String(st.words[entry.word].text || "").trim()
+  if (written) return true
+  for (const raw of String(entry.word).split("/").map((x) => x.trim()).filter(Boolean)) {
+    if ((Store.s.items || {})["w:" + raw]) return true
+  }
+  return false
+}
+
+/** The cats she has met — the pool the wood draws from. */
+export function spells() { return allWords().filter(met) }
+
+/** What each week has contributed, so a finished week visibly gives her something. */
+export function catsByWeek() {
+  const out = {}
+  for (const e of allWords()) {
+    out[e.wk] = out[e.wk] || { met: 0, total: 0 }
+    out[e.wk].total++
+    if (met(e)) out[e.wk].met++
   }
   return out
 }

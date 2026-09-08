@@ -276,7 +276,9 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/base'; });
   await pg.waitForSelector('[data-testid=rooms]');
   const balBefore = +(await pg.textContent('[data-testid=base-balance]'));
-  const priced = await pg.$$eval('[data-testid=room][data-built="0"]', (n) => n.map((e) => /(\d+) Sparks/.exec(e.textContent || '')).map((m) => (m ? +m[1] : null)));
+  // the number, not the word for the currency: the world's nouns are still
+  // placeholders until Sheila names them, and a test should not pin them down
+  const priced = await pg.$$eval('[data-testid=room][data-built="0"] [data-slot=badge]', (n) => n.map((e) => parseInt((e.textContent || '').trim(), 10)));
   check('every unbuilt room shows a fixed price, none of them random', priced.length === 7 && priced.every((p) => p > 0), priced.join(','));
   check('nothing is built to start with', (await pg.$$eval('[data-testid=room][data-built="1"]', (n) => n.length)) === 0);
   await pg.click('[data-testid=build-word-lab]');
@@ -297,7 +299,7 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=collections]');
   const coll = await pg.textContent('[data-testid=collections]');
   check('collections are earned, with nothing to buy and no rarity', !/Sparks|rare|chance|Build/i.test(coll), coll.slice(0, 80));
-  check('with nothing known yet it says so, rather than showing an empty shelf', (await pg.$('[data-testid=word-cards]')) === null && /No cards yet/.test(coll));
+  check('with nothing known yet it says so, rather than showing an empty shelf', (await pg.$('[data-testid=word-cards]')) === null && /yet\b/.test(coll));
   // Now make one word genuinely known — explained on one day, answered right in
   // the quiz on another — and the card must appear without anything being stored
   // about the collection itself.
@@ -370,7 +372,7 @@ async function runThrough(pg, pick, max = 60) {
   console.log('== learning engine');
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=readiness-score]');
   check('readiness score on the dashboard', /^\d+$/.test((await pg.textContent('[data-testid=readiness-score]')).trim()));
-  check('streak + effort points on the Today card', /streak/.test(await pg.textContent('[data-testid=today]')) && /\d+ Sparks this week/.test(await pg.textContent('[data-testid=today]')));
+  check('streak + effort points on the Today card', /streak/.test(await pg.textContent('[data-testid=today]')) && /\d+ \S+ this week/.test(await pg.textContent('[data-testid=today]')));
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('[data-testid=score-parts]');
   check('score page lists the six parts with weights', (await pg.$eval('[data-testid=score-parts]', (e) => e.children.length)) === 6 && (await pg.$('[data-testid=streak]')) !== null && /% of the score/.test(await body(pg)));
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=today]');
@@ -395,7 +397,7 @@ async function runThrough(pg, pick, max = 60) {
   // spaced review: the migrated Week-1 misses are overdue -> due now
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('[data-testid=cause-bar]');
   const rv = await body(pg);
-  check('review page: migrated misses waiting to be rescued, cause breakdown shown', /\d+ to rescue now/.test(rv) && /Why misses happen/.test(rv));
+  check('review page: migrated misses waiting at the door, cause breakdown shown', /\d+ at the door/.test(rv) && /Why misses happen/.test(rv));
   const dueVR = +(await pg.textContent('[data-testid=due-vr]').catch(() => '0'));
   check('VR has due items (words rated shaky + misses)', dueVR >= 1, dueVR + ' due');
   await pg.click('[data-testid=start-review-vr]'); await pg.waitForSelector('[data-testid=choice]');
@@ -433,7 +435,7 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
   check('subject page lists skill levels', (await pg.$$('[data-testid=skills] [data-level]')).length >= 3 && /Proficient|Familiar|Needs work/.test(await body(pg)));
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('text=How the number is built');
-  check('score page explains the parts and lists subjects', /Accuracy · 30%/.test(await body(pg)) && /Sparks come from attempts/.test(await body(pg)));
+  check('score page explains the parts and lists subjects', /Accuracy · 30%/.test(await body(pg)) && /comes? from attempts, not accuracy/.test(await body(pg)));
   // checklist carries the new items
   await pg.evaluate(() => { location.hash = '#/checklist/W2'; }); await pg.waitForSelector('[data-testid=ck-item]');
   const ck2 = await body(pg);
@@ -553,7 +555,7 @@ async function runThrough(pg, pick, max = 60) {
   console.log('== rewards');
   await pg.evaluate(() => { location.hash = '#/rewards'; }); await pg.waitForSelector('[data-testid=level]');
   const rw = await body(pg);
-  check('level + points + badge count', /Level \d+ · \w+/.test(rw) && /Sparks earned/.test(rw) && /\d+ of \d+ badges/.test(rw));
+  check('level + points + badge count', /Level \d+ · \w+/.test(rw) && /\d+\s+\S+ made/.test(rw) && /\d+ of \d+ badges/.test(rw));
   const earned = await pg.$$('[data-testid=badge][data-done="1"]');
   check('badges earned from the work already done', earned.length >= 5, earned.length + ' earned');
   check('finishing a book earned a reading badge', /Cover to cover/.test(rw) && (await pg.$('[data-testid=badge][data-id=book-1][data-done="1"]')) !== null);
@@ -573,7 +575,7 @@ async function runThrough(pg, pick, max = 60) {
   check('shelf, claim and badges survive a reload', /Pick Friday's movie/.test(await body(pg)) && (await pg.$$('[data-testid=badge][data-done="1"]')).length >= 5);
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=rewards-card]');
   const card = await pg.textContent('[data-testid=rewards-card]');
-  check('dashboard rewards card shows the level and the closest badge', /Level \d/.test(card) && /Sparks to spend/.test(card) && (await pg.$('[data-testid=next-badge]')) !== null);
+  check('dashboard rewards card shows the level and the closest badge', /Level \d/.test(card) && /to spend/.test(card) && (await pg.$('[data-testid=next-badge]')) !== null);
   const pinned = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.results = {}; localStorage.setItem('isee.v1', JSON.stringify(s)); return Object.keys(s.badges).length; });
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=rewards-card]');
   check('a badge stays earned even if the work behind it is gone', (await pg.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('isee.v1')).badges).length)) === pinned, pinned + ' pinned');
@@ -595,27 +597,27 @@ async function runThrough(pg, pick, max = 60) {
   await pg.click('[data-testid=spell] >> nth=0');
   await pg.waitForSelector('[data-testid=cast-result]');
   const castMsg = (await pg.textContent('[data-testid=cast-result]')).replace(/\s+/g, ' ');
-  const opened = /The gate opens/.test(castMsg);
+  const opened = /It comes when you call/.test(castMsg);
   check('a cast is recorded as ordinary vocabulary practice', await pg.evaluate(() => {
     const s = JSON.parse(localStorage.getItem('isee.v1'));
     return Object.keys(s.items).some((k) => k.startsWith('w:') && (s.items[k].hist || []).some((h) => h.ctx === 'vocab'));
   }));
   if (!opened) {
-    check('a wrong spell explains what the word you cast actually means', /that means/i.test(castMsg), castMsg.slice(0, 90));
-    const want = (/It wanted\s+([\w-]+)/.exec(castMsg) || [])[1];
-    check('and it names the word the gate wanted', !!want && hand.some((w) => w.toLowerCase() === want.toLowerCase()), want + ' in ' + hand.join(','));
+    check('calling the wrong name brings that cat instead, and says what it means', /so that is who turned up/i.test(castMsg), castMsg.slice(0, 90));
+    const want = (/It was after\s+([\w-]+)/.exec(castMsg) || [])[1];
+    check('and it names the cat the sentence was after', !!want && hand.some((w) => w.toLowerCase() === want.toLowerCase()), want + ' in ' + hand.join(','));
     // the day's gates are deterministic, so a reload gives the same gate back
     await pg.reload({ waitUntil: 'networkidle' });
     await pg.waitForSelector('[data-testid=inscription]');
     await pg.click(`[data-testid=spell][data-word="${want}"]`);
     await pg.waitForSelector('[data-testid=cast-result]');
-    check('casting the word the sentence wants opens the gate', /The gate opens/.test(await pg.textContent('[data-testid=cast-result]')));
+    check('calling the right name brings that cat', /It comes when you call/.test(await pg.textContent('[data-testid=cast-result]')));
   } else {
-    check('the right spell opens the gate', true);
+    check('calling the right name brings that cat', true);
   }
 
 
-  console.log('== Sparks cannot be farmed (runs last: it writes throwaway history)');
+  console.log('== the currency cannot be farmed (runs last: it writes throwaway history)');
   // Two review answers to the same question on the same day must pay once; on
   // different days they pay twice. Written against the store directly so the
   // rule is tested, not the route that happens to reach it today.
@@ -633,8 +635,9 @@ async function runThrough(pg, pick, max = 60) {
     await pg.reload({ waitUntil: 'networkidle' });
     await pg.waitForSelector('[data-testid=sparks-note]');
     const t = await pg.textContent('[data-testid=sparks-note]');
-    const m = /Sparks: \d+ this week · (\d+) all time/.exec(t);
-    if (!m) throw new Error('could not read the Sparks total from: ' + t);
+    // noun-agnostic: the currency's name is still a placeholder Sheila may change
+    const m = /\d+ this week · (\d+) all time/.exec(t);
+    if (!m) throw new Error('could not read the all-time total from: ' + t);
     return +m[1];
   };
   const once = await withHist([{ at: '2026-09-02T10:00:00Z', ok: true, ms: 1000, ctx: 'review', pick: 'A' }]);

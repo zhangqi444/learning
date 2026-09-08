@@ -2,6 +2,7 @@ import * as React from "react"
 import { Award, Blocks, BookA, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, subjProgress } from "@/lib/content"
+import { W } from "@/lib/world"
 import { reviewQueue } from "@/lib/engine"
 import { recentBadges } from "@/lib/rewards"
 import { baseCounts } from "@/lib/base"
@@ -118,15 +119,15 @@ export function AppSidebar({ route, ...props }) {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Wordkeep" isActive={top === "quest"} onClick={() => nav("/quest")}>
+                <SidebarMenuButton tooltip={W.woodTitle} isActive={top === "quest"} onClick={() => nav("/quest")}>
                   <Wand2 />
-                  <span>Wordkeep</span>
+                  <span>{W.woodTitle}</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Base" isActive={top === "base"} onClick={() => nav("/base")}>
+                <SidebarMenuButton tooltip={W.homeTitle} isActive={top === "base"} onClick={() => nav("/base")}>
                   <Blocks />
-                  <span>Base</span>
+                  <span>{W.homeTitle}</span>
                 </SidebarMenuButton>
                 <SidebarMenuBadge className="text-muted-foreground tabular-nums">{baseCounts().built}/{baseCounts().total}</SidebarMenuBadge>
               </SidebarMenuItem>

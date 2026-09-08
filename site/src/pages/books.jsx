@@ -2,6 +2,7 @@ import * as React from "react"
 import { BookMarked, BookOpen, CalendarDays, Check, ChevronRight, Highlighter, Library, Plus, RotateCcw, Star, Trash2, X } from "lucide-react"
 
 import { fmtDate } from "@/lib/content"
+import { W } from "@/lib/world"
 import {
   addBook, addWord, books, currentBook, dayOf, finishBook, finishedBooks, logSession, progressOf, rateBook,
   readToday, readingDays, removeBook, removeWord, reopenBook, setPages, shelf, startBook, suggestions,
@@ -233,7 +234,7 @@ export function Books() {
           <CardDescription className="flex items-center gap-2"><Library className="size-4" /> Reading</CardDescription>
           <CardTitle className="text-2xl font-semibold tracking-tight">What Sheila is reading</CardTitle>
           <CardDescription>
-            Independent reading does more for Reading Comprehension and Verbal Reasoning than any drill — it is just slower to show up. Tap “I read today” on the book she is on; reading days count toward the streak and earn Sparks like everything else.
+            Independent reading does more for Reading Comprehension and Verbal Reasoning than any drill — it is just slower to show up. Tap “I read today” on the book she is on; reading days count toward the streak and make {W.currency} like everything else.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
