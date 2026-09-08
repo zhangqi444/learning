@@ -1,5 +1,5 @@
 import * as React from "react"
-import { AlertTriangle, CheckCircle2, ChevronLeft, ChevronRight, Clock, Flag, Play, RotateCcw, Send, Timer } from "lucide-react"
+import { AlertTriangle, CheckCircle2, ChevronLeft, ChevronRight, Clock, Flag, Play, RotateCcw, Send, Swords, Timer } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { go } from "@/lib/router"
@@ -53,7 +53,7 @@ export function MockList() {
           return (
             <Card key={m.id} className="gap-3 py-5">
               <CardHeader className="px-5">
-                <CardTitle>{m.name}</CardTitle>
+                <CardTitle className="flex items-center gap-2"><Swords className="text-primary size-4 shrink-0" />{m.name}</CardTitle>
                 <CardDescription>{m.blurb}</CardDescription>
                 <CardAction>
                   {s.complete ? <Badge variant="success" className="tabular-nums">{s.right}/{s.n}</Badge> : s.started ? <Badge variant="warning">{s.done}/{s.total} sections</Badge> : <Badge variant="outline">{m.label}</Badge>}
@@ -135,7 +135,7 @@ export function MockOverview({ form }) {
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:gap-6">
       <Card className="from-primary/5 to-card bg-gradient-to-t gap-4">
         <CardHeader>
-          <CardDescription className="flex items-center gap-2"><Timer className="size-4" /> Mock exam · scheduled {m.label}</CardDescription>
+          <CardDescription className="flex items-center gap-2"><Swords className="size-4" /> Boss fight · scheduled {m.label}</CardDescription>
           <CardTitle className="text-2xl font-semibold tracking-tight">{m.name}</CardTitle>
           <CardDescription>{m.blurb}</CardDescription>
           <CardAction>

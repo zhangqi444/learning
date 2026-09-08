@@ -14,9 +14,9 @@
  *    across two devices, and nothing built can ever be taken away — the last
  *    thing a child should meet is a game that repossesses her work.
  */
-import { D } from "./content"
+import { D, ORDER } from "./content"
 import { Store } from "./store"
-import { masteryOf } from "./engine"
+import { allWordEntries, masteryOf, skillsFor, wordStatus } from "./engine"
 import { finishedBooks, readingDays } from "./books"
 
 /** Fixed, published prices. No randomness anywhere: she can see what a room
@@ -98,3 +98,30 @@ export function nextRoom(balance) {
   return open.find((r) => r.cost <= balance) || open[0] || null
 }
 export function baseCounts() { const all = rooms(); return { built: all.filter((r) => r.built).length, total: all.length } }
+
+/* ---------- collections ----------
+ * Nothing here is stored either, and nothing here is bought. A card exists
+ * because she genuinely knows the word; a crest exists because the skill is
+ * genuinely Mastered. That makes the collection an honest readout rather than
+ * a shop, and it is why there are no duplicates, no rarities and no trading:
+ * scarcity would turn knowing a word into a lottery ticket. */
+export function wordCards() {
+  return allWordEntries()
+    .map((e) => ({ word: e.word, meaning: e.meaning, status: wordStatus(e.word).status }))
+    .sort((a, b) => a.word.localeCompare(b.word))
+}
+export function skillCrests() {
+  const out = []
+  for (const sub of ORDER) {
+    for (const L of skillsFor(sub)) if (L && L.level === "Mastered") out.push({ sub, sk: L.sk, acc: L.acc })
+  }
+  return out
+}
+export function collectionCounts() {
+  const cards = wordCards()
+  return {
+    words: cards.filter((c) => c.status === "known").length,
+    wordsTotal: cards.length,
+    crests: skillCrests().length,
+  }
+}

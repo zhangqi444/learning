@@ -39,7 +39,7 @@ export function Review() {
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-semibold tracking-tight">Review</h1>
         <p className="text-muted-foreground max-w-prose text-sm">
-          A missed question comes back after {INTERVALS[0]} day, then {INTERVALS[1]} days, then a week. Get it right on two spaced days and it leaves the pile — with one check-in three weeks later to make sure it stuck. Words rated shaky in the precision review are in here too.
+          A question you missed is stuck. It comes back after {INTERVALS[0]} day, then {INTERVALS[1]} days, then a week — get it right on two different days and it is out for good, with one check-in three weeks later to be sure. Words you rated shaky are in here too. Missing something is not a mistake to pay for; it is how the pile knows what to bring back.
         </p>
       </div>
 
@@ -57,8 +57,8 @@ export function Review() {
         <Card className="items-center py-12 text-center" data-testid="review-empty">
           <CardHeader className="items-center">
             <Sparkles className="text-primary mb-2 size-8" />
-            <CardTitle>Nothing waiting</CardTitle>
-            <CardDescription>Finish a set and anything you miss collects here on a schedule.</CardDescription>
+            <CardTitle>Everyone is home</CardTitle>
+            <CardDescription>Nothing is stuck right now. Finish a set and anything you miss waits here for you.</CardDescription>
           </CardHeader>
           <CardContent>
             <Button onClick={() => go("/")}>Back to dashboard</Button>
@@ -81,7 +81,7 @@ export function Review() {
                     {SUBJ[s].name}
                   </CardTitle>
                   <CardDescription>
-                    {due.length ? `${due.length} due now` : "Nothing due today"}
+                    {due.length ? `${due.length} to rescue now` : "Nothing stuck today"}
                     {sched.length ? ` · ${sched.length} scheduled${next ? `, next ${fmtDate(next.rec.due)}` : ""}` : ""}
                     {chk.length ? ` · ${chk.length} check-in${chk.length === 1 ? "" : "s"}` : ""}
                   </CardDescription>
@@ -99,7 +99,7 @@ export function Review() {
                   return worst && worst[1] >= 2 ? <CardContent><AopsHint sub={s} skill={worst[0]} /></CardContent> : null
                 })()}
                 <CardFooter className="flex-wrap gap-2">
-                  {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Review {due.length} due</Button> : null}
+                  {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Rescue {due.length}</Button> : null}
                   {sched.length ? <Button size="sm" variant={due.length ? "ghost" : "outline"} onClick={() => go(`/review/${s}/all`)}>Everything · {due.length + sched.length}</Button> : null}
                   {chk.length ? <Button size="sm" variant="outline" onClick={() => go(`/review/${s}/checkin`)}><ShieldCheck /> Check-in · {chk.length}</Button> : null}
                 </CardFooter>

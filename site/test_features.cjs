@@ -281,6 +281,31 @@ async function runThrough(pg, pick, max = 60) {
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=rooms]');
   check('a built room survives a reload and cannot be un-built', (await pg.$eval('[data-testid=room][data-id=word-lab]', (e) => e.dataset.built)) === '1' && (await pg.$('[data-testid=build-word-lab]')) === null);
+  // Collections are earned, never bought: no price, no buy control, and the
+  // count has to agree with the words the engine actually calls "known".
+  await pg.waitForSelector('[data-testid=collections]');
+  const coll = await pg.textContent('[data-testid=collections]');
+  check('collections are earned, with nothing to buy and no rarity', !/Sparks|rare|chance|Build/i.test(coll), coll.slice(0, 80));
+  check('with nothing known yet it says so, rather than showing an empty shelf', (await pg.$('[data-testid=word-cards]')) === null && /No cards yet/.test(coll));
+  // Now make one word genuinely known — explained on one day, answered right in
+  // the quiz on another — and the card must appear without anything being stored
+  // about the collection itself.
+  await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.items['w:benign'] = {
+      hist: [{ at: '2026-09-04T10:00:00Z', ok: true, ms: 3000, ctx: 'vocab', pick: 'A' }],
+      explain: { at: '2026-09-02T10:00:00Z', conf: 3 },
+      cleared: '2026-09-04T10:00:00Z',
+      due: '2099-01-01T00:00:00Z',
+      at: '2026-09-04T10:00:00Z',
+    };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    location.hash = '#/base';
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=word-cards]');
+  check('knowing a word for real puts its card on the shelf', /benign/.test(await pg.textContent('[data-testid=word-cards]')));
+  check('and the collection is derived, not stored anywhere', await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return !s.collection && !s.cards && !(s.base && Object.keys(s.base).some((k) => k.includes('card'))); }));
 
   console.log('== calendar');
   await pg.evaluate(() => { location.hash = '#/calendar'; });
@@ -359,7 +384,7 @@ async function runThrough(pg, pick, max = 60) {
   // spaced review: the migrated Week-1 misses are overdue -> due now
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('[data-testid=cause-bar]');
   const rv = await body(pg);
-  check('review page: migrated misses due now, cause breakdown shown', /\d+ due now/.test(rv) && /Why misses happen/.test(rv));
+  check('review page: migrated misses waiting to be rescued, cause breakdown shown', /\d+ to rescue now/.test(rv) && /Why misses happen/.test(rv));
   const dueVR = +(await pg.textContent('[data-testid=due-vr]').catch(() => '0'));
   check('VR has due items (words rated shaky + misses)', dueVR >= 1, dueVR + ' due');
   await pg.click('[data-testid=start-review-vr]'); await pg.waitForSelector('[data-testid=choice]');

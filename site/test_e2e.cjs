@@ -61,7 +61,7 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
       await pg.click('[data-slot=sidebar-menu-button]:has-text("Review")');
     }
     await pg.waitForFunction(() => location.hash === '#/review');
-    check('review page lists subjects', /due now/.test(await pg.textContent('body')));
+    check('review page lists subjects', (await pg.$$('[data-testid^=review-]')).length >= 1 && /to rescue now|Nothing stuck today/.test(await pg.textContent('body')));
 
     // Enter a review; header breadcrumb + sidebar trigger must still be there; exit via breadcrumb
     await pg.click('[data-testid^=start-review-]');

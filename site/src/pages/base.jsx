@@ -1,7 +1,8 @@
 import * as React from "react"
 import { Hammer, Lightbulb, Lock } from "lucide-react"
 
-import { buildRoom, rooms, baseCounts } from "@/lib/base"
+import { buildRoom, rooms, baseCounts, skillCrests, wordCards } from "@/lib/base"
+import { SUBJ } from "@/lib/content"
 import { wallet } from "@/lib/rewards"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
@@ -123,6 +124,62 @@ export function Base() {
       <div className="grid grid-cols-1 gap-4 @md/main:grid-cols-2 @3xl/main:grid-cols-3" data-testid="rooms">
         {list.map((r) => <RoomCard key={r.id} room={r} balance={w.balance} onBuild={onBuild} />)}
       </div>
+
+      <Collections />
+    </div>
+  )
+}
+
+/* Collections are earned, never bought, and never random. A card is here because
+ * she genuinely knows the word — the same "known" the precision review uses —
+ * and a crest is here because the skill is genuinely Mastered. That is the whole
+ * anti-loot-box design: no duplicates to chase, no rarity, nothing to gamble on. */
+function Collections() {
+  const cards = wordCards()
+  const known = cards.filter((c) => c.status === "known")
+  const crests = skillCrests()
+  return (
+    <div className="grid grid-cols-1 gap-4 @2xl/main:grid-cols-2" data-testid="collections">
+      <Card className="gap-3">
+        <CardHeader>
+          <CardTitle className="text-base">Word cards</CardTitle>
+          <CardDescription>One for every word you really know — written in your own words, then answered right on a later day.</CardDescription>
+          <CardAction><Badge variant="outline" className="tabular-nums">{known.length} / {cards.length}</Badge></CardAction>
+        </CardHeader>
+        <CardContent>
+          {known.length ? (
+            <div className="flex flex-wrap gap-1.5" data-testid="word-cards">
+              {known.map((c) => (
+                <span key={c.word} className="border-primary/40 bg-primary/10 rounded-lg border-2 px-2.5 py-1 text-xs font-semibold" title={c.meaning || undefined}>{c.word}</span>
+              ))}
+            </div>
+          ) : (
+            <p className="text-muted-foreground text-sm">No cards yet. Write a word in your own words, then get it right in the quiz on another day, and it lands here.</p>
+          )}
+        </CardContent>
+      </Card>
+
+      <Card className="gap-3">
+        <CardHeader>
+          <CardTitle className="text-base">Skill crests</CardTitle>
+          <CardDescription>One for every skill taken all the way to Mastered.</CardDescription>
+          <CardAction><Badge variant="outline" className="tabular-nums">{crests.length}</Badge></CardAction>
+        </CardHeader>
+        <CardContent>
+          {crests.length ? (
+            <div className="flex flex-wrap gap-1.5" data-testid="skill-crests">
+              {crests.map((c) => (
+                <span key={c.sub + c.sk} className="flex items-center gap-1.5 rounded-lg border-2 px-2.5 py-1 text-xs font-semibold" style={{ borderColor: SUBJ[c.sub].color }}>
+                  <span className="inline-block size-2 rounded-full" style={{ background: SUBJ[c.sub].color }} />
+                  {c.sk}
+                </span>
+              ))}
+            </div>
+          ) : (
+            <p className="text-muted-foreground text-sm">No crests yet. A skill is Mastered once you get it right in mixed sets or a mock on two different days — not by doing the same set twice.</p>
+          )}
+        </CardContent>
+      </Card>
     </div>
   )
 }
