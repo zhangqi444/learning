@@ -315,22 +315,45 @@ and reading log are read by the new layer and never written by it. A missing
 
 ## 9. The plan
 
-| # | Stage | Effort | Ships | Risk |
-|---|---|---|---|---|
-| 1 | **Chunky skin.** New tokens + pressable buttons + motion, in `site/src/index.css`, `components/ui/button.jsx`, `card.jsx`, `badge.jsx`, `progress.jsx` | S | The whole site looks like a game, same day. No new rules, no data change | Test selectors; screenshot all three modes |
-| 2 | **The runner feels alive.** Squash, charge meter, count-up, Spark burst on finish, reward moment in `pages/runner.jsx` | S–M | The screen she actually lives in becomes fun | Must not slow the answer path |
-| 3 | **Sparks + the farming fix.** Rename in UI, cap review/vocab points per day in `lib/engine.js` | S | An honest currency | Do this *before* points buy anything |
-| 4 | **The Base.** New `base` slice, schema 6, SVG room grid, fixed-price shop, `pages/base.jsx` | L | The reason to come back for a year | The big one — build after 1–3 have proved themselves |
-| 5 | **Collections.** Word cards, skill crests | M | Something to fill | Cheap once Stage 4 exists |
-| 6 | **Quests + Rescue + Bosses.** Reframing wrappers | M | The content reads as play | Pure presentation, low risk |
+All of this is built. What shipped, and where it lives:
 
-Stages 1–3 are a weekend and are worth doing whatever you decide about the rest.
-Stage 4 is the commitment. **Do not start it until you have watched her use
-stages 1–3 for two weeks** — that is the cheapest possible test of whether this
-whole direction is right for her.
+| # | Stage | Commit | Where |
+|---|---|---|---|
+| 1 | **Chunky skin** — press tokens, pressable controls, pill badges, sheened progress | `6983146` | `index.css`, `components/ui/*` |
+| 1b | **Arcade palette**, then extracted into swappable skins | `cb88c39`, `8963292` | `index.css`, `skins.css`, `main.jsx` |
+| 2 | **The runner feels alive** — instant marking, spark burst, count-up, badge moment, WebAudio sound | `c9cc102` | `pages/runner.jsx`, `components/burst.jsx`, `lib/sfx.js` |
+| 3 | **Sparks + the farming fix** — a review answer pays once per question per day | `0ff30fb` | `lib/engine.js` |
+| 4 | **The Base** — seven rooms, fixed prices, lights derived from real mastery | `bb5ba3e` | `lib/base.js`, `pages/base.jsx`, schema 6 |
+| 5 | **Collections** — word cards, skill crests | `bf42e78` | `lib/base.js`, `pages/base.jsx` |
+| 6 | **Rescue + bosses** — the review pile's language, mocks as boss fights | `bf42e78` | `pages/review.jsx`, `pages/mock.jsx` |
+
+Two decisions taken during the build that differ from the plan above:
+
+**The palette went further than "keep every token name".** The identity moved
+from the teal Calm Scholar set to arcade indigo, because chunky geometry alone
+still read as a study app with rounder corners. Six alternates live in
+`site/src/skins.css` and the whole look changes by editing one `SKIN` constant in
+`site/src/main.jsx`. Indigo is the default because it is the only vivid hue that
+collides with none of the three semantic colours.
+
+**No separate quest system was built.** The Today card and the weekly checklist
+already are the quest list, generated from the same engine state a quest board
+would have read. A second one beside them would have been duplication in a game
+costume.
 
 Every stage: all four suites pass, bundle check clean, and screenshots at desktop,
 phone width and dark mode before it is called done.
+
+## What is left
+
+Nothing in this plan. The remaining work is not code:
+
+1. **Watch her use it.** Everything here is a considered guess about what a
+   ten-year-old finds motivating. An hour of watching will say more than another
+   stage would.
+2. **The two digest Routines have no Drive connector**, so they cannot read
+   `progress.json` and will fail at step 1. That needs the owner in the claude.ai
+   Routines UI.
 
 ---
 
