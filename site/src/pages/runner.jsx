@@ -15,6 +15,7 @@ import { RadioGroup, RadioGroupPrimitive } from "@/components/ui/radio-group"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Burst, useCountUp } from "@/components/burst"
+import { Gate, inscribe } from "@/components/gate"
 import { sfx } from "@/lib/sfx"
 
 const { useState, useEffect, useRef } = React
@@ -311,6 +312,13 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
   const last = i === total - 1
   const revealed = instant && !!shown[i] && picks[i] != null
   const gotIt = revealed && LTR[picks[i]] === keyOf(it)
+  /* Verbal Reasoning is drawn as the Wordkeep, because it already is one: most
+   * of its items are a sentence with a word taken out. Same items, same
+   * recording, same marking — only the frame changes, so nothing about the
+   * evidence this produces is different from a plain set. Corrections stay
+   * plain: reviewing answers is not a gate to open. */
+  const gameMode = kind !== "corr" && subOf(it, subHint) === "vr"
+  const rune = gameMode ? inscribe(it.q) : null
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
       <div className="flex flex-col gap-2">
@@ -340,7 +348,22 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
       <Card className="gap-5">
         <CardContent className="flex flex-col gap-5">
           {it.p ? <Passage id={it.p} /> : null}
-          <p className="text-lg leading-snug font-medium" data-testid="question">{it.q}</p>
+          {gameMode ? (
+            <div className="flex flex-col items-center gap-3">
+              <Gate open={gotIt} className="w-full max-w-xs" />
+              <p className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">{rune.lead}</p>
+              <p
+                className={cn("text-center leading-relaxed font-medium", rune.kind === "rune" ? "text-2xl font-extrabold tracking-tight" : "text-lg")}
+                data-testid="question"
+              >
+                {rune.text}
+              </p>
+              {rune.tail ? <p className="text-muted-foreground text-xs">{rune.tail}</p> : null}
+            </div>
+          ) : (
+            <p className="text-lg leading-snug font-medium" data-testid="question">{it.q}</p>
+          )}
+          {gameMode ? <p className="text-muted-foreground -mb-2 text-xs font-semibold tracking-wide uppercase">Your spells</p> : null}
           <RadioGroup value={picks[i] == null ? "" : LTR[picks[i]]} onValueChange={(v) => choose(LTR.indexOf(v))} className="gap-2.5" aria-label="Answer choices">
             {it.c.map((c, k) => (
               <Choice
@@ -355,7 +378,9 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
           {revealed ? (
             <div className="motion-safe:animate-[pop_260ms_ease-out_both]" data-testid="reveal">
               <div className={cn("flex items-center gap-2 text-sm font-bold", gotIt ? "text-success" : "text-destructive")}>
-                {gotIt ? <><CheckCircle2 className="size-4" /> Right</> : <><XCircle className="size-4" /> The answer is {keyOf(it)}</>}
+                {gotIt
+                  ? <><CheckCircle2 className="size-4" /> {gameMode ? "The gate opens." : "Right"}</>
+                  : <><XCircle className="size-4" /> {gameMode ? `The gate holds. It wanted “${it.c[LTR.indexOf(keyOf(it))]}”.` : `The answer is ${keyOf(it)}`}</>}
               </div>
               {it.e ? <p className="bg-muted/60 text-muted-foreground mt-2 rounded-lg p-3 text-sm leading-relaxed">{it.e}</p> : null}
             </div>

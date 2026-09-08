@@ -45,6 +45,17 @@ async function runThrough(pg, pick, max = 60) {
   check('Essay sits in the Subjects card as its own row', /Essay/.test(await pg.textContent('[data-testid=subjects]')) && /0 of 8 weeks/.test(await pg.textContent('[data-testid=subjects]')));
   check('dashboard Coming up lists a mock', /Coming up.*Split diagnostic/.test(await body(pg)));
 
+  console.log('== VR plays as the gate');
+  // Render-only checks: these answer nothing, so they write no records and are
+  // safe to run here rather than in the runs-last region at the bottom.
+  await pg.evaluate(() => { location.hash = '#/run/vr/W2/0'; });
+  await pg.waitForSelector('[data-testid=question]');
+  check('a Verbal Reasoning set is drawn as a gate', (await pg.$('[data-testid=gate]')) !== null && /Your spells/i.test(await body(pg)));
+  check('the item itself is unchanged underneath', (await pg.$$('[data-testid=choice]')).length === 4);
+  await pg.evaluate(() => { location.hash = '#/run/ma/W2/0'; });
+  await pg.waitForSelector('[data-testid=question]');
+  check('maths is left plain — the frame is not sprayed over everything', (await pg.$('[data-testid=gate]')) === null);
+
   console.log('== precision review');
   await pg.evaluate(() => { location.hash = '#/s/vr/W1'; });
   await pg.waitForSelector('[data-testid=precision-row]');
@@ -408,7 +419,10 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/precision/W1'; }); await pg.waitForSelector('[data-testid=word-quiz]');
   check('precision page has word summary + quiz', /\d+ known · \d+ learning/.test(await body(pg)));
   await pg.click('[data-testid=word-quiz]'); await pg.waitForSelector('[data-testid=question]');
-  check('word quiz is 20 synonym questions', /1 \/ 20/.test(await body(pg)) && /most nearly means/.test(await pg.textContent('[data-testid=question]')));
+  // the quiz is VR vocabulary, so it is drawn as a rune too: the stem is the
+  // bare word and the instruction moved to "cast the spell that means the same"
+  const runeWord = (await pg.textContent('[data-testid=question]')).trim();
+  check('word quiz is 20 synonym questions, drawn as runes', /1 \/ 20/.test(await body(pg)) && /means the same/i.test(await body(pg)) && /^[A-Z][A-Z\-' ]*$/.test(runeWord), runeWord);
   const choicesN = (await pg.$$('[data-testid=choice]')).length;
   check('four distinct choices per word', choicesN === 4);
   await runThrough(pg, 1, 22);

@@ -15,34 +15,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Burst } from "@/components/burst"
+import { Gate } from "@/components/gate"
 import { sfx } from "@/lib/sfx"
-
-/** The gate: shut, opening, or shut-with-the-wrong-thing-having-happened.
- *  Drawn in inline SVG so the artifact build stays self-contained. */
-function Gate({ state }) {
-  const open = state === "open"
-  return (
-    <svg viewBox="0 0 240 150" className="mx-auto w-full max-w-sm" role="img" aria-label={open ? "The gate is open" : "A shut gate"}>
-      <defs>
-        <linearGradient id="gate-arch" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.25" />
-          <stop offset="100%" stopColor="var(--primary)" stopOpacity="0.08" />
-        </linearGradient>
-      </defs>
-      {/* the arch */}
-      <path d="M40 145 L40 60 A80 80 0 0 1 200 60 L200 145 Z" fill="url(#gate-arch)" stroke="var(--border)" strokeWidth="3" />
-      {/* the two doors, swinging away when it opens */}
-      <g style={{ transition: "transform 500ms cubic-bezier(.34,1.56,.64,1)", transformOrigin: "44px 145px", transform: open ? "perspective(300px) rotateY(-72deg)" : "none" }}>
-        <path d="M48 143 L48 66 A72 72 0 0 1 118 62 L118 143 Z" fill="var(--card)" stroke="var(--border)" strokeWidth="2.5" />
-      </g>
-      <g style={{ transition: "transform 500ms cubic-bezier(.34,1.56,.64,1)", transformOrigin: "196px 145px", transform: open ? "perspective(300px) rotateY(72deg)" : "none" }}>
-        <path d="M192 143 L192 66 A72 72 0 0 0 122 62 L122 143 Z" fill="var(--card)" stroke="var(--border)" strokeWidth="2.5" />
-      </g>
-      {/* what is beyond, revealed as the doors swing */}
-      {open ? <circle cx="120" cy="105" r="26" fill="var(--primary)" opacity="0.5" /> : null}
-    </svg>
-  )
-}
 
 export function Quest() {
   useStore()
@@ -129,7 +103,7 @@ export function Quest() {
 
       <Card className="gap-5">
         <CardContent className="flex flex-col gap-5">
-          <Gate state={result && result.ok ? "open" : "shut"} />
+          <Gate open={!!(result && result.ok)} className="mx-auto w-full max-w-sm" />
 
           <div className="text-center">
             <p className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">The gate is inscribed</p>
