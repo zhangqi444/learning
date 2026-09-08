@@ -261,6 +261,27 @@ async function runThrough(pg, pick, max = 60) {
   await pg.click('[data-testid=instant-toggle]');
   check('sound has a mute control in the header', (await pg.$('[data-testid=mute-toggle]')) !== null);
 
+  console.log('== the Base');
+  await pg.evaluate(() => { location.hash = '#/base'; });
+  await pg.waitForSelector('[data-testid=rooms]');
+  const balBefore = +(await pg.textContent('[data-testid=base-balance]'));
+  const priced = await pg.$$eval('[data-testid=room][data-built="0"]', (n) => n.map((e) => /(\d+) Sparks/.exec(e.textContent || '')).map((m) => (m ? +m[1] : null)));
+  check('every unbuilt room shows a fixed price, none of them random', priced.length === 7 && priced.every((p) => p > 0), priced.join(','));
+  check('nothing is built to start with', (await pg.$$eval('[data-testid=room][data-built="1"]', (n) => n.length)) === 0);
+  await pg.click('[data-testid=build-word-lab]');
+  await pg.waitForSelector('[data-testid=room][data-id=word-lab][data-built="1"]');
+  const balAfter = +(await pg.textContent('[data-testid=base-balance]'));
+  check('building a room spends exactly its published price', balBefore - balAfter === 60, `${balBefore} -> ${balAfter}`);
+  check('a built room reports its lights from real mastery', (await pg.$('[data-testid=room][data-id=word-lab] [data-testid=room-light]')) !== null);
+  // one wallet: Sparks spent on a room are not still available for a reward
+  await pg.evaluate(() => { location.hash = '#/rewards'; });
+  await pg.waitForSelector('[data-testid=wallet-balance]');
+  check('the Base and the reward shelf draw on the same Sparks', +(await pg.textContent('[data-testid=wallet-balance]')) === balAfter, await pg.textContent('[data-testid=wallet-balance]'));
+  await pg.evaluate(() => { location.hash = '#/base'; });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=rooms]');
+  check('a built room survives a reload and cannot be un-built', (await pg.$eval('[data-testid=room][data-id=word-lab]', (e) => e.dataset.built)) === '1' && (await pg.$('[data-testid=build-word-lab]')) === null);
+
   console.log('== calendar');
   await pg.evaluate(() => { location.hash = '#/calendar'; });
   await pg.waitForSelector('[data-testid=test-date]');

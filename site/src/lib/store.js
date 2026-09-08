@@ -33,7 +33,7 @@ export const Store = {
   init() {
     this.s = lsLoad()
     this.s.results = this.s.results || {}
-    for (const k of ["precision", "essays", "mocks", "checklists", "items", "mixed", "badges", "rewards", "books", "reviews", "reviewsSeen"]) if (!this.s[k] || typeof this.s[k] !== "object") this.s[k] = {}
+    for (const k of ["precision", "essays", "mocks", "checklists", "items", "mixed", "badges", "rewards", "books", "reviews", "reviewsSeen", "base"]) if (!this.s[k] || typeof this.s[k] !== "object") this.s[k] = {}
     // The first (vanilla) site stored `at` as Date.now(); everything since uses ISO strings.
     for (const k of Object.keys(this.s.results)) {
       const r = this.s.results[k]
@@ -281,7 +281,7 @@ export const Store = {
     if (!remote || !remote.results) return
     // keyed slices: last-write-wins per key by `at`. `reviews` are written outside the
     // app (see lib/reviews.js), so a remote copy this device has never seen must land.
-    for (const slice of ["precision", "essays", "mocks", "checklists", "mixed", "badges", "rewards", "books", "reviews", "reviewsSeen"]) {
+    for (const slice of ["precision", "essays", "mocks", "checklists", "mixed", "badges", "rewards", "books", "reviews", "reviewsSeen", "base"]) {
       const rs = remote[slice] || {}, ls = this.s[slice]
       for (const k of Object.keys(rs)) {
         if (!rs[k] || typeof rs[k] !== "object") continue
@@ -347,10 +347,10 @@ export const Store = {
   },
   /** The Drive payload. Schema 5: bump it, and update init/merge/push, when a slice is added. */
   body() {
-    return JSON.stringify({ schema: 5, savedAt: new Date().toISOString(), results: this.s.results,
+    return JSON.stringify({ schema: 6, savedAt: new Date().toISOString(), results: this.s.results,
       precision: this.s.precision, essays: this.s.essays, mocks: this.s.mocks, checklists: this.s.checklists, items: this.s.items, mixed: this.s.mixed,
       badges: this.s.badges, rewards: this.s.rewards, books: this.s.books, booksSeeded: !!this.s.booksSeeded,
-      reviews: this.s.reviews, reviewsSeen: this.s.reviewsSeen,
+      reviews: this.s.reviews, reviewsSeen: this.s.reviewsSeen, base: this.s.base,
       testDate: this.s.testDate || null, testFormat: this.s.testFormat || null, pacing: !!this.s.pacing })
   },
   push() {

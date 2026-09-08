@@ -9,6 +9,7 @@ import {
   mockBand, pacingFor, reviewQueue, streakInfo, wordStatus,
 } from "./engine"
 import { finishedBooks, readingDays, wordsCollected } from "./books"
+import { spentOnBase } from "./base"
 
 /* ---------- levels ---------- */
 export const LEVELS = [
@@ -175,11 +176,16 @@ export function claims() {
     .sort((a, b) => ts(b.at) - ts(a.at))
 }
 export function spent() { return claims().reduce((n, c) => n + (c.cost || 0), 0) }
-/** Lifetime points fix the level; the balance is what is left after claims. */
+/** Lifetime Sparks fix the level; the balance is what is left after everything
+ *  she has spent them on. There is ONE wallet: rewards Qi posts and rooms in the
+ *  Base draw on the same balance, so the same Spark can never be spent twice.
+ *  Spending never costs a level — the level is lifetime earning, not savings. */
 export function wallet() {
   const lifetime = effortPoints()
-  const used = spent()
-  return { lifetime, spent: used, balance: Math.max(0, lifetime - used), level: levelOf(lifetime) }
+  const onRewards = spent()
+  const onBase = spentOnBase()
+  const used = onRewards + onBase
+  return { lifetime, spent: used, onRewards, onBase, balance: Math.max(0, lifetime - used), level: levelOf(lifetime) }
 }
 const newId = () => Date.now().toString(36) + Math.floor(Math.random() * 1e4).toString(36)
 export function addReward(name, cost) {

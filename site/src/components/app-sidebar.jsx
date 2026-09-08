@@ -1,9 +1,10 @@
 import * as React from "react"
-import { Award, BookA, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy } from "lucide-react"
+import { Award, Blocks, BookA, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy } from "lucide-react"
 
 import { D, ORDER, SUBJ, subjProgress } from "@/lib/content"
 import { reviewQueue } from "@/lib/engine"
 import { recentBadges } from "@/lib/rewards"
+import { baseCounts } from "@/lib/base"
 import { currentBook, finishedBooks } from "@/lib/books"
 import { nextUp, weekLeft } from "@/pages/checklist"
 import { essayStatus } from "@/pages/essay"
@@ -115,6 +116,13 @@ export function AppSidebar({ route, ...props }) {
                   <Trophy />
                   <span>Score</span>
                 </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Base" isActive={top === "base"} onClick={() => nav("/base")}>
+                  <Blocks />
+                  <span>Base</span>
+                </SidebarMenuButton>
+                <SidebarMenuBadge className="text-muted-foreground tabular-nums">{baseCounts().built}/{baseCounts().total}</SidebarMenuBadge>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton tooltip="Rewards" isActive={top === "rewards"} onClick={() => nav("/rewards")}>

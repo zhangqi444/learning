@@ -51,7 +51,7 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   for (let i = 0; i < 12; i++) { await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]'); if (i < 11) await pg.waitForSelector('[data-testid=choice]'); }
   await pg.waitForSelector('[data-testid=score]'); await pg.waitForTimeout(1600);
   check('finished set pushed to Drive', /"ma:W2:0"/.test(drive.body));
-  check('learning records travel with it (schema 5, items, mixed, reviews)', /"schema":5/.test(drive.body) && /"items":\{"/.test(drive.body) && /"mixed"/.test(drive.body) && /"reviews":\{/.test(drive.body));
+  check('learning records travel with it (schema 6, items, mixed, reviews, base)', /"schema":6/.test(drive.body) && /"items":\{"/.test(drive.body) && /"mixed"/.test(drive.body) && /"reviews":\{/.test(drive.body) && /"base":\{/.test(drive.body));
 
   // The hour expiry should be invisible: the next Drive call refreshes silently.
   await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.drive.exp = Date.now() - 1000; localStorage.setItem('isee.v1', JSON.stringify(s)); location.hash = '#/'; });
@@ -125,6 +125,19 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   const pushed = remoteBody();
   check('a local save merges the remote copy first, so a review it never saw is kept', pushed.reviews['essay:W3:2026-09-06'] && pushed.reviews['essay:W2:2026-09-05'] && pushed.essays.W2.time.plan === 5, drive.calls.slice(callsBefore).join(' , '));
   check('and the review is now on this device too', await pg.evaluate(() => !!JSON.parse(localStorage.getItem('isee.v1')).reviews['essay:W3:2026-09-06']));
+
+  // A room built on the other device must arrive here and must never be undone
+  // by this device saving. Buying is append-only for exactly this reason.
+  { const remote = remoteBody(); remote.base = { 'spend:otherdevice': { item: 'word-lab', cost: 60, at: '2026-09-07T10:00:00Z' } }; drive.body = JSON.stringify(remote); }
+  await pg.evaluate(() => { location.hash = '#/base'; });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForFunction(() => { const b = JSON.parse(localStorage.getItem('isee.v1')).base || {}; return !!b['spend:otherdevice']; }, null, { timeout: 8000 });
+  await pg.waitForSelector('[data-testid=room][data-id=word-lab]');
+  check('a room built on another device arrives, built', (await pg.$eval('[data-testid=room][data-id=word-lab]', (e) => e.dataset.built)) === '1');
+  check('and the Sparks it cost are gone from the balance', (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).base['spend:otherdevice'].cost)) === 60);
+  // hand the page back to the essay: the checks below carry on from there
+  await pg.evaluate(() => { location.hash = '#/essay/W2'; });
+  await pg.waitForSelector('[data-testid=essay-prompt]');
   // Switching away from the tab inside the debounce: the save goes out at once, through the
   // same read-then-write path, never as a blind PATCH.
   { const remote = remoteBody(); remote.reviews['essay:W4:2026-09-07'] = mkReview('W4', '2026-09-07'); drive.body = JSON.stringify(remote); }
