@@ -688,6 +688,69 @@ async function runThrough(pg, pick, max = 60) {
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=today]');
 
+  console.log('== the cats have voices (runs last: it replaces AudioContext)');
+  // The only way to check synthesised sound is to record what it asks the audio
+  // hardware for. The stub has to be installed before the page loads, because
+  // the real context is built once and cached — hence addInitScript + reload,
+  // and hence this running last: every page after it is deaf.
+  await pg.addInitScript(() => {
+    window.__NOTES__ = [];
+    const sink = { connect: (n) => n };
+    class FakeCtx {
+      constructor() { this.currentTime = 0; this.state = 'running'; this.destination = sink; }
+      resume() {}
+      createGain() { return { gain: { setValueAtTime() {}, exponentialRampToValueAtTime() {} }, connect: (n) => n }; }
+      createOscillator() {
+        const o = { type: '', frequency: { setValueAtTime: (f) => window.__NOTES__.push(f), exponentialRampToValueAtTime() {} }, connect: (n) => n, start() {}, stop() {} };
+        return o;
+      }
+    }
+    window.AudioContext = FakeCtx;
+    window.webkitAudioContext = FakeCtx;
+  });
+  await pg.evaluate(() => { location.hash = '#/quest'; });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=spell]');
+  // Find out which name this gate wants. The day's gates are deterministic, so
+  // a reload gives the same gate back and we can call it deliberately right and
+  // deliberately wrong and compare what each one sounds like.
+  const listen = async (word) => {
+    await pg.evaluate(() => { location.hash = '#/quest'; });
+    await pg.reload({ waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=spell]');
+    await pg.evaluate(() => { window.__NOTES__ = []; });
+    await pg.click(`[data-testid=spell][data-word="${word}"]`);
+    await pg.waitForSelector('[data-testid=cast-result]');
+    return { notes: await pg.evaluate(() => window.__NOTES__.slice()), text: (await pg.textContent('[data-testid=cast-result]')).replace(/\s+/g, ' ') };
+  };
+  const names = await pg.$$eval('[data-testid=spell]', (n) => n.map((e) => e.dataset.word));
+  const firstTry = await listen(names[0]);
+  const wanted = /It comes when you call/.test(firstTry.text) ? names[0] : (/It was after\s+([\w-]+)/.exec(firstTry.text) || [])[1];
+  const wrong = names.find((w) => w !== wanted);
+  const right = wanted === names[0] ? firstTry : await listen(wanted);
+  const other = wrong === names[0] ? firstTry : await listen(wrong);
+
+  check('the right cat answers in two notes, and they rise', right.notes.length === 2 && right.notes[1] > right.notes[0], right.notes.map((f) => Math.round(f)).join(' -> '));
+  // Every pitch any cat sings must belong to ONE pentatonic set, or two cats can
+  // land a semitone apart — the sour interval the scale exists to rule out.
+  // Checked as pitch classes off C5, so the octave a cat lives in stays free.
+  const PENT = [0, 2, 4, 7, 9];
+  const pitches = [...right.notes, ...other.notes].map((f) => ((Math.round(12 * Math.log2(f / 523.25)) % 12) + 12) % 12);
+  check('and every note any cat sings is in the one shared scale',
+    pitches.length > 2 && pitches.every((c) => PENT.includes(c)), pitches.join(','));
+  check('calling the wrong name sounds like somebody else, not like an error',
+    other.notes.join() !== right.notes.join() && other.notes.length > 0,
+    `${wanted}: ${right.notes.map((f) => Math.round(f)).join(',')} · ${wrong}: ${other.notes.map((f) => Math.round(f)).join(',')}`);
+
+  // Muting has to mean silence, everywhere, including the cats.
+  await pg.click('[data-testid=mute-toggle]');
+  await pg.evaluate(() => { window.__NOTES__ = []; });
+  await pg.click('[data-testid=quest-next]');
+  await pg.waitForSelector('[data-testid=spell]');
+  await pg.click('[data-testid=spell] >> nth=0');
+  await pg.waitForSelector('[data-testid=cast-result]');
+  check('muted means silent, cats included', (await pg.evaluate(() => window.__NOTES__.length)) === 0);
+  await pg.click('[data-testid=mute-toggle]');
 
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });

@@ -239,11 +239,21 @@ same two notes. That is the whole point of doing it this way rather than picking
 at random: after a fortnight she is not recognising *a cat*, she is recognising
 *that* one — and recognising it is recognising the word.
 
-**The call** is two rising notes from a major pentatonic scale, in one of four
-registers. Rising, because a cat answering is "mrrp?", not a sigh. Pentatonic,
+**The call** is two rising notes from a major pentatonic scale, in one of three
+octaves. Rising, because a cat answering is "mrrp?", not a sigh. Pentatonic,
 because a run is five calls in a row and two cats calling near each other must
 not produce a sour interval — a wrong note in a game about being right is cruel.
-Forty distinct calls, all in tune with each other.
+Thirty distinct calls, every one of them in the same scale.
+
+The octaves have to be octaves, which is the one thing this got wrong first
+time. A register of a fourth or a fifth moves that cat's whole scale off the
+shared one, and then two cats can land a semitone apart — precisely the sour
+interval the scale was chosen to rule out. A test now records what the page asks
+the audio hardware for and checks every pitch is a member of the set.
+
+Finishing a run plays **the cats that came, in the order they came**: her own
+answers as a short phrase. A run of two is a short tune rather than a tune with
+three wrong notes in it — nothing is added for a miss (rule 4).
 
 Calling the **wrong** name plays that cat's real call, lower and slower, with one
 quiet note under it. She hears it is somebody else before she has read a word of

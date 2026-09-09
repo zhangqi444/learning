@@ -74,6 +74,22 @@ VOICES.miscall = (a, word) => {
   note(a, hi * 0.5, 0.17, 0.26, { type: "triangle", gain: 0.05 })
 }
 
+/** The end of a run, sung by the cats that came — in the order they came.
+ *  Every call is drawn from the same pentatonic scale, so whichever five words
+ *  she got right, the phrase is in tune; and because the phrase is built only
+ *  from the ones that answered, a run of two is a short tune rather than a tune
+ *  with three wrong notes in it. Nothing is added for a miss (rule 4). */
+VOICES.chorus = (a, words) => {
+  const list = (words || []).slice(0, 8)
+  if (!list.length) return VOICES.finish(a)
+  list.forEach((w, i) => {
+    const [lo, hi] = callHz(w)
+    note(a, lo, i * 0.155, 0.19, { type: "triangle", gain: 0.075 })
+    // the last cat gets its full rising call, so the phrase lands rather than stops
+    if (i === list.length - 1) note(a, hi, i * 0.155 + 0.14, 0.34, { type: "triangle", gain: 0.085 })
+  })
+}
+
 export function sfx(name, arg) {
   if (Store.s && Store.s.muted) return
   const voice = VOICES[name]

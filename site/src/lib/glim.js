@@ -31,7 +31,12 @@ const EYES = ["#f5c04a", "#5fd08a", "#5fb8e8", "#c98af0"]
  * each other are still in tune — which matters, because a run of five gates is
  * five calls in a row and a wrong note in a game about being right is cruel. */
 const PENT = [0, 2, 4, 7, 9]
-const REGISTERS = [-12, -5, 0, 7]
+/* Registers are OCTAVES, not arbitrary transpositions. A register of, say, -5
+ * would move a cat's whole scale off the shared one, and two cats a semitone
+ * apart is exactly the sour interval this scale was chosen to make impossible.
+ * Three octaves × five starting degrees × two leaps is thirty distinct calls,
+ * all of them members of the same pentatonic set. */
+const REGISTERS = [-12, 0, 12]
 /** Degree `d` of the pentatonic, continuing up into the next octave. */
 const semis = (d) => PENT[d % 5] + 12 * Math.floor(d / 5)
 

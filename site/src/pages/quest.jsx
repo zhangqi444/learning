@@ -77,7 +77,8 @@ export function Quest() {
     if (i + 1 >= run.length) {
       setWon(syncBadges())
       setDone(true)
-      sfx("finish")
+      // the run's own tune: the cats that came, in the order they came
+      sfx("chorus", came)
       return
     }
     setI(i + 1); setResult(null); started.current = Date.now()
