@@ -135,6 +135,42 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   await pg.waitForSelector('[data-testid=room][data-id=word-lab]');
   check('a room built on another device arrives, built', (await pg.$eval('[data-testid=room][data-id=word-lab]', (e) => e.dataset.built)) === '1');
   check('and the Sparks it cost are gone from the balance', (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).base['spend:otherdevice'].cost)) === 60);
+
+  // The reading log. Every load seeds the starter shelf, so the empty placeholder and the
+  // real record in Drive meet on every first visit from a new browser. The placeholder must
+  // lose: stamped with the current time it won, and the emptied shelf was pushed over three
+  // weeks of reading days. Nothing recomputes those, so this is the check that they land.
+  {
+    const remote = remoteBody();
+    remote.books = { 'little-women': { title: 'Little Women', status: 'reading', page: 240, at: '2026-08-20T18:00:00Z',
+      sessions: [{ on: '2026-08-18', at: '2026-08-18T18:00:00Z' }, { on: '2026-08-19', at: '2026-08-19T18:00:00Z' }],
+      words: [{ w: 'garret', at: '2026-08-19T18:00:00Z' }] } };
+    drive.body = JSON.stringify(remote);
+  }
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForFunction(() => ((JSON.parse(localStorage.getItem('isee.v1')).books['little-women'] || {}).sessions || []).length >= 2, null, { timeout: 8000 });
+  const bk = await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).books['little-women']);
+  check('a seeded shelf never overwrites the reading log already in Drive',
+    bk.sessions.length === 2 && bk.words.length === 1 && bk.page === 240, JSON.stringify({ d: bk.sessions.map((s) => s.on), w: bk.words.length, p: bk.page }));
+
+  // Two devices, two different days: a whole-record last-write-wins drops one of them.
+  {
+    const remote = remoteBody();
+    remote.books['little-women'].sessions.push({ on: '2026-08-21', at: '2026-08-21T18:00:00Z' });
+    remote.books['little-women'].at = '2026-08-21T18:00:00Z';
+    drive.body = JSON.stringify(remote);
+  }
+  await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.books['little-women'].sessions.push({ on: '2026-08-25', at: '2026-08-25T18:00:00Z' });
+    s.books['little-women'].at = '2026-08-25T18:00:00Z';
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForFunction(() => ((JSON.parse(localStorage.getItem('isee.v1')).books['little-women'] || {}).sessions || []).length >= 4, null, { timeout: 8000 });
+  const days = await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).books['little-women'].sessions.map((s) => s.on));
+  check('reading days from both devices survive the merge', days.join(',') === '2026-08-18,2026-08-19,2026-08-21,2026-08-25', days.join(','));
+
   // hand the page back to the essay: the checks below carry on from there
   await pg.evaluate(() => { location.hash = '#/essay/W2'; });
   await pg.waitForSelector('[data-testid=essay-prompt]');

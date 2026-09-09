@@ -17,8 +17,15 @@ const today = () => dayOf()
 export function seedBooks() {
   if (!D.books) return 0
   const add = {}
-  for (const b of D.books.starter || []) if (!rows()[b.id]) add[b.id] = { ...b, sessions: [], words: [], seeded: true }
-  if (Object.keys(add).length) Store.setMany("books", add)
+  // A shelf entry she has not touched is a placeholder, not something she wrote, so it is
+  // stamped at the epoch rather than now: `at` decides the merge, and a placeholder must
+  // never outrank the real record already in Drive. Stamped with the current time it did
+  // exactly that — a browser meeting the site for the first time (a new phone, or the day
+  // the site changed domain, which gives it an empty localStorage) seeded three empty
+  // books, won the merge on a fresh timestamp, and pushed the emptied shelf over the
+  // reading log. `stamp: false` keeps setMany from putting the clock back in.
+  for (const b of D.books.starter || []) if (!rows()[b.id]) add[b.id] = { ...b, sessions: [], words: [], seeded: true, at: new Date(0).toISOString() }
+  if (Object.keys(add).length) Store.setMany("books", add, { stamp: false })
   if (!Store.s.booksSeeded) Store.setPref("booksSeeded", true)
   return Object.keys(add).length
 }
