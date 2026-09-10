@@ -16,6 +16,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Burst, useCountUp } from "@/components/burst"
 import { Gate, inscribe } from "@/components/gate"
+import { Glim } from "@/components/glim"
 import { sfx } from "@/lib/sfx"
 
 const { useState, useEffect, useRef } = React
@@ -163,7 +164,14 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
     const np = picks.slice(); np[i] = k; setPicks(np)
     if (!instant) { sfx("pick"); return }
     setShown({ ...shown, [i]: true })
-    sfx(LTR[k] === keyOf(items[i]) ? "right" : "wrong")
+    const ok = LTR[k] === keyOf(items[i])
+    // In a Verbal set a right answer is a cat arriving, so let it answer in its
+    // own voice rather than the generic chime — the same cat she will meet in
+    // the Wordwood, sounding the same. A wrong one stays the plain soft note:
+    // she called nobody, so nobody came.
+    const name = String(items[i].c[k] || "").trim()
+    const named = ok && kind !== "corr" && subOf(items[i], subHint) === "vr" && /^[a-z][a-z'-]*$/i.test(name)
+    sfx(named ? "call" : ok ? "right" : "wrong", named ? name : undefined)
   }
   function step(d) {
     if (d > 0 && picks[i] == null) return
@@ -319,6 +327,14 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
    * plain: reviewing answers is not a gate to open. */
   const gameMode = kind !== "corr" && subOf(it, subHint) === "vr"
   const rune = gameMode ? inscribe(it.q) : null
+  /* Who walks through when the gate opens. Deliberately only on the REVEAL, and
+   * deliberately not on the choices: the Wordwood is the game and its controls
+   * wear faces, but a practice set is the rehearsal, and on the day it counts
+   * the four choices are plain words on white. Training her to scan for a ginger
+   * tabby would be training her for a test that does not exist (rule 5).
+   * Only single words get a cat — a choice that is a phrase is not a name. */
+  const answerText = gameMode ? String(it.c[LTR.indexOf(keyOf(it))] || "").trim() : ""
+  const arrival = gameMode && gotIt && /^[a-z][a-z'-]*$/i.test(answerText) ? answerText : null
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
       <div className="flex flex-col gap-2">
@@ -350,7 +366,18 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
           {it.p ? <Passage id={it.p} /> : null}
           {gameMode ? (
             <div className="flex flex-col items-center gap-3">
-              <Gate open={gotIt} className="w-full max-w-xs" />
+              <div className="relative w-full max-w-xs">
+                <Gate open={gotIt} glow={!arrival} className="w-full" />
+                {arrival ? (
+                  <Glim
+                    key={arrival}
+                    word={arrival}
+                    stage="Bright"
+                    title={`${arrival} came to the gate`}
+                    className="motion-safe:animate-[pop_420ms_cubic-bezier(.34,1.56,.64,1)_both] absolute top-[66%] left-1/2 size-20 -translate-x-1/2 -translate-y-1/2"
+                  />
+                ) : null}
+              </div>
               <p className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">{rune.lead}</p>
               <p
                 className={cn("text-center leading-relaxed font-medium", rune.kind === "rune" ? "text-2xl font-extrabold tracking-tight" : "text-lg")}

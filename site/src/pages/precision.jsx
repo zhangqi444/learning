@@ -1,5 +1,5 @@
 import * as React from "react"
-import { BookA, CheckCircle2, Eye, EyeOff, ListChecks, RotateCcw, Send } from "lucide-react"
+import { BookA, CheckCircle2, Eye, EyeOff, ListChecks, RotateCcw, Send, Sparkles } from "lucide-react"
 
 import { D, weekLabel } from "@/lib/content"
 import { scheduleWord, wordStatus, wordSummary } from "@/lib/engine"
@@ -11,6 +11,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Textarea } from "@/components/ui/textarea"
+import { Glim } from "@/components/glim"
+import { WORD_GLOW } from "@/lib/glim"
+import { atLeast, W } from "@/lib/world"
+import { sfx } from "@/lib/sfx"
 
 const CONF = [
   { v: 1, label: "1 · shaky", hint: "I guessed or am not sure" },
@@ -55,10 +59,36 @@ function WordCard({ wk, entry, idx, state, submitted }) {
   const due = submitted && (!r.text || !r.conf || r.conf <= 1)
   const mastered = submitted && r.text && r.conf >= 2
 
+  /* This is where she MEETS the cat, so this is where it has to appear. Before
+   * she has written anything it is a shadow with two eyes — a cat that does not
+   * know you keeps its distance. Writing the word in her own words brings it
+   * partly into the light; rating it 2 or 3 brings it further. Past that the
+   * engine's own status takes over, so the card can only ever be as bright as
+   * the record behind it — `atLeast` takes the brighter of the two readings,
+   * never a flattering one. An entry like "imply / infer" is two cats, the same
+   * two the Wordwood will call by name. */
+  const names = String(entry.word).split("/").map((s) => s.trim()).filter(Boolean)
+  const glow = atLeast(WORD_GLOW[ws.status], !r.text ? "Unseen" : r.conf >= 2 ? "Flickering" : "Glimpsed")
+
   return (
     <Card className={cn("gap-4 py-5", due && "border-warning/60", mastered && "border-success/40")} data-testid="pword">
       <CardHeader className="px-5">
-        <CardTitle className="flex flex-wrap items-baseline gap-x-2">
+        <CardTitle className="flex flex-wrap items-center gap-x-2">
+          <span className="flex shrink-0 items-center -space-x-2">
+            {names.map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => sfx("call", n)}
+                aria-label={`Hear ${n}`}
+                title={`Hear ${n}`}
+                className="focus-visible:ring-ring/50 rounded-full transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]"
+                data-testid="hear-glim"
+              >
+                <Glim word={n} stage={glow} className="size-11" title={`${n} — ${glow}`} />
+              </button>
+            ))}
+          </span>
           <span className="text-muted-foreground text-xs font-normal tabular-nums">#{idx + 1}</span>
           <span className="text-xl font-semibold">{entry.word}</span>
           {entry.pos ? <span className="text-muted-foreground text-xs font-normal">{entry.pos}</span> : null}
@@ -126,7 +156,14 @@ export function Precision({ wk }) {
         <CardHeader>
           <CardDescription className="flex items-center gap-2"><BookA className="size-4" /> Verbal Reasoning · {wk} · {weekLabel(wk)}</CardDescription>
           <CardTitle className="text-2xl font-semibold tracking-tight">Session 1 — Precision Review</CardTitle>
-          <CardDescription>{data.minutes}. Explain each word in your own words, rate how sure you are, then check the meaning. Submit the whole set once every word has an answer and a rating. A word counts as <em>known</em> once it is explained here and answered right in the synonym quiz on a different day.</CardDescription>
+          {/* One CardDescription, not two: CardHeader is a two-row grid, and a
+              fourth child spills into a second column and wrecks the layout. */}
+          <CardDescription>
+            {data.minutes}. Explain each word in your own words, rate how sure you are, then check the meaning. Submit the whole set once every word has an answer and a rating. A word counts as <em>known</em> once it is explained here and answered right on a different day.
+            <span className="mt-2 block">
+              This is where you meet them. Every word is a {W.cat}, and one that does not know you yet keeps to the shadows — writing it in your own words brings it into the light. Tap a {W.cat} to hear its name.
+            </span>
+          </CardDescription>
           <CardAction>
             {sum.submitted ? <Badge variant="success"><CheckCircle2 /> Submitted</Badge> : <Badge variant="secondary" className="tabular-nums">{sum.written}/{sum.total} written</Badge>}
           </CardAction>
@@ -135,7 +172,8 @@ export function Precision({ wk }) {
           <Progress value={(sum.written / sum.total) * 100} className="h-1.5" />
           <div className="flex flex-wrap items-center gap-2">
             <Button size="sm" variant="outline" onClick={() => go(`/precision/${wk}/quiz`)} data-testid="word-quiz"><ListChecks /> Word quiz · synonyms{ws.due + ws.brushup ? ` (${ws.due + ws.brushup} due)` : ""}</Button>
-            <span className="text-muted-foreground text-xs">Four choices per word, ISEE style. Best done a day after writing the explanations.</span>
+            <Button size="sm" variant="outline" onClick={() => go(`/quest/${wk}`)} data-testid="week-wood"><Sparkles /> {W.woodTitle} · {wk}</Button>
+            <span className="text-muted-foreground text-xs">The quiz is four choices per word, ISEE style, best done a day after writing these. {W.woodTitle} is the same words as a game — either one counts.</span>
           </div>
           <div className="text-muted-foreground flex flex-wrap gap-x-4 text-sm tabular-nums">
             <span>{sum.written} of {sum.total} answered</span>

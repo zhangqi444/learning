@@ -229,6 +229,8 @@ This is why the game is where it is and nowhere else:
 |---|---|
 | **Vocabulary** (`/quest`, the Wordwood) | a word with a part of speech and a meaning is a typed function. The gate's inscription is a real sentence with one word taken out; calling the wrong name brings the wrong cat, and the wrong cat is shown doing what *that* word means. She is not eliminating three distractors, she is calling into the dark from everything she knows. |
 | **Verbal Reasoning** (`/run/vr/...`) | 178 of the 330 VR items are already a sentence with a word removed. VR is *drawn* as the gate it already is, rather than given a game to sit beside. |
+| **The precision review** (`/precision/{wk}`) | where she first meets each word, so where each cat first appears — a shadow with two eyes until she writes it in her own words. Tapping one plays its call. |
+| **The review pile** (`/review`) | the page always *said* they were sitting at the door; the due words are now drawn there. Only words — a Quantitative item is not a cat. |
 | **QR, MA, RC** | deliberately plain, and staying that way until there is a real mechanic — a number that drives something visible. A four-choice question can *gate* an action but it cannot *be* one, so forcing gates over arithmetic would just rebuild the toll booth. Do not wrap these in a game to make the coverage look even. |
 
 **The furniture.** `src/lib/world.js` holds every world noun, so renaming
@@ -238,7 +240,7 @@ anything is a one-file edit and no component writes one as a literal.
 |---|---|---|
 | the **Hearth** | her home; rooms bought at fixed published prices | `lib/base.js`, `pages/base.jsx` |
 | **Hum** | the currency, earned for *trying*, not for being right, so a hard day still counts | `lib/rewards.js` |
-| the **Wordwood** | the gates; every cast is recorded as an ordinary `vocab` attempt, so playing *is* practising | `lib/quest.js`, `pages/quest.jsx` |
+| the **Wordwood** | the gates; every cast is recorded as an ordinary `vocab` attempt, so playing *is* practising. `/quest` walks everything she has met, `/quest/W3` just that week's | `lib/quest.js`, `pages/quest.jsx` |
 | the **Glimbook** | the collection: every cat she has met, at its true brightness | `pages/base.jsx` |
 | a **Long Night** | a mock exam — an honest rehearsal, no game furniture in the way | `pages/mock.jsx` |
 
@@ -254,6 +256,13 @@ other register moves a cat off the shared scale and two cats can land a semitone
 apart. Coats are `hsl()`, cats are inline SVG, calls are oscillators: the
 single-file artifact still makes zero external requests, and `test_artifact.cjs`
 asserts it.
+
+**The game's controls wear faces; the rehearsal's do not.** In the Wordwood the
+six names she can call are drawn as cats, because that *is* the game. In a
+practice set the four choices stay plain words on white, because on the day it
+counts they will be, and training her to scan for a ginger tabby is training her
+for a test that does not exist. A VR set gets its cat only on the reveal — the
+one that walks through the opened gate. `test_features.cjs` guards both halves.
 
 **Brightness is not part of the cat.** It is how well she knows the word, read
 live from the engine and never stored: Unseen → Glimpsed → Flickering → Steady →
@@ -275,6 +284,13 @@ drift. Same for a room's lights.
 
 Sound obeys the same rules: nothing plays unprompted, everything is synthesised
 in `lib/sfx.js`, and `muted` silences all of it.
+
+The weekly plan carries a Wordwood row, but as a **hand-ticked** item
+(`auto: false`), and only once that week has yielded the six cats a walk needs.
+It produces exactly the same vocabulary evidence as the word quiz, so counting it
+too would charge her twice for one piece of work — and a game she is required to
+play stops being one. It is in the plan so she can *find* it, which was the whole
+problem: nothing outside the sidebar pointed at it.
 
 ## Hard rules
 

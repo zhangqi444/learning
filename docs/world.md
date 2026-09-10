@@ -281,6 +281,14 @@ Not one byte of any of this is fetched. The coats are `hsl()`, the cats are
 inline SVG, the calls are oscillators. The single-file artifact still makes zero
 external requests, and the test that asserts it still passes.
 
+Where the cats appear, and where they deliberately do not: she **meets** them in
+the precision review (a shadow with two eyes until she writes the word in her own
+words), **calls** them in the Wordwood, sees them **waiting** in the review pile,
+and keeps them in the Glimbook. In a practice set the four choices stay plain
+words on white — the game's controls wear faces, the rehearsal's do not, because
+on the day it counts they will not. A Verbal set gets its cat only on the reveal,
+walking through the gate it just opened.
+
 Two rules held while building it. An entry like `imply / infer` is **two** words,
 so it is two cats — otherwise the cat at the gate would not be the cat on the
 shelf. And a cat she has just called correctly is never drawn faint, even the
