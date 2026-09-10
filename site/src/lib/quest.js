@@ -67,6 +67,37 @@ function met(entry) {
 /** The cats she has met — the pool the wood draws from. */
 export function spells() { return allWords().filter(met) }
 
+/** When she first met a word: the day she explained it in her own words, or
+ *  failing that the first time she answered it. */
+function metAt(entry) {
+  const st = (Store.s.precision || {})[entry.wk]
+  const w = st && st.words && st.words[entry.word]
+  const times = []
+  if (w && String(w.text || "").trim() && w.at) times.push(w.at)
+  for (const raw of String(entry.word).split("/").map((x) => x.trim()).filter(Boolean)) {
+    const r = (Store.s.items || {})["w:" + raw]
+    if (r && r.explain && r.explain.at) times.push(r.explain.at)
+    for (const h of (r && r.hist) || []) if (h.at) times.push(h.at)
+  }
+  return times.length ? times.sort()[0] : null
+}
+
+/** Her first Glim — the first word she ever put into her own words.
+ *
+ *  Sheila asked what her first cat is. It is not chosen and it is not invented:
+ *  it is whichever word she actually met first, which the record already knows.
+ *  That makes it hers rather than ours, different for anybody else who ever used
+ *  this, and impossible to fake. Ties break on the word so it never wobbles. */
+export function firstGlim() {
+  let best = null
+  for (const e of allWords()) {
+    const at = metAt(e)
+    if (!at) continue
+    if (!best || at < best.at || (at === best.at && e.word < best.word)) best = { word: e.word, wk: e.wk, at, meaning: e.meaning }
+  }
+  return best
+}
+
 /** What each week has contributed, so a finished week visibly gives her something. */
 export function catsByWeek() {
   const out = {}

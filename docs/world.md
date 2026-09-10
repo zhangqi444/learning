@@ -266,8 +266,46 @@ promises nothing: the finished Den points at the reward shelf, where a grown-up
 decides what is actually on offer. **Nothing in the code should ever imply a cat
 is coming.**
 
-Still hers, and still open: what her own first Glim is like, and what the very
-end of the world looks like once everything is lit.
+### The last two, answered
+
+She handed these back: *"you answer for me."* So — answered, and both built,
+because an answer that only exists in a document is not an answer.
+
+**What is your first Glim like?**
+
+It is not chosen and it is not invented. **Her first Glim is the first word she
+ever put into her own words**, whichever that turns out to be, read straight out
+of her own record. Today that makes it **`benign`** — a ginger tabby, because
+that is what the letters of `benign` come to — from the Week-1 work migrated out
+of the Sheets before this site existed. It is on the dashboard, under *the first
+one that came*, and tapping it plays its call.
+
+What it is *like* is the point of doing it this way. It is not the rarest or the
+best or the one we picked for her; it is simply the one that was there first,
+and it never leaves, never dims below what she has earned, and is still on that
+card the day she sits the exam. It is also **hers** in a way nothing we invented
+could be: anybody else who ever used this would get a different cat, because
+they would have met a different word first. And it cannot be faked — there is no
+setting for it, only the record.
+
+**What happens at the very end, when the world is lit?**
+
+Every Glim Radiant. All 115 words explained in her own words and called right on
+another day — no luck, no purchase, nothing bought. The Glimbook says it once,
+when it is true:
+
+> **Every one of them knows your name.**
+
+And then it says the honest thing, which matters more than the sentence before
+it: *the real ending is still the exam, and it always was; this part just walked
+beside it.* Rule 5, at the one moment the world would most like to forget it.
+
+Two things it deliberately does not do. There is **no countdown** — no bar
+inching toward 115, no "37 to go". A target you are permanently short of is a
+debt, and this world does not do debts; until it is true, that line is just a
+count of what she knows. And the world being lit **is not the reward**. What
+happens afterwards is a family decision about a real animal, so the finished Den
+points at the reward shelf and the code promises nothing on anyone's behalf.
 
 ## 10. What this changed in code
 

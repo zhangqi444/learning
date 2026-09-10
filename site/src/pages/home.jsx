@@ -1,6 +1,6 @@
 import * as React from "react"
 import { ArrowRight, BookMarked, CheckCircle2, Flame, ListChecks, MessageSquareText, PenLine, Play, RotateCcw, Shuffle, Sparkles } from "lucide-react"
-import { effortPoints, streakInfo, thisWeekRange } from "@/lib/engine"
+import { effortPoints, streakInfo, thisWeekRange, wordStatus } from "@/lib/engine"
 import { reviewPath, reviewTargetLabel, unseenReviews } from "@/lib/reviews"
 import { currentBook, readToday } from "@/lib/books"
 import { ReadinessCard } from "@/pages/score"
@@ -9,7 +9,11 @@ import { ReadingCard } from "@/pages/books"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
 import { D, ORDER, SUBJ, accuracyByWeek, currentWeek, fmtDate, nextSet, overall, recentSets, subjProgress, weekLabel } from "@/lib/content"
-import { W } from "@/lib/world"
+import { W, atLeast } from "@/lib/world"
+import { firstGlim } from "@/lib/quest"
+import { Glim } from "@/components/glim"
+import { WORD_GLOW } from "@/lib/glim"
+import { sfx } from "@/lib/sfx"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
@@ -43,6 +47,7 @@ export function TodayCard() {
   const st = streakInfo()
   const pts = effortPoints(thisWeekRange())
   const book = currentBook()
+  const first = firstGlim()
 
   const next = nextUp()
   const week = weekLeft(cur)
@@ -90,6 +95,26 @@ export function TodayCard() {
           <div className="text-success flex items-center gap-2 rounded-md border px-3 py-2.5 text-sm font-medium"><CheckCircle2 className="size-4" /> Nothing hanging over today — anything now is ahead of the plan.</div>
         )}
       </CardContent>
+      {/* The first one that came. Derived from her own record — whichever word
+          she actually put into her own words first — so it is hers rather than
+          ours, and cannot be faked. It never changes and it never leaves. */}
+      {first ? (
+        <CardContent className="pt-0">
+          <button
+            type="button"
+            onClick={() => { sfx("call", first.word); go("/quest") }}
+            className="hover:bg-accent/50 focus-visible:ring-ring/50 -mx-2 flex w-full items-center gap-3 rounded-xl px-2 py-1.5 text-left transition-colors outline-none focus-visible:ring-[3px]"
+            data-testid="first-glim"
+            data-word={first.word}
+          >
+            <Glim word={first.word} stage={atLeast(WORD_GLOW[wordStatus(first.word).status])} className="size-11" title={first.word} />
+            <span className="min-w-0 flex-1">
+              <span className="text-muted-foreground block text-xs">The first one that came</span>
+              <span className="block truncate text-sm font-semibold">{first.word}</span>
+            </span>
+          </button>
+        </CardContent>
+      ) : null}
       <CardFooter className="text-muted-foreground flex-wrap gap-x-4 gap-y-1 text-xs">
         <span className="flex items-center gap-1.5"><Flame className={cn("size-3.5", st.current ? "text-warning" : "")} />{st.current ? `${st.current}-day streak` : "No streak yet"}{st.activeToday ? " · something done today" : ""}</span>
         <span className="flex items-center gap-1.5"><Sparkles className="text-primary size-3.5" />{pts} {W.currency} this week</span>

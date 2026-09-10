@@ -61,6 +61,21 @@ async function runThrough(pg, pick, max = 60) {
     !/game/i.test(await pg.textContent('[data-slot=sidebar]')), world.label);
   check('Essay sits in the Subjects card as its own row', /Essay/.test(await pg.textContent('[data-testid=subjects]')) && /0 of 8 weeks/.test(await pg.textContent('[data-testid=subjects]')));
   check('dashboard Coming up lists a mock', /Coming up.*Split diagnostic/.test(await body(pg)));
+  // Her first Glim is derived from her own record — the first word she ever put
+  // into her own words — so it is hers, not ours, and cannot be faked.
+  const firstCat = await pg.$eval('[data-testid=first-glim]', (e) => e.dataset.word).catch(() => null);
+  check('the first cat that ever came is drawn on the dashboard', !!firstCat, firstCat || 'none — no word met yet');
+  check('and it is the earliest word in her own record, not a chosen one', await pg.evaluate((w) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const times = [];
+    for (const wk of Object.keys(s.precision || {})) {
+      for (const [word, r] of Object.entries((s.precision[wk] || {}).words || {})) {
+        if (r && String(r.text || '').trim() && r.at) times.push([r.at, word]);
+      }
+    }
+    times.sort();
+    return !times.length || times[0][1] === w || times[0][0] === (times.find(([, x]) => x === w) || [])[0];
+  }, firstCat), firstCat);
 
   console.log('== VR plays as the gate');
   // Render-only checks: these answer nothing, so they write no records and are
@@ -383,6 +398,9 @@ async function runThrough(pg, pick, max = 60) {
   check('and the page never asks for money or claims to be a charity',
     !/donate now|give now|your donation|we are a|our charity|support us/i.test(help), help.slice(0, 60));
   check('the invented cats say they are invented', /invented/i.test(await pg.textContent('[data-testid=collections]')));
+  // The ending is announced only when it is true. A world that keeps telling you
+  // how far off you are is a debt, and this one does not do those.
+  check('nothing announces the ending before it has happened', (await pg.$('[data-testid=all-lit]')) === null);
   await pg.click('[data-testid=real-cats-toggle]');
   // Collections are earned, never bought: no price, no buy control, and the
   // count has to agree with the words the engine actually calls "known".

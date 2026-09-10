@@ -382,6 +382,20 @@ function Collections() {
           ) : (
             <p className="text-muted-foreground text-sm">No {W.cats} here yet. Write a word in your own words, then call it right on another day, and it moves in.</p>
           )}
+          {/* What "the world is lit" means, said once and only when it is true.
+              It is deliberately not a progress bar counting down to it: a target
+              you are always short of is a debt, and this world does not do
+              those. Until then the line below is just the count. */}
+          {shelf.length && known.length === cards.length ? (
+            <div className="border-success/40 bg-success-soft mt-3 rounded-xl border-2 p-3 text-sm" data-testid="all-lit">
+              <p className="font-bold">Every one of them knows your name.</p>
+              <p className="mt-1">
+                That is the whole {W.world.toLowerCase()} lit. Nothing here was luck and nothing was bought — you
+                learned {cards.length} words and they all came when you called. The real ending is still the exam,
+                and it always was; this part just walked beside it.
+              </p>
+            </div>
+          ) : null}
           {shelf.length ? (
             <p className="text-muted-foreground mt-3 text-xs tabular-nums">
               {known.length} Radiant · {met.length - known.length} still finding their light · {cards.length - met.length} not met yet
