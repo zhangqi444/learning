@@ -281,11 +281,34 @@ export const Store = {
     if (!remote || !remote.results) return
     // keyed slices: last-write-wins per key by `at`. `reviews` are written outside the
     // app (see lib/reviews.js), so a remote copy this device has never seen must land.
-    for (const slice of ["precision", "essays", "mocks", "checklists", "mixed", "badges", "rewards", "books", "reviews", "reviewsSeen", "base"]) {
+    for (const slice of ["precision", "essays", "mocks", "checklists", "mixed", "badges", "rewards", "reviews", "reviewsSeen", "base"]) {
       const rs = remote[slice] || {}, ls = this.s[slice]
       for (const k of Object.keys(rs)) {
         if (!rs[k] || typeof rs[k] !== "object") continue
         if (!ls[k] || ts(rs[k].at) > ts(ls[k].at)) ls[k] = rs[k]
+      }
+    }
+    // A book is two append-only logs — the days she read and the words she kept — with a
+    // few scalars on top. Last-write-wins on the whole record loses a reading day logged
+    // on her other device, and once lost it is gone: nothing recomputes it. So the logs
+    // are unioned, one session per day per book (lib/books.js) and one entry per word,
+    // and only the scalars follow the newer copy.
+    {
+      const rs = remote.books || {}, ls = this.s.books
+      for (const k of Object.keys(rs)) {
+        const rr = rs[k], lr = ls[k]
+        if (!rr || typeof rr !== "object") continue
+        if (!lr) { ls[k] = rr; continue }
+        const newer = ts(rr.at) > ts(lr.at) ? rr : lr, older = newer === rr ? lr : rr
+        const byDay = {}
+        for (const s of [...(older.sessions || []), ...(newer.sessions || [])]) if (s && s.on) byDay[s.on] = s
+        const words = [], seenWord = {}
+        for (const w of [...(older.words || []), ...(newer.words || [])]) {
+          const key = String((w && w.w) || "").toLowerCase()
+          if (key && !seenWord[key]) { seenWord[key] = 1; words.push(w) }
+        }
+        const sessions = Object.keys(byDay).sort().map((d) => byDay[d])
+        ls[k] = { ...newer, sessions: sessions.slice(-400), words }
       }
     }
     // learning records: newer copy wins the schedule/tags, attempt history is the union
