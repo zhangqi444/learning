@@ -125,6 +125,38 @@ export function AppSidebar({ route, ...props }) {
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Mock exams" isActive={top === "mock"} onClick={() => nav("/mock")}>
+                  <Timer />
+                  <span>Mock exams</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Calendar" isActive={top === "calendar"} onClick={() => nav("/calendar")}>
+                  <CalendarDays />
+                  <span>Calendar</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* The world's own two: the place she builds and what the work is for.
+            Neither produces a single piece of learning evidence, which is why
+            they were the odd ones out in the working list above.
+
+            The Wordwood is deliberately NOT here. Every gate in it is recorded
+            as an ordinary `vocab` attempt — the same evidence the word quiz
+            gives — so filing it under the world's heading would say it does not
+            count, and would undo the work of getting the weekly plan to point at
+            it in the first place. It stays with the practice, because it is
+            practice. Nor is this group called "Games": that phrase means "the
+            fun after the work", which is the one framing this whole design
+            exists to avoid. */}
+        <SidebarGroup>
+          <SidebarGroupLabel>{W.world}</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
                 <SidebarMenuButton tooltip={W.homeTitle} isActive={top === "base"} onClick={() => nav("/base")}>
                   <Blocks />
                   <span>{W.homeTitle}</span>
@@ -137,18 +169,6 @@ export function AppSidebar({ route, ...props }) {
                   <span>Rewards</span>
                 </SidebarMenuButton>
                 {fresh ? <SidebarMenuBadge className="pointer-events-none" data-testid="rewards-new"><span className="bg-primary size-2 rounded-full" title={`${fresh} new badge${fresh === 1 ? "" : "s"}`} /></SidebarMenuBadge> : null}
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Mock exams" isActive={top === "mock"} onClick={() => nav("/mock")}>
-                  <Timer />
-                  <span>Mock exams</span>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Calendar" isActive={top === "calendar"} onClick={() => nav("/calendar")}>
-                  <CalendarDays />
-                  <span>Calendar</span>
-                </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>

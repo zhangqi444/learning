@@ -183,6 +183,12 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
   count that looks like an alarm.
 - Every page must be reachable and escapable from the breadcrumb; the sidebar is
   behind a drawer on phones, so nothing may live only there.
+- The nav is three groups: the working list, then the **world** (the Den and
+  Rewards — the only two surfaces that produce no learning evidence), then
+  **Subjects**. The Wordwood stays in the working list because every gate in it
+  is recorded as ordinary `vocab` practice, and the group is never called
+  "Games": that phrase means "the fun after the work", which is the framing the
+  whole design exists to avoid.
 - Container queries (`@md/main:`) rather than viewport breakpoints inside the shell.
 - Dark mode is a first-class theme, not an inversion. Tokens in `src/index.css`.
 - Numbers use `tabular-nums`. Dates render through `fmtDate`.

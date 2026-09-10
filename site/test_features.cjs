@@ -42,6 +42,23 @@ async function runThrough(pg, pick, max = 60) {
   check('sidebar has Essay / Mock exams / Calendar', ['Essay', 'Mock exams', 'Calendar'].every((t) => side.includes(t)), side.join(','));
   check('Essay sits with the subjects (after Reading Comprehension)', side.indexOf('Essay') === side.indexOf('Reading Comprehension') + 1);
   check('the ISEE subject and the reading log are told apart in the nav', side.indexOf('Reading Comprehension') >= 0 && side.indexOf('Reading') > side.indexOf('Reading Comprehension'), side.join(','));
+  // The nav is grouped, and what is in which group is a design decision worth
+  // holding: the world's two live together, and the Wordwood stays with the
+  // practice because it produces the same evidence the word quiz does. Keyed on
+  // group POSITION rather than on the labels, which are the world's nouns and
+  // still Sheila's to rename.
+  const groups = await pg.$$eval('[data-slot=sidebar-group]', (n) => n.map((g) => ({
+    label: (g.querySelector('[data-slot=sidebar-group-label]') || {}).textContent || '',
+    items: [...g.querySelectorAll('[data-slot=sidebar-menu-button]')].map((b) => b.textContent.trim()),
+  })));
+  const labelled = groups.filter((g) => g.label);
+  check('the nav is grouped, not one long list', labelled.length >= 2, labelled.map((g) => g.label).join(' | '));
+  const world = labelled[0];
+  check("the world's own two sit together, away from the work", world.items.length === 2, world.label + ': ' + world.items.join(','));
+  check('and the Wordwood is not among them — it is practice, and it counts',
+    !world.items.some((t) => /wood/i.test(t)) && groups[0].items.some((t) => /wood/i.test(t)), groups[0].items.join(','));
+  check('nothing calls it "Games", which would mean "the fun after the work"',
+    !/game/i.test(await pg.textContent('[data-slot=sidebar]')), world.label);
   check('Essay sits in the Subjects card as its own row', /Essay/.test(await pg.textContent('[data-testid=subjects]')) && /0 of 8 weeks/.test(await pg.textContent('[data-testid=subjects]')));
   check('dashboard Coming up lists a mock', /Coming up.*Split diagnostic/.test(await body(pg)));
 
