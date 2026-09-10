@@ -344,6 +344,18 @@ async function runThrough(pg, pick, max = 60) {
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=rooms]');
   check('a built room survives a reload and cannot be un-built', (await pg.$eval('[data-testid=room][data-id=word-lab]', (e) => e.dataset.built)) === '1' && (await pg.$('[data-testid=build-word-lab]')) === null);
+  // Real cats. The invented ones are labelled as invented, and the advocacy is
+  // sourced the same way the care guidance is — and asks nobody for money.
+  await pg.waitForSelector('[data-testid=real-cats]');
+  await pg.click('[data-testid=real-cats-toggle]');
+  await pg.waitForSelector('[data-testid=help-way]');
+  const help = (await pg.textContent('[data-testid=real-cats]')).replace(/\s+/g, ' ');
+  const helpSrc = await pg.$$eval('[data-testid=help-way] a[href^="https://"]', (n) => n.map((a) => a.href));
+  check('every way of helping names who says so', helpSrc.length === (await pg.$$('[data-testid=help-way]')).length && helpSrc.length >= 4, helpSrc.length + ' sourced');
+  check('and the page never asks for money or claims to be a charity',
+    !/donate now|give now|your donation|we are a|our charity|support us/i.test(help), help.slice(0, 60));
+  check('the invented cats say they are invented', /invented/i.test(await pg.textContent('[data-testid=collections]')));
+  await pg.click('[data-testid=real-cats-toggle]');
   // Collections are earned, never bought: no price, no buy control, and the
   // count has to agree with the words the engine actually calls "known".
   await pg.waitForSelector('[data-testid=collections]');

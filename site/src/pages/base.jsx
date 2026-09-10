@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Hammer, Lightbulb, Lock } from "lucide-react"
 
-import { buildRoom, rooms, baseCounts, skillCrests, wordCards } from "@/lib/base"
+import { buildRoom, catHelp, rooms, baseCounts, skillCrests, wordCards } from "@/lib/base"
 import { LTR, SUBJ } from "@/lib/content"
 import { go } from "@/lib/router"
 import { wallet } from "@/lib/rewards"
@@ -275,8 +275,60 @@ export function Base() {
         {list.map((r) => <RoomCard key={r.id} room={r} balance={w.balance} onBuild={onBuild} />)}
       </div>
 
+      <RealCats />
       <Collections />
     </div>
+  )
+}
+
+/* Real cats.
+ *
+ * Sheila's idea was to link each Glim to a specific cat waiting to be fostered.
+ * The spirit of it is right and this is as close as it can honestly get. Pinning
+ * one real, named, adoptable animal to one vocabulary word cannot be done here:
+ * it needs a live shelter feed, which means an API key sitting in a public
+ * static site and an external request the artifact build is asserted never to
+ * make — and worse, listings change. A cat gets adopted, or does not make it,
+ * and a word she is learning would arrive carrying that news. That is not a
+ * thing to hand a ten-year-old on a Tuesday.
+ *
+ * So the link is at the level of the collection rather than the individual, and
+ * it points at pages the charities keep current themselves. Every line is
+ * sourced, nothing is invented, and nothing here asks anyone for money. */
+function RealCats() {
+  const help = catHelp()
+  const [open, setOpen] = React.useState(false)
+  if (!help) return null
+  return (
+    <Card className="gap-3" data-testid="real-cats">
+      <CardHeader>
+        <CardTitle className="text-base">Real cats</CardTitle>
+        <CardDescription className="max-w-prose">{help.note}</CardDescription>
+        <CardAction>
+          <Button size="sm" variant={open ? "secondary" : "outline"} onClick={() => setOpen((v) => !v)} data-testid="real-cats-toggle">
+            {open ? "Close" : "What helps"}
+          </Button>
+        </CardAction>
+      </CardHeader>
+      {open ? (
+        <CardContent className="flex flex-col gap-3">
+          {help.ways.map((w) => (
+            <div key={w.what} className="border-l-2 pl-3" data-testid="help-way">
+              <p className="text-sm font-semibold">{w.what}</p>
+              <p className="text-muted-foreground text-sm leading-relaxed">{w.how}</p>
+              <p className="text-muted-foreground text-[11px]">
+                {"Source: "}
+                <a href={w.source.url} target="_blank" rel="noreferrer" className="underline underline-offset-2">{w.source.name}</a>
+              </p>
+            </div>
+          ))}
+          <p className="text-muted-foreground text-xs leading-relaxed">
+            These are the organisations the advice in the {W.homeTitle} comes from. Which shelter is near you is a
+            question for a grown-up, and this page does not know the answer — it would rather say so than guess.
+          </p>
+        </CardContent>
+      ) : null}
+    </Card>
   )
 }
 
@@ -314,7 +366,7 @@ function Collections() {
       <Card className="gap-3">
         <CardHeader>
           <CardTitle className="text-base">{W.book} · words</CardTitle>
-          <CardDescription>Every {W.cat} you have met. It brightens as you get to know it, and it is Radiant once you have written it in your own words and called it right on a later day.</CardDescription>
+          <CardDescription>Every {W.cat} you have met. It brightens as you get to know it, and it is Radiant once you have written it in your own words and called it right on a later day. Every one of them is invented — its coat comes out of the letters of the word.</CardDescription>
           <CardAction><Badge variant="outline" className="tabular-nums">{known.length} / {cards.length}</Badge></CardAction>
         </CardHeader>
         <CardContent>

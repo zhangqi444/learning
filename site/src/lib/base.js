@@ -50,6 +50,10 @@ const COSTS = [
  * Read lazily, not at import: `D` is the bundle and it is not set until
  * setBundle() runs, so anything computed at module load would see null. */
 const care = (id) => (((D && D.catcare) || {}).items || {})[id] || {}
+/** Real cats, and what actually helps them — the advocacy half of the Den. Same
+ *  rule as the care guidance: every line carries a named source, none of it is
+ *  invented, and nothing here asks anybody for money. */
+export function catHelp() { return ((D && D.catcare) || {}).help || null }
 export const PRICES = Object.fromEntries(COSTS.map(([id, cost]) => [id, cost]))
 export function roomList() {
   return COSTS.map(([id, cost, lit]) => {

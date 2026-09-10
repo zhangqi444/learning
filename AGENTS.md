@@ -28,7 +28,7 @@ content/                 the source of truth for everything the site teaches
   calendar.json            researched ISEE dates, formats, school deadlines
   books.json               reading shelf: starter books + suggested reads
   aops.json                ISEE skill → AoPS chapter map
-  catcare.json             what a cat needs, for the Den — every item carries its source
+  catcare.json             what a cat needs, and what helps real cats — every item carries its source
 site/
   make_bundle.py           content/** → site/content/bundle.json (the app's only data input)
   build_seed.py *          (repo root) Sheets → site/content/seed.json, her migrated Week-1 work
@@ -310,6 +310,26 @@ a cat is coming**.
 **The ledger ids are permanent.** `Store.s.base` records purchases by id and an
 unknown id is silently dropped, which would un-build something already paid for.
 Rename a thing freely; re-key one never.
+
+**Real cats, and the one thing not to build.** The Den also carries the advocacy
+half: what fostering actually involves, why shelters need it, trap-neuter-return,
+neutering, giving time. Same rule — every line sourced, nothing invented, and the
+page asks nobody for money and claims no affiliation. `test_features.cjs` guards
+both.
+
+The idea that keeps coming up is linking each Glim to a specific cat waiting to
+be fostered. **Do not build it.** It needs a live shelter feed, which means an API
+key in a public static site and an external request the artifact build is
+asserted never to make — and listings change. A cat gets adopted, or does not
+make it, and a word she is learning would arrive carrying that news. The link
+belongs at the level of the collection, pointing at pages the charities keep
+current themselves, which is what is there.
+
+**The questions themselves stay as they are.** Cats are the theme and the game;
+they are not a reskin of the content. 244 of the 408 QR/MA items have a story
+whose objects are arbitrary and could carry a cat, and the owner's decision is
+that they should not: the practice has to look like the test. Reading
+Comprehension likewise keeps its own passages.
 
 **Brightness is not part of the cat.** It is how well she knows the word, read
 live from the engine and never stored: Unseen → Glimpsed → Flickering → Steady →
