@@ -99,7 +99,9 @@ export function Review() {
                 </CardHeader>
                 {waiting.length ? (
                   <CardContent className="flex flex-wrap items-end gap-2" data-testid={`at-the-door-${s}`}>
-                    {waiting.slice(0, 12).map((w) => (
+                    {/* Eight is a row of faces; twelve is a crowd, and the count
+                        beside it already says how many there really are. */}
+                    {waiting.slice(0, 8).map((w) => (
                       <button
                         key={w}
                         type="button"
@@ -112,7 +114,7 @@ export function Review() {
                         <span className="w-full truncate text-center text-[10px] font-medium">{w}</span>
                       </button>
                     ))}
-                    {waiting.length > 12 ? <span className="text-muted-foreground self-center text-xs">+{waiting.length - 12} more</span> : null}
+                    {waiting.length > 8 ? <span className="text-muted-foreground self-center text-xs">+{waiting.length - 8} more</span> : null}
                   </CardContent>
                 ) : null}
                 {top.length ? (

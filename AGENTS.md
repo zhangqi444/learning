@@ -231,7 +231,26 @@ This is why the game is where it is and nowhere else:
 | **Verbal Reasoning** (`/run/vr/...`) | 178 of the 330 VR items are already a sentence with a word removed. VR is *drawn* as the gate it already is, rather than given a game to sit beside. |
 | **The precision review** (`/precision/{wk}`) | where she first meets each word, so where each cat first appears — a shadow with two eyes until she writes it in her own words. Tapping one plays its call. |
 | **The review pile** (`/review`) | the page always *said* they were sitting at the door; the due words are now drawn there. Only words — a Quantitative item is not a cat. |
-| **QR, MA, RC** | deliberately plain, and staying that way until there is a real mechanic — a number that drives something visible. A four-choice question can *gate* an action but it cannot *be* one, so forcing gates over arithmetic would just rebuild the toll booth. Do not wrap these in a game to make the coverage look even. |
+| **QR, MA, RC** | deliberately plain. See **Why the numbers are not a game yet** below before trying to change this. Do not wrap them in a game to make the coverage look even. |
+
+**Why the numbers are not a game yet.** This has been looked at properly, so the
+next person does not have to guess. Two mechanics were considered and both are
+blocked by the *content*, not by the UI:
+
+- **A balance** — "which side is heavier" is a real weighing, and quantitative
+  comparison items are natively that shape. But the bank has **8 comparison-shaped
+  items out of 408**. There is nothing to build it on.
+- **The wrong number doing the wrong thing** — the vocabulary equivalent, and the
+  only version that would pass the rule above: pick 24 instead of 21 and see that
+  24 is what you get if you divide instead of multiply. That needs each distractor
+  to carry *what mistake produces it*, and none of them do. Deriving it would mean
+  inventing the misconception, which the content rules forbid.
+
+Two facts worth keeping: 71% of QR and 91% of MA items have all-numeric choices,
+and only 145 of 408 explanations show two or more steps of working. So the
+unlocking change is **content, not code** — a `why` field per distractor across
+~400 items. That would also improve the plain runner on its own, because a wrong
+answer could then say what the mistake was instead of "The answer is C".
 
 **The furniture.** `src/lib/world.js` holds every world noun, so renaming
 anything is a one-file edit and no component writes one as a literal.

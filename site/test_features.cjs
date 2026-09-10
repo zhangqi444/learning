@@ -354,6 +354,21 @@ async function runThrough(pg, pick, max = 60) {
   check('every cat is drawn, not fetched — nothing on the shelf is an image', (await pg.$$('[data-testid=word-cards] img')).length === 0 && coats.length > 1);
   check('two different words are two different cats', new Set(coats).size === coats.length, coats.slice(0, 3).join(' | '));
   const benignCoat = coats.find((c) => c.startsWith('benign:'));
+  // A skill is a cat too, and this is the only place all six brightnesses get
+  // used — words never reach Bright. The badge still counts the Radiant ones
+  // only: drawing a half-lit skill must not be mistaken for finishing it.
+  const crestStages = await pg.$$eval('[data-testid=skill-crest]', (n) => n.map((e) => e.dataset.level + '/' + e.querySelector('[data-testid=glim]').dataset.stage));
+  const collText = (await pg.textContent('[data-testid=collections]')).replace(/\s+/g, ' ');
+  const crestBadge = /· skills[\s\S]*?(\d+) \/ (\d+)/.exec(collText);
+  check('every skill she has practised is drawn, at the level the engine reports', crestStages.length > 0, crestStages.slice(0, 3).join(' | '));
+  check('the level a skill reports and the face it wears can never disagree',
+    crestStages.every((c) => {
+      const [level, stage] = c.split('/');
+      return { 'Not started': 'Unseen', Started: 'Glimpsed', 'Needs work': 'Flickering', Familiar: 'Steady', Proficient: 'Bright', Mastered: 'Radiant' }[level] === stage;
+    }), crestStages.slice(0, 2).join(' | '));
+  check('and only the Radiant ones count as earned',
+    !!crestBadge && +crestBadge[1] === crestStages.filter((c) => c.endsWith('/Radiant')).length && +crestBadge[2] === crestStages.length,
+    crestBadge ? `badge ${crestBadge[1]}/${crestBadge[2]}, drawn ${crestStages.length}` : 'no badge');
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=word-cards]');
   check('and the same word is the same cat after a reload — nothing about it is stored',

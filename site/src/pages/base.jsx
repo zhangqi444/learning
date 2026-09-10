@@ -148,6 +148,11 @@ function Collections() {
   const known = cards.filter((c) => c.status === "known")
   const met = cards.filter((c) => c.status !== "new")
   const crests = skillCrests()
+  const radiant = crests.filter((c) => c.level === "Mastered")
+  // brightest first, same as the words, so what she owns leads
+  const skillShelf = crests
+    .slice()
+    .sort((a, b) => GLOW_ORDER.indexOf(W.glow[b.level]) - GLOW_ORDER.indexOf(W.glow[a.level]) || a.sk.localeCompare(b.sk))
   // Brightest first, so the ones she owns lead and the dim ones are the
   // invitation. An entry like "imply / infer" is two words, and the Wordwood
   // calls each of them by its own name — so the book draws each of them as its
@@ -189,17 +194,19 @@ function Collections() {
       <Card className="gap-3">
         <CardHeader>
           <CardTitle className="text-base">{W.book} · skills</CardTitle>
-          <CardDescription>One {W.cat} for every skill taken all the way to Radiant.</CardDescription>
-          <CardAction><Badge variant="outline" className="tabular-nums">{crests.length}</Badge></CardAction>
+          <CardDescription>A skill is a {W.cat} too. Every one you have practised is here at the brightness you have actually reached — Radiant is all the way.</CardDescription>
+          <CardAction><Badge variant="outline" className="tabular-nums">{radiant.length} / {crests.length}</Badge></CardAction>
         </CardHeader>
         <CardContent>
           {crests.length ? (
-            <div className="flex flex-wrap gap-1.5" data-testid="skill-crests">
-              {crests.map((c) => (
-                <span key={c.sub + c.sk} className="flex items-center gap-1.5 rounded-lg border-2 px-2.5 py-1 text-xs font-semibold" style={{ borderColor: SUBJ[c.sub].color }}>
-                  <span className="inline-block size-2 rounded-full" style={{ background: SUBJ[c.sub].color }} />
-                  {c.sk}
-                </span>
+            <div className="flex flex-wrap gap-2" data-testid="skill-crests">
+              {/* Skill names run to "Whole-number operations", so these get a
+                  wider column and two lines rather than a row of "Whole-n…". */}
+              {skillShelf.map((c) => (
+                <figure key={c.sub + c.sk} className="flex w-[5.5rem] flex-col items-center gap-0.5" data-testid="skill-crest" data-level={c.level} title={`${SUBJ[c.sub].name} · ${c.sk} — ${W.glow[c.level]}`}>
+                  <Glim word={c.sub + ":" + c.sk} stage={W.glow[c.level]} className="size-12" title={`${c.sk} — ${W.glow[c.level]}`} />
+                  <figcaption className="line-clamp-2 w-full text-center text-[11px] leading-tight font-semibold break-words hyphens-auto" lang="en" style={{ color: SUBJ[c.sub].color }}>{c.sk}</figcaption>
+                </figure>
               ))}
             </div>
           ) : (

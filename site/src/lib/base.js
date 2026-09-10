@@ -110,10 +110,14 @@ export function wordCards() {
     .map((e) => ({ word: e.word, meaning: e.meaning, status: wordStatus(e.word).status }))
     .sort((a, b) => a.word.localeCompare(b.word))
 }
+/** Every skill she has actually practised, with the level the engine reports.
+ *  Not only the finished ones: a skill halfway there is a cat halfway into the
+ *  light, and seeing it is the reason to go back to it. The Mastered count is
+ *  still counted separately — being drawn is not the same as being earned. */
 export function skillCrests() {
   const out = []
   for (const sub of ORDER) {
-    for (const L of skillsFor(sub)) if (L && L.level === "Mastered") out.push({ sub, sk: L.sk, acc: L.acc })
+    for (const L of skillsFor(sub)) if (L && L.attempted) out.push({ sub, sk: L.sk, acc: L.acc, level: L.level })
   }
   return out
 }
@@ -122,6 +126,6 @@ export function collectionCounts() {
   return {
     words: cards.filter((c) => c.status === "known").length,
     wordsTotal: cards.length,
-    crests: skillCrests().length,
+    crests: skillCrests().filter((c) => c.level === "Mastered").length,
   }
 }

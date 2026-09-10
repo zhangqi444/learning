@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Glim } from "@/components/glim"
 
 const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`
 const tone = (s) => s == null ? "text-muted-foreground" : s >= 85 ? "text-success" : s >= 70 ? "text-primary" : s >= 50 ? "text-warning" : "text-destructive"
@@ -205,7 +206,17 @@ export function Score() {
                     <TableBody>
                       {skills.slice(0, 6).map((k) => (
                         <TableRow key={k.sk}>
-                          <TableCell className="font-medium">{k.sk}</TableCell>
+                          {/* A skill is a cat too (docs/world.md §2), and this is
+                              the only place the full six brightnesses are used:
+                              words never reach Bright, skills do. Drawn straight
+                              from skillLevel() through W.glow, so the face and
+                              the badge beside it can never disagree. */}
+                          <TableCell className="font-medium">
+                            <span className="flex items-center gap-2">
+                              <Glim word={s + ":" + k.sk} stage={W.glow[k.level]} className="size-7" title={`${k.sk} — ${W.glow[k.level]}`} />
+                              {k.sk}
+                            </span>
+                          </TableCell>
                           <TableCell className="text-right tabular-nums">{k.acc == null ? "—" : Math.round(k.acc * 100) + "%"}</TableCell>
                           <TableCell className="text-right"><LevelBadge level={k.level} /></TableCell>
                         </TableRow>
