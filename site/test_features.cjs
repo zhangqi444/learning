@@ -61,6 +61,17 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/run/ma/W2/0'; });
   await pg.waitForSelector('[data-testid=question]');
   check('maths is left plain — the frame is not sprayed over everything', (await pg.$('[data-testid=gate]')) === null);
+  // The cat reacts AROUND the question, never inside it. Maths, Quantitative and
+  // Reading get their skill's own cat on the reveal — the same cat the Glimbook
+  // holds — while the question and the four choices stay exactly as printed.
+  check('nothing is drawn on a maths question or its choices',
+    (await pg.$$('[data-testid=question] [data-testid=glim]')).length === 0 && (await pg.$$('[data-testid=choice] [data-testid=glim]')).length === 0);
+  await pg.click('[data-testid=choice] >> nth=0');
+  await pg.waitForSelector('[data-testid=reveal]');
+  const react = await pg.$eval('[data-testid=reveal] [data-testid=glim]', (e) => e.dataset.word).catch(() => null);
+  check('but a cat turns up beside the answer, and it is the skill\'s own cat', !!react && /^ma:/.test(react), react || 'none');
+  const skillOf = await pg.$$eval('[data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
+  check('and never drawn dimmer than Steady, so being right is never faint', skillOf.every((s) => ['Steady', 'Bright', 'Radiant'].includes(s)), skillOf.join(','));
 
   console.log('== precision review');
   await pg.evaluate(() => { location.hash = '#/s/vr/W1'; });

@@ -281,6 +281,18 @@ apart. Coats are `hsl()`, cats are inline SVG, calls are oscillators: the
 single-file artifact still makes zero external requests, and `test_artifact.cjs`
 asserts it.
 
+**Cats react around a question, never inside one.** The question text and the
+four choices are exactly what the real test prints, in every subject. What the
+cats do is everything around that: on the reveal in a Maths, Quantitative or
+Reading set, the **skill's own cat** turns up — the same cat the Glimbook holds,
+at the brightness the engine really reports for that skill, so the Percent cat
+gets brighter as she gets better at percent. It answers in its own voice, and the
+finished-set card shows one cat per skill she actually got right. A miss keeps
+the plain soft note and the cat does not leave, sulk or dim: nothing is taken
+away for being wrong (hard rule 3). Verbal already has the cat that walks through
+its gate and does not get a second one. **Corrections and mock sections get
+nothing** — going back over answers is not an event, and a mock is a rehearsal.
+
 **The game's controls wear faces; the rehearsal's do not.** In the Wordwood the
 six names she can call are drawn as cats, because that *is* the game. In a
 practice set the four choices stay plain words on white, because on the day it

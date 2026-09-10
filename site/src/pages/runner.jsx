@@ -2,11 +2,12 @@ import * as React from "react"
 import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
-import { BUDGET, CAUSES, findItem, paceFlag, rec, recordAttempts, setTag } from "@/lib/engine"
+import { BUDGET, CAUSES, findItem, paceFlag, rec, recordAttempts, setTag, skillLevel } from "@/lib/engine"
 import { syncBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
+import { W, atLeast } from "@/lib/world"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -86,6 +87,17 @@ function picksFromResult(items, r) {
 }
 
 const subOf = (q, fallback) => (findItem(q.id) || {}).sub || fallback || "vr"
+
+/** The skill's own cat — the same one the Glimbook holds — at the brightness the
+ *  engine really reports for it, never dimmer than Steady. `sub` null means this
+ *  surface does not get one (Verbal has the cat at its gate; corrections get
+ *  nothing, because going back over answers is not an event). */
+function catFor(q, sub) {
+  if (!sub || !q || !q.sk) return null
+  let level = "Not started"
+  try { level = skillLevel(sub, q.sk).level } catch { /* an unknown skill is drawn at the floor */ }
+  return { word: sub + ":" + q.sk, sk: q.sk, stage: atLeast(W.glow[level], "Steady") }
+}
 const fmtSec = (ms) => `${Math.round(ms / 1000)} s`
 
 /** Why did this go wrong? One tap for the cause, one for "were you sure". */
@@ -169,9 +181,15 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
     // own voice rather than the generic chime — the same cat she will meet in
     // the Wordwood, sounding the same. A wrong one stays the plain soft note:
     // she called nobody, so nobody came.
+    const sub = subOf(items[i], subHint)
     const name = String(items[i].c[k] || "").trim()
-    const named = ok && kind !== "corr" && subOf(items[i], subHint) === "vr" && /^[a-z][a-z'-]*$/i.test(name)
-    sfx(named ? "call" : ok ? "right" : "wrong", named ? name : undefined)
+    // In a Verbal set the answer IS a name, so that cat answers in its own
+    // voice. Everywhere else the thing with a name is the SKILL, so the skill's
+    // cat is the one that turns up — the same cat she has in the Glimbook, so
+    // getting Percent right sounds like Percent. A wrong answer keeps the plain
+    // soft note: nobody was called, so nobody came, and nothing is taken away.
+    const word = ok && kind !== "corr" ? (sub === "vr" && /^[a-z][a-z'-]*$/i.test(name) ? name : items[i].sk ? sub + ":" + items[i].sk : null) : null
+    sfx(word ? "call" : ok ? "right" : "wrong", word || undefined)
   }
   function step(d) {
     if (d > 0 && picks[i] == null) return
@@ -239,6 +257,20 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
     const tagged = canTag ? misses.filter((q) => (rec(q.id) || {}).tag).length : 0
     const timed = done.times ? items.map((q) => done.times[q.id] || 0).filter(Boolean) : []
     const avg = timed.length ? timed.reduce((a, b) => a + b, 0) / timed.length : null
+    // Who turned up: one cat per skill she actually got right, with how many
+    // times. It is her own result grouped by skill and nothing more — no cat for
+    // a miss, and none of them can be brighter than the engine says.
+    const byName = {}
+    if (kind !== "corr") {
+      items.forEach((q, j) => {
+        if (!q.sk || LTR[picks[j]] !== keyOf(q)) return
+        const sub = subOf(q, subHint)
+        const word = sub + ":" + q.sk
+        if (byName[word]) { byName[word].n++; return }
+        byName[word] = { ...catFor(q, sub), n: 1 }
+      })
+    }
+    const came = Object.values(byName).sort((a, b) => b.n - a.n || a.sk.localeCompare(b.sk)).slice(0, 8)
     return (
       <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
         <Card className="from-primary/5 to-card relative items-center bg-gradient-to-t text-center" data-testid="score">
@@ -258,6 +290,18 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
             )}
             {canTag && misses.length ? (
               <CardDescription className="text-xs" data-testid="tag-progress">{tagged} of {misses.length} miss{misses.length === 1 ? "" : "es"} tagged — one tap each below says why it went wrong.</CardDescription>
+            ) : null}
+            {came.length ? (
+              <div className="mt-3 flex flex-wrap justify-center gap-2" data-testid="set-came">
+                {came.map((c) => (
+                  <figure key={c.word} className="flex w-24 flex-col items-center gap-0.5" title={`${c.sk} — ${c.stage}`}>
+                    <Glim word={c.word} stage={c.stage} className="size-11" title={c.sk} />
+                    <figcaption className="line-clamp-2 w-full text-center text-[11px] leading-tight font-semibold">
+                      {c.sk}{c.n > 1 ? ` ×${c.n}` : ""}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
             ) : null}
             {won.length ? (
               <div
@@ -335,6 +379,12 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
    * Only single words get a cat — a choice that is a phrase is not a name. */
   const answerText = gameMode ? String(it.c[LTR.indexOf(keyOf(it))] || "").trim() : ""
   const arrival = gameMode && gotIt && /^[a-z][a-z'-]*$/i.test(answerText) ? answerText : null
+  // Verbal already has the cat that walked through the gate, so it does not want
+  // a second one; every other subject gets its skill's cat on the reveal.
+  // A plain const, NOT a useMemo: everything from here down sits after the early
+  // return for a finished set, so a hook here is a conditional hook and React
+  // throws the moment the last question is answered.
+  const reactCat = catFor(it, gameMode || kind === "corr" ? null : subOf(it, subHint))
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
       <div className="flex flex-col gap-2">
@@ -404,10 +454,30 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
           </RadioGroup>
           {revealed ? (
             <div className="motion-safe:animate-[pop_260ms_ease-out_both]" data-testid="reveal">
-              <div className={cn("flex items-center gap-2 text-sm font-bold", gotIt ? "text-success" : "text-destructive")}>
-                {gotIt
-                  ? <><CheckCircle2 className="size-4" /> {gameMode ? "The gate opens." : "Right"}</>
-                  : <><XCircle className="size-4" /> {gameMode ? `The gate holds. It wanted “${it.c[LTR.indexOf(keyOf(it))]}”.` : `The answer is ${keyOf(it)}`}</>}
+              <div className="flex items-start gap-3">
+                {/* The skill's own cat, keeping her company. Not in the question
+                    and not on the choices — those stay exactly as the real test
+                    prints them. It is here on the reveal, at the brightness the
+                    engine really reports for that skill, so the Percent cat gets
+                    brighter as she gets better at percent. On a miss it does not
+                    leave, sulk or dim: nothing is taken away for being wrong. */}
+                {reactCat ? (
+                  <span className="relative shrink-0">
+                    {gotIt ? <Burst seed={i} n={10} /> : null}
+                    <Glim
+                      key={reactCat.word + (gotIt ? ":y" : ":n")}
+                      word={reactCat.word}
+                      stage={reactCat.stage}
+                      title={`${it.sk} — ${reactCat.stage}`}
+                      className={cn("size-14", gotIt && "motion-safe:animate-[pop_420ms_cubic-bezier(.34,1.56,.64,1)_both]")}
+                    />
+                  </span>
+                ) : null}
+                <div className={cn("flex items-center gap-2 pt-1 text-sm font-bold", gotIt ? "text-success" : "text-destructive")}>
+                  {gotIt
+                    ? <><CheckCircle2 className="size-4" /> {gameMode ? "The gate opens." : "Right"}</>
+                    : <><XCircle className="size-4" /> {gameMode ? `The gate holds. It wanted “${it.c[LTR.indexOf(keyOf(it))]}”.` : `The answer is ${keyOf(it)}`}</>}
+                </div>
               </div>
               {it.e ? <p className="bg-muted/60 text-muted-foreground mt-2 rounded-lg p-3 text-sm leading-relaxed">{it.e}</p> : null}
             </div>

@@ -531,5 +531,9 @@ export function MockCorrections({ form }) {
     D.mockItems[form][s.id].forEach((q, i) => { if ((r.picks || {})[i] !== keyOf(q)) items.push(q) })
   }
   if (!items.length) return <MockOverview form={form} />
-  return <Runner key={`corr:${form}:${items.length}`} items={items} custom record={false} title={`${m.name} · Corrections`} exitPath={"/mock/" + form} exitLabel="Back to results" />
+  // ctx="corr" is what keeps corrections plain — no gate, no cat, no chime.
+  // Without it these fell through to kind "review" and a Verbal item was drawn
+  // as a gate, which the runner's own comment says it should never be: going
+  // back over answers is not an event to celebrate.
+  return <Runner key={`corr:${form}:${items.length}`} items={items} custom ctx="corr" record={false} title={`${m.name} · Corrections`} exitPath={"/mock/" + form} exitLabel="Back to results" />
 }
