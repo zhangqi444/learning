@@ -61,6 +61,10 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
       await pg.click('[data-slot=sidebar-menu-button]:has-text("Review")');
     }
     await pg.waitForFunction(() => location.hash === '#/review');
+    // The hash changes on click; React renders a frame later. Wait for the thing
+    // this is actually asserting about instead of reading the dashboard's body
+    // and calling it the review page.
+    await pg.waitForSelector('[data-testid^=review-]');
     check('review page lists subjects', (await pg.$$('[data-testid^=review-]')).length >= 1 && /at the door|Nobody waiting today/.test(await pg.textContent('body')));
 
     // Enter a review; header breadcrumb + sidebar trigger must still be there; exit via breadcrumb

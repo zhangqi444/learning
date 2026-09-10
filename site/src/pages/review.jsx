@@ -3,7 +3,10 @@ import { CalendarClock, Play, ShieldCheck, Sparkles } from "lucide-react"
 
 import { ORDER, SUBJ, fmtDate } from "@/lib/content"
 import { W } from "@/lib/world"
-import { CAUSES, INTERVALS, causeBreakdown, missProfile, reviewQueue, skillOf } from "@/lib/engine"
+import { CAUSES, INTERVALS, causeBreakdown, missProfile, reviewQueue, skillOf, wordStatus } from "@/lib/engine"
+import { Glim } from "@/components/glim"
+import { WORD_GLOW } from "@/lib/glim"
+import { sfx } from "@/lib/sfx"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { Badge } from "@/components/ui/badge"
@@ -74,6 +77,12 @@ export function Review() {
             due.forEach((x) => { const sk = x.src === "word" ? "Precision words" : skillOf(s, x.it); if (sk) skills[sk] = (skills[sk] || 0) + 1 })
             const top = Object.entries(skills).sort((a, b) => b[1] - a[1]).slice(0, 3)
             const next = sched[0]
+            // The page has always SAID they were sitting at the door. Show them:
+            // a due word is a real cat with a real name, and a row of faces is a
+            // different thing to come back to than the number 19. Only words —
+            // a Quantitative item is not a cat and pretending otherwise would be
+            // the veneer again.
+            const waiting = due.filter((x) => x.src === "word").map((x) => String(x.id).replace(/^w:/, "")).filter(Boolean)
             return (
               <Card key={s} className="gap-4" data-testid={`review-${s}`}>
                 <CardHeader>
@@ -88,6 +97,26 @@ export function Review() {
                   </CardDescription>
                   <CardAction>{due.length ? <Badge variant="warning" className="tabular-nums" data-testid={`due-${s}`}>{due.length}</Badge> : <Badge variant="outline" className="text-muted-foreground"><CalendarClock /> {sched.length}</Badge>}</CardAction>
                 </CardHeader>
+                {waiting.length ? (
+                  <CardContent className="flex flex-wrap items-end gap-2" data-testid={`at-the-door-${s}`}>
+                    {/* Eight is a row of faces; twelve is a crowd, and the count
+                        beside it already says how many there really are. */}
+                    {waiting.slice(0, 8).map((w) => (
+                      <button
+                        key={w}
+                        type="button"
+                        onClick={() => sfx("call", w)}
+                        aria-label={`Hear ${w}`}
+                        title={`${w} is waiting — tap to hear it`}
+                        className="focus-visible:ring-ring/50 flex w-14 flex-col items-center gap-0.5 rounded-lg transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]"
+                      >
+                        <Glim word={w} stage={WORD_GLOW[wordStatus(w).status] || "Flickering"} className="size-10" title={w} />
+                        <span className="w-full truncate text-center text-[10px] font-medium">{w}</span>
+                      </button>
+                    ))}
+                    {waiting.length > 8 ? <span className="text-muted-foreground self-center text-xs">+{waiting.length - 8} more</span> : null}
+                  </CardContent>
+                ) : null}
                 {top.length ? (
                   <CardContent className="flex flex-wrap gap-1.5">
                     {top.map(([sk, n]) => <Badge key={sk} variant="outline" className="font-normal">{sk} · {n}</Badge>)}

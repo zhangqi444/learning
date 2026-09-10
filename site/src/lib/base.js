@@ -19,18 +19,48 @@ import { Store } from "./store"
 import { allWordEntries, masteryOf, skillsFor, wordStatus } from "./engine"
 import { finishedBooks, readingDays } from "./books"
 
-/** Fixed, published prices. No randomness anywhere: she can see what a room
- *  costs from across the room, and it is the same price for everyone forever. */
-export const ROOMS = [
-  { id: "word-lab", name: "Word Lab", cost: 60, blurb: "Where the vocabulary lives", lit: () => subjectLight("vr") },
-  { id: "reading-den", name: "Reading Den", cost: 120, blurb: "Armchairs and passages", lit: () => subjectLight("rc") },
-  { id: "number-works", name: "Number Works", cost: 200, blurb: "Reasoning without a calculator", lit: () => subjectLight("qr") },
-  { id: "math-shop", name: "Math Shop", cost: 260, blurb: "Arithmetic, shapes and data", lit: () => subjectLight("ma") },
-  { id: "writing-studio", name: "Writing Studio", cost: 340, blurb: "One desk, one lamp, eight essays", lit: () => essayLight() },
-  { id: "library", name: "Library", cost: 420, blurb: "The books she has actually finished", lit: () => libraryLight() },
-  { id: "rehearsal-hall", name: "Rehearsal Hall", cost: 560, blurb: "Where the mocks are sat", lit: () => mockLight() },
+/* Fixed, published prices. No randomness anywhere: she can see what a thing
+ * costs from across the room, and it is the same price for everyone forever.
+ *
+ * These were seven abstract rooms — Word Lab, Number Works, Rehearsal Hall —
+ * and Sheila said plainly that she did not understand why she was building
+ * them, and asked whether they could be things a cat needs instead. She is
+ * right: "Number Works" is a filing cabinet with a name, and nobody builds a
+ * filing cabinet for a cat. They are the same seven things underneath, lit by
+ * exactly the same seven real numbers; only what they ARE has changed.
+ *
+ * THE IDS MUST NOT CHANGE. The ledger in Store.s.base records what was bought
+ * by id, and an id this file no longer knows is silently dropped — which would
+ * un-build something she has already paid for and break hard rule 1. Rename
+ * freely; renumber never. */
+const COSTS = [
+  ["word-lab", 60, () => subjectLight("vr")],
+  ["reading-den", 120, () => subjectLight("rc")],
+  ["number-works", 200, () => subjectLight("qr")],
+  ["math-shop", 260, () => subjectLight("ma")],
+  ["writing-studio", 340, () => essayLight()],
+  ["library", 420, () => libraryLight()],
+  ["rehearsal-hall", 560, () => mockLight()],
 ]
-const BY_ID = Object.fromEntries(ROOMS.map((r) => [r.id, r]))
+/* Price and light are structural and live here. The name, the guidance and the
+ * question come from content/catcare.json, so advice about a real animal sits
+ * with the rest of the content and carries its source — never hard-coded here
+ * and never made up (see Content rules).
+ *
+ * Read lazily, not at import: `D` is the bundle and it is not set until
+ * setBundle() runs, so anything computed at module load would see null. */
+const care = (id) => (((D && D.catcare) || {}).items || {})[id] || {}
+/** Real cats, and what actually helps them — the advocacy half of the Den. Same
+ *  rule as the care guidance: every line carries a named source, none of it is
+ *  invented, and nothing here asks anybody for money. */
+export function catHelp() { return ((D && D.catcare) || {}).help || null }
+export const PRICES = Object.fromEntries(COSTS.map(([id, cost]) => [id, cost]))
+export function roomList() {
+  return COSTS.map(([id, cost, lit]) => {
+    const c = care(id)
+    return { id, cost, lit, name: c.thing || id, need: c.need || "", check: c.check || null, source: c.source || null }
+  })
+}
 
 /* ---------- light: derived live, never stored ----------
  * Each returns 0..1, or null for "no data yet" so the UI can say "—". */
@@ -62,7 +92,7 @@ function mockLight() {
 /** Every room with its live state. `light` is null when there is no evidence. */
 export function rooms() {
   const owned = built()
-  return ROOMS.map((r) => {
+  return roomList().map((r) => {
     let light = null
     try { light = r.lit() } catch { light = null }
     return { ...r, built: owned.has(r.id), light }
@@ -75,20 +105,22 @@ export function spends() {
   return Object.keys(rows())
     .filter((k) => k.startsWith("spend:"))
     .map((k) => ({ key: k, ...rows()[k] }))
-    .filter((s) => s && BY_ID[s.item])
+    // an id this file no longer knows is dropped, which is why the ids in COSTS
+    // are permanent: renaming a thing is free, re-keying one un-builds it
+    .filter((s) => s && PRICES[s.item] != null)
 }
 /** Which rooms exist. Derived, so two devices can never disagree about it. */
 export function built() { return new Set(spends().map((s) => s.item)) }
-export function spentOnBase() { return spends().reduce((n, s) => n + (BY_ID[s.item] ? BY_ID[s.item].cost : 0), 0) }
+export function spentOnBase() { return spends().reduce((n, s) => n + (PRICES[s.item] || 0), 0) }
 
 const newId = () => Date.now().toString(36) + Math.floor(Math.random() * 1e4).toString(36)
 
 /** Buy a room. Append-only: the same room is never bought twice, and nothing
  *  here can remove one. Returns false when it is unaffordable or already built. */
 export function buildRoom(id, balance) {
-  const room = BY_ID[id]
-  if (!room || built().has(id) || balance < room.cost) return false
-  Store.setSlice("base", "spend:" + newId(), () => ({ item: id, cost: room.cost, at: new Date().toISOString() }))
+  const cost = PRICES[id]
+  if (cost == null || built().has(id) || balance < cost) return false
+  Store.setSlice("base", "spend:" + newId(), () => ({ item: id, cost, at: new Date().toISOString() }))
   return true
 }
 
@@ -110,10 +142,14 @@ export function wordCards() {
     .map((e) => ({ word: e.word, meaning: e.meaning, status: wordStatus(e.word).status }))
     .sort((a, b) => a.word.localeCompare(b.word))
 }
+/** Every skill she has actually practised, with the level the engine reports.
+ *  Not only the finished ones: a skill halfway there is a cat halfway into the
+ *  light, and seeing it is the reason to go back to it. The Mastered count is
+ *  still counted separately — being drawn is not the same as being earned. */
 export function skillCrests() {
   const out = []
   for (const sub of ORDER) {
-    for (const L of skillsFor(sub)) if (L && L.level === "Mastered") out.push({ sub, sk: L.sk, acc: L.acc })
+    for (const L of skillsFor(sub)) if (L && L.attempted) out.push({ sub, sk: L.sk, acc: L.acc, level: L.level })
   }
   return out
 }
@@ -122,6 +158,6 @@ export function collectionCounts() {
   return {
     words: cards.filter((c) => c.status === "known").length,
     wordsTotal: cards.length,
-    crests: skillCrests().length,
+    crests: skillCrests().filter((c) => c.level === "Mastered").length,
   }
 }

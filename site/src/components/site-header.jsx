@@ -48,6 +48,7 @@ function crumbs(route) {
     out.push({ label: "Score", path: "/score" })
   } else if (top === "quest") {
     out.push({ label: W.woodTitle, path: "/quest" })
+    if (a) out.push({ label: a, path: "/quest/" + a })
   } else if (top === "base") {
     out.push({ label: W.homeTitle, path: "/base" })
   } else if (top === "rewards") {

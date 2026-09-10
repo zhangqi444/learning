@@ -52,6 +52,12 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=question]');
   check('a Verbal Reasoning set is drawn as a gate', (await pg.$('[data-testid=gate]')) !== null && /Your spells/i.test(await body(pg)));
   check('the item itself is unchanged underneath', (await pg.$$('[data-testid=choice]')).length === 4);
+  // The rehearsal must stay a rehearsal: on the day it counts the four choices
+  // are plain words on white, so no cat is ever drawn on a choice row. The
+  // Wordwood is the game and its controls wear faces; a practice set does not.
+  check('the choices stay plain — no cat on a row she will meet undecorated on the day',
+    (await pg.$$('[data-testid=choice] [data-testid=glim]')).length === 0);
+  check('and nothing is at the gate before she answers', (await pg.$('[data-testid=gate] ~ [data-testid=glim]')) === null);
   await pg.evaluate(() => { location.hash = '#/run/ma/W2/0'; });
   await pg.waitForSelector('[data-testid=question]');
   check('maths is left plain — the frame is not sprayed over everything', (await pg.$('[data-testid=gate]')) === null);
@@ -69,6 +75,11 @@ async function runThrough(pg, pick, max = 60) {
   check('W1 shows as submitted (from the sheet)', /Submitted/.test(await body(pg)));
   const first = await pg.$eval('[data-testid=pword] textarea', (t) => t.value);
   check('first response is hers', /benign/.test(first), first.slice(0, 40));
+  // This is where she MEETS the cat, so this is where it has to be drawn — and
+  // it can never be brighter than her record for that word.
+  const metCats = await pg.$$eval('[data-testid=pword] [data-testid=glim]', (n) => n.map((e) => e.dataset.word + ':' + e.dataset.stage));
+  check('every word on the page wears its own face', metCats.length >= 20 && new Set(metCats.map((c) => c.split(':')[0])).size >= 20, metCats.slice(0, 2).join(' | '));
+  check('a word she has written is out of the shadows', metCats.some((c) => !c.endsWith(':Unseen')), metCats.find((c) => !c.endsWith(':Unseen')) || 'all Unseen');
   await pg.click('[data-testid=pword] >> nth=0 >> [data-testid=reveal]');
   await pg.waitForSelector('[data-testid=meaning]');
   check('Check meaning reveals the Vocabulary Master entry', /harmless/.test(await pg.textContent('[data-testid=meaning]')));
@@ -76,9 +87,19 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/precision/W2'; });
   await pg.waitForSelector('[data-testid=pword]');
   check('W2 is a cluster week', /imply \/ infer/.test(await body(pg)));
+  // A cluster is two words, so it is two cats — the same two the Wordwood will
+  // call by name. One cat for "imply / infer" would mean the cat at the gate is
+  // not the cat on the page.
+  check('a cluster entry is drawn as two cats, one per name',
+    (await pg.$$eval('[data-testid=pword] >> nth=0 >> [data-testid=glim]', (n) => n.map((e) => e.dataset.word))).join(',') === 'imply,infer');
+  // W2 is untouched here, so it is the honest before/after for the arrival.
+  const dark2 = await pg.$$eval('[data-testid=pword] [data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
+  check('a week she has not opened is all shadow', dark2.length > 20 && dark2.every((s) => s === 'Unseen'), [...new Set(dark2)].join(','));
   await pg.fill('[data-testid=pword] >> nth=0 >> textarea', 'imply is the speaker hinting; infer is the listener figuring it out');
   await pg.click('[data-testid=pword] >> nth=0 >> [data-testid=conf-3]');
   await pg.waitForTimeout(700);
+  const lit = await pg.$$eval('[data-testid=pword] >> nth=0 >> [data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
+  check('writing a word in her own words brings its cat into the light', lit.every((s) => s !== 'Unseen'), lit.join(','));
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=pword]');
   check('precision response + confidence persist', (await pg.$eval('[data-testid=pword] >> nth=0 >> textarea', (t) => t.value)).includes('speaker hinting') && /1\/20 written/.test(await body(pg)));
   check('submit disabled until every word is answered', await pg.$eval('[data-testid=submit-precision]', (b) => b.disabled));
@@ -281,10 +302,39 @@ async function runThrough(pg, pick, max = 60) {
   const priced = await pg.$$eval('[data-testid=room][data-built="0"] [data-slot=badge]', (n) => n.map((e) => parseInt((e.textContent || '').trim(), 10)));
   check('every unbuilt room shows a fixed price, none of them random', priced.length === 7 && priced.every((p) => p > 0), priced.join(','));
   check('nothing is built to start with', (await pg.$$eval('[data-testid=room][data-built="1"]', (n) => n.length)) === 0);
+  // Every thing carries real care guidance and names where it came from, because
+  // this is advice about a real animal and the content rule applies to it.
+  const sources = await pg.$$eval('[data-testid=room] a[href^="https://"]', (n) => n.map((a) => a.href));
+  check('each thing says what a cat needs and cites who says so', sources.length === 7 && new Set(sources).size > 1, sources.slice(0, 2).join(' '));
+  // Building means getting the care question right. A wrong answer must cost
+  // nothing and be answerable again: this is a child who wants a cat, and the
+  // Den must never punish (hard rule 3).
   await pg.click('[data-testid=build-word-lab]');
+  await pg.waitForSelector('[data-testid=care-check]');
+  const key = await pg.$eval('[data-testid=care-check]', (e) => e.dataset.id);
+  const wrongIdx = await pg.$$eval('[data-testid=care-choice]', (n) => n.length) - 1;
+  await pg.click(`[data-testid=care-choice] >> nth=${wrongIdx}`);
+  await pg.waitForSelector('[data-testid=care-why]');
+  check('a wrong care answer explains itself and buys nothing', key === 'word-lab'
+    && (await pg.$$eval('[data-testid=room][data-built="1"]', (n) => n.length)) === 0
+    && +(await pg.textContent('[data-testid=base-balance]')) === balBefore);
+  check('and it can simply be answered again', (await pg.$('[data-testid=retry-word-lab]')) !== null);
+  await pg.click('[data-testid=retry-word-lab]');
+  const rightIdx = await pg.$$eval('[data-testid=care-choice]', (n) => n.length);
+  for (let k = 0; k < rightIdx; k++) {
+    await pg.click(`[data-testid=care-choice] >> nth=${k}`);
+    if (await pg.$('[data-testid=confirm-word-lab]')) break;
+    await pg.click('[data-testid=retry-word-lab]');
+  }
+  await pg.click('[data-testid=confirm-word-lab]');
   await pg.waitForSelector('[data-testid=room][data-id=word-lab][data-built="1"]');
   const balAfter = +(await pg.textContent('[data-testid=base-balance]'));
-  check('building a room spends exactly its published price', balBefore - balAfter === 60, `${balBefore} -> ${balAfter}`);
+  check('building a thing spends exactly its published price', balBefore - balAfter === 60, `${balBefore} -> ${balAfter}`);
+  // Cat care is not ISEE practice and must never leak into the engine.
+  check('and knowing about cats is not recorded as practice', await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    return !Object.keys(s.items || {}).some((k) => /care|cat|chip|collar/i.test(k)) && !s.catcare;
+  }));
   check('a built room reports its lights from real mastery', (await pg.$('[data-testid=room][data-id=word-lab] [data-testid=room-light]')) !== null);
   // one wallet: Sparks spent on a room are not still available for a reward
   await pg.evaluate(() => { location.hash = '#/rewards'; });
@@ -294,6 +344,18 @@ async function runThrough(pg, pick, max = 60) {
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=rooms]');
   check('a built room survives a reload and cannot be un-built', (await pg.$eval('[data-testid=room][data-id=word-lab]', (e) => e.dataset.built)) === '1' && (await pg.$('[data-testid=build-word-lab]')) === null);
+  // Real cats. The invented ones are labelled as invented, and the advocacy is
+  // sourced the same way the care guidance is — and asks nobody for money.
+  await pg.waitForSelector('[data-testid=real-cats]');
+  await pg.click('[data-testid=real-cats-toggle]');
+  await pg.waitForSelector('[data-testid=help-way]');
+  const help = (await pg.textContent('[data-testid=real-cats]')).replace(/\s+/g, ' ');
+  const helpSrc = await pg.$$eval('[data-testid=help-way] a[href^="https://"]', (n) => n.map((a) => a.href));
+  check('every way of helping names who says so', helpSrc.length === (await pg.$$('[data-testid=help-way]')).length && helpSrc.length >= 4, helpSrc.length + ' sourced');
+  check('and the page never asks for money or claims to be a charity',
+    !/donate now|give now|your donation|we are a|our charity|support us/i.test(help), help.slice(0, 60));
+  check('the invented cats say they are invented', /invented/i.test(await pg.textContent('[data-testid=collections]')));
+  await pg.click('[data-testid=real-cats-toggle]');
   // Collections are earned, never bought: no price, no buy control, and the
   // count has to agree with the words the engine actually calls "known".
   await pg.waitForSelector('[data-testid=collections]');
@@ -332,7 +394,28 @@ async function runThrough(pg, pick, max = 60) {
   const coats = await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => e.dataset.word + ':' + e.dataset.marking + ':' + e.dataset.coat));
   check('every cat is drawn, not fetched — nothing on the shelf is an image', (await pg.$$('[data-testid=word-cards] img')).length === 0 && coats.length > 1);
   check('two different words are two different cats', new Set(coats).size === coats.length, coats.slice(0, 3).join(' | '));
+  // Coats are real cats from a closed list, not points on a colour wheel: the
+  // first version generated lilac and mint-green cats, which exist nowhere.
+  const REAL = ['brown-tabby', 'ginger-tabby', 'silver-tabby', 'golden-shaded', 'tuxedo', 'black', 'blue', 'cream', 'seal-point', 'calico', 'tortoiseshell', 'white'];
+  const kinds = await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => e.dataset.marking + '|' + e.dataset.build));
+  check('every cat is a coat you could actually meet', kinds.every((k) => REAL.includes(k.split('|')[0])), [...new Set(kinds.map((k) => k.split('|')[0]))].join(','));
+  check('and a real build, not just a colour', kinds.every((k) => ['short', 'long', 'slim'].includes(k.split('|')[1])), [...new Set(kinds.map((k) => k.split('|')[1]))].join(','));
   const benignCoat = coats.find((c) => c.startsWith('benign:'));
+  // A skill is a cat too, and this is the only place all six brightnesses get
+  // used — words never reach Bright. The badge still counts the Radiant ones
+  // only: drawing a half-lit skill must not be mistaken for finishing it.
+  const crestStages = await pg.$$eval('[data-testid=skill-crest]', (n) => n.map((e) => e.dataset.level + '/' + e.querySelector('[data-testid=glim]').dataset.stage));
+  const collText = (await pg.textContent('[data-testid=collections]')).replace(/\s+/g, ' ');
+  const crestBadge = /· skills[\s\S]*?(\d+) \/ (\d+)/.exec(collText);
+  check('every skill she has practised is drawn, at the level the engine reports', crestStages.length > 0, crestStages.slice(0, 3).join(' | '));
+  check('the level a skill reports and the face it wears can never disagree',
+    crestStages.every((c) => {
+      const [level, stage] = c.split('/');
+      return { 'Not started': 'Unseen', Started: 'Glimpsed', 'Needs work': 'Flickering', Familiar: 'Steady', Proficient: 'Bright', Mastered: 'Radiant' }[level] === stage;
+    }), crestStages.slice(0, 2).join(' | '));
+  check('and only the Radiant ones count as earned',
+    !!crestBadge && +crestBadge[1] === crestStages.filter((c) => c.endsWith('/Radiant')).length && +crestBadge[2] === crestStages.length,
+    crestBadge ? `badge ${crestBadge[1]}/${crestBadge[2]}, drawn ${crestStages.length}` : 'no badge');
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=word-cards]');
   check('and the same word is the same cat after a reload — nothing about it is stored',
@@ -687,6 +770,51 @@ async function runThrough(pg, pick, max = 60) {
   }, { id: spark.id, hist: spark.base });
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=today]');
+
+  console.log('== the weekly plan can reach the Wordwood (runs last: casting writes records)');
+  // The bug this closes: the Wordwood was only reachable from the sidebar, so a
+  // week could be finished without the weekly plan ever pointing at it.
+  await pg.evaluate(() => { location.hash = '#/quest/W1'; });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=inscription], [data-testid=quest-all]');
+  const weekWood = (await pg.$('[data-testid=inscription]')) !== null;
+  check('a week has its own walk', weekWood || (await pg.$('[data-testid=quest-all]')) !== null, weekWood ? 'walkable' : 'offers the whole wood instead');
+  if (weekWood) {
+    const wkHand = await pg.$$eval('[data-testid=spell]', (n) => n.map((e) => e.dataset.word.toLowerCase()));
+    check('and its hand is six different names', wkHand.length === 6 && new Set(wkHand).size === 6, wkHand.join(','));
+  }
+  // The plan row appears only when a walk would actually work, and it is not an
+  // `auto` task — a game she is required to play stops being one, and the same
+  // vocabulary evidence must not be charged for twice.
+  await pg.evaluate(() => { location.hash = '#/checklist/W1'; });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=ck-add]');
+  const planText = await body(pg);
+  check('the weekly plan points at the Wordwood', !weekWood || /call this week/i.test(planText), weekWood ? 'row present' : 'no walk to point at');
+  // Not an `auto` task: auto rows carry the "auto" badge and tick themselves,
+  // and the plan's percentage counts only those. This row is hand-ticked, so
+  // playing is never owed and the same vocabulary evidence is not charged twice.
+  const woodRow = await pg.$$eval('[data-testid=ck-item]', (n) => {
+    const row = n.find((e) => /call this week/i.test(e.textContent || ''));
+    return row ? { auto: /\bauto\b/.test(row.textContent || ''), enabled: !row.querySelector('button[aria-label]').disabled } : null;
+  });
+  check('and playing it is never owed', !weekWood || (woodRow && !woodRow.auto && woodRow.enabled), JSON.stringify(woodRow));
+
+  console.log('== the review pile shows who is waiting (runs last: it makes a word due)');
+  // Make one word genuinely overdue rather than hoping the suite has left one
+  // lying about, so this checks the page instead of checking the fixture.
+  await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.items['w:candid'] = { hist: [{ at: '2026-09-01T10:00:00Z', ok: false, ms: 4000, ctx: 'vocab', pick: 'B' }], step: 0, due: '2026-09-02T00:00:00Z', at: '2026-09-01T10:00:00Z' };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    location.hash = '#/review';
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=at-the-door-vr]');
+  const door = await pg.$$eval('[data-testid=at-the-door-vr] [data-testid=glim]', (n) => n.map((e) => e.dataset.word));
+  check('a word waiting at the door is drawn as the cat it is', door.includes('candid'), door.slice(0, 5).join(','));
+  check('and only words — a Quantitative item is not a cat and is not drawn as one',
+    (await pg.$$('[data-testid=at-the-door-qr] [data-testid=glim]')).length === 0);
 
   console.log('== the cats have voices (runs last: it replaces AudioContext)');
   // The only way to check synthesised sound is to record what it asks the audio

@@ -77,25 +77,38 @@ The **Glimbook** is the collection: one page per Glim, silhouettes for the ones
 not yet met. It replaces "word cards" and "skill crests", which were the same
 idea under two names.
 
-## 3. The Hearth
+## 3. The Den
 
-Her home in the light *(Sheila's)*. This is the Base, renamed and given a
-reason: cats gather where it is warm, and every room she rebuilds is one more
-warm place for them to be. A room's lights are the cats living in it — which is
-why the lights read from real mastery rather than from anything stored.
+Where she builds what a cat needs. This was "the Hearth", and before that the
+Base: seven rooms called Word Lab, Number Works, Rehearsal Hall. Sheila said she
+did not understand why she was building them and asked whether they could be
+things a cat needs instead — and she was right, so they are.
 
-It was called the Roost in the first draft of this document. A roost is for
-birds. The Hearth is both correct and better: keeping it lit is precisely what a
-Lampwright does, and it gives the currency below something to be for.
+Seven things, at the same seven prices, lit by exactly the same seven real
+numbers: a name tag and microchip, a high shelf by the window, food and water
+bowls, a scratching post, a health record, a warm bed, a carrier. How much a
+thing gets used is read live from real mastery, never stored — they can only wear
+the name tags whose names she knows.
+
+Each one teaches. The guidance is real, comes from a named animal-welfare or
+veterinary source, lives in `content/catcare.json`, and building a thing means
+answering one true question about it. Getting it wrong costs nothing and can be
+answered again, and nothing here can ever be neglected — see §9 for why that is
+not negotiable.
+
+It was called the Roost in the first draft. A roost is for birds. Then the
+Hearth, which was defensible and still meant nothing to the ten-year-old using
+it. The lesson is in the naming: a metaphor that has to be explained is a
+metaphor that has failed.
 
 ## 4. Hum
 
 The currency *(Sheila's)*. Practice makes warmth, and warmth is what draws the
-cats in and keeps the Hearth lit.
+cats in and keeps the Den warm.
 
 **Hum is made by trying, not by being right**, which is exactly what
 `effortPoints()` already does — so a hard day where everything goes wrong still
-makes Hum. It is spent on rooms. It is never taken away, never expires, and the
+makes Hum. It is spent on things a cat needs. It is never taken away, never expires, and the
 same Hum can never be spent twice.
 
 Hum is warmth, and warmth is what cats come for. That is the whole economy: work
@@ -165,7 +178,7 @@ the clock beat her. Learning to move at a steady pace is worth real practice.
 
 | Was | Is | Why it was wrong |
 |---|---|---|
-| Base, rooms | **the Hearth** | "Base" belongs to a construction game, not to a world |
+| Base, rooms | **the Den**, and seven things a cat needs | "Base" belongs to a construction game; "Hearth" had to be explained, which is how you know it failed |
 | Sparks | **Hum** | a placeholder word for "points" |
 | Wordkeep | **the Wordwood** | a castle with no country around it |
 | Boss fight | **the Long Night** | borrowed from a genre we are not in |
@@ -187,27 +200,59 @@ the clock beat her. Learning to move at a steady pace is worth real practice.
 5. **The exam is still the point.** The Long Nights stay honest rehearsals: real
    timing, no hints, no game furniture in the way.
 
-## 9. Still open — Sheila's to answer
+## 9. Answered — by Sheila
 
-The four names that were marked "placeholder" have been settled rather than left
-waiting: **Wildlight**, **Glim**, **the Hearth**, **Hum**. A half-named world
-cannot be drawn or sung, and everything in section 11 needed them to exist. They
-are not locked — every world noun in the site is read from one object in
-`site/src/lib/world.js`, so renaming any of them is a one-file edit and about
-twenty seconds. If Sheila has better names, hers win.
+She has been through the questions. Her answers, and what changed because of
+them.
 
-Questions 3 and 5 below are answered in part by section 11: her cats are now
-drawn, one per word. What they are *like* is still hers.
+1. **Your first cat?** *"I don't have one. But my uncle has one, British
+   shorthair golden-shaded cat."*
+2. **What do you look like here?** She sent a photograph of herself carrying a
+   very large, very relaxed cat. That is the Lampwright: someone with a cat in
+   their arms. The photograph itself stays out of the repository — a real child's
+   face does not belong in a public git history, and the site fetches nothing
+   anyway.
+3. **What is the Hearth like?** *"Actually very confused here why we have hearth.
+   Can it be something cat related? Can we build things the cat need?"* — and
+   then: *"why don't you build 7 things cat needs. Actually here could be teach
+   or simulate how to raise a cat?"*
+4. **What happens at the end?** *"I finally get my cat? And build the everything
+   a cat need."*
+5. **What should a Long Night feel like?** *"Yes no gamify. But at the end, could
+   connected with the reward system?"*
 
-1. ~~What is the world called?~~ **Wildlight.** Light that will not stay put.
-2. ~~What are the cats called?~~ **Glims.** From glimmer — a cat made of light.
-3. What is your first cat, and what is it like?
-4. What do you look like here — what does a Lampwright wear or carry?
-5. What is the Hearth like? What is in the first room?
-6. What happens at the very end, when the whole world is lit?
-7. What should a Long Night feel like?
-8. Is there anyone else in the world? (Aria is welcome in it if Sheila wants
-   her there — that is Sheila's call, not ours.)
+**Question 3 rebuilt the Hearth, and she was right.** Seven rooms called Word Lab
+and Number Works were a filing cabinet with a name on it; nobody builds a filing
+cabinet for a cat. They are now the seven things a cat actually needs — a name
+tag and microchip, somewhere high by a window, food and water bowls, a scratching
+post, a health record, a warm bed, a carrier — at the same seven prices, lit by
+exactly the same seven real numbers. The place is **the Den**.
+
+**And it teaches.** Each thing carries real guidance from a named source (ASPCA,
+RSPCA, Cats Protection, International Cat Care) in `content/catcare.json`, and
+building it means answering one real question drawn from that guidance. She does
+not have a cat and would like one; that is exactly the person this should be
+accurate for. The content rule applies with full force here: none of it is
+invented, all of it is attributed, and it says plainly that a vet decides what is
+right for a particular cat.
+
+**What it deliberately is not: a pet simulator.** No hunger bar, no meter that
+falls, nothing that can be neglected. A cat that gets sad because she missed a
+day of maths is precisely the dark pattern rule 4 forbids, and it would be a
+cruel thing to put in front of a child who wants a cat and does not have one. So
+the only demand is knowing, a wrong answer costs nothing and can be answered
+again, and everything built stays built forever.
+
+**Question 4 is half ours and half not.** Building everything a cat needs is
+something this page can honestly finish, and when all seven are done it says so —
+that is a real readiness checklist, and completing it means something. Whether
+she then gets a real cat is a family decision about a live animal, so the site
+promises nothing: the finished Den points at the reward shelf, where a grown-up
+decides what is actually on offer. **Nothing in the code should ever imply a cat
+is coming.**
+
+Still hers, and still open: what her own first Glim is like, and what the very
+end of the world looks like once everything is lit.
 
 ## 10. What this changes in code
 
@@ -226,12 +271,23 @@ draw-from-unmet-weeks bug.)*
 
 ## 11. The materials — how a cat is made
 
-Nobody is going to draw a hundred and sixty cats, and nobody is going to record
-a hundred and sixty sounds. So every cat is **generated from its own word**, in
-`site/src/lib/glim.js`: the word is hashed, and the hash picks the coat's hue
-(one of 24, a step apart, so no two cats are one cat drawn twice), the markings
-(plain, tabby, patch, spots, bib), the eye colour, which way the tail curls, the
-tilt of the head — and the call.
+Nobody is going to draw a hundred and fifteen cats, and nobody is going to record
+a hundred and fifteen sounds. So every cat is **generated from its own word**, in
+`site/src/lib/glim.js`: the word is hashed, and the hash picks the coat, the
+build, white socks and a bib, the eye colour, which way the tail curls, the tilt
+of the head — and the call.
+
+**The coats are real cats, not hues.** The first version picked a hue off a
+24-step wheel. It gave plenty of variety and it produced lilac and mint-green
+cats, which exist nowhere, and Sheila asked for real ones. There are twelve now —
+brown, ginger and silver tabby; **golden-shaded**, because her uncle has a golden-
+shaded British shorthair; tuxedo, black, blue, cream; **seal point**, which is the
+very large, very relaxed cat in the photograph she sent; calico, tortoiseshell
+and white. Each carries the eye colours that really go with it, because a cat
+with the wrong eyes stops looking like a cat. Three builds carry the rest of the
+variety: shorthair round and low, longhair with a ruff and a plume of a tail,
+oriental taller and leaner with bigger ears. Coat × build × socks × bib × eyes is
+still hundreds of cats, and every one of them is a cat you could point at.
 
 The look and the voice come out of the same seed deliberately. `benign` is the
 same cat on the laptop, on the iPad, and in a year; it always answers in the
@@ -280,6 +336,14 @@ mistaken for having earned it (rule 3 again).
 Not one byte of any of this is fetched. The coats are `hsl()`, the cats are
 inline SVG, the calls are oscillators. The single-file artifact still makes zero
 external requests, and the test that asserts it still passes.
+
+Where the cats appear, and where they deliberately do not: she **meets** them in
+the precision review (a shadow with two eyes until she writes the word in her own
+words), **calls** them in the Wordwood, sees them **waiting** in the review pile,
+and keeps them in the Glimbook. In a practice set the four choices stay plain
+words on white — the game's controls wear faces, the rehearsal's do not, because
+on the day it counts they will not. A Verbal set gets its cat only on the reveal,
+walking through the gate it just opened.
 
 Two rules held while building it. An entry like `imply / infer` is **two** words,
 so it is two cats — otherwise the cat at the gate would not be the cat on the

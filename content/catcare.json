@@ -1,0 +1,184 @@
+{
+  "_note": "What a cat actually needs, for the Den (docs/world.md). Every item carries a named source, because this is real advice about a real animal and the content rule applies: never invent a fact. Keyed by the ledger id in site/src/lib/base.js — those ids are permanent, so a thing can be renamed but never re-keyed. `check` is a real question drawn from the note above it; getting it wrong costs nothing and can be answered again. None of it is ISEE content and none of it is recorded as practice.",
+  "_disclaimer": "General guidance from animal-welfare charities and veterinary bodies, not veterinary advice. A vet decides what is right for a particular cat.",
+  "items": {
+    "word-lab": {
+      "thing": "Name tag and microchip",
+      "need": "A collar with an ID tag is the fastest way home, because anyone who finds the cat can read it. A microchip cannot fall off — but it holds only a number, so it works only if the number is registered and the phone number on it is kept up to date. Even a cat who never goes outside should wear a tag.",
+      "check": {
+        "q": "What is actually stored inside a microchip?",
+        "c": [
+          "Your name, address and phone number",
+          "Just a number, which has to be registered to you",
+          "The cat's medical history",
+          "A tracker that shows where the cat is"
+        ],
+        "k": "B",
+        "e": "Only a unique number. If nobody registers it — or the phone number goes out of date — a scanner finds the number and it leads nowhere. A microchip is not a tracker either."
+      },
+      "source": {
+        "name": "ASPCA — Position Statement on Pet Identification",
+        "url": "https://www.aspca.org/about-us/aspca-policy-and-position-statements/position-statement-pet-identification"
+      }
+    },
+    "reading-den": {
+      "thing": "A high shelf by the window",
+      "need": "Cats feel safest high up. Somewhere solid to climb to and watch from gives them exercise, privacy, and a way out of trouble. They also need somewhere to hide when something frightens them — a cat with nowhere to hide has nowhere to feel safe.",
+      "check": {
+        "q": "Why does a cat want somewhere high to sit?",
+        "c": [
+          "It is warmer up there",
+          "Cats feel safest high up and like to watch from above",
+          "Cats cannot see well at floor level",
+          "To be closer to the light"
+        ],
+        "k": "B",
+        "e": "High places are about safety and watching, not warmth. Being able to get up and away is also how a cat avoids a fight instead of having one."
+      },
+      "source": {
+        "name": "International Cat Care — Making your home cat friendly",
+        "url": "https://icatcare.org/articles/making-your-home-cat-friendly"
+      }
+    },
+    "number-works": {
+      "thing": "Food and water bowls",
+      "need": "Fresh, clean water every day, in bowls washed and refilled daily. Put the water away from the food — given the choice a cat drinks well away from where it eats — and put both a long way from the litter tray. Where several cats live together the rule is one of everything per cat, plus one spare, in different places.",
+      "check": {
+        "q": "Where should the water bowl go?",
+        "c": [
+          "Right next to the food bowl",
+          "Next to the litter tray so it is all in one place",
+          "Away from the food, and a long way from the litter tray",
+          "Anywhere, as long as it is filled"
+        ],
+        "k": "C",
+        "e": "Given the choice, a cat drinks well away from where it eats, and will not eat or drink near where it goes to the toilet."
+      },
+      "source": {
+        "name": "International Cat Care — Making your home cat friendly",
+        "url": "https://icatcare.org/articles/making-your-home-cat-friendly"
+      }
+    },
+    "math-shop": {
+      "thing": "Scratching post",
+      "need": "Scratching is not naughtiness. It is stretching, marking territory, and pulling the worn outer layer off the claws so the sharp new ones show. The post has to be sturdy enough not to wobble when leaned on, and tall enough for the cat to stretch right out — at least 60 cm.",
+      "check": {
+        "q": "How tall does a scratching post need to be?",
+        "c": [
+          "About the height of the cat sitting down",
+          "At least 60 cm, so the cat can stretch right out",
+          "As short as possible so it does not tip",
+          "It does not matter as long as it is rough"
+        ],
+        "k": "B",
+        "e": "The stretch is half the point, so the cat has to be able to reach full length up it — and the base has to be heavy enough that it does not wobble, or the cat will use your sofa instead."
+      },
+      "source": {
+        "name": "Cats Protection — Cats and Scratching",
+        "url": "https://www.cats.org.uk/help-and-advice/cat-behaviour/scratching"
+      }
+    },
+    "writing-studio": {
+      "thing": "The health record",
+      "need": "Register with a vet as soon as the cat arrives. Kittens usually start their vaccinations at about eight or nine weeks old, with a second set three to four weeks later and a booster a year on; Cats Protection advises neutering from four months or younger. Your vet decides the real schedule for your cat. Write down what was given and when — that record is the cat's story as much as its name is.",
+      "check": {
+        "q": "About how old is a kitten when it usually has its first vaccinations?",
+        "c": [
+          "Two weeks",
+          "Eight or nine weeks",
+          "Six months",
+          "A year"
+        ],
+        "k": "B",
+        "e": "Around eight or nine weeks, then a second set three to four weeks after that. The exact plan is the vet's call, not the internet's."
+      },
+      "source": {
+        "name": "Cats Protection — Neutering, vaccinations and microchipping",
+        "url": "https://www.cats.org.uk/help-and-advice/neutering-and-vaccinations/neutering-vaccinations-microchipping"
+      }
+    },
+    "library": {
+      "thing": "A warm bed of their own",
+      "need": "Somewhere quiet, warm and theirs, where nobody will disturb them — and somewhere to hide as well as somewhere to sleep. A new cat should have a room set up with everything in it before it arrives, and be allowed to come out in its own time.",
+      "check": {
+        "q": "A cat needs somewhere to sleep. What does it need just as much?",
+        "c": [
+          "Somewhere to hide",
+          "A second bed",
+          "A window that opens",
+          "A clock so it knows when meals are"
+        ],
+        "k": "A",
+        "e": "Hiding is how a cat handles being frightened. Take away the hiding place and the fear does not go away — only the way of coping with it does."
+      },
+      "source": {
+        "name": "RSPCA — Creating a good home for cats",
+        "url": "https://www.rspca.org.uk/adviceandwelfare/pets/cats/environment"
+      }
+    },
+    "rehearsal-hall": {
+      "thing": "Carrier",
+      "need": "Leave the carrier out all the time, so it becomes part of the furniture — somewhere the cat chooses to sleep, rather than a box that only ever appears on the way to the vet. Putting their own unwashed bedding inside makes it smell like them, which is what makes it feel safe.",
+      "check": {
+        "q": "When should the carrier be out where the cat can see it?",
+        "c": [
+          "Only on the morning of a vet trip",
+          "The night before, so it is not a surprise",
+          "All the time, so it is just part of the furniture",
+          "Never — keep it hidden so the cat does not worry"
+        ],
+        "k": "C",
+        "e": "If the carrier only ever appears before something frightening, the carrier becomes frightening. Out all the time, with their own bedding in it, it turns into just another good place to sleep."
+      },
+      "source": {
+        "name": "Cats Protection — How to choose and use a cat carrier",
+        "url": "https://www.cats.org.uk/help-and-advice/getting-a-cat/how-to-choose-and-use-a-cat-carrier"
+      }
+    }
+  },
+  "help": {
+    "note": "Every cat in this world is invented — its coat and its voice come out of the letters of a word. Real cats are not invented, and there are far more of them than there are homes. This is what the same organisations say actually helps.",
+    "ways": [
+      {
+        "what": "Foster",
+        "how": "Looking after a shelter cat at home for a while — waiting for adoption, recovering from surgery, or just growing big enough. It is free to do: the shelter provides the food, the bowls and the medicine, and you provide the room and the company. It also empties a shelter pen for the next cat, so one foster home helps twice.",
+        "source": {
+          "name": "ASPCA — What does it mean to be an animal foster caregiver?",
+          "url": "https://www.aspca.org/news/what-does-it-mean-be-animal-foster-caregiver"
+        }
+      },
+      {
+        "what": "Foster the tiny ones",
+        "how": "Kittens under eight weeks are the most fragile animals a shelter takes in, and the youngest need feeding round the clock. A trained foster carer with the right supplies is often the difference between a kitten surviving and not.",
+        "source": {
+          "name": "ASPCA — Different types of animal foster caregivers",
+          "url": "https://www.aspca.org/news/did-you-know-there-are-different-types-animal-foster-caregivers"
+        }
+      },
+      {
+        "what": "Help the cats nobody owns",
+        "how": "Street cats are trapped, neutered and returned to where they live, which stops the number growing without harming the cats already there. It needs people to feed, to trap, to drive cats to the vet and back, and to keep them somewhere warm for a night after surgery.",
+        "source": {
+          "name": "International Cat Care — What can I do to help unowned cats?",
+          "url": "https://icatcare.org/articles/what-can-i-do-to-help-unowned-cats"
+        }
+      },
+      {
+        "what": "Neuter your own cat",
+        "how": "Cats Protection advises neutering from four months old or younger. One unneutered cat is where a whole street of unowned cats starts.",
+        "source": {
+          "name": "Cats Protection — Neutering, vaccinations and microchipping",
+          "url": "https://www.cats.org.uk/help-and-advice/neutering-and-vaccinations/neutering-vaccinations-microchipping"
+        }
+      },
+      {
+        "what": "Give time instead of money",
+        "how": "Small charities have almost no paid staff. Cleaning pens, feeding, driving, fundraising and socialising kittens are all jobs that need doing and all of them are done by people who volunteered.",
+        "source": {
+          "name": "International Cat Care — What can I do to help unowned cats?",
+          "url": "https://icatcare.org/articles/what-can-i-do-to-help-unowned-cats"
+        }
+      }
+    ]
+  }
+}

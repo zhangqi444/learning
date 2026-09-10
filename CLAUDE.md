@@ -8,6 +8,11 @@ working agreement for Claude Code sessions.
 
 - The living record is the **claude.ai "ISEE" project** — check the docs there for
   what was decided and why; write a doc back when you finish something substantial.
+- Touching the game (the Wordwood, the Hearth, the cats, the sound)? Read
+  **AGENTS.md § The game** and then **[docs/world.md](docs/world.md)**. The one
+  rule that has already caught two attempts: the content must *be* the mechanic.
+  If a feature would work just as well with the questions swapped for arithmetic
+  flashcards, it is a veneer — the owner has rejected that twice.
 - Work in `site/`. Content edits go in `content/**`, then re-run
   `python3 site/make_bundle.py` and commit the regenerated `site/content/bundle.json`.
 

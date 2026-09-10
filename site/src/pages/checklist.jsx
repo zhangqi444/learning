@@ -7,6 +7,8 @@ import { actionsForWeek, reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { mixedThisWeek } from "@/pages/mixed"
 import { go } from "@/lib/router"
+import { HAND, catsByWeek } from "@/lib/quest"
+import { W } from "@/lib/world"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
@@ -47,6 +49,14 @@ export function weekItems(wk) {
       items.push({ id: `prec:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: "Precision review", label: "Session 1 · Precision review — 20 words in your own words", sub: "20–25 min", done: ps.submitted, path: `/precision/${wk}`, auto: true })
       const quizzed = (D.precision[wk].words || []).some((e) => { const r = rec("w:" + e.word); return r && (r.hist || []).some((h) => h.ctx === "vocab") })
       items.push({ id: `quiz:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: "Word quiz", label: "Word quiz — the same 20 words as ISEE synonym questions", sub: "a day after Session 1", done: quizzed, path: `/precision/${wk}/quiz`, auto: true })
+      /* The Wordwood, once the week has actually given her cats to call. It is
+       * `auto: false` on purpose: it produces exactly the same vocabulary
+       * evidence as the quiz, so making it a sixteenth obligation would be
+       * charging her twice for one piece of work — and a game she is required
+       * to play stops being one. It is here so she can FIND it, which was the
+       * whole problem: nothing in the weekly plan pointed at it. */
+      const catsHere = (catsByWeek()[wk] || { met: 0 }).met
+      if (catsHere >= HAND) items.push({ id: `wood:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: W.woodTitle, label: `${W.woodTitle} — call this week's ${W.cats} by name`, sub: `${catsHere} met so far · counts as vocabulary practice either way`, done: null, path: `/quest/${wk}`, auto: false })
     }
     setsFor(s, wk).forEach((set, n) => {
       const r = Store.s.results[setId(s, wk, n)]

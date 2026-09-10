@@ -7,7 +7,10 @@ import * as React from "react"
  *  the same act: 178 of the 330 VR items are a sentence with a word taken out,
  *  which is exactly what a gate inscription is. VR does not need a separate
  *  game bolted beside it — it needs to be drawn as the one it already is. */
-export function Gate({ open, className }) {
+/** `glow` is the disc of light in the doorway. It stands in for "something came
+ *  through" — so turn it off when an actual cat is being drawn in the opening,
+ *  or the cat sits on a coloured plate. */
+export function Gate({ open, className, glow = true }) {
   const swing = (deg) => ({
     transition: "transform 500ms cubic-bezier(.34,1.56,.64,1)",
     transformOrigin: deg < 0 ? "44px 145px" : "196px 145px",
@@ -22,7 +25,7 @@ export function Gate({ open, className }) {
         </linearGradient>
       </defs>
       <path d="M40 145 L40 60 A80 80 0 0 1 200 60 L200 145 Z" fill="url(#gate-arch)" stroke="var(--border)" strokeWidth="3" />
-      {open ? <circle cx="120" cy="105" r="30" fill="var(--primary)" opacity="0.45" /> : null}
+      {open && glow ? <circle cx="120" cy="105" r="30" fill="var(--primary)" opacity="0.45" /> : null}
       <g style={swing(-72)}>
         <path d="M48 143 L48 66 A72 72 0 0 1 118 62 L118 143 Z" fill="var(--card)" stroke="var(--border)" strokeWidth="2.5" />
       </g>

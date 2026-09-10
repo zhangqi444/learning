@@ -22,12 +22,14 @@ import { WORD_GLOW } from "@/lib/glim"
 import { wordStatus } from "@/lib/engine"
 import { sfx } from "@/lib/sfx"
 
-export function Quest() {
+export function Quest({ wk = null }) {
   useStore()
   // local calendar day, so the day's gates are the same all day and a reload
   // cannot reroll a hard gate into an easy one
   const day = React.useMemo(() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` }, [])
-  const run = React.useMemo(() => buildRun(day, 5), [day])
+  // A week-scoped walk seeds off the week too, so W3's five gates are not the
+  // same five the whole wood would have given today.
+  const run = React.useMemo(() => buildRun(wk ? `${day}:${wk}` : day, 5, wk ? [wk] : null), [day, wk])
   const [i, setI] = React.useState(0)
   const [result, setResult] = React.useState(null)
   const [right, setRight] = React.useState(0)
@@ -45,9 +47,18 @@ export function Quest() {
         <Card className="items-center py-12 text-center">
           <CardHeader className="items-center">
             <Wand2 className="text-primary mb-2 size-8" />
-            <CardTitle>No {W.cats} yet</CardTitle>
-            <CardDescription>{W.wood} fills up as you meet words. Write this week\u2019s precision words in your own words and they will be here.</CardDescription>
+            <CardTitle>{wk ? `Not enough ${W.cats} from ${wk} yet` : `No ${W.cats} yet`}</CardTitle>
+            <CardDescription>
+              {wk
+                ? `A walk needs six ${W.cats} you have met, and ${wk} has not given up that many yet. Write its precision words in your own words and come back.`
+                : `${W.wood} fills up as you meet words. Write this week\u2019s precision words in your own words and they will be here.`}
+            </CardDescription>
           </CardHeader>
+          {wk ? (
+            <CardContent>
+              <Button variant="outline" onClick={() => go("/quest")} data-testid="quest-all">Walk the whole {W.woodTitle} instead</Button>
+            </CardContent>
+          ) : null}
         </Card>
       </div>
     )
@@ -94,7 +105,7 @@ export function Quest() {
         <Card className="from-primary/5 to-card relative items-center bg-gradient-to-t text-center" data-testid="quest-done">
           <Burst seed={right} />
           <CardHeader className="w-full">
-            <CardDescription>{W.wood} · today's gates</CardDescription>
+            <CardDescription>{W.wood}{wk ? ` · ${wk}` : ""} · today's gates</CardDescription>
             <CardTitle className="text-4xl font-extrabold tabular-nums">{right} / {run.length}</CardTitle>
             <CardDescription className="text-base">
               {right === run.length ? "Every one came first time." : `Every ${W.cat} that came is a word you can use. The ones that stayed out are waiting at the door.`}
@@ -124,7 +135,7 @@ export function Quest() {
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
       <div className="flex flex-col gap-2">
         <div className="text-muted-foreground flex items-center justify-between gap-2 text-sm">
-          <span className="font-medium">{W.woodTitle}</span>
+          <span className="font-medium">{W.woodTitle}{wk ? ` · ${wk}` : ""}</span>
           <span className="tabular-nums" data-testid="quest-counter">Gate {i + 1} / {run.length}</span>
         </div>
         <Progress value={(i / run.length) * 100} className="h-1.5" />
@@ -137,7 +148,7 @@ export function Quest() {
               wrong one it is the cat she actually named, drawn in full, because
               the point of the mistake is that somebody definitely came. */}
           <div className="relative mx-auto w-full max-w-sm">
-            <Gate open={!!(result && result.ok)} className="w-full" />
+            <Gate open={!!(result && result.ok)} glow={!arrival} className="w-full" />
             {arrival ? (
               <Glim
                 key={arrival.word}

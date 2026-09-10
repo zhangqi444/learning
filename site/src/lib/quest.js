@@ -95,7 +95,10 @@ export function inscription(entry) {
   return null
 }
 
-const HAND = 6
+/** Names offered at each gate — and therefore the minimum number of cats a walk
+ *  needs before it can be built at all. The weekly plan reads it too, so the
+ *  Wordwood is only ever offered when it will actually work. */
+export const HAND = 6
 
 const head = (w) => String(w).split("/")[0].trim()
 

@@ -68,7 +68,9 @@ function Screen({ route }) {
   if (top === "mixed") return b === undefined && a === "run" ? <MixedRun key="mixed-run" /> : <Mixed />
   if (top === "score") return <Score />
   if (top === "base") return <Base />
-  if (top === "quest") return <Quest />
+  // /quest walks everything she has met; /quest/W3 walks one week's cats, which
+  // is what the weekly plan and the precision page link to.
+  if (top === "quest") return <Quest key={a || "all"} wk={a && D.precision[a] ? a : null} />
   if (top === "rewards") return <Rewards />
   if (top === "books") return <Books />
   if (top === "essay" && a && D.essay.weeks[a]) return <EssayWeek key={a} wk={a} />
