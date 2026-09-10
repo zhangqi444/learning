@@ -4,7 +4,14 @@ Research and a staged plan for turning the practice site into something that
 plays like a game, in answer to: *"I want to be fully gamify… the website style
 could be roblox style, and the content could be like play a game."*
 
-This is a proposal. Nothing here is built. The decisions in §11 are the owner's.
+> **Read this first.** The research in §1–§3 still stands and is still the
+> evidence base. **The design from §4 onwards does not.** "Brain Base" was built,
+> shown to the owner, and rejected in one sentence — *"I guess you misunderstand
+> my requirement… I want the VR question to be my gamify, like CodeCombat"* —
+> because it was chrome wrapped around unchanged content. Everything after that
+> point lives in **[world.md](world.md)**, which is the design of record. Do not
+> build anything from §4–§9 of this file; it is kept because the reasoning that
+> led to a wrong turn is worth being able to re-read.
 
 ---
 
@@ -344,9 +351,32 @@ costume.
 Every stage: all four suites pass, bundle check clean, and screenshots at desktop,
 phone width and dark mode before it is called done.
 
-## What is left
+## What happened next
 
-Nothing in this plan. The remaining work is not code:
+The staged plan above shipped and was rejected as a veneer, which is the single
+most useful thing in this document. What replaced it:
+
+- **The rule that came out of it.** The content must *be* the mechanic. The test:
+  would this still work if the questions were swapped for arithmetic flashcards?
+  If yes, it is decoration. Currency, rooms, badges and confetti all fail it —
+  that is fine, they are decoration; shipping only decoration and calling the
+  site gamified is the mistake. Recorded in AGENTS.md § The game.
+- **One world instead of eight metaphors**, in [world.md](world.md): Wildlight,
+  the Lampwright, and every word as a cat.
+- **The Wordwood**, where vocabulary is the control language: a real sentence
+  with a word taken out, and calling the wrong name brings the wrong cat.
+- **Verbal Reasoning drawn as the gate it already is** — 178 of its 330 items are
+  a sentence with a word removed.
+- **Cats reacting around every other question** rather than inside it: the
+  skill's own cat on the reveal, in its own voice. The questions themselves were
+  measured for this (244 of 408 QR/MA items could carry a cat context) and the
+  owner's decision is that they stay exactly as they are, because the practice
+  has to look like the test.
+- **The Den**, which teaches real, sourced cat care and carries the advocacy for
+  real cats — after the owner's daughter said plainly that she did not understand
+  why she was building rooms called "Number Works".
+
+**Still not code, and still outstanding:**
 
 1. **Watch her use it.** Everything here is a considered guess about what a
    ten-year-old finds motivating. An hour of watching will say more than another
@@ -354,6 +384,8 @@ Nothing in this plan. The remaining work is not code:
 2. **The two digest Routines have no Drive connector**, so they cannot read
    `progress.json` and will fail at step 1. That needs the owner in the claude.ai
    Routines UI.
+3. **Two of Sheila's world questions are still open**: what her own first Glim is
+   like, and what the very end looks like once everything is lit.
 
 ---
 

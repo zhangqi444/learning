@@ -134,10 +134,25 @@ The four subjects are four kinds of place, and they exist in every Reach:
 | Quantitative Reasoning | **the Weighbridge** | where things are compared, measured and weighed |
 | Mathematics | **the Workyard** | where things are counted, cut and built |
 
-The Wordwood is built (`Wordgates`). The Weighbridge and Workyard are where
-numbers get a real job later — a wrong measurement makes a bridge too short,
-which is the honest version of gamifying arithmetic. The Deep Shelf is the
-hardest and comes last.
+The Wordwood is built. The other three are **not** getting mechanics of their
+own, and that is a decision rather than a gap.
+
+The idea above — a wrong measurement makes a bridge too short — was checked
+against the actual bank and does not survive it. Only 8 of the 408 Quantitative
+and Mathematics items are comparison-shaped, so there is nothing to build a
+balance on; and no distractor records *what mistake produces it*, so the version
+that would really work (pick 24 instead of 21 and see that 24 is what you get if
+you divide instead of multiply) cannot be derived without inventing the
+misconception, which the content rules forbid. It is a content problem, and
+AGENTS.md says which content would unlock it.
+
+Meanwhile 244 of those 408 items *do* have a story whose objects are arbitrary
+and could carry a cat, and the owner's decision is that they should not: the
+practice has to look like the test. So the cats reach these three subjects the
+way they reach anything the content cannot carry — **around** the question. Get a
+Percent question right and the Percent cat turns up, in its own voice, at the
+brightness the engine really reports for Percent. The question and its four
+choices are exactly what the real test prints.
 
 ## 6. The events
 
@@ -254,20 +269,28 @@ is coming.**
 Still hers, and still open: what her own first Glim is like, and what the very
 end of the world looks like once everything is lit.
 
-## 10. What this changes in code
+## 10. What this changed in code
 
-Nothing yet. The next commits rename what exists rather than adding to it:
-`Base → Hearth`, `Sparks → Hum`, `Wordkeep → Wordwood`, one Glimbook replacing
-word cards and skill crests, and the review pile's language rewritten around
-cats at the door.
+All of it, in the end. In order:
 
-One bug to fix at the same time, found while checking coverage: the Wordgates
-currently draw from all 160 vocabulary words including weeks she has never
-studied. A Glim should only appear once she has met it — which is also what
-makes a finished week visibly worth something.
+| | |
+|---|---|
+| `b41ee15` | every world noun moved into one file (`site/src/lib/world.js`), and the Wordwood stopped drawing cats from weeks she had never opened |
+| `6e52c62`, `ebcf840` | the Wordwood itself, and Verbal Reasoning drawn as the gate it already was |
+| `a84a8a0`, `291ea3f` | every word given a cat and a voice, generated from its own letters; the run's ending sung by the cats that came |
+| `d1a5142` | cats put where the words already are — the precision review, the review pile, the gate — and the Wordwood finally reachable from the weekly plan |
+| `108dd1e` | skills drawn as cats too, which is the only place all six brightnesses are used |
+| `d9fe4d7` | the Hearth rebuilt as **the Den**: seven things a cat actually needs, each teaching real sourced care, none of it a pet simulator |
+| `2ac61f7` | the coats made real cats instead of points on a colour wheel |
+| `bef744a` | the invented cats labelled as invented, and what helps the real ones |
+| `e79cfc3` | a cat turning up on the reveal in every subject, in its own voice |
+| `3e014e5` | the nav grouped, with the Wordwood deliberately left in the working list |
 
-*(Both done: `b41ee15` renamed everything through `world.js` and fixed the
-draw-from-unmet-weeks bug.)*
+Two rules were learned the hard way and are worth keeping in view. A metaphor
+that has to be explained has failed — "the Hearth" was defensible and meant
+nothing to the ten-year-old using it. And the person the thing is for is the best
+reviewer there is: every redirection in this list came from her or her father,
+and every one of them was right.
 
 ## 11. The materials — how a cat is made
 
