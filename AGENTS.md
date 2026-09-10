@@ -28,12 +28,13 @@ content/                 the source of truth for everything the site teaches
   calendar.json            researched ISEE dates, formats, school deadlines
   books.json               reading shelf: starter books + suggested reads
   aops.json                ISEE skill → AoPS chapter map
+  catcare.json             what a cat needs, for the Den — every item carries its source
 site/
   make_bundle.py           content/** → site/content/bundle.json (the app's only data input)
   build_seed.py *          (repo root) Sheets → site/content/seed.json, her migrated Week-1 work
   src/lib/                 store.js, engine.js, rewards.js, books.js, content.js, aops.js, router.js
   src/lib/                 the game: world.js (every world noun), quest.js (the Wordwood),
-                           base.js (the Hearth), glim.js (a cat, generated), sfx.js (synthesised sound)
+                           base.js (the Den), glim.js (a cat, generated), sfx.js (synthesised sound)
   src/pages/               one file per route
   src/components/ui/       shadcn/ui components, written into the repo (not a dependency)
   src/components/          glim.jsx (draws a cat), gate.jsx, burst.jsx and the shell
@@ -81,7 +82,7 @@ The app is a static page that keeps the learner's data **in her own Google Drive
   be able to delete an answer.
 - **Payload**: `schema: 6` — `results, precision, essays, mocks, checklists, items,
   mixed, badges, rewards, books, booksSeeded, reviews, reviewsSeen, base, testDate,
-  testFormat, pacing`. (`base` — the Hearth's append-only purchase ledger — is what
+  testFormat, pacing`. (`base` — the Den's append-only purchase ledger — is what
   took it from 5 to 6.)
   Adding a slice means bumping the schema, adding it to `init`, `merge` and `push`,
   and covering it in `test_drive.cjs`.
@@ -159,7 +160,7 @@ Four suites, all real browsers against the built `dist/`:
 |---|---|
 | `test_e2e.cjs` | desktop + phone shells, navigation, a full set, persistence |
 | `test_drive.cjs` | Google stubbed: sign-in once, reload without a prompt, silent reconnect, merge conflicts, a review arriving from Drive and surviving a save |
-| `test_features.cjs` | precision, essay (time log, review import), mocks, calendar, checklist, learning engine, rewards, reading, AoPS pointers, the Hearth and the Glimbook, the Wordwood, and the cats' voices |
+| `test_features.cjs` | precision, essay (time log, review import), mocks, calendar, checklist, learning engine, rewards, reading, AoPS pointers, the Den and the Glimbook, the Wordwood, and the cats' voices |
 | `test_artifact.cjs` | the single-file build: no Drive, no external requests, host theme |
 
 Rules: every feature gets checks in the suite it belongs to; a UI change that
@@ -257,7 +258,7 @@ anything is a one-file edit and no component writes one as a literal.
 
 | Thing | Is | Code |
 |---|---|---|
-| the **Hearth** | her home; rooms bought at fixed published prices | `lib/base.js`, `pages/base.jsx` |
+| the **Den** | where she builds the seven things a cat really needs, at fixed published prices. Each teaches real, sourced care guidance, and building one means answering one true question about it | `lib/base.js`, `pages/base.jsx`, `content/catcare.json` |
 | **Hum** | the currency, earned for *trying*, not for being right, so a hard day still counts | `lib/rewards.js` |
 | the **Wordwood** | the gates; every cast is recorded as an ordinary `vocab` attempt, so playing *is* practising. `/quest` walks everything she has met, `/quest/W3` just that week's | `lib/quest.js`, `pages/quest.jsx` |
 | the **Glimbook** | the collection: every cat she has met, at its true brightness | `pages/base.jsx` |
@@ -282,6 +283,29 @@ practice set the four choices stay plain words on white, because on the day it
 counts they will be, and training her to scan for a ginger tabby is training her
 for a test that does not exist. A VR set gets its cat only on the reveal — the
 one that walks through the opened gate. `test_features.cjs` guards both halves.
+
+**The Den teaches cat care, and never simulates neglect.** Sheila asked for this
+and the guidance is real — every item in `content/catcare.json` carries a named
+source (ASPCA, RSPCA, Cats Protection, International Cat Care) and says that a
+vet decides what is right for a particular cat, because she does not have a cat
+yet and would like one. Never invent care advice here; the content rule applies
+in full.
+
+There is deliberately **no pet simulator**: no hunger bar, no meter that falls,
+nothing that can be neglected. A cat that gets sad because she missed a day of
+maths is exactly the dark pattern hard rule 3 forbids. A wrong care answer costs
+nothing and can be answered again; everything built stays built. Cat care is also
+not ISEE evidence — it must never be recorded through the engine.
+
+Her answer to "what happens at the end?" was *"I finally get my cat"*. Building
+everything a cat needs is something the page can honestly finish and say so.
+Whether a real cat follows is a family decision about a live animal, so the
+finished Den points at the reward shelf and **nothing in the code may ever imply
+a cat is coming**.
+
+**The ledger ids are permanent.** `Store.s.base` records purchases by id and an
+unknown id is silently dropped, which would un-build something already paid for.
+Rename a thing freely; re-key one never.
 
 **Brightness is not part of the cat.** It is how well she knows the word, read
 live from the engine and never stored: Unseen → Glimpsed → Flickering → Steady →

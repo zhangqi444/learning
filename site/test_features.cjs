@@ -302,10 +302,39 @@ async function runThrough(pg, pick, max = 60) {
   const priced = await pg.$$eval('[data-testid=room][data-built="0"] [data-slot=badge]', (n) => n.map((e) => parseInt((e.textContent || '').trim(), 10)));
   check('every unbuilt room shows a fixed price, none of them random', priced.length === 7 && priced.every((p) => p > 0), priced.join(','));
   check('nothing is built to start with', (await pg.$$eval('[data-testid=room][data-built="1"]', (n) => n.length)) === 0);
+  // Every thing carries real care guidance and names where it came from, because
+  // this is advice about a real animal and the content rule applies to it.
+  const sources = await pg.$$eval('[data-testid=room] a[href^="https://"]', (n) => n.map((a) => a.href));
+  check('each thing says what a cat needs and cites who says so', sources.length === 7 && new Set(sources).size > 1, sources.slice(0, 2).join(' '));
+  // Building means getting the care question right. A wrong answer must cost
+  // nothing and be answerable again: this is a child who wants a cat, and the
+  // Den must never punish (hard rule 3).
   await pg.click('[data-testid=build-word-lab]');
+  await pg.waitForSelector('[data-testid=care-check]');
+  const key = await pg.$eval('[data-testid=care-check]', (e) => e.dataset.id);
+  const wrongIdx = await pg.$$eval('[data-testid=care-choice]', (n) => n.length) - 1;
+  await pg.click(`[data-testid=care-choice] >> nth=${wrongIdx}`);
+  await pg.waitForSelector('[data-testid=care-why]');
+  check('a wrong care answer explains itself and buys nothing', key === 'word-lab'
+    && (await pg.$$eval('[data-testid=room][data-built="1"]', (n) => n.length)) === 0
+    && +(await pg.textContent('[data-testid=base-balance]')) === balBefore);
+  check('and it can simply be answered again', (await pg.$('[data-testid=retry-word-lab]')) !== null);
+  await pg.click('[data-testid=retry-word-lab]');
+  const rightIdx = await pg.$$eval('[data-testid=care-choice]', (n) => n.length);
+  for (let k = 0; k < rightIdx; k++) {
+    await pg.click(`[data-testid=care-choice] >> nth=${k}`);
+    if (await pg.$('[data-testid=confirm-word-lab]')) break;
+    await pg.click('[data-testid=retry-word-lab]');
+  }
+  await pg.click('[data-testid=confirm-word-lab]');
   await pg.waitForSelector('[data-testid=room][data-id=word-lab][data-built="1"]');
   const balAfter = +(await pg.textContent('[data-testid=base-balance]'));
-  check('building a room spends exactly its published price', balBefore - balAfter === 60, `${balBefore} -> ${balAfter}`);
+  check('building a thing spends exactly its published price', balBefore - balAfter === 60, `${balBefore} -> ${balAfter}`);
+  // Cat care is not ISEE practice and must never leak into the engine.
+  check('and knowing about cats is not recorded as practice', await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    return !Object.keys(s.items || {}).some((k) => /care|cat|chip|collar/i.test(k)) && !s.catcare;
+  }));
   check('a built room reports its lights from real mastery', (await pg.$('[data-testid=room][data-id=word-lab] [data-testid=room-light]')) !== null);
   // one wallet: Sparks spent on a room are not still available for a reward
   await pg.evaluate(() => { location.hash = '#/rewards'; });

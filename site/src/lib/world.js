@@ -12,8 +12,11 @@ export const W = {
   world: "Wildlight",
   cat: "Glim",
   cats: "Glims",
-  home: "the Hearth",
-  homeTitle: "Hearth",
+  // Sheila's note, verbatim: "very confused here why we have hearth. Can it be
+  // something cat related? Can we build things the cat need?" — so it is a den
+  // now, and what you build in it is what a cat actually needs.
+  home: "the Den",
+  homeTitle: "Den",
   currency: "Hum",
   role: "Lampwright",
   book: "Glimbook",
