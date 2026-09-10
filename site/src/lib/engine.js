@@ -561,12 +561,28 @@ export function streakInfo() {
   return { current, frozen, activeToday, best: Math.max(best, current), activeDays: days.size }
 }
 const POINTS = { set: 10, mixed: 12, review: 1, vocab: 1, word: 2, "essay-done": 15, mock: 25, "mock-essay": 15, read: 4, book: 40 }
-/** Effort points, for attempts not accuracy. range: [fromKey, toKey] inclusive day keys. */
-export function effortPoints(range) {
+/** Effort points, for attempts not accuracy. range: [fromKey, toKey] inclusive day keys.
+ *  `asOf` (ms) winds the clock back to what she had made by that moment — what the
+ *  wallet needs when it settles a purchase she made in the past against the Hum that
+ *  actually existed then. */
+export function effortPoints(range, asOf) {
   let total = 0
-  eachTimestamp((at, kind) => { const k = dayKey(ts(at)); if (range && (k < range[0] || k > range[1])) return; total += POINTS[kind] || 0 })
+  eachTimestamp((at, kind) => {
+    const t = ts(at)
+    if (asOf && t > asOf) return
+    const k = dayKey(t)
+    if (range && (k < range[0] || k > range[1])) return
+    total += POINTS[kind] || 0
+  })
   // tagging a miss is effort too
-  for (const id of Object.keys(Store.s.items || {})) { const r = Store.s.items[id]; if (r && r.tag) { const k = dayKey(ts(r.at)); if (!range || (k >= range[0] && k <= range[1])) total += 3 } }
+  for (const id of Object.keys(Store.s.items || {})) {
+    const r = Store.s.items[id]
+    if (!r || !r.tag) continue
+    const t = ts(r.at)
+    if (asOf && t > asOf) continue
+    const k = dayKey(t)
+    if (!range || (k >= range[0] && k <= range[1])) total += 3
+  }
   return total
 }
 export function thisWeekRange() { const w = weekOf(todayKey()); const d = new Date(w + "T00:00:00"); d.setDate(d.getDate() + 6); return [w, dayKey(d.getTime())] }

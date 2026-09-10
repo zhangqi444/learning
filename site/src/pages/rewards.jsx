@@ -120,6 +120,7 @@ export function RewardsCard() {
 function Shelf() {
   const w = wallet()
   const list = shelf()
+  const took = Object.fromEntries(w.ledger.filter((r) => r.kind === "reward").map((r) => [r.id, r]))
   const cs = claims()
   const [name, setName] = React.useState("")
   const [cost, setCost] = React.useState(200)
@@ -182,7 +183,9 @@ function Shelf() {
                 <li key={c.id} className="flex flex-wrap items-center gap-3 px-3 py-2.5" data-testid="claim-row" data-status={c.status}>
                   {c.status === "given" ? <Check className="text-success size-4 shrink-0" /> : <Gift className="text-warning size-4 shrink-0" />}
                   <span className="min-w-0 flex-1 text-sm font-medium">{c.name}</span>
-                  <span className="text-muted-foreground text-xs tabular-nums">{c.cost} pts · {fmtDate(c.at)}</span>
+                  <span className="text-muted-foreground text-xs tabular-nums">
+                    {took[c.id] && took[c.id].short > 0 ? `${took[c.id].charged} of ${c.cost}` : c.cost} pts · {fmtDate(c.claimedAt)}
+                  </span>
                   {c.status === "given" ? (
                     <Badge variant="success">Given</Badge>
                   ) : (

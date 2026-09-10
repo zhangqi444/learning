@@ -19,6 +19,18 @@ export function seedBooks() {
   const add = {}
   for (const b of D.books.starter || []) if (!rows()[b.id]) add[b.id] = { ...b, sessions: [], words: [], seeded: true }
   if (Object.keys(add).length) Store.setMany("books", add)
+  // A starter book that ships already finished arrives with a status and no date.
+  // `finishedBooks()` asks the status and `effortPoints()` asks the date, so without
+  // this the book sits on the shelf as finished, earns its badge and lights the
+  // Library while paying no Hum at all — the same fact answered two ways. Additive
+  // and idempotent, and it keeps the record's own `at` so it cannot outrank a copy
+  // another device has since enriched.
+  const fix = {}
+  for (const id of Object.keys(rows())) {
+    const b = rows()[id]
+    if (b && !b.removed && b.status === "finished" && !b.finishedAt) fix[id] = { ...b, finishedAt: b.at || new Date().toISOString() }
+  }
+  if (Object.keys(fix).length) Store.setMany("books", fix, { stamp: false })
   if (!Store.s.booksSeeded) Store.setPref("booksSeeded", true)
   return Object.keys(add).length
 }

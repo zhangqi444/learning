@@ -189,7 +189,10 @@ Pure functions over `Store.s` and the bundle, plus three writers
 
 `rewards.js` reads the same records to work out badges, then **pins** each on
 first earning so a later dip can never un-earn it. Levels come from lifetime
-effort points; spending on the reward shelf never costs a level.
+effort points; spending on the reward shelf never costs a level. Rooms and
+rewards share one wallet, settled by replaying both ledgers in order (`ledger()`)
+so a purchase can never take Hum that did not exist when it was made — the
+balance is a subtraction that always adds up and never needs clamping.
 
 ## 8. Essay reviews
 

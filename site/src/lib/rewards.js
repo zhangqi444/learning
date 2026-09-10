@@ -9,7 +9,7 @@ import {
   mockBand, pacingFor, reviewQueue, streakInfo, wordStatus,
 } from "./engine"
 import { finishedBooks, readingDays, wordsCollected } from "./books"
-import { spentOnBase } from "./base"
+import { roomLedger } from "./base"
 
 /* ---------- levels ---------- */
 export const LEVELS = [
@@ -173,19 +173,56 @@ export function claims() {
   return Object.keys(rows()).filter((k) => k.startsWith("claim:"))
     .map((k) => ({ id: k.slice(6), key: k, ...rows()[k] }))
     .filter((c) => c.status !== "cancelled")
-    .sort((a, b) => ts(b.at) - ts(a.at))
+    // `at` is rewritten every time the row is touched, so handing a reward over days
+    // later would otherwise move the claim to today. The wallet settles claims in the
+    // order they happened, so when it happened has to survive being marked given.
+    .map((c) => ({ ...c, claimedAt: c.claimedAt || c.at }))
+    .sort((a, b) => ts(b.claimedAt) - ts(a.claimedAt))
 }
-export function spent() { return claims().reduce((n, c) => n + (c.cost || 0), 0) }
-/** Lifetime Sparks fix the level; the balance is what is left after everything
- *  she has spent them on. There is ONE wallet: rewards Qi posts and rooms in the
- *  Base draw on the same balance, so the same Spark can never be spent twice.
- *  Spending never costs a level — the level is lifetime earning, not savings. */
+
+/* ---------- the one wallet ----------
+ * Rooms in the Base and rewards on the shelf draw on the same Hum, so the same
+ * Hum can never be spent twice. The hard part is that what she has MADE is
+ * derived live from her records, while what she has SPENT is a ledger of
+ * absolute costs — and the two can come apart. Two devices that have not yet
+ * seen each other's purchases will each say yes to one, and merging keeps both
+ * (hard rule 1: nothing is lost). Undoing work does it too: reopening a
+ * finished book or taking back a reading day lowers what she has made, after
+ * the money is gone.
+ *
+ * `Math.max(0, made - spent)` used to paper over that, and it is how her wallet
+ * ended up reading "552 made · 560 spent · 0 to spend" — arithmetic no child can
+ * argue with, and every Hum she earned afterwards disappearing into the hole.
+ *
+ * So the ledger is REPLAYED in the order it happened, and each purchase takes
+ * only what was actually there at the time. What the game said yes to still
+ * stands — the room stays built, the reward stays claimed — but a shortfall is
+ * written off rather than charged to work she does later. The world's first
+ * rule is that nothing is ever lost, and that has to include Hum she has
+ * already earned. The balance is then a plain subtraction that always adds up,
+ * and it cannot go negative without being clamped. */
+export function ledger() {
+  const all = [
+    ...roomLedger(),
+    ...claims().map((c) => ({ kind: "reward", key: c.key, id: c.id, name: c.name, cost: Math.max(0, c.cost || 0), at: c.claimedAt })),
+  ].sort((a, b) => ts(a.at) - ts(b.at))
+  let charged = 0
+  return all.map((r) => {
+    const took = Math.min(r.cost, Math.max(0, effortPoints(null, ts(r.at)) - charged))
+    charged += took
+    return { ...r, charged: took, short: r.cost - took }
+  })
+}
+/** Lifetime Hum fixes the level; the balance is what is left after everything she
+ *  has spent it on. Spending never costs a level — the level is lifetime earning,
+ *  not savings. */
 export function wallet() {
   const lifetime = effortPoints()
-  const onRewards = spent()
-  const onBase = spentOnBase()
+  const led = ledger()
+  const sum = (kind) => led.reduce((n, r) => n + (r.kind === kind ? r.charged : 0), 0)
+  const onRewards = sum("reward"), onBase = sum("room")
   const used = onRewards + onBase
-  return { lifetime, spent: used, onRewards, onBase, balance: Math.max(0, lifetime - used), level: levelOf(lifetime) }
+  return { lifetime, spent: used, onRewards, onBase, balance: lifetime - used, level: levelOf(lifetime), ledger: led }
 }
 const newId = () => Date.now().toString(36) + Math.floor(Math.random() * 1e4).toString(36)
 export function addReward(name, cost) {
@@ -198,7 +235,7 @@ export function removeReward(id) { Store.setSlice("rewards", "item:" + id, (cur)
 export function claimReward(item) {
   if (wallet().balance < item.cost) return null
   const id = newId()
-  Store.setSlice("rewards", "claim:" + id, () => ({ rewardId: item.id, name: item.name, cost: item.cost, status: "claimed" }))
+  Store.setSlice("rewards", "claim:" + id, () => ({ rewardId: item.id, name: item.name, cost: item.cost, status: "claimed", claimedAt: new Date().toISOString() }))
   return id
 }
 export function markGiven(id) { Store.setSlice("rewards", "claim:" + id, (cur) => ({ ...cur, status: "given", givenAt: new Date().toISOString() })) }
