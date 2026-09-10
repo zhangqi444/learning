@@ -267,8 +267,12 @@ anything is a one-file edit and no component writes one as a literal.
 **The materials are generated, never fetched.** The eight weeks hold 160 word
 slots and 115 distinct words, and nobody was going to draw 115 cats or record 115
 sounds, so each cat comes out of a hash of its own word
-(`lib/glim.js`): coat hue (one of 24, a step apart), markings, eyes, tail, head
-tilt — and its call, from the same seed on purpose. `benign` is the same cat on
+(`lib/glim.js`): a real coat, a build, socks, a bib, the eyes — and its call,
+from the same seed on purpose. The coats are twelve **real** cats (tabbies,
+golden-shaded, tuxedo, black, blue, cream, seal point, calico, tortoiseshell,
+white) in three builds, not points on a colour wheel — a hue wheel generated
+lilac and mint-green cats that exist nowhere. `test_features.cjs` guards the
+closed list. `benign` is the same cat on
 every device forever and always answers in the same two notes, which is what
 makes recognising the cat the same act as recognising the word. Calls are two
 rising notes from **one** pentatonic scale, transposed only by octaves — any

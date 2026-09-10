@@ -382,6 +382,12 @@ async function runThrough(pg, pick, max = 60) {
   const coats = await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => e.dataset.word + ':' + e.dataset.marking + ':' + e.dataset.coat));
   check('every cat is drawn, not fetched — nothing on the shelf is an image', (await pg.$$('[data-testid=word-cards] img')).length === 0 && coats.length > 1);
   check('two different words are two different cats', new Set(coats).size === coats.length, coats.slice(0, 3).join(' | '));
+  // Coats are real cats from a closed list, not points on a colour wheel: the
+  // first version generated lilac and mint-green cats, which exist nowhere.
+  const REAL = ['brown-tabby', 'ginger-tabby', 'silver-tabby', 'golden-shaded', 'tuxedo', 'black', 'blue', 'cream', 'seal-point', 'calico', 'tortoiseshell', 'white'];
+  const kinds = await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => e.dataset.marking + '|' + e.dataset.build));
+  check('every cat is a coat you could actually meet', kinds.every((k) => REAL.includes(k.split('|')[0])), [...new Set(kinds.map((k) => k.split('|')[0]))].join(','));
+  check('and a real build, not just a colour', kinds.every((k) => ['short', 'long', 'slim'].includes(k.split('|')[1])), [...new Set(kinds.map((k) => k.split('|')[1]))].join(','));
   const benignCoat = coats.find((c) => c.startsWith('benign:'));
   // A skill is a cat too, and this is the only place all six brightnesses get
   // used — words never reach Bright. The badge still counts the Radiant ones

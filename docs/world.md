@@ -271,12 +271,23 @@ draw-from-unmet-weeks bug.)*
 
 ## 11. The materials — how a cat is made
 
-Nobody is going to draw a hundred and sixty cats, and nobody is going to record
-a hundred and sixty sounds. So every cat is **generated from its own word**, in
-`site/src/lib/glim.js`: the word is hashed, and the hash picks the coat's hue
-(one of 24, a step apart, so no two cats are one cat drawn twice), the markings
-(plain, tabby, patch, spots, bib), the eye colour, which way the tail curls, the
-tilt of the head — and the call.
+Nobody is going to draw a hundred and fifteen cats, and nobody is going to record
+a hundred and fifteen sounds. So every cat is **generated from its own word**, in
+`site/src/lib/glim.js`: the word is hashed, and the hash picks the coat, the
+build, white socks and a bib, the eye colour, which way the tail curls, the tilt
+of the head — and the call.
+
+**The coats are real cats, not hues.** The first version picked a hue off a
+24-step wheel. It gave plenty of variety and it produced lilac and mint-green
+cats, which exist nowhere, and Sheila asked for real ones. There are twelve now —
+brown, ginger and silver tabby; **golden-shaded**, because her uncle has a golden-
+shaded British shorthair; tuxedo, black, blue, cream; **seal point**, which is the
+very large, very relaxed cat in the photograph she sent; calico, tortoiseshell
+and white. Each carries the eye colours that really go with it, because a cat
+with the wrong eyes stops looking like a cat. Three builds carry the rest of the
+variety: shorthair round and low, longhair with a ruff and a plume of a tail,
+oriental taller and leaner with bigger ears. Coat × build × socks × bib × eyes is
+still hundreds of cats, and every one of them is a cat you could point at.
 
 The look and the voice come out of the same seed deliberately. `benign` is the
 same cat on the laptop, on the iPad, and in a year; it always answers in the
