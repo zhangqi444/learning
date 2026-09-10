@@ -388,11 +388,23 @@ most useful thing in this document. What replaced it:
 3. ~~Two of Sheila's world questions are still open.~~ Answered and built — see
    world.md §9.
 
-**A caution for whoever reads a Routine's run status.** `last_run: SUCCEEDED`
-means the fired session finished cleanly, *not* that a digest exists. The weekly
-Routine ran on 10 September in 81 seconds and no `Week digest · …` doc appeared
-in Drive, so the run status alone is not evidence the pipeline works. Check for
-the artifact.
+**The digest Routines still do not work, and here is exactly why.** Both carry
+the right connectors, both fire, and the weekly one reports `last_run:
+SUCCEEDED` — but no digest has ever been produced. `SUCCEEDED` means the fired
+session finished cleanly, not that it made anything.
+
+The cause is in the Routine's stored session request: **`config.sources` is
+empty**. The fired session gets no repository, so `/home/user` is not a checkout,
+`.claude/skills/progress-digest/SKILL.md` is not there, and step 1 of the prompt
+cannot run. The session correctly reported this and fabricated nothing.
+
+**This cannot be fixed from inside a session.** `create_trigger` has no `sources`
+parameter and does not inherit the calling session's repository — verified on
+10 September with a throwaway Routine created from this repo-bound session, whose
+stored config still came back `"sources":[]`. The fix is the owner editing each
+Routine in the claude.ai Routines UI and selecting `zhangqi444/isee` as its
+source repository. The connectors are already right; the repo is the missing
+half.
 
 ---
 
