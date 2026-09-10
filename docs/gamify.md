@@ -381,11 +381,18 @@ most useful thing in this document. What replaced it:
 1. **Watch her use it.** Everything here is a considered guess about what a
    ten-year-old finds motivating. An hour of watching will say more than another
    stage would.
-2. **The two digest Routines have no Drive connector**, so they cannot read
-   `progress.json` and will fail at step 1. That needs the owner in the claude.ai
-   Routines UI.
-3. **Two of Sheila's world questions are still open**: what her own first Glim is
-   like, and what the very end looks like once everything is lit.
+2. ~~The two digest Routines have no Drive connector.~~ **Fixed by the owner on
+   8 September** — both now carry Google Drive and Google Calendar, and both have
+   fired. Whether they produce a digest end to end is a separate question from
+   whether they can read the file; see the note below.
+3. ~~Two of Sheila's world questions are still open.~~ Answered and built — see
+   world.md §9.
+
+**A caution for whoever reads a Routine's run status.** `last_run: SUCCEEDED`
+means the fired session finished cleanly, *not* that a digest exists. The weekly
+Routine ran on 10 September in 81 seconds and no `Week digest · …` doc appeared
+in Drive, so the run status alone is not evidence the pipeline works. Check for
+the artifact.
 
 ---
 
