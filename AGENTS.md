@@ -32,14 +32,19 @@ site/
   make_bundle.py           content/** → site/content/bundle.json (the app's only data input)
   build_seed.py *          (repo root) Sheets → site/content/seed.json, her migrated Week-1 work
   src/lib/                 store.js, engine.js, rewards.js, books.js, content.js, aops.js, router.js
+  src/lib/                 the game: world.js (every world noun), quest.js (the Wordwood),
+                           base.js (the Hearth), glim.js (a cat, generated), sfx.js (synthesised sound)
   src/pages/               one file per route
   src/components/ui/       shadcn/ui components, written into the repo (not a dependency)
+  src/components/          glim.jsx (draws a cat), gate.jsx, burst.jsx and the shell
   test_*.cjs               four Playwright suites — see Testing
   oauth.json               the Google OAuth client's public facts (no secrets)
 .github/workflows/pages.yml  build + deploy to GitHub Pages
 docs/                     architecture.md (how it is built), design.md (why it looks and
-                          behaves as it does), review.md, review notes; the living
-                          record is the claude.ai "ISEE" project
+                          behaves as it does), world.md (the world bible — read before
+                          touching the game), gamify.md (the research, and what shipped),
+                          review.md, review notes; the living record is the
+                          claude.ai "ISEE" project
 ```
 
 ## Tech stack
@@ -74,8 +79,10 @@ The app is a static page that keeps the learner's data **in her own Google Drive
 - **Merge** (`Store.merge`): per key, last write wins by `at`; on a tie the richer
   copy is kept. Learning records union their attempt histories. Merging must never
   be able to delete an answer.
-- **Payload**: `schema: 5` — `results, precision, essays, mocks, checklists, items,
-  mixed, badges, rewards, books, reviews, reviewsSeen, testDate, testFormat, pacing`.
+- **Payload**: `schema: 6` — `results, precision, essays, mocks, checklists, items,
+  mixed, badges, rewards, books, booksSeeded, reviews, reviewsSeen, base, testDate,
+  testFormat, pacing`. (`base` — the Hearth's append-only purchase ledger — is what
+  took it from 5 to 6.)
   Adding a slice means bumping the schema, adding it to `init`, `merge` and `push`,
   and covering it in `test_drive.cjs`.
 - **Every push reads first**: `flush` runs `pull` (GET, merge, PATCH), so a change
@@ -152,12 +159,19 @@ Four suites, all real browsers against the built `dist/`:
 |---|---|
 | `test_e2e.cjs` | desktop + phone shells, navigation, a full set, persistence |
 | `test_drive.cjs` | Google stubbed: sign-in once, reload without a prompt, silent reconnect, merge conflicts, a review arriving from Drive and surviving a save |
-| `test_features.cjs` | precision, essay (time log, review import), mocks, calendar, checklist, learning engine, rewards, reading, AoPS pointers |
+| `test_features.cjs` | precision, essay (time log, review import), mocks, calendar, checklist, learning engine, rewards, reading, AoPS pointers, the Hearth and the Glimbook, the Wordwood, and the cats' voices |
 | `test_artifact.cjs` | the single-file build: no Drive, no external requests, host theme |
 
 Rules: every feature gets checks in the suite it belongs to; a UI change that
 breaks a selector means fixing the test's *assumption*, not deleting the check.
 All four must pass before a commit.
+
+Two things in `test_features.cjs` **must run last**, and say so where they sit:
+the ones that write throwaway learning history (the stubbed Drive merges it back
+on the next reload — hard rule 1 working as designed — which breaks later exact
+counts), and the audio checks, which replace `AudioContext` before a load and
+leave every page after them deaf. World nouns are placeholders Sheila may still
+change, so assertions key on numbers and surrounding sentences, not on the nouns.
 
 ## UI conventions
 
@@ -181,6 +195,86 @@ All four must pass before a commit.
   short sentences, concrete examples, no talking down.
 - Question banks are fact-checked before they land. A wrong answer key is worse
   than a missing question.
+
+## The game
+
+The site is not a quiz with a game bolted onto it. It is one world — **Wildlight**
+— and the practice happens inside it. The world bible is
+[docs/world.md](docs/world.md); the research behind it and a record of what
+actually shipped is [docs/gamify.md](docs/gamify.md).
+
+**The premise.** The world has gone quiet: the meaning has drained out of it.
+Sheila is a **Lampwright** and she brings it back. Every vocabulary word is a
+**Glim** — a cat made of light. A cat that does not know you keeps its distance;
+a cat that knows you comes when you call its name. That is recall, which is the
+thing the test actually measures, so the fiction and the skill are the same act.
+Cats were chosen because Sheila loves them, and then turned out to already mean
+everything the system needed: a cat cannot be bought and decides about you (no
+luck, no purchase), and cats gather wherever it is warm (which is why Hum exists).
+
+**The one design rule: the content must BE the mechanic.** CodeCombat works
+because the thing you are learning is the control language — you write code, the
+code runs, and the world visibly does what you actually said; wrong code is a
+hero walking into a pit, which teaches you what the instruction meant. Prodigy
+does not work, because the maths is a toll booth between the fun parts. So the
+test to apply to any proposed game feature is: **would this still work if the
+questions were swapped for arithmetic flashcards?** If yes, it is a veneer.
+Currency, rooms, badges and confetti all fail that test, which is fine — they are
+decoration, and decoration is welcome. The mistake to avoid is shipping only
+decoration and calling the site gamified. It has been made twice here already.
+
+This is why the game is where it is and nowhere else:
+
+| Surface | Why |
+|---|---|
+| **Vocabulary** (`/quest`, the Wordwood) | a word with a part of speech and a meaning is a typed function. The gate's inscription is a real sentence with one word taken out; calling the wrong name brings the wrong cat, and the wrong cat is shown doing what *that* word means. She is not eliminating three distractors, she is calling into the dark from everything she knows. |
+| **Verbal Reasoning** (`/run/vr/...`) | 178 of the 330 VR items are already a sentence with a word removed. VR is *drawn* as the gate it already is, rather than given a game to sit beside. |
+| **QR, MA, RC** | deliberately plain, and staying that way until there is a real mechanic — a number that drives something visible. A four-choice question can *gate* an action but it cannot *be* one, so forcing gates over arithmetic would just rebuild the toll booth. Do not wrap these in a game to make the coverage look even. |
+
+**The furniture.** `src/lib/world.js` holds every world noun, so renaming
+anything is a one-file edit and no component writes one as a literal.
+
+| Thing | Is | Code |
+|---|---|---|
+| the **Hearth** | her home; rooms bought at fixed published prices | `lib/base.js`, `pages/base.jsx` |
+| **Hum** | the currency, earned for *trying*, not for being right, so a hard day still counts | `lib/rewards.js` |
+| the **Wordwood** | the gates; every cast is recorded as an ordinary `vocab` attempt, so playing *is* practising | `lib/quest.js`, `pages/quest.jsx` |
+| the **Glimbook** | the collection: every cat she has met, at its true brightness | `pages/base.jsx` |
+| a **Long Night** | a mock exam — an honest rehearsal, no game furniture in the way | `pages/mock.jsx` |
+
+**The materials are generated, never fetched.** The eight weeks hold 160 word
+slots and 115 distinct words, and nobody was going to draw 115 cats or record 115
+sounds, so each cat comes out of a hash of its own word
+(`lib/glim.js`): coat hue (one of 24, a step apart), markings, eyes, tail, head
+tilt — and its call, from the same seed on purpose. `benign` is the same cat on
+every device forever and always answers in the same two notes, which is what
+makes recognising the cat the same act as recognising the word. Calls are two
+rising notes from **one** pentatonic scale, transposed only by octaves — any
+other register moves a cat off the shared scale and two cats can land a semitone
+apart. Coats are `hsl()`, cats are inline SVG, calls are oscillators: the
+single-file artifact still makes zero external requests, and `test_artifact.cjs`
+asserts it.
+
+**Brightness is not part of the cat.** It is how well she knows the word, read
+live from the engine and never stored: Unseen → Glimpsed → Flickering → Steady →
+Bright → Radiant, mapped from the engine's own status names so the two cannot
+drift. Same for a room's lights.
+
+**Five rules hold whatever gets invented next** (the long form is docs/world.md §8):
+
+1. **Nothing is ever lost.** No Glim leaves, no room is repossessed, no Hum expires.
+2. **Nothing is rare by luck.** Every Glim is got by knowing something. No crates,
+   no rarities, no duplicates to chase, no chance.
+3. **The light never lies.** Brightness is derived from real mastery, never
+   stored. Drawing a cat must never be mistaken for having earned it — the
+   headline counts still count only what the engine genuinely knows.
+4. **Missing something is never punished.** Not by a lost streak, not by a Glim
+   leaving, not by a sound that feels like a buzzer.
+5. **The exam is still the point.** Long Nights stay honest rehearsals: real
+   timing, no hints.
+
+Sound obeys the same rules: nothing plays unprompted, everything is synthesised
+in `lib/sfx.js`, and `muted` silences all of it.
 
 ## Hard rules
 
