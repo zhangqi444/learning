@@ -26,6 +26,18 @@ async function runThrough(pg, pick, max = 60) {
   }
 }
 
+/** Wait until the store has stopped writing itself out. Saves are debounced (1.2 s)
+ *  and a save in flight ends in `lsSave`, so a check that hand-edits localStorage and
+ *  reloads can have its edit overwritten by a save queued before it — which is a race
+ *  the check loses about one run in seven. Settle first, then edit. */
+async function settled(pg) {
+  await pg.waitForFunction(() => {
+    const now = localStorage.getItem('isee.v1'), t = Date.now();
+    if (window.__lsSnap !== now) { window.__lsSnap = now; window.__lsAt = t; return false; }
+    return t - (window.__lsAt || 0) > 1500;
+  }, null, { timeout: 15000 });
+}
+
 (async () => {
   await new Promise((r) => srv.listen(8143, r));
   const b = await chromium.launch({ executablePath: exe });
@@ -496,9 +508,11 @@ async function runThrough(pg, pick, max = 60) {
   check('her three books are on the shelf', /Little Women/.test(bk) && /Charlie and the Chocolate Factory/.test(bk) && /Harry Potter and the Sorcerer's Stone/.test(bk));
   check('Harry Potter starts where she is, page 77, chapter 5', (await pg.$eval('[data-testid=book][data-id=harry-potter-1]', (e) => e.dataset.status)) === 'reading' && /page 77/.test(bk) && /chapter 5/.test(bk));
   // a starter book added to the content later still lands on a shelf that was seeded before it existed
+  await settled(pg);
   await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); delete s.books['harry-potter-1']; s.books['little-women'].removed = false; localStorage.setItem('isee.v1', JSON.stringify(s)); });
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=book][data-id=harry-potter-1]');
   check('seeding is additive after the first time', true);
+  await settled(pg);
   await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.books['harry-potter-1'].removed = true; localStorage.setItem('isee.v1', JSON.stringify(s)); });
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=book]');
   check('but a book she took off the shelf stays off', (await pg.$('[data-testid=book][data-id=harry-potter-1]')) === null);
@@ -628,11 +642,12 @@ async function runThrough(pg, pick, max = 60) {
      spend", and every Hum she earned after that disappeared into the hole. */
   const walletOf = async () => {
     const t = await body(pg);
-    return {
-      made: +(t.match(/(\d+) \S+ made/) || [])[1],
-      spent: +((t.match(/· (\d+) spent so far/) || [])[1] || 0),
-      bal: +(await pg.textContent('[data-testid=wallet-balance]')),
-    };
+    const n = (re) => +((t.match(re) || [])[1] || 0);
+    // the Rewards page has to account for BOTH halves of the one wallet: a lump
+    // "spent so far" left the Hum that went into rooms invisible here, so the
+    // page could not be reconciled with the Claimed list underneath it
+    const onRewards = n(/· (\d+) spent on rewards/), onRooms = n(/· (\d+) on rooms/);
+    return { made: n(/(\d+) \S+ made/), onRewards, onRooms, spent: onRewards + onRooms, bal: +(await pg.textContent('[data-testid=wallet-balance]')) };
   };
   await pg.evaluate(() => {
     const s = JSON.parse(localStorage.getItem('isee.v1'));
@@ -658,6 +673,8 @@ async function runThrough(pg, pick, max = 60) {
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=wallet-balance]');
   const over = await walletOf();
+  // keyed on the number and the control, never the world's nouns — those are still hers to change
+  check('the rewards page says what the rooms took, not only what was claimed', over.onRooms === 60 && (await pg.$('[data-testid=to-base]')) !== null, JSON.stringify(over));
   check('a spend can never take Hum she never made', over.spent <= over.made && over.bal >= 0, JSON.stringify(over));
   check('and made minus spent is exactly what is left to spend', over.made - over.spent === over.bal, JSON.stringify(over));
   const partial = (await body(pg)).match(/\d+ of 900 pts/);
