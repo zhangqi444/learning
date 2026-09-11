@@ -266,7 +266,7 @@ anything is a one-file edit and no component writes one as a literal.
 |---|---|---|
 | the **Den** | where she builds the seven things a cat really needs, at fixed published prices. Each teaches real, sourced care guidance, and building one means answering one true question about it | `lib/base.js`, `pages/base.jsx`, `content/catcare.json` |
 | **Hum** | the currency, earned for *trying*, not for being right, so a hard day still counts | `lib/rewards.js` |
-| the **Wordwood** | the gates; every cast is recorded as an ordinary `vocab` attempt, so playing *is* practising. `/quest` walks everything she has met, `/quest/W3` just that week's | `lib/quest.js`, `pages/quest.jsx` |
+| the **Wordwood** | the gates; every cast is recorded as an ordinary `vocab` attempt against the word's **entry** id, so playing *is* practising. `/quest` walks everything she has met, `/quest/W3` just that week's | `lib/quest.js`, `pages/quest.jsx` |
 | the **Glimbook** | the collection: every cat she has met, at its true brightness | `pages/base.jsx` |
 | a **Long Night** | a mock exam — an honest rehearsal, no game furniture in the way | `pages/mock.jsx` |
 
@@ -370,12 +370,25 @@ drift. Same for a room's lights.
 Sound obeys the same rules: nothing plays unprompted, everything is synthesised
 in `lib/sfx.js`, and `muted` silences all of it.
 
-The weekly plan carries a Wordwood row, but as a **hand-ticked** item
+The weekly plan carries a Wordwood row, but **outside the plan's percentage**
 (`auto: false`), and only once that week has yielded the six cats a walk needs.
 It produces exactly the same vocabulary evidence as the word quiz, so counting it
 too would charge her twice for one piece of work — and a game she is required to
 play stops being one. It is in the plan so she can *find* it, which was the whole
-problem: nothing outside the sidebar pointed at it.
+problem: nothing outside the sidebar pointed at it. Not being owed is not the
+same as not being seen, though: the row ticks itself from her own evidence and
+says how many of the week's twenty words have been called, because a row that
+read the same line before and after five gates looked like a game that had not
+recorded anything — which is what it was told to us as.
+
+**A word's record is keyed on the entry, never on one of its names.** An entry
+like `imply / infer` is one record, `w:imply / infer`, because `wordIndex`,
+`wordStatus`, `wordSummary` and `findItem` all key on the entry — and
+`reviewQueue` silently drops any id `findItem` cannot resolve. The Wordwood shows
+one *name* per gate and once recorded `w:infer`, which meant nine of W2's twenty
+gates wrote evidence nothing could read and a cluster word she got wrong never
+came back. Which name she called belongs on the attempt (`pick`), not in the id.
+`backfill` carries any stranded side record onto its entry.
 
 ## Hard rules
 

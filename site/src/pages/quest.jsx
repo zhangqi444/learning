@@ -68,17 +68,24 @@ export function Quest({ wk = null }) {
   // brightness the engine really reports for that word — no flattery — and a
   // cat that came by mistake is drawn Steady, because it is a perfectly real
   // cat and she did in fact call it.
+  // The brightness is read from the ENTRY the gate belongs to, not from the name
+  // on the chip: "elaborate" has no record of its own, "elaborate / intricate"
+  // does, and asking the wrong one drew every cluster cat at the same flat
+  // Steady no matter how well she knew it.
   const arrival = !result
     ? null
     : result.ok
-      ? { word: g.word, stage: atLeast(WORD_GLOW[wordStatus(g.word).status]) }
+      ? { word: g.word, stage: atLeast(WORD_GLOW[wordStatus(g.answer.word).status]) }
       : { word: result.chosen.word, stage: "Steady" }
 
   function choose(word) {
     if (result) return
     const r = cast(g, word, Date.now() - started.current)
     setResult(r)
-    if (r.ok) { setRight((n) => n + 1); setCame((list) => [...list, g.word]) }
+    // the name she called, and the entry it belongs to — the first is who she
+    // sees and hears, the second is where the record that says how well she
+    // knows it actually lives
+    if (r.ok) { setRight((n) => n + 1); setCame((list) => [...list, { word: g.word, key: g.answer.word }]) }
     // the cat that actually turned up is the one that speaks — right or wrong,
     // she hears *who* came before she reads why
     sfx(r.ok ? "call" : "miscall", r.chosen ? r.chosen.word : word)
@@ -89,7 +96,7 @@ export function Quest({ wk = null }) {
       setWon(syncBadges())
       setDone(true)
       // the run's own tune: the cats that came, in the order they came
-      sfx("chorus", came)
+      sfx("chorus", came.map((c) => c.word))
       return
     }
     setI(i + 1); setResult(null); started.current = Date.now()
@@ -112,10 +119,10 @@ export function Quest({ wk = null }) {
             </CardDescription>
             {came.length ? (
               <div className="mt-3 flex flex-wrap justify-center gap-2" data-testid="came">
-                {came.map((w) => (
-                  <figure key={w} className="flex w-16 flex-col items-center gap-0.5">
-                    <Glim word={w} stage={atLeast(WORD_GLOW[wordStatus(w).status])} className="size-12" title={w} />
-                    <figcaption className="w-full truncate text-[11px] font-semibold">{w}</figcaption>
+                {came.map((c) => (
+                  <figure key={c.word} className="flex w-16 flex-col items-center gap-0.5">
+                    <Glim word={c.word} stage={atLeast(WORD_GLOW[wordStatus(c.key).status])} className="size-12" title={c.word} />
+                    <figcaption className="w-full truncate text-[11px] font-semibold">{c.word}</figcaption>
                   </figure>
                 ))}
               </div>

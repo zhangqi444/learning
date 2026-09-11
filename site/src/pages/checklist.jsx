@@ -47,16 +47,24 @@ export function weekItems(wk) {
     if (s === "vr" && D.precision && D.precision[wk]) {
       const ps = precisionSummary(wk)
       items.push({ id: `prec:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: "Precision review", label: "Session 1 · Precision review — 20 words in your own words", sub: "20–25 min", done: ps.submitted, path: `/precision/${wk}`, auto: true })
-      const quizzed = (D.precision[wk].words || []).some((e) => { const r = rec("w:" + e.word); return r && (r.hist || []).some((h) => h.ctx === "vocab") })
-      items.push({ id: `quiz:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: "Word quiz", label: "Word quiz — the same 20 words as ISEE synonym questions", sub: "a day after Session 1", done: quizzed, path: `/precision/${wk}/quiz`, auto: true })
+      /* Words with vocabulary evidence on them — from the quiz or from the wood,
+       * which write the same thing on purpose, so either one answers for both. */
+      const wordList = D.precision[wk].words || []
+      const called = wordList.filter((e) => { const r = rec("w:" + e.word); return r && (r.hist || []).some((h) => h.ctx === "vocab") }).length
+      items.push({ id: `quiz:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: "Word quiz", label: "Word quiz — the same 20 words as ISEE synonym questions", sub: "a day after Session 1", done: called > 0, path: `/precision/${wk}/quiz`, auto: true })
       /* The Wordwood, once the week has actually given her cats to call. It is
        * `auto: false` on purpose: it produces exactly the same vocabulary
        * evidence as the quiz, so making it a sixteenth obligation would be
        * charging her twice for one piece of work — and a game she is required
        * to play stops being one. It is here so she can FIND it, which was the
-       * whole problem: nothing in the weekly plan pointed at it. */
+       * whole problem: nothing in the weekly plan pointed at it.
+       *
+       * It still has to show that she PLAYED it. This row used to read the same
+       * "20 met so far" before and after a walk, with a circle only she could
+       * tick, so five gates left no mark anywhere on the page — which is exactly
+       * what being told the wood was not tracking her progress looks like. */
       const catsHere = (catsByWeek()[wk] || { met: 0 }).met
-      if (catsHere >= HAND) items.push({ id: `wood:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: W.woodTitle, label: `${W.woodTitle} — call this week's ${W.cats} by name`, sub: `${catsHere} met so far · counts as vocabulary practice either way`, done: null, path: `/quest/${wk}`, auto: false })
+      if (catsHere >= HAND) items.push({ id: `wood:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: W.woodTitle, label: `${W.woodTitle} — call this week's ${W.cats} by name`, sub: `${called} of ${wordList.length} called · ${catsHere} met · counts as vocabulary practice either way`, done: called > 0, path: `/quest/${wk}`, auto: false })
     }
     setsFor(s, wk).forEach((set, n) => {
       const r = Store.s.results[setId(s, wk, n)]
@@ -154,7 +162,7 @@ function Row({ item, listKey, compact, testId = "ck-item" }) {
   const done = isDone(item, listKey)
   function toggle() { if (!manual) return; setList(listKey, (cur) => ({ ...cur, checked: { ...cur.checked, [item.id]: !cur.checked[item.id] } })) }
   return (
-    <li className={cn("flex items-start gap-3 px-3", compact ? "py-2" : "py-2.5", done && "opacity-70")} data-testid={testId} data-done={done ? "1" : "0"}>
+    <li className={cn("flex items-start gap-3 px-3", compact ? "py-2" : "py-2.5", done && "opacity-70")} data-testid={testId} data-done={done ? "1" : "0"} data-auto={item.auto ? "1" : "0"}>
       <button type="button" onClick={toggle} disabled={!manual} aria-label={done ? "Done" : "Not done"} className={cn("mt-0.5 shrink-0 rounded-full", manual ? "cursor-pointer" : "cursor-default")}>
         {done ? <CheckCircle2 className="text-success size-5" /> : <Circle className="text-muted-foreground size-5" />}
       </button>
@@ -169,7 +177,7 @@ function Row({ item, listKey, compact, testId = "ck-item" }) {
         {item.pct != null ? <Progress value={item.pct * 100} className="mt-1 h-1" /> : null}
       </div>
       {compact && item.sub && done ? <span className="text-muted-foreground shrink-0 text-xs tabular-nums">{item.sub}</span> : null}
-      {!manual && !done && !compact ? <Badge variant="outline" className="text-muted-foreground shrink-0">auto</Badge> : null}
+      {!manual && !done && !compact && item.auto ? <Badge variant="outline" className="text-muted-foreground shrink-0">auto</Badge> : null}
     </li>
   )
 }

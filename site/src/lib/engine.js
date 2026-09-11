@@ -156,7 +156,74 @@ export function backfill() {
     }
   }
   if (Object.keys(add).length) Store.setMany("items", add, { stamp: false })
-  return Object.keys(add).length
+  return Object.keys(add).length + rescueWordSides()
+}
+
+/** Sides of a cluster entry that have no entry of their own — "elaborate" out of
+ *  "elaborate / intricate", but not "dubious", which is also a word in its own
+ *  right. These are exactly the ids the Wordwood used to write and nothing could
+ *  read. */
+function orphanSides() {
+  const out = {}
+  for (const e of allWordEntries()) {
+    const parts = String(e.word).split("/").map((x) => x.trim()).filter(Boolean)
+    if (parts.length < 2) continue
+    for (const p of parts) if (!wordEntry(p)) out[p] = e.word
+  }
+  return out
+}
+
+/** Move Wordwood evidence that landed on a name onto the entry it belongs to.
+ *
+ *  A gate for "elaborate / intricate" used to record `w:elaborate`. `findItem`
+ *  cannot resolve a bare side, and `reviewQueue` skips anything it cannot
+ *  resolve, so a cluster word she got WRONG was quietly dropped instead of
+ *  coming back — and the precision card, the week's word summary and the
+ *  checklist all stayed blank because they key on the entry. Nine of W2's
+ *  twenty gates were in that state.
+ *
+ *  The attempts are moved, not rebuilt: same timestamps, same outcomes, with the
+ *  name she actually called kept on each attempt. They are deduped on (at, ctx)
+ *  exactly as the Drive merge does, so a second run — or a run after another
+ *  device pushes its old copy back — folds nothing in twice. The old key is only
+ *  removed once its contents are safely under the new one. */
+export function rescueWordSides() {
+  const items = Store.s.items || {}, sides = orphanSides()
+  const patch = {}, gone = []
+  for (const id of Object.keys(items)) {
+    if (!id.startsWith("w:")) continue
+    const side = id.slice(2), entry = sides[side]
+    if (!entry) continue
+    const src = items[id] || {}, tid = "w:" + entry
+    const cur = patch[tid] || items[tid] || { hist: [] }
+    const seen = {}, hist = []
+    for (const h of [...(cur.hist || []), ...(src.hist || [])]) {
+      if (!h) continue
+      const key = (h.at || "") + "|" + (h.ctx || "")
+      if (seen[key]) continue
+      seen[key] = 1
+      hist.push(h.pick ? h : { ...h, pick: side })
+    }
+    hist.sort((a, b) => ts(a.at) - ts(b.at))
+    const next = { ...cur, hist: hist.slice(-40) }
+    if (src.explain && (!next.explain || ts(src.explain.at) > ts(next.explain.at))) next.explain = src.explain
+    if (src.lastMiss && (!next.lastMiss || src.lastMiss > next.lastMiss)) next.lastMiss = src.lastMiss
+    if (src.misses) next.misses = (next.misses || 0) + src.misses
+    // a word she got wrong has to come back: the sooner date wins, and an
+    // uncleared miss outranks a cleared record, the same way recordAttempts does
+    if (src.due && (!next.due || ts(src.due) < ts(next.due))) {
+      next.due = src.due
+      next.step = src.step || 0
+      next.cleared = src.cleared || null
+    }
+    if (src.at && (!next.at || src.at > next.at)) next.at = src.at
+    patch[tid] = next
+    gone.push(id)
+  }
+  if (!gone.length) return 0
+  Store.setMany("items", patch, { stamp: false })
+  Store.dropMany("items", gone)
+  return gone.length
 }
 
 /* ---------- review queue ---------- */

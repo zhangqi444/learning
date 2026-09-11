@@ -323,6 +323,28 @@ All of it, in the end. In order:
 | `bef744a` | the invented cats labelled as invented, and what helps the real ones |
 | `e79cfc3` | a cat turning up on the reveal in every subject, in its own voice |
 | `3e014e5` | the nav grouped, with the Wordwood deliberately left in the working list |
+| *this commit* | a walk in the wood finally counting for anything — see below |
+
+The last row is the one worth reading. Sheila walked the W2 wood and said her
+progress had not been tracked, and she was right twice over.
+
+A gate calls a cat by its **name**, so a gate built from the entry
+`elaborate / intricate` recorded `w:elaborate`. Everything that reads a word keys
+on the **entry**, and `findItem` cannot resolve a bare name — and `reviewQueue`
+skips anything it cannot resolve. So the evidence went into the store and was
+then invisible to the review pile, the precision card, the word summary and the
+weekly plan. Nine of W2's twenty gates were in that state (W4 had four; every
+other week had none), which is why the wood looked broken in exactly the week she
+tried it. The worst of it is quiet: **a cluster word she got wrong never came
+back.** The record is keyed on the entry now, with the name she called kept on the
+attempt, and `backfill` moves the stranded records onto the entry they belong to
+rather than leaving them where nothing can see them.
+
+Separately, the checklist row had `done: null` — a circle only she could tick —
+and a subtitle that read the same before and after a walk. Not being an
+obligation is right, and stays right; showing no sign she had played was not. It
+now reads how many of the week's twenty words have been called, and ticks itself,
+while still staying out of the plan's percentage.
 
 Two rules were learned the hard way and are worth keeping in view. A metaphor
 that has to be explained has failed — "the Hearth" was defensible and meant

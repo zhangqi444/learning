@@ -837,14 +837,14 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=ck-add]');
   const planText = await body(pg);
   check('the weekly plan points at the Wordwood', !weekWood || /call this week/i.test(planText), weekWood ? 'row present' : 'no walk to point at');
-  // Not an `auto` task: auto rows carry the "auto" badge and tick themselves,
-  // and the plan's percentage counts only those. This row is hand-ticked, so
+  // Not an `auto` task: only auto rows are counted by the plan's percentage, so
   // playing is never owed and the same vocabulary evidence is not charged twice.
-  const woodRow = await pg.$$eval('[data-testid=ck-item]', (n) => {
+  // The row still reports a walk — it just does not put one on the bill.
+  const woodPlanRow = await pg.$$eval('[data-testid=ck-item]', (n) => {
     const row = n.find((e) => /call this week/i.test(e.textContent || ''));
-    return row ? { auto: /\bauto\b/.test(row.textContent || ''), enabled: !row.querySelector('button[aria-label]').disabled } : null;
+    return row ? { auto: row.dataset.auto === '1', badge: /\bauto\b/.test(row.textContent || '') } : null;
   });
-  check('and playing it is never owed', !weekWood || (woodRow && !woodRow.auto && woodRow.enabled), JSON.stringify(woodRow));
+  check('and playing it is never owed', !weekWood || (woodPlanRow && !woodPlanRow.auto && !woodPlanRow.badge), JSON.stringify(woodPlanRow));
 
   console.log('== the review pile shows who is waiting (runs last: it makes a word due)');
   // Make one word genuinely overdue rather than hoping the suite has left one
@@ -925,6 +925,64 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=cast-result]');
   check('muted means silent, cats included', (await pg.evaluate(() => window.__NOTES__.length)) === 0);
   await pg.click('[data-testid=mute-toggle]');
+
+  /* A walk has to leave a mark. It did not: a gate for a cluster entry recorded
+   * the NAME it called ("w:elaborate"), while every reader of a word keys on the
+   * entry ("w:elaborate / intricate"). `findItem` cannot resolve a bare name and
+   * `reviewQueue` skips what it cannot resolve, so nine of W2's twenty gates
+   * wrote evidence that fed nothing — a cluster word she got wrong never came
+   * back — and the checklist row read the same line before and after. */
+  console.log('== the Wordwood actually records the walk');
+  await pg.evaluate(async () => {
+    const bundle = await (await fetch('./content/bundle.json')).json();
+    const s = JSON.parse(localStorage.getItem('isee.v1') || '{}');
+    s.precision = s.precision || {};
+    const w = {};
+    for (const e of (bundle.precision.W2.words || [])) w[e.word] = { text: 'in my own words: ' + e.word, conf: 2, at: '2026-09-08T10:00:00.000Z' };
+    s.precision.W2 = { words: w, submitted: true, submittedAt: '2026-09-08T10:00:00.000Z', at: '2026-09-08T10:00:00.000Z' };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  // earlier sections have already walked the wood, so measure the delta
+  const vocabIds = () => pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1') || '{}');
+    return Object.keys(s.items || {}).filter((id) => ((s.items[id].hist) || []).some((h) => h.ctx === 'vocab'));
+  });
+  const vocabBefore = new Set(await vocabIds());
+  await pg.evaluate(() => { location.hash = '#/quest/W2'; });
+  await pg.waitForSelector('[data-testid=spell]');
+  let walked = 0;
+  for (let k = 0; k < 8; k++) {
+    if (!(await pg.$('[data-testid=spell]'))) break;
+    await pg.click('[data-testid=spell] >> nth=0');
+    await pg.waitForSelector('[data-testid=cast-result]');
+    walked++;
+    await pg.click('[data-testid=quest-next]');
+    await pg.waitForTimeout(200);
+    if (await pg.$('[data-testid=quest-done]')) break;
+  }
+  const fresh = (await vocabIds()).filter((id) => !vocabBefore.has(id));
+  const cast = await pg.evaluate((ids) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1') || '{}');
+    return { ids, due: ids.filter((id) => s.items[id] && s.items[id].due && !s.items[id].cleared) };
+  }, fresh);
+  check('a walk records one vocabulary attempt per gate', walked === 5 && cast.ids.length === 5, `${walked} gates -> ${cast.ids.length} new records`);
+  check('and W2 is the cluster week, so some of them are cluster entries', cast.ids.some((id) => id.includes(' / ')), cast.ids.join(' | '));
+  // W2 is the cluster week: nine of its gates call one side of a pair.
+  check('a cluster gate records against its entry, not the bare name it called',
+    cast.ids.every((id) => !/^w:(imply|infer|objective|subjective|rigid|rigorous|stable|stationary|superior|inferior|elaborate|intricate|consent|consensus|prominent|painstaking|industrious|prejudice|biased)$/.test(id)),
+    cast.ids.join(' | '));
+  // Not a cosmetic id: an unresolvable record is dropped by the review queue, so
+  // the word she got wrong would never be shown to her again.
+  const pileHas = await pg.evaluate((ids) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1') || '{}');
+    return ids.length === 0 || ids.every((id) => !!s.items[id]);
+  }, cast.due);
+  check('every word missed at a gate is a record the review pile can resolve', pileHas, cast.due.join(' | '));
+  await pg.evaluate(() => { location.hash = '#/checklist/W2'; });
+  await pg.waitForSelector('[data-testid=ck-item]');
+  const woodRow = (await pg.$$eval('[data-testid=ck-item]', (ls) => ls.map((l) => l.dataset.done + '|' + l.textContent.replace(/\s+/g, ' ')))).find((t) => /Wordwood/.test(t)) || '';
+  check('the checklist says she walked it, and how far', /^1\|/.test(woodRow) && /\d+ of 20 called/.test(woodRow), woodRow.slice(0, 100));
 
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });

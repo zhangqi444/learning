@@ -109,6 +109,18 @@ export const Store = {
     for (const k of Object.keys(map)) { const v = map[k]; if (stamp || !v.at) v.at = now; this.s[slice][k] = v }
     lsSave(this.s); emit(); this.schedulePush()
   },
+  /** Remove keys from a slice. The only caller is the repair in `backfill` that
+   *  moves a learning record to the id everything else reads: the attempts are
+   *  written under the new key FIRST, so nothing she did is lost, and a stale
+   *  copy another device pushes back is folded in and removed again next load. */
+  dropMany(slice, keys) {
+    const s = this.s[slice]
+    if (!s) return 0
+    let n = 0
+    for (const k of keys) if (k in s) { delete s[k]; n++ }
+    if (n) { lsSave(this.s); emit(); this.schedulePush() }
+    return n
+  },
   setPref(k, v) { this.s[k] = v; lsSave(this.s); emit(); this.schedulePush() },
   recordSet(setId, res) {
     this.s.results[setId] = res

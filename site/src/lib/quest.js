@@ -58,8 +58,12 @@ function met(entry) {
   const st = (Store.s.precision || {})[wk]
   const written = st && st.words && st.words[entry.word] && String(st.words[entry.word].text || "").trim()
   if (written) return true
+  const items = Store.s.items || {}
+  if (items["w:" + entry.word]) return true
+  // a side of a cluster: how the wood keyed its records before the ids were
+  // unified, and how a copy another device has not yet re-read still looks
   for (const raw of String(entry.word).split("/").map((x) => x.trim()).filter(Boolean)) {
-    if ((Store.s.items || {})["w:" + raw]) return true
+    if (items["w:" + raw]) return true
   }
   return false
 }
@@ -74,8 +78,8 @@ function metAt(entry) {
   const w = st && st.words && st.words[entry.word]
   const times = []
   if (w && String(w.text || "").trim() && w.at) times.push(w.at)
-  for (const raw of String(entry.word).split("/").map((x) => x.trim()).filter(Boolean)) {
-    const r = (Store.s.items || {})["w:" + raw]
+  for (const key of [entry.word, ...String(entry.word).split("/").map((x) => x.trim())].filter(Boolean)) {
+    const r = (Store.s.items || {})["w:" + key]
     if (r && r.explain && r.explain.at) times.push(r.explain.at)
     for (const h of (r && r.hist) || []) if (h.at) times.push(h.at)
   }
@@ -161,8 +165,16 @@ function gate(entry, pool, rand) {
     if (decoys.length >= HAND - 1) break
   }
   const answerChip = { word: answerWord, meaning: entry.meaning, pos: entry.pos }
+  /* The record is keyed on the ENTRY, not on the name she called, and that
+   * distinction was a real bug for a fortnight. The wood calls a cat by its own
+   * name, so a gate for "elaborate / intricate" recorded `w:elaborate` — but
+   * every reader of a word keys on the entry, and `findItem` cannot resolve a
+   * bare side, so `reviewQueue` silently dropped it. Nine of W2's twenty gates
+   * were in that state: a cluster word she got WRONG never came back, and the
+   * precision card never showed she had answered it. Which name she called is
+   * kept on the attempt itself, where it is a detail rather than an identity. */
   return {
-    id: "w:" + answerWord,
+    id: "w:" + entry.word,
     word: answerWord,
     answer: entry,
     text: ins.text,
@@ -190,7 +202,7 @@ export function buildRun(dayKeyStr, n = 5, weeks = null) {
  *  same review pile, so playing IS practising. */
 export function cast(g, chosenWord, ms) {
   const ok = chosenWord.toLowerCase() === g.word.toLowerCase()
-  recordAttempts([{ id: g.id, ok, ms: Math.round(ms || 0), pick: null }], "vocab")
+  recordAttempts([{ id: g.id, ok, ms: Math.round(ms || 0), pick: chosenWord }], "vocab")
   const chosen = g.hand.find((h) => h.word === chosenWord)
   return { ok, chosen, meaning: chosen ? chosen.meaning : "", answer: g.answer }
 }
