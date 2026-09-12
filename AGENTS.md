@@ -390,6 +390,19 @@ gates wrote evidence nothing could read and a cluster word she got wrong never
 came back. Which name she called belongs on the attempt (`pick`), not in the id.
 `backfill` carries any stranded side record onto its entry.
 
+**A wrong choice can be told what it was.** Each item may carry a `why` map
+keyed by the letters of its *wrong* choices; the runner shows it above the
+explanation, on the reveal and again on the score card. The explanation can only
+ever describe the correct route — told "perimeter = 2(10+3) = 26" after picking
+30, she still does not learn that 30 was the area. Fifteen items carry one so
+far, all on area and perimeter, written against mistakes Sheila actually made on
+an IXL set. Author it in `content/question-banks/*.json`, never for the correct
+letter, and re-run `tools/validate_content.py` — every item is content-hashed.
+
+The older `misconceptions` field on 616 items is a *tag* (`area-vs-perimeter`),
+not prose, and `make_bundle.py` has never carried it into the bundle. It is
+indexing for us, not text for her; `why` is the text.
+
 ## Hard rules
 
 1. **Learner input is sacred.** Her answers, written responses, essays and ratings

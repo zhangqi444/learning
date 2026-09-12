@@ -9,10 +9,16 @@ for sub,files in BANKS.items():
     for f in files:
         for it in json.load(open(f'content/question-banks/{f}'))['items']:
             m=re.match(r'(W[1-8])', str(it.get('form','')))
-            items.append({'id':it['id'],'w':m.group(1) if m else 'W1','sk':it.get('skill',''),
+            q={'id':it['id'],'w':m.group(1) if m else 'W1','sk':it.get('skill',''),
                 'd':it.get('difficulty',''),'q':it['prompt'],
                 'c':[it['choices'][k] for k in 'ABCD'],'k':it['correct'],
-                'e':it.get('explanation',''),'p':it.get('passage_id','')})
+                'e':it.get('explanation',''),'p':it.get('passage_id','')}
+            # `why` names what a particular WRONG choice did, which the shared
+            # explanation cannot: it tells her the right method, never what she
+            # actually did. Only carried when authored, so the bundle does not
+            # grow an empty key on 1,300 questions.
+            if it.get('why'): q['y']=it['why']
+            items.append(q)
     items.sort(key=lambda i:(int(i['w'][1:]), i['id']))
     out['subjects'][sub]=items
 for f in ['rc-september-passages.json','rc-weeks5-8-passages.json']:
@@ -46,8 +52,9 @@ for fid,name,blurb,label,start,ekey,split in FORMS:
         its=[i for i in mock_bank if i['form']==fid and i['subject']==sid]
         its.sort(key=lambda i:i['id'])
         assert len(its)==n,(fid,sid,len(its))
-        out['mockItems'][fid][sid]=[{'id':i['id'],'sk':i.get('skill',''),'d':i.get('difficulty',''),'q':i['prompt'],
-            'c':[i['choices'][k] for k in 'ABCD'],'k':i['correct'],'e':i.get('explanation',''),'p':i.get('passage_id','')} for i in its]
+        out['mockItems'][fid][sid]=[{**{'id':i['id'],'sk':i.get('skill',''),'d':i.get('difficulty',''),'q':i['prompt'],
+            'c':[i['choices'][k] for k in 'ABCD'],'k':i['correct'],'e':i.get('explanation',''),'p':i.get('passage_id','')},
+            **({'y':i['why']} if i.get('why') else {})} for i in its]
         secs.append({'id':sid,'name':sname,'n':n,'min':mins,'part':'A' if sid in ('VR','QR') else 'B'})
     secs.insert(2,{'id':'BREAK1','name':'Break','min':10,'part':'A'})
     secs.append({'id':'BREAK2','name':'Break','min':10,'part':'B'})

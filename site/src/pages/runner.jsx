@@ -345,6 +345,12 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   {!ok && (
                     <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
                   )}
+                  {/* the same naming of her own mistake as on the reveal — this
+                      is where it lands after a timed set, when nothing was
+                      revealed as she went */}
+                  {!ok && picks[j] != null && q.y && q.y[LTR[picks[j]]] ? (
+                    <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{q.y[LTR[picks[j]]]}</div>
+                  ) : null}
                   {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
                   {!ok && canTag ? <CauseTags id={q.id} /> : null}
                 </CardContent>
@@ -479,6 +485,15 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                     : <><XCircle className="size-4" /> {gameMode ? `The gate holds. It wanted “${it.c[LTR.indexOf(keyOf(it))]}”.` : `The answer is ${keyOf(it)}`}</>}
                 </div>
               </div>
+              {/* What HER choice did, before what the right method is. The
+                  explanation can only ever describe the correct route, so on a
+                  miss it answers a question she did not ask: told "perimeter =
+                  2(10+3) = 26" she still does not know that the 30 she picked
+                  was the area. Authored per wrong choice in `why`, so it is only
+                  here when someone has actually written it. */}
+              {!gotIt && it.y && it.y[LTR[picks[i]]] ? (
+                <p className="border-destructive/40 bg-destructive/5 mt-2 rounded-lg border p-3 text-sm leading-relaxed" data-testid="why">{it.y[LTR[picks[i]]]}</p>
+              ) : null}
               {it.e ? <p className="bg-muted/60 text-muted-foreground mt-2 rounded-lg p-3 text-sm leading-relaxed">{it.e}</p> : null}
             </div>
           ) : null}

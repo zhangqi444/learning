@@ -984,6 +984,38 @@ async function runThrough(pg, pick, max = 60) {
   const woodRow = (await pg.$$eval('[data-testid=ck-item]', (ls) => ls.map((l) => l.dataset.done + '|' + l.textContent.replace(/\s+/g, ' ')))).find((t) => /Wordwood/.test(t)) || '';
   check('the checklist says she walked it, and how far', /^1\|/.test(woodRow) && /\d+ of 20 called/.test(woodRow), woodRow.slice(0, 100));
 
+  /* Naming her own mistake. The shared explanation can only describe the correct
+   * route: told "perimeter = 2(10+3) = 26" after picking 30, she still does not
+   * learn that 30 was the area. `why` is authored per wrong choice and shown
+   * before the explanation. Checked on a real item rather than a fixture, so
+   * this fails if the bundle stops carrying the field. */
+  console.log('== a wrong choice is told what it was');
+  const target = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const q = b.subjects.ma.find((x) => x.id === 'MA-SEP-029');
+    if (!q || !q.y) return null;
+    // the decoy that IS the area — the mistake this question exists to catch
+    const wrong = 'ABCD'.split('').find((L) => q.y[L] && /area/i.test(q.y[L]));
+    const set = b.subjects.ma.filter((x) => x.w === q.w);
+    return { idx: set.indexOf(q), pick: 'ABCD'.indexOf(wrong), text: q.y[wrong], why: q.y };
+  });
+  check('the bundle carries the per-choice why', target && /area/i.test(target.text), target ? target.text : 'no `y` on MA-SEP-029');
+  await pg.evaluate(() => { location.hash = '#/run/ma/W2/0'; });
+  await pg.waitForSelector('[data-testid=question]');
+  // walk to MA-SEP-029 and pick the area
+  for (let k = 0; k < target.idx; k++) { await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]'); await pg.waitForTimeout(120); }
+  const onIt = await pg.textContent('[data-testid=question]');
+  check('reached the banner question', /banner/i.test(onIt), onIt.slice(0, 60));
+  await pg.click(`[data-testid=choice] >> nth=${target.pick}`);
+  await pg.waitForSelector('[data-testid=reveal]');
+  const shown = await pg.textContent('[data-testid=why]').catch(() => '');
+  check('picking the area on a perimeter question says so', /area/i.test(shown), shown.slice(0, 110));
+  const order = await pg.evaluate(() => {
+    const r = document.querySelector('[data-testid=reveal]');
+    return [...r.querySelectorAll('p')].map((p) => p.dataset.testid || 'explanation');
+  });
+  check('and it comes before the explanation, not after', order.indexOf('why') >= 0 && order.indexOf('why') < order.indexOf('explanation'), order.join(' -> '));
+
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });
   await b.close(); srv.close();

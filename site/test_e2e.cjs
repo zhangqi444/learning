@@ -40,7 +40,7 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
     const cards = await pg.$$eval('[data-slot=card-description]', (n) => n.map((x) => x.textContent.trim()));
     check('dashboard leads with Today, then Readiness', cards.includes('Today') && cards.includes('Readiness') && (await pg.$('[data-testid=continue]')) !== null, cards.slice(0, 4).join(','));
     const body = await pg.textContent('body');
-    check('seed applied + legacy set (11 of 82 sets)', /11\s*of\s*82/.test(body), body.match(/\d+\s*of\s*82/)?.[0]);
+    check('seed applied + legacy set (11 of 83 sets)', /11\s*of\s*83/.test(body), body.match(/\d+\s*of\s*\d+/)?.[0]);
     check('legacy numeric timestamp renders as a date', /Sep 2/.test(body));
     check('review count 19 on dashboard', /19/.test(body));
     check('recent-sets table present', (await pg.$$('[data-slot=table-row]')).length > 1);
@@ -136,7 +136,7 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
     await pg.reload({ waitUntil: 'networkidle' });
     await pg.waitForSelector('[data-testid=today]');
     check('theme persists after reload', (await pg.evaluate(() => document.documentElement.classList.contains('dark'))) === nowDark);
-    check('progress persists after reload', /12\s*of\s*82/.test(await pg.textContent('body')));
+    check('progress persists after reload', /12\s*of\s*83/.test(await pg.textContent('body')));
     await pg.click('button[aria-label="Toggle theme"]');   // back to light for the screenshot
 
     // Signed in through the gate, so the chip and the account row both say so
