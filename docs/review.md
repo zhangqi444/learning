@@ -29,6 +29,21 @@ straight into `reviews` there. The site reads the remote copy before every push
 (`Store.pull` runs inside `flush`), so a review it has never seen is merged in,
 never overwritten.
 
+**Checked on 2026-09-13, and it still cannot.** The Google Drive connector can
+*read* `progress.json` and can *create* new files, but its `update_file` takes
+only `title` and `parentId` — it writes metadata, never bytes. There is no way
+to add a key to an existing file. Creating a second `progress.json` is worse
+than useless: the site finds its file by name, so two would be ambiguous, and
+replacing the file would mean deleting her record, which hard rule 1 forbids
+outright. So the import link is a real bridge over a real gap, not a step
+somebody could have skipped. Re-check this before assuming otherwise; do not
+re-derive it from the paragraph above.
+
+The link carries the whole review base64url-encoded, so it runs to about 3 KB.
+That is fine in a mail client, where it is a button — put it behind an anchor in
+the HTML body rather than printing it as text, and never abbreviate it with an
+ellipsis. On a device where the raw link is awkward, `#/import` has a paste box.
+
 ## The review
 
 ```json
