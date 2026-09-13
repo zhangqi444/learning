@@ -2,7 +2,7 @@ import * as React from "react"
 import { BookOpen, CheckCircle2, ChevronRight, Clock, MessageSquareText, PenLine, Play, RotateCcw, Square } from "lucide-react"
 
 import { D, currentWeek, weekLabel } from "@/lib/content"
-import { isSeen, reviewsFor } from "@/lib/reviews"
+import { allReviews, isSeen, reviewsFor } from "@/lib/reviews"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
@@ -48,6 +48,31 @@ export function essayTime(wk) {
   out.total = logged.length ? logged.reduce((a, b) => a + b, 0) : null
   return out
 }
+/** Where the essays stand, for the Score page.
+ *
+ *  Readiness deliberately has no essay part: the ISEE returns no score for the
+ *  writing sample, so any number here would be measuring that she wrote one, not
+ *  how well — effort wearing the clothes of quality, which hard rule 4 exists to
+ *  stop. Silence was the wrong answer though. The plan carries eight weekly
+ *  essays and four mock essays, a school reads the real one, and a page that
+ *  says "Test-ready" while never once mentioning an essay is overclaiming by
+ *  leaving it out. So: counted and shown, next to the number rather than inside
+ *  it. */
+export function essayStanding() {
+  const weeks = Object.keys((D.essay && D.essay.weeks) || {})
+  let done = 0, minutes = 0
+  for (const wk of weeks) {
+    if (essayStatus(wk) === "complete") done++
+    const t = essayTime(wk)
+    if (t.total != null) minutes += t.total
+  }
+  const forms = (D.mocks || []).map((m) => m.id)
+  const mocksDone = forms.filter((f) => ((Store.s.mocks || {})[f] || {}).essay && Store.s.mocks[f].essay.submittedAt).length
+  const revs = allReviews().filter((r) => r.target.kind === "essay" || r.target.kind === "mock")
+  const last = revs.length ? revs[0] : null
+  return { done, total: weeks.length, mocksDone, mockTotal: forms.length, minutes, last }
+}
+
 export function setEssayTime(wk, phase, minutes) {
   Store.setSlice("essays", wk, (cur) => ({ ...cur, time: { ...(cur.time || {}), [phase]: toMinutes(minutes) } }))
 }

@@ -1016,6 +1016,24 @@ async function runThrough(pg, pick, max = 60) {
   });
   check('and it comes before the explanation, not after', order.indexOf('why') >= 0 && order.indexOf('why') < order.indexOf('explanation'), order.join(' -> '));
 
+  /* Readiness has six parts and none of them is the essay, which is right — the
+   * ISEE returns no score for the writing sample, so a number here would measure
+   * that she wrote one rather than how well. The page used to say nothing at
+   * all, which is a different kind of wrong: a "Test-ready" badge that has never
+   * looked at an essay overclaims by omission. */
+  console.log('== essays are counted beside the number, never inside it');
+  await pg.evaluate(() => { location.hash = '#/score'; });
+  await pg.waitForSelector('[data-testid=essay-standing]');
+  const strip = (await pg.textContent('[data-testid=essay-standing]')).replace(/\s+/g, ' ');
+  check('the Score page says where the essays stand', /\d+ of \d+ weekly · \d+ of \d+ mock/.test(strip), strip.slice(0, 80));
+  check('and says plainly that it is outside the number', /not part of the readiness number/i.test(strip) && /no score/i.test(strip), strip.slice(0, 150));
+  check('with the claim sourced, like every other outside fact', /admission\.org/.test(strip));
+  check('and an honest line when nothing has been reviewed', /Last reviewed|No essay has been reviewed/.test(strip));
+  const parts = await pg.$$eval('[data-testid=part-row], [data-testid=readiness] *', () => 0).catch(() => 0);
+  const scoreBody = (await pg.textContent('body')).replace(/\s+/g, ' ');
+  const built = scoreBody.slice(scoreBody.indexOf('How the number is built'), scoreBody.indexOf('Week by week'));
+  check('the breakdown itself still has no essay part', built.length > 40 && !/essay/i.test(built), built.slice(0, 90));
+
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });
   await b.close(); srv.close();

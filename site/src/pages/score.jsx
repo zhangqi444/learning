@@ -1,9 +1,10 @@
 import * as React from "react"
-import { ArrowRight, Flame, Sparkles, Trophy } from "lucide-react"
+import { ArrowRight, Flame, PenLine, Sparkles, Trophy } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import { ORDER, SUBJ } from "@/lib/content"
 import { W } from "@/lib/world"
+import { essayStanding } from "@/pages/essay"
 import { LEVELS, effortPoints, readiness, readinessHistory, skillsFor, thisWeekRange } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
@@ -147,9 +148,38 @@ export function Score() {
   const R = readiness()
   const hist = readinessHistory()
   const pts = effortPoints(thisWeekRange()), total = effortPoints()
+  const es = essayStanding()
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:gap-6">
       <ReadinessCard full />
+
+      {/* The one part of the ISEE that a person reads, and the one part this
+          page cannot score. Shown beside the number instead of folded into it —
+          see essayStanding() for why a number here would be dishonest. */}
+      <Card data-testid="essay-standing">
+        <CardHeader>
+          {/* The eyebrow carries the word and nothing else: CardHeader is a two
+              column grid once a CardAction exists, and a longer label is clipped
+              at phone width rather than wrapped. The claim belongs in the
+              description, which has the full width to say it in. */}
+          <CardDescription className="flex items-center gap-2"><PenLine className="size-4" /> Essays</CardDescription>
+          <CardTitle className="text-xl tabular-nums">{es.done} of {es.total} weekly · {es.mocksDone} of {es.mockTotal} mock</CardTitle>
+          <CardDescription>
+            <b className="text-foreground font-semibold">Not part of the readiness number.</b>{" "}
+            The ISEE gives the writing sample no score of its own — it goes to the schools unscored, and they read it. So there is nothing honest to fold in, and a made-up number would be measuring that she wrote an essay rather than how well.
+          </CardDescription>
+          <CardAction><Button size="sm" variant="ghost" onClick={() => go("/essay")}>Essays <ArrowRight /></Button></CardAction>
+        </CardHeader>
+        <CardFooter className="text-muted-foreground flex-col items-start gap-1 text-xs">
+          <span>{es.minutes ? `${es.minutes} minutes logged across the drafts.` : "No time logged yet — the log is on each essay's page."}</span>
+          <span data-testid="essay-last-review">
+            {es.last
+              ? `Last reviewed ${new Date(es.last.at).toLocaleDateString(undefined, { month: "short", day: "numeric" })} by ${es.last.reviewer}.`
+              : "No essay has been reviewed yet. A review is the only real read this page gets."}
+          </span>
+          <span>Source: admission.org/assessments/isee/score-reports</span>
+        </CardFooter>
+      </Card>
 
       <div className="grid grid-cols-1 gap-4 @3xl/main:grid-cols-[3fr_2fr] md:gap-6">
         <Card>

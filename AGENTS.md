@@ -403,6 +403,16 @@ The older `misconceptions` field on 616 items is a *tag* (`area-vs-perimeter`),
 not prose, and `make_bundle.py` has never carried it into the bundle. It is
 indexing for us, not text for her; `why` is the text.
 
+**The readiness number has no essay in it, and the page says so.** Its six parts
+are accuracy 30, mock 20, mastery 20, pacing 10, review 10, consistency 10. The
+ISEE returns no score for the writing sample — it goes to the schools unscored
+and they read it — so any essay part would be measuring that she wrote one
+rather than how well, which is hard rule 4. Leaving it unmentioned was its own
+kind of dishonesty, though: the plan carries eight weekly essays and four mock
+essays, and a page reading "Test-ready" that has never looked at one overclaims
+by omission. `essayStanding()` counts them and the Score page shows the counts
+beside the number, saying plainly that they sit outside it.
+
 ## Hard rules
 
 1. **Learner input is sacred.** Her answers, written responses, essays and ratings

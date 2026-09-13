@@ -77,4 +77,12 @@ Then give the parent the import link. Opening it shows a preview and an **Add to
 Sheila's progress** button; that stores the digest and syncs it to Drive, and the
 follow-ups appear on the weeks they name.
 
+**On a scheduled run, email it too.** Nobody opens a Routine's transcript, so a
+digest that ends at "here is the link" ends nowhere and the follow-ups never
+reach her checklist. The two digest Routines carry the Gmail connector and their
+prompts say who to send to: subject naming the period, then the summary, the one
+`next`, the follow-ups, and the import link on its own line with a sentence
+saying that opening it is what puts the digest into the site. Short enough to
+read on a phone. Never attach her work or paste an essay into the mail.
+
 Do not commit the digest or her work into the repository.
