@@ -1027,7 +1027,11 @@ async function runThrough(pg, pick, max = 60) {
   const strip = (await pg.textContent('[data-testid=essay-standing]')).replace(/\s+/g, ' ');
   check('the Score page says where the essays stand', /\d+ of \d+ weekly · \d+ of \d+ mock/.test(strip), strip.slice(0, 80));
   check('and says plainly that it is outside the number', /not part of the readiness number/i.test(strip) && /no score/i.test(strip), strip.slice(0, 150));
+  // Sourced *and* dated: this claim was once written from search results alone, which is
+  // how a wrong fact reaches a parent looking cited. The date is what says someone opened
+  // the page, so it is asserted by shape, not value — re-checking updates it freely.
   check('with the claim sourced, like every other outside fact', /admission\.org/.test(strip));
+  check('and dated, so the sourcing says someone actually read it', /Checked \d{4}-\d{2}-\d{2}/.test(strip), strip.slice(-60));
   check('and an honest line when nothing has been reviewed', /Last reviewed|No essay has been reviewed/.test(strip));
   const parts = await pg.$$eval('[data-testid=part-row], [data-testid=readiness] *', () => 0).catch(() => 0);
   const scoreBody = (await pg.textContent('body')).replace(/\s+/g, ' ');

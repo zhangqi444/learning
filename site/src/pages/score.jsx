@@ -177,7 +177,17 @@ export function Score() {
               ? `Last reviewed ${new Date(es.last.at).toLocaleDateString(undefined, { month: "short", day: "numeric" })} by ${es.last.reviewer}.`
               : "No essay has been reviewed yet. A review is the only real read this page gets."}
           </span>
-          <span>Source: admission.org/assessments/isee/score-reports</span>
+          {/* Checked first-party on 2026-09-13, both pages opened rather than searched.
+              E3n's 2026-27 QuickFacts guide is the one that says it outright: "The essay
+              section for students applying to Grades 5-12 is not scored. The schools
+              selected as your score recipients will receive a copy of this unscored
+              essay. For security purposes, families do not receive a copy of the essay."
+              The score-reports page agrees from the other side — the Lower, Middle and
+              Upper Level exams "consist of four sections which are scored", the essay
+              being the fifth. Sheila sits the Lower Level, inside that 5-12 range.
+              (The old erblearn.org/families/isee-by-erb/score-reports/ URL is now a 301
+              to the admission.org page, so it is the same source, not a second one.) */}
+          <span>Source: admission.org/assessments/isee/score-reports and E3n's 2026–27 ISEE QuickFacts. Checked 2026-09-13.</span>
         </CardFooter>
       </Card>
 
