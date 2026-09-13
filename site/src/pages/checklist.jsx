@@ -173,23 +173,35 @@ function Stat({ label, value, sub }) {
     </div>
   )
 }
-export function WeekRecap({ wk }) {
+export function WeekRecap({ wk, cur, idx }) {
   useStore()
   const r = weekRecap(wk)
-  if (!r || r.start > iso(new Date())) return null      // a week that has not begun has nothing to say
-  const nothing = !r.sets.done && !r.reviewed && !r.vocab && !r.words.written && !r.essay.started && !r.reading
+  const [a, b] = weekRange(wk)
+  const auto = weekItems(wk).filter((x) => x.auto)
+  const planDone = auto.filter((x) => x.done).length
+  const planPct = auto.length ? Math.round((planDone / auto.length) * 100) : 0
+  const started = r && r.start <= iso(new Date())
+  const nothing = started && !r.sets.done && !r.reviewed && !r.vocab && !r.words.written && !r.essay.started && !r.reading
   return (
     <Card className="gap-4" data-testid="week-recap">
       <CardHeader>
-        <CardDescription className="flex items-center gap-2"><ListChecks className="size-4" /> {r.ended ? "How the week went" : "How the week is going"}</CardDescription>
-        <CardTitle className="text-xl">{wk} · {weekLabel(wk)}</CardTitle>
-        <CardDescription>Counted from her own record, live. Nothing here waits on anybody.</CardDescription>
+        <div className="flex items-center gap-2 print:hidden">
+          <Button size="icon-sm" variant="ghost" disabled={idx <= 0} onClick={() => go(`/checklist/${D.weeks[idx - 1].w}`)} aria-label="Previous week"><ChevronLeft /></Button>
+          <Button size="icon-sm" variant="ghost" disabled={idx >= D.weeks.length - 1} onClick={() => go(`/checklist/${D.weeks[idx + 1].w}`)} aria-label="Next week"><ChevronRight /></Button>
+          {wk !== cur && <Button size="sm" variant="ghost" onClick={() => go(`/checklist/${cur}`)}>Back to this week</Button>}
+        </div>
+        <CardTitle className="text-xl">{wk} · {weekLabel(wk)} {wk === cur && <Badge>This week</Badge>}</CardTitle>
+        <CardDescription>{fmt(a)} – {fmt(b)} · {planDone} of {auto.length} plan tasks done</CardDescription>
+        <CardAction><span className="text-2xl font-semibold tabular-nums">{planPct}%</span></CardAction>
       </CardHeader>
-      {nothing ? (
-        <CardContent className="text-muted-foreground text-sm">Nothing recorded in this week yet.</CardContent>
-      ) : (
-        <>
-          <CardContent className="flex flex-col gap-5">
+      <CardContent className="flex flex-col gap-5">
+        <Progress value={planPct} className="h-1.5" />
+        {!started ? (
+          <p className="text-muted-foreground text-sm">This week has not started yet.</p>
+        ) : nothing ? (
+          <p className="text-muted-foreground text-sm">Nothing recorded in this week yet.</p>
+        ) : (
+          <>
             <div className="grid grid-cols-2 gap-4 @md/main:grid-cols-4">
               <Stat label="Sets" value={`${r.sets.done} / ${r.sets.total}`} sub={r.answered ? `${r.right} of ${r.answered} right` : "none finished"} />
               {/* honest numbers: no questions answered means no percentage, not 0% */}
@@ -214,27 +226,27 @@ export function WeekRecap({ wk }) {
               })}
             </div>
             <div className="text-muted-foreground flex flex-wrap gap-x-5 gap-y-1 text-xs">
-              <span>Precision: {r.words.written} of {r.words.total} written{r.words.written ? `, ${r.words.rated} rated` : ""}{r.words.written && !r.words.submitted ? " · not submitted yet" : r.words.submitted ? " · submitted" : ""}</span>
+              <span>Precision: {r.words.written} of {r.words.total} written{r.words.written ? `, ${r.words.rated} rated` : ""}{r.words.submitted ? " · submitted" : r.words.written ? " · not submitted yet" : ""}</span>
               <span>Essay: {r.essay.done ? "done" : r.essay.started ? "in progress" : "not started"}{r.essay.minutes != null ? ` · ${r.essay.minutes} min logged` : ""}</span>
               <span>Reading: {r.reading ? `${r.reading} session${r.reading === 1 ? "" : "s"}` : "none logged"}</span>
             </div>
-          </CardContent>
-          {r.slipped.length ? (
-            <CardFooter className="flex-col items-start gap-2">
-              {/* Misses on NEW work only. A miss during review is the pile doing
-                  its job, and counting it here would read as going backwards. */}
-              <span className="text-muted-foreground text-xs">What slipped on new work this week</span>
-              <div className="flex flex-wrap gap-1.5" data-testid="recap-slipped">
-                {r.slipped.slice(0, 8).map((x) => (
-                  <Badge key={x.sub + x.sk} variant="outline" className="font-normal">
-                    <span className="inline-block size-2 rounded-full" style={{ background: SUBJ[x.sub].color }} /> {x.sk}{x.n > 1 ? ` ×${x.n}` : ""}
-                  </Badge>
-                ))}
-              </div>
-            </CardFooter>
-          ) : null}
-        </>
-      )}
+          </>
+        )}
+      </CardContent>
+      {started && r.slipped.length ? (
+        <CardFooter className="flex-col items-start gap-2">
+          {/* Misses on NEW work only. A miss during review is the pile doing its
+              job, and counting it here would read as going backwards. */}
+          <span className="text-muted-foreground text-xs">What slipped on new work this week</span>
+          <div className="flex flex-wrap gap-1.5" data-testid="recap-slipped">
+            {r.slipped.slice(0, 8).map((x) => (
+              <Badge key={x.sub + x.sk} variant="outline" className="font-normal">
+                <span className="inline-block size-2 rounded-full" style={{ background: SUBJ[x.sub].color }} /> {x.sk}{x.n > 1 ? ` \u00d7${x.n}` : ""}
+              </Badge>
+            ))}
+          </div>
+        </CardFooter>
+      ) : null}
     </Card>
   )
 }
@@ -426,21 +438,11 @@ export function Checklist({ wk: wkParam, month: monthParam }) {
         </TabsList>
 
         <TabsContent value="week" className="flex flex-col gap-4">
-          <WeekRecap wk={wk} />
+          {/* One card, not two. The plan's percentage and the week's own numbers
+              were separate cards that both opened "W2 · Sep 7 – 13", which read
+              as the page saying the same thing twice. */}
+          <WeekRecap wk={wk} cur={cur} idx={idx} />
           {reviewsFor({ kind: "week", wk }).map((r) => <ReviewCard key={r.id} r={r} />)}
-          <Card className="gap-3 py-5">
-            <CardHeader className="px-5">
-              <div className="flex items-center gap-2 print:hidden">
-                <Button size="icon-sm" variant="ghost" disabled={idx <= 0} onClick={() => go(`/checklist/${D.weeks[idx - 1].w}`)} aria-label="Previous week"><ChevronLeft /></Button>
-                <Button size="icon-sm" variant="ghost" disabled={idx >= D.weeks.length - 1} onClick={() => go(`/checklist/${D.weeks[idx + 1].w}`)} aria-label="Next week"><ChevronRight /></Button>
-                {wk !== cur && <Button size="sm" variant="ghost" onClick={() => go(`/checklist/${cur}`)}>Back to this week</Button>}
-              </div>
-              <CardTitle className="text-xl">{wk} · {weekLabel(wk)} {wk === cur && <Badge>This week</Badge>}</CardTitle>
-              <CardDescription>{fmt(a)} – {fmt(b)} · {wDone} of {wAuto.length} plan tasks done</CardDescription>
-              <CardAction><span className="text-2xl font-semibold tabular-nums">{wAuto.length ? Math.round((wDone / wAuto.length) * 100) : 0}%</span></CardAction>
-            </CardHeader>
-            <CardContent className="px-5"><Progress value={wAuto.length ? (wDone / wAuto.length) * 100 : 0} className="h-1.5" /></CardContent>
-          </Card>
           <Grouped items={wItems} listKey={wk} />
           <CustomItems listKey={wk} />
         </TabsContent>
