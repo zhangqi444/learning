@@ -638,6 +638,91 @@ export function effortPoints(range) {
 }
 export function thisWeekRange() { const w = weekOf(todayKey()); const d = new Date(w + "T00:00:00"); d.setDate(d.getDate() + 6); return [w, dayKey(d.getTime())] }
 
+/** What a plan week actually held, computed from her own record.
+ *
+ *  The written digest has two halves and only one of them needs a person. The
+ *  numbers — sets, accuracy, what came off the review pile, which skills slipped
+ *  — are all sitting in `Store.s` on the device already; asking a Routine to
+ *  read them out of Drive, mail them, and wait for someone to tap an import link
+ *  is a long way round to say something the browser can work out in a
+ *  millisecond. So it says it here, always current, and the digest that arrives
+ *  by mail carries only the judgement: "you picked 30, and 30 is the area."
+ *
+ *  Everything here is counted, never estimated. A week with no sets in it
+ *  reports `null` accuracy, which the card prints as "—" rather than 0%. */
+export function weekRecap(wk) {
+  const start = D.starts[wk]
+  if (!start) return null
+  const end = dayKey(ts(start + "T00:00:00") + 6 * DAY)
+  const inWeek = (at) => { const k = at && dayKey(ts(at)); return k && k >= start && k <= end }
+
+  const subs = {}
+  let done = 0, total = 0, right = 0, answered = 0
+  for (const s of ORDER) {
+    let sd = 0, st = 0, sr = 0, sa = 0
+    setsFor(s, wk).forEach((_, n) => {
+      st++
+      const r = Store.s.results[setId(s, wk, n)]
+      if (!r) return
+      sd++; sr += r.right; sa += r.n
+    })
+    subs[s] = { done: sd, total: st, right: sr, n: sa, pct: sa ? Math.round((sr / sa) * 100) : null }
+    done += sd; total += st; right += sr; answered += sa
+  }
+
+  // review and vocabulary answers given inside the week, and the misses that
+  // happened on new set work — the second is the honest "what slipped" list,
+  // because a miss during review is the pile doing its job, not a new problem
+  let reviewed = 0, reviewedOk = 0, vocab = 0
+  const slipped = {}
+  for (const id of Object.keys(Store.s.items || {})) {
+    for (const h of (Store.s.items[id].hist || [])) {
+      if (!inWeek(h.at)) continue
+      if (h.ctx === "review") { reviewed++; if (h.ok) reviewedOk++ }
+      else if (h.ctx === "vocab") vocab++
+      else if (h.ctx === "set" && !h.ok) {
+        const f = findItem(id)
+        if (f && f.it && f.it.sk) { const k = f.sub + "\u0000" + f.it.sk; slipped[k] = (slipped[k] || 0) + 1 }
+      }
+    }
+  }
+  const q = reviewQueue()
+
+  const pst = (Store.s.precision || {})[wk] || {}
+  const pwords = Object.values(pst.words || {})
+  const words = {
+    total: ((D.precision || {})[wk] || { words: [] }).words.length,
+    written: pwords.filter((w) => String(w.text || "").trim()).length,
+    rated: pwords.filter((w) => w.conf).length,
+    submitted: !!pst.submittedAt,
+  }
+
+  const es = (Store.s.essays || {})[wk] || {}
+  const et = es.time || {}
+  const mins = ["plan", "draft", "revise"].map((k) => et[k]).filter((m) => m != null)
+  const essay = { done: !!es.completedAt, started: !!(es.completedAt || es.at), minutes: mins.length ? mins.reduce((a, b) => a + b, 0) : null }
+
+  let reading = 0
+  for (const b of Object.values(Store.s.books || {})) {
+    if (!b || b.removed) continue
+    for (const x of b.sessions || []) if (x && x.on >= start && x.on <= end) reading++
+  }
+
+  const days = new Set()
+  for (const d of activityDays()) if (d >= start && d <= end) days.add(d)
+
+  return {
+    wk, start, end, ended: end < todayKey(),
+    sets: { done, total }, right, answered,
+    pct: answered ? Math.round((right / answered) * 100) : null,
+    subs, reviewed, reviewedOk, vocab, dueNow: q.due.length,
+    words, essay, reading, activeDays: days.size,
+    slipped: Object.keys(slipped)
+      .map((k) => ({ sub: k.split("\u0000")[0], sk: k.split("\u0000")[1], n: slipped[k] }))
+      .sort((a, b) => b.n - a.n),
+  }
+}
+
 /* ---------- readiness ---------- */
 const accScore = (pct) => pct == null ? null : clamp((pct - 40) / 50)
 /** Recent accuracy: sets from the last three plan weeks reached, plus mock sections, weighted 2:1 recent:older. */

@@ -1034,6 +1034,31 @@ async function runThrough(pg, pick, max = 60) {
   const built = scoreBody.slice(scoreBody.indexOf('How the number is built'), scoreBody.indexOf('Week by week'));
   check('the breakdown itself still has no essay part', built.length > 40 && !/essay/i.test(built), built.slice(0, 90));
 
+  /* The week's numbers are in the browser already. Mailing them out and waiting
+   * for somebody to tap an import link was ferrying something across a gap that
+   * was never there; the digest that arrives by mail should carry the judgement
+   * and nothing else. */
+  console.log('== the week counts itself');
+  await pg.evaluate(() => { location.hash = '#/checklist/W2'; });
+  await pg.waitForSelector('[data-testid=week-recap]');
+  const recap = (await pg.textContent('[data-testid=week-recap]')).replace(/\s+/g, ' ');
+  check('the week shows what it held without anyone importing anything', /\d+ \/ \d+/.test(recap) && /Active days/.test(recap), recap.slice(0, 120));
+  check('and names what slipped on new work', !!(await pg.$('[data-testid=recap-slipped]')));
+  // Honest numbers, hard rule 4: a week with nothing answered says "—", not 0%.
+  const blank = await pg.evaluate(async () => {
+    const s = JSON.parse(localStorage.getItem('isee.v1') || '{}');
+    const keep = {};
+    for (const k of Object.keys(s.results || {})) if (!k.includes(':W6:')) keep[k] = s.results[k];
+    s.results = keep;
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    return true;
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/checklist/W6'; });
+  await pg.waitForTimeout(600);
+  const w6 = await pg.$('[data-testid=week-recap]');
+  check('a week that has not started yet says nothing at all', !w6 || !/Accuracy/.test(await pg.textContent('[data-testid=week-recap]')), blank ? 'W6 is in the future' : '');
+
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });
   await b.close(); srv.close();

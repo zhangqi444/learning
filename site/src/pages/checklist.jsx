@@ -2,7 +2,7 @@ import * as React from "react"
 import { CalendarDays, CheckCircle2, ChevronLeft, ChevronRight, Circle, ListChecks, Plus, Printer, Trash2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, currentWeek, setId, setsFor, weekLabel } from "@/lib/content"
-import { mockNextSteps, rec, reviewQueue } from "@/lib/engine"
+import { mockNextSteps, rec, reviewQueue, weekRecap } from "@/lib/engine"
 import { actionsForWeek, reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { mixedThisWeek } from "@/pages/mixed"
@@ -155,6 +155,90 @@ export function monthItems(key) {
 }
 
 /* ---------- UI ---------- */
+
+/** What the week actually held, counted from her own record.
+ *
+ *  This sits directly above the written digest on purpose. The two are halves of
+ *  one thing: everything here the browser already knows and can show the instant
+ *  the page opens, and everything in the digest below needed somebody to read
+ *  the week and say what it meant. Sending numbers by email and waiting for an
+ *  import tap was asking a person to ferry something across a gap that was never
+ *  there. */
+function Stat({ label, value, sub }) {
+  return (
+    <div className="flex flex-col gap-0.5">
+      <span className="text-muted-foreground text-xs">{label}</span>
+      <span className="text-xl font-semibold tabular-nums">{value}</span>
+      {sub ? <span className="text-muted-foreground text-xs">{sub}</span> : null}
+    </div>
+  )
+}
+export function WeekRecap({ wk }) {
+  useStore()
+  const r = weekRecap(wk)
+  if (!r || r.start > iso(new Date())) return null      // a week that has not begun has nothing to say
+  const nothing = !r.sets.done && !r.reviewed && !r.vocab && !r.words.written && !r.essay.started && !r.reading
+  return (
+    <Card className="gap-4" data-testid="week-recap">
+      <CardHeader>
+        <CardDescription className="flex items-center gap-2"><ListChecks className="size-4" /> {r.ended ? "How the week went" : "How the week is going"}</CardDescription>
+        <CardTitle className="text-xl">{wk} · {weekLabel(wk)}</CardTitle>
+        <CardDescription>Counted from her own record, live. Nothing here waits on anybody.</CardDescription>
+      </CardHeader>
+      {nothing ? (
+        <CardContent className="text-muted-foreground text-sm">Nothing recorded in this week yet.</CardContent>
+      ) : (
+        <>
+          <CardContent className="flex flex-col gap-5">
+            <div className="grid grid-cols-2 gap-4 @md/main:grid-cols-4">
+              <Stat label="Sets" value={`${r.sets.done} / ${r.sets.total}`} sub={r.answered ? `${r.right} of ${r.answered} right` : "none finished"} />
+              {/* honest numbers: no questions answered means no percentage, not 0% */}
+              <Stat label="Accuracy" value={r.pct == null ? "—" : `${r.pct}%`} sub={r.pct == null ? "no answers yet" : "on new set work"} />
+              <Stat label="Review" value={r.reviewed || "—"} sub={r.reviewed ? `${r.reviewedOk} right · ${r.dueNow} due now` : `${r.dueNow} due now`} />
+              <Stat label="Active days" value={r.activeDays} sub={`of 7${r.vocab ? ` · ${r.vocab} word calls` : ""}`} />
+            </div>
+            <div className="flex flex-col gap-2">
+              {ORDER.map((s) => {
+                const x = r.subs[s]
+                if (!x.total) return null
+                return (
+                  <div key={s} className="flex items-center gap-3 text-sm">
+                    <span className="inline-block size-2.5 shrink-0 rounded-full" style={{ background: SUBJ[s].color }} />
+                    <span className="w-24 shrink-0 truncate @md/main:w-48">{SUBJ[s].name}</span>
+                    <Progress value={(x.done / x.total) * 100} className="h-1.5 flex-1" />
+                    <span className="text-muted-foreground w-24 shrink-0 text-right text-xs tabular-nums">
+                      {x.done}/{x.total} sets{x.pct == null ? "" : ` · ${x.pct}%`}
+                    </span>
+                  </div>
+                )
+              })}
+            </div>
+            <div className="text-muted-foreground flex flex-wrap gap-x-5 gap-y-1 text-xs">
+              <span>Precision: {r.words.written} of {r.words.total} written{r.words.written ? `, ${r.words.rated} rated` : ""}{r.words.written && !r.words.submitted ? " · not submitted yet" : r.words.submitted ? " · submitted" : ""}</span>
+              <span>Essay: {r.essay.done ? "done" : r.essay.started ? "in progress" : "not started"}{r.essay.minutes != null ? ` · ${r.essay.minutes} min logged` : ""}</span>
+              <span>Reading: {r.reading ? `${r.reading} session${r.reading === 1 ? "" : "s"}` : "none logged"}</span>
+            </div>
+          </CardContent>
+          {r.slipped.length ? (
+            <CardFooter className="flex-col items-start gap-2">
+              {/* Misses on NEW work only. A miss during review is the pile doing
+                  its job, and counting it here would read as going backwards. */}
+              <span className="text-muted-foreground text-xs">What slipped on new work this week</span>
+              <div className="flex flex-wrap gap-1.5" data-testid="recap-slipped">
+                {r.slipped.slice(0, 8).map((x) => (
+                  <Badge key={x.sub + x.sk} variant="outline" className="font-normal">
+                    <span className="inline-block size-2 rounded-full" style={{ background: SUBJ[x.sub].color }} /> {x.sk}{x.n > 1 ? ` ×${x.n}` : ""}
+                  </Badge>
+                ))}
+              </div>
+            </CardFooter>
+          ) : null}
+        </>
+      )}
+    </Card>
+  )
+}
+
 function isDone(item, listKey) { return item.done == null ? !!listState(listKey).checked[item.id] : item.done }
 
 function Row({ item, listKey, compact, testId = "ck-item" }) {
@@ -342,6 +426,7 @@ export function Checklist({ wk: wkParam, month: monthParam }) {
         </TabsList>
 
         <TabsContent value="week" className="flex flex-col gap-4">
+          <WeekRecap wk={wk} />
           {reviewsFor({ kind: "week", wk }).map((r) => <ReviewCard key={r.id} r={r} />)}
           <Card className="gap-3 py-5">
             <CardHeader className="px-5">

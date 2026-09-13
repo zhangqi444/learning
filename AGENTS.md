@@ -413,6 +413,20 @@ essays, and a page reading "Test-ready" that has never looked at one overclaims
 by omission. `essayStanding()` counts them and the Score page shows the counts
 beside the number, saying plainly that they sit outside it.
 
+**A week counts itself; the digest carries only the judgement.** `weekRecap(wk)`
+in `lib/engine.js` computes what a plan week actually held — sets, accuracy per
+subject, review answers, precision, essay, reading, active days, and which skills
+slipped on *new* work — from `Store.s` alone. It renders as the `WeekRecap` card
+at the top of `/checklist/<wk>`, directly above any written digest for that week.
+Nothing in it waits on Drive, on a Routine, on an email, or on an import tap.
+
+That split is the point. Mailing out numbers the browser already holds, and then
+asking somebody to tap a link to bring them home, was ferrying something across a
+gap that was never there. What genuinely needs a person is the reading — *"you
+picked 30, and 30 is the area"* — and that is all the emailed digest is for now.
+A miss during review is deliberately excluded from "what slipped": the pile doing
+its job should not read as going backwards.
+
 ## Hard rules
 
 1. **Learner input is sacred.** Her answers, written responses, essays and ratings
