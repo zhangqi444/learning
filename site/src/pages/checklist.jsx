@@ -233,11 +233,18 @@ export function WeekRecap({ wk, cur, idx }) {
           </>
         )}
       </CardContent>
-      {started && r.slipped.length ? (
+      {started && (r.slipped.length || r.rushed) ? (
         <CardFooter className="flex-col items-start gap-2">
+          {/* One rushed answer is an accident; a week of them is a habit, and
+              only a count in one place makes that visible. */}
+          {r.rushed ? (
+            <span className="text-warning text-xs font-medium" data-testid="recap-rushed">
+              {r.rushed} of the {r.answered - r.right} misses came in faster than the question can be read.
+            </span>
+          ) : null}
           {/* Misses on NEW work only. A miss during review is the pile doing its
               job, and counting it here would read as going backwards. */}
-          <span className="text-muted-foreground text-xs">What slipped on new work this week</span>
+          {r.slipped.length ? <span className="text-muted-foreground text-xs">What slipped on new work this week</span> : null}
           <div className="flex flex-wrap gap-1.5" data-testid="recap-slipped">
             {r.slipped.slice(0, 8).map((x) => (
               <Badge key={x.sub + x.sk} variant="outline" className="font-normal">

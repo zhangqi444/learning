@@ -1059,6 +1059,45 @@ async function runThrough(pg, pick, max = 60) {
   const w6 = await pg.$('[data-testid=week-recap]');
   check('a week that has not started yet says nothing at all', !w6 || !/Accuracy/.test(await pg.textContent('[data-testid=week-recap]')), blank ? 'W6 is in the future' : '');
 
+  /* Sheila answers before she has finished reading. paceFlag's "fast and wrong"
+   * fires at half the section budget — seventeen seconds on Verbal — which is
+   * far too slack to catch it. readFloor is the harder question: could she have
+   * read this at all? */
+  console.log('== answering before reading is named, and can be held back');
+  await pg.evaluate(() => { location.hash = '#/run/ma/W2/0'; });
+  await pg.waitForSelector('[data-testid=question]');
+  // pick the first choice the instant it renders; on a wrong one this is well
+  // under the floor and cannot be anything but an unread question
+  let rushedSeen = false;
+  for (let k = 0; k < 12; k++) {
+    if (!(await pg.$('[data-testid=question]'))) break;
+    await pg.click('[data-testid=choice] >> nth=0');
+    await pg.waitForSelector('[data-testid=reveal]');
+    if (await pg.$('[data-testid=rushed]')) { rushedSeen = true; break; }
+    await pg.click('[data-testid=next]');
+    await pg.waitForTimeout(120);
+  }
+  check('answering faster than the question can be read says so', rushedSeen,
+    rushedSeen ? await pg.textContent('[data-testid=rushed]') : 'never flagged');
+  // The way out of a wrong answer is the idea, never the question: searching an
+  // ISEE stem verbatim finds answer mills and hands her the key.
+  const learn = await pg.getAttribute('[data-testid=learn-more]', 'href');
+  const stem = (await pg.textContent('[data-testid=question]')).trim();
+  check('a miss offers somewhere to go and learn it', /^https:\/\/www\.google\.com\/search\?q=/.test(learn || ''), learn);
+  check('and searches the idea, not the question', !decodeURIComponent((learn || '').split('q=')[1] || '').includes(stem.slice(0, 30)),
+    decodeURIComponent((learn || '').split('q=')[1] || ''));
+
+  // Careful mode is opt-in: a timer she did not ask for that stops her
+  // answering is a punishment, not a help.
+  check('careful mode is off until she turns it on', !(await pg.$('[data-testid=holding]')));
+  await pg.click('[data-testid=careful-toggle]');
+  await pg.click('[data-testid=next]').catch(() => {});
+  await pg.waitForTimeout(300);
+  const heldNow = await pg.$('[data-testid=holding]');
+  check('with it on, the choices wait until the question has been readable', !!heldNow,
+    heldNow ? (await pg.textContent('[data-testid=holding]')).replace(/\s+/g, ' ') : 'not holding');
+  await pg.click('[data-testid=careful-toggle]');
+
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });
   await b.close(); srv.close();

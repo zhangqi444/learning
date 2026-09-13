@@ -1,8 +1,9 @@
 import * as React from "react"
-import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
+import { ArrowLeft, ArrowRight, Award, BookOpen, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
-import { BUDGET, CAUSES, findItem, paceFlag, rec, recordAttempts, setTag, skillLevel } from "@/lib/engine"
+import { BUDGET, CAUSES, findItem, paceFlag, readFloor, rec, recordAttempts, setTag, skillLevel, tooFast } from "@/lib/engine"
+import { learnQuery, learnUrl } from "@/lib/aops"
 import { syncBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
@@ -156,6 +157,12 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
   const entered = useRef(Date.now())
   const it = items[i], total = items.length
   const pacing = !!store.s.pacing
+  /* Careful mode: the choices stay out of reach until the question has been on
+   * screen long enough to have been read. Opt-in, and off by default — a child
+   * uses this, and a timer she did not ask for that stops her answering is a
+   * punishment, not a help. She turns it on when she knows she is rushing. */
+  const careful = !!store.s.careful
+  const [held, setHeld] = React.useState(0)
   const budget = BUDGET[subOf(it || items[0], subHint)] || 50
   /* Instant marking is practice only. A mock's timed sections have their own
    * screens and never reach the Runner; corrections already show the answers,
@@ -244,6 +251,23 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
     addEventListener("keydown", on)
     return () => removeEventListener("keydown", on)
   })
+
+  /* ABOVE the finished-state return on purpose. A hook after that `return` is a
+   * conditional hook, and React throws the moment the last question is answered
+   * — which is exactly how this file broke once already this month. */
+  const floorItem = items[i]
+  const floor = careful && floorItem ? readFloor(floorItem) : 0
+  React.useEffect(() => {
+    if (!floor) { setHeld(0); return }
+    const t0 = Date.now()
+    setHeld(floor)
+    const h = setInterval(() => {
+      const left = floor - (Date.now() - t0)
+      setHeld(left > 0 ? left : 0)
+      if (left <= 0) clearInterval(h)
+    }, 100)
+    return () => clearInterval(h)
+  }, [floor, i])
 
   if (done) {
     const pct = Math.round((done.right / total) * 100)
@@ -351,8 +375,18 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   {!ok && picks[j] != null && q.y && q.y[LTR[picks[j]]] ? (
                     <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{q.y[LTR[picks[j]]]}</div>
                   ) : null}
+                  {!ok && tooFast(q, ms) ? (
+                    <div className="border-warning/50 bg-warning-soft rounded-md border p-3 leading-relaxed" data-testid="rushed">
+                      {fmtSec(ms)} on a {String(q.q || "").trim().split(/\s+/).filter(Boolean).length}-word question — answered before it was read.
+                    </div>
+                  ) : null}
                   {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
                   {!ok && canTag ? <CauseTags id={q.id} /> : null}
+                  {!ok && learnUrl(subOf(q, subHint), q) ? (
+                    <a href={learnUrl(subOf(q, subHint), q)} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs hover:underline" data-testid="learn-more" title={learnQuery(subOf(q, subHint), q)}>
+                      <BookOpen className="size-3.5" /> Learn more about {q.sk || "this"}
+                    </a>
+                  ) : null}
                 </CardContent>
               </Card>
             )
@@ -368,6 +402,7 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
   }
 
   const last = i === total - 1
+  const holding = careful && held > 0 && picks[i] == null
   const revealed = instant && !!shown[i] && picks[i] != null
   const gotIt = revealed && LTR[picks[i]] === keyOf(it)
   /* Verbal Reasoning is drawn as the Wordkeep, because it already is one: most
@@ -412,6 +447,16 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
               </TooltipTrigger>
               <TooltipContent>Shows a soft timer against the real test's {budget} seconds a question. Nothing auto-advances.</TooltipContent>
             </Tooltip>
+            {/* Its own Tooltip: TooltipTrigger takes asChild, so it holds exactly
+                one child and a second Button inside it renders nothing at all. */}
+            {kind !== "corr" ? (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button size="sm" variant={careful ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("careful", !careful)} data-testid="careful-toggle"><Eye /> Careful {careful ? "on" : "off"}</Button>
+                </TooltipTrigger>
+                <TooltipContent>Holds the choices back until the question has been on screen long enough to have been read. For when you catch yourself answering too early.</TooltipContent>
+              </Tooltip>
+            ) : null}
             <span className="tabular-nums" data-testid="counter">{i + 1} / {total}</span>
           </span>
         </div>
@@ -447,6 +492,12 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
             <p className="text-lg leading-snug font-medium" data-testid="question">{it.q}</p>
           )}
           {gameMode ? <p className="text-muted-foreground -mb-2 text-xs font-semibold tracking-wide uppercase">Your spells</p> : null}
+          {holding ? (
+            <p className="text-muted-foreground flex items-center gap-2 text-xs" data-testid="holding">
+              <Eye className="size-3.5" /> Read the whole question first — the choices unlock in {Math.ceil(held / 1000)}s
+            </p>
+          ) : null}
+          <div className={cn(holding && "pointer-events-none opacity-40 transition-opacity")} aria-hidden={holding ? "true" : undefined}>
           <RadioGroup value={picks[i] == null ? "" : LTR[picks[i]]} onValueChange={(v) => choose(LTR.indexOf(v))} className="gap-2.5" aria-label="Answer choices">
             {it.c.map((c, k) => (
               <Choice
@@ -458,6 +509,7 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
               />
             ))}
           </RadioGroup>
+          </div>
           {revealed ? (
             <div className="motion-safe:animate-[pop_260ms_ease-out_both]" data-testid="reveal">
               <div className="flex items-start gap-3">
@@ -494,7 +546,29 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
               {!gotIt && it.y && it.y[LTR[picks[i]]] ? (
                 <p className="border-destructive/40 bg-destructive/5 mt-2 rounded-lg border p-3 text-sm leading-relaxed" data-testid="why">{it.y[LTR[picks[i]]]}</p>
               ) : null}
+              {/* Answering before the question has been read is its own mistake,
+                  and a different one from not knowing the answer. Naming it with
+                  her own two numbers is the only version of this that is not
+                  nagging: she can check the arithmetic herself. */}
+              {!gotIt && tooFast(it, Date.now() - entered.current) ? (
+                <p className="border-warning/50 bg-warning-soft mt-2 rounded-lg border p-3 text-sm leading-relaxed" data-testid="rushed">
+                  {(() => { const sec = Math.max(1, Math.round((Date.now() - entered.current) / 1000)); return `That took about ${sec} second${sec === 1 ? "" : "s"}.` })()} There are {String(it.q || "").trim().split(/\s+/).filter(Boolean).length} words in the question before the choices even start — this one was answered before it was read.
+                </p>
+              ) : null}
               {it.e ? <p className="bg-muted/60 text-muted-foreground mt-2 rounded-lg p-3 text-sm leading-relaxed">{it.e}</p> : null}
+              {/* Not the question — the idea behind it. See learnQuery(). */}
+              {!gotIt && learnUrl(subOf(it, subHint), it) ? (
+                <a
+                  href={learnUrl(subOf(it, subHint), it)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground mt-2 inline-flex items-center gap-1.5 text-xs hover:underline"
+                  data-testid="learn-more"
+                  title={learnQuery(subOf(it, subHint), it)}
+                >
+                  <BookOpen className="size-3.5" /> Learn more about {it.sk || "this"}
+                </a>
+              ) : null}
             </div>
           ) : null}
         </CardContent>

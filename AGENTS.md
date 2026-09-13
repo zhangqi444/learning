@@ -427,6 +427,26 @@ picked 30, and 30 is the area"* — and that is all the emailed digest is for no
 A miss during review is deliberately excluded from "what slipped": the pile doing
 its job should not read as going backwards.
 
+**Answering before reading is its own mistake.** `readFloor(it)` is the words in
+the stem and the four choices at 210 a minute, floored at two seconds: under it
+she cannot have read the question, whatever else is true. `paceFlag`'s "fast and
+wrong" is a different and much slacker thing — half the section budget, seventeen
+seconds on Verbal — and it never caught this. A miss under the floor is named on
+the reveal with her own two numbers so she can check the arithmetic herself, the
+week's card counts how many of the week's misses were like that, and **Careful**
+in the runner holds the choices back until the question has been on screen long
+enough to have been read. Careful is opt-in and off by default: a child uses
+this, and a timer she did not ask for that stops her answering is a punishment,
+not a help.
+
+**A miss links out to the idea, never to the question.** `learnUrl()` in
+`lib/aops.js` builds a Google search from the *skill* — "Perimeter explained with
+examples", or the word itself for a vocabulary item. Searching an ISEE stem
+verbatim finds homework-answer sites, which teach nothing and hand her the key; a
+test asserts the query does not contain the question. It is an anchor, so the
+artifact still issues no external request of its own, and it only ever appears
+after the answer is revealed.
+
 ## Hard rules
 
 1. **Learner input is sacred.** Her answers, written responses, essays and ratings

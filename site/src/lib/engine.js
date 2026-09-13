@@ -368,6 +368,27 @@ export function pacingFor(sub, asOf) {
   const median = times.length ? times[Math.floor(times.length / 2)] : null
   return { n: times.length, median, budget, within: times.length ? within / times.length : null, slowRight, fastWrong }
 }
+/** How long this question physically takes to read, in ms.
+ *
+ *  `paceFlag` already says "fast and wrong" at half the section budget, but for
+ *  Verbal that is still seventeen seconds — far too generous to catch the thing
+ *  Sheila actually does, which is pick a choice before she has finished the
+ *  sentence. This is a much harder floor: the words in the stem and the four
+ *  choices at 210 a minute, which is quick silent reading for a ten-year-old.
+ *  Under it she did not read the question; there is no other explanation. Set
+ *  deliberately high so it under-reports — telling her she did not read
+ *  something she did read would be worse than missing a few. */
+const WORDS_PER_SEC = 3.5
+export function readFloor(it) {
+  if (!it) return 0
+  const words = (t) => String(t || "").trim().split(/\s+/).filter(Boolean).length
+  let n = words(it.q)
+  for (const c of it.c || []) n += Math.max(1, words(c))
+  return Math.max(2000, Math.round((n / WORDS_PER_SEC) * 1000))
+}
+/** Answered faster than the question can be read. */
+export function tooFast(it, ms) { return !!ms && !!it && ms < readFloor(it) }
+
 export function paceFlag(sub, ms, ok) {
   if (!ms) return null
   const b = BUDGET[sub] || 50, sec = ms / 1000
@@ -686,6 +707,16 @@ export function weekRecap(wk) {
       }
     }
   }
+  // answers that came in faster than the question can be read — the pattern is
+  // only visible once a week of them is counted in one place
+  let rushed = 0
+  for (const id of Object.keys(Store.s.items || {})) {
+    for (const h of (Store.s.items[id].hist || [])) {
+      if (!inWeek(h.at) || h.ctx !== "set" || h.ok) continue
+      const f = findItem(id)
+      if (f && tooFast(f.it, h.ms)) rushed++
+    }
+  }
   const q = reviewQueue()
 
   const pst = (Store.s.precision || {})[wk] || {}
@@ -715,7 +746,7 @@ export function weekRecap(wk) {
     wk, start, end, ended: end < todayKey(),
     sets: { done, total }, right, answered,
     pct: answered ? Math.round((right / answered) * 100) : null,
-    subs, reviewed, reviewedOk, vocab, dueNow: q.due.length,
+    subs, reviewed, reviewedOk, vocab, dueNow: q.due.length, rushed,
     words, essay, reading, activeDays: days.size,
     slipped: Object.keys(slipped)
       .map((k) => ({ sub: k.split("\u0000")[0], sk: k.split("\u0000")[1], n: slipped[k] }))
