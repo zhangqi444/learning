@@ -69,9 +69,23 @@ python3 tools/review_link.py digest.json          # validates, prints the import
 python3 tools/review_link.py digest.json --doc    # the text for the Drive copy
 ```
 
-Save the `--doc` text as a Google Doc named `Week digest · <W2> · <date>` or
-`Month digest · <2026-09> · <date>` in the **Sheila** Drive folder (the one
-holding the workbooks and `progress.json`), with `create_file`.
+Save **two** copies in the **Sheila** Drive folder (the one holding the workbooks
+and `progress.json`), with `create_file`:
+
+- the `--doc` text as a Google Doc, `Week digest · <W2> · <date>` or
+  `Month digest · <2026-09> · <date>` — the version a person reads;
+- the digest JSON itself, same name with `.json`, `contentMimeType`
+  `application/json` and `disableConversionToGoogleType` true — the record in the
+  shape the site stores it in, so a week can be re-imported or re-read later
+  without re-deriving it from prose.
+
+The JSON copy does **not** make the digest appear on the site by itself. The site
+holds only `drive.file` (`DRIVE_SCOPE` in `lib/store.js`): it sees files *it*
+created and nothing else, so a file this skill creates is invisible to it however
+it is named or wherever it sits. That is what the import link is for. Do not
+propose "just read it from Drive" without changing the scope, and do not change
+the scope casually — `drive.file` is narrow on purpose, the token lives in a
+browser, and the account is the family's.
 
 Then give the parent the import link. Opening it shows a preview and an **Add to
 Sheila's progress** button; that stores the digest and syncs it to Drive, and the
