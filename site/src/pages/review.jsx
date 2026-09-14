@@ -107,7 +107,7 @@ export function Review() {
                         onClick={() => sfx("call", w)}
                         aria-label={`Hear ${w}`}
                         title={`${w} is waiting — tap to hear it`}
-                        className="focus-visible:ring-ring/50 flex w-14 flex-col items-center gap-0.5 rounded-lg transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]"
+                        className="glim-hear focus-visible:ring-ring/50 flex w-14 flex-col items-center gap-0.5 rounded-lg transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]"
                       >
                         <Glim word={w} stage={WORD_GLOW[wordStatus(w).status] || "Flickering"} className="size-10" title={w} />
                         <span className="w-full truncate text-center text-[10px] font-medium">{w}</span>

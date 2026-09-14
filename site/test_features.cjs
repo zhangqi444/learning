@@ -522,6 +522,18 @@ async function runThrough(pg, pick, max = 60) {
     kinds2[0]);
   check('and it can be asked to speak, wherever it is drawn',
     (await pg.$$('[data-testid=word-cards] [data-testid=hear-glim]')).length === kinds2.length);
+  // A shelf of cats holding perfectly still reads as a sprite sheet. They flick
+  // an ear instead — rarely, and each on its own clock, because forty cats
+  // twitching in unison would look like machinery rather than animals. The
+  // delays come from the same hash as the coat, so this is about the stagger
+  // existing at all, not about any particular value.
+  const earDelays = await pg.$$eval('[data-testid=word-cards] [data-testid=glim] g[style*="glim-ear"]',
+    (n) => n.map((e) => getComputedStyle(e).animationDelay));
+  // Counts the property, not the shelf: how many cats she has met by this point
+  // is a fact about the suite, and pinning it here would make this fail the day
+  // someone adds a word. Ears exist, and they do not all move together.
+  check('a shelf of cats is not perfectly still, and does not twitch in unison',
+    earDelays.length >= 2 && new Set(earDelays).size > 1, `${earDelays.length} ears, ${new Set(earDelays).size} different delays`);
   check('and a real build, not just a colour', kinds.every((k) => ['short', 'long', 'slim'].includes(k.split('|')[1])), [...new Set(kinds.map((k) => k.split('|')[1]))].join(','));
   const benignCoat = coats.find((c) => c.startsWith('benign:'));
   // A skill is a cat too, and this is the only place all six brightnesses get

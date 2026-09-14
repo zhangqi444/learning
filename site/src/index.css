@@ -217,4 +217,29 @@
     0%, 100%  { transform: scaleY(1); }
     42%, 58%  { transform: scaleY(0.06); }
   }
+  /* An ear turning. Cats are never quite still, and a shelf of forty of them
+     holding perfectly rigid reads as a sprite sheet rather than a room. The
+     whole cycle is eleven seconds and the flick takes half of one of them, so
+     it registers out of the corner of an eye and never asks to be watched; each
+     cat carries its own delay, or they would all twitch in time and look
+     mechanical. Reduced motion deletes it and a still ear is the right picture,
+     which is why this rotates rather than fades. */
+  @keyframes glim-ear {
+    0%, 93%, 100% { transform: rotate(0deg); }
+    95%           { transform: rotate(-11deg); }
+    97%           { transform: rotate(4deg); }
+  }
+  /* A tail lifting when she points at a cat. The cats became things you can tap
+     everywhere at once, and a button that looks exactly like a picture is a
+     button nobody presses — so the cat answers the cursor before it answers the
+     click. Attention, not commitment: nothing else moves. */
+  @keyframes glim-tail {
+    0%, 100% { transform: rotate(0deg); }
+    45%      { transform: rotate(-7deg); }
+  }
+  .glim-hear:hover .glim-tail,
+  .glim-hear:focus-visible .glim-tail {
+    animation: glim-tail 700ms ease-in-out;
+    transform-origin: 32px 52px;
+  }
 }

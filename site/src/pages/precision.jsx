@@ -88,7 +88,7 @@ function WordCard({ wk, entry, idx, state, submitted }) {
                 onClick={() => sfx("call", n)}
                 aria-label={`Hear ${n}`}
                 title={`Hear ${n}`}
-                className="focus-visible:ring-ring/50 rounded-full transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]"
+                className="glim-hear focus-visible:ring-ring/50 rounded-full transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]"
                 data-testid="hear-glim"
               >
                 <Glim word={n} stage={glow} className="size-11" title={n} blink={blink} />

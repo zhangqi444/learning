@@ -103,7 +103,7 @@ export function TodayCard() {
           <button
             type="button"
             onClick={() => { sfx("call", first.word); go("/quest") }}
-            className="hover:bg-accent/50 focus-visible:ring-ring/50 -mx-2 flex w-full items-center gap-3 rounded-xl px-2 py-1.5 text-left transition-colors outline-none focus-visible:ring-[3px]"
+            className="glim-hear hover:bg-accent/50 focus-visible:ring-ring/50 -mx-2 flex w-full items-center gap-3 rounded-xl px-2 py-1.5 text-left transition-colors outline-none focus-visible:ring-[3px]"
             data-testid="first-glim"
             data-word={first.word}
           >
