@@ -19,7 +19,12 @@ export const CAUSE_LABEL = Object.fromEntries(CAUSES.map((c) => [c.id, c.label])
 export const BUDGET = { vr: 35, qr: 55, rc: 60, ma: 60 }
 export const INTERVALS = [1, 3, 7, 21]                  // days: after a miss, then after each spaced correct answer
 const CHECKIN_DAYS = 21, WORD_BRUSHUP_DAYS = 7
-const LEARN_CTX = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1 }   // 'corr' (right after seeing the answers) is not evidence
+const LEARN_CTX = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 }   // 'corr' (right after seeing the answers) is not evidence
+// 'again' is evidence and 'corr' is not, and the difference is the whole rule:
+// corrections re-ask the question whose answer she has just been shown, while
+// 'again' asks a DIFFERENT question on the same skill. She has seen no key for
+// it, so getting it right means something and getting it wrong should schedule
+// it — exactly as it would inside a set.
 export const LEVELS = ["Not started", "Started", "Needs work", "Familiar", "Proficient", "Mastered"]
 const LEVEL_SCORE = { "Not started": 0, Started: 0.2, "Needs work": 0.35, Familiar: 0.6, Proficient: 0.85, Mastered: 1 }
 const SEC2SUB = { VR: "vr", QR: "qr", RC: "rc", MA: "ma" }
@@ -272,6 +277,29 @@ export function skillOf(sub, it) {
   return /most nearly means/i.test(q) ? "Synonyms" : /_{3,}/.test(q) ? "Sentence completion" : "Words in context"
 }
 let SK_CACHE = null, SK_FOR = null
+/** Another question on the same skill as `id` — the thing to try when the
+ *  lesson has just been read and the question it was read for is spent.
+ *
+ *  Unseen first, walked in bank order, so "try another" keeps moving forward
+ *  through the material rather than circling three questions she can now recite.
+ *  When there is nothing unseen left it takes the one she has not touched for
+ *  longest, which is the next most useful thing and is still not the one in
+ *  front of her: the question just answered is excluded outright. */
+export function anotherLike(id) {
+  const hit = findItem(id)
+  if (!hit || !hit.it) return null
+  const sub = hit.sub
+  const sk = skillOf(sub, hit.it)
+  const pool = ((skillTable(sub)[sk] || {}).ids || []).filter((x) => x !== id)
+  if (!pool.length) return null
+  const byId = index()
+  const at = (x) => { const r = rec(x); const h = (r && r.hist) || []; return h.length ? ts(h[h.length - 1].at) : 0 }
+  const unseen = pool.filter((x) => !at(x))
+  const pick = unseen.length ? unseen[0] : pool.slice().sort((a, b) => at(a) - at(b))[0]
+  const row = byId[pick]
+  return row && row.it ? { sub, sk, it: row.it, left: unseen.length } : null
+}
+
 export function skillTable(sub) {
   if (!SK_CACHE || SK_FOR !== D) { SK_CACHE = {}; SK_FOR = D }
   if (SK_CACHE[sub]) return SK_CACHE[sub]
