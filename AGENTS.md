@@ -20,7 +20,7 @@ lost (see **Hard rules**).
 
 ```
 content/                 the source of truth for everything the site teaches
-  question-banks/          per-subject question JSON (834 items)
+  question-banks/          per-subject question JSON (842 items)
   passages/                reading passages
   precision.json           8 weeks × 20 vocabulary words with meanings
   essay.json               8 weekly prompts, the guide, the rubric
@@ -43,7 +43,9 @@ site/
 .github/workflows/pages.yml  build + deploy to GitHub Pages
 docs/                     architecture.md (how it is built), design.md (why it looks and
                           behaves as it does), world.md (the world bible — read before
-                          touching the game), gamify.md (the research, and what shipped),
+                          touching the game), cats.md (how the world sounds, moves and
+                          behaves — read before drawing, animating or voicing a cat),
+                          gamify.md (the research, and what shipped),
                           review.md, review notes; the living record is the
                           claude.ai "ISEE" project
 ```
@@ -207,8 +209,12 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
 
 The site is not a quiz with a game bolted onto it. It is one world — **Wildlight**
 — and the practice happens inside it. The world bible is
-[docs/world.md](docs/world.md); the research behind it and a record of what
-actually shipped is [docs/gamify.md](docs/gamify.md).
+[docs/world.md](docs/world.md): it decides what the world *is* and owns every
+noun. [docs/cats.md](docs/cats.md) decides how it **sounds, moves and behaves**,
+down to a button and a blink — read it before drawing a cat, animating one, or
+giving anything a voice. The research behind all of it and a record of what
+actually shipped is [docs/gamify.md](docs/gamify.md). What is written out below
+is only the part an agent can break without ever opening those files.
 
 **The premise.** The world has gone quiet: the meaning has drained out of it.
 Sheila is a **Lampwright** and she brings it back. Every vocabulary word is a
@@ -230,6 +236,20 @@ Currency, rooms, badges and confetti all fail that test, which is fine — they 
 decoration, and decoration is welcome. The mistake to avoid is shipping only
 decoration and calling the site gamified. It has been made twice here already.
 
+**Skin, Signal, Mechanic — say which one a thing is before building it.** The
+veneer test is a verdict on a whole feature, which is why every proposal about
+the cats turns back into the same argument about whether decoration is allowed
+at all. It is. Tag the pieces instead. **Skin** looks like the world and carries
+no information — a cat asleep on an empty page; free, pleasant, never pretending
+to be more. **Signal** is decoration that tells the truth about real state — a
+mark that appears when something has genuinely saved; it survives the flashcard
+swap, so it is not a mechanic, but it is never arbitrary and it must never
+signal something false. **Mechanic** is the cat *being* the content — calling a
+name, brightness read from mastery — and it is the only one that passes the
+test. A list that comes out all Skin is the mistake that has already been made
+twice, and the tags make it visible while it is still a list. Worked examples:
+[docs/cats.md](docs/cats.md) §1.
+
 This is why the game is where it is and nowhere else:
 
 | Surface | Why |
@@ -238,7 +258,7 @@ This is why the game is where it is and nowhere else:
 | **Verbal Reasoning** (`/run/vr/...`) | 178 of the 330 VR items are already a sentence with a word removed. VR is *drawn* as the gate it already is, rather than given a game to sit beside. |
 | **The precision review** (`/precision/{wk}`) | where she first meets each word, so where each cat first appears — a shadow with two eyes until she writes it in her own words. Tapping one plays its call. |
 | **The review pile** (`/review`) | the page always *said* they were sitting at the door; the due words are now drawn there. Only words — a Quantitative item is not a cat. |
-| **QR, MA, RC** | deliberately plain. See **Why the numbers are not a game yet** below before trying to change this. Do not wrap them in a game to make the coverage look even. |
+| **QR, MA, RC** | the *question* is deliberately plain — no cat on the stem, no cat on the choices — but the reveal is not: the skill's own cat turns up beside the answer once she has committed, which is the commitment boundary below. See **Why the numbers are not a game yet** before trying to give the question itself a mechanic. Do not wrap them in a game to make the coverage look even. |
 
 **Why the numbers are not a game yet.** This has been looked at properly, so the
 next person does not have to guess. Two mechanics were considered and both are
@@ -246,15 +266,18 @@ blocked by the *content*, not by the UI:
 
 - **A balance** — "which side is heavier" is a real weighing, and quantitative
   comparison items are natively that shape. But the bank has **8 comparison-shaped
-  items out of 408**. There is nothing to build it on.
+  items out of 416**. There is nothing to build it on.
 - **The wrong number doing the wrong thing** — the vocabulary equivalent, and the
   only version that would pass the rule above: pick 24 instead of 21 and see that
   24 is what you get if you divide instead of multiply. That needs each distractor
   to carry *what mistake produces it*, and none of them do. Deriving it would mean
   inventing the misconception, which the content rules forbid.
 
-Two facts worth keeping: 71% of QR and 91% of MA items have all-numeric choices,
-and only 145 of 408 explanations show two or more steps of working. So the
+Two facts worth keeping, and the rule for re-deriving them so the next reader is
+not counting a different thing: over `content/question-banks/*.json` minus
+`mock.json`, **70% of QR (152 of 216) and 92% of MA (183 of 200) items have
+choices with no letter in them, and only 148 of the 416 explanations contain two
+or more `=`**. So the
 unlocking change is **content, not code** — a `why` field per distractor across
 ~400 items. That would also improve the plain runner on its own, because a wrong
 answer could then say what the mistake was instead of "The answer is C".
@@ -306,6 +329,21 @@ counts they will be, and training her to scan for a ginger tabby is training her
 for a test that does not exist. A VR set gets its cat only on the reveal — the
 one that walks through the opened gate. `test_features.cjs` guards both halves.
 
+**The boundary is the moment of commitment**, which is how to settle this for a
+page nobody has designed yet. Before she commits an answer the screen is the
+exam — plain controls, no faces, nothing to scan. After she commits, the world is
+allowed back in, which is why the reveal now carries a cat, a learn card and a
+chapter reference without any of them being a contradiction. The zone tables in
+[docs/cats.md](docs/cats.md) §6 are a reading of that sentence and never override
+it. Two things sit outside the boundary deliberately: the Wordwood, where the
+controls *are* the content, and a Long Night, which gets nothing from the first
+question to the last. cats.md §6 proposes one exception there — the cats she got
+right arriving *after* a mock is over, resting on Sheila's *"Yes no gamify. But
+at the end, could connected with the reward system?"* — and it is **not adopted**.
+She asked for the reward system, which is Hum and the shelf; the collection is a
+different thing, and quietly substituting one for the other is the move these
+documents are careful never to make. Until the owner rules, a mock gets nothing.
+
 **The Den teaches cat care, and never simulates neglect.** Sheila asked for this
 and the guidance is real — every item in `content/catcare.json` carries a named
 source (ASPCA, RSPCA, Cats Protection, International Cat Care) and says that a
@@ -318,6 +356,30 @@ nothing that can be neglected. A cat that gets sad because she missed a day of
 maths is exactly the dark pattern hard rule 3 forbids. A wrong care answer costs
 nothing and can be answered again; everything built stays built. Cat care is also
 not ISEE evidence — it must never be recorded through the engine.
+
+**A cat can never be disappointed in her.** The pet simulator is the version of
+this mistake that is easy to see coming. The version that actually arrives is
+smaller and looks like a kindness: make the empty state friendlier, have the cat
+notice she has been away, let it look a little crestfallen when she gets one
+wrong. That is the Duolingo owl, and a creature that looks sad because a child
+has not practised is the most effective guilt engine in consumer software. So
+disapproval is not softened here, it is made **inexpressible**, and these hold
+for every frame of every animation:
+
+- **A cat has no opinion about her attendance.** Nothing reacts to absence, to a
+  skipped day, to a broken streak, to a late night. There is no "we missed you".
+- **No cat is ever sad, hurt, hungry, cold, thin or alone.** No state a child
+  could read as *I did this to it*.
+- **No cat leaves.** Not from the Glimbook, not from a page, not from the Den. A
+  reveal cat that walks off between questions has arrived and finished arriving;
+  nothing may be *taken*.
+- **A cat is never the bearer of bad news.** A wrong name brings the wrong cat
+  *arriving*, which is information about the word. Nothing hisses, flattens its
+  ears, turns its back or walks away from her.
+
+If a proposed animation cannot be built without one of these, the feature is
+wrong — not the animation. How the rest of it moves is
+[docs/cats.md](docs/cats.md) §2 and §4.
 
 Her answer to "what happens at the end?" was *"I finally get my cat"*. Building
 everything a cat needs is something the page can honestly finish and say so.
@@ -344,7 +406,7 @@ belongs at the level of the collection, pointing at pages the charities keep
 current themselves, which is what is there.
 
 **The questions themselves stay as they are.** Cats are the theme and the game;
-they are not a reskin of the content. 244 of the 408 QR/MA items have a story
+they are not a reskin of the content. 244 of the 416 QR/MA items have a story
 whose objects are arbitrary and could carry a cat, and the owner's decision is
 that they should not: the practice has to look like the test. Reading
 Comprehension likewise keeps its own passages.
@@ -365,10 +427,26 @@ drift. Same for a room's lights.
 4. **Missing something is never punished.** Not by a lost streak, not by a Glim
    leaving, not by a sound that feels like a buzzer.
 5. **The exam is still the point.** Long Nights stay honest rehearsals: real
-   timing, no hints.
+   timing, no hints, no game furniture in the way. That last clause is the one
+   the zoning above rests on, so it is quoted in full from docs/world.md §8
+   rather than trimmed.
 
 Sound obeys the same rules: nothing plays unprompted, everything is synthesised
 in `lib/sfx.js`, and `muted` silences all of it.
+
+**Sound belongs to events involving a cat, and to nothing else.** Not to
+navigation, a tab change, a checkbox, a save or a page load. Two reasons, and the
+second is the one that matters: a noise on every touch stops reading as a cat and
+starts reading as nagging, and it turns the mute switch from a courtesy into a
+requirement. The abstract UI notes (`pick`, `right`, `wrong`) stay abstract notes
+and stay where they are. Any change to how a cat *sounds* is a change to pitch or
+to timbre, and those are not the same: the pitches are load-bearing — two rising
+notes from one pentatonic scale, transposed only by octaves — because five gates
+in a row must not produce a sour interval. Timbre is free. The proposal to make a
+call an actual meow by filtering those same pitches through vowel formants is
+[docs/cats.md](docs/cats.md) §3; it is a proposal, and what makes it safe is that
+the existing audio check records every frequency the page asks for and would fail
+the moment a pitch moved.
 
 The weekly plan carries a Wordwood row, but **outside the plan's percentage**
 (`auto: false`), and only once that week has yielded the six cats a walk needs.
@@ -379,7 +457,7 @@ problem: nothing outside the sidebar pointed at it. Not being owed is not the
 same as not being seen, though: the row ticks itself from her own evidence and
 says how many of the week's twenty words have been called, because a row that
 read the same line before and after five gates looked like a game that had not
-recorded anything — which is what it was told to us as.
+recorded anything — which is how it was reported to us.
 
 **A word's record is keyed on the entry, never on one of its names.** An entry
 like `imply / infer` is one record, `w:imply / infer`, because `wordIndex`,

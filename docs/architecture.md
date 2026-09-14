@@ -205,7 +205,7 @@ the workflow are in [review.md](review.md); the repo skill
 
 `content/**` is the only place teaching material is edited. `make_bundle.py`
 assembles it, together with `seed.json`, into `bundle.json` (`version` bumps with
-content changes). The bundle carries: subjects (question banks, 834 items),
+content changes). The bundle carries: subjects (question banks, 842 items),
 passages, the eight plan weeks with start dates and breaks, precision words,
 the essay module, mock definitions and items, the calendar, the book shelf, the
 AoPS map, and the seed. `content.js` exposes it as `D` plus helpers such as

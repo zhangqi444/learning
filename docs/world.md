@@ -138,7 +138,7 @@ The Wordwood is built. The other three are **not** getting mechanics of their
 own, and that is a decision rather than a gap.
 
 The idea above — a wrong measurement makes a bridge too short — was checked
-against the actual bank and does not survive it. Only 8 of the 408 Quantitative
+against the actual bank and does not survive it. Only 8 of the 416 Quantitative
 and Mathematics items are comparison-shaped, so there is nothing to build a
 balance on; and no distractor records *what mistake produces it*, so the version
 that would really work (pick 24 instead of 21 and see that 24 is what you get if
@@ -146,7 +146,7 @@ you divide instead of multiply) cannot be derived without inventing the
 misconception, which the content rules forbid. It is a content problem, and
 AGENTS.md says which content would unlock it.
 
-Meanwhile 244 of those 408 items *do* have a story whose objects are arbitrary
+Meanwhile 244 of those 416 items *do* have a story whose objects are arbitrary
 and could carry a cat, and the owner's decision is that they should not: the
 practice has to look like the test. So the cats reach these three subjects the
 way they reach anything the content cannot carry — **around** the question. Get a

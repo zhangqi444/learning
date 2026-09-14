@@ -369,7 +369,7 @@ most useful thing in this document. What replaced it:
   a sentence with a word removed.
 - **Cats reacting around every other question** rather than inside it: the
   skill's own cat on the reveal, in its own voice. The questions themselves were
-  measured for this (244 of 408 QR/MA items could carry a cat context) and the
+  measured for this (244 of 416 QR/MA items could carry a cat context) and the
   owner's decision is that they stay exactly as they are, because the practice
   has to look like the test.
 - **The Den**, which teaches real, sourced cat care and carries the advocacy for

@@ -219,6 +219,12 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=mock-timer]');
   const t0 = await pg.textContent('[data-testid=mock-timer]');
   check('VR timer starts near 20:00', /19:5\d|20:00/.test(t0), t0.trim());
+  // A Long Night is an honest rehearsal: real timing, no hints, no game furniture
+  // in the way (world.md rule 5). The whole of the game's own vocabulary is drawn
+  // as [data-testid=glim], so its absence is the mechanical form of that rule —
+  // and until now nothing checked it, while three separate documents asserted it.
+  check('a Long Night has no cats in it — rule 5, nothing in the way',
+    (await pg.$$('[data-testid=glim]')).length === 0);
   for (let k = 0; k < 5; k++) { await pg.click('[data-testid=choice] >> nth=1'); await pg.click('[data-testid=mock-next-q]'); }
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=mock-timer]');
   check('section resumes after reload, timer still running', /19:[0-5]\d/.test(await pg.textContent('[data-testid=mock-timer]')) && /5\/34 answered/.test(await body(pg)));
@@ -938,6 +944,19 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=cast-result]');
   check('muted means silent, cats included', (await pg.evaluate(() => window.__NOTES__.length)) === 0);
   await pg.click('[data-testid=mute-toggle]');
+
+  // Sound belongs to events involving a cat and to nothing else. A noise on every
+  // touch stops reading as a cat and starts reading as nagging, and it turns the
+  // mute switch from a courtesy into a requirement — so moving around the site
+  // must be silent, unmuted, on every page that is not a gate.
+  await pg.evaluate(() => { window.__NOTES__ = []; });
+  for (const h of ['#/', '#/checklist', '#/review', '#/base', '#/rewards', '#/books', '#/score', '#/calendar']) {
+    await pg.evaluate((x) => { location.hash = x; }, h);
+    await pg.waitForTimeout(120);
+  }
+  check('navigating the site is silent — sound is for cats, not for chrome',
+    (await pg.evaluate(() => window.__NOTES__.length)) === 0,
+    `${await pg.evaluate(() => window.__NOTES__.length)} notes across 8 pages`);
 
   /* A walk has to leave a mark. It did not: a gate for a cluster entry recorded
    * the NAME it called ("w:elaborate"), while every reader of a word keys on the
