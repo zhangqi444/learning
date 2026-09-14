@@ -2,7 +2,10 @@
 
 Why the practice site looks and behaves the way it does. This is the product and
 interface design record; the system underneath is in
-[architecture.md](architecture.md).
+[architecture.md](architecture.md). The world the practice happens inside — the
+cats, the Wordwood, the Den — is decided in [world.md](world.md), and how it
+sounds and moves in [cats.md](cats.md). This file says where things sit and how
+they behave; those two say what they are and why they exist at all.
 
 ## 1. Who it is for
 
@@ -77,13 +80,18 @@ A set in progress, a timed mock, a review run: all of them keep the trail.
   week still expects, with an unread essay review first because someone wrote
   it for her. Readiness (one number, six labelled parts, one piece of advice),
   subjects as rows, this week's checklist showing only what is left, rewards
-  (level, points to spend, the closest badge), reading (the current book, one
+  (level, Hum to spend, the closest badge), reading (the current book, one
   tap to log today).
 - **The runner.** One question at a time, four choices, keyboard A–D and Enter.
   A soft pacing timer, off by default, against the real test's per-question
   budget; nothing auto-advances. After a set: score, per-question pacing, and a
   cause tag for every miss ("Didn't know it", "Misread it", "Careless slip",
   "Ran out of time") because the tag is what makes the review pile useful.
+  The reveal is where most of the teaching happens, and it is stacked in order of
+  how personal it is: **what her own wrong number was** ("30 is 10 × 3, the
+  area") where that can be said truthfully, then the lesson card for the skill,
+  then the explanation, then somewhere to go and read more. The first of those is
+  the only one that knows what she actually did, so it goes first.
 - **Review.** What is due now, what is scheduled, what is up for a check-in, and
   why misses happen. One button per subject starts a run.
 - **Precision words.** Twenty words a week in her own words with a 1–3
@@ -106,25 +114,61 @@ A set in progress, a timed mock, a review run: all of them keep the trail.
 - **Calendar.** Real ISEE seasons, the school sittings, application deadlines,
   the plan weeks and mocks on one timeline, with the test date as a one-tap pick.
 - **Score.** How the readiness number is built, per subject, with a trend line.
-- **Rewards.** Level and lifetime points, badges earned and progress toward the
+- **Rewards.** Level and lifetime Hum, badges earned and progress toward the
   rest, and a reward shelf the parent stocks and she claims from.
+- **Subjects and mixed practice.** A subject page is the week's sets with skill
+  levels beneath; the mixed set is twelve questions across all four, which is how
+  a Proficient skill is promoted to Mastered.
+- **The Wordwood.** Vocabulary as the thing it already is: a sentence with a word
+  taken out, and she calls the name into the dark. The right name brings that cat
+  through the gate; the wrong one brings the cat she actually named, doing what
+  *that* word means. Every cast is recorded as ordinary vocabulary practice, so
+  playing is practising rather than a reward for it.
+- **The Den and the Glimbook.** Seven things a cat really needs, bought with Hum
+  and lit by real mastery, each teaching sourced care guidance; and the
+  collection, every cat she has met at its true brightness, half-learned ones
+  standing half-lit.
+- **Sign-in.** One door. It says where the data goes before she opens it, and a
+  returning visit never sees it.
+
+The three game surfaces are designed in [world.md](world.md) and
+[cats.md](cats.md), not here — this section says where they sit in the app, and
+those say what they are and why. The rule they turn on is that the content must
+*be* the mechanic, which is why vocabulary has a game and arithmetic does not.
 
 ## 6. Visual system
 
-**Palette: "Calm Scholar".** A teal primary on a cool off-white, with warm amber
-and rust for warning and destructive so red-green colour vision still gets a
-difference in temperature, not just hue. Tokens live in `site/src/index.css`
-and are the only source of colour; components never carry a hex value.
+**Palette: "Arcade".** An indigo primary on a cool off-white, with warm amber and
+rust for warning and destructive so red-green colour vision still gets a
+difference in temperature, not just hue. Tokens live in `site/src/index.css` and
+are the only source of colour; components never carry a hex value.
 
 | Token | Light | Dark | Used for |
 |---|---|---|---|
-| `--primary` | `#0f7a6b` | `#5fc7b2` | Actions, the current week, the "new" dot |
-| `--success` / `--success-soft` | `#2e7d5b` / `#ddeee4` | `#63be92` / `#172c22` | Done, earned, complete |
-| `--warning` / `--warning-soft` | `#9c6f16` / `#f5ead2` | `#d8ae5c` / `#2b2415` | Still to do this week, in progress |
-| `--destructive` | `#b4653a` | `#df9a6e` | Due now, over time, fast-and-wrong |
-| `--chart-1…5` | teal, blue, amber, rust, green | lighter versions | One colour per subject, stable everywhere |
+| `--primary` | `#5b4bdb` | `#8b7cff` | Actions, the current week, the "new" dot |
+| `--success` / `--success-soft` | `#1a8d55` / `#d9f2e5` | `#56c08d` / `#152f23` | Done, earned, complete |
+| `--warning` / `--warning-soft` | `#9a6a0c` / `#fbeecd` | `#d8ae5c` / `#2b2415` | Still to do this week, in progress |
+| `--destructive` | `#c9502f` | `#e08a68` | Due now, over time, fast-and-wrong |
+| `--chart-1…4` | indigo, blue, amber, rust | lighter versions | One colour per subject, stable everywhere |
 
-**Dark mode is a theme, not an inversion.** Backgrounds go to a deep green-grey,
+**The palette is split, and that split is the point.** The shell is game chrome —
+the sidebar stays deep indigo in both themes, the way a game's chrome is dark
+whatever the OS is doing. The reading surface stays a plain light card with
+near-black type, because on the day it counts the question is black on white
+paper, and practice should not train her to read anything more decorated than
+that. Indigo is identity only: it never carries one of the three meanings.
+
+Controls are chunky and pressable — a hard offset shadow in the same hue,
+darker, that shortens when the control is pressed so it behaves like a physical
+key (`--primary-press`, `--lift`).
+
+**Alternate palettes are one constant.** `src/skins.css` holds several — red,
+neon, candy, sunset, forest — chosen by a `SKIN` constant in `main.jsx` that sets
+`data-skin` on the root. A skin may only override tokens that carry hue: the
+semantic four are pinned in `index.css` and no skin can reach them, so changing
+the look can never change what a colour on the page *means*.
+
+**Dark mode is a theme, not an inversion.** Backgrounds go to a deep indigo-black,
 the primary lightens to keep contrast, soft tints become dark tints. The choice
 follows the saved preference, then the host's `data-theme` (the artifact
 viewer), then the OS, and `theme-color` updates with it.
@@ -184,15 +228,16 @@ without talking down: one idea per sentence and a concrete example.
 
 ## 9. Motivation without pressure
 
-Effort points come from attempts, not accuracy: a set is 10, a mixed set 12, a
-mock section 25, a finished essay 15, a precision word 2, a review answer 1,
-tagging a miss 3, a reading day 4, a finished book 40. Levels are lifetime
-points and cannot go down. Badges are earned once and pinned; a dip in
-accuracy or a growing review pile never un-earns one, and tiers are separate
-badges so a bigger one never replaces a smaller one. The streak freezes for up
-to two missed days a week instead of breaking. The reward shelf turns points into
-things the family actually does (a movie pick, boba, a book she chooses) and
-the parent marks them given.
+**Hum** comes from attempts, not accuracy: a set is 10, a mixed set 12, a mock
+section 25, a finished essay 15, a precision word 2, a review answer 1, tagging a
+miss 3, a reading day 4, a finished book 40. It was called "effort points" until
+the world gave it a name — practice makes warmth, and warmth is what draws the
+cats in (docs/world.md §4). Levels are lifetime Hum and cannot go down. Badges
+are earned once and pinned; a dip in accuracy or a growing review pile never
+un-earns one, and tiers are separate badges so a bigger one never replaces a
+smaller one. The streak freezes for up to two missed days a week instead of
+breaking. The reward shelf turns Hum into things the family actually does (a
+movie pick, boba, a book she chooses) and the parent marks them given.
 
 The review pile is framed as questions to *retire*, and retiring one earns a
 badge. The point is that a miss is the start of something, not a mark against her.
@@ -225,7 +270,9 @@ wrong.
 - A leaderboard, a global timer, a daily quota, red "overdue" counts.
 - A tutor chatbot inside the app. Feedback comes from people; Claude helps the
   parent write it and the review is a document, not a chat.
-- Settings. The plan, the dates and the palette are decisions, not options.
+- Settings. The plan, the dates and the palette are decisions, not options —
+  alternate skins exist but are a constant in the source, not a picker she has to
+  have an opinion about.
 
 ## 13. Verification habit
 
