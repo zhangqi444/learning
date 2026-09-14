@@ -646,7 +646,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "070f9886862f9cfa"
+      "content_hash": "df0b23f73c6b5d47",
+      "why": {
+        "A": "80 is 10 × 8, the whole rectangle the triangle sits inside. A triangle fills half of it.",
+        "B": "18 is 10 + 8, the base and the height added instead of multiplied.",
+        "D": "48 is 40 + 8 — the area with the height added on the end."
+      }
     },
     {
       "id": "MA-SEP-031",
@@ -688,7 +693,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "1c8cd40f81ee5dba"
+      "content_hash": "6effe976878d33aa",
+      "why": {
+        "A": "28 is 7 × 4, the perimeter: the distance round the mosaic, not the space inside it.",
+        "C": "14 is 7 × 2, two sides. Area covers the whole square, so it is 7 × 7.",
+        "D": "56 is 49 + 7 — the area with one more side added on the end."
+      }
     },
     {
       "id": "MA-SEP-033",
@@ -777,7 +787,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "79878e32459e1a2b"
+      "content_hash": "7bf787d2a8942248",
+      "why": {
+        "A": "20 is 16 + 4 — the area with one more side added on the end.",
+        "B": "12 is 16 − 4, the area with a side taken off it. The area is just 4 × 4.",
+        "C": "8 is 4 × 2, two sides. The board has four, and the area fills the whole of it."
+      }
     },
     {
       "id": "MA-SEP-037",
@@ -882,7 +897,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "ff0686c4870aeeb4"
+      "content_hash": "b2a9d398cdead66e",
+      "why": {
+        "B": "18 is 9 × 2, two sides. Area is the whole stage: 9 × 9.",
+        "C": "36 is 9 × 4, the perimeter — the walk round the edge, not the space inside.",
+        "D": "90 is 81 + 9 — the area with one more side added on the end."
+      }
     },
     {
       "id": "MA-SEP-042",
@@ -1680,7 +1700,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "f455635c5f703758"
+      "content_hash": "29133e47c596b9d0",
+      "why": {
+        "B": "20 is 5 × 4, the perimeter: the distance all the way round the square.",
+        "C": "10 is 5 × 2, two sides only.",
+        "D": "30 is 25 + 5 — the area with a side added on the end."
+      }
     },
     {
       "id": "MA-SEP-080",
@@ -1890,7 +1915,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "9dedac9b68ada6e2"
+      "content_hash": "fba1f0604ae5d032",
+      "why": {
+        "A": "16 is 8 × 2, two sides. Area fills the whole square: 8 × 8.",
+        "B": "32 is 8 × 4, the perimeter — round the edge, not the space inside.",
+        "D": "72 is 64 + 8 — the area with one more side added on the end."
+      }
     },
     {
       "id": "MA-SEP-090",

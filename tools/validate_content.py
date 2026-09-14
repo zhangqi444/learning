@@ -13,12 +13,12 @@ L='ABCD'; errs=[]; warns=[]; total=0
 # reshuffled; and stating a sum that does not add up. The last is why the
 # identity is re-evaluated rather than read — a `why` is only worth having if it
 # is true, and she is ten and will believe it.
-NUM=r'-?\d+(?:\.\d+)?'
-IDENT=re.compile(rf'^\s*({NUM})\s+is\s+({NUM}(?:\s*[-+x×*/÷]\s*{NUM})+)', re.I)
+NUM=r'[-\u2212]?\d+(?:\.\d+)?'   # a typographic minus is part of the number too
+IDENT=re.compile(rf'^\s*({NUM})\s+is\s+({NUM}(?:\s*[-+x×*/÷\u2212]\s*{NUM})+)', re.I)
 
 def _value(text):
     m=re.search(NUM, str(text).replace(',',''))
-    return float(m.group(0)) if m else None
+    return float(m.group(0).replace('\u2212','-')) if m else None
 
 def _eval(expr):
     e=expr.replace('×','*').replace('÷','/').replace('x','*').replace('−','-')
@@ -41,7 +41,7 @@ def why_errors(it):
             out.append(f'{i}: why on {k} opens with {got:g}, but {k} is {want:g}')
         m=IDENT.match(str(text))
         if m:
-            lhs=float(m.group(1)); rhs=_eval(m.group(2))
+            lhs=float(m.group(1).replace('\u2212','-')); rhs=_eval(m.group(2))
             if rhs is not None and abs(lhs-rhs)>1e-9:
                 out.append(f'{i}: why on {k} says "{m.group(1)} is {m.group(2).strip()}", which is {rhs:g}')
     return out

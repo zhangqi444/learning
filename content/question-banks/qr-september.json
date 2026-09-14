@@ -22,7 +22,12 @@
       "misconceptions": "fraction-of-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "fcc0c77d7d9e3fbb"
+      "content_hash": "72077fe6f5933ac1",
+      "why": {
+        "A": "24 is 28 − 4, four bulbs taken off. A quarter of 28 is 7, not 4.",
+        "B": "18 is 21 − 3, three fewer than the answer. Three quarters is three lots of 7.",
+        "D": "25 is 28 − 3, three taken off. The 3 counts quarters, not bulbs."
+      }
     },
     {
       "id": "QR-W1-S1-02",
@@ -127,7 +132,12 @@
       "misconceptions": "ratio-total-parts",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "a77d36840a5179cc"
+      "content_hash": "a37eb6ee65a2872e",
+      "why": {
+        "A": "8 is 2 × 4, four lots of the ratio's 2. There are five lots here: 25 ÷ 5 = 5.",
+        "B": "12 is 10 + 2, the answer with the ratio's 2 added on.",
+        "C": "15 is 25 − 10, the blue marbles — three parts, not two."
+      }
     },
     {
       "id": "QR-W1-S1-07",
@@ -232,7 +242,12 @@
       "misconceptions": "unlike-denominator-subtraction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "ac5c0463d2f9ddf8"
+      "content_hash": "b3b900ea95e7e6e8",
+      "why": {
+        "B": "8 is the 8 from 1/8 on its own. The question is how many eighths fit in 3/4.",
+        "C": "4 is the 4 from 3/4 on its own — how many parts the cup is cut into.",
+        "D": "5 is 8 − 3, the two bottom numbers subtracted. Rename 3/4 as 6/8 and count the eighths."
+      }
     },
     {
       "id": "QR-W1-S1-12",
@@ -274,7 +289,12 @@
       "misconceptions": "inverse-operation-order",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "6aeaf2b8e27aad55"
+      "content_hash": "6df3075c42137145",
+      "why": {
+        "A": "6 is the price of one ticket, not the number of tickets.",
+        "B": "3 is 6 ÷ 2, half the ticket price. The tickets come from $24 ÷ $6.",
+        "D": "18 is 24 − 6, one ticket taken off the total. The money splits into $6 lots, so divide."
+      }
     },
     {
       "id": "QR-W1-S2-02",
@@ -421,7 +441,12 @@
       "misconceptions": "inverse-fraction-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "0ece6f7af43f562b"
+      "content_hash": "1ba2578bd96ac79e",
+      "why": {
+        "B": "21 is 18 + 3, three gallons added. The missing quarter is 18 ÷ 3 = 6 gallons.",
+        "C": "22 is 18 + 4, four added — the 4 from 3/4 rather than the missing quarter.",
+        "D": "27 is 24 + 3, three more than the tank holds."
+      }
     },
     {
       "id": "QR-W1-S2-09",
@@ -589,7 +614,12 @@
       "misconceptions": "square-area-vs-side",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "6470dfc82b8b7597"
+      "content_hash": "eed4a55ae513d27a",
+      "why": {
+        "A": "56 is 49 + 7, the display with one more row added on.",
+        "C": "28 is 7 × 4, four sevens. The display is seven rows of seven.",
+        "D": "14 is 7 + 7, two rows. There are seven."
+      }
     },
     {
       "id": "QR-W2-S1-02",
@@ -741,7 +771,12 @@
       "misconceptions": "multiplicative-pattern-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "0c08c99d4e2a7d70"
+      "content_hash": "42da18d73fb2740d",
+      "why": {
+        "A": "24 is 25 − 1, one short. The counts are 1×1, 2×2, 3×3, 4×4, then 5×5.",
+        "B": "20 is 4 + 16, two earlier counts added together. The pattern squares its position instead.",
+        "C": "36 is 6 × 6, the square after the one asked for. The next position is 5."
+      }
     },
     {
       "id": "QR-W2-S1-09",
@@ -888,7 +923,12 @@
       "misconceptions": "exponent-as-repeated-multiplication",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "b10aaf251d5b708c"
+      "content_hash": "4a42c54810910ebd",
+      "why": {
+        "A": "16 is 8 × 2, eight doubled. An 8-by-8 mural is 8 rows of 8.",
+        "C": "128 is 64 × 2, the mural counted twice.",
+        "D": "32 is 8 × 4, four eights. There are eight."
+      }
     },
     {
       "id": "QR-W2-S2-04",
@@ -951,7 +991,12 @@
       "misconceptions": "lcm-vs-gcf",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "48c7a73635e37908"
+      "content_hash": "28aebae762a282f5",
+      "why": {
+        "B": "12 is 6 × 2, a time the first bell rings. The 8-minute bell is not there — 8 does not divide 12.",
+        "C": "48 is 6 × 8, a time they do both ring, but not the first: 24 comes sooner.",
+        "D": "18 is 6 × 3, another of the first bell's times, and again the 8-minute bell is elsewhere."
+      }
     },
     {
       "id": "QR-W2-S2-07",
@@ -972,7 +1017,12 @@
       "misconceptions": "gcf-vs-lcm",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "c35b4e7c1e9e1af7"
+      "content_hash": "f73a9ae39efbb964",
+      "why": {
+        "A": "12 is 24 ÷ 2. It splits the blue ribbons, but 18 does not split into 12s.",
+        "B": "9 is 18 ÷ 2. It splits the red ribbons, but 24 does not split into 9s.",
+        "D": "3 splits both piles evenly, but it is not the largest that does: 6 splits both too."
+      }
     },
     {
       "id": "QR-W2-S2-08",
@@ -1119,7 +1169,12 @@
       "misconceptions": "complete-factor-list",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "b7aa1f993581c072"
+      "content_hash": "ce813536fd1ec1ed",
+      "why": {
+        "A": "16 is 2 × 8, but 16 is a factor of itself, and there is no 16 tag on the display.",
+        "B": "6 is 2 + 4, two of the tags added. The factors of 6 are 1, 2, 3 and 6.",
+        "C": "4 is one of the tags, but the factors of 4 stop at 4 — the 8 tag would belong to nothing."
+      }
     },
     {
       "id": "QR-W2-S2-15",
@@ -1161,7 +1216,12 @@
       "misconceptions": "volume-three-dimensions",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "827eee3e3d31f5cf"
+      "content_hash": "0c64903dadd9c9ed",
+      "why": {
+        "A": "20 is 5 × 4, one layer of the prism. It is 3 layers tall.",
+        "B": "12 is 4 × 3, one end of the prism. Volume needs all three: 5 × 4 × 3.",
+        "D": "120 is 60 × 2, the prism counted twice."
+      }
     },
     {
       "id": "QR-W3-S1-02",
@@ -1182,7 +1242,12 @@
       "misconceptions": "inverse-volume-dimension",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "cd90a4db453ed8b2"
+      "content_hash": "173cd35fb1fdbd0b",
+      "why": {
+        "A": "4 is the width of the prism, not its height.",
+        "B": "6 is 3 × 2, twice the height.",
+        "C": "2 is 8 ÷ 4, the length divided by the width. The height is the volume divided by both."
+      }
     },
     {
       "id": "QR-W3-S1-03",
@@ -1250,7 +1315,12 @@
       "misconceptions": "triangle-one-half",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "194dfb9246b84a2e"
+      "content_hash": "b78b865c6f1cc17b",
+      "why": {
+        "A": "60 is 10 × 6, the rectangle the triangle sits inside. A triangle is half of it.",
+        "C": "120 is 30 × 4, four triangles' worth.",
+        "D": "16 is 10 + 6, the base and height added instead of multiplied and halved."
+      }
     },
     {
       "id": "QR-W3-S1-06",
@@ -1376,7 +1446,12 @@
       "misconceptions": "order-before-median",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "a5b76ea38e9bf6d9"
+      "content_hash": "34deef01f7281853",
+      "why": {
+        "B": "9 is halfway between 4 and 14 in value. A median is a place in the list, not a halfway point: with five numbers it is the third.",
+        "C": "4 is the second number in the list. The third is the middle one.",
+        "D": "10 is the fourth number. With five values the middle one is the third."
+      }
     },
     {
       "id": "QR-W3-S1-12",
@@ -1554,7 +1629,12 @@
       "misconceptions": "order-before-median",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "166dbaac300dd603"
+      "content_hash": "c62b5060cf6cddbe",
+      "why": {
+        "A": "8 is halfway between the third and the fourth score. With seven values the median is one of them — the fourth.",
+        "B": "7 is the third score. Three sit below the middle and three above it, so the fourth is the median.",
+        "D": "12 is the fifth score, one past the middle."
+      }
     },
     {
       "id": "QR-W3-S2-08",
@@ -1743,7 +1823,12 @@
       "misconceptions": "fraction-division-direction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "99e3d101e95943bb"
+      "content_hash": "75f6b9ec77e4b576",
+      "why": {
+        "B": "4 is the 4 from 3/4 — how many parts the cup is cut into, not how many pots are filled.",
+        "C": "8 is the 8 from 1/8 on its own. Rename 3/4 as 6/8 and count the eighths.",
+        "D": "3 is the 3 from 3/4 on its own."
+      }
     },
     {
       "id": "QR-W4-S1-02",
@@ -1848,7 +1933,12 @@
       "misconceptions": "inverse-volume-dimension",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "a32bb89e63c30392"
+      "content_hash": "b2d2bd99a00f6528",
+      "why": {
+        "A": "2 is 6 ÷ 3, the width divided by the height. The height comes from the volume divided by both.",
+        "B": "4 is 10 − 6, the length minus the width.",
+        "D": "5 is 10 ÷ 2, half the length."
+      }
     },
     {
       "id": "QR-W4-S1-07",
@@ -1869,7 +1959,12 @@
       "misconceptions": "area-to-perimeter-sequence",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "c73b88b1d1031010"
+      "content_hash": "5fbfd99f5ab091da",
+      "why": {
+        "A": "36 is 9 × 4, the perimeter of a square with side 9. This rectangle is 9 by 6.",
+        "B": "24 is 6 × 4, the perimeter of a square with side 6. Both sides matter: 9 and 6.",
+        "D": "15 is 9 + 6, one length and one width. A perimeter counts both pairs."
+      }
     },
     {
       "id": "QR-W4-S1-08",
@@ -1953,7 +2048,12 @@
       "misconceptions": "multiplicative-pattern-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "89116f8f2669bf28"
+      "content_hash": "210b02476215df18",
+      "why": {
+        "A": "30 is 6 + 24, two of the earlier weeks added. The pattern doubles instead.",
+        "B": "36 is 12 + 24, the two weeks before it added together.",
+        "C": "60 is 12 + 48, the answer with an earlier week added on."
+      }
     },
     {
       "id": "QR-W4-S1-12",
@@ -1974,7 +2074,12 @@
       "misconceptions": "combined-divisibility-tests",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "f994619d5c4bcbf3"
+      "content_hash": "eb25309a30d6af03",
+      "why": {
+        "B": "20 divides by 4 but not by 6.",
+        "C": "18 divides by 6 but not by 4.",
+        "D": "30 divides by 6 but not by 4."
+      }
     },
     {
       "id": "QR-W4-S2-01",
@@ -2037,7 +2142,12 @@
       "misconceptions": "ratio-part-to-part",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "52ff42f61a22976c"
+      "content_hash": "1aad89d4546e8c36",
+      "why": {
+        "A": "15 is 21 − 6, the white cups — five parts, not two.",
+        "C": "7 is 2 + 5, how many parts the ratio has, not how many cups are blue.",
+        "D": "10 is 2 × 5, the two ratio numbers multiplied. Each part is 21 ÷ 7 = 3 cups."
+      }
     },
     {
       "id": "QR-W4-S2-04",
