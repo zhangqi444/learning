@@ -13,6 +13,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { AopsHint } from "@/components/aops-hint"
+import { LearnCard } from "@/components/learn-card"
 import { aopsFor } from "@/lib/aops"
 
 /** Small horizontal breakdown of misses by cause. */
@@ -124,9 +125,19 @@ export function Review() {
                 ) : null}
                 {due.length ? <CardContent><CauseBar profile={causeBreakdown(due)} /></CardContent> : null}
                 {(() => {
-                  // the skill she is missing most in this subject, if AoPS teaches it
-                  const worst = top.find(([sk]) => aopsFor(s, sk))
-                  return worst && worst[1] >= 2 ? <CardContent><AopsHint sub={s} skill={worst[0]} /></CardContent> : null
+                  /* The skill she is missing most in this subject, taught here.
+                     Ours first and unconditionally — it is free and it is the
+                     whole point; the AoPS chapter follows only where one exists.
+                     Two misses is the threshold: one is an accident, and a page
+                     that teaches at you after a single slip is nagging. */
+                  const worst = top.find(([, n]) => n >= 2)
+                  if (!worst) return null
+                  return (
+                    <CardContent className="flex flex-col gap-2">
+                      <LearnCard skill={worst[0]} />
+                      {aopsFor(s, worst[0]) ? <AopsHint sub={s} skill={worst[0]} /> : null}
+                    </CardContent>
+                  )
                 })()}
                 <CardFooter className="flex-wrap gap-2">
                   {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Let {due.length} in</Button> : null}

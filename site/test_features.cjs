@@ -1132,9 +1132,30 @@ async function runThrough(pg, pick, max = 60) {
    * money. A child whose family does not buy them had no way back into a
    * question she got wrong, so the first thing on a miss is ours — bundled,
    * free, offline — and the chapter is the extra beside it. */
+  // Reachable at the moment of the miss, but folded: she may never scroll back
+  // to the score card, and a miss was already stacking six blocks at her.
+  check('the lesson is offered on the miss itself, folded', !!(await pg.$('[data-testid=learn-open]')) && !(await pg.$('[data-testid=learn-card]')),
+    await pg.textContent('[data-testid=learn-open]').catch(() => 'no opener'));
+  await pg.click('[data-testid=learn-open]');
+  await pg.waitForSelector('[data-testid=learn-card]');
+  check('and opens in place when she asks for it', !!(await pg.$('[data-testid=learn-trap]')));
+  // The lesson lives where she reviews mistakes. Finish the set and look.
+  for (let k = 0; k < 14; k++) {
+    if (!(await pg.$('[data-testid=question]'))) break;
+    /* Bounded on purpose. A `.catch()` on a Playwright click does not make it
+       fail fast — it still waits the full thirty seconds for the element to
+       become enabled, so a disabled Next inside a fourteen-turn loop is seven
+       minutes of silence before the suite says a word. */
+    await pg.click('[data-testid=choice] >> nth=0', { timeout: 4000 }).catch(() => {});
+    const ready = await pg.$eval('[data-testid=next]', (b) => !b.disabled).catch(() => false);
+    if (!ready) break;
+    await pg.click('[data-testid=next]', { timeout: 4000 }).catch(() => {});
+    await pg.waitForTimeout(150);
+  }
+  await pg.waitForSelector('[data-testid=score]', { timeout: 20000 });
   const lc = await pg.textContent('[data-testid=learn-card]').catch(() => '');
-  check('a miss teaches the skill right there, for free', !!lc && /\w/.test(lc), lc.replace(/\s+/g, ' ').slice(0, 100));
-  check('and names the trap out loud', !!(await pg.$('[data-testid=learn-trap]')));
+  check('every missed question teaches its skill, for free', !!lc && /\w/.test(lc), lc.replace(/\s+/g, ' ').slice(0, 100));
+  check('and it is already open where she reviews mistakes', !(await pg.$('[data-testid=score] [data-testid=learn-open]')));
   // Every maths and Reading skill in the bank teaches itself. A new question
   // carrying a skill nobody has written a card for should fail here, loudly,
   // rather than quietly falling through to a web search.
@@ -1153,23 +1174,25 @@ async function runThrough(pg, pick, max = 60) {
     !!(await pg.$('[data-testid=aops-hint]')) && !(await pg.$('[data-testid=learn-more]')),
     (await pg.textContent('[data-testid=aops-hint]').catch(() => '')).replace(/\s+/g, ' ').slice(0, 110));
 
-  // Verbal has no chapter, so it falls back to a search — and the search is of
-  // the idea, never the question. Searching an ISEE stem verbatim finds
-  // homework-answer sites, which teach nothing and hand her the key.
+  /* Verbal words have neither a card of our own nor an AoPS chapter, so they are
+     the one thing left that falls back to a search — and it searches the idea,
+     never the question, because an ISEE stem verbatim finds homework-answer
+     sites that teach nothing and hand her the key. The fallback lives on the
+     score card now, not the reveal, so the set has to be finished first. */
   await pg.goto('http://localhost:8143/learning/#/run/vr/W3/0', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=question]');
-  let learn = null, stem = '';
-  for (let k = 0; k < 12; k++) {
+  const stem = (await pg.textContent('[data-testid=question]')).trim();
+  for (let k = 0; k < 14; k++) {
     if (!(await pg.$('[data-testid=question]'))) break;
-    stem = (await pg.textContent('[data-testid=question]')).trim();
-    await pg.click('[data-testid=choice] >> nth=0');
-    await pg.waitForSelector('[data-testid=reveal]');
-    learn = await pg.getAttribute('[data-testid=learn-more]', 'href').catch(() => null);
-    if (learn) break;
-    await pg.click('[data-testid=next]');
-    await pg.waitForTimeout(120);
+    await pg.click('[data-testid=choice] >> nth=0', { timeout: 4000 }).catch(() => {});
+    const ready = await pg.$eval('[data-testid=next]', (b) => !b.disabled).catch(() => false);
+    if (!ready) break;
+    await pg.click('[data-testid=next]', { timeout: 4000 }).catch(() => {});
+    await pg.waitForTimeout(150);
   }
-  check('a miss with no chapter offers a search instead', /^https:\/\/www\.google\.com\/search\?q=/.test(learn || ''), learn);
+  await pg.waitForSelector('[data-testid=score]', { timeout: 20000 });
+  const learn = await pg.getAttribute('[data-testid=learn-more]', 'href').catch(() => null);
+  check('a miss with no card and no chapter offers a search instead', /^https:\/\/www\.google\.com\/search\?q=/.test(learn || ''), learn);
   check('and it searches the idea, not the question',
     !!learn && !decodeURIComponent(learn.split('q=')[1] || '').includes(stem.slice(0, 25)),
     decodeURIComponent((learn || '').split('q=')[1] || ''));
