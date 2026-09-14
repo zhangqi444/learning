@@ -1190,6 +1190,29 @@ async function runThrough(pg, pick, max = 60) {
     `${cover.total - cover.missing.length} of ${cover.total}${cover.missing.length ? ' · missing ' + cover.missing.join(', ') : ''}`);
   const freeMarks = await pg.$$eval('[data-testid=learn-link]', (n) => n.map((e) => e.dataset.free));
   check('every outside link says whether it costs money', freeMarks.length > 0 && freeMarks.every((f) => f === '1' || f === '0'), freeMarks.join(','));
+  /* Khan Academy is free and every skill has a page there, so the link on a miss
+     is the lesson itself, not a search she has to read her way through first. A
+     card that loses its URL silently degrades to a Google page — which looks fine
+     on screen — so the bundle is checked directly, and so is the rendered href. */
+  const khan = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const cards = Object.entries(b.learn.skills);
+    const bad = [];
+    for (const [name, c] of cards) {
+      const k = (c.links || []).find((l) => l.name === 'Khan Academy');
+      if (!k) bad.push(name + ': no Khan link');
+      else if (!/^https:\/\/www\.khanacademy\.org\/[a-z]/.test(k.url || '')) bad.push(name + ': ' + (k.url || 'no url'));
+      else if (!k.free) bad.push(name + ': marked paid');
+    }
+    return { total: cards.length, bad };
+  });
+  check('every skill links straight to its free Khan Academy lesson', khan.bad.length === 0,
+    `${khan.total - khan.bad.length} of ${khan.total}${khan.bad.length ? ' · ' + khan.bad.slice(0, 3).join(' | ') : ''}`);
+  const khanHref = await pg.$$eval('[data-testid=learn-link]', (n) => {
+    const hit = n.find((a) => /Khan Academy/.test(a.textContent || ''));
+    return hit ? hit.href : '';
+  }).catch(() => '');
+  check('and the miss opens the lesson, not a search page', /khanacademy\.org\//.test(khanHref) && !/google\.com/.test(khanHref), khanHref.slice(0, 110));
   check('a maths miss names the chapter that teaches it, not a web search',
     !!(await pg.$('[data-testid=aops-hint]')) && !(await pg.$('[data-testid=learn-more]')),
     (await pg.textContent('[data-testid=aops-hint]').catch(() => '')).replace(/\s+/g, ' ').slice(0, 110));

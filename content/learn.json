@@ -15,7 +15,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "main idea reading comprehension"
+          "q": "main idea reading comprehension",
+          "url": "https://www.khanacademy.org/ela/4th-grade-reading-and-vocab/xe0e52cf20ce2546d:heroes-and-heroines-4/xe0e52cf20ce2546d:identifying-main-ideas-and-summarizing-4/a/identifying-the-main-idea-of-a-text-4th"
         },
         {
           "name": "BBC Bitesize",
@@ -37,7 +38,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "supporting details text evidence reading"
+          "q": "supporting details text evidence reading",
+          "url": "https://www.khanacademy.org/ela/4th-grade-reading-and-vocab/xe0e52cf20ce2546d:heroes-and-heroines-4/xe0e52cf20ce2546d:identifying-main-ideas-and-summarizing-4/v/g4-key-details"
         }
       ]
     },
@@ -54,7 +56,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "making inferences reading comprehension"
+          "q": "making inferences reading comprehension",
+          "url": "https://www.khanacademy.org/ela/5th-grade-reading-and-vocab/xb350e60168d6e96f:life-on-the-edge-5/xb350e60168d6e96f:making-inferences-5/v/g5-info-inferences"
         }
       ]
     },
@@ -71,7 +74,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "text structure and organization reading"
+          "q": "text structure and organization reading",
+          "url": "https://www.khanacademy.org/ela/4th-grade-reading-and-vocab/xe0e52cf20ce2546d:craft-and-structure-4/xe0e52cf20ce2546d:identifying-text-structure-4/a/identifying-informational-text-structures"
         },
         {
           "name": "ReadWriteThink",
@@ -93,7 +97,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "words in context reading comprehension"
+          "q": "words in context reading comprehension",
+          "url": "https://www.khanacademy.org/ela/5th-grade-reading-and-vocab/xb350e60168d6e96f:the-stories-we-tell-5/xb350e60168d6e96f:understanding-words-in-context-5/v/context-g5-reading"
         }
       ]
     },
@@ -110,7 +115,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "author tone and figurative language"
+          "q": "author tone and figurative language",
+          "url": "https://www.khanacademy.org/ela/5th-grade-reading-and-vocab/xb350e60168d6e96f:craft-and-structure-5/xb350e60168d6e96f:understanding-words-in-context-5/a/understanding-figurative-language-5th"
         }
       ]
     },
@@ -131,7 +137,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "perimeter of a rectangle"
+          "q": "perimeter of a rectangle",
+          "url": "https://www.khanacademy.org/math/cc-third-grade-math/3rd-perimeter"
         },
         {
           "name": "Math is Fun",
@@ -157,7 +164,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "area of rectangles and triangles"
+          "q": "area of rectangles and triangles",
+          "url": "https://www.khanacademy.org/math/cc-third-grade-math/imp-geometry"
         },
         {
           "name": "Math is Fun",
@@ -183,7 +191,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "angles in a triangle sum 180"
+          "q": "angles in a triangle sum 180",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/imp-geometry-2"
         }
       ]
     },
@@ -204,7 +213,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "percent of a number"
+          "q": "percent of a number",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/x0267d782:cc-6th-rates-and-percentages"
         },
         {
           "name": "Math is Fun",
@@ -230,7 +240,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "adding fractions unlike denominators"
+          "q": "adding fractions unlike denominators",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/cc-4th-fractions-topic"
         },
         {
           "name": "Math is Fun",
@@ -252,7 +263,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "comparing and adding decimals"
+          "q": "comparing and adding decimals",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/imp-decimals"
         }
       ]
     },
@@ -269,7 +281,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "multi digit addition and subtraction"
+          "q": "multi digit addition and subtraction",
+          "url": "https://www.khanacademy.org/math/cc-fifth-grade-math/multi-digit-multiplication-and-division"
         }
       ]
     },
@@ -290,7 +303,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "order of operations"
+          "q": "order of operations",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/x0267d782:cc-6th-exponents-and-order-of-operations"
         }
       ]
     },
@@ -307,7 +321,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "even and odd numbers rules"
+          "q": "even and odd numbers rules",
+          "url": "https://www.khanacademy.org/math/cc-third-grade-math/arithmetic-patterns-and-problem-solving/imp-patterns-in-arithmetic/v/introduction-to-even-and-odd"
         }
       ]
     },
@@ -324,7 +339,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "estimation and number sense"
+          "q": "estimation and number sense",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/imp-place-value-and-rounding-2"
         }
       ]
     },
@@ -341,7 +357,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "basic geometry shapes and properties"
+          "q": "basic geometry shapes and properties",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/plane-figures"
         },
         {
           "name": "Math is Fun",
@@ -363,7 +380,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "solving one step equations"
+          "q": "solving one step equations",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-expressions-and-variables"
         }
       ]
     },
@@ -384,7 +402,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "mean average of a data set"
+          "q": "mean average of a data set",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics"
         }
       ]
     },
@@ -405,7 +424,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "median of a data set"
+          "q": "median of a data set",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics"
         }
       ]
     },
@@ -422,7 +442,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "mode of a data set"
+          "q": "mode of a data set",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics"
         }
       ]
     },
@@ -439,7 +460,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "range of a data set"
+          "q": "range of a data set",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics"
         }
       ]
     },
@@ -456,7 +478,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "average word problems"
+          "q": "average word problems",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics"
         }
       ]
     },
@@ -477,7 +500,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "volume of rectangular prisms"
+          "q": "volume of rectangular prisms",
+          "url": "https://www.khanacademy.org/math/cc-fifth-grade-math/5th-volume"
         },
         {
           "name": "Math is Fun",
@@ -499,7 +523,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "volume word problems"
+          "q": "volume word problems",
+          "url": "https://www.khanacademy.org/math/cc-fifth-grade-math/5th-volume"
         }
       ]
     },
@@ -520,7 +545,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "basic probability"
+          "q": "basic probability",
+          "url": "https://www.khanacademy.org/math/statistics-probability/probability-library/basic-theoretical-probability/a/probability-the-basics"
         }
       ]
     },
@@ -537,7 +563,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "unit rates"
+          "q": "unit rates",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/x0267d782:cc-6th-rates-and-percentages"
         }
       ]
     },
@@ -554,7 +581,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "ratios intro"
+          "q": "ratios intro",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-ratios-prop-topic"
         },
         {
           "name": "Math is Fun",
@@ -576,7 +604,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "scale drawings"
+          "q": "scale drawings",
+          "url": "https://www.khanacademy.org/math/cc-seventh-grade-math/x6b17ba59:scale-drawings"
         }
       ]
     },
@@ -593,7 +622,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "scaling and area"
+          "q": "scaling and area",
+          "url": "https://www.khanacademy.org/math/cc-seventh-grade-math/x6b17ba59:scale-drawings"
         }
       ]
     },
@@ -614,7 +644,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "unit conversion word problems"
+          "q": "unit conversion word problems",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/imp-measurement-and-data-2"
         }
       ]
     },
@@ -631,7 +662,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "coordinate plane"
+          "q": "coordinate plane",
+          "url": "https://www.khanacademy.org/math/cc-fifth-grade-math/imp-geometry-3"
         },
         {
           "name": "Math is Fun",
@@ -653,7 +685,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "one step equations"
+          "q": "one step equations",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-expressions-and-variables"
         }
       ]
     },
@@ -670,7 +703,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "evaluating expressions"
+          "q": "evaluating expressions",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-expressions-and-variables"
         }
       ]
     },
@@ -687,7 +721,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "intro to exponents"
+          "q": "intro to exponents",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/x0267d782:cc-6th-exponents-and-order-of-operations"
         }
       ]
     },
@@ -704,7 +739,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "squares and square roots"
+          "q": "squares and square roots",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/x0267d782:cc-6th-exponents-and-order-of-operations"
         }
       ]
     },
@@ -721,7 +757,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "square roots intro"
+          "q": "square roots intro",
+          "url": "https://www.khanacademy.org/a/square-roots-of-perfect-squares-art"
         }
       ]
     },
@@ -738,7 +775,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "factors and multiples"
+          "q": "factors and multiples",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/imp-factors-multiples-and-patterns"
         }
       ]
     },
@@ -755,7 +793,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "least common multiple"
+          "q": "least common multiple",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/imp-factors-multiples-and-patterns"
         }
       ]
     },
@@ -772,7 +811,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "divisibility rules"
+          "q": "divisibility rules",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/imp-factors-multiples-and-patterns"
         }
       ]
     },
@@ -793,7 +833,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "prime factorization"
+          "q": "prime factorization",
+          "url": "https://www.khanacademy.org/math/pre-algebra/factors-multiples"
         }
       ]
     },
@@ -810,7 +851,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "division with remainders"
+          "q": "division with remainders",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/division/4th-remainders/a/understanding-remainders"
         }
       ]
     },
@@ -827,7 +869,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "long division"
+          "q": "long division",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/division"
         }
       ]
     },
@@ -844,7 +887,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "properties of numbers"
+          "q": "properties of numbers",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/imp-factors-multiples-and-patterns"
         }
       ]
     },
@@ -861,7 +905,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "consecutive integers word problems"
+          "q": "consecutive integers word problems",
+          "url": "https://www.khanacademy.org/math/cc-eighth-grade-math/cc-8th-solving-equations/linear-equations-word-problems/v/sum-consecutive-integers"
         }
       ]
     },
@@ -878,7 +923,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "number patterns"
+          "q": "number patterns",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/imp-factors-multiples-and-patterns"
         }
       ]
     },
@@ -895,7 +941,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "estimating sums and differences"
+          "q": "estimating sums and differences",
+          "url": "https://www.khanacademy.org/math/cc-fifth-grade-math/multi-digit-multiplication-and-division/multi-digit-multiplication-estimation/v/estimate-multiplying-multi-digit-numbers"
         }
       ]
     },
@@ -912,7 +959,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "reading bar graphs and tables"
+          "q": "reading bar graphs and tables",
+          "url": "https://www.khanacademy.org/math/cc-third-grade-math/represent-and-interpret-data"
         }
       ]
     },
@@ -929,7 +977,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "interpreting data displays"
+          "q": "interpreting data displays",
+          "url": "https://www.khanacademy.org/math/cc-sixth-grade-math/cc-6th-data-statistics"
         }
       ]
     },
@@ -946,7 +995,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "line of symmetry"
+          "q": "line of symmetry",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/plane-figures/imp-line-of-symmetry/a/symmetry-review"
         }
       ]
     },
@@ -963,7 +1013,8 @@
         {
           "name": "Khan Academy",
           "free": true,
-          "q": "multi step word problems"
+          "q": "multi step word problems",
+          "url": "https://www.khanacademy.org/math/cc-fourth-grade-math/division/multi-step-word-problems/e/multi-step-word-problems-with-whole-numbers"
         }
       ]
     }

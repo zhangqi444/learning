@@ -49,11 +49,15 @@ export function learnUrl(sub, it) {
  *  paid so nobody finds out by hitting a paywall. */
 export function learnCard(skill) { return (D.learn && D.learn.skills && D.learn.skills[skill]) || null }
 
-/** Site-scoped searches rather than deep links. A deep link that 404s in two
- *  years is worse than a search that always lands on the right page, and these
- *  cannot be verified from the environment that writes them. */
+/** The lesson page itself where we have one, a site-scoped search where we do not.
+ *  Khan Academy is free and its course structure is stable, so every card carries
+ *  the exact unit, article or video for its skill — one tap from the mistake to the
+ *  thing that teaches it, rather than a search page a ten-year-old has to read first.
+ *  Those URLs are Khan's own, taken from their indexed pages and not composed here;
+ *  the other three sites keep the search, which is why the fallback stays. */
 const HOSTS = { "Khan Academy": "khanacademy.org", "Math is Fun": "mathsisfun.com", "BBC Bitesize": "bbc.co.uk/bitesize", "ReadWriteThink": "readwritethink.org" }
 export function learnLinkUrl(link) {
+  if (link.url) return link.url
   const host = HOSTS[link.name]
   const q = host ? `site:${host} ${link.q}` : link.q
   return "https://www.google.com/search?q=" + encodeURIComponent(q)
