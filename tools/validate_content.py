@@ -94,7 +94,14 @@ for f in sorted(os.listdir(BANKS)):
         if it.get('passage_id') and it['passage_id'] not in pass_ids: errs.append(f'{i}: unknown passage {it["passage_id"]}')
         h=hashlib.sha256(json.dumps({k:v for k,v in it.items() if k!='content_hash'},sort_keys=True,ensure_ascii=False,separators=(',',':')).encode()).hexdigest()[:16]
         if h!=it['content_hash']: errs.append(f'{i}: content_hash mismatch')
-        if not it.get('explanation'): warns.append(f'{i}: no explanation')
+        # Every one of the 1350 items explains itself now, so this is an error
+        # rather than a warning. It was a warning while 182 items had nothing,
+        # which is the only state a warning is any use in: a count nobody can get
+        # to zero is a number people learn to read past. At zero it becomes a
+        # line worth holding — a question with no explanation is a miss that
+        # teaches her nothing, and the moment to write one is while the question
+        # is being written.
+        if not str(it.get('explanation') or '').strip(): errs.append(f'{i}: no explanation — a miss on this teaches nothing')
         errs += why_errors(it)
         errs += gloss_errors(it)
 
@@ -112,7 +119,7 @@ for f in sorted(os.listdir(BANKS)):
 
 print(f'items validated: {total}')
 print(f'passages: {len(pass_ids)}')
-print(f'warnings: {len(warns)}  (items without explanation)')
+print(f'warnings: {len(warns)}')
 print(f'ERRORS: {len(errs)}')
 for e in errs[:20]: print('  !',e)
 sys.exit(1 if errs else 0)

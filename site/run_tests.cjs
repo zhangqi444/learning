@@ -26,6 +26,19 @@ const npm = (script, label) => run('npm', ['run', '--silent', script], label)
 const suite = (file) => run('node', [file], file)
 
 const results = []
+
+// And the Pages build is made here for the same reason the artifact is. Three of
+// the four suites serve `dist/`, and nothing rebuilt it — so they tested
+// whatever happened to be lying there, which after a `git merge` is the tree as
+// it was before the merge. That failed here exactly once and looked like the
+// merge had broken three checks; it had not, the build was simply a commit old.
+// A suite testing last week's build is the same failure as a suite that never
+// ran, and it costs one vite run to remove.
+const pages = npm('build', 'build pages dist')
+if (pages.code !== 0) {
+  console.log('\n  the Pages build failed — the three suites that serve dist/ cannot run')
+  process.exit(pages.code)
+}
 for (const f of ['test_e2e.cjs', 'test_drive.cjs', 'test_features.cjs']) results.push(suite(f))
 
 // the artifact is built from the same source but a different target, so it is
@@ -33,7 +46,7 @@ for (const f of ['test_e2e.cjs', 'test_drive.cjs', 'test_features.cjs']) results
 // other suites again afterwards.
 const built = npm('build:artifact', 'build:artifact')
 results.push(built.code === 0 ? suite('test_artifact.cjs') : { label: 'test_artifact.cjs', code: built.code, ms: 0, note: 'artifact build failed' })
-npm('build', 'rebuild pages dist')
+npm('build', 'restore pages dist')
 
 const failed = results.filter((r) => r.code !== 0)
 console.log('\n' + '─'.repeat(52))

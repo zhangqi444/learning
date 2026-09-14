@@ -228,11 +228,11 @@
         "D": "unanimous"
       },
       "correct": "D",
-      "explanation": "Unanimous means agreed and undivided, and the sentence says every member agreed.",
+      "explanation": "Unanimous means agreed by everyone, which is what “every member agreed” says; a tentative, private or random decision tells you nothing about agreement.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "9588fae2bd006056"
+      "content_hash": "cedbd938b8586730"
     },
     {
       "id": "VR-SEP-W1-041",
@@ -249,11 +249,11 @@
         "D": "spacious"
       },
       "correct": "C",
-      "explanation": "Treacherous means dangerous, and loose rocks and steep cliffs are exactly that.",
+      "explanation": "Treacherous means dangerous and not to be trusted, which is what loose rocks and steep cliffs make a path; rural, stable and spacious describe where it is or how wide it is, not the danger.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "253fcfb18064c736"
+      "content_hash": "05b798ad8197999b"
     },
     {
       "id": "VR-SEP-W1-042",
@@ -270,11 +270,11 @@
         "D": "cultivate"
       },
       "correct": "B",
-      "explanation": "To stifle is to suppress, smother or restrain, which is what she tried to do to her laughter during the serious ceremony.",
+      "explanation": "To stifle is to hold something back, which is what you do with laughter in a serious ceremony; you cannot unite, retrieve or cultivate a laugh.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "56dad54683437d26"
+      "content_hash": "00238fec74b399e9"
     },
     {
       "id": "VR-SEP-W1-043",
@@ -291,11 +291,11 @@
         "D": "resolution"
       },
       "correct": "B",
-      "explanation": "A sanctuary is a refuge or safe place, and that is what the old church was for families during the storm.",
+      "explanation": "A sanctuary is a safe place to shelter in, which is what families need during a storm; a frontier, a spectator and a resolution are not places of safety.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "0d35033a4ff96a26"
+      "content_hash": "aa9aae162850a8af"
     },
     {
       "id": "VR-SEP-W1-044",
@@ -312,11 +312,11 @@
         "D": "wane"
       },
       "correct": "D",
-      "explanation": "To wane is to fade or decrease, which is what confidence does after repeated failures.",
+      "explanation": "To wane is to fade and grow less, which is what repeated failures do to confidence; to unify, restore or tower would mean it grew or held steady.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "7d07617fb4ddac64"
+      "content_hash": "2400741d4585e8d3"
     },
     {
       "id": "VR-SEP-W1-045",
@@ -333,11 +333,11 @@
         "D": "jovial"
       },
       "correct": "C",
-      "explanation": "Dubious means doubtful or uncertain about something, and several details did not match.",
+      "explanation": "Dubious means doubtful, which is how details that do not match leave you; resolute, contented and jovial describe someone those details had not troubled.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "e051d378b0f8b484"
+      "content_hash": "87a91dbd5c7a1088"
     },
     {
       "id": "VR-SEP-W1-046",
@@ -354,11 +354,11 @@
         "D": "tangible"
       },
       "correct": "D",
-      "explanation": "Tangible means touchable, concrete and real, and a signed receipt is evidence of exactly that kind.",
+      "explanation": "Tangible means solid and touchable, which a signed receipt is; subjective, whimsical and remote all suggest evidence you cannot hold.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "4ad7b9bf25578c98"
+      "content_hash": "8dfb4ff7a50ebf91"
     },
     {
       "id": "VR-SEP-W1-047",
@@ -375,11 +375,11 @@
         "D": "legislation"
       },
       "correct": "B",
-      "explanation": "Suffrage is the right to vote, and the new law expanded it to more citizens.",
+      "explanation": "Suffrage is the right to vote, which is exactly what the law gave more citizens; authority, patriotism and legislation are not that right.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "96aae8a135fea261"
+      "content_hash": "7d3081824422b7a8"
     },
     {
       "id": "VR-SEP-W1-048",
@@ -396,11 +396,11 @@
         "D": "aloof"
       },
       "correct": "A",
-      "explanation": "Feisty means spirited, lively and plucky, and the small puppy barked boldly at the much larger dog.",
+      "explanation": "Feisty means spirited and ready to stand up to anything, which is what barking boldly at a much larger dog is; sluggish, somber and aloof would all keep the puppy quiet.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "bb5a325d2fcb1342"
+      "content_hash": "614d509c6c0ef6b6"
     },
     {
       "id": "VR-SEP-W1-049",
@@ -417,11 +417,11 @@
         "D": "reminisce"
       },
       "correct": "A",
-      "explanation": "To retaliate is to fight back or take revenge, and the captain refused to do that, reporting the dirty trick instead.",
+      "explanation": "To retaliate is to pay a wrong back with a wrong, which is what the captain refused to do and reported instead; to retrieve, cultivate or reminisce is no answer to a dirty trick.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "a98149e642c9dd2a"
+      "content_hash": "b89ff2685d445d83"
     },
     {
       "id": "VR-SEP-W1-054",
@@ -606,11 +606,11 @@
         "D": "prestige"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "Economy here means careful thrift, which is what repairing clothes rather than buying new ones is; volume, whim and prestige have nothing to do with spending less.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "b2f5694bbae03034"
+      "content_hash": "8dc97b3595021670"
     },
     {
       "id": "VR-SEP-W1-063",
@@ -627,11 +627,11 @@
         "D": "turmoil"
       },
       "correct": "C",
-      "explanation": "Discretion is prudence, tact and caution, and she did not reveal the surprise party.",
+      "explanation": "Discretion is knowing what not to say, which is what keeping a surprise party quiet takes; a grievance, fatigue and turmoil are not kinds of judgment.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "3cb44d4e0c9692a4"
+      "content_hash": "0aa84f9a40d2b8df"
     },
     {
       "id": "VR-SEP-W1-064",
@@ -648,11 +648,11 @@
         "D": "hoisted"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "To dispute a claim is to challenge it, which is what asking for evidence does; to revere, cultivate or hoist a claim is not to question it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "2ecafbd1ed69ecce"
+      "content_hash": "c7761a231997ab36"
     },
     {
       "id": "VR-SEP-W1-065",
@@ -669,11 +669,11 @@
         "D": "trite"
       },
       "correct": "C",
-      "explanation": "",
+      "explanation": "Constructive criticism is meant to help you improve, which is what showing exactly how the essay could get better does; hostile, ominous and trite criticism would not.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "74c92235580eb9a5"
+      "content_hash": "f9a6f574a2b9fba8"
     },
     {
       "id": "VR-SEP-W1-066",
@@ -690,11 +690,11 @@
         "D": "dismantle"
       },
       "correct": "D",
-      "explanation": "",
+      "explanation": "To dismantle is to take something apart piece by piece, which is what packing a temporary stage away means; to render, proclaim or reinforce it would leave it standing.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "b2e5625973ae56ea"
+      "content_hash": "a543d39154caeb5a"
     },
     {
       "id": "VR-SEP-W1-067",
@@ -711,11 +711,11 @@
         "D": "commotion"
       },
       "correct": "D",
-      "explanation": "",
+      "explanation": "A commotion is a noisy disturbance, which is what a sudden crash causes; tranquility is its opposite, and leisure and consensus are not noises at all.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "5461752eba76cb9e"
+      "content_hash": "68a22ae542b17b4b"
     },
     {
       "id": "VR-SEP-W1-068",
@@ -732,11 +732,11 @@
         "D": "accumulate"
       },
       "correct": "B",
-      "explanation": "",
+      "explanation": "To dwindle is to get smaller and smaller, which is what a crowd does until only a few remain; to prosper, provoke or accumulate would mean it grew.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "9435b0c6cdbb4723"
+      "content_hash": "f64b87746d13561d"
     },
     {
       "id": "VR-SEP-W1-069",
@@ -753,11 +753,11 @@
         "D": "wane"
       },
       "correct": "C",
-      "explanation": "",
+      "explanation": "To loom is to rise over something largely and a little threateningly, which is what a mansion on a hilltop does over a village; to nestle is to settle snugly, and to recoil or wane is to draw back or fade.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "2ea9f8430b45f92d"
+      "content_hash": "ad59c91cfad0be9b"
     },
     {
       "id": "VR-SEP-W1-070",
@@ -774,11 +774,11 @@
         "D": "grant"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "To boycott is to refuse to use a business as a protest, which is what an unfair policy provokes; to commend, consent or grant would be to approve of it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "7708f0cc30107baf"
+      "content_hash": "1747924202caa64b"
     },
     {
       "id": "VR-SEP-W2-030",
@@ -1005,11 +1005,11 @@
         "D": "restore"
       },
       "correct": "A",
-      "explanation": "To infer is to work out from clues what is meant and draw the conclusion oneself, and Maya draws hers from the wet footprints leading to the kitchen.",
+      "explanation": "To infer is to work something out from the clues, which is what wet footprints let Maya do. Imply is the other side of the same act: the footprints imply it, and Maya infers it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "0fed67fe4c5c9c91"
+      "content_hash": "df18246d54c301ca"
     },
     {
       "id": "VR-SEP-W2-041",
@@ -1026,11 +1026,11 @@
         "D": "attain"
       },
       "correct": "B",
-      "explanation": "To imply is to suggest something without saying it directly, and the author never says the character is afraid.",
+      "explanation": "To imply is to suggest something without saying it, which is what shaking hands and short breaths do while the author stays silent. A reader concludes, but only the details imply.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "be6b505ce800b97e"
+      "content_hash": "4d87754c898f213a"
     },
     {
       "id": "VR-SEP-W2-042",
@@ -1047,11 +1047,11 @@
         "D": "intricate"
       },
       "correct": "D",
-      "explanation": "Intricate means very complicated, with many small, carefully connected parts, and the gears have each tiny part fitting precisely with the next.",
+      "explanation": "Intricate means made of many small parts fitting together, which is what tiny gears meshing precisely are; remote, subjective and static say nothing about detail.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "5750c88fa8658beb"
+      "content_hash": "746abb61e0d3fed6"
     },
     {
       "id": "VR-SEP-W2-043",
@@ -1068,11 +1068,11 @@
         "D": "literal"
       },
       "correct": "B",
-      "explanation": "Objective means based on facts that can be checked rather than on feelings, and the report used measurable data and tried not to be emotional.",
+      "explanation": "Objective means based on facts rather than feelings, which is what measurable data and “rather than emotional” both ask for; conspicuous, rigid and literal are not the opposite of emotional.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "ae2ad7bf36bb539f"
+      "content_hash": "560c94f275132d96"
     },
     {
       "id": "VR-SEP-W2-044",
@@ -1089,11 +1089,11 @@
         "D": "consensus"
       },
       "correct": "D",
-      "explanation": "A consensus is general agreement reached by a whole group, and after a long discussion the committee as a whole agreed that the event should be postponed.",
+      "explanation": "A consensus is a general agreement reached by a group, which is what a committee comes to after a long discussion; content, capital and decline are not agreements.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "3df1f91f8f354638"
+      "content_hash": "1f38f0678aa24932"
     },
     {
       "id": "VR-SEP-W2-045",
@@ -1110,11 +1110,11 @@
         "D": "compact"
       },
       "correct": "C",
-      "explanation": "A term can be a period of time, and the fall school term is the one that begins in September.",
+      "explanation": "A term is a part of the school year, which is what begins in September; stock, volume and compact are not stretches of time.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "08f0c159cd6768ca"
+      "content_hash": "42d75032b0fa1674"
     },
     {
       "id": "VR-SEP-W2-046",
@@ -1131,11 +1131,11 @@
         "D": "capital"
       },
       "correct": "A",
-      "explanation": "Volume can mean loudness or level, and the music is too loud.",
+      "explanation": "Volume here means loudness, which is the thing you turn down when music is too loud; a prompt, content and capital cannot be turned down.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "5fdf6a52272c0e98"
+      "content_hash": "809da4626a722d12"
     },
     {
       "id": "VR-SEP-W2-047",
@@ -1152,11 +1152,11 @@
         "D": "remote"
       },
       "correct": "C",
-      "explanation": "As an adjective, prompt means quick and timely, and the reply came within five minutes.",
+      "explanation": "Prompt means quick, done without delay, which is what a reply within five minutes is; rigid, static and remote describe something else entirely.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "b288202184727c7a"
+      "content_hash": "54729656dc12c8b4"
     },
     {
       "id": "VR-SEP-W2-048",
@@ -1173,11 +1173,11 @@
         "D": "elaborate"
       },
       "correct": "C",
-      "explanation": "Stationary means not moving, staying in one place, and the bus stayed at the curb while passengers boarded.",
+      "explanation": "Stationary means not moving, which is what a bus at the curb is while passengers board; stable means steady, rigorous means demanding, elaborate means complicated.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "bcf1d977a497fe3a"
+      "content_hash": "c97427261d971e73"
     },
     {
       "id": "VR-SEP-W2-049",
@@ -1194,11 +1194,11 @@
         "D": "inferior"
       },
       "correct": "A",
-      "explanation": "Stable means steady, not likely to fall, change or collapse, and the condition held despite small changes in the weather.",
+      "explanation": "Stable means steady, holding safely where it is, which is what a condition that survives small changes does; static would mean nothing changed at all, and subjective and inferior are not about steadiness.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "8d95e2fd10288bb0"
+      "content_hash": "735040a0ad3959f2"
     },
     {
       "id": "VR-SEP-W2-054",
@@ -1425,11 +1425,11 @@
         "D": "grant"
       },
       "correct": "B",
-      "explanation": "",
+      "explanation": "To fray is to wear into loose threads, which is what rubbing against rough stone does to a rope; a rope cannot attain, prosper or grant.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "776e512ae67ea6de"
+      "content_hash": "7ab1542884e0bc1a"
     },
     {
       "id": "VR-SEP-W2-065",
@@ -1446,11 +1446,11 @@
         "D": "leeway"
       },
       "correct": "C",
-      "explanation": "",
+      "explanation": "A grievance is a complaint about unfair treatment, which is exactly what “treated younger students unfairly” describes; an expanse, consent and leeway are not complaints.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "4bb925401b0d5962"
+      "content_hash": "979300170a941242"
     },
     {
       "id": "VR-SEP-W2-066",
@@ -1467,11 +1467,11 @@
         "D": "hostile"
       },
       "correct": "D",
-      "explanation": "",
+      "explanation": "Hostile means angry and unfriendly, which is what an unpopular call makes a crowd; fortunate, eligible and concise are not moods.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "46af5698d8bad51f"
+      "content_hash": "c6d27b9ab969a523"
     },
     {
       "id": "VR-SEP-W2-067",
@@ -1488,11 +1488,11 @@
         "D": "jovial"
       },
       "correct": "C",
-      "explanation": "",
+      "explanation": "Inept means clumsy and unskilled, which is what making the problem worse shows; cordial, renowned and jovial say nothing about skill.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "a103c2cde0d70518"
+      "content_hash": "86524bbaa7e7f677"
     },
     {
       "id": "VR-SEP-W2-068",
@@ -1509,11 +1509,11 @@
         "D": "descent"
       },
       "correct": "C",
-      "explanation": "",
+      "explanation": "Leeway is room to choose for yourself, which is what letting students pick their own topics gives; a fray, esteem and descent are not freedoms.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "99b873e35a529a69"
+      "content_hash": "080b3fcec370f87d"
     },
     {
       "id": "VR-SEP-W2-069",
@@ -1530,11 +1530,11 @@
         "D": "compact"
       },
       "correct": "B",
-      "explanation": "",
+      "explanation": "Meager means barely enough, which is what a supply you merely survive on is; ample is its opposite, and glorious and compact do not measure quantity.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "abaf27311ad3856f"
+      "content_hash": "ecaff959c8126a2d"
     },
     {
       "id": "VR-SEP-W2-070",
@@ -1551,11 +1551,11 @@
         "D": "commended"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "To thwart is to stop a plan from happening, which is what a sudden storm does to an outdoor concert; to elude, cultivate or commend a plan is not to wreck it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "aea211c9eed58f80"
+      "content_hash": "1ef03d82a513d5ef"
     },
     {
       "id": "VR-SEP-W3-030",
@@ -1656,11 +1656,11 @@
         "D": "stocked"
       },
       "correct": "C",
-      "explanation": "",
+      "explanation": "To prompt someone is to push them into acting, which is what an unexpected compliment did; declined, traced and stocked describe nothing about being spurred on.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "15790c7b71d98321"
+      "content_hash": "6e698a29a81cecc2"
     },
     {
       "id": "VR-SEP-W3-035",
@@ -1677,11 +1677,11 @@
         "D": "stocks"
       },
       "correct": "D",
-      "explanation": "",
+      "explanation": "To stock is to keep goods ready for sale, which is what a store does with art paper; a store cannot charter, conflict or render paper.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "cd1fd1a0a88cd8c3"
+      "content_hash": "569607a6a3359bf4"
     },
     {
       "id": "VR-SEP-W3-036",
@@ -1698,11 +1698,11 @@
         "D": "volume"
       },
       "correct": "C",
-      "explanation": "A term can be a condition, and this agreement has one that requires payment by Friday.",
+      "explanation": "A term here is one condition of an agreement, which is what requires payment by Friday; capital, trace and volume are not conditions.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "95cfc5b46528238a"
+      "content_hash": "f47e1dabb077f89f"
     },
     {
       "id": "VR-SEP-W3-037",
@@ -1719,11 +1719,11 @@
         "D": "charter"
       },
       "correct": "B",
-      "explanation": "A trace is a small sign that something is there, and that is all the sugar the jar has left.",
+      "explanation": "A trace is a tiny amount left behind, which is what “only a ______ of sugar” asks for; content, grant and charter are not quantities.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "ef61e03376d49a53"
+      "content_hash": "16bce77c0be5c5c7"
     },
     {
       "id": "VR-SEP-W3-038",
@@ -1740,11 +1740,11 @@
         "D": "suspend"
       },
       "correct": "B",
-      "explanation": "To render something is to provide or give it, and assistance after the storm is what the volunteers agreed to give.",
+      "explanation": "To render assistance is to give it, which is what volunteers agreed to do after the storm; to exploit, decline or suspend assistance is to withhold it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "69691fb41e0e8500"
+      "content_hash": "1b69255f950be3aa"
     },
     {
       "id": "VR-SEP-W3-039",
@@ -1761,11 +1761,11 @@
         "D": "conflict"
       },
       "correct": "A",
-      "explanation": "To grant is to give or allow, and permission for the field trip is the sort of thing a principal allows.",
+      "explanation": "To grant is to give permission formally, which is what a principal does for a field trip; permission cannot be stocked, traced or conflicted.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "a4eaa7294df17f0d"
+      "content_hash": "e83420b0d804768b"
     },
     {
       "id": "VR-SEP-W3-040",
@@ -1782,11 +1782,11 @@
         "D": "charter"
       },
       "correct": "D",
-      "explanation": "A charter is a contract or licence, and a city's is the official document that sets out what powers it has.",
+      "explanation": "A charter is a formal document setting out powers, which is exactly what the sentence describes; discipline, a prompt and volume are not documents.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "7f26dde4f631cbcd"
+      "content_hash": "4a367478be1cf81b"
     },
     {
       "id": "VR-SEP-W3-041",
@@ -1803,11 +1803,11 @@
         "D": "discipline"
       },
       "correct": "D",
-      "explanation": "Discipline is order and training, and keeping to homework before playing games is the self-discipline the sentence describes.",
+      "explanation": "Self-discipline is making yourself do the work first, which is what finishing homework before games takes; capital, content and trace are not habits of self-control.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "d49950759b0b001f"
+      "content_hash": "5975d0f64bbdf69d"
     },
     {
       "id": "VR-SEP-W3-042",
@@ -1824,11 +1824,11 @@
         "D": "cultivate"
       },
       "correct": "A",
-      "explanation": "To exploit people is to take advantage of them, and a dishonest employer paying unfair wages is doing that to workers.",
+      "explanation": "To exploit people is to use them unfairly for your own gain, which is what unfair wages do; to charter, render or cultivate workers is not mistreatment.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "852a4c268a83fe87"
+      "content_hash": "c39bc26ffd4737b8"
     },
     {
       "id": "VR-SEP-W3-043",
@@ -1845,11 +1845,11 @@
         "D": "stock"
       },
       "correct": "A",
-      "explanation": "To decline is to refuse or reject, which is what she politely chose to do with the invitation.",
+      "explanation": "To decline is to refuse politely, which is what “politely chose to” points at; to suspend, grant or stock an invitation is not to turn it down.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "4c7e905592e823fd"
+      "content_hash": "094f07fdf5cba001"
     },
     {
       "id": "VR-SEP-W3-044",
@@ -1887,11 +1887,11 @@
         "D": "compact"
       },
       "correct": "D",
-      "explanation": "Compact means small and tightly packed, and a camera designed that way is what fits easily into a small bag.",
+      "explanation": "Compact means small and neatly packed, which is what makes a camera easy to carry in a small bag; tender, remote and domestic say nothing about size.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "51020ecfa67186a4"
+      "content_hash": "3aa0306e8ec099d1"
     },
     {
       "id": "VR-SEP-W3-046",
@@ -1929,11 +1929,11 @@
         "D": "trace"
       },
       "correct": "B",
-      "explanation": "To cultivate is to grow or nurture something, and trust is grown over time.",
+      "explanation": "To cultivate is to build something up slowly, the way a plant is grown, which is what “over time” signals about trust; to decline, suspend or trace trust is not to grow it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "ce5287c1a8d9ccc2"
+      "content_hash": "0ded3afbe2569a7d"
     },
     {
       "id": "VR-SEP-W3-048",
@@ -1950,11 +1950,11 @@
         "D": "render"
       },
       "correct": "C",
-      "explanation": "To suspend a student is to bar them from school for a time, and here that time is the several days following a serious rule violation.",
+      "explanation": "To suspend a student is to bar them from school for a time, which is what a serious violation leads to; to grant, exploit or render a student makes no sense.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "07dd6c6a24ffb771"
+      "content_hash": "70bee5f0303080b3"
     },
     {
       "id": "VR-SEP-W3-049",
@@ -2349,11 +2349,11 @@
         "D": "proclaim"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "To inspect is to look over carefully, which is what checking a bridge for cracks is; to wander, reminisce or proclaim is not an examination.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "07aec48a768fc3c0"
+      "content_hash": "591460d16a0dae50"
     },
     {
       "id": "VR-SEP-W3-072",
@@ -2370,11 +2370,11 @@
         "D": "lore"
       },
       "correct": "D",
-      "explanation": "",
+      "explanation": "Lore is the body of stories and traditions handed down, which is exactly what the sentence describes; stock, capital and discipline are not stories.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "d824cffa751fcbe9"
+      "content_hash": "bc9065fb58f3694e"
     },
     {
       "id": "VR-SEP-W3-073",
@@ -2391,11 +2391,11 @@
         "D": "judicial"
       },
       "correct": "B",
-      "explanation": "",
+      "explanation": "Makeshift means put together from whatever is to hand, which is what cardboard boxes and old curtains make; authentic, remote and judicial describe something else.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "fe4ccade2427e833"
+      "content_hash": "8552a17308f0f452"
     },
     {
       "id": "VR-SEP-W3-074",
@@ -2412,11 +2412,11 @@
         "D": "declined"
       },
       "correct": "B",
-      "explanation": "",
+      "explanation": "To attain is to reach a goal you have worked for, which is what years of training lead to; to thwart, elude or decline a goal is to end up without it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "251fa205b9d98916"
+      "content_hash": "002435c235d08772"
     },
     {
       "id": "VR-SEP-W3-075",
@@ -2433,11 +2433,11 @@
         "D": "camaraderie"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "Anguish is severe distress, which is what news of an accident brings a family; clarity, leeway and camaraderie are not kinds of pain.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "c54f15894d51f2e7"
+      "content_hash": "27690bae5a18bb4f"
     },
     {
       "id": "VR-SEP-W3-076",
@@ -2454,11 +2454,11 @@
         "D": "consent"
       },
       "correct": "D",
-      "explanation": "Consent is permission given by one person, and the principal gave his for the students to leave early.",
+      "explanation": "Consent is permission, which is what a principal gives for students to leave early; a grievance and prestige are not permission, and dissent is disagreement — very nearly the opposite.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "f9805c901bb2365e"
+      "content_hash": "7a8f711c449e7bfa"
     },
     {
       "id": "VR-SEP-W3-077",
@@ -2475,11 +2475,11 @@
         "D": "charter"
       },
       "correct": "B",
-      "explanation": "A consensus is general agreement reached by a whole group, and a committee where several members still disagreed has not reached one.",
+      "explanation": "A consensus is agreement by the whole group, which is exactly what members who still disagree cannot reach; a refuge, a verdict and a charter are not agreements.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "2b96f857efa46acb"
+      "content_hash": "125165053ecbf526"
     },
     {
       "id": "VR-SEP-W3-078",
@@ -2496,11 +2496,11 @@
         "D": "trace"
       },
       "correct": "D",
-      "explanation": "To trace is to track something, and following the pollution back to its original source is tracking it.",
+      "explanation": "To trace is to follow something back to where it started, which is what finding the original source means; you cannot cultivate, grant or commend pollution.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "ca342ecf572b02fa"
+      "content_hash": "c644d0c91c6e4537"
     },
     {
       "id": "VR-SEP-W3-079",
@@ -2517,11 +2517,11 @@
         "D": "trance"
       },
       "correct": "B",
-      "explanation": "",
+      "explanation": "A campaign is an organized effort to achieve something, which is what a city launches against litter; a memoir, a canopy and a trance are not efforts.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "4fd678679752b2e9"
+      "content_hash": "5f93962f10e490da"
     },
     {
       "id": "VR-SEP-W3-080",
@@ -2538,11 +2538,11 @@
         "D": "conserve"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "To distort is to twist facts out of shape, which is what making results “appear better” than they are does; to attain, soothe or conserve facts is not to bend them.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "9c2ecc7485e66d3e"
+      "content_hash": "497d8f3e48b547b1"
     },
     {
       "id": "VR-SEP-W3-081",
@@ -2559,11 +2559,11 @@
         "D": "fringe"
       },
       "correct": "B",
-      "explanation": "",
+      "explanation": "The horizon is the far line where land meets sky, which is where distant mountains appear; the midst is the middle of something, terrain is ground underfoot, a fringe is an edge.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "7c73da96425df65b"
+      "content_hash": "6e7b323643b69d2c"
     },
     {
       "id": "VR-SEP-W3-082",
@@ -2580,11 +2580,11 @@
         "D": "aloof"
       },
       "correct": "B",
-      "explanation": "Diligent means careful and dedicated, and a student who checks her work carefully and completes assignments consistently is both.",
+      "explanation": "Diligent means steadily careful and hardworking, which is what checking work and finishing consistently shows; reckless, sluggish and aloof are the opposite habits.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "adc24bd389353c61"
+      "content_hash": "d30cde3dd6f65c4f"
     },
     {
       "id": "VR-SEP-W3-083",
@@ -2601,11 +2601,11 @@
         "D": "evoke"
       },
       "correct": "D",
-      "explanation": "",
+      "explanation": "To evoke is to call a memory or a feeling to mind, which is what a smell does; to confine, revoke or forbid a memory is not to summon it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "ad5c407fc9b1777d"
+      "content_hash": "4cf88f1ac9c1393d"
     },
     {
       "id": "VR-SEP-W3-084",
@@ -2622,11 +2622,11 @@
         "D": "ferocious"
       },
       "correct": "C",
-      "explanation": "Compact means tightly and efficiently packed, and an apartment that uses every inch is exactly that.",
+      "explanation": "Compact means small but efficiently arranged, which is what using every inch means; plaintive, remote and ferocious describe nothing about space.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "2bf161219d182567"
+      "content_hash": "d43412b1330a32fc"
     },
     {
       "id": "VR-SEP-W3-085",
@@ -2643,11 +2643,11 @@
         "D": "proclaim"
       },
       "correct": "C",
-      "explanation": "",
+      "explanation": "To revoke is to cancel something already granted, which is what repeated safety violations cost a license; to acquire, commend or proclaim it is not to take it away.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "fae93ec6d4a7e116"
+      "content_hash": "95be9540771ef755"
     },
     {
       "id": "VR-SEP-W3-086",
@@ -2664,11 +2664,11 @@
         "D": "provoke"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "To avert is to stop something bad before it happens, which is what early warnings and time to leave do; to dwindle, inundate or provoke a disaster is not to prevent it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "0827c521244be07b"
+      "content_hash": "4fb1fd15981b5fe5"
     },
     {
       "id": "VR-SEP-W3-087",
@@ -2685,11 +2685,11 @@
         "D": "hosted"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "To inundate is to flood, which is what a viral article does to a scientist with questions; to vacate, conserve or host someone is not to overwhelm them.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "2e442f00fa3b65f4"
+      "content_hash": "5693afb33e2298d8"
     },
     {
       "id": "VR-SEP-W4-030",
@@ -2706,11 +2706,11 @@
         "D": "sanctuary"
       },
       "correct": "D",
-      "explanation": "A sanctuary is a refuge, a safe place, and after the wildfire that is what the community centre became for families who had lost their homes.",
+      "explanation": "A sanctuary is a place of safety, which is what a community center becomes for families who have lost their homes; a verdict, a burden and a spectacle are not shelters.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "f1a1978c4f025781"
+      "content_hash": "7ee20986e414faac"
     },
     {
       "id": "VR-SEP-W4-031",
@@ -2727,11 +2727,11 @@
         "D": "suspect"
       },
       "correct": "C",
-      "explanation": "To strive is to work hard and struggle towards something, and the team continued even after several failed attempts.",
+      "explanation": "To strive is to keep trying hard, which is what continuing after several failed attempts is; to suspend, stifle or suspect a solution is not to go after it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "329c7e1c2bd19125"
+      "content_hash": "1f2b195c0f143823"
     },
     {
       "id": "VR-SEP-W4-032",
@@ -2748,11 +2748,11 @@
         "D": "tangible"
       },
       "correct": "A",
-      "explanation": "Subordinate means lower-ranking, and a junior assistant ranks below the department manager.",
+      "explanation": "Subordinate means lower in rank, which is what a junior assistant is to a manager; superior is the opposite, and unanimous and tangible are not about rank.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "5187db959e2843bd"
+      "content_hash": "3c589365ec5b166d"
     },
     {
       "id": "VR-SEP-W4-033",
@@ -2769,11 +2769,11 @@
         "D": "trace"
       },
       "correct": "C",
-      "explanation": "To infer is to work out what is meant and draw the conclusion oneself, and here the muddy footprints are what that conclusion comes from.",
+      "explanation": "To infer is to work something out from the evidence, which is what muddy footprints let you do. The footprints imply it; the person reading them infers it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "2830079a48d09ef0"
+      "content_hash": "378eb40476925ed7"
     },
     {
       "id": "VR-SEP-W4-034",
@@ -2790,11 +2790,11 @@
         "D": "imply"
       },
       "correct": "D",
-      "explanation": "To imply is to suggest something without saying it directly, and the author never says the child is afraid.",
+      "explanation": "To imply is to suggest without stating, which is what trembling hands do about fear while the author says nothing. The reader infers; only the details imply.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "7753db7ea4cff10c"
+      "content_hash": "b0dafdaf1e53d2bc"
     },
     {
       "id": "VR-SEP-W4-035",
@@ -2811,11 +2811,11 @@
         "D": "remote"
       },
       "correct": "B",
-      "explanation": "Stationary means not moving, staying in one place, which is true of the statue; the patient's condition is steady rather than still, so it takes the other word.",
+      "explanation": "Stationary means not moving, which is what a statue is. Stable, used of the patient in the same sentence, means steady rather than still — the sentence sets the two words side by side on purpose.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "8e2cacfae19256cd"
+      "content_hash": "0ff9d322c1563ac3"
     },
     {
       "id": "VR-SEP-W4-036",
@@ -2832,11 +2832,11 @@
         "D": "rigorous"
       },
       "correct": "D",
-      "explanation": "Rigorous means thorough and demanding, and the sentence says the training is demanding and thorough.",
+      "explanation": "Rigorous means demanding and thorough, which the sentence says outright; rigid means unbending, static means unchanging, whimsical means playful.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "69c6658473e22056"
+      "content_hash": "c50276535b1eb348"
     },
     {
       "id": "VR-SEP-W4-037",
@@ -2853,11 +2853,11 @@
         "D": "superior"
       },
       "correct": "C",
-      "explanation": "Unanimous means agreed and undivided, and every member voted yes.",
+      "explanation": "Unanimous means everyone agreed, which is what “every member voted yes” says; remote, subjective and superior tell you nothing about agreement.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "0d3f4ec325a223d0"
+      "content_hash": "3ce893291d09ca61"
     },
     {
       "id": "VR-SEP-W4-038",
@@ -2874,11 +2874,11 @@
         "D": "term"
       },
       "correct": "B",
-      "explanation": "One sense of volume is loudness or level, and the music is too loud.",
+      "explanation": "Volume here is loudness, the thing you turn down when music is too loud; capital, content and a term cannot be turned down.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "c8a1d25bde3b57ab"
+      "content_hash": "a3daa9bbcdc55559"
     },
     {
       "id": "VR-SEP-W4-039",
@@ -2895,11 +2895,11 @@
         "D": "remote"
       },
       "correct": "B",
-      "explanation": "Tangible means touchable, concrete and real, and a signed receipt is a real thing that can be held.",
+      "explanation": "Tangible means solid and touchable, which a signed receipt is; whimsical, subjective and remote all suggest evidence you cannot hold.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "28fdd5f3bdcc1629"
+      "content_hash": "47b1bcd3c0971d18"
     },
     {
       "id": "VR-SEP-W4-040",
@@ -2916,11 +2916,11 @@
         "D": "treacherous"
       },
       "correct": "D",
-      "explanation": "Treacherous means dangerous, and a narrow mountain road is exactly that once ice has covered it.",
+      "explanation": "Treacherous means dangerous and not to be trusted, which is what ice makes a narrow mountain road; rural, stable and spacious describe where the road is, not the danger.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "a03d6ca5da2b4905"
+      "content_hash": "72909620d7cb7cc3"
     },
     {
       "id": "VR-SEP-W4-041",
@@ -2937,11 +2937,11 @@
         "D": "prestige"
       },
       "correct": "A",
-      "explanation": "Suffrage means the right to vote, which is what the sentence itself goes on to say the movement fought for.",
+      "explanation": "Suffrage is the right to vote, which the sentence defines outright with “or the right to vote”; consensus, a charter and prestige are not that right.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "dabd438391bae934"
+      "content_hash": "a2d6f03b72fd6020"
     },
     {
       "id": "VR-SEP-W4-042",
@@ -2958,11 +2958,11 @@
         "D": "volume"
       },
       "correct": "B",
-      "explanation": "A term can be a condition, and a rule about paying within thirty days is one of the conditions of a contract.",
+      "explanation": "A term here is one condition of a contract, which is what requires payment within thirty days; a trace, capital and volume are not conditions.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "e80e9e4298940015"
+      "content_hash": "9dadde7e71080752"
     },
     {
       "id": "VR-SEP-W4-043",
@@ -2979,11 +2979,11 @@
         "D": "trace"
       },
       "correct": "D",
-      "explanation": "To trace is to track something, and following the contamination back to where it started is tracking it.",
+      "explanation": "To trace is to follow something back to its source, which is exactly what the scientists tried to do; you cannot grant, cultivate or render contamination.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "346f08eb760a18c5"
+      "content_hash": "d3425393f7a2361d"
     },
     {
       "id": "VR-SEP-W4-044",
@@ -3000,11 +3000,11 @@
         "D": "static"
       },
       "correct": "A",
-      "explanation": "Prompt means quick and timely, and a reply that came in five minutes is both.",
+      "explanation": "Prompt means quick, without delay, which is what a reply arriving within five minutes is; rigid, remote and static describe something else.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "9bb63ef1efa6001a"
+      "content_hash": "cbb636c9d2506bd6"
     },
     {
       "id": "VR-SEP-W4-045",
@@ -3021,11 +3021,11 @@
         "D": "exploit"
       },
       "correct": "C",
-      "explanation": "To suspend someone is to expel them temporarily, and a school might keep a student away for several days after a serious rule violation.",
+      "explanation": "To suspend a student is to bar them from school for a time, which is what a serious violation leads to; to grant, render or exploit a student makes no sense.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "13ccc1bd8f640099"
+      "content_hash": "50f11dda80a84f48"
     },
     {
       "id": "VR-SEP-W4-046",
@@ -3042,11 +3042,11 @@
         "D": "literal"
       },
       "correct": "C",
-      "explanation": "Content means satisfied and pleased, and Beth asked for nothing more than the simple meal.",
+      "explanation": "Content here means satisfied, which is what asking for nothing more shows; static, capital and literal are not feelings.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "ee2e026d57b8ef9a"
+      "content_hash": "02b8ee931b4ab4d6"
     },
     {
       "id": "VR-SEP-W4-047",
@@ -3063,11 +3063,11 @@
         "D": "term"
       },
       "correct": "A",
-      "explanation": "Capital can mean funds, and funds are what a company needs more of to expand its business.",
+      "explanation": "Capital here means money to invest, which is what expanding a business needs; content, volume and a term are not money.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "eaf6e3a041c58b3c"
+      "content_hash": "8357bb8bd2c071f2"
     },
     {
       "id": "VR-SEP-W4-048",
@@ -3336,11 +3336,11 @@
         "D": "tangible"
       },
       "correct": "D",
-      "explanation": "Tangible means touchable, concrete and real, and a broken window is a physical object standing in front of everyone, too real to ignore.",
+      "explanation": "Tangible means solid and plain to see or touch, which a broken window everyone can see is; whimsical, subjective and remote describe evidence you cannot point at.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "0571cafea1ede13a"
+      "content_hash": "a272a59d361d66b4"
     },
     {
       "id": "VR-SEP-W4-065",
@@ -3357,11 +3357,11 @@
         "D": "sanctuary"
       },
       "correct": "D",
-      "explanation": "A sanctuary is a refuge or safe place, which is what a cabin becomes once the storm turns dangerous.",
+      "explanation": "A sanctuary is a place of safety, which is what a cabin becomes when a storm turns dangerous; consensus, volume and prestige are not shelters.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "b078a828147b49c8"
+      "content_hash": "fdae67e876cf24e2"
     },
     {
       "id": "VR-SEP-W4-066",
@@ -3378,11 +3378,11 @@
         "D": "stationary"
       },
       "correct": "C",
-      "explanation": "",
+      "explanation": "Conflicting accounts disagree with each other, which is what contradicting the earlier statement means; prompt, unanimous and stationary do not describe a clash.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "44771606e06114e3"
+      "content_hash": "9fdf700f59bead60"
     },
     {
       "id": "VR-SEP-W4-067",
@@ -3399,11 +3399,11 @@
         "D": "trace"
       },
       "correct": "C",
-      "explanation": "",
+      "explanation": "To soothe is to calm someone, which is what a calm voice is for; to stifle, suspect or trace a worried child is not to comfort them.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "b6a577dece094810"
+      "content_hash": "c4e2d3323dbe50cf"
     },
     {
       "id": "VR-SEP-W4-068",
@@ -3420,11 +3420,11 @@
         "D": "aloof"
       },
       "correct": "A",
-      "explanation": "Diligent means dedicated and careful, and this student keeps working carefully even when a task is difficult.",
+      "explanation": "Diligent means carefully hardworking, which is what keeping at a difficult task shows; static, reckless and aloof are the opposite.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "448ab17b10997a14"
+      "content_hash": "67adac2cba6b1282"
     },
     {
       "id": "VR-SEP-W4-069",
@@ -3504,11 +3504,11 @@
         "D": "elaborate"
       },
       "correct": "A",
-      "explanation": "Stationary means not moving, staying in one place, and the bus stays put at the curb while passengers board.",
+      "explanation": "Stationary means not moving, which is what a bus at the curb is while passengers board; stable means steady, rigorous means demanding, elaborate means complicated.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "9614de31f8601f68"
+      "content_hash": "afa11c193ae0d481"
     },
     {
       "id": "VR-SEP-W4-073",
@@ -3525,11 +3525,11 @@
         "D": "remote"
       },
       "correct": "B",
-      "explanation": "Stable means steady and not likely to fall, change or collapse, and the bridge came through the storm without giving way.",
+      "explanation": "Stable means steady and safe to rely on, which is what a bridge that came through the storm is; static means unchanging, stationary means not moving, remote means far off.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "0ffd7810958f3c94"
+      "content_hash": "43c453c34c22cecc"
     },
     {
       "id": "VR-SEP-W4-074",
@@ -3546,11 +3546,11 @@
         "D": "spacious"
       },
       "correct": "C",
-      "explanation": "Static means unchanging and motionless, and the image on the monitor was frozen for several seconds.",
+      "explanation": "Static means not changing, which is what a frozen image on a monitor is; social, prompt and spacious describe nothing about a frozen screen.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "76e4078a7fc9b1ef"
+      "content_hash": "f1637f54462e350f"
     },
     {
       "id": "VR-SEP-W4-075",
@@ -3567,11 +3567,11 @@
         "D": "remote"
       },
       "correct": "C",
-      "explanation": "Intricate means very complicated, with many small, carefully connected parts, and these gears are built from tiny parts that each fit precisely.",
+      "explanation": "Intricate means made of many small parts fitting together, which is what tiny gears meshing precisely are; subjective, literal and remote say nothing about detail.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "2b084e6ef897475d"
+      "content_hash": "3528d697e15fdcdd"
     },
     {
       "id": "VR-SEP-W4-076",
@@ -3588,11 +3588,11 @@
         "D": "consensus"
       },
       "correct": "D",
-      "explanation": "A consensus is general agreement reached by a whole group, and everyone on the committee finally agreed.",
+      "explanation": "A consensus is agreement reached by everyone, which is what “everyone finally agreed” says; volume, prejudice and a trace are not agreements.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "6006b443aa288f51"
+      "content_hash": "4bd6abce663d9602"
     },
     {
       "id": "VR-SEP-W4-077",
@@ -3609,11 +3609,11 @@
         "D": "literal"
       },
       "correct": "A",
-      "explanation": "Objective means based on facts that can be checked rather than on feelings, and this report relies on measurable facts.",
+      "explanation": "Objective means based on facts rather than opinion, which is what relying on measurable facts is; conspicuous, rigid and literal are not the opposite of opinionated.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "0bb74af314674169"
+      "content_hash": "c8ccd6a7a9e6a605"
     },
     {
       "id": "VR-SEP-W4-078",
@@ -3651,11 +3651,11 @@
         "D": "domestic"
       },
       "correct": "B",
-      "explanation": "Compact means small and tightly packed, and a design like that is what makes the camera easy to carry.",
+      "explanation": "Compact means small and neatly packed, which is what makes a camera easy to carry; remote, tender and domestic say nothing about size.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "7cf3c6f07ede8c4a"
+      "content_hash": "a10b73df03686a84"
     },
     {
       "id": "VR-SEP-W4-080",
@@ -3672,11 +3672,11 @@
         "D": "stock"
       },
       "correct": "A",
-      "explanation": "To grant is to give or allow, and permission for the field trip is what the principal gives.",
+      "explanation": "To grant is to give permission formally, which is what a principal does for a field trip; permission cannot be conflicted, traced or stocked.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "aa5e292370809b55"
+      "content_hash": "38af92bb46e6598d"
     },
     {
       "id": "VR-SEP-W4-081",
@@ -3693,11 +3693,11 @@
         "D": "cultivate"
       },
       "correct": "B",
-      "explanation": "To exploit is to take advantage of, and an employer paying unfair wages is taking advantage of the workers.",
+      "explanation": "To exploit people is to use them unfairly for gain, which is what paying unfair wages does; to render, charter or cultivate workers is not mistreatment.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "6c4ee0af35bbb0d3"
+      "content_hash": "5b5dd66c08413101"
     },
     {
       "id": "VR-SEP-W4-082",
@@ -3714,11 +3714,11 @@
         "D": "suspend"
       },
       "correct": "C",
-      "explanation": "To decline is to refuse or reject, and the sentence has her politely turning down the invitation.",
+      "explanation": "To decline is to refuse politely, which is what “politely chose to” points at; to stock, grant or suspend an invitation is not to turn it down.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "873fdca2090672a9"
+      "content_hash": "347ab875648da356"
     },
     {
       "id": "VR-SEP-W4-083",
@@ -3735,11 +3735,11 @@
         "D": "confine"
       },
       "correct": "A",
-      "explanation": "",
+      "explanation": "To evoke is to bring a memory to mind, which is what a smell does; to forbid, revoke or confine a memory is not to summon it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "61cfe4c8cbeb765f"
+      "content_hash": "eff81fc32d10657d"
     },
     {
       "id": "VR-SEP-W4-084",
@@ -3756,11 +3756,11 @@
         "D": "avert"
       },
       "correct": "D",
-      "explanation": "",
+      "explanation": "To avert is to prevent something bad before it happens, which is what early warnings do; to provoke, inundate or dwindle a disaster is not to stop it.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "d5a07c050d20d7c1"
+      "content_hash": "2f46247238274341"
     },
     {
       "id": "VR-SEP-W4-085",
@@ -3777,11 +3777,11 @@
         "D": "revoke"
       },
       "correct": "D",
-      "explanation": "",
+      "explanation": "To revoke is to cancel something already granted, which is what repeated violations cost a license; to proclaim, acquire or commend it is not to take it away.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "8b35b88ddf603cce"
+      "content_hash": "819941dcdaea4fa2"
     },
     {
       "id": "VR-SEP-W4-086",
