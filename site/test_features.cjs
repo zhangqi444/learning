@@ -297,6 +297,19 @@ async function runThrough(pg, pick, max = 60) {
   check('next steps worked out from the mock', (await pg.$('[data-testid=next-steps]')) !== null && /Next steps this week/.test(ov));
   check('stanine estimate per section in the results', /≈Stanine/.test(ov));
   check('mock misses carry cause tags', (await pg.$$('[data-testid=cause-tags]')).length >= 3);
+  /* And every one of them teaches. The mock papers tag a question the way a
+     paper does, so before the names were widened this page asked for a card by
+     a name no card had and silently rendered nothing at all. */
+  const mockCards = await pg.$$eval('[data-testid=learn-card]', (n) => n.map((e) => e.dataset.skill));
+  const mockFolded = await pg.$$eval('[data-testid=learn-open]', (n) => n.map((e) => e.dataset.skill));
+  const mockMisses = (await pg.$$('[data-testid=cause-tags]')).length;
+  check('every missed mock question teaches its skill too', mockCards.length + mockFolded.length === mockMisses && mockMisses > 0,
+    `${mockCards.length + mockFolded.length} of ${mockMisses} · ${[...new Set(mockCards)].slice(0, 4).join(', ')}`);
+  /* And the same lesson is not printed once per question: a paper can leave
+     fifty misses on one skill, which would bury the other forty-four. */
+  check('a lesson stands open once per skill, folded on the repeats',
+    new Set(mockCards).size === mockCards.length && mockCards.length > 0,
+    `${mockCards.length} open · ${mockFolded.length} folded`);
   await pg.click('[data-testid=cause-tags] >> nth=0 >> [data-testid=tag-rushed]');
   await pg.waitForTimeout(200);
   check('tagging a mock miss sticks', (await pg.$eval('[data-testid=cause-tags] >> nth=0', (e) => e.dataset.tag)) === 'rushed');
@@ -927,6 +940,14 @@ async function runThrough(pg, pick, max = 60) {
     const fp = await far.newPage();
     await fp.goto('http://localhost:8143/learning/', { waitUntil: 'networkidle' });
     await signIn(fp);
+    // The gate opens the moment the token lands, with the first sync still in
+    // flight — and that sync ends by writing the state it loaded back out. Edit
+    // localStorage underneath it and the write is simply overwritten, so the
+    // reload below finds no test date and the countdown asks for one instead of
+    // reading "Today". Let the sync land, and let its 1200 ms push debounce
+    // drain, before touching the file underneath it.
+    await fp.waitForSelector('button:has-text("Saved to Drive")', { timeout: 20000 });
+    await fp.waitForTimeout(1600);
     const localToday = await fp.evaluate(() => {
       const d = new Date();
       const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
@@ -1250,12 +1271,31 @@ async function runThrough(pg, pick, max = 60) {
   const cover = await pg.evaluate(async () => {
     const b = await (await fetch('./content/bundle.json')).json();
     const have = new Set(Object.keys(b.learn.skills));
+    const alias = b.learn.aliases || {};
+    /* The same widening the app does: exact name, lowercased name, then the part
+       before the dash. Mirrors learnName() in src/lib/aops.js. */
+    const resolves = (sk) => {
+      if (!sk) return false;
+      if (have.has(sk)) return true;
+      const low = String(sk).trim().toLowerCase();
+      const hit = alias[low] || alias[low.split(/[\u2014\u2013]/)[0].trim()];
+      return !!hit && have.has(hit);
+    };
+    /* Verbal practice questions are tagged with the word, not the skill, so the
+       app reads their shape instead — mirrors skillOf() in src/lib/engine.js. */
+    const vrSkill = (q) => (/most nearly means/i.test(q.q || '') ? 'Synonyms' : /_{3,}/.test(q.q || '') ? 'Sentence completion' : 'Words in context');
     const need = new Set();
-    for (const s of ['qr', 'ma', 'rc']) for (const q of b.subjects[s]) if (q.sk) need.add(q.sk);
-    return { total: need.size, missing: [...need].filter((k) => !have.has(k)) };
+    for (const s of ['vr', 'qr', 'ma', 'rc']) for (const q of b.subjects[s]) need.add(s === 'vr' ? vrSkill(q) : q.sk);
+    for (const form of Object.values(b.mockItems)) for (const [sec, arr] of Object.entries(form))
+      for (const q of arr) need.add(sec === 'VR' ? vrSkill(q) : q.sk);
+    return { total: need.size, missing: [...need].filter((k) => !resolves(k)) };
   });
-  check('every maths and reading skill has a card of our own', cover.missing.length === 0,
-    `${cover.total - cover.missing.length} of ${cover.total}${cover.missing.length ? ' · missing ' + cover.missing.join(', ') : ''}`);
+  /* Practice AND mock. The mock papers tag a question the way a paper does
+     ("percent reasoning—reverse discount"), and when this check looked only at
+     the practice bank, all 508 mock questions asked for a card, got null, and
+     rendered nothing — with the code reading as though the lesson were there. */
+  check('every question in the house can be taught, practice and mock alike', cover.missing.length === 0,
+    `${cover.total - cover.missing.length} of ${cover.total}${cover.missing.length ? ' · missing ' + cover.missing.slice(0, 5).join(', ') : ''}`);
   const freeMarks = await pg.$$eval('[data-testid=learn-link]', (n) => n.map((e) => e.dataset.free));
   check('every outside link says whether it costs money', freeMarks.length > 0 && freeMarks.every((f) => f === '1' || f === '0'), freeMarks.join(','));
   /* Khan Academy is free and every skill has a page there, so the link on a miss

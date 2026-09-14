@@ -2,7 +2,7 @@ import * as React from "react"
 import { ArrowLeft, ArrowRight, Award, BookOpen, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
-import { BUDGET, CAUSES, findItem, paceFlag, readFloor, rec, recordAttempts, setTag, skillLevel, tooFast } from "@/lib/engine"
+import { BUDGET, CAUSES, findItem, paceFlag, readFloor, rec, recordAttempts, setTag, skillLevel, skillOf, tooFast } from "@/lib/engine"
 import { aopsFor, learnCard, learnQuery, learnUrl } from "@/lib/aops"
 import { AopsHint } from "@/components/aops-hint"
 import { LearnCard } from "@/components/learn-card"
@@ -384,7 +384,7 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   ) : null}
                   {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
                   {!ok && canTag ? <CauseTags id={q.id} /> : null}
-                  {!ok ? <LearnCard skill={q.sk} /> : null}
+                  {!ok ? <LearnCard skill={skillOf(subOf(q, subHint), q)} /> : null}
                   {!ok && aopsFor(subOf(q, subHint), q.sk) ? <AopsHint sub={subOf(q, subHint)} skill={q.sk} inline /> : null}
                   {!ok && !aopsFor(subOf(q, subHint), q.sk) && learnUrl(subOf(q, subHint), q) ? (
                     <a href={learnUrl(subOf(q, subHint), q)} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs hover:underline" data-testid="learn-more" title={learnQuery(subOf(q, subHint), q)}>
@@ -573,7 +573,7 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   is a pile-on rather than teaching. One line she can open. It is
                   open by default everywhere she is actually reviewing mistakes:
                   the score card below, a mock's missed questions, the pile. */}
-              {!gotIt ? <LearnCard skill={it.sk} collapsed className="mt-2" /> : null}
+              {!gotIt ? <LearnCard skill={skillOf(subOf(it, subHint), it)} collapsed className="mt-2" /> : null}
 
             </div>
           ) : null}
