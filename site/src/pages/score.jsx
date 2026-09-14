@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Glim } from "@/components/glim"
+import { Glim, hearProps } from "@/components/glim"
 
 const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`
 const tone = (s) => s == null ? "text-muted-foreground" : s >= 85 ? "text-success" : s >= 70 ? "text-primary" : s >= 50 ? "text-warning" : "text-destructive"
@@ -253,7 +253,9 @@ export function Score() {
                               the badge beside it can never disagree. */}
                           <TableCell className="font-medium">
                             <span className="flex items-center gap-2">
-                              <Glim word={s + ":" + k.sk} stage={W.glow[k.level]} className="size-7" title={`${k.sk} — ${W.glow[k.level]}`} />
+                              <button {...hearProps(s + ":" + k.sk, { label: k.sk })}>
+                                <Glim word={s + ":" + k.sk} stage={W.glow[k.level]} className="size-7" title={k.sk} />
+                              </button>
                               {k.sk}
                             </span>
                           </TableCell>

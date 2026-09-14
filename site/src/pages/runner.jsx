@@ -18,7 +18,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 import { Burst, useCountUp } from "@/components/burst"
 import { Gate, inscribe } from "@/components/gate"
-import { Glim } from "@/components/glim"
+import { Glim, hearProps } from "@/components/glim"
 import { sfx } from "@/lib/sfx"
 
 const { useState, useEffect, useRef } = React
@@ -314,7 +314,9 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
               <div className="mt-3 flex flex-wrap justify-center gap-2" data-testid="set-came">
                 {came.map((c) => (
                   <figure key={c.word} className="flex w-24 flex-col items-center gap-0.5" title={`${c.sk} — ${c.stage}`}>
-                    <Glim word={c.word} stage={c.stage} className="size-11" title={c.sk} />
+                    <button {...hearProps(c.word, { label: c.sk })}>
+                      <Glim word={c.word} stage={c.stage} className="size-11" title={c.sk} />
+                    </button>
                     <figcaption className="line-clamp-2 w-full text-center text-[11px] leading-tight font-semibold">
                       {c.sk}{c.n > 1 ? ` ×${c.n}` : ""}
                     </figcaption>
@@ -529,7 +531,7 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                       key={reactCat.word + (gotIt ? ":y" : ":n")}
                       word={reactCat.word}
                       stage={reactCat.stage}
-                      title={`${it.sk} — ${reactCat.stage}`}
+                      title={it.sk}
                       className={cn("size-14", gotIt && "motion-safe:animate-[pop_420ms_cubic-bezier(.34,1.56,.64,1)_both]")}
                     />
                   </span>

@@ -36,20 +36,20 @@ function hash(str) {
  * that really go with that coat — a seal point has blue eyes, a silver tabby
  * green — because a cat with the wrong eyes stops looking like a real cat. */
 export const COATS = [
-  { id: "brown-tabby", base: "#a97d4e", mark: "#6d4a2b", belly: "#e2c99e", nose: "#cf8d84", pattern: "tabby", eyes: ["#7cc26a", "#e0a23c"] },
-  { id: "ginger-tabby", base: "#e2894a", mark: "#b8592a", belly: "#f7d8ae", nose: "#e39a92", pattern: "tabby", eyes: ["#e0a23c", "#7cc26a"] },
-  { id: "silver-tabby", base: "#b5bcc3", mark: "#7b848d", belly: "#e8ebee", nose: "#d99a92", pattern: "tabby", eyes: ["#7cc26a"] },
+  { id: "brown-tabby", label: "brown tabby", base: "#a97d4e", mark: "#6d4a2b", belly: "#e2c99e", nose: "#cf8d84", pattern: "tabby", eyes: ["#7cc26a", "#e0a23c"] },
+  { id: "ginger-tabby", label: "ginger tabby", base: "#e2894a", mark: "#b8592a", belly: "#f7d8ae", nose: "#e39a92", pattern: "tabby", eyes: ["#e0a23c", "#7cc26a"] },
+  { id: "silver-tabby", label: "silver tabby", base: "#b5bcc3", mark: "#7b848d", belly: "#e8ebee", nose: "#d99a92", pattern: "tabby", eyes: ["#7cc26a"] },
   // Sheila's uncle's cat
-  { id: "golden-shaded", base: "#e6bd77", mark: "#bb8b3f", belly: "#f9ecc9", nose: "#cf8d84", pattern: "shaded", eyes: ["#7cc26a"] },
-  { id: "tuxedo", base: "#33343c", mark: "#212229", belly: "#ffffff", nose: "#4f4f58", pattern: "tuxedo", dark: true, eyes: ["#e0a23c"] },
-  { id: "black", base: "#3a3b43", mark: "#26272e", belly: "#484951", nose: "#4f4f58", pattern: "solid", dark: true, eyes: ["#e0a23c", "#cf7a2e"] },
-  { id: "blue", base: "#8f99a8", mark: "#6e7787", belly: "#bcc4cf", nose: "#b98d8d", pattern: "solid", eyes: ["#e0a23c", "#7cc26a"] },
-  { id: "cream", base: "#f0dcc0", mark: "#d6b992", belly: "#fdf4e6", nose: "#e6a79e", pattern: "solid", eyes: ["#e0a23c", "#6bb7e8"] },
+  { id: "golden-shaded", label: "golden-shaded", base: "#e6bd77", mark: "#bb8b3f", belly: "#f9ecc9", nose: "#cf8d84", pattern: "shaded", eyes: ["#7cc26a"] },
+  { id: "tuxedo", label: "tuxedo", base: "#33343c", mark: "#212229", belly: "#ffffff", nose: "#4f4f58", pattern: "tuxedo", dark: true, eyes: ["#e0a23c"] },
+  { id: "black", label: "black", base: "#3a3b43", mark: "#26272e", belly: "#484951", nose: "#4f4f58", pattern: "solid", dark: true, eyes: ["#e0a23c", "#cf7a2e"] },
+  { id: "blue", label: "blue", base: "#8f99a8", mark: "#6e7787", belly: "#bcc4cf", nose: "#b98d8d", pattern: "solid", eyes: ["#e0a23c", "#7cc26a"] },
+  { id: "cream", label: "cream", base: "#f0dcc0", mark: "#d6b992", belly: "#fdf4e6", nose: "#e6a79e", pattern: "solid", eyes: ["#e0a23c", "#6bb7e8"] },
   // the cat in the photograph she sent
-  { id: "seal-point", base: "#efe3d2", mark: "#4c3d39", belly: "#fbf4ea", nose: "#5e4b46", pattern: "point", eyes: ["#6bb7e8"] },
-  { id: "calico", base: "#f7f3ec", mark: "#33343c", patch: "#e2894a", belly: "#ffffff", nose: "#e6a79e", pattern: "patched", eyes: ["#e0a23c"] },
-  { id: "tortoiseshell", base: "#3a3b43", mark: "#26272e", patch: "#d2762f", belly: "#4a4b54", nose: "#4f4f58", pattern: "patched", dark: true, eyes: ["#e0a23c"] },
-  { id: "white", base: "#f8f6f2", mark: "#ded8ce", belly: "#ffffff", nose: "#eba8a0", pattern: "solid", eyes: ["#6bb7e8", "#7cc26a"] },
+  { id: "seal-point", label: "seal point", base: "#efe3d2", mark: "#4c3d39", belly: "#fbf4ea", nose: "#5e4b46", pattern: "point", eyes: ["#6bb7e8"] },
+  { id: "calico", label: "calico", base: "#f7f3ec", mark: "#33343c", patch: "#e2894a", belly: "#ffffff", nose: "#e6a79e", pattern: "patched", eyes: ["#e0a23c"] },
+  { id: "tortoiseshell", label: "tortoiseshell", base: "#3a3b43", mark: "#26272e", patch: "#d2762f", belly: "#4a4b54", nose: "#4f4f58", pattern: "patched", dark: true, eyes: ["#e0a23c"] },
+  { id: "white", label: "white", base: "#f8f6f2", mark: "#ded8ce", belly: "#ffffff", nose: "#eba8a0", pattern: "solid", eyes: ["#6bb7e8", "#7cc26a"] },
 ]
 
 /** Shorthair round, longhair fluffy, oriental lean. Changes the silhouette, not
@@ -97,6 +97,21 @@ export function traits(word) {
 /** The call as frequencies, in hertz, off C5. */
 export function callHz(word) {
   return traits(word).call.map((s) => 523.25 * Math.pow(2, s / 12))
+}
+
+/* What you would call this cat if you were pointing at it: its coat and its
+ * build, which is how a cat is actually described out loud — "a ginger tabby
+ * shorthair", "a seal point oriental".
+ *
+ * Deliberately not "breed". A tortoiseshell is a coat that turns up on any
+ * number of breeds and a tuxedo is not a breed at all, so naming one would be
+ * inventing a fact about an animal that does not exist — which the content rule
+ * forbids even here, where nothing is real. Coat and build are simply true: they
+ * are what the hash actually chose and what the picture actually shows. */
+const BUILD_LABEL = { short: "shorthair", long: "longhair", slim: "oriental" }
+export function describe(word) {
+  const t = traits(word)
+  return `${t.coat.label} ${BUILD_LABEL[t.build] || t.build}`
 }
 
 /** Engine word status → the six brightnesses in docs/world.md. A word she has

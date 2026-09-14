@@ -91,7 +91,7 @@ function WordCard({ wk, entry, idx, state, submitted }) {
                 className="focus-visible:ring-ring/50 rounded-full transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]"
                 data-testid="hear-glim"
               >
-                <Glim word={n} stage={glow} className="size-11" title={`${n} — ${glow}`} blink={blink} />
+                <Glim word={n} stage={glow} className="size-11" title={n} blink={blink} />
               </button>
             ))}
           </span>

@@ -510,6 +510,18 @@ async function runThrough(pg, pick, max = 60) {
   const REAL = ['brown-tabby', 'ginger-tabby', 'silver-tabby', 'golden-shaded', 'tuxedo', 'black', 'blue', 'cream', 'seal-point', 'calico', 'tortoiseshell', 'white'];
   const kinds = await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => e.dataset.marking + '|' + e.dataset.build));
   check('every cat is a coat you could actually meet', kinds.every((k) => REAL.includes(k.split('|')[0])), [...new Set(kinds.map((k) => k.split('|')[0]))].join(','));
+  // Hovering any cat says what it is. Coat and build, never "breed": a
+  // tortoiseshell is a coat found on many breeds and a tuxedo is not a breed at
+  // all, so naming one would invent a fact. Asserted against the same closed
+  // list, so a coat added without a label fails here rather than showing
+  // "undefined shorthair" to a ten-year-old.
+  const kinds2 = await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => e.getAttribute('aria-label')));
+  const BUILDS2 = ['shorthair', 'longhair', 'oriental'];
+  check('and hovering it says which coat and build it is',
+    kinds2.length > 1 && kinds2.every((t) => BUILDS2.some((bd) => t.includes(' ' + bd + ' ·')) && !/undefined/.test(t)),
+    kinds2[0]);
+  check('and it can be asked to speak, wherever it is drawn',
+    (await pg.$$('[data-testid=word-cards] [data-testid=hear-glim]')).length === kinds2.length);
   check('and a real build, not just a colour', kinds.every((k) => ['short', 'long', 'slim'].includes(k.split('|')[1])), [...new Set(kinds.map((k) => k.split('|')[1]))].join(','));
   const benignCoat = coats.find((c) => c.startsWith('benign:'));
   // A skill is a cat too, and this is the only place all six brightnesses get

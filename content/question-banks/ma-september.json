@@ -594,7 +594,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "ff94c85a7bfec6d6"
+      "why": {
+        "A": "110 is 100 + 10 — the area with one more side added on the end. The area is just 10 × 10.",
+        "B": "40 is 10 × 4, the perimeter: the distance all the way round the patio, not the space inside it.",
+        "C": "20 is 10 × 2, two sides. Area covers the whole patio, so it is 10 × 10."
+      },
+      "content_hash": "48b58a63ca2a7b98"
     },
     {
       "id": "MA-SEP-029",
