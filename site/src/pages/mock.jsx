@@ -16,6 +16,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { ActionBar, CauseTags, Choice, Passage, Runner } from "@/pages/runner"
 import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
+import { LearnCard } from "@/components/learn-card"
 import { STANINE, mockBand, mockNextSteps, recordMockForm } from "@/lib/engine"
 
 /* ---------- state helpers ---------- */
@@ -272,6 +273,9 @@ function MockResults({ form }) {
               <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{pick ? `${pick}. ${q.c[LTR.indexOf(pick)]}` : "—"}</span></div>
               <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
               {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
+              {/* A mock's missed questions are the one place she sits down with a
+                  whole paper's mistakes. Teach every one of them. */}
+              <LearnCard skill={q.sk} />
               <CauseTags id={q.id} />
             </CardContent>
           </Card>

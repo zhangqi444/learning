@@ -384,6 +384,7 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   ) : null}
                   {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
                   {!ok && canTag ? <CauseTags id={q.id} /> : null}
+                  {!ok ? <LearnCard skill={q.sk} /> : null}
                   {!ok && aopsFor(subOf(q, subHint), q.sk) ? <AopsHint sub={subOf(q, subHint)} skill={q.sk} inline /> : null}
                   {!ok && !aopsFor(subOf(q, subHint), q.sk) && learnUrl(subOf(q, subHint), q) ? (
                     <a href={learnUrl(subOf(q, subHint), q)} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs hover:underline" data-testid="learn-more" title={learnQuery(subOf(q, subHint), q)}>
@@ -566,24 +567,14 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   is worth anything. A named chapter beats a web search, so the
                   search is only the fallback for the skills we have nothing for:
                   Reading, and vocabulary. */}
-              {/* Ours first, because it is free and it is here. The AoPS chapter
-                  is the extra for a family that has it, not the way back in. */}
-              {!gotIt ? <LearnCard skill={it.sk} className="mt-2" /> : null}
-              {!gotIt && aopsFor(subOf(it, subHint), it.sk) ? (
-                <AopsHint sub={subOf(it, subHint)} skill={it.sk} className="mt-2" />
-              ) : null}
-              {!gotIt && !learnCard(it.sk) && !aopsFor(subOf(it, subHint), it.sk) && learnUrl(subOf(it, subHint), it) ? (
-                <a
-                  href={learnUrl(subOf(it, subHint), it)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground mt-2 inline-flex items-center gap-1.5 text-xs hover:underline"
-                  data-testid="learn-more"
-                  title={learnQuery(subOf(it, subHint), it)}
-                >
-                  <BookOpen className="size-3.5" /> Learn more about {it.sk || "this"}
-                </a>
-              ) : null}
+              {/* Here too, but folded. She may never scroll back to the score
+                  card, so the lesson has to be reachable the moment she gets it
+                  wrong — and a miss was already stacking six blocks at her, which
+                  is a pile-on rather than teaching. One line she can open. It is
+                  open by default everywhere she is actually reviewing mistakes:
+                  the score card below, a mock's missed questions, the pile. */}
+              {!gotIt ? <LearnCard skill={it.sk} collapsed className="mt-2" /> : null}
+
             </div>
           ) : null}
         </CardContent>

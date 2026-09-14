@@ -12,9 +12,27 @@ import { Badge } from "@/components/ui/badge"
  *  plane, in the artifact, and for a family that does not pay for anything. The
  *  outside links below it are site-scoped searches, each marked free or paid, so
  *  nobody discovers a paywall by walking into one. */
-export function LearnCard({ skill, className }) {
+export function LearnCard({ skill, className, collapsed }) {
   const c = learnCard(skill)
+  const [open, setOpen] = React.useState(!collapsed)
   if (!c) return null
+  /* Collapsed is for the middle of a set. The lesson has to be reachable at the
+   * moment she gets it wrong — she may never scroll back to the score card — but
+   * a miss was already stacking six blocks at her, and a wall of correction is
+   * not teaching. So: one line she can open, and nothing opened at her. */
+  if (!open) {
+    return (
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        className={cn("text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs hover:underline", className)}
+        data-testid="learn-open"
+        data-skill={skill}
+      >
+        <Lightbulb className="size-3.5" /> How to do {skill}
+      </button>
+    )
+  }
   return (
     <div className={cn("bg-muted/40 flex flex-col gap-2 rounded-md border p-3 text-sm", className)} data-testid="learn-card" data-skill={skill}>
       <div className="flex items-center gap-2 font-medium"><Lightbulb className="size-4" /> {skill}</div>
