@@ -81,12 +81,12 @@ Claude-Session: <session url>
   so the resting frame is the whole of what that reader sees — an animation
   written frame-one-first is correct only on the machine you tested it on.
 - `test_artifact.cjs` tests `../artifact.html`, which is **untracked and built by
-  hand** (`npm run build:artifact`). Nothing rebuilds it for you, so after any
-  content change it fails on numbers that have nothing to do with what you
-  touched — "dashboard from inlined bundle" comparing today's bundle against a
-  week-old file. Rebuild it before believing that suite, and note that
-  `build:artifact` writes `dist/` too, so the Pages build has to be redone
-  afterwards or the other three suites test the artifact by mistake.
+  hand**. `npm test` builds it for you now and puts the Pages `dist/` back
+  afterwards, because `build:artifact` writes over it. Run `node
+  test_artifact.cjs` on its own and you are testing whatever file happens to be
+  lying there — after any content change that fails on numbers with nothing to do
+  with what you touched, which is how it went stale for a week without anyone
+  noticing.
 - Rebuilding `site/dist` from a scratch build loses `dist/content/bundle.json`:
   the Vite plugin's `closeBundle` copies it to a hard-coded `dist/content/`, so a
   `--outDir` build followed by a copy leaves the app with no data to fetch and
