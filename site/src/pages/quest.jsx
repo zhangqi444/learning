@@ -17,7 +17,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Progress } from "@/components/ui/progress"
 import { Burst } from "@/components/burst"
 import { Gate } from "@/components/gate"
-import { Glim } from "@/components/glim"
+import { Glim, hearProps } from "@/components/glim"
 import { WORD_GLOW } from "@/lib/glim"
 import { wordStatus } from "@/lib/engine"
 import { sfx } from "@/lib/sfx"
@@ -121,7 +121,9 @@ export function Quest({ wk = null }) {
               <div className="mt-3 flex flex-wrap justify-center gap-2" data-testid="came">
                 {came.map((c) => (
                   <figure key={c.word} className="flex w-16 flex-col items-center gap-0.5">
-                    <Glim word={c.word} stage={atLeast(WORD_GLOW[wordStatus(c.key).status])} className="size-12" title={c.word} />
+                    <button {...hearProps(c.word)}>
+                      <Glim word={c.word} stage={atLeast(WORD_GLOW[wordStatus(c.key).status])} className="size-12" title={c.word} />
+                    </button>
                     <figcaption className="w-full truncate text-[11px] font-semibold">{c.word}</figcaption>
                   </figure>
                 ))}

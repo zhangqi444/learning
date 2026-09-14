@@ -1,7 +1,25 @@
 import * as React from "react"
 
-import { traits } from "@/lib/glim"
+import { describe, traits } from "@/lib/glim"
+import { sfx } from "@/lib/sfx"
 import { cn } from "@/lib/utils"
+
+/* A cat you can ask to speak. The behaviour is shared, the markup is not: the
+ * review pile wraps a caption with its cat and the Glimbook does not, so each
+ * place keeps its own layout and takes only the part that must be identical —
+ * what the click does, what a screen reader is told, and that it is reachable by
+ * keyboard. Cats that are *controls* (the hand of names in the Wordwood, where
+ * clicking casts) deliberately do not get this: one click, one meaning. */
+export const hearProps = (word, { label, className } = {}) => ({
+  type: "button",
+  onClick: () => sfx("call", word),
+  "aria-label": `Hear ${label || word}`,
+  "data-testid": "hear-glim",
+  className: cn(
+    "focus-visible:ring-ring/50 rounded-lg transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]",
+    className,
+  ),
+})
 
 /* Drawing one cat.
  *
@@ -93,7 +111,11 @@ export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
   const uid = React.useId().replace(/[^a-zA-Z0-9]/g, "")
   const clip = "glim-c-" + uid
   const halo = "glim-h-" + uid
-  const name = title || `${word} — ${stage}`
+  /* Every cat says what it is, everywhere, without each caller having to
+     remember to ask: the label it is known by, then its coat and build, then how
+     well she knows it. Composed here rather than passed in because "what kind of
+     cat is that" should never depend on which page you are looking at. */
+  const name = `${title || word} · ${describe(word)} · ${stage}`
   // a black cat on a dark page needs an edge, or it is a hole in the screen
   const rim = c.dark ? "rgba(255,255,255,0.28)" : "rgba(0,0,0,0.16)"
   const pawFill = t.socks ? c.belly : c.pattern === "point" ? c.mark : c.base
