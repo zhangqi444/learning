@@ -1161,7 +1161,12 @@
       "misconceptions": "volume-three-dimensions",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "827eee3e3d31f5cf"
+      "why": {
+        "A": "20 is 5 × 4, one layer. Volume needs the height as well: 5 × 4 × 3.",
+        "B": "12 is 4 × 3, one face. Volume uses all three measurements: 5 × 4 × 3 = 60.",
+        "D": "120 is 60 × 2, the volume counted twice. 5 × 4 × 3 = 60 already."
+      },
+      "content_hash": "e31a27c6cf3d053f"
     },
     {
       "id": "QR-W3-S1-02",
@@ -1182,7 +1187,12 @@
       "misconceptions": "inverse-volume-dimension",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "cd90a4db453ed8b2"
+      "why": {
+        "A": "4 is the width, not the height. Divide the volume by the floor: 96 ÷ 32 = 3.",
+        "B": "6 is 3 × 2, the height doubled. 96 ÷ 32 = 3.",
+        "C": "2 is 8 ÷ 4, the length over the width. The height is the volume over the floor: 96 ÷ 32 = 3."
+      },
+      "content_hash": "b67e232fd3dd0cf3"
     },
     {
       "id": "QR-W3-S1-03",
@@ -1250,7 +1260,12 @@
       "misconceptions": "triangle-one-half",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "194dfb9246b84a2e"
+      "why": {
+        "A": "60 is 10 × 6, the whole rectangle round the triangle. The triangle is half of it: 30.",
+        "C": "120 is 60 × 2 — the rectangle doubled. Halve it instead: half of 10 × 6 is 30.",
+        "D": "16 is 10 + 6. Area multiplies the base and the height."
+      },
+      "content_hash": "e8ecbfcce6057102"
     },
     {
       "id": "QR-W3-S1-06",
@@ -1848,7 +1863,12 @@
       "misconceptions": "inverse-volume-dimension",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "a32bb89e63c30392"
+      "why": {
+        "A": "2 is 6 ÷ 3. The height comes from the volume: 180 ÷ 60 = 3.",
+        "B": "4 is 10 − 6, the length minus the width. Divide instead: 180 ÷ 60 = 3.",
+        "D": "5 is 10 ÷ 2, half the length. The height is 180 ÷ 60 = 3."
+      },
+      "content_hash": "aa3bb046e31de7c9"
     },
     {
       "id": "QR-W4-S1-07",
@@ -1869,7 +1889,12 @@
       "misconceptions": "area-to-perimeter-sequence",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "c73b88b1d1031010"
+      "why": {
+        "A": "36 is 9 × 4, as if every side were 9. The width is 54 ÷ 9 = 6.",
+        "B": "24 is 9 + 9 + 3 + 3, going round a rectangle 9 by 3. This one is 9 by 6, because 54 ÷ 9 = 6.",
+        "D": "15 is 9 + 6, one length and one width. The perimeter is both pairs: 2 × 15 = 30."
+      },
+      "content_hash": "ca044b739805f5c9"
     },
     {
       "id": "QR-W4-S1-08",

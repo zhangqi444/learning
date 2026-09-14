@@ -505,7 +505,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "d51183125a189edb"
+   "why": {
+    "A": "36 is 72 ÷ 2, half the cubes. Along the edges 6, 4 and 3 fit, so 6 × 4 × 3 = 72.",
+    "B": "144 is 72 × 2, twice as many as fit. Halve each edge first, because the cubes are 2 cm.",
+    "C": "48 is 8 × 6, two of the box’s sides in centimetres. Count cubes along each edge instead."
+   },
+   "content_hash": "3425e37780f38c9e"
   },
   {
    "id": "QR-W5-S2-Q13",
@@ -1156,7 +1161,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "b029adc9d6cdad71"
+   "why": {
+    "A": "21 is 28 − 7, three sides. A square has four: 4 × 7 = 28.",
+    "C": "14 is 7 × 2, two sides. All four make the perimeter.",
+    "D": "49 is 7 × 7, the area — the space inside, not the distance round the edge."
+   },
+   "content_hash": "f9624a2bb0a549e8"
   },
   {
    "id": "QR-W7-S1-Q02",
@@ -1177,7 +1187,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "ce7d2b2cd585349b"
+   "why": {
+    "A": "16 is 8 × 2, two layers. The box is three layers tall.",
+    "B": "32 is 8 × 4, four layers. There are three: 3 × 8 = 24.",
+    "D": "11 is 8 + 3. The layers multiply, they do not add."
+   },
+   "content_hash": "c1ecaad5abd7a0df"
   },
   {
    "id": "QR-W7-S1-Q03",
@@ -1303,7 +1318,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "55e99b6b73479c36"
+   "why": {
+    "A": "0 says the areas are equal. The fencing is — both 24 m — but the areas are 4 × 8 = 32 and 6 × 6 = 36.",
+    "B": "2 is 4 ÷ 2. The gap between the areas is 36 − 32 = 4.",
+    "C": "12 is 4 + 8, one long side and one short. The areas are 32 and 36."
+   },
+   "content_hash": "6fb5d497471f0a4f"
   },
   {
    "id": "QR-W7-S1-Q09",
@@ -1828,7 +1848,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "226e87c2500d002f"
+   "why": {
+    "A": "60 is 30 × 2, the box counted twice. 5 × 3 × 2 = 30.",
+    "C": "15 is 5 × 3, one layer. The box is 2 layers tall, so 15 × 2 = 30.",
+    "D": "10 is 5 × 2, the length and the height. The width is needed too: 5 × 3 × 2 = 30."
+   },
+   "content_hash": "2400bb3990f9e8a2"
   },
   {
    "id": "QR-W8-S1-Q07",
@@ -1912,7 +1937,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "947752c2baffd59f"
+   "why": {
+    "A": "48 is 12 × 4, the rectangle’s area. The question asks for the square’s.",
+    "B": "32 is the perimeter the two shapes share, not an area. The square’s side is 32 ÷ 4 = 8.",
+    "D": "16 is 12 + 4. The square’s side is 32 ÷ 4 = 8, so its area is 8 × 8 = 64."
+   },
+   "content_hash": "94912cee8b0fee4e"
   },
   {
    "id": "QR-W8-S1-Q11",
@@ -2101,7 +2131,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "8c24408c4311f2c9"
+   "why": {
+    "B": "12 is 6 × 2. Count cubes along every edge: 4, 3 and 2, so 4 × 3 × 2 = 24.",
+    "C": "96 is 24 × 4, four times as many as fit.",
+    "D": "48 is 8 × 6, two sides in centimetres. The cubes are 2 cm, so the edges hold 4, 3 and 2 of them."
+   },
+   "content_hash": "07257975c3b5629e"
   },
   {
    "id": "QR-W8-S2-Q08",
@@ -2227,7 +2262,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "9a5b972a41129003"
+   "why": {
+    "A": "8 is 48 ÷ 6. The perimeter here is eight widths, so the width is 48 ÷ 8 = 6.",
+    "C": "12 is 6 × 2, two widths. The width itself is 6.",
+    "D": "18 is 3 × 6, the length, not the width."
+   },
+   "content_hash": "0864925fc7b343f8"
   },
   {
    "id": "QR-W8-S2-Q14",

@@ -646,7 +646,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "070f9886862f9cfa"
+      "why": {
+        "A": "80 is 10 × 8, the whole rectangle the triangle sits in. A triangle fills half of it, so halve it: 40.",
+        "B": "18 is 10 + 8. Area multiplies the base and the height, it never adds them.",
+        "D": "48 is 40 + 8, the area with the height added on again. Once you have half of 10 × 8 you are done."
+      },
+      "content_hash": "b3b3ec14a8cb406f"
     },
     {
       "id": "MA-SEP-031",
@@ -688,7 +693,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "1c8cd40f81ee5dba"
+      "why": {
+        "A": "28 is 7 × 4, the perimeter — the distance round all four sides, not the space inside.",
+        "C": "14 is 7 × 2, two sides. Area covers the whole square: 7 × 7.",
+        "D": "56 is 49 + 7, the area with one more side added on. 7 × 7 = 49 is all of it."
+      },
+      "content_hash": "239ce884f3e3e386"
     },
     {
       "id": "MA-SEP-033",
@@ -777,7 +787,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "79878e32459e1a2b"
+      "why": {
+        "A": "20 is 16 + 4, the area with a side added on the end. The area is just 4 × 4.",
+        "B": "12 is 16 − 4. Nothing is taken off an area: 4 × 4 = 16.",
+        "C": "8 is 4 × 2, two sides. A square has four, and its area is 4 × 4."
+      },
+      "content_hash": "1480b44aa7cc44ff"
     },
     {
       "id": "MA-SEP-037",
@@ -882,7 +897,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "ff0686c4870aeeb4"
+      "why": {
+        "B": "18 is 9 × 2, two sides. Area is 9 × 9.",
+        "C": "36 is 9 × 4, the perimeter — round the edge, not the space inside.",
+        "D": "90 is 81 + 9, the area with one more side added on. 9 × 9 = 81 is all of it."
+      },
+      "content_hash": "e173b5c254997f1b"
     },
     {
       "id": "MA-SEP-042",
@@ -1680,7 +1700,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "f455635c5f703758"
+      "why": {
+        "B": "20 is 5 × 4, the perimeter — the way round the edge, not the space inside.",
+        "C": "10 is 5 × 2, two sides. Area is 5 × 5.",
+        "D": "30 is 25 + 5, the area with a side added on. 5 × 5 = 25 is the answer."
+      },
+      "content_hash": "49cd3126c82e6e7b"
     },
     {
       "id": "MA-SEP-080",
@@ -1890,7 +1915,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "9dedac9b68ada6e2"
+      "why": {
+        "A": "16 is 8 × 2, two sides. Area is 8 × 8.",
+        "B": "32 is 8 × 4, the perimeter — round the edge, not the space inside.",
+        "D": "72 is 64 + 8, the area with one more side added on."
+      },
+      "content_hash": "683f8a3e01463eb3"
     },
     {
       "id": "MA-SEP-090",

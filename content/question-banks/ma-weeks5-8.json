@@ -610,7 +610,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "6ba7d13983a6cc62"
+   "why": {
+    "A": "17 is 34 ÷ 2, one length and one width together. Take the width off it: 17 − 6 = 11.",
+    "B": "28 is 34 − 6, the whole way round minus one width. Halve the perimeter first, then subtract.",
+    "C": "22 is 11 × 2, two lengths. The question asks for one."
+   },
+   "content_hash": "6e0c0eb13a25bf24"
   },
   {
    "id": "MA-W6-S1-Q06",
@@ -631,7 +636,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "c1217599f3e57dd3"
+   "why": {
+    "B": "36 is 9 × 4, as if all four sides were 9. The width is 72 ÷ 9 = 8, not 9.",
+    "C": "81 is 9 × 9, as if it were a square. The width is 72 ÷ 9 = 8.",
+    "D": "17 is 34 ÷ 2, one length and one width. The perimeter is both pairs: 2 × 17 = 34."
+   },
+   "content_hash": "a2cf08976e5e3e4c"
   },
   {
    "id": "MA-W6-S1-Q07",
@@ -673,7 +683,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "35ccfbbe676575ab"
+   "why": {
+    "A": "0 says the two perimeters are the same. The areas are — both 36 — but the perimeters are 30 and 24.",
+    "B": "3 is 6 − 3, one side from each rectangle. The question compares the whole way round both.",
+    "D": "9 is 6 + 3, one side of each. Going all the way round gives 30 and 24, a gap of 6."
+   },
+   "content_hash": "e4dff309ef100479"
   },
   {
    "id": "MA-W6-S1-Q09",
@@ -694,7 +709,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "e39b11eda1bc379b"
+   "why": {
+    "B": "13 is the radius you started with — the centre to the edge, half the way across.",
+    "C": "6.5 is 13 ÷ 2. That halves the radius; a diameter doubles it.",
+    "D": "52 is 26 × 2, the diameter doubled again. One doubling is enough."
+   },
+   "content_hash": "1bb65acc2c7bb26b"
   },
   {
    "id": "MA-W6-S1-Q10",
@@ -904,7 +924,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "e28e5bd4e1fc6cf3"
+   "why": {
+    "A": "44 is 22 × 2, the path doubled again. Across the middle is 2 × 11 = 22.",
+    "C": "11 is the radius — the centre to the edge, which is half the path.",
+    "D": "5.5 is 11 ÷ 2. A path across the middle doubles the radius, it does not halve it."
+   },
+   "content_hash": "7b98a1a33c167227"
   },
   {
    "id": "MA-W6-S2-Q08",
@@ -1996,7 +2021,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "8bfcd6eec014c25d"
+   "why": {
+    "B": "20 is 5 × 4, one layer of the box. All three layers hold 5 × 4 × 3 = 60.",
+    "C": "12 is 4 × 3, one face of the box. It holds 5 × 4 × 3 = 60, and 60 − 45 = 15.",
+    "D": "45 is the number taken out, not the number left behind: 60 − 45 = 15."
+   },
+   "content_hash": "d98ef6063830f25d"
   },
   {
    "id": "MA-W8-S2-Q12",
