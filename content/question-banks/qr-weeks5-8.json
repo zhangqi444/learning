@@ -43,7 +43,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "ed72cad758716434"
+   "why": {
+    "A": "4 is 6 − 2. The 6 red beads make 3 groups of 2, and each group brings 3 white: 9.",
+    "B": "12 is 6 × 2, the red beads doubled. Three groups of 3 white beads make 9.",
+    "C": "5 is 2 + 3, one group of each colour. There are three groups here: 3 × 3 = 9."
+   },
+   "content_hash": "de3e053c81a8c00b"
   },
   {
    "id": "QR-W5-S1-Q03",
@@ -211,7 +216,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "a5828458865e3eb5"
+   "why": {
+    "B": "12 is 3 × 4, using the numbers of the fraction. One serving takes an eighth of a cup, so 2 cups make 16.",
+    "C": "14 is 16 − 2, two servings short. Each serving is an eighth of a cup, and 2 cups hold 16 of those.",
+    "D": "18 is 6 × 3. Six servings take three quarters of a cup, so one takes an eighth, and 2 cups make 16."
+   },
+   "content_hash": "dbcff63cce5a263d"
   },
   {
    "id": "QR-W5-S1-Q11",
@@ -421,7 +431,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "e8407a240124c4a5"
+   "why": {
+    "A": "7 is 3 + 4, the number of parts rather than an amount. Each part is 84 ÷ 7 = 12, and the shares differ by one part.",
+    "C": "24 is 12 × 2, two parts. The shares are 36 and 48, which are one part apart: 12.",
+    "D": "48 is the larger share itself, not the gap between them: 48 − 36 = 12."
+   },
+   "content_hash": "702a4fe17db1f747"
   },
   {
    "id": "QR-W5-S2-Q09",
@@ -867,7 +882,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "e93ff74eba51a41f"
+   "why": {
+    "A": "10 is the per cent itself, not a number of seats. A tenth of 80 seats is 8.",
+    "C": "18 is 10 + 8. Ten per cent means one tenth, so 80 ÷ 10 = 8 seats.",
+    "D": "40 is 80 ÷ 2, which would be fifty per cent. Ten per cent of 80 is 8."
+   },
+   "content_hash": "154e61b745f75c2a"
   },
   {
    "id": "QR-W6-S2-Q03",
@@ -972,7 +992,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "f6a2c8a47ca3e535"
+   "why": {
+    "A": "20 is 2 + 18. The three angles make 180, so 5x + 90 = 180 and x = 18.",
+    "C": "15 is 18 − 3. Take the right angle off first: 5x = 90, so x = 18.",
+    "D": "36 is 18 × 2, which is the 2x angle rather than x. x itself is 18."
+   },
+   "content_hash": "9716360a24a742ae"
   },
   {
    "id": "QR-W6-S2-Q08",
@@ -1119,7 +1144,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "8795ff2cfde85cfe"
+   "why": {
+    "A": "8 is 4 × 2, the doubled remainder before it is divided again. 8 is one more than 7, so the remainder is 1.",
+    "C": "2 is 4 ÷ 2, halving the remainder instead of doubling it. Doubling gives 8, which leaves 1.",
+    "D": "4 is the remainder before doubling. Twice the number leaves 8, and 8 − 7 = 1."
+   },
+   "content_hash": "5667c9ad5e89c681"
   },
   {
    "id": "QR-W6-S2-Q15",
@@ -1255,7 +1285,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "fa74f07b21a1de8e"
+   "why": {
+    "A": "16 is the goal for one day, not the shortfall. Five days need 5 × 16 = 80, and 80 − 75 = 5.",
+    "B": "25 is 5 × 5. The shop sold 75 against a goal of 80, so it was 5 short.",
+    "C": "1 is 16 − 15, one day compared. Add all five: 75 sold against 80 needed."
+   },
+   "content_hash": "907c21abe7bd5f58"
   },
   {
    "id": "QR-W7-S1-Q06",
@@ -1449,7 +1484,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "de31589b8694169a"
+   "why": {
+    "A": "24 is 12 × 2, two feet of rope. There are four: 4 × 12 = 48.",
+    "B": "16 is 4 + 12. Each foot holds 12 inches, so the feet multiply: 4 × 12 = 48.",
+    "C": "44 is 48 − 4, four inches short. Four feet is 4 × 12 = 48."
+   },
+   "content_hash": "202fb5d8cb87712d"
   },
   {
    "id": "QR-W7-S2-Q03",
@@ -1470,7 +1510,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "5d5958f88ea2069a"
+   "why": {
+    "B": "90 is 6 × 15, the two times multiplied. Find the rate first: 42 ÷ 6 = 7 a minute, so 7 × 15 = 105.",
+    "C": "63 is 105 − 42. The printer does 7 pages a minute, so 15 minutes is 7 × 15 = 105.",
+    "D": "84 is 42 × 2, which is 12 minutes’ worth. Fifteen minutes is 7 × 15 = 105."
+   },
+   "content_hash": "9b30d8f30272e63e"
   },
   {
    "id": "QR-W7-S2-Q04",
@@ -1533,7 +1578,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "c646bd2312d6ee99"
+   "why": {
+    "A": "23 is 22 + 1, one goal too many. The four weeks are 4 + 7 + 5 + 6 = 22.",
+    "B": "21 is 22 − 1, one short. Adding the four weeks gives 22.",
+    "C": "26 is 4 + 22, the first week counted twice. The total is 22."
+   },
+   "content_hash": "087970b41ba7fac0"
   },
   {
    "id": "QR-W7-S2-Q07",
@@ -1874,7 +1924,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "17bab88122d03caf"
+   "why": {
+    "A": "9 is 3 × 3. One centimetre stands for 4 m, so 30 m needs 30 ÷ 4 = 7.5 cm.",
+    "B": "10 is 30 ÷ 3, dividing by the centimetres instead of the metres. Each centimetre is 4 m: 30 ÷ 4 = 7.5.",
+    "D": "2.5 is 30 ÷ 12, using the 12 on its own. Three centimetres stand for 12 m, so one stands for 4 m."
+   },
+   "content_hash": "70809765379edc08"
   },
   {
    "id": "QR-W8-S1-Q08",
@@ -1916,7 +1971,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "75403443ce3b918b"
+   "why": {
+    "A": "15 is 20 − 5, taking off the 5 from the fraction rather than the green sections. Two fifths of 20 is 8, so white is 12.",
+    "B": "10 is 20 ÷ 2, half the spinner. Two fifths of 20 is 8 green, leaving 12 white.",
+    "D": "8 is the green sections. The question asks for the white ones: 20 − 8 = 12."
+   },
+   "content_hash": "24282909349045b7"
   },
   {
    "id": "QR-W8-S1-Q10",
@@ -1984,7 +2044,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "d7a335cfc3fdc978"
+   "why": {
+    "A": "24 is 12 × 2. What she has left is two fifths of the start, so one fifth is 6 and the start was 30.",
+    "B": "20 is 5 × 4. Twelve dollars is two fifths of the start, so a fifth is 6 and the start was 30.",
+    "D": "36 is 12 × 3. Two fifths is what is left, so a fifth is 6 and she began with 30."
+   },
+   "content_hash": "6977dce5917ea65a"
   },
   {
    "id": "QR-W8-S2-Q01",
@@ -2089,7 +2154,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "4bf71c3ca60c1574"
+   "why": {
+    "A": "11 is the fourth value once they are in order. With six values the median sits between the third and fourth, 9 and 11.",
+    "B": "9 is the third value in order. Six values have no single middle, so take 9 and 11 and halve: 10.",
+    "D": "13 is 4 + 9, two of the values added. In order they run 4, 6, 9, 11, 15, 20, and the middle two make 10."
+   },
+   "content_hash": "bd285af248d1c011"
   },
   {
    "id": "QR-W8-S2-Q06",
@@ -2110,7 +2180,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "145bba226dc9efb8"
+   "why": {
+    "A": "24 is the 8th number, two steps too far. The 6th is 18.",
+    "C": "21 is the 7th number, one step too far. The 6th is 18.",
+    "D": "15 is the 5th number, one step short. The 6th is 18."
+   },
+   "content_hash": "3153494aa0d44c10"
   },
   {
    "id": "QR-W8-S2-Q07",

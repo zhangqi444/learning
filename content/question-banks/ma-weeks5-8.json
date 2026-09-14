@@ -756,7 +756,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "56245ea1b2566f9b"
+   "why": {
+    "A": "10 is 2 + 8, two of the across numbers added. The rectangle is 8 − 2 = 6 wide and 5 − 1 = 4 tall, so 6 × 4 = 24.",
+    "C": "20 is 5 × 4, using a corner number instead of a side. The sides are 6 and 4: 6 × 4 = 24.",
+    "D": "48 is 24 × 2, the rectangle counted twice. 6 × 4 = 24."
+   },
+   "content_hash": "d7b6061d575c280f"
   },
   {
    "id": "MA-W6-S1-Q12",
@@ -971,7 +976,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "1b87d2d863f904ba"
+   "why": {
+    "B": "6 is 2 × 3, the library’s two numbers multiplied. Count along the line instead: 11 − 3 = 8.",
+    "C": "14 is 3 + 11, the two up-numbers added. Distance subtracts them: 11 − 3 = 8.",
+    "D": "11 is the school’s up-number on its own. The distance between them is 11 − 3 = 8."
+   },
+   "content_hash": "f7f8e9bb0dad2979"
   },
   {
    "id": "MA-W6-S2-Q10",
@@ -1160,7 +1170,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "d85ecc756e2b75f1"
+   "why": {
+    "A": "5 is 8 − 3, Thursday take away Wednesday. Add each pair first: 7 + 8 = 15 and 4 + 3 = 7.",
+    "B": "7 is 4 + 3, Monday and Wednesday together. That is one pair; the other is 15, so the gap is 8.",
+    "D": "15 is 7 + 8, Tuesday and Thursday together. The question asks how many more, so take the other pair off: 15 − 7 = 8."
+   },
+   "content_hash": "4e693cfc2623ade1"
   },
   {
    "id": "MA-W7-S1-Q07",
@@ -1202,7 +1217,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "741f9f4c8d8df4b8"
+   "why": {
+    "A": "6 is 2 + 4. Each quart is 4 cups, so the quarts multiply: 2 × 4 = 8.",
+    "C": "16 is 4 × 4, four quarts’ worth. There are two: 2 × 4 = 8.",
+    "D": "4 is the cups in one quart. The recipe asks for two: 2 × 4 = 8."
+   },
+   "content_hash": "4097118ae9999637"
   },
   {
    "id": "MA-W7-S1-Q09",
@@ -1244,7 +1264,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "3e92e9af60c239b7"
+   "why": {
+    "A": "3 is a number of pets in the list, not a number of students. The mode is 1, and four students own more than one.",
+    "C": "6 is 2 × 3. Count the students above the mode instead: the two with 2, the one with 3 and the one with 5.",
+    "D": "5 is the largest number of pets anyone owns, not how many students. Four own more than the mode."
+   },
+   "content_hash": "b57c520962df3315"
   },
   {
    "id": "MA-W7-S1-Q11",
@@ -1328,7 +1353,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "ee4f13bebe081ba2"
+   "why": {
+    "A": "6 is 15 − 9, two of Ben’s weeks. Add all three for each: Ana 44 and Ben 46.",
+    "B": "4 is 18 − 14, two of Ana’s weeks. The totals are Ana 44 and Ben 46, so Ben is ahead.",
+    "C": "2 is the right gap with the wrong name on it: Ana sold 44 and Ben sold 46."
+   },
+   "content_hash": "afda2c8891ffa12f"
   },
   {
    "id": "MA-W7-S2-Q03",
@@ -1391,7 +1421,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "e616a9bd6377938a"
+   "why": {
+    "A": "27 is 20 + 7, the class and the mean added. A mean is shared out, so it multiplies back: 7 × 20 = 140.",
+    "B": "70 is 140 ÷ 2, half the books. Every one of the 20 read 7 on average: 7 × 20 = 140.",
+    "C": "280 is 140 × 2, the total counted twice. 7 × 20 = 140."
+   },
+   "content_hash": "665383a385df3666"
   },
   {
    "id": "MA-W7-S2-Q06",
@@ -1454,7 +1489,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "baf1d016beef8ddb"
+   "why": {
+    "B": "15 is 20 − 5, the black pens. The question asks how many pens there are altogether: 4 × 5 = 20.",
+    "C": "9 is 4 + 5. The 5 blue pens are one of four equal parts, so the parts multiply: 4 × 5 = 20.",
+    "D": "25 is 5 × 5, five parts of five. A quarter means four parts: 4 × 5 = 20."
+   },
+   "content_hash": "97220def66f250e9"
   },
   {
    "id": "MA-W7-S2-Q09",
@@ -1517,7 +1557,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "7d6936f5ba4ea59d"
+   "why": {
+    "B": "20 is the basketball group, a third of the sixty. Swimming is what is left over: 60 − 15 − 20 = 25.",
+    "C": "30 is 60 ÷ 2, half the students. The two named sports take 15 and 20, leaving 25.",
+    "D": "35 is 15 + 20, the two named groups together. The rest is the answer: 60 − 35 = 25."
+   },
+   "content_hash": "705a0c684b79fc36"
   },
   {
    "id": "MA-W7-S2-Q12",
@@ -1580,7 +1625,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "ce34c50d31c81fc1"
+   "why": {
+    "A": "13 is 9 + 4, as if the start were 4 rather than −4. Going right from −4 adds: −4 + 9 = 5.",
+    "B": "−5 is 9 − 4 made negative — the right size, the wrong direction. Moving right from −4 lands on 5.",
+    "C": "−13 is 9 + 4 made negative, moving left instead of right. Right means adding: −4 + 9 = 5."
+   },
+   "content_hash": "6d3f749418889935"
   },
   {
    "id": "MA-W8-S1-Q03",
@@ -1622,7 +1672,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "96927c4c3feccbfb"
+   "why": {
+    "A": "2 is 4 − 2, the bracket subtracted instead of added. Inside first: 4 + 2 = 6, then 48 ÷ 6 = 8 and 8 × 3 = 24.",
+    "C": "12 is 48 ÷ 4, dividing before the bracket is done. The bracket is 6, so 48 ÷ 6 = 8 and 8 × 3 = 24.",
+    "D": "8 is 48 ÷ 6, which is right but stops early. The × 3 is still to come: 8 × 3 = 24."
+   },
+   "content_hash": "53833d45bce387f4"
   },
   {
    "id": "MA-W8-S1-Q05",
@@ -1706,7 +1761,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "96c9da5412aff07b"
+   "why": {
+    "A": "20 is 5 × 4, adding the 5 in before the multiplying is done. Times and divide come first: 3 × 4 ÷ 2 = 6, then 5 + 6 = 11.",
+    "B": "8 is 5 + 3, adding left to right. The bracket and the × ÷ go first: 12 − 8 = 4, 3 × 4 = 12, 12 ÷ 2 = 6, so 11.",
+    "D": "16 is 8 × 2, using the 8 from inside the bracket after it has been used. The bracket is 4, and the answer is 5 + 6 = 11."
+   },
+   "content_hash": "448600d8d6accdc2"
   },
   {
    "id": "MA-W8-S1-Q09",
@@ -1790,7 +1850,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "9d3c47dec43546e0"
+   "why": {
+    "B": "7 is 4 + 3, the two numbers on the left added. Undo the 4 first: 32 ÷ 4 = 8, then 8 − 3 = 5.",
+    "C": "8 is 32 ÷ 4, which is n + 3 rather than n. Take the 3 off: 8 − 3 = 5.",
+    "D": "20 is 4 × 5, the answer multiplied back by the 4. n itself is 5."
+   },
+   "content_hash": "34ae7cd9ad58651a"
   },
   {
    "id": "MA-W8-S2-Q01",
@@ -1832,7 +1897,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "a7ba3799bffb9312"
+   "why": {
+    "A": "5 is 10 ÷ 2. Sixty per cent of 25 is 15 who do ride, so 25 − 15 = 10 who do not.",
+    "B": "15 is the number who DO ride the bus. The question asks for the rest: 25 − 15 = 10.",
+    "D": "40 is 10 × 4. The class is 25, and 15 of them ride, so 10 do not."
+   },
+   "content_hash": "6b118dfc307b769b"
   },
   {
    "id": "MA-W8-S2-Q03",

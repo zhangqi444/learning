@@ -22,7 +22,12 @@
       "misconceptions": "fraction-of-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "fcc0c77d7d9e3fbb"
+      "why": {
+        "A": "24 is 28 − 4, one quarter taken off instead of one kept. A quarter of 28 is 7, so three quarters is 7 × 3 = 21.",
+        "B": "18 is three short of the answer. A quarter of 28 is 7, and three of those quarters is 7 × 3 = 21.",
+        "D": "25 is 28 − 3, three bulbs taken off the total. Three quarters means 7 × 3 = 21."
+      },
+      "content_hash": "3d426e6273f294f5"
     },
     {
       "id": "QR-W1-S1-02",
@@ -127,7 +132,12 @@
       "misconceptions": "ratio-total-parts",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "a77d36840a5179cc"
+      "why": {
+        "A": "8 is 2 × 4. The ratio makes 5 parts, each 25 ÷ 5 = 5 marbles, so red is 2 × 5 = 10.",
+        "B": "12 is 3 × 4, using the blue number. Red is 2 parts of 5 marbles: 10.",
+        "C": "15 is the blue share, 3 parts of 5. Red is the other 2 parts: 10."
+      },
+      "content_hash": "2e51537a9a25b9b5"
     },
     {
       "id": "QR-W1-S1-07",
@@ -232,7 +242,12 @@
       "misconceptions": "unlike-denominator-subtraction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "ac5c0463d2f9ddf8"
+      "why": {
+        "B": "8 is the 8 out of one-eighth, not a count of servings. Written as eighths, 3/4 is 6/8 — six of them.",
+        "C": "4 is the 4 out of three-quarters. Rename it in eighths: 6/8, so six servings.",
+        "D": "5 is 8 − 3, the two bottom numbers subtracted. Rename 3/4 as 6/8 and count: six."
+      },
+      "content_hash": "ca5bccb0b119feb9"
     },
     {
       "id": "QR-W1-S1-12",
@@ -274,7 +289,12 @@
       "misconceptions": "inverse-operation-order",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "6aeaf2b8e27aad55"
+      "why": {
+        "A": "6 is the price of one ticket, not how many were bought. Divide instead: 24 ÷ 6 = 4.",
+        "B": "3 is 6 ÷ 2. The spend divides by the price: 24 ÷ 6 = 4 tickets.",
+        "D": "18 is 24 − 6, one ticket taken off the money. Each ticket costs 6, so 24 ÷ 6 = 4."
+      },
+      "content_hash": "817f6b689ff0e60f"
     },
     {
       "id": "QR-W1-S2-02",
@@ -421,7 +441,12 @@
       "misconceptions": "inverse-fraction-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "0ece6f7af43f562b"
+      "why": {
+        "B": "21 is 18 + 3. One quarter of the tank is 18 ÷ 3 = 6 gallons, so the full tank is 6 × 4 = 24.",
+        "C": "22 is 18 + 4. Three quarters is 18 gallons, so a quarter is 6 and the whole tank is 24.",
+        "D": "27 is 24 + 3, the answer with three more added on. The tank holds 24."
+      },
+      "content_hash": "189a0466b1abb615"
     },
     {
       "id": "QR-W1-S2-09",
@@ -589,7 +614,12 @@
       "misconceptions": "square-area-vs-side",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "6470dfc82b8b7597"
+      "why": {
+        "A": "56 is 49 + 7, the display with one more row added. Seven rows of seven is 7 × 7 = 49.",
+        "C": "28 is 7 × 4, four rows. There are seven: 7 × 7 = 49.",
+        "D": "14 is 7 + 7, two rows added rather than seven rows multiplied: 7 × 7 = 49."
+      },
+      "content_hash": "243ce14768374eeb"
     },
     {
       "id": "QR-W2-S1-02",
@@ -741,7 +771,12 @@
       "misconceptions": "multiplicative-pattern-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "0c08c99d4e2a7d70"
+      "why": {
+        "A": "24 is 25 − 1, one short. The counts are square arrays, and after 4 × 4 = 16 comes 5 × 5 = 25.",
+        "B": "20 is 4 + 16, two of the earlier counts added. Each count is a square number: next is 5 × 5 = 25.",
+        "C": "36 is 6 × 6, one square too far. The one straight after 16 is 5 × 5 = 25."
+      },
+      "content_hash": "e46314d0a7037856"
     },
     {
       "id": "QR-W2-S1-09",
@@ -888,7 +923,12 @@
       "misconceptions": "exponent-as-repeated-multiplication",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "b10aaf251d5b708c"
+      "why": {
+        "A": "16 is 8 + 8, two rows added. The mural is 8 rows of 8: 8 × 8 = 64.",
+        "C": "128 is 64 × 2, the grid counted twice. Both cover 64.",
+        "D": "32 is 64 ÷ 2, half of it. 8 × 8 = 64, and doubling 2 six times also gives 64."
+      },
+      "content_hash": "67ac03556f368c54"
     },
     {
       "id": "QR-W2-S2-04",
@@ -951,7 +991,12 @@
       "misconceptions": "lcm-vs-gcf",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "48c7a73635e37908"
+      "why": {
+        "B": "12 is 6 × 2, when only the six-minute bell rings. The eight-minute bell is not there until 24.",
+        "C": "48 is 6 × 8, multiplying the two gaps. They do meet at 48, but 24 comes first.",
+        "D": "18 is 6 × 3, another six-minute ring. The first time both ring is 24."
+      },
+      "content_hash": "9f9ea51214efe2ff"
     },
     {
       "id": "QR-W2-S2-07",
@@ -972,7 +1017,12 @@
       "misconceptions": "gcf-vs-lcm",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "c35b4e7c1e9e1af7"
+      "why": {
+        "A": "12 is 24 ÷ 2, which does not divide 18. The largest number that divides both is 6.",
+        "B": "9 is 18 ÷ 2, which does not divide 24. The bundles must split both: 6.",
+        "D": "3 divides both, but it is not the largest that does. 6 divides 18 and 24 as well."
+      },
+      "content_hash": "ccd89df1cc18cc01"
     },
     {
       "id": "QR-W2-S2-08",
@@ -1119,7 +1169,12 @@
       "misconceptions": "complete-factor-list",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "b7aa1f993581c072"
+      "why": {
+        "A": "16 has 1, 2, 4, 8 among its factors but 16 as well, so the tags would not stop at 8.",
+        "B": "6 is 2 + 4. Its factors are 1, 2, 3 and 6, which is not the list on the tags.",
+        "C": "4 has only 1, 2 and 4 as factors — the 8 would have no tag."
+      },
+      "content_hash": "98c75e1d883a947e"
     },
     {
       "id": "QR-W2-S2-15",
@@ -1391,7 +1446,12 @@
       "misconceptions": "order-before-median",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "a5b76ea38e9bf6d9"
+      "why": {
+        "B": "9 is halfway between 4 and 14, not a value in the list. With five in order the median is the third: 8.",
+        "C": "4 is the second locker number. The middle of five is the third: 8.",
+        "D": "10 is the fourth locker number, one past the middle. The third is 8."
+      },
+      "content_hash": "3f0311966ea4c860"
     },
     {
       "id": "QR-W3-S1-12",
@@ -1569,7 +1629,12 @@
       "misconceptions": "order-before-median",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "166dbaac300dd603"
+      "why": {
+        "A": "8 is halfway between 7 and 9, and is not one of the scores. With seven in order the median is the fourth: 9.",
+        "B": "7 is the third score. The middle of seven values is the fourth: 9.",
+        "D": "12 is the fifth score, one past the middle. The fourth is 9."
+      },
+      "content_hash": "4eead505194e35ee"
     },
     {
       "id": "QR-W3-S2-08",
@@ -1758,7 +1823,12 @@
       "misconceptions": "fraction-division-direction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "99e3d101e95943bb"
+      "why": {
+        "B": "4 is the 4 out of three-quarters, not a number of pots. Rename 3/4 as 6/8: six pots.",
+        "C": "8 is the 8 out of one-eighth. Count how many eighths are in 3/4: it is 6/8, so six.",
+        "D": "3 is the 3 out of three-quarters. As eighths that is 6/8, which fills six pots."
+      },
+      "content_hash": "4b69e44c49d6e5d8"
     },
     {
       "id": "QR-W4-S1-02",
@@ -1978,7 +2048,12 @@
       "misconceptions": "multiplicative-pattern-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "89116f8f2669bf28"
+      "why": {
+        "A": "30 is 24 + 6, adding an earlier week on. The pattern doubles each time: 24 × 2 = 48.",
+        "B": "36 is 12 + 24, the last two weeks added. They double rather than add: 48.",
+        "C": "60 is 12 + 48, one week too many added on. Doubling 24 gives 48."
+      },
+      "content_hash": "2cbabd3e02d47abd"
     },
     {
       "id": "QR-W4-S1-12",
@@ -1999,7 +2074,12 @@
       "misconceptions": "combined-divisibility-tests",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "f994619d5c4bcbf3"
+      "why": {
+        "B": "20 divides by 4 but not by 6. The count has to work for both: 24.",
+        "C": "18 divides by 6 but not by 4. The first that does both is 24.",
+        "D": "30 divides by 6 but not by 4. 24 divides by both: 24 ÷ 4 = 6 and 24 ÷ 6 = 4."
+      },
+      "content_hash": "c19411a3eee7d9d2"
     },
     {
       "id": "QR-W4-S2-01",
@@ -2062,7 +2142,12 @@
       "misconceptions": "ratio-part-to-part",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "52ff42f61a22976c"
+      "why": {
+        "A": "15 is the white share, 5 parts of 7. Blue is the other 2 parts: 6 cups.",
+        "C": "7 is 2 + 5, the number of parts rather than cups. Each part is 21 ÷ 7 = 3, so blue is 6.",
+        "D": "10 is 2 × 5, the two ratio numbers multiplied. Blue is 2 parts of 3 cups: 6."
+      },
+      "content_hash": "4c2a005f3826bbb9"
     },
     {
       "id": "QR-W4-S2-04",
