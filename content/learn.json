@@ -12,8 +12,16 @@
       ],
       "trap": "The most tempting wrong answer is usually a real detail from the passage. True is not the same as main.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "main idea reading comprehension" },
-        { "name": "BBC Bitesize", "free": true, "q": "main idea of a text KS2" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "main idea reading comprehension"
+        },
+        {
+          "name": "BBC Bitesize",
+          "free": true,
+          "q": "main idea of a text KS2"
+        }
       ]
     },
     "Supporting detail/evidence": {
@@ -26,7 +34,11 @@
       ],
       "trap": "A choice that sounds sensible and is true about the world, but is never said in the passage.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "supporting details text evidence reading" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "supporting details text evidence reading"
+        }
       ]
     },
     "Inference": {
@@ -39,7 +51,11 @@
       ],
       "trap": "Going too far. If you need to invent anything at all, it is a guess, not an inference.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "making inferences reading comprehension" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "making inferences reading comprehension"
+        }
       ]
     },
     "Organization/logic": {
@@ -52,8 +68,16 @@
       ],
       "trap": "Answering about what a paragraph SAYS when the question asked what it DOES.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "text structure and organization reading" },
-        { "name": "ReadWriteThink", "free": true, "q": "text structure paragraph purpose" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "text structure and organization reading"
+        },
+        {
+          "name": "ReadWriteThink",
+          "free": true,
+          "q": "text structure paragraph purpose"
+        }
       ]
     },
     "Vocabulary in context": {
@@ -66,7 +90,11 @@
       ],
       "trap": "Picking the word's most common meaning. The question exists because the passage is using a less common one.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "words in context reading comprehension" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "words in context reading comprehension"
+        }
       ]
     },
     "Tone/style/figurative language": {
@@ -79,10 +107,13 @@
       ],
       "trap": "Choosing a very strong word — furious, terrified — when the passage is only mildly anything. Most writing is mild.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "author tone and figurative language" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "author tone and figurative language"
+        }
       ]
     },
-
     "Perimeter": {
       "sub": "ma",
       "what": "The distance all the way round the outside of a shape.",
@@ -92,10 +123,21 @@
         "Going backwards? Take off the two sides you know, then halve what is left."
       ],
       "trap": "Multiplying. Length x width is the area — the space inside — not the walk around the edge.",
-      "example": { "q": "A banner is 10 cm by 3 cm. What is its perimeter?", "work": "10 + 3 + 10 + 3 = 26 cm. (10 x 3 = 30 would be the area.)" },
+      "example": {
+        "q": "A banner is 10 cm by 3 cm. What is its perimeter?",
+        "work": "10 + 3 + 10 + 3 = 26 cm. (10 x 3 = 30 would be the area.)"
+      },
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "perimeter of a rectangle" },
-        { "name": "Math is Fun", "free": true, "q": "perimeter" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "perimeter of a rectangle"
+        },
+        {
+          "name": "Math is Fun",
+          "free": true,
+          "q": "perimeter"
+        }
       ]
     },
     "Area": {
@@ -107,10 +149,21 @@
         "Given the area and one side, divide to get the other side back."
       ],
       "trap": "Forgetting the half on a triangle, and adding sides instead of multiplying.",
-      "example": { "q": "A triangular flag has base 10 cm and height 6 cm.", "work": "Half of 10 x 6 = half of 60 = 30 cm2. (60 is the whole rectangle.)" },
+      "example": {
+        "q": "A triangular flag has base 10 cm and height 6 cm.",
+        "work": "Half of 10 x 6 = half of 60 = 30 cm2. (60 is the whole rectangle.)"
+      },
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "area of rectangles and triangles" },
-        { "name": "Math is Fun", "free": true, "q": "area of plane shapes" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "area of rectangles and triangles"
+        },
+        {
+          "name": "Math is Fun",
+          "free": true,
+          "q": "area of plane shapes"
+        }
       ]
     },
     "Angles": {
@@ -122,9 +175,16 @@
         "Given two angles of a triangle, subtract both from 180."
       ],
       "trap": "Using 360 for a triangle. A triangle is 180 — a four-sided shape is 360.",
-      "example": { "q": "A triangle has angles 45 and 60. What is the third?", "work": "180 - 45 - 60 = 75 degrees." },
+      "example": {
+        "q": "A triangle has angles 45 and 60. What is the third?",
+        "work": "180 - 45 - 60 = 75 degrees."
+      },
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "angles in a triangle sum 180" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "angles in a triangle sum 180"
+        }
       ]
     },
     "Percent": {
@@ -136,10 +196,21 @@
         "Build harder ones from those: 30% is three lots of 10%."
       ],
       "trap": "Finding the percent when the question asked what the whole was, or the other way round. Say out loud which number is the whole.",
-      "example": { "q": "What is 30% of 60?", "work": "10% of 60 is 6, so 30% is 3 x 6 = 18." },
+      "example": {
+        "q": "What is 30% of 60?",
+        "work": "10% of 60 is 6, so 30% is 3 x 6 = 18."
+      },
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "percent of a number" },
-        { "name": "Math is Fun", "free": true, "q": "percentage" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "percent of a number"
+        },
+        {
+          "name": "Math is Fun",
+          "free": true,
+          "q": "percentage"
+        }
       ]
     },
     "Fractions": {
@@ -151,10 +222,21 @@
         "Dividing by a fraction: flip it over and multiply."
       ],
       "trap": "Adding the bottoms. A half plus a quarter is not two sixths.",
-      "example": { "q": "1/2 + 1/4", "work": "1/2 is 2/4, so 2/4 + 1/4 = 3/4." },
+      "example": {
+        "q": "1/2 + 1/4",
+        "work": "1/2 is 2/4, so 2/4 + 1/4 = 3/4."
+      },
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "adding fractions unlike denominators" },
-        { "name": "Math is Fun", "free": true, "q": "fractions" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "adding fractions unlike denominators"
+        },
+        {
+          "name": "Math is Fun",
+          "free": true,
+          "q": "fractions"
+        }
       ]
     },
     "Decimals": {
@@ -167,7 +249,11 @@
       ],
       "trap": "Thinking 0.35 is bigger than 0.5 because it has more digits. Compare place by place.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "comparing and adding decimals" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "comparing and adding decimals"
+        }
       ]
     },
     "Whole-number operations": {
@@ -180,7 +266,11 @@
       ],
       "trap": "A single place-value slip. Estimating first catches almost all of them.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "multi digit addition and subtraction" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "multi digit addition and subtraction"
+        }
       ]
     },
     "Order of operations": {
@@ -192,9 +282,16 @@
         "So are add and subtract. Left to right again."
       ],
       "trap": "Working strictly left to right through everything, which gets 2 + 3 x 4 wrong.",
-      "example": { "q": "2 + 3 x 4", "work": "Multiply first: 3 x 4 = 12, then 2 + 12 = 14. Not 20." },
+      "example": {
+        "q": "2 + 3 x 4",
+        "work": "Multiply first: 3 x 4 = 12, then 2 + 12 = 14. Not 20."
+      },
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "order of operations" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "order of operations"
+        }
       ]
     },
     "Parity": {
@@ -207,7 +304,11 @@
       ],
       "trap": "Assuming odd + odd is odd. Two odds always make an even.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "even and odd numbers rules" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "even and odd numbers rules"
+        }
       ]
     },
     "Number sense": {
@@ -220,7 +321,11 @@
       ],
       "trap": "Trusting a worked answer that is wildly the wrong size. The estimate is the check.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "estimation and number sense" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "estimation and number sense"
+        }
       ]
     },
     "Geometry": {
@@ -233,8 +338,16 @@
       ],
       "trap": "Answering from the picture looking about right instead of from the numbers given.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "basic geometry shapes and properties" },
-        { "name": "Math is Fun", "free": true, "q": "geometry" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "basic geometry shapes and properties"
+        },
+        {
+          "name": "Math is Fun",
+          "free": true,
+          "q": "geometry"
+        }
       ]
     },
     "Algebraic reasoning": {
@@ -247,7 +360,611 @@
       ],
       "trap": "Changing one side and not the other. Whatever you do, do it to both.",
       "links": [
-        { "name": "Khan Academy", "free": true, "q": "solving one step equations" }
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "solving one step equations"
+        }
+      ]
+    },
+    "Mean": {
+      "sub": "qr",
+      "what": "The average: share everything out equally.",
+      "how": [
+        "Add every number together.",
+        "Divide by how many numbers there were.",
+        "Check: the mean must land between the smallest and the largest."
+      ],
+      "trap": "Dividing by the wrong count. Count the numbers, not the total.",
+      "example": {
+        "q": "Mean of 54, 58 and 62?",
+        "work": "54 + 58 + 62 = 174, and 174 ÷ 3 = 58."
+      },
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "mean average of a data set"
+        }
+      ]
+    },
+    "Median": {
+      "sub": "qr",
+      "what": "The middle number once they are in order.",
+      "how": [
+        "Put them in order first. Always.",
+        "Odd count: the one in the middle. Even count: the mean of the middle two.",
+        "Cross off from both ends together until you meet."
+      ],
+      "trap": "Taking the middle of the list as written, without sorting it.",
+      "example": {
+        "q": "Median of 53, 56, 59, 62, 66?",
+        "work": "Already in order, five numbers, so the third: 59."
+      },
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "median of a data set"
+        }
+      ]
+    },
+    "Mode": {
+      "sub": "qr",
+      "what": "The value that appears most often.",
+      "how": [
+        "Count how many times each value appears.",
+        "The one with the highest count is the mode.",
+        "There can be two modes, or none at all."
+      ],
+      "trap": "Giving how many times it appeared instead of the value itself.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "mode of a data set"
+        }
+      ]
+    },
+    "Range": {
+      "sub": "qr",
+      "what": "How spread out the numbers are: largest minus smallest.",
+      "how": [
+        "Find the biggest and the smallest.",
+        "Subtract.",
+        "The range is one number, not a pair."
+      ],
+      "trap": "Writing it as \"5 to 20\". The range of that is 15.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "range of a data set"
+        }
+      ]
+    },
+    "Average": {
+      "sub": "qr",
+      "what": "Another word for the mean.",
+      "how": [
+        "Add them all, divide by how many.",
+        "If the average and the count are given, multiply to get the total back.",
+        "Check the answer sits between the smallest and largest."
+      ],
+      "trap": "Forgetting that a missing value can be found by working backwards from the total.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "average word problems"
+        }
+      ]
+    },
+    "Volume": {
+      "sub": "qr",
+      "what": "How much space is inside a solid.",
+      "how": [
+        "A box: length × width × height.",
+        "Think of it as the area of the bottom, stacked up as many layers as it is tall.",
+        "Units are cubed."
+      ],
+      "trap": "Adding the three numbers, or multiplying only two of them.",
+      "example": {
+        "q": "A box is 6 by 2 by 2.",
+        "work": "6 × 2 × 2 = 24 cubic units."
+      },
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "volume of rectangular prisms"
+        },
+        {
+          "name": "Math is Fun",
+          "free": true,
+          "q": "volume"
+        }
+      ]
+    },
+    "Volume reasoning": {
+      "sub": "qr",
+      "what": "Working backwards from a volume, or comparing two solids.",
+      "how": [
+        "Volume = length × width × height, so divide by the two you know to find the third.",
+        "Doubling one side doubles the volume; doubling all three makes it eight times.",
+        "Same volume does not mean same shape."
+      ],
+      "trap": "Assuming two boxes with the same volume must have the same surface area.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "volume word problems"
+        }
+      ]
+    },
+    "Probability": {
+      "sub": "qr",
+      "what": "How likely something is, written as a fraction.",
+      "how": [
+        "Top: how many ways it can happen. Bottom: how many ways anything can happen.",
+        "Count the total carefully — it is every item, not just the ones you want.",
+        "Always between 0 and 1."
+      ],
+      "trap": "Putting the wrong number on the bottom. 4 red and 6 blue means 10 on the bottom, not 6.",
+      "example": {
+        "q": "4 red and 6 blue. P(red)?",
+        "work": "4 out of 10 = 4/10 = 2/5."
+      },
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "basic probability"
+        }
+      ]
+    },
+    "Unit rate": {
+      "sub": "qr",
+      "what": "How much for exactly one.",
+      "how": [
+        "Divide the total by how many there were.",
+        "Say the units out loud: dollars per item, miles per hour.",
+        "To compare two deals, get both down to one."
+      ],
+      "trap": "Dividing the wrong way round. The thing you want \"per\" goes on the bottom.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "unit rates"
+        }
+      ]
+    },
+    "Ratio": {
+      "sub": "qr",
+      "what": "How two amounts compare, part to part.",
+      "how": [
+        "3 : 2 means for every 3 of the first there are 2 of the second.",
+        "Total parts = 3 + 2 = 5. Divide the whole by 5 to find one part.",
+        "Scale both sides by the same number to keep the ratio."
+      ],
+      "trap": "Treating 3 : 2 as 3 out of 2. It is 3 out of 5.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "ratios intro"
+        },
+        {
+          "name": "Math is Fun",
+          "free": true,
+          "q": "ratios"
+        }
+      ]
+    },
+    "Scale": {
+      "sub": "qr",
+      "what": "A drawing or model where every length is multiplied by the same number.",
+      "how": [
+        "Find the scale factor: real length ÷ drawing length.",
+        "Multiply to go from drawing to real; divide to come back.",
+        "Every length uses the same factor."
+      ],
+      "trap": "Applying the factor to some measurements but not others.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "scale drawings"
+        }
+      ]
+    },
+    "Scale reasoning": {
+      "sub": "qr",
+      "what": "What happens to area and volume when you scale a shape.",
+      "how": [
+        "Double every length and the area goes up four times.",
+        "Double every length and the volume goes up eight times.",
+        "Lengths × k, areas × k², volumes × k³."
+      ],
+      "trap": "Assuming doubling the sides doubles the area. It quadruples it.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "scaling and area"
+        }
+      ]
+    },
+    "Measurement": {
+      "sub": "qr",
+      "what": "Converting between units without losing track.",
+      "how": [
+        "Write the conversion you know: 1 foot = 12 inches.",
+        "Going to smaller units, multiply. Going to bigger units, divide.",
+        "Check the size: inches should be a bigger number than feet."
+      ],
+      "trap": "Multiplying when you should divide. Ask first whether the answer should get bigger or smaller.",
+      "example": {
+        "q": "3 feet in inches?",
+        "work": "3 × 12 = 36 inches."
+      },
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "unit conversion word problems"
+        }
+      ]
+    },
+    "Coordinates": {
+      "sub": "qr",
+      "what": "Finding a point on a grid using two numbers.",
+      "how": [
+        "(x, y): along the corridor first, then up the stairs.",
+        "Distance along a flat line is just the difference of the numbers.",
+        "Plot the points before answering — always draw it."
+      ],
+      "trap": "Swapping x and y. The first number is sideways.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "coordinate plane"
+        },
+        {
+          "name": "Math is Fun",
+          "free": true,
+          "q": "cartesian coordinates"
+        }
+      ]
+    },
+    "Algebra": {
+      "sub": "ma",
+      "what": "Using a letter for a number you do not know yet.",
+      "how": [
+        "Turn the sentence into a sum with a letter in it.",
+        "Do the same thing to both sides until the letter stands alone.",
+        "Substitute your answer back in and check."
+      ],
+      "trap": "Doing something to one side and forgetting the other.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "one step equations"
+        }
+      ]
+    },
+    "Expression": {
+      "sub": "qr",
+      "what": "A sum with a letter in it, which you evaluate rather than solve.",
+      "how": [
+        "Replace the letter with the number given.",
+        "Then follow the order of operations: brackets, multiply/divide, add/subtract.",
+        "There is no equals sign to balance — just work it out."
+      ],
+      "trap": "Trying to solve for the letter when the question only asked you to put a number in.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "evaluating expressions"
+        }
+      ]
+    },
+    "Exponents": {
+      "sub": "qr",
+      "what": "A small raised number saying how many times to multiply.",
+      "how": [
+        "4³ means 4 × 4 × 4, not 4 × 3.",
+        "Anything to the power 1 is itself; to the power 0 is 1.",
+        "Work out the power before multiplying or adding."
+      ],
+      "trap": "Multiplying the base by the exponent. 4³ is 64, not 12.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "intro to exponents"
+        }
+      ]
+    },
+    "Squares": {
+      "sub": "qr",
+      "what": "A number multiplied by itself.",
+      "how": [
+        "7² = 7 × 7 = 49.",
+        "Learn 1 to 15 by heart — they come up constantly.",
+        "A square number is the area of a square with whole sides."
+      ],
+      "trap": "Doubling instead of squaring.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "squares and square roots"
+        }
+      ]
+    },
+    "Square roots": {
+      "sub": "qr",
+      "what": "The number that was multiplied by itself to get this one.",
+      "how": [
+        "√49 asks: what times itself makes 49? 7.",
+        "If it is not a perfect square, find the two whole numbers it sits between.",
+        "Squaring and square-rooting undo each other."
+      ],
+      "trap": "Halving instead of rooting. √36 is 6, not 18.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "square roots intro"
+        }
+      ]
+    },
+    "Factors": {
+      "sub": "qr",
+      "what": "Numbers that divide into it exactly, with nothing left over.",
+      "how": [
+        "Go up in pairs from 1: 1 and 12, 2 and 6, 3 and 4.",
+        "Stop when the pair meets in the middle.",
+        "Every number has 1 and itself as factors."
+      ],
+      "trap": "Mixing up factors with multiples. Factors are smaller; multiples are bigger.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "factors and multiples"
+        }
+      ]
+    },
+    "Multiples": {
+      "sub": "qr",
+      "what": "What you get counting up in steps of that number.",
+      "how": [
+        "Multiples of 4: 4, 8, 12, 16, and on forever.",
+        "A common multiple appears in both lists.",
+        "The lowest common multiple is the first one they share."
+      ],
+      "trap": "Calling a factor a multiple. Multiples are the bigger ones.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "least common multiple"
+        }
+      ]
+    },
+    "Divisibility": {
+      "sub": "qr",
+      "what": "Quick tests for whether one number divides another.",
+      "how": [
+        "2: ends even. 5: ends 0 or 5. 10: ends 0.",
+        "3: the digits add to a multiple of 3. 9: they add to a multiple of 9.",
+        "4: the last two digits make a multiple of 4."
+      ],
+      "trap": "Doing the whole division when a digit test would have answered it in two seconds.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "divisibility rules"
+        }
+      ]
+    },
+    "Prime factors": {
+      "sub": "qr",
+      "what": "Breaking a number into the primes that multiply to make it.",
+      "how": [
+        "Split it into any two factors, then keep splitting.",
+        "Stop when every branch is prime.",
+        "Every number has exactly one prime factorisation."
+      ],
+      "trap": "Stopping too early and leaving a number that can still be split.",
+      "example": {
+        "q": "36",
+        "work": "36 = 4 × 9 = 2 × 2 × 3 × 3."
+      },
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "prime factorization"
+        }
+      ]
+    },
+    "Remainders": {
+      "sub": "qr",
+      "what": "What is left over when a division does not come out exactly.",
+      "how": [
+        "Divide as far as whole numbers go, then see what is left.",
+        "The remainder is always smaller than what you divided by.",
+        "Check: divisor × answer + remainder = the number you started with."
+      ],
+      "trap": "Giving a remainder bigger than the divisor — that means the answer was too small.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "division with remainders"
+        }
+      ]
+    },
+    "Division": {
+      "sub": "ma",
+      "what": "Sharing into equal groups, or asking how many fit.",
+      "how": [
+        "Ask which it is: how many each, or how many groups?",
+        "Estimate first so you know roughly what to expect.",
+        "Multiply back to check."
+      ],
+      "trap": "Dividing the wrong way round. The whole goes inside the bracket.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "long division"
+        }
+      ]
+    },
+    "Number properties": {
+      "sub": "qr",
+      "what": "Facts that stay true about numbers whatever the numbers are.",
+      "how": [
+        "Try it with small numbers first — 2, 3, 10.",
+        "If you can find one case where it fails, it is false.",
+        "Odd and even, positive and negative, zero and one behave in fixed ways."
+      ],
+      "trap": "Testing only one example and assuming it always holds.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "properties of numbers"
+        }
+      ]
+    },
+    "Consecutive integers": {
+      "sub": "qr",
+      "what": "Whole numbers one after another: 7, 8, 9.",
+      "how": [
+        "Call the first one n; the next are n+1, n+2.",
+        "Their total is the middle one times how many there are, when the count is odd.",
+        "Consecutive even or odd numbers go up in twos."
+      ],
+      "trap": "Writing n, n+1, n+2 for consecutive EVEN numbers. Those go n, n+2, n+4.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "consecutive integers word problems"
+        }
+      ]
+    },
+    "Pattern": {
+      "sub": "qr",
+      "what": "A sequence built by the same rule each step.",
+      "how": [
+        "Find the difference between one term and the next.",
+        "Same difference each time? Keep adding it. Doubling? It is multiplying.",
+        "Write the rule in words before using it."
+      ],
+      "trap": "Guessing from the first two terms. Check the rule against a third.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "number patterns"
+        }
+      ]
+    },
+    "Estimation": {
+      "sub": "qr",
+      "what": "A rough answer, quickly, to check the real one.",
+      "how": [
+        "Round each number to something easy.",
+        "Do the easy sum in your head.",
+        "Compare it with your worked answer — they should be close."
+      ],
+      "trap": "Rounding both numbers the same way and forgetting the estimate is now always high or always low.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "estimating sums and differences"
+        }
+      ]
+    },
+    "Data": {
+      "sub": "ma",
+      "what": "Reading a table, chart or graph without misreading it.",
+      "how": [
+        "Read the title and both axis labels before anything else.",
+        "Check what one square or one step on the scale is worth.",
+        "Find the number the question asks for; do not eyeball it."
+      ],
+      "trap": "Assuming each gridline is 1 when the scale says 5.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "reading bar graphs and tables"
+        }
+      ]
+    },
+    "Data reasoning": {
+      "sub": "qr",
+      "what": "Drawing a conclusion from a chart or a set of numbers.",
+      "how": [
+        "Say what the data shows in one plain sentence first.",
+        "Only then look at the choices.",
+        "A conclusion must follow from the numbers, not from what seems likely."
+      ],
+      "trap": "Choosing an answer that is probably true in real life but is not shown by this data.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "interpreting data displays"
+        }
+      ]
+    },
+    "Symmetry": {
+      "sub": "qr",
+      "what": "A shape that folds onto itself exactly.",
+      "how": [
+        "Imagine folding along a line — do the halves match?",
+        "A square has four lines of symmetry; a rectangle has two.",
+        "Rotational symmetry is turning, not folding."
+      ],
+      "trap": "Counting a diagonal as a line of symmetry on a rectangle. It is not.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "line of symmetry"
+        }
+      ]
+    },
+    "Mixed reasoning": {
+      "sub": "qr",
+      "what": "A question that needs more than one idea joined together.",
+      "how": [
+        "Work out what you are actually being asked for, in words.",
+        "List what you were given, and what each piece lets you find.",
+        "Do it one step at a time, writing each result down."
+      ],
+      "trap": "Trying to leap straight to the answer. Two small steps beat one guess.",
+      "links": [
+        {
+          "name": "Khan Academy",
+          "free": true,
+          "q": "multi step word problems"
+        }
       ]
     }
   }

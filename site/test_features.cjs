@@ -1155,6 +1155,18 @@ async function runThrough(pg, pick, max = 60) {
   const lc = await pg.textContent('[data-testid=learn-card]').catch(() => '');
   check('a miss teaches the skill right there, for free', !!lc && /\w/.test(lc), lc.replace(/\s+/g, ' ').slice(0, 100));
   check('and names the trap out loud', !!(await pg.$('[data-testid=learn-trap]')));
+  // Every maths and Reading skill in the bank teaches itself. A new question
+  // carrying a skill nobody has written a card for should fail here, loudly,
+  // rather than quietly falling through to a web search.
+  const cover = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const have = new Set(Object.keys(b.learn.skills));
+    const need = new Set();
+    for (const s of ['qr', 'ma', 'rc']) for (const q of b.subjects[s]) if (q.sk) need.add(q.sk);
+    return { total: need.size, missing: [...need].filter((k) => !have.has(k)) };
+  });
+  check('every maths and reading skill has a card of our own', cover.missing.length === 0,
+    `${cover.total - cover.missing.length} of ${cover.total}${cover.missing.length ? ' · missing ' + cover.missing.join(', ') : ''}`);
   const freeMarks = await pg.$$eval('[data-testid=learn-link]', (n) => n.map((e) => e.dataset.free));
   check('every outside link says whether it costs money', freeMarks.length > 0 && freeMarks.every((f) => f === '1' || f === '0'), freeMarks.join(','));
   check('a maths miss names the chapter that teaches it, not a web search',

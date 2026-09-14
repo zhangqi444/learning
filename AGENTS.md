@@ -523,9 +523,11 @@ does not buy them had no way back into a question she got wrong, so
 `content/learn.json` carries our own card per skill — what the question is really
 asking, two or three steps, the trap named out loud, a worked example — rendered
 by `LearnCard` at the top of the reveal. It is bundled text: no account, no
-request, works offline and inside the single-file artifact. Eighteen cards so
-far: all six Reading skills, which nothing else in the repo covers, and the
-twelve maths skills she has actually missed.
+request, works offline and inside the single-file artifact. Fifty-one cards: every
+maths and Reading skill in the bank, Reading first because nothing else in the
+repo — or in AoPS, which is a maths curriculum — has ever covered it. A test
+asserts the coverage, so a question carrying a skill nobody has written a card
+for fails loudly instead of quietly falling through to a web search.
 
 Outside links sit under it as site-scoped searches, each marked **free** or
 **paid** so nobody meets a paywall by walking into one. Searches rather than deep
