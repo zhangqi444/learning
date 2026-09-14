@@ -26,6 +26,31 @@ def _eval(expr):
     try: return eval(e, {'__builtins__':{}}, {})       # digits and operators only, checked above
     except Exception: return None
 
+# ---- a word question has to say what the word means -------------------------
+# "RESOLUTE most nearly means" is a question about one word, and a miss on it
+# teaches nothing at all unless the page then says what the word means. All 235
+# of them do now.
+#
+# The rule that is NOT here is worth recording, because it was written first and
+# it was wrong: that the explanation must contain the correct choice verbatim.
+# The key is only ONE right synonym, and a good gloss is free to use another —
+# "fortunate means favored by good luck" never says "lucky", and "immense means
+# extremely large" never says "enormous". It fired on twenty perfectly correct
+# explanations, and a check that fails on good content is worse than no check,
+# because it teaches everyone to scroll past the output.
+BLANK=re.compile(r'_{2,}')
+
+def gloss_errors(it):
+    # A Verbal item with no blank in it is a question about one word: "RESOLUTE
+    # most nearly means", "A UTOPIA is", "In 'raised more capital,' CAPITAL
+    # means". Sentence completions are the ones with the gap, and they are a
+    # different thing — what teaches those is the clue in the sentence, not a
+    # definition, so they are not covered here.
+    if it.get('subject') != 'VR' or BLANK.search(str(it.get('prompt') or '')): return []
+    if not str(it.get('explanation') or '').strip():
+        return [f'{it["id"]}: a word question with no explanation — a miss here teaches nothing']
+    return []
+
 def why_errors(it):
     w=it.get('why')
     if not w: return []
@@ -71,6 +96,7 @@ for f in sorted(os.listdir(BANKS)):
         if h!=it['content_hash']: errs.append(f'{i}: content_hash mismatch')
         if not it.get('explanation'): warns.append(f'{i}: no explanation')
         errs += why_errors(it)
+        errs += gloss_errors(it)
 
 # answer-position sanity per bank/form
 for f in sorted(os.listdir(BANKS)):
