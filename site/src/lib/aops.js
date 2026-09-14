@@ -72,9 +72,12 @@ export function learnCard(skill) { const n = learnName(skill); return n ? D.lear
 /** The lesson page itself where we have one, a site-scoped search where we do not.
  *  Khan Academy is free and its course structure is stable, so every card carries
  *  the exact unit, article or video for its skill — one tap from the mistake to the
- *  thing that teaches it, rather than a search page a ten-year-old has to read first.
- *  Those URLs are Khan's own, taken from their indexed pages and not composed here;
- *  the other three sites keep the search, which is why the fallback stays. */
+ *  thing that teaches it, rather than a search page a ten-year-old has to read
+ *  first. Math is Fun's pages are the same deal. Those URLs are the sites' own,
+ *  taken from their indexed pages and not composed here, which is exactly why the
+ *  four that remain are still searches: bbc.co.uk turns away the crawler that
+ *  would have confirmed them, and a deep link nobody has ever opened is worse
+ *  than a search that always lands somewhere. */
 const HOSTS = { "Khan Academy": "khanacademy.org", "Math is Fun": "mathsisfun.com", "BBC Bitesize": "bbc.co.uk/bitesize", "ReadWriteThink": "readwritethink.org" }
 export function learnLinkUrl(link) {
   if (link.url) return link.url

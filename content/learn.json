@@ -199,7 +199,8 @@
         {
           "name": "Math is Fun",
           "free": true,
-          "q": "perimeter"
+          "q": "perimeter",
+          "url": "https://www.mathsisfun.com/geometry/perimeter.html"
         }
       ]
     },
@@ -226,7 +227,8 @@
         {
           "name": "Math is Fun",
           "free": true,
-          "q": "area of plane shapes"
+          "q": "area of plane shapes",
+          "url": "https://www.mathsisfun.com/area.html"
         }
       ]
     },
@@ -275,7 +277,8 @@
         {
           "name": "Math is Fun",
           "free": true,
-          "q": "percentage"
+          "q": "percentage",
+          "url": "https://www.mathsisfun.com/percentage.html"
         }
       ]
     },
@@ -302,7 +305,8 @@
         {
           "name": "Math is Fun",
           "free": true,
-          "q": "fractions"
+          "q": "fractions",
+          "url": "https://www.mathsisfun.com/fractions.html"
         }
       ]
     },
@@ -419,7 +423,8 @@
         {
           "name": "Math is Fun",
           "free": true,
-          "q": "geometry"
+          "q": "geometry",
+          "url": "https://www.mathsisfun.com/geometry/"
         }
       ]
     },
@@ -562,7 +567,8 @@
         {
           "name": "Math is Fun",
           "free": true,
-          "q": "volume"
+          "q": "volume",
+          "url": "https://www.mathsisfun.com/geometry/volume.html"
         }
       ]
     },
@@ -643,7 +649,8 @@
         {
           "name": "Math is Fun",
           "free": true,
-          "q": "ratios"
+          "q": "ratios",
+          "url": "https://www.mathsisfun.com/numbers/ratio.html"
         }
       ]
     },
@@ -724,7 +731,8 @@
         {
           "name": "Math is Fun",
           "free": true,
-          "q": "cartesian coordinates"
+          "q": "cartesian coordinates",
+          "url": "https://www.mathsisfun.com/data/cartesian-coordinates.html"
         }
       ]
     },

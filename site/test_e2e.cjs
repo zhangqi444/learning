@@ -146,6 +146,23 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
       check('account row shows who is signed in', /Qi Zhang/.test(await pg.textContent('[data-slot=sidebar-footer]')));
     }
 
+    /* Nothing may run off the side of a phone. This is the cheapest check in the
+       suite and it caught a real one: the card that opens a Long Night put a
+       nowrap "Start Verbal Reasoning" in a grid column that could not shrink, so
+       413px of content sat in a 390px screen and the page she reads before a
+       mock was the page she had to drag sideways. Tables and code may scroll
+       inside their own box — the document may not. */
+    if (isPhone) {
+      const wide = [];
+      for (const h of ['#/', '#/mock', '#/mock/DGN', '#/checklist', '#/review', '#/score', '#/s/ma', '#/calendar', '#/quest', '#/base', '#/rewards', '#/books']) {
+        await pg.evaluate((x) => { location.hash = x; }, h);
+        await pg.waitForTimeout(350);
+        const over = await pg.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+        if (over > 1) wide.push(`${h} +${over}px`);
+      }
+      check('no page runs off the side of a phone', wide.length === 0, wide.join(', '));
+    }
+
     await pg.evaluate(() => { location.hash = '#/'; });
     await pg.waitForTimeout(400);
     await pg.screenshot({ path: `shot-${label}-home.png`, fullPage: label === 'phone' });
