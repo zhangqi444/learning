@@ -1,6 +1,6 @@
 import * as React from "react"
 import { ArrowRight, BookMarked, CheckCircle2, Flame, ListChecks, MessageSquareText, PenLine, Play, RotateCcw, Shuffle, Sparkles } from "lucide-react"
-import { effortPoints, streakInfo, thisWeekRange, wordStatus } from "@/lib/engine"
+import { dayKey, effortPoints, streakInfo, thisWeekRange, wordStatus } from "@/lib/engine"
 import { reviewPath, reviewTargetLabel, unseenReviews } from "@/lib/reviews"
 import { currentBook, readToday } from "@/lib/books"
 import { ReadinessCard } from "@/pages/score"
@@ -250,7 +250,9 @@ export function RecentSets() {
 export function Breaks() {
   const ev = upcoming(5)
   const test = Store.s.testDate
-  const days = test ? Math.round((new Date(test + "T00:00:00") - new Date(new Date().toISOString().slice(0, 10) + "T00:00:00")) / 86400000) : null
+  // dayKey, not toISOString: the countdown to the exam is the last thing that
+  // should quietly lose a day every evening.
+  const days = test ? Math.round((new Date(test + "T00:00:00") - new Date(dayKey() + "T00:00:00")) / 86400000) : null
   return (
     <Card>
       <CardHeader>

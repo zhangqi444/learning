@@ -23,7 +23,10 @@ import { mockSummary } from "@/pages/mock"
 import { allEvents } from "@/pages/calendar"
 
 /* ---------- date helpers ---------- */
-const iso = (d) => d.toISOString().slice(0, 10)
+/* Local, not UTC — see dayKey. Here it only feeds `addDays`, which starts from a
+ * local midnight, so the two cancelled out west of Greenwich and the bug was
+ * invisible; east of it every plan week would have started a day early. */
+const iso = (d) => dayKey(d.getTime())
 function addDays(s, n) { const d = new Date(s + "T00:00:00"); d.setDate(d.getDate() + n); return iso(d) }
 function weekRange(wk) { const a = D.starts[wk]; return [a, addDays(a, 6)] }
 function monthKey(s) { return s.slice(0, 7) }

@@ -908,6 +908,47 @@ async function runThrough(pg, pick, max = 60) {
   check('and only words — a Quantitative item is not a cat and is not drawn as one',
     (await pg.$$('[data-testid=at-the-door-qr] [data-testid=glim]')).length === 0);
 
+  // Three separate bugs have now been the same bug: a day read off an ISO string
+  // is Greenwich's day, and every day this app compares or shows is hers. Testing
+  // it in the machine's own timezone is what let all three through — west of
+  // Greenwich the two agree until the late afternoon, so the checks were green
+  // every morning. This runs in a timezone fourteen hours ahead, where they
+  // disagree for almost the whole day, and asserts the one number with no room
+  // for interpretation: a test set for today reads as today.
+  console.log('== the day is hers, not Greenwich\'s (runs in a shifted timezone)');
+  {
+    // Which side to stand on depends on the hour the suite runs: a +14 timezone
+    // is a day ahead of UTC only in UTC's afternoon and evening, and -11 is a day
+    // behind it only in the morning. Picking by the clock means the two never
+    // agree, so this check cannot go quietly green at three in the afternoon.
+    const tz = new Date().getUTCHours() < 11 ? 'Pacific/Midway' : 'Pacific/Kiritimati';
+    const far = await b.newContext({ viewport: { width: 1280, height: 900 }, timezoneId: tz });
+    await stubGoogle(far);
+    const fp = await far.newPage();
+    await fp.goto('http://localhost:8143/learning/', { waitUntil: 'networkidle' });
+    await signIn(fp);
+    const localToday = await fp.evaluate(() => {
+      const d = new Date();
+      const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+      const s = JSON.parse(localStorage.getItem('isee.v1'));
+      s.testDate = day;
+      localStorage.setItem('isee.v1', JSON.stringify(s));
+      return { day, utc: new Date().toISOString().slice(0, 10) };
+    });
+    check('the timezone really does disagree with UTC, or this proves nothing',
+      localToday.day !== localToday.utc, `${tz}: local ${localToday.day} vs UTC ${localToday.utc}`);
+    await fp.evaluate(() => { location.hash = '#/calendar'; });
+    await fp.reload({ waitUntil: 'networkidle' });
+    // Read the countdown element itself, not the page. The word "Today" also
+    // appears on the timeline marker, and matching the body text passed happily
+    // against the broken version — the check has to name the number it means.
+    await fp.waitForSelector('[data-testid=test-countdown]', { timeout: 8000 });
+    const countdown = (await fp.textContent('[data-testid=test-countdown]')).trim();
+    check('a test date of today reads as Today, not as a day either side of it',
+      countdown === 'Today', countdown);
+    await far.close();
+  }
+
   console.log('== the cats have voices (runs last: it replaces AudioContext)');
   // The only way to check synthesised sound is to record what it asks the audio
   // hardware for. The stub has to be installed before the page loads, because
