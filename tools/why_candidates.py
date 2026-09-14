@@ -20,10 +20,15 @@ acquire an invented one, and this is how you tell which they are.
 """
 import json, glob, os, re, sys, itertools, collections
 
-NUM = re.compile(r'\d+(?:\.\d+)?')
+# A minus sign is part of the number, not decoration. Without this the tool read
+# "−5" as 5 and offered "−5 is 9 − 4", which is arithmetic about the digit and a
+# lie about the answer — the same shape of mistake as reading "2/3" as 2, and it
+# survived the guard written for that one. The lookbehind keeps a hyphen inside a
+# word or a range out of it, so "12-by-3" is still twelve and three.
+NUM = re.compile(r'(?<!\w)[-\u2212]?\d+(?:\.\d+)?')
 
 def nums(s):
-    return [float(x) for x in NUM.findall(str(s).replace(',', ''))]
+    return [float(x.replace('\u2212', '-')) for x in NUM.findall(str(s).replace(',', ''))]
 
 def val(choice):
     """The value of a choice, but ONLY when the choice is a single plain number.
@@ -35,7 +40,7 @@ def val(choice):
     than one number is not.
     """
     s = str(choice)
-    if '/' in s or ':' in s or '–' in s or ' to ' in s:
+    if '/' in s or ':' in s or '\u2013' in s or ' to ' in s:
         return None
     n = nums(s)
     return n[0] if len(n) == 1 else None
