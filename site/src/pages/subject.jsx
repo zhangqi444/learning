@@ -4,6 +4,7 @@ import { ChevronRight, Play } from "lucide-react"
 import { D, SETSIZE, SUBJ, currentWeek, itemsFor, nextSet, setId, setsFor, subjProgress, weekLabel } from "@/lib/content"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
+import { PLACE } from "@/lib/world"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -148,7 +149,10 @@ export function Subject({ sub, wk }) {
       <Card className="from-primary/5 to-card bg-gradient-to-t gap-4">
         <CardHeader>
           <CardTitle className="text-2xl font-semibold tracking-tight">{SUBJ[sub].name}</CardTitle>
-          <CardDescription>{SUBJ[sub].blurb}</CardDescription>
+          {/* The place is said beside the subject, never instead of it: on the day
+              it counts the paper will say Verbal Reasoning, and a name she has to
+              translate back is a name that has failed. */}
+          <CardDescription>{SUBJ[sub].blurb}{PLACE[sub] ? ` · ${PLACE[sub]}` : ""}</CardDescription>
           <CardAction>
             {nx ? (
               <Button onClick={() => go(`/run/${sub}/${nx.wk}/${nx.n}`)}><Play /> Continue</Button>

@@ -5,6 +5,7 @@ import { D, currentWeek, weekLabel } from "@/lib/content"
 import { allReviews, isSeen, reviewsFor } from "@/lib/reviews"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
+import { W } from "@/lib/world"
 import { cn } from "@/lib/utils"
 import { ReviewCard } from "@/components/review-card"
 import { Badge } from "@/components/ui/badge"
@@ -197,7 +198,7 @@ export function EssayList() {
         <CardHeader>
           <CardDescription className="flex items-center gap-2"><PenLine className="size-4" /> Essay</CardDescription>
           <CardTitle className="text-2xl font-semibold tracking-tight">One prompt a week, thirty minutes</CardTitle>
-          <CardDescription>{D.essay.home.target}</CardDescription>
+          <CardDescription>{D.essay.home.target} This is {W.telling}: a week is only hers once she has written it down.</CardDescription>
         </CardHeader>
         <CardContent className="text-muted-foreground text-sm">{D.essay.home.structure} · {D.essay.home.goal}</CardContent>
       </Card>
