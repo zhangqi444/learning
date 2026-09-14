@@ -7,7 +7,7 @@
  * consonant note, not a buzzer: it marks the moment without making it feel like
  * a failure. Nothing here plays unprompted, and `muted` silences all of it. */
 import { Store } from "./store"
-import { callHz } from "./glim"
+import { callHz, traits } from "./glim"
 
 let ctx = null
 
@@ -39,6 +39,58 @@ function note(a, freq, at, dur, { type = "sine", gain = 0.09, slide = null } = {
   osc.stop(t0 + dur + 0.02)
 }
 
+/* ---------- a cat's mouth ----------
+ * A meow is a pitch contour pushed through moving vowel formants, and a formant
+ * is a bandpass filter. So a cat's call is built the way a voice is: a buzzy
+ * source at the pitch it already had, shaped by two filters that glide along a
+ * vowel path. Nothing here touches pitch, which is the whole point — the
+ * pentatonic guarantee is a guarantee about *pitch*, so it survives untouched
+ * while the timbre stops being a beep. Timbre is free; pitch is load-bearing.
+ *
+ * The path is chosen by the cat's own build, which the same hash already picked,
+ * so a cat's accent is as fixed as its coat. It is also true of real cats: an
+ * oriental is the one that will not stop telling you things, in a brighter and
+ * more nasal voice than a shorthair, and a longhair is softer than both. */
+const VOWELS = {
+  // "mrrp?" — open, closing gently
+  short: [[720, 1150], [520, 940], [420, 820]],
+  // softer and rounder, and it closes further
+  long: [[640, 1020], [470, 860], [380, 740]],
+  // Siamese: starts nearly "ee", opens wide, stays bright
+  slim: [[430, 2150], [820, 1520], [640, 1180]],
+}
+
+/** One voiced note: the same pitch as `note()` would play, through a mouth. */
+function voiced(a, freq, at, dur, { gain = 0.09, slide = null, vowel = "short", q = 7 } = {}) {
+  const osc = a.createOscillator(), vol = a.createGain()
+  const f1 = a.createBiquadFilter(), f2 = a.createBiquadFilter()
+  const t0 = a.currentTime + at
+  // sawtooth, not triangle: formants can only shape harmonics that are there.
+  osc.type = "sawtooth"
+  osc.frequency.setValueAtTime(freq, t0)
+  if (slide) osc.frequency.exponentialRampToValueAtTime(slide, t0 + dur)
+  const path = VOWELS[vowel] || VOWELS.short
+  f1.type = "bandpass"; f2.type = "bandpass"
+  f1.Q.value = q; f2.Q.value = q
+  f1.frequency.setValueAtTime(path[0][0], t0)
+  f2.frequency.setValueAtTime(path[0][1], t0)
+  for (let i = 1; i < path.length; i++) {
+    const t = t0 + (dur * i) / (path.length - 1)
+    f1.frequency.linearRampToValueAtTime(path[i][0], t)
+    f2.frequency.linearRampToValueAtTime(path[i][1], t)
+  }
+  vol.gain.setValueAtTime(0.0001, t0)
+  vol.gain.exponentialRampToValueAtTime(gain, t0 + 0.02)
+  vol.gain.exponentialRampToValueAtTime(0.0001, t0 + dur)
+  // The two formants sit in parallel across the source, which is what a vowel
+  // is; in series they would cancel to a whistle.
+  osc.connect(f1); osc.connect(f2)
+  f1.connect(vol); f2.connect(vol)
+  vol.connect(a.destination)
+  osc.start(t0)
+  osc.stop(t0 + dur + 0.02)
+}
+
 const VOICES = {
   pick: (a) => note(a, 520, 0, 0.05, { type: "triangle", gain: 0.045 }),
   right: (a) => { note(a, 660, 0, 0.09, { type: "triangle" }); note(a, 990, 0.07, 0.12, { type: "triangle" }) },
@@ -57,11 +109,12 @@ const VOICES = {
  * she has read a word of the explanation. That is the lesson, delivered in
  * 300 milliseconds. */
 
-/** The cat you called, arriving: its two notes, up, bright. */
+/** The cat you called, arriving: its two notes, up, bright — in its own mouth. */
 VOICES.call = (a, word) => {
   const [lo, hi] = callHz(word)
-  note(a, lo, 0, 0.13, { type: "triangle", gain: 0.08 })
-  note(a, hi, 0.105, 0.24, { type: "triangle", gain: 0.085, slide: hi * 1.03 })
+  const v = traits(word).build
+  voiced(a, lo, 0, 0.13, { gain: 0.075, vowel: v })
+  voiced(a, hi, 0.105, 0.26, { gain: 0.08, vowel: v, slide: hi * 1.03 })
 }
 
 /** Somebody else's cat, arriving. The same shape, so it is unmistakably a cat
@@ -69,9 +122,10 @@ VOICES.call = (a, word) => {
  *  note underneath. Never a buzzer (hard rule 3). */
 VOICES.miscall = (a, word) => {
   const [lo, hi] = callHz(word)
+  const v = traits(word).build
   note(a, lo * 0.5, 0, 0.2, { type: "sine", gain: 0.05 })
-  note(a, lo, 0.06, 0.16, { type: "triangle", gain: 0.055 })
-  note(a, hi * 0.5, 0.17, 0.26, { type: "triangle", gain: 0.05 })
+  voiced(a, lo, 0.06, 0.18, { gain: 0.05, vowel: v })
+  voiced(a, hi * 0.5, 0.17, 0.28, { gain: 0.048, vowel: v })
 }
 
 /** The end of a run, sung by the cats that came — in the order they came.
@@ -84,9 +138,10 @@ VOICES.chorus = (a, words) => {
   if (!list.length) return VOICES.finish(a)
   list.forEach((w, i) => {
     const [lo, hi] = callHz(w)
-    note(a, lo, i * 0.155, 0.19, { type: "triangle", gain: 0.075 })
+    const v = traits(w).build
+    voiced(a, lo, i * 0.155, 0.19, { gain: 0.07, vowel: v })
     // the last cat gets its full rising call, so the phrase lands rather than stops
-    if (i === list.length - 1) note(a, hi, i * 0.155 + 0.14, 0.34, { type: "triangle", gain: 0.085 })
+    if (i === list.length - 1) voiced(a, hi, i * 0.155 + 0.14, 0.36, { gain: 0.08, vowel: v })
   })
 }
 

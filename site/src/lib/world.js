@@ -22,6 +22,14 @@ export const W = {
   book: "Glimbook",
   wood: "the Wordwood",
   woodTitle: "Wordwood",
+  // The other three places. Only the Wordwood has a mechanic of its own, and
+  // that is settled (AGENTS.md § The game, "Why the numbers are not a game
+  // yet"); these three name where the work happens and do nothing else. Naming
+  // a place is not giving it a game — it was the absence of the names that made
+  // the site read as four subjects beside a world rather than one world.
+  deepShelf: "the Deep Shelf",
+  weighbridge: "the Weighbridge",
+  workyard: "the Workyard",
   longNight: "Long Night",
   telling: "the Telling",
   beacon: "the Beacon",
@@ -51,3 +59,13 @@ export const atLeast = (stage, floor = "Steady") =>
 
 /** "3 Glims" / "1 Glim" — the plural is a fiction word, so it lives here too. */
 export const nCats = (n) => `${n} ${n === 1 ? W.cat : W.cats}`
+
+/** Where a subject happens. Keyed by the same ids `SUBJ` uses, so the two cannot
+ *  drift; a subject with no place named here simply has none, and the page says
+ *  nothing rather than inventing one. */
+export const PLACE = {
+  vr: W.wood,
+  rc: W.deepShelf,
+  qr: W.weighbridge,
+  ma: W.workyard,
+}

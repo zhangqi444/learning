@@ -897,6 +897,18 @@ async function runThrough(pg, pick, max = 60) {
         const o = { type: '', frequency: { setValueAtTime: (f) => window.__NOTES__.push(f), exponentialRampToValueAtTime() {} }, connect: (n) => n, start() {}, stop() {} };
         return o;
       }
+      // A cat's mouth. Its frequencies are formants, NOT notes: pushing them into
+      // __NOTES__ would make the page look like it sang a dozen pitches off the
+      // scale and fail the pentatonic check with its own vowels. Counted
+      // separately instead, so a call can be shown to have gone through a mouth.
+      createBiquadFilter() {
+        window.__FORMANTS__ = (window.__FORMANTS__ || 0) + 1;
+        return {
+          type: '', Q: { value: 0 },
+          frequency: { setValueAtTime() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} },
+          connect: (n) => n,
+        };
+      }
     }
     window.AudioContext = FakeCtx;
     window.webkitAudioContext = FakeCtx;
@@ -934,6 +946,14 @@ async function runThrough(pg, pick, max = 60) {
   check('calling the wrong name sounds like somebody else, not like an error',
     other.notes.join() !== right.notes.join() && other.notes.length > 0,
     `${wanted}: ${right.notes.map((f) => Math.round(f)).join(',')} · ${wrong}: ${other.notes.map((f) => Math.round(f)).join(',')}`);
+  // The two checks above are the safety property for the mouth: a call goes
+  // through vowel formants now, and the pitches it sings are the ones it always
+  // sang. This one proves the mouth was actually there — without it the formant
+  // work could silently stop happening and every pitch assertion would still
+  // pass, which is the failure this stub was extended to make visible.
+  check('and it sings through a mouth: two formants per note, not a bare beep',
+    (await pg.evaluate(() => window.__FORMANTS__ || 0)) >= 4,
+    `${await pg.evaluate(() => window.__FORMANTS__ || 0)} filters`);
 
   // Muting has to mean silence, everywhere, including the cats.
   await pg.click('[data-testid=mute-toggle]');
