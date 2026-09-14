@@ -22,7 +22,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "708f73f9b502ee93"
+   "why": {
+    "A": "2.00 is 6 ÷ 3, the bars shared between the dollars rather than the other way round. One bar costs $3.00 ÷ 6 = $0.50."
+   },
+   "content_hash": "5d9fafa1876f6e45"
   },
   {
    "id": "QR-W5-S1-Q02",
@@ -90,7 +93,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "d896bf79c28eee14"
+   "why": {
+    "A": "12 is 6 × 2, twice the real height — what a drawing 6 inches tall would stand for, not one 3 inches tall. Each inch stands for 2 feet, so 3 inches stands for 3 × 2 = 6 feet.",
+    "C": "5 is 2 + 3, the two numbers in the question added together. The scale multiplies instead: each inch stands for 2 feet, so 3 × 2 = 6 feet."
+   },
+   "content_hash": "f3b6d98805f623f3"
   },
   {
    "id": "QR-W5-S1-Q05",
@@ -111,7 +118,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "6a7f182ac99d78ea"
+   "why": {
+    "B": "50 is 2 × 25, the two numbers of the scale multiplied together — what 4 centimetres on the map would stand for, not 14. The path's 14 centimetres make 7 groups of 2, so 7 × 25 = 175 metres.",
+    "C": "350 is 25 × 14, the whole map length multiplied by 25 — but 25 metres goes with every 2 centimetres, not with every 1. The 14 centimetres make 7 groups of 2, so 7 × 25 = 175 metres."
+   },
+   "content_hash": "98138355e6f8ebff"
   },
   {
    "id": "QR-W5-S1-Q06",
@@ -132,7 +143,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "73ca505e23aa3386"
+   "why": {
+    "A": "160 is 8 × 20, the pages multiplied by the seconds they take. Three minutes holds 9 lots of 20 seconds, so 9 × 8 = 72 pages.",
+    "D": "24 is 8 × 3, the pages in 20 seconds multiplied by the number of minutes. Three minutes holds 9 lots of 20 seconds, so 9 × 8 = 72 pages."
+   },
+   "content_hash": "88cfcdc46087cc2b"
   },
   {
    "id": "QR-W5-S1-Q07",
@@ -153,7 +168,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "508fd94d3b7daaa8"
+   "why": {
+    "C": "24 is 12 × 2, the yellow cups doubled — the 2 belongs to red's share, not to white's. One part is 12 ÷ 3 = 4 cups, so white's five parts come to 5 × 4 = 20.",
+    "D": "15 is 3 × 5, yellow's 3 parts multiplied by white's 5 parts, which counts no cups. Each part is 12 ÷ 3 = 4 cups, so white's five parts come to 5 × 4 = 20."
+   },
+   "content_hash": "5cc20bc5f028a589"
   },
   {
    "id": "QR-W5-S1-Q08",
@@ -284,7 +303,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "9aec5d1d14007600"
+   "why": {
+    "A": "23 is 19 + 4, the last number plus the first one. The pattern adds 5 each time: 19 + 5 = 24.",
+    "D": "25 is 5 × 5, the step multiplied by itself. The step is added on instead: 19 + 5 = 24."
+   },
+   "content_hash": "4108917146430484"
   },
   {
    "id": "QR-W5-S2-Q02",
@@ -305,7 +328,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "81ea73b23df11051"
+   "why": {
+    "B": "28 is 7 × 4, the four bags' weight altogether rather than the weight of one bag. The mean shares that total out: 28 ÷ 4 = 7 pounds."
+   },
+   "content_hash": "b4743273fdf78180"
   },
   {
    "id": "QR-W5-S2-Q03",
@@ -326,7 +352,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "dce18f67f906c2b2"
+   "why": {
+    "C": "35 is 40 − 5, the coupon taken off the full price with the sale drop still to come. The 15% comes off first, bringing $40 down to $34, and then $34 − $5 = $29."
+   },
+   "content_hash": "b47ac5f985b42d12"
   },
   {
    "id": "QR-W5-S2-Q04",
@@ -368,7 +397,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "0c54ad9a18bdc90a"
+   "why": {
+    "B": "108 is 4 × 27, the four minutes multiplied by every gallon rather than by every bucket. The 27 gallons make 9 buckets of 3, so the time is 9 × 4 = 36 minutes.",
+    "D": "9 is 27 ÷ 3, the number of 3-gallon buckets in the tub, not the minutes they take. Each bucket takes 4: 9 × 4 = 36."
+   },
+   "content_hash": "2b013b874002600e"
   },
   {
    "id": "QR-W5-S2-Q06",
@@ -389,7 +422,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "b385202babcf33e0"
+   "why": {
+    "B": "10 is 5 × 2, the two top numbers of the fractions multiplied together, which counts no books. Take five eighths of the forty-eight first — that is 30 novels — then two fifths of those 30: 12."
+   },
+   "content_hash": "44290cb12365c215"
   },
   {
    "id": "QR-W5-S2-Q07",
@@ -588,7 +624,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "2dbbcaf88c304b62"
+   "why": {
+    "C": "23 is 8 + 15, the garden's two sides added together — a length, not an area. With the path the outer rectangle measures 10 by 17, so 170 − 120 = 50 square metres."
+   },
+   "content_hash": "85c2b361da02f43c"
   },
   {
    "id": "QR-W6-S1-Q01",
@@ -609,7 +648,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "981f6a50c19627aa"
+   "why": {
+    "B": "56 is 48 + 8, one multiple of 8 further on than the one asked for. Counting on by 8 from 40 gives 40 + 8 = 48 first."
+   },
+   "content_hash": "d1fc678b30122ffb"
   },
   {
    "id": "QR-W6-S1-Q02",
@@ -672,7 +714,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "153e8b6ab5a6c52e"
+   "why": {
+    "C": "2 is 4 ÷ 2, the two digits divided rather than the values they stand for. The 4 stands for 40,000 and the 2 stands for 200, and 40,000 ÷ 200 = 200."
+   },
+   "content_hash": "3ace973869bf70c2"
   },
   {
    "id": "QR-W6-S1-Q05",
@@ -693,7 +738,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "482d6c2eeca1980c"
+   "why": {
+    "A": "7 is 15 − 8, the smaller of the two numbers that add to 15. The question asks for the larger of the pair, which is 8."
+   },
+   "content_hash": "05ba6376325d6da0"
   },
   {
    "id": "QR-W6-S1-Q06",
@@ -756,7 +804,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "35315c9ae8f76f52"
+   "why": {
+    "D": "5 is 9 − 4, the 9 the number has to divide by take away the 4 it ends in. What counts is the total of the digits: the ones already there make 7 + 3 + 4 = 14, and 14 + 4 = 18, a multiple of 9."
+   },
+   "content_hash": "4ad190fda2b429bb"
   },
   {
    "id": "QR-W6-S1-Q09",
@@ -929,7 +980,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "ca8be67ec6fd9dd0"
+   "why": {
+    "C": "20 is 5 × 4, the 5 multiplied by two of the 2s. There is a third 2 still to use: 20 × 2 = 40."
+   },
+   "content_hash": "64ee31a4098ccaa7"
   },
   {
    "id": "QR-W6-S2-Q05",
@@ -971,7 +1025,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "41765d9410574ce5"
+   "why": {
+    "C": "16 is 40 − 24, the number removed take away the old mean. The totals are what move here: the five numbers add to 120, then 120 − 40 = 80 and 80 ÷ 4 = 20."
+   },
+   "content_hash": "b94eb1bbddd4a15d"
   },
   {
    "id": "QR-W6-S2-Q07",
@@ -1018,7 +1075,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "4a1075d7444d394e"
+   "why": {
+    "A": "12 is 7 + 5, the median added to the range. The range is measured from the smallest number, not the middle one: 5 + 5 = 10."
+   },
+   "content_hash": "34f2d00bb94dd97f"
   },
   {
    "id": "QR-W6-S2-Q09",
@@ -1039,7 +1099,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "f000491e737e5a6e"
+   "why": {
+    "A": "168 is 24 × 7, the real car's length in inches. The answer is wanted in feet, and 168 ÷ 12 = 14."
+   },
+   "content_hash": "83627ad8b9b05c36"
   },
   {
    "id": "QR-W6-S2-Q10",
@@ -1081,7 +1144,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "612e9e6a831d1d02"
+   "why": {
+    "B": "1,400 is 350 × 4, the bottles filled in four lots of 25 minutes — 100 minutes in all. An hour and twenty minutes is 80 minutes: 350 ÷ 25 = 14 a minute, and 14 × 80 = 1,120."
+   },
+   "content_hash": "0c0a02ae9240d2b8"
   },
   {
    "id": "QR-W6-S2-Q12",
@@ -1243,7 +1309,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "ae33afaaa906fcef"
+   "why": {
+    "B": "240 is 120 × 2, the whole tank filled right to the top. The tank already holds 8 × 5 × 3 = 120 cubic inches of water, so only 240 − 120 = 120 more are needed.",
+    "D": "40 is 8 × 5, the floor of the tank — the space it covers, not the water it holds. The depth still to fill is 3 inches: 8 × 5 × 3 = 120."
+   },
+   "content_hash": "84ef5326bfbf1e7d"
   },
   {
    "id": "QR-W7-S1-Q04",
@@ -1311,7 +1381,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "510cd6272394651f"
+   "why": {
+    "B": "9 is 14 − 5, the old range with the 5 taken off it. The 5 is added to every day alike, so the highest and the lowest move together and the range stays 14°.",
+    "D": "19 is 14 + 5, the range with the extra 5 added on. Both the highest and the lowest go up by 5, so the gap between them does not change: still 14°."
+   },
+   "content_hash": "9df99a596b838a85"
   },
   {
    "id": "QR-W7-S1-Q07",
@@ -1332,7 +1406,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "4c5f533bb63fb897"
+   "why": {
+    "D": "8 is 8 × 1, the books that one symbol stands for. Grade 5 is one and a half symbols ahead: 56 − 44 = 12 books."
+   },
+   "content_hash": "0a07259ac889e0ee"
   },
   {
    "id": "QR-W7-S1-Q08",
@@ -1442,7 +1519,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "f5dae309b8505adf"
+   "why": {
+    "C": "50 is 80 − 30, the size of each of the two equal angles. The largest angle is 30° bigger than those: 50 + 30 = 80°."
+   },
+   "content_hash": "54ab89fc75478582"
   },
   {
    "id": "QR-W7-S2-Q01",
@@ -1557,7 +1637,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "a56403b1ee283af8"
+   "why": {
+    "D": "60 is 55 + 5, the price after the 25% comes off but before the $5 at the register. That last $5 still has to go: $60 − $5 = $55."
+   },
+   "content_hash": "eb85c0d44ac2c7e9"
   },
   {
    "id": "QR-W7-S2-Q06",
@@ -1667,7 +1750,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "d3edd69366ca3b61"
+   "why": {
+    "A": "60 is 10 × 6, the area of the whole sheet before the corner was cut away. The piece taken out comes off: 60 − 12 = 48 square cm."
+   },
+   "content_hash": "ef31444b2e1c4756"
   },
   {
    "id": "QR-W7-S2-Q11",
@@ -1730,7 +1816,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "85bc0a04de141312"
+   "why": {
+    "A": "0.15 is 0.30 ÷ 2, half the price of one pencil. The halving belongs to what is left after the pencils: $1.30 − $0.90 = $0.40, and $0.40 ÷ 2 = $0.20.",
+    "D": "0.40 is 0.20 × 2, what the two erasers cost together. One eraser is half of that: $0.40 ÷ 2 = $0.20."
+   },
+   "content_hash": "e26f633d614fa43c"
   },
   {
    "id": "QR-W7-S2-Q14",
@@ -1793,7 +1883,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "656d1473217f11d2"
+   "why": {
+    "C": "2 is 5 − 3, how many more cookies it would take to fill one more bag. The question asks what is left over: seven full bags use 35, and 38 − 35 = 3."
+   },
+   "content_hash": "04c8b7e4fda07463"
   },
   {
    "id": "QR-W8-S1-Q02",
@@ -1950,7 +2043,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "b53a04b033f776ee"
+   "why": {
+    "A": "Car A, at 35 miles per gallon — 35 is 5 × 7, the two gallon amounts multiplied together. A rate comes from dividing: 150 ÷ 5 = 30, and Car B gives 210 ÷ 7 = 30 as well.",
+    "B": "Car B, at 30 miles per gallon — 30 is 210 ÷ 7, which is right for Car B. Car A works out at the same rate, 150 ÷ 5 = 30, so neither car goes farther."
+   },
+   "content_hash": "70e39aec54387f0a"
   },
   {
    "id": "QR-W8-S1-Q09",
@@ -2091,7 +2188,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "78ced1f3ad19a677"
+   "why": {
+    "A": "35 is the number of students who chose soccer, a count out of 50 rather than a percentage. Percent means out of 100: doubling both numbers turns 35 out of 50 into 70 out of 100."
+   },
+   "content_hash": "5e784f78ac5df713"
   },
   {
    "id": "QR-W8-S2-Q03",
@@ -2133,7 +2233,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "4f5cc63073887379"
+   "why": {
+    "A": "9 is the largest number in the list, not the one that turns up most often. The mode counts repeats: 3 appears twice and every other number once."
+   },
+   "content_hash": "bc87a8c66cf774e6"
   },
   {
    "id": "QR-W8-S2-Q05",
@@ -2384,7 +2487,10 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "819ea04558df0fcf"
+   "why": {
+    "C": "60 is 10 × 6, the area of the pool itself. The walkway is the ring around it: the pool and walkway together are 14 m by 10 m, so 140 − 60 = 80 square metres."
+   },
+   "content_hash": "03193cb8d79eec29"
   }
  ]
 }
