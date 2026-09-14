@@ -140,7 +140,7 @@ function SoftTimer({ since, budget }) {
  * ctx: set | review | mixed | corr | vocab — what kind of evidence the answers are · onFinish(summary): custom flows
  * prior: an earlier result to reopen · record=false: nothing is written (corrections right after a mock).
  */
-export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, prior, record = true, onFinish, sub: subHint }) {
+export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, prior, record = true, onFinish, sub: subHint, backTo }) {
   const kind = ctx || (custom ? "review" : "set")
   const store = useStore()
   const [i, setI] = useState(0)
@@ -392,6 +392,20 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                     cat={catFor(q, subOf(q, subHint))}
                     collapsed={ok}
                   />
+                  {/* Reading how it is done and then doing one are different
+                      things, and the question she just missed cannot test her
+                      twice — she knows its answer now. So the miss offers a
+                      different question on the same skill, which is the only
+                      version of "try again" that is worth anything. It is
+                      evidence, not a correction: she has seen no key for it. */}
+                  {!ok ? (
+                    <div>
+                      <Button size="sm" variant="outline" data-testid="try-another" data-qid={q.id}
+                        onClick={() => go(`/again/${q.id}${setId || backTo ? "/" + (setId || backTo) : ""}`)}>
+                        <RotateCcw /> Try another {skillOf(subOf(q, subHint), q)} question
+                      </Button>
+                    </div>
+                  ) : null}
                 </CardContent>
               </Card>
             )
@@ -488,13 +502,14 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
               <p
                 className={cn("text-center leading-relaxed font-medium", rune.kind === "rune" ? "text-2xl font-extrabold tracking-tight" : "text-lg")}
                 data-testid="question"
+                data-qid={it.id}
               >
                 {rune.text}
               </p>
               {rune.tail ? <p className="text-muted-foreground text-xs">{rune.tail}</p> : null}
             </div>
           ) : (
-            <p className="text-lg leading-snug font-medium" data-testid="question">{it.q}</p>
+            <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id}>{it.q}</p>
           )}
           {gameMode ? <p className="text-muted-foreground -mb-2 text-xs font-semibold tracking-wide uppercase">Your spells</p> : null}
           {holding ? (
@@ -588,7 +603,9 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
         <span className="text-muted-foreground hidden flex-1 text-sm sm:block">{picks[i] == null ? "Pick an answer (or press A–D)" : "Press Enter to continue"}</span>
         <span className="flex-1 sm:hidden" />
         <Button onClick={() => step(1)} disabled={picks[i] == null} data-testid="next">
-          {last ? <>Finish set <Check /></> : <>Next <ArrowRight /></>}
+          {/* "Finish set" is wrong for a set of one: a single question run from
+              a miss is not a set she is finishing, it is one more go. */}
+          {last ? (items.length === 1 ? <>Done <Check /></> : <>Finish set <Check /></>) : <>Next <ArrowRight /></>}
         </Button>
       </ActionBar>
     </div>

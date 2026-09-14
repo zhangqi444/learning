@@ -1376,6 +1376,36 @@ async function runThrough(pg, pick, max = 60) {
     `${cover.total - cover.missing.length} of ${cover.total}${cover.missing.length ? ' · missing ' + cover.missing.slice(0, 5).join(', ') : ''}`);
   const freeMarks = await pg.$$eval('[data-testid=learn-link]', (n) => n.map((e) => e.dataset.free));
   check('every outside link says whether it costs money', freeMarks.length > 0 && freeMarks.every((f) => f === '1' || f === '0'), freeMarks.join(','));
+  /* A miss cannot test her twice: she knows that question's answer now. So the
+     miss offers a DIFFERENT question on the same skill, which is the only "try
+     again" worth having — and it has to be a real question she has not answered,
+     not the one she just saw with the key still on the screen. */
+  const tryBtn = await pg.$('[data-testid=try-another]');
+  const missedId = tryBtn ? await tryBtn.getAttribute('data-qid') : null;
+  const tryLabel = tryBtn ? (await tryBtn.textContent()).trim() : '';
+  check('a missed question offers another of its own kind', !!tryBtn && /^Try another .+ question$/.test(tryLabel), tryLabel);
+  check('and a question she got right does not', (await pg.$$('[data-testid=try-another]')).length === (await pg.$$('[data-testid=learn-card]')).length,
+    `${(await pg.$$('[data-testid=try-another]')).length} offered · ${(await pg.$$('[data-testid=learn-card]')).length} missed`);
+  await tryBtn.click();
+  await pg.waitForSelector('[data-testid=question]', { timeout: 20000 });
+  const againQ = (await pg.textContent('[data-testid=question]')).trim();
+  const againId = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid || '').catch(() => '');
+  check('it opens a different question, not the one she just missed', !!againId && againId !== missedId, `${missedId} -> ${againId || againQ.slice(0, 40)}`);
+  check('and the page says which skill it is another of', /Another .+ question/.test(await body(pg)));
+  /* It counts. Corrections do not, because there she has just been shown the
+     key; here she has not, so a right answer is evidence and a wrong one has to
+     come back round in the review pile. */
+  await pg.click('[data-testid=choice] >> nth=0', { timeout: 4000 }).catch(() => {});
+  await pg.waitForTimeout(250);
+  await pg.click('[data-testid=next]', { timeout: 4000 }).catch(() => {});
+  await pg.waitForTimeout(500);
+  const logged = await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    return Object.values(s.items).filter((r) => (r.hist || []).some((h) => h.ctx === 'again')).length;
+  });
+  check('the answer she gives there is recorded as real practice', logged >= 1, `${logged} record(s) with ctx "again"`);
+  await pg.goBack(); await pg.waitForTimeout(400);
+
   /* Khan Academy is free and every skill has a page there, so the link on a miss
      is the lesson itself, not a search she has to read her way through first. A
      card that loses its URL silently degrades to a Google page — which looks fine

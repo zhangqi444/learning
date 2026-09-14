@@ -1,9 +1,10 @@
 import * as React from "react"
 
-import { D, SUBJ, setId, setsFor } from "@/lib/content"
-import { reviewQueue, wordQuizItems } from "@/lib/engine"
-import { useRoute } from "@/lib/router"
+import { D, SUBJ, parseSetId, setId, setsFor } from "@/lib/content"
+import { anotherLike, reviewQueue, wordQuizItems } from "@/lib/engine"
+import { go, useRoute } from "@/lib/router"
 import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
+import { Button } from "@/components/ui/button"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
@@ -41,6 +42,45 @@ function VocabRun({ wk }) {
   return <Runner items={items} custom ctx="vocab" sub="vr" title={`Precision words · ${wk} · quiz`} exitPath={`/precision/${wk}`} exitLabel="Back to the words" />
 }
 
+/** One more question on the skill she just missed.
+ *
+ *  `from` is the set she came out of, carried as a set id — "ma:W3:0" has
+ *  colons and no slashes, so it survives a hash route that splits on "/" without
+ *  any encoding. Without it there is nowhere honest to send her back to, because
+ *  the new question is picked by skill and will often live in a different week
+ *  from the one she was working in. */
+function AgainRun({ id, from }) {
+  const next = React.useMemo(() => anotherLike(id), [id])
+  const back = React.useMemo(() => {
+    if (!from) return next ? `/s/${next.sub}` : "/"
+    const { sub, wk, n } = parseSetId(from)
+    return SUBJ[sub] && wk ? `/run/${sub}/${wk}/${n}` : "/"
+  }, [from, next])
+  if (!next) {
+    return (
+      <div className="mx-auto mt-10 flex max-w-md flex-col gap-3 rounded-xl border bg-card p-6 text-center">
+        <h2 className="text-lg font-semibold">No other question on this one yet</h2>
+        <p className="text-muted-foreground text-sm">This skill has only the question you just did. The lesson on the score card is the thing to read instead.</p>
+        <div className="flex justify-center"><Button variant="outline" onClick={() => go(back)}>Back</Button></div>
+      </div>
+    )
+  }
+  return (
+    <Runner
+      key={"again:" + next.it.id}
+      items={[next.it]}
+      custom
+      ctx="again"
+      sub={next.sub}
+      title={`Another ${next.sk} question`}
+      exitPath={back}
+      exitLabel="Back to the set"
+      /* so a second "try another" from here still knows the set she came out of */
+      backTo={from}
+    />
+  )
+}
+
 function Screen({ route }) {
   const [top, a, b, c] = route
   if (top === "s" && SUBJ[a]) return <Subject sub={a} wk={b} />
@@ -61,6 +101,7 @@ function Screen({ route }) {
       )
     }
   }
+  if (top === "again" && a) return <AgainRun key={"again:" + a} id={a} from={b} />
   if (top === "review" && SUBJ[a]) return <ReviewRun key={`rev:${a}:${b || ""}`} sub={a} mode={b} />
   if (top === "review") return <Review />
   if (top === "precision" && a && D.precision[a] && b === "quiz") return <VocabRun key={"vocab:" + a} wk={a} />
