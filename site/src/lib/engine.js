@@ -5,6 +5,7 @@
 import { D, ORDER, SUBJ, LTR, keyOf, setId, setsFor, currentWeek } from "./content"
 import { Store, ts } from "./store"
 import { aopsFor } from "./aops"
+import { W, atLeast } from "./world"
 
 /* ---------- constants ---------- */
 export const CAUSES = [
@@ -281,6 +282,19 @@ export function skillTable(sub) {
 function attemptsOf(r, asOf) { return (r && r.hist ? r.hist : []).filter((h) => LEARN_CTX[h.ctx] && (!asOf || ts(h.at) <= asOf)) }
 /** Level of one skill, from the latest learning attempt on each of its questions.
  *  Mastered needs Proficient plus two correct answers in a mixed set or a mock on a later day. */
+/** The skill's own cat: the same animal the Glimbook holds, at the brightness
+ *  the engine really reports for that skill. Derived on every render and never
+ *  stored, exactly as every other brightness is, and floored at Steady — being
+ *  wrong about percent has never been drawn as a dimmer Percent cat and never
+ *  will be. `sub` null means the surface gets no cat at all: Verbal has the cat
+ *  at its gate, and a Long Night gets nothing from the first question to the
+ *  last (docs/cats.md §6). */
+export function skillCat(sub, sk) {
+  if (!sub || !sk) return null
+  let level = "Not started"
+  try { level = (skillLevel(sub, sk) || {}).level || level } catch { /* an unknown skill is drawn at the floor */ }
+  return { word: sub + ":" + sk, sk, stage: atLeast(W.glow[level], "Steady") }
+}
 export function skillLevel(sub, sk, asOf) {
   const info = skillTable(sub)[sk]
   if (!info) return null
