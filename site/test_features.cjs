@@ -593,6 +593,27 @@ async function runThrough(pg, pick, max = 60) {
   check('quick-add from the dashboard lands on the week list', /Read 20 pages/.test(await body(pg)));
   check('dashboard points at the month parent to-dos', /parent to-do/.test(await body(pg)));
 
+  /* Every noun the world defines has to be said somewhere. docs/cats.md opens
+     with the survey that found four of them defined and used zero times, and
+     calls finishing that language the largest available win — "the difference
+     between a world and a set of screens". A noun nobody says is not a world,
+     it is a glossary, and the failure is invisible in every screenshot. This is
+     a source check rather than a page check on purpose: an unused export cannot
+     be seen from inside the browser, which is exactly how four of them sat
+     unspoken. */
+  {
+    const fs = require('fs');
+    const world = fs.readFileSync(__dirname + '/src/lib/world.js', 'utf8');
+    const keys = (world.split('export const W = {')[1].split('\n}')[0].match(/^ {2}(\w+):/gm) || []).map((k) => k.trim().replace(':', ''));
+    const src = fs.readdirSync(__dirname + '/src/pages').map((f) => fs.readFileSync(__dirname + '/src/pages/' + f, 'utf8'))
+      .concat(fs.readdirSync(__dirname + '/src/components').filter((f) => f.endsWith('.jsx')).map((f) => fs.readFileSync(__dirname + '/src/components/' + f, 'utf8')))
+      .concat(fs.readdirSync(__dirname + '/src/lib').map((f) => fs.readFileSync(__dirname + '/src/lib/' + f, 'utf8')))
+      .join('\n');
+    const said = new Set([...src.matchAll(/W\.(\w+)/g)].map((m) => m[1]));
+    const mute = keys.filter((k) => !said.has(k));
+    check('every noun the world has is said somewhere', mute.length === 0, `${keys.length - mute.length} of ${keys.length}${mute.length ? ' · silent: ' + mute.join(', ') : ''}`);
+  }
+
   console.log('== learning engine');
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=readiness-score]');
   check('readiness score on the dashboard', /^\d+$/.test((await pg.textContent('[data-testid=readiness-score]')).trim()));
