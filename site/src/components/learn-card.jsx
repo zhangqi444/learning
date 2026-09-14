@@ -10,7 +10,8 @@ import { Badge } from "@/components/ui/badge"
  *  Shown the moment she gets a question wrong, above the AoPS chapter. Bundled
  *  first-party text: no account, no subscription, no request — so it works on a
  *  plane, in the artifact, and for a family that does not pay for anything. The
- *  outside links below it are site-scoped searches, each marked free or paid, so
+ *  outside links below it go straight to the lesson where we have its address —
+ *  every skill has a free Khan Academy page — and each is marked free or paid, so
  *  nobody discovers a paywall by walking into one. */
 export function LearnCard({ skill, className, collapsed }) {
   const c = learnCard(skill)
