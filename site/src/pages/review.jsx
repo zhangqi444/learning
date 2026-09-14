@@ -3,7 +3,7 @@ import { CalendarClock, Play, ShieldCheck, Sparkles } from "lucide-react"
 
 import { ORDER, SUBJ, fmtDate } from "@/lib/content"
 import { W } from "@/lib/world"
-import { CAUSES, INTERVALS, causeBreakdown, missProfile, reviewQueue, skillOf, wordStatus } from "@/lib/engine"
+import { CAUSES, INTERVALS, causeBreakdown, missProfile, reviewQueue, skillCat, skillOf, wordStatus } from "@/lib/engine"
 import { Glim } from "@/components/glim"
 import { WORD_GLOW } from "@/lib/glim"
 import { sfx } from "@/lib/sfx"
@@ -12,9 +12,7 @@ import { useStore } from "@/lib/store"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { AopsHint } from "@/components/aops-hint"
 import { LearnCard } from "@/components/learn-card"
-import { aopsFor } from "@/lib/aops"
 
 /** Small horizontal breakdown of misses by cause. */
 export function CauseBar({ profile, className }) {
@@ -127,15 +125,17 @@ export function Review() {
                 {(() => {
                   /* The skill she is missing most in this subject, taught here.
                      Ours first and unconditionally — it is free and it is the
-                     whole point; the AoPS chapter follows only where one exists.
+                     whole point. The AoPS chapter used to be a second block
+                     underneath, which made two cards out of one lesson; it is a
+                     badge in this one's row now, beside the free sites and the
+                     search, because they are all answers to the same question.
                      Two misses is the threshold: one is an accident, and a page
                      that teaches at you after a single slip is nagging. */
                   const worst = top.find(([, n]) => n >= 2)
                   if (!worst) return null
                   return (
                     <CardContent className="flex flex-col gap-2">
-                      <LearnCard skill={worst[0]} />
-                      {aopsFor(s, worst[0]) ? <AopsHint sub={s} skill={worst[0]} /> : null}
+                      <LearnCard skill={worst[0]} sub={s} cat={skillCat(s === "vr" ? null : s, worst[0])} />
                     </CardContent>
                   )
                 })()}

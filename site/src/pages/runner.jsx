@@ -1,10 +1,8 @@
 import * as React from "react"
-import { ArrowLeft, ArrowRight, Award, BookOpen, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
+import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
-import { BUDGET, CAUSES, findItem, paceFlag, readFloor, rec, recordAttempts, setTag, skillLevel, skillOf, tooFast } from "@/lib/engine"
-import { aopsFor, learnCard, learnQuery, learnUrl } from "@/lib/aops"
-import { AopsHint } from "@/components/aops-hint"
+import { BUDGET, CAUSES, findItem, paceFlag, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast } from "@/lib/engine"
 import { LearnCard } from "@/components/learn-card"
 import { syncBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
@@ -95,12 +93,7 @@ const subOf = (q, fallback) => (findItem(q.id) || {}).sub || fallback || "vr"
  *  engine really reports for it, never dimmer than Steady. `sub` null means this
  *  surface does not get one (Verbal has the cat at its gate; corrections get
  *  nothing, because going back over answers is not an event). */
-function catFor(q, sub) {
-  if (!sub || !q || !q.sk) return null
-  let level = "Not started"
-  try { level = skillLevel(sub, q.sk).level } catch { /* an unknown skill is drawn at the floor */ }
-  return { word: sub + ":" + q.sk, sk: q.sk, stage: atLeast(W.glow[level], "Steady") }
-}
+const catFor = (q, sub) => (q ? skillCat(sub, q.sk) : null)
 const fmtSec = (ms) => `${Math.round(ms / 1000)} s`
 
 /** Why did this go wrong? One tap for the cause, one for "were you sure". */
@@ -386,13 +379,19 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   ) : null}
                   {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
                   {!ok && canTag ? <CauseTags id={q.id} /> : null}
-                  {!ok ? <LearnCard skill={skillOf(subOf(q, subHint), q)} /> : null}
-                  {!ok && aopsFor(subOf(q, subHint), q.sk) ? <AopsHint sub={subOf(q, subHint)} skill={q.sk} inline /> : null}
-                  {!ok && !aopsFor(subOf(q, subHint), q.sk) && learnUrl(subOf(q, subHint), q) ? (
-                    <a href={learnUrl(subOf(q, subHint), q)} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs hover:underline" data-testid="learn-more" title={learnQuery(subOf(q, subHint), q)}>
-                      <BookOpen className="size-3.5" /> Learn more about {q.sk || "this"}
-                    </a>
-                  ) : null}
+                  {/* Open where she missed it, folded where she did not. A
+                      question she got right still gets the offer — knowing the
+                      answer and knowing the method are different things, and the
+                      one line costs her nothing to ignore. The chapter and the
+                      search used to hang underneath this card as loose lines;
+                      they are inside it now, in the same row as the free sites. */}
+                  <LearnCard
+                    skill={skillOf(subOf(q, subHint), q)}
+                    sub={subOf(q, subHint)}
+                    item={q}
+                    cat={catFor(q, subOf(q, subHint))}
+                    collapsed={ok}
+                  />
                 </CardContent>
               </Card>
             )
@@ -575,7 +574,10 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   is a pile-on rather than teaching. One line she can open. It is
                   open by default everywhere she is actually reviewing mistakes:
                   the score card below, a mock's missed questions, the pile. */}
-              {!gotIt ? <LearnCard skill={skillOf(subOf(it, subHint), it)} collapsed className="mt-2" /> : null}
+              {/* Folded, always — on a right answer as much as a wrong one. The
+                  cat is the one already sitting beside the answer two lines up,
+                  so the card does not carry a second copy of the same animal. */}
+              <LearnCard skill={skillOf(subOf(it, subHint), it)} sub={subOf(it, subHint)} item={it} collapsed className="mt-2" />
 
             </div>
           ) : null}

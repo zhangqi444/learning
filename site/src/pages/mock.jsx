@@ -286,8 +286,12 @@ function MockResults({ form }) {
               <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
               {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
               {/* Read the skill the same way the practice pages do, or a Verbal
-                  miss asks for a card called "vocabulary" and gets nothing. */}
-              <LearnCard skill={sk} collapsed={again} />
+                  miss asks for a card called "vocabulary" and gets nothing.
+                  No cat, deliberately: a Long Night gets nothing from the first
+                  question to the last, and docs/cats.md §6 leaves whether
+                  anything arrives afterwards to the owner rather than to this
+                  page. The chapter and the search ride inside the card. */}
+              <LearnCard skill={sk} sub={sec.id.toLowerCase()} item={q} collapsed={again} />
               <CauseTags id={q.id} />
             </CardContent>
           </Card>

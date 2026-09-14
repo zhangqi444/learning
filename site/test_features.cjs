@@ -674,7 +674,17 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/s/vr'; }); await pg.waitForSelector('[data-testid=skills]');
   check('verbal gets no AoPS pointer, because there is no honest one', (await pg.$$('[data-testid=aops-hint]')).length === 0);
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('[data-testid=review-ma]');
-  check('the review pile names the chapter for its worst maths skill', (await pg.$('[data-testid=review-ma] [data-testid=aops-hint]')) !== null && /Alcumus/.test(await pg.textContent('[data-testid=review-ma]')));
+  /* The chapter used to be a second block below the lesson, printing "Alcumus"
+     in its body. It is a badge inside the lesson now, in the same row as the
+     free sites, so the check reads what the badge says and where it goes rather
+     than a word that moved into its tooltip. */
+  const revAops = await pg.$('[data-testid=review-ma] [data-testid=aops-hint]');
+  const revAopsTxt = revAops ? (await revAops.textContent()).replace(/\s+/g, ' ').trim() : '';
+  const revAopsHref = revAops ? await revAops.evaluate((a) => a.href) : '';
+  check('the review pile names the chapter for its worst maths skill',
+    !!revAops && /AoPS \w+ · .+/.test(revAopsTxt) && /artofproblemsolving\.com\/alcumus/.test(revAopsHref), revAopsTxt);
+  check('and it is marked paid, because a Beast Academy chapter is a book she may not own',
+    revAops && (await revAops.evaluate((a) => a.dataset.free)) === '0' && /paid/.test(revAopsTxt), revAopsTxt);
 
   console.log('== reading log');
   await pg.evaluate(() => { location.hash = '#/books'; }); await pg.waitForSelector('[data-testid=book]');
@@ -1283,7 +1293,23 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=score]', { timeout: 20000 });
   const lc = await pg.textContent('[data-testid=learn-card]').catch(() => '');
   check('every missed question teaches its skill, for free', !!lc && /\w/.test(lc), lc.replace(/\s+/g, ' ').slice(0, 100));
-  check('and it is already open where she reviews mistakes', !(await pg.$('[data-testid=score] [data-testid=learn-open]')));
+  /* Open on the ones she missed, folded on the ones she did not. Knowing the
+     answer and knowing the method are different things, and a folded line costs
+     nothing to walk past — but it used to not be there at all, so a question
+     she guessed right had no way back to how it is done. */
+  /* Unscoped on purpose: data-testid=score is the headline card alone, and the
+     per-question rows are its siblings. Scoping to it matched nothing, which is
+     how the older form of this check passed while asserting nothing at all. */
+  const openSkills = await pg.$$eval('[data-testid=learn-card]', (n) => n.map((e) => e.dataset.skill));
+  const foldedSkills = await pg.$$eval('[data-testid=learn-open]', (n) => n.map((e) => e.dataset.skill));
+  check('and it is already open where she reviews mistakes', openSkills.length > 0, openSkills.join(', '));
+  check('a question she got right is offered the lesson too, folded', foldedSkills.length > 0, foldedSkills.join(', '));
+  /* The skill's own cat heads the lesson — the same animal the Glimbook holds,
+     at the brightness the engine really reports. It is drawn the same on a right
+     answer and a wrong one: a cat is never a verdict, and never dims for a miss. */
+  const catStages = await pg.$$eval('[data-testid=learn-card] [data-testid=glim]', (n) => n.map((e) => e.dataset.word + ':' + e.dataset.stage));
+  check('the lesson is headed by the skill\'s own cat, at its real brightness',
+    catStages.length === openSkills.length && catStages.every((x) => /^ma:.+:(Steady|Bright|Radiant)$/.test(x)), catStages.slice(0, 3).join(', '));
   // Every maths and Reading skill in the bank teaches itself. A new question
   // carrying a skill nobody has written a card for should fail here, loudly,
   // rather than quietly falling through to a web search.
@@ -1340,15 +1366,19 @@ async function runThrough(pg, pick, max = 60) {
     return hit ? hit.href : '';
   }).catch(() => '');
   check('and the miss opens the lesson, not a search page', /khanacademy\.org\//.test(khanHref) && !/google\.com/.test(khanHref), khanHref.slice(0, 110));
-  check('a maths miss names the chapter that teaches it, not a web search',
-    !!(await pg.$('[data-testid=aops-hint]')) && !(await pg.$('[data-testid=learn-more]')),
-    (await pg.textContent('[data-testid=aops-hint]').catch(() => '')).replace(/\s+/g, ' ').slice(0, 110));
+  /* The chapter and the search used to be alternatives, and the search used to
+     be a loose line under the card. They are four badges in one row now — ours,
+     the free sites, the chapter, the search — because they are four answers to
+     one question, and arranging them at three different heights said they were
+     three different kinds of thing. */
+  const routes = await pg.$$eval('[data-testid=learn-card] a[data-free]', (n) => n.map((a) => (a.textContent || '').replace(/\s+/g, ' ').trim()));
+  check('every way out of a maths miss sits in the card, in one row',
+    routes.some((t) => /^Khan Academy/.test(t)) && routes.some((t) => /^AoPS /.test(t)) && routes.some((t) => /^Search the web/.test(t)),
+    routes.join(' | '));
 
-  /* Verbal words have neither a card of our own nor an AoPS chapter, so they are
-     the one thing left that falls back to a search — and it searches the idea,
-     never the question, because an ISEE stem verbatim finds homework-answer
-     sites that teach nothing and hand her the key. The fallback lives on the
-     score card now, not the reveal, so the set has to be finished first. */
+  /* The search searches the idea, never the question, because an ISEE stem typed
+     verbatim finds homework-answer sites that teach nothing and hand her the
+     key. Verbal is where it matters most: the words are the question. */
   await pg.goto('http://localhost:8143/learning/#/run/vr/W3/0', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=question]');
   const stem = (await pg.textContent('[data-testid=question]')).trim();
@@ -1362,7 +1392,7 @@ async function runThrough(pg, pick, max = 60) {
   }
   await pg.waitForSelector('[data-testid=score]', { timeout: 20000 });
   const learn = await pg.getAttribute('[data-testid=learn-more]', 'href').catch(() => null);
-  check('a miss with no card and no chapter offers a search instead', /^https:\/\/www\.google\.com\/search\?q=/.test(learn || ''), learn);
+  check('a verbal miss can still be searched wider', /^https:\/\/www\.google\.com\/search\?q=/.test(learn || ''), learn);
   check('and it searches the idea, not the question',
     !!learn && !decodeURIComponent(learn.split('q=')[1] || '').includes(stem.slice(0, 25)),
     decodeURIComponent((learn || '').split('q=')[1] || ''));

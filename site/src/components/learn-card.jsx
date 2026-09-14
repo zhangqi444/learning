@@ -1,19 +1,35 @@
 import * as React from "react"
-import { BookOpen, ExternalLink, Lightbulb, TriangleAlert } from "lucide-react"
+import { BookOpen, ExternalLink, Lightbulb, Search, TriangleAlert } from "lucide-react"
 
-import { learnCard, learnLinkUrl, learnName } from "@/lib/aops"
+import { ALCUMUS_URL, aopsFor, learnCard, learnLinkUrl, learnName, learnQuery, learnUrl } from "@/lib/aops"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
+import { Glim } from "@/components/glim"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 /** Teach it here, now, for free.
  *
- *  Shown the moment she gets a question wrong, above the AoPS chapter. Bundled
- *  first-party text: no account, no subscription, no request — so it works on a
- *  plane, in the artifact, and for a family that does not pay for anything. The
- *  outside links below it go straight to the lesson where we have its address —
- *  every skill has a free Khan Academy page — and each is marked free or paid, so
- *  nobody discovers a paywall by walking into one. */
-export function LearnCard({ skill, className, collapsed }) {
+ *  Bundled first-party text: no account, no subscription, no request — so it
+ *  works on a plane, in the artifact, and for a family that does not pay for
+ *  anything.
+ *
+ *  Everywhere else to go sits in one row at the bottom. It used to be three
+ *  separate things at three heights: the free sites inside the card, then the
+ *  AoPS chapter as a loose line under it, then the web search under that — three
+ *  answers to the same question ("where else can I look?") arranged as though
+ *  they were unrelated, with the two that sat outside the border reading as
+ *  leftovers rather than as part of the lesson. They are one row now, each marked
+ *  free or paid, so nobody discovers a paywall by walking into one.
+ *
+ *  `cat` is the skill's own cat — the same animal the Glimbook holds, at the
+ *  brightness the engine really reports for that skill. It is a Mechanic, not
+ *  decoration: it is the honest mastery number said in the language the rest of
+ *  the world speaks, and it is drawn identically whether she got the question
+ *  right or wrong, so it can never read as a verdict on the answer (AGENTS.md,
+ *  "a cat can never be disappointed in her"). Callers that have no honest cat to
+ *  pass — a mock report, where cats.md §6 gives a Long Night nothing — pass none,
+ *  and the card is headed by the lamp instead. */
+export function LearnCard({ skill, sub, item, cat, className, collapsed }) {
   const c = learnCard(skill)
   /* A mock question is tagged the way a paper tags it. The card is headed with
    * its own name, so she reads "How to do Percent" and not "how to do percent
@@ -21,10 +37,11 @@ export function LearnCard({ skill, className, collapsed }) {
   const name = learnName(skill) || skill
   const [open, setOpen] = React.useState(!collapsed)
   if (!c) return null
-  /* Collapsed is for the middle of a set. The lesson has to be reachable at the
-   * moment she gets it wrong — she may never scroll back to the score card — but
-   * a miss was already stacking six blocks at her, and a wall of correction is
-   * not teaching. So: one line she can open, and nothing opened at her. */
+  /* Collapsed is for the middle of a set, and for a question she got right. The
+   * lesson has to be reachable at the moment it is worth anything — she may
+   * never scroll back to the score card — but a miss was already stacking six
+   * blocks at her, and a wall of correction is not teaching. So: one line she
+   * can open, and nothing opened at her. */
   if (!open) {
     return (
       <button
@@ -34,13 +51,21 @@ export function LearnCard({ skill, className, collapsed }) {
         data-testid="learn-open"
         data-skill={name}
       >
-        <Lightbulb className="size-3.5" /> How to do {name}
+        {cat
+          ? <Glim word={cat.word} stage={cat.stage} className="size-5 -my-1" title={`${name} — ${cat.stage}`} />
+          : <Lightbulb className="size-3.5" />} How to do {name}
       </button>
     )
   }
+  const a = sub ? aopsFor(sub, skill) : null
+  const search = sub ? learnUrl(sub, item || { sk: name }) : null
   return (
     <div className={cn("bg-muted/40 flex flex-col gap-2 rounded-md border p-3 text-sm", className)} data-testid="learn-card" data-skill={name}>
-      <div className="flex items-center gap-2 font-medium"><Lightbulb className="size-4" /> {name}</div>
+      <div className="flex items-center gap-2 font-medium">
+        {cat
+          ? <Glim word={cat.word} stage={cat.stage} className="size-8 -my-1" title={`${name} — ${cat.stage}`} />
+          : <Lightbulb className="size-4" />} {name}
+      </div>
       <p className="text-muted-foreground">{c.what}</p>
       <ol className="text-muted-foreground ml-4 flex list-decimal flex-col gap-0.5 text-[13px]">
         {c.how.map((h, i) => <li key={i}>{h}</li>)}
@@ -55,20 +80,64 @@ export function LearnCard({ skill, className, collapsed }) {
           <TriangleAlert className="mt-0.5 size-3.5 shrink-0" /> {c.trap}
         </p>
       ) : null}
-      {c.links && c.links.length ? (
-        <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
-          <span className="text-muted-foreground text-xs">More:</span>
-          {c.links.map((l) => (
-            <a key={l.name} href={learnLinkUrl(l)} target="_blank" rel="noopener noreferrer" data-testid="learn-link" data-free={l.free ? "1" : "0"}>
-              <Badge variant="outline" className="font-normal">
-                <BookOpen className="size-3" /> {l.name}
-                <span className={cn("ml-1 text-[10px]", l.free ? "text-success" : "text-muted-foreground")}>{l.free ? "free" : "paid"}</span>
-                <ExternalLink className="size-3" />
-              </Badge>
-            </a>
-          ))}
-        </div>
-      ) : null}
+      <div className="flex flex-wrap items-center gap-1.5 pt-0.5">
+        <span className="text-muted-foreground text-xs">More:</span>
+        {(c.links || []).map((l) => (
+          <a key={l.name} href={learnLinkUrl(l)} target="_blank" rel="noopener noreferrer" data-testid="learn-link" data-free={l.free ? "1" : "0"}>
+            <Badge variant="outline" className="font-normal">
+              <BookOpen className="size-3" /> {l.name}
+              <Cost free={l.free} />
+              <ExternalLink className="size-3" />
+            </Badge>
+          </a>
+        ))}
+        {/* The AoPS chapter, marked paid because that is what a chapter of Beast
+            Academy is, even though the link itself opens free Alcumus practice.
+            Erring that way round is the only safe one: a free thing marked paid
+            costs her a moment's surprise, a paid thing marked free costs a
+            family that does not buy books their afternoon.
+
+            The whole Beast Academy unit, title and all. The old line took the
+            code off the front of it and glued on the *Prealgebra* chapter name
+            instead, so the Volume lesson advertised "5A · Perimeter and Area" —
+            two true facts spliced into one false label, which is worse than
+            either alone because it looks like a lookup gone wrong. */}
+        {a ? (
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <a href={ALCUMUS_URL} target="_blank" rel="noopener noreferrer" data-testid="aops-hint" data-skill={skill} data-free="0">
+                <Badge variant="outline" className="font-normal">
+                  <BookOpen className="size-3" /> AoPS {a.ba}
+                  <Cost free={false} />
+                  <ExternalLink className="size-3" />
+                </Badge>
+              </a>
+            </TooltipTrigger>
+            <TooltipContent className="max-w-72">
+              <span className="font-medium">{a.why}</span>
+              <br />Beast Academy {a.ba}{a.ba2 ? ` · ${a.ba2}` : ""}
+              <br />Prealgebra: {a.pa} (free videos)
+              <br />Alcumus focus topic: {a.alcumus}
+            </TooltipContent>
+          </Tooltip>
+        ) : null}
+        {/* Last, because it is the widest and the least certain: a search of the
+            idea, never of the question. An ISEE stem typed verbatim finds
+            homework-answer sites, which teach nothing and hand her the key. */}
+        {search ? (
+          <a href={search} target="_blank" rel="noopener noreferrer" data-testid="learn-more" data-free="1" title={learnQuery(sub, item || { sk: name })}>
+            <Badge variant="outline" className="font-normal">
+              <Search className="size-3" /> Search the web
+              <Cost free />
+              <ExternalLink className="size-3" />
+            </Badge>
+          </a>
+        ) : null}
+      </div>
     </div>
   )
+}
+
+function Cost({ free }) {
+  return <span className={cn("ml-1 text-[10px]", free ? "text-success" : "text-muted-foreground")}>{free ? "free" : "paid"}</span>
 }
