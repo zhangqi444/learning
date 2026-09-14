@@ -439,6 +439,17 @@ enough to have been read. Careful is opt-in and off by default: a child uses
 this, and a timer she did not ask for that stops her answering is a punishment,
 not a help.
 
+**A maths miss names its chapter; only what has none falls back to a search.**
+Forty-four of the forty-five Quantitative and Mathematics skills already carry a
+Beast Academy unit, a Prealgebra chapter and an Alcumus topic in
+`content/aops.json`, and `AopsHint` has always rendered them — on the subject
+page and the review page, never on a question she had just got wrong, which is
+the one moment they are worth anything. They now show on the reveal and on the
+score card. AoPS is a maths curriculum: Reading's six skills and Verbal's
+hundred and forty-nine words will never have one, and that is what the search is
+for. The references are unit-level rather than page-level, and Alcumus has no
+per-topic deep link, so it sends her there and names the topic to pick.
+
 **A miss links out to the idea, never to the question.** `learnUrl()` in
 `lib/aops.js` builds a Google search from the *skill* — "Perimeter explained with
 examples", or the word itself for a vocabulary item. Searching an ISEE stem

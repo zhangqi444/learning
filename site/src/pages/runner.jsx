@@ -3,7 +3,8 @@ import { ArrowLeft, ArrowRight, Award, BookOpen, Check, CheckCircle2, Eye, Gauge
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { BUDGET, CAUSES, findItem, paceFlag, readFloor, rec, recordAttempts, setTag, skillLevel, tooFast } from "@/lib/engine"
-import { learnQuery, learnUrl } from "@/lib/aops"
+import { aopsFor, learnQuery, learnUrl } from "@/lib/aops"
+import { AopsHint } from "@/components/aops-hint"
 import { syncBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
@@ -382,7 +383,8 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   ) : null}
                   {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
                   {!ok && canTag ? <CauseTags id={q.id} /> : null}
-                  {!ok && learnUrl(subOf(q, subHint), q) ? (
+                  {!ok && aopsFor(subOf(q, subHint), q.sk) ? <AopsHint sub={subOf(q, subHint)} skill={q.sk} inline /> : null}
+                  {!ok && !aopsFor(subOf(q, subHint), q.sk) && learnUrl(subOf(q, subHint), q) ? (
                     <a href={learnUrl(subOf(q, subHint), q)} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs hover:underline" data-testid="learn-more" title={learnQuery(subOf(q, subHint), q)}>
                       <BookOpen className="size-3.5" /> Learn more about {q.sk || "this"}
                     </a>
@@ -556,8 +558,17 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                 </p>
               ) : null}
               {it.e ? <p className="bg-muted/60 text-muted-foreground mt-2 rounded-lg p-3 text-sm leading-relaxed">{it.e}</p> : null}
-              {/* Not the question — the idea behind it. See learnQuery(). */}
-              {!gotIt && learnUrl(subOf(it, subHint), it) ? (
+              {/* Forty-four of the forty-five maths skills already carry the Beast
+                  Academy unit and Prealgebra chapter that teach them, and until
+                  now that only showed on the subject and review pages — never at
+                  the moment she has just got one wrong, which is the moment it
+                  is worth anything. A named chapter beats a web search, so the
+                  search is only the fallback for the skills we have nothing for:
+                  Reading, and vocabulary. */}
+              {!gotIt && aopsFor(subOf(it, subHint), it.sk) ? (
+                <AopsHint sub={subOf(it, subHint)} skill={it.sk} className="mt-2" />
+              ) : null}
+              {!gotIt && !aopsFor(subOf(it, subHint), it.sk) && learnUrl(subOf(it, subHint), it) ? (
                 <a
                   href={learnUrl(subOf(it, subHint), it)}
                   target="_blank"

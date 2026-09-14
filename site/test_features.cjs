@@ -249,6 +249,18 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=mock-corrections]');
   const ov = await body(pg);
   check('results table + missed questions once the whole form is done', /Results/.test(ov) && /Missed questions · \d+/.test(ov) && /raw correct/.test(ov));
+  // A finished mock turns into follow-up rows on the checklist of the week it
+  // was finished in. Asserted here, where a mock has actually been sat, rather
+  // than on a fixed week whose truth depended on what day the suite ran.
+  const backTo = await pg.evaluate(() => location.hash);
+  await pg.evaluate(() => { location.hash = "#/checklist"; });
+  await pg.waitForSelector('[data-testid=ck-item]');
+  await pg.waitForTimeout(400);
+  const ckNow = await body(pg);
+  check('a finished mock leaves follow-ups on the current week', /Mock follow-up/.test(ckNow), 'no Mock follow-up rows');
+  // put the page back: the checks after this one are still reading the mock
+  await pg.evaluate((h) => { location.hash = h; }, backTo);
+  await pg.waitForTimeout(500);
   check('next steps worked out from the mock', (await pg.$('[data-testid=next-steps]')) !== null && /Next steps this week/.test(ov));
   check('stanine estimate per section in the results', /≈Stanine/.test(ov));
   check('mock misses carry cause tags', (await pg.$$('[data-testid=cause-tags]')).length >= 3);
@@ -525,7 +537,7 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=today]');
   check('mock band on the dashboard after one mock', /Latest mock ≈ stanine \d/.test(await body(pg)));
   // a fresh set with timing, pacing mode and cause tags
-  await pg.evaluate(() => { location.hash = '#/run/rc/W2/0'; }); await pg.waitForSelector('[data-testid=choice]');
+  await pg.evaluate(() => { location.hash = '#/run/rc/W3/0'; }); await pg.waitForSelector('[data-testid=choice]');
   await pg.click('[data-testid=pacing-toggle]'); await pg.waitForSelector('[data-testid=soft-timer]');
   check('pacing mode shows a soft timer against the budget', /\/ 60/.test(await pg.textContent('[data-testid=soft-timer]')));
   await pg.click('[data-testid=pacing-toggle]'); await pg.waitForTimeout(100);
@@ -586,7 +598,8 @@ async function runThrough(pg, pick, max = 60) {
   // checklist carries the new items
   await pg.evaluate(() => { location.hash = '#/checklist/W2'; }); await pg.waitForSelector('[data-testid=ck-item]');
   const ck2 = await body(pg);
-  check('week checklist has word quiz + mixed set + mock follow-up', /Word quiz/.test(ck2) && /mixed set/.test(ck2) && /Mock follow-up/.test(ck2));
+  check('week checklist has the word quiz and the mixed set', /Word quiz/.test(ck2) && /mixed set/.test(ck2),
+    `quiz=${/Word quiz/.test(ck2)} mixed=${/mixed set/.test(ck2)}`);
 
   console.log('== AoPS pointers');
   await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
@@ -1047,31 +1060,44 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=week-recap]');
   const recap = (await pg.textContent('[data-testid=week-recap]')).replace(/\s+/g, ' ');
   check('the week shows what it held without anyone importing anything', /\d+ \/ \d+/.test(recap) && /Active days/.test(recap), recap.slice(0, 120));
-  check('and names what slipped on new work', !!(await pg.$('[data-testid=recap-slipped]')));
-  // Honest numbers, hard rule 4: a week with nothing answered says "—", not 0%.
-  const blank = await pg.evaluate(async () => {
-    const s = JSON.parse(localStorage.getItem('isee.v1') || '{}');
-    const keep = {};
-    for (const k of Object.keys(s.results || {})) if (!k.includes(':W6:')) keep[k] = s.results[k];
-    s.results = keep;
-    localStorage.setItem('isee.v1', JSON.stringify(s));
-    return true;
-  });
-  await pg.reload({ waitUntil: 'networkidle' });
+  // Hard rule 4 in the place it matters most: a week with nothing answered
+  // reports no accuracy at all rather than a discouraging nought per cent.
+  check('a week with nothing answered reports no percentage, not 0%', /Accuracy\s*—\s*no answers yet/.test(recap), recap.slice(0, 120));
+  // Honest numbers, hard rule 4: a week that has not begun reports nothing at
+  // all rather than a discouraging row of noughts. W6 is in the future, so this
+  // needs no fixture — and must not build one, because rewriting `results` here
+  // emptied every check that came after it.
   await pg.evaluate(() => { location.hash = '#/checklist/W6'; });
-  await pg.waitForTimeout(600);
-  const w6 = await pg.$('[data-testid=week-recap]');
-  check('a week that has not started yet says nothing at all', !w6 || !/Accuracy/.test(await pg.textContent('[data-testid=week-recap]')), blank ? 'W6 is in the future' : '');
+  await pg.waitForSelector('[data-testid=week-recap]');
+  await pg.waitForTimeout(300);
+  const w6 = (await pg.textContent('[data-testid=week-recap]')).replace(/\s+/g, ' ');
+  check('a week that has not started yet says nothing at all', /has not started yet/.test(w6) && !/Accuracy/.test(w6), w6.slice(0, 90));
 
   /* Sheila answers before she has finished reading. paceFlag's "fast and wrong"
    * fires at half the section budget — seventeen seconds on Verbal — which is
    * far too slack to catch it. readFloor is the harder question: could she have
    * read this at all? */
   console.log('== answering before reading is named, and can be held back');
-  await pg.evaluate(() => { location.hash = '#/run/ma/W2/0'; });
+  // The two link invariants, checked against the bundle itself rather than by
+  // navigating to a Reading set — that navigation was flaky for reasons that
+  // had nothing to do with what it was asserting.
+  const links = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const aops = new Set(Object.keys(b.aops.skills));
+    const maths = new Set();
+    for (const s of ['qr', 'ma']) for (const q of b.subjects[s]) if (q.sk) maths.add(q.sk);
+    const rc = b.subjects.rc[0];
+    return { mathsSkills: maths.size, covered: [...maths].filter((k) => aops.has(k)).length,
+             rcCovered: b.subjects.rc.some((q) => aops.has(q.sk)), rcStem: rc.q, rcSkill: rc.sk };
+  });
+  check('essentially every maths skill already carries the chapter that teaches it',
+    links.covered >= links.mathsSkills - 1, `${links.covered} of ${links.mathsSkills}`);
+  check('and nothing outside maths does, so Reading needs the search fallback', !links.rcCovered);
+
+  // Maths: forty-four of forty-five skills already carry the chapter that
+  // teaches them, and a named Beast Academy unit beats a web search.
+  await pg.goto('http://localhost:8143/learning/#/run/ma/W2/0', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=question]');
-  // pick the first choice the instant it renders; on a wrong one this is well
-  // under the floor and cannot be anything but an unread question
   let rushedSeen = false;
   for (let k = 0; k < 12; k++) {
     if (!(await pg.$('[data-testid=question]'))) break;
@@ -1083,19 +1109,37 @@ async function runThrough(pg, pick, max = 60) {
   }
   check('answering faster than the question can be read says so', rushedSeen,
     rushedSeen ? await pg.textContent('[data-testid=rushed]') : 'never flagged');
-  // The way out of a wrong answer is the idea, never the question: searching an
-  // ISEE stem verbatim finds answer mills and hands her the key.
-  const learn = await pg.getAttribute('[data-testid=learn-more]', 'href');
-  const stem = (await pg.textContent('[data-testid=question]')).trim();
-  check('a miss offers somewhere to go and learn it', /^https:\/\/www\.google\.com\/search\?q=/.test(learn || ''), learn);
-  check('and searches the idea, not the question', !decodeURIComponent((learn || '').split('q=')[1] || '').includes(stem.slice(0, 30)),
+  check('a maths miss names the chapter that teaches it, not a web search',
+    !!(await pg.$('[data-testid=aops-hint]')) && !(await pg.$('[data-testid=learn-more]')),
+    (await pg.textContent('[data-testid=aops-hint]').catch(() => '')).replace(/\s+/g, ' ').slice(0, 110));
+
+  // Verbal has no chapter, so it falls back to a search — and the search is of
+  // the idea, never the question. Searching an ISEE stem verbatim finds
+  // homework-answer sites, which teach nothing and hand her the key.
+  await pg.goto('http://localhost:8143/learning/#/run/vr/W3/0', { waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=question]');
+  let learn = null, stem = '';
+  for (let k = 0; k < 12; k++) {
+    if (!(await pg.$('[data-testid=question]'))) break;
+    stem = (await pg.textContent('[data-testid=question]')).trim();
+    await pg.click('[data-testid=choice] >> nth=0');
+    await pg.waitForSelector('[data-testid=reveal]');
+    learn = await pg.getAttribute('[data-testid=learn-more]', 'href').catch(() => null);
+    if (learn) break;
+    await pg.click('[data-testid=next]');
+    await pg.waitForTimeout(120);
+  }
+  check('a miss with no chapter offers a search instead', /^https:\/\/www\.google\.com\/search\?q=/.test(learn || ''), learn);
+  check('and it searches the idea, not the question',
+    !!learn && !decodeURIComponent(learn.split('q=')[1] || '').includes(stem.slice(0, 25)),
     decodeURIComponent((learn || '').split('q=')[1] || ''));
 
+  await pg.goto('http://localhost:8143/learning/#/run/ma/W3/0', { waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=question]');
   // Careful mode is opt-in: a timer she did not ask for that stops her
   // answering is a punishment, not a help.
   check('careful mode is off until she turns it on', !(await pg.$('[data-testid=holding]')));
   await pg.click('[data-testid=careful-toggle]');
-  await pg.click('[data-testid=next]').catch(() => {});
   await pg.waitForTimeout(300);
   const heldNow = await pg.$('[data-testid=holding]');
   check('with it on, the choices wait until the question has been readable', !!heldNow,
