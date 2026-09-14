@@ -200,7 +200,16 @@ export function WeekRecap({ wk, cur, idx }) {
           {wk !== cur && <Button size="sm" variant="ghost" onClick={() => go(`/checklist/${cur}`)}>Back to this week</Button>}
         </div>
         <CardTitle className="text-xl">{wk} · {weekLabel(wk)} {wk === cur && <Badge>This week</Badge>}</CardTitle>
-        <CardDescription>{fmt(a)} – {fmt(b)} · {planDone} of {auto.length} plan tasks done</CardDescription>
+        {/* What the world calls a plan week. world.md §5: the eight weeks are
+            eight Reaches, each quiet until she works in it, and none locked
+            behind the last. The number is the same number — Reach 3 is W3 — so
+            this names the week rather than competing with it, which is the
+            difference between a world noun and the second name for one idea
+            that §7 records as a mistake. It rides on the line that was already
+            here: this header is a two-column grid with the percentage pinned to
+            the right of it, and one more child of its own does not go under the
+            title, it goes into the empty column beside it. */}
+        <CardDescription>{W.reach} {idx + 1} of {D.weeks.length} · {fmt(a)} – {fmt(b)} · {planDone} of {auto.length} plan tasks done</CardDescription>
         <CardAction><span className="text-2xl font-semibold tabular-nums">{planPct}%</span></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-5">

@@ -276,6 +276,14 @@ export function Home() {
   useStore()
   return (
     <div className="flex flex-col gap-4 md:gap-6">
+      {/* The one word that names what she is, and the only one in world.js that
+          had never been said out loud. world.md §1: a Lampwright tends light and
+          gives things their meaning back, and this world is fixed by knowing
+          things rather than by turning up — which is also why the line says
+          nothing whatever about whether she came yesterday. */}
+      <p className="text-muted-foreground text-sm" data-testid="greeting">
+        <span className="text-foreground font-medium">{W.role}</span> — someone who tends light and gives things their meaning back.
+      </p>
       <div className="grid grid-cols-1 gap-4 @4xl/main:grid-cols-[3fr_2fr] md:gap-6">
         <TodayCard />
         <ReadinessCard />
