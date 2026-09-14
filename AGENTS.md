@@ -269,9 +269,22 @@ blocked by the *content*, not by the UI:
   items out of 416**. There is nothing to build it on.
 - **The wrong number doing the wrong thing** — the vocabulary equivalent, and the
   only version that would pass the rule above: pick 24 instead of 21 and see that
-  24 is what you get if you divide instead of multiply. That needs each distractor
-  to carry *what mistake produces it*, and none of them do. Deriving it would mean
-  inventing the misconception, which the content rules forbid.
+  24 is what you get if you divide instead of multiply. This is the one that is
+  actually being built, and it is further along than this paragraph used to say.
+  The `why` field carries it per wrong choice, the runner shows it above the
+  explanation, and **15 items have one**. What is missing is not the mechanism but
+  the writing.
+
+  How far it can honestly go is now measured rather than guessed —
+  `tools/why_candidates.py`. Of 326 numeric QR/MA items, **72 have every
+  distractor reachable by an exact identity** from the numbers already in the
+  question, 150 have some, and **89 have none at all**: their distractors are
+  plausible neighbours — 10, 8 and 7 against a correct 9 — with no mistake behind
+  them. That last group is the important number. It keeps no `why`, because the
+  only way to give it one is to invent the misconception, and a confident wrong
+  reason is worse for her than no reason at all. 119 items separately carry a
+  `misconceptions` tag naming the trap, which is a head start on the sentence but
+  is not itself shown to her anywhere.
 
 Two facts worth keeping, and the rule for re-deriving them so the next reader is
 not counting a different thing: over `content/question-banks/*.json` minus
