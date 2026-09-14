@@ -90,6 +90,13 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
 
   // Learning records: another device tagged a miss and reviewed it later -> the newer copy wins, histories are merged
   const missId = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return s.results['ma:W2:0'].wrong[0]; });
+  // The step above ends with a merge, and a merge writes state, and writing state
+  // schedules a push 1200 ms out. If that push lands after we have put our remote
+  // copy into the stub, it overwrites it, and the reload below pulls back exactly
+  // what it already had — which is what made this check fail roughly one run in
+  // three and looked like a broken merge rather than a test writing into a file
+  // the app was still holding a pen over. Let the debounce drain first.
+  await pg.waitForTimeout(1600);
   {
     const remote = JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]);
     const r = remote.items[missId];
@@ -97,15 +104,18 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
     remote.items[missId] = { ...r, tag: 'misread', sure: false, step: 1, at: later, hist: [...r.hist, { at: later, ok: true, ms: 4000, ctx: 'review' }] };
     drive.body = JSON.stringify(remote);
   }
-  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('button:has-text("Saved to Drive")', { timeout: 8000 });
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('button:has-text("Saved to Drive")', { timeout: 20000 });
   // Wait for the merge itself, not for a status chip plus a guessed 300 ms. The
   // chip can already read "Saved to Drive" from the previous sync before this
   // reload's pull has landed, which made this check fail about one run in ten.
   // A timeout here fails loudly, so this is still an assertion, not a sleep.
+  // Generous, because it is a full reload and the bundle it parses on the way
+  // grows with the content; the flakiness itself was the clobbered write above,
+  // not this wait.
   await pg.waitForFunction((id) => {
     const r = JSON.parse(localStorage.getItem('isee.v1')).items[id];
     return r && (r.hist || []).length >= 2;
-  }, missId, { timeout: 8000 });
+  }, missId, { timeout: 20000 });
   const merged = await pg.evaluate((id) => JSON.parse(localStorage.getItem('isee.v1')).items[id], missId);
   check('newer remote learning record wins tag + schedule, histories merged', merged.tag === 'misread' && merged.step === 1 && merged.hist.length === 2 && merged.hist[1].ctx === 'review', JSON.stringify(merged).slice(0, 160));
 

@@ -7,7 +7,7 @@ import { D } from "./content"
 export const AOPS_SUBJECTS = ["ma", "qr"]
 export function aopsFor(sub, skill) {
   if (!D.aops || !AOPS_SUBJECTS.includes(sub)) return null
-  return D.aops.skills[skill] || null
+  return D.aops.skills[skill] || D.aops.skills[learnName(skill)] || null
 }
 export const aopsFree = () => (D.aops && D.aops.free) || []
 /** Alcumus has no per-topic deep link, so we send her to Alcumus and name the topic to pick. */
@@ -47,7 +47,27 @@ export function learnUrl(sub, it) {
  *  works in the single-file artifact where no request can be made at all. The
  *  chapter and the outside links sit beside it as extras, each marked free or
  *  paid so nobody finds out by hitting a paywall. */
-export function learnCard(skill) { return (D.learn && D.learn.skills && D.learn.skills[skill]) || null }
+/** The card for a skill, under whatever name the question happens to use.
+ *
+ *  The practice bank is written against a tidy list of 53 skill names. The mock
+ *  papers are not: they were written as real papers, so a question is tagged
+ *  "percent reasoning—reverse discount" or "main idea—central idea". Those are
+ *  better labels for a paper than "Percent" is, and rewriting them to match a
+ *  lookup table would throw away what they say. So the names stay and the
+ *  lookup widens: exact name, then the whole name lowercased, then the part
+ *  before the dash. Without this every one of the 508 mock questions asked for a
+ *  card, got null, and rendered nothing at all — the lesson looked present in
+ *  the code and was absent from the page. */
+export function learnName(skill) {
+  if (!D.learn || !skill) return null
+  const s = D.learn.skills, a = D.learn.aliases || {}
+  if (s[skill]) return skill
+  const low = String(skill).trim().toLowerCase()
+  const head = low.split(/[\u2014\u2013]/)[0].trim()
+  const hit = a[low] || a[head]
+  return hit && s[hit] ? hit : null
+}
+export function learnCard(skill) { const n = learnName(skill); return n ? D.learn.skills[n] : null }
 
 /** The lesson page itself where we have one, a site-scoped search where we do not.
  *  Khan Academy is free and its course structure is stable, so every card carries

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { BookOpen, ExternalLink, Lightbulb, TriangleAlert } from "lucide-react"
 
-import { learnCard, learnLinkUrl } from "@/lib/aops"
+import { learnCard, learnLinkUrl, learnName } from "@/lib/aops"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 
@@ -15,6 +15,10 @@ import { Badge } from "@/components/ui/badge"
  *  nobody discovers a paywall by walking into one. */
 export function LearnCard({ skill, className, collapsed }) {
   const c = learnCard(skill)
+  /* A mock question is tagged the way a paper tags it. The card is headed with
+   * its own name, so she reads "How to do Percent" and not "how to do percent
+   * reasoning—reverse discount", which names the question rather than the skill. */
+  const name = learnName(skill) || skill
   const [open, setOpen] = React.useState(!collapsed)
   if (!c) return null
   /* Collapsed is for the middle of a set. The lesson has to be reachable at the
@@ -28,15 +32,15 @@ export function LearnCard({ skill, className, collapsed }) {
         onClick={() => setOpen(true)}
         className={cn("text-muted-foreground hover:text-foreground inline-flex items-center gap-1.5 text-xs hover:underline", className)}
         data-testid="learn-open"
-        data-skill={skill}
+        data-skill={name}
       >
-        <Lightbulb className="size-3.5" /> How to do {skill}
+        <Lightbulb className="size-3.5" /> How to do {name}
       </button>
     )
   }
   return (
-    <div className={cn("bg-muted/40 flex flex-col gap-2 rounded-md border p-3 text-sm", className)} data-testid="learn-card" data-skill={skill}>
-      <div className="flex items-center gap-2 font-medium"><Lightbulb className="size-4" /> {skill}</div>
+    <div className={cn("bg-muted/40 flex flex-col gap-2 rounded-md border p-3 text-sm", className)} data-testid="learn-card" data-skill={name}>
+      <div className="flex items-center gap-2 font-medium"><Lightbulb className="size-4" /> {name}</div>
       <p className="text-muted-foreground">{c.what}</p>
       <ol className="text-muted-foreground ml-4 flex list-decimal flex-col gap-0.5 text-[13px]">
         {c.how.map((h, i) => <li key={i}>{h}</li>)}

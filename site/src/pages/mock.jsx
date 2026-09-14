@@ -16,8 +16,9 @@ import { Textarea } from "@/components/ui/textarea"
 import { ActionBar, CauseTags, Choice, Passage, Runner } from "@/pages/runner"
 import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
+import { learnName } from "@/lib/aops"
 import { LearnCard } from "@/components/learn-card"
-import { STANINE, mockBand, mockNextSteps, recordMockForm } from "@/lib/engine"
+import { STANINE, mockBand, mockNextSteps, recordMockForm, skillOf } from "@/lib/engine"
 
 /* ---------- state helpers ---------- */
 export function mockState(form) { return Store.s.mocks[form] || { sections: {} } }
@@ -260,7 +261,18 @@ function MockResults({ form }) {
       </Card>
       <h2 className="mt-2 text-xl font-semibold">Missed questions · {misses.length}</h2>
       <div className="flex flex-col gap-3">
-        {misses.map(({ sec, q, i, pick }) => (
+        {/* A whole paper can leave ninety missed questions, and fifty of them can
+            be the same skill. Printing the same lesson fifty times is a wall, not
+            teaching — so it stands open on the first miss of a skill and folds to
+            one line on every repeat after it, where it is still one tap away. */}
+        {(() => { const taught = new Set(); return misses.map(({ sec, q, i, pick }) => {
+          const sk = skillOf(sec.id.toLowerCase(), q)
+          /* Dedupe on the card, not on the paper's tag: "synonym—adjective
+             precision" and "synonym—verb precision" are two labels for one lesson. */
+          const lesson = learnName(sk) || sk
+          const again = taught.has(lesson)
+          taught.add(lesson)
+          return (
           <Card key={q.id} className="gap-3 border-destructive/40 py-5">
             <CardHeader className="px-5">
               <div className="flex items-center gap-2">
@@ -273,13 +285,14 @@ function MockResults({ form }) {
               <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{pick ? `${pick}. ${q.c[LTR.indexOf(pick)]}` : "—"}</span></div>
               <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
               {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
-              {/* A mock's missed questions are the one place she sits down with a
-                  whole paper's mistakes. Teach every one of them. */}
-              <LearnCard skill={q.sk} />
+              {/* Read the skill the same way the practice pages do, or a Verbal
+                  miss asks for a card called "vocabulary" and gets nothing. */}
+              <LearnCard skill={sk} collapsed={again} />
               <CauseTags id={q.id} />
             </CardContent>
           </Card>
-        ))}
+          )
+        }) })()}
       </div>
     </>
   )
