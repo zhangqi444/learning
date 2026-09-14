@@ -104,8 +104,8 @@ them. Existing: `glim-breathe`, `glim-flicker`, `pop`, `spark`.
 |---|---|---|---|
 | **arrive** | walks in from an edge and sits — never fades up on the spot | any cat entering: the gate, the reveal, the door | Skin |
 | **slow blink** | eyes close and reopen over ~600ms | acknowledgement — see below. **Built** | Signal |
-| **ear-flick** | one ear rotates a few degrees, at random, rarely | idle cats, so a still page is not a dead one | Skin |
-| **tail-curl** | tail lifts and curls on hover or focus | interactive cats only — attention, not commitment | Skin |
+| **ear-flick** | one ear rotates a few degrees, rarely, each cat on its own clock | idle cats, so a still page is not a dead one. **Built** | Skin |
+| **tail-curl** | tail lifts on hover or focus | interactive cats only — attention, not commitment. **Built**, and it turned out to be an affordance rather than decoration: a cat you can tap looks exactly like one you cannot | Skin |
 | **settle** | drops into a loaf over ~1s after a period of no input | long-lived pages: Glimbook, Den | Skin |
 | **stretch** | a single stretch when a section first becomes visible | section reveal, once, never on a loop | Skin |
 

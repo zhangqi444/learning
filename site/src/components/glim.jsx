@@ -16,7 +16,9 @@ export const hearProps = (word, { label, className } = {}) => ({
   "aria-label": `Hear ${label || word}`,
   "data-testid": "hear-glim",
   className: cn(
-    "focus-visible:ring-ring/50 rounded-lg transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]",
+    // `glim-hear` is what index.css hangs the tail on: a cat you can tap looks
+    // exactly like a cat you cannot, so it answers the cursor before the click.
+    "glim-hear focus-visible:ring-ring/50 rounded-lg transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]",
     className,
   ),
 })
@@ -163,8 +165,13 @@ export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
       <g style={s.anim ? { animation: s.anim, transformOrigin: "32px 46px" } : undefined}>
         {/* tail first, so it sits behind the body; mirrored for half the cats */}
         <g opacity={s.body} transform={t.tail < 0 ? "translate(64,0) scale(-1,1)" : undefined}>
-          <path d={TAIL[t.build]} fill="none" stroke={c.pattern === "point" ? c.mark : c.base} strokeWidth={b.tailW} strokeLinecap="round" />
-          {c.pattern === "tabby" ? <path d={TAIL[t.build]} fill="none" stroke={c.mark} strokeWidth={b.tailW} strokeLinecap="round" strokeDasharray="2.5 5" opacity="0.75" /> : null}
+          {/* the lift on hover rides its own wrapper: the mirror above is a
+              transform, and an animation on the same element would flip half the
+              cats back the right way round for the length of it. */}
+          <g className="glim-tail">
+            <path d={TAIL[t.build]} fill="none" stroke={c.pattern === "point" ? c.mark : c.base} strokeWidth={b.tailW} strokeLinecap="round" />
+            {c.pattern === "tabby" ? <path d={TAIL[t.build]} fill="none" stroke={c.mark} strokeWidth={b.tailW} strokeLinecap="round" strokeDasharray="2.5 5" opacity="0.75" /> : null}
+          </g>
         </g>
 
         <g opacity={s.body}>
@@ -181,9 +188,15 @@ export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
             {/* ears scale with the build: a shorthair's are small and round, an
                 oriental's are tall — it is the fastest way to read a breed */}
             <g transform={`translate(32 16) scale(${b.ear}) translate(-32 -16)`}>
-              <path d="M21 17 L18.5 4.5 L30.5 12 Z" fill={c.pattern === "point" ? c.mark : c.base} stroke={rim} strokeWidth="0.8" strokeLinejoin="round" />
+              {/* One ear turns now and then. Its own wrapper again, because the
+                  scale above is a transform; and its own delay, taken from the
+                  same tilt the hash already chose, so a shelf of cats does not
+                  twitch in unison like a row of clockwork. */}
+              <g style={{ animation: "glim-ear 11s ease-in-out infinite", animationDelay: `${((t.tilt + 4) * 1.3).toFixed(1)}s`, transformOrigin: "22px 16px" }}>
+                <path d="M21 17 L18.5 4.5 L30.5 12 Z" fill={c.pattern === "point" ? c.mark : c.base} stroke={rim} strokeWidth="0.8" strokeLinejoin="round" />
+                <path d="M22.6 15.4 L21 8.6 L28.8 13 Z" fill={earIn} opacity="0.85" />
+              </g>
               <path d="M43 17 L45.5 4.5 L33.5 12 Z" fill={c.pattern === "point" ? c.mark : c.base} stroke={rim} strokeWidth="0.8" strokeLinejoin="round" />
-              <path d="M22.6 15.4 L21 8.6 L28.8 13 Z" fill={earIn} opacity="0.85" />
               <path d="M41.4 15.4 L43 8.6 L35.2 13 Z" fill={earIn} opacity="0.85" />
             </g>
             <ellipse cx="32" cy="23" rx={b.headRx} ry={b.headRy} fill={c.base} stroke={rim} strokeWidth="0.8" />
