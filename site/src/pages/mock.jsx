@@ -141,14 +141,23 @@ export function MockOverview({ form }) {
           <CardDescription className="flex items-center gap-2"><Swords className="size-4" /> {W.longNight} · scheduled {m.label}</CardDescription>
           <CardTitle className="text-2xl font-semibold tracking-tight">{m.name}</CardTitle>
           <CardDescription>{m.blurb}</CardDescription>
-          <CardAction>
+          {/* min-w-0 is the half that matters: without it this sits in a grid
+              track that can only shrink to its content's minimum, and a nowrap
+              button says its minimum is the whole sentence — so 413px of card
+              sat in a 390px screen and the page she reads before a Long Night
+              was the one page she had to drag sideways. */}
+          <CardAction className="min-w-0">
             {sum.complete ? (
               <div className="text-right">
                 <div className="text-3xl font-semibold tabular-nums">{sum.right}<span className="text-muted-foreground text-base font-normal"> / {sum.n}</span></div>
                 <div className="text-muted-foreground text-xs">raw correct</div>
               </div>
             ) : next ? (
-              <Button onClick={() => go(`/mock/${form}/${next.s.id}`)} data-testid="mock-next"><Play /> {next.status === "live" ? "Resume" : "Start"} {next.s.name}</Button>
+              /* And wrapping is the half that makes the result readable: once the
+                 track can shrink, a nowrap label just spills out of its own
+                 button instead of out of the page. Two short lines, not one
+                 clipped one. */
+              <Button onClick={() => go(`/mock/${form}/${next.s.id}`)} data-testid="mock-next" className="h-auto max-w-full py-2 leading-tight whitespace-normal"><Play /> {next.status === "live" ? "Resume" : "Start"} {next.s.name}</Button>
             ) : null}
           </CardAction>
         </CardHeader>

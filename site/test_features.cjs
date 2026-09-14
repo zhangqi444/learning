@@ -1361,6 +1361,24 @@ async function runThrough(pg, pick, max = 60) {
   });
   check('every skill links straight to its free Khan Academy lesson', khan.bad.length === 0,
     `${khan.total - khan.bad.length} of ${khan.total}${khan.bad.length ? ' · ' + khan.bad.slice(0, 3).join(' | ') : ''}`);
+  /* A link that names one site and opens another is the worst kind of wrong here:
+     the badge is what tells her whether the next tap costs money. So every URL we
+     carry has to be on the host whose name is printed on it. */
+  const hosts = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const HOST = { 'Khan Academy': 'khanacademy.org', 'Math is Fun': 'mathsisfun.com', 'BBC Bitesize': 'bbc.co.uk', 'ReadWriteThink': 'readwritethink.org' };
+    const bad = [];
+    let direct = 0;
+    for (const [name, c] of Object.entries(b.learn.skills))
+      for (const l of c.links || []) {
+        if (!l.url) continue;
+        direct++;
+        const want = HOST[l.name];
+        if (!want || !new URL(l.url).hostname.endsWith(want)) bad.push(`${name}/${l.name} → ${l.url}`);
+      }
+    return { direct, bad };
+  });
+  check('a link that names a site opens that site', hosts.bad.length === 0, `${hosts.direct} direct links · ${hosts.bad.slice(0, 2).join(' | ')}`);
   const khanHref = await pg.$$eval('[data-testid=learn-link]', (n) => {
     const hit = n.find((a) => /Khan Academy/.test(a.textContent || ''));
     return hit ? hit.href : '';
