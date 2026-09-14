@@ -143,11 +143,18 @@ async function runThrough(pg, pick, max = 60) {
   // cat that blinks permanently at everything.
   check('and nobody has blinked at her yet, because nothing has happened',
     (await pg.$$('[data-testid=glim-blink]')).length === 0);
+  // A cat that does not know you keeps its distance — world.md's first line about
+  // them, and until now said only in opacity. `near` is the same mastery number
+  // read a second way, so it has to move with the stage and not on its own.
+  const nearBefore = Number(await pg.$eval('[data-testid=pword] >> nth=0 >> [data-testid=glim]', (e) => e.dataset.near));
   await pg.fill('[data-testid=pword] >> nth=0 >> textarea', 'imply is the speaker hinting; infer is the listener figuring it out');
   await pg.click('[data-testid=pword] >> nth=0 >> [data-testid=conf-3]');
   await pg.waitForTimeout(700);
   const lit = await pg.$$eval('[data-testid=pword] >> nth=0 >> [data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
   check('writing a word in her own words brings its cat into the light', lit.every((s) => s !== 'Unseen'), lit.join(','));
+  const nearAfter = Number(await pg.$eval('[data-testid=pword] >> nth=0 >> [data-testid=glim]', (e) => e.dataset.near));
+  check('and it comes closer, which is the same fact said twice',
+    nearAfter > nearBefore, `${nearBefore} → ${nearAfter}`);
   // A cat's slow blink is how it says it trusts you, so it is this app's way of
   // saying yes — and it has to fire on something that actually happened. The
   // moment is the word going from nothing to her own words, once, not on every

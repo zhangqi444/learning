@@ -134,26 +134,33 @@ nothing has blinked before she writes, and that something has after. The rest of
 the surfaces in the paragraph above are not done, and each needs the same
 question asked of it — what exactly is the thing that happened?
 
-## 5. Distance and height — the unused mechanic
+## 5. Distance and height — **built**
 
 world.md's own table opens with: *a cat that does not know you **keeps its
-distance** and watches from somewhere high.* The code expresses that entirely as
-opacity. Nothing is ever actually far away.
+distance** and watches from somewhere high.* The code said that entirely in
+opacity. Nothing was ever actually far away.
 
-So: **position becomes a second readout of the same mastery number.** Unseen sits
-small, high, and at the edge of its container; each stage down comes lower,
-nearer and larger; Radiant is close, full size, centred, at rest. Read live from
-`skillLevel()` / `wordStatus()`, never stored, exactly as brightness is — so it
-cannot drift and cannot be edited. *(Mechanic: it is the same honest number, said
-in a second language, and it is the one cat fact the design has been quoting
-without using.)*
+So **position is a second readout of the same mastery number**: `near` and `lift`
+per stage in `components/glim.jsx`. Unseen draws at a bit over half size and
+sits high; each stage brings it lower, nearer and larger; Radiant fills the
+frame. Derived from the stage on every render, never stored, exactly as
+brightness is — so it cannot drift and cannot be edited. *(Mechanic: the same
+honest number said in a second language, and the one cat fact the design had been
+quoting without using.)*
 
-It also makes a shelf of half-learned words legible at a glance in a way a grid
-of dimmed icons is not: the ones that do not know her yet are literally up on the
-shelf by the window, which is a thing the Den already contains.
+**Distance happens inside the cat's own square.** The box does not move, which is
+what keeps a shelf of them a grid and — the part that matters — keeps the tap
+target the size it always was. A cat is a button on three pages; shrinking the
+drawing must never shrink the thing she has to hit.
 
-`atLeast()` still applies — a cat just called correctly never draws itself
-distant, for the same reason it never draws itself faint.
+`atLeast()` still applies, and gets this for free: a cat she has just called
+right is floored at Steady, so it is never drawn distant for the same reason it
+is never drawn faint.
+
+Before and after, on the same untouched week: the Unseen pair used to fill their
+boxes and merely look pale, so they read as present cats behind frosted glass.
+Now they read as cats across the room, which is what the word actually means. The
+eyes are still the last thing to go.
 
 ## 6. Form — the three zones
 

@@ -80,6 +80,13 @@ Claude-Session: <session url>
   the page with motion reduced. The global rule deletes every animation outright,
   so the resting frame is the whole of what that reader sees — an animation
   written frame-one-first is correct only on the machine you tested it on.
+- `test_artifact.cjs` tests `../artifact.html`, which is **untracked and built by
+  hand** (`npm run build:artifact`). Nothing rebuilds it for you, so after any
+  content change it fails on numbers that have nothing to do with what you
+  touched — "dashboard from inlined bundle" comparing today's bundle against a
+  week-old file. Rebuild it before believing that suite, and note that
+  `build:artifact` writes `dist/` too, so the Pages build has to be redone
+  afterwards or the other three suites test the artifact by mistake.
 - Rebuilding `site/dist` from a scratch build loses `dist/content/bundle.json`:
   the Vite plugin's `closeBundle` copies it to a hard-coded `dist/content/`, so a
   `--outDir` build followed by a copy leaves the app with no data to fetch and
