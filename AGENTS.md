@@ -39,6 +39,7 @@ site/
   src/components/ui/       shadcn/ui components, written into the repo (not a dependency)
   src/components/          glim.jsx (draws a cat), gate.jsx, burst.jsx and the shell
   test_*.cjs               four Playwright suites — see Testing
+  run_tests.cjs            runs all four and reports, rather than stopping at the first
   oauth.json               the Google OAuth client's public facts (no secrets)
 .github/workflows/pages.yml  build + deploy to GitHub Pages
 docs/                     architecture.md (how it is built), design.md (why it looks and
@@ -168,6 +169,15 @@ Four suites, all real browsers against the built `dist/`:
 Rules: every feature gets checks in the suite it belongs to; a UI change that
 breaks a selector means fixing the test's *assumption*, not deleting the check.
 All four must pass before a commit.
+
+`npm test` runs all four whatever any of them does, and prints a pass/fail line
+each (`run_tests.cjs`). It used to be the four joined with `&&`, which reads as
+thrift and behaves as concealment: a failing check in the features suite stood in
+front of the artifact suite for a week, and nothing in the output said a whole
+suite had not run. It also builds `artifact.html` before testing it — that file
+is untracked and made by hand, so it goes stale on any content change and then
+fails on numbers unrelated to whatever you touched. The Pages `dist/` is rebuilt
+afterwards, because `build:artifact` writes over it.
 
 Two things in `test_features.cjs` **must run last**, and say so where they sit:
 the ones that write throwaway learning history (the stubbed Drive merges it back

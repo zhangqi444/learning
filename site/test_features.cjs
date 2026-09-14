@@ -281,7 +281,7 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=ck-item]');
   await pg.waitForTimeout(400);
   const ckNow = await body(pg);
-  check('a finished mock leaves follow-ups on the current week', /Mock follow-up/.test(ckNow), 'no Mock follow-up rows');
+  check('a finished mock leaves follow-ups on the current week', /Mock follow-up/.test(ckNow), ckNow.match(/Mock follow-up/) ? 'follow-ups present' : 'no Mock follow-up rows');
   // Pin the day it is filed under, because the check above is only honest at the
   // hour the suite happens to run: finishing a mock at half past eleven at night
   // is already tomorrow in UTC, and reading the day off the ISO string moved the
@@ -297,7 +297,7 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForSelector('[data-testid=ck-item]');
   await pg.waitForTimeout(300);
   check('and stays on it when the mock was finished late in the evening',
-    /Mock follow-up/.test(await body(pg)), 'late-evening finish lost its follow-ups');
+    /Mock follow-up/.test(await body(pg)), 'finish stamped 23:30 local');
   // put the page back: the checks after this one are still reading the mock
   await pg.evaluate((h) => { location.hash = h; }, backTo);
   await pg.waitForTimeout(500);
