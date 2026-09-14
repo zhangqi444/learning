@@ -439,6 +439,22 @@ enough to have been read. Careful is opt-in and off by default: a child uses
 this, and a timer she did not ask for that stops her answering is a punishment,
 not a help.
 
+**We teach it ourselves first, because AoPS costs money.** Beast Academy and the
+Prealgebra book are paid; only Alcumus and the videos are free. A family that
+does not buy them had no way back into a question she got wrong, so
+`content/learn.json` carries our own card per skill — what the question is really
+asking, two or three steps, the trap named out loud, a worked example — rendered
+by `LearnCard` at the top of the reveal. It is bundled text: no account, no
+request, works offline and inside the single-file artifact. Eighteen cards so
+far: all six Reading skills, which nothing else in the repo covers, and the
+twelve maths skills she has actually missed.
+
+Outside links sit under it as site-scoped searches, each marked **free** or
+**paid** so nobody meets a paywall by walking into one. Searches rather than deep
+links on purpose — no environment that writes this file can reach those domains
+to check a deep path, and a link that 404s in two years is worse than a search
+that always lands.
+
 **A maths miss names its chapter; only what has none falls back to a search.**
 Forty-four of the forty-five Quantitative and Mathematics skills already carry a
 Beast Academy unit, a Prealgebra chapter and an Alcumus topic in

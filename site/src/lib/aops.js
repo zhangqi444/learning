@@ -36,3 +36,25 @@ export function learnUrl(sub, it) {
   const q = learnQuery(sub, it)
   return q ? "https://www.google.com/search?q=" + encodeURIComponent(q) : null
 }
+
+/* ---------- our own explainer ---------- */
+/** What we teach about a skill ourselves.
+ *
+ *  The AoPS pointer assumes a subscription: Beast Academy and the Prealgebra
+ *  book both cost money, and only Alcumus and the videos are free. A child whose
+ *  family does not buy those had no way back into a question she got wrong. This
+ *  is first-party, bundled and offline — it costs nothing, needs no account, and
+ *  works in the single-file artifact where no request can be made at all. The
+ *  chapter and the outside links sit beside it as extras, each marked free or
+ *  paid so nobody finds out by hitting a paywall. */
+export function learnCard(skill) { return (D.learn && D.learn.skills && D.learn.skills[skill]) || null }
+
+/** Site-scoped searches rather than deep links. A deep link that 404s in two
+ *  years is worse than a search that always lands on the right page, and these
+ *  cannot be verified from the environment that writes them. */
+const HOSTS = { "Khan Academy": "khanacademy.org", "Math is Fun": "mathsisfun.com", "BBC Bitesize": "bbc.co.uk/bitesize", "ReadWriteThink": "readwritethink.org" }
+export function learnLinkUrl(link) {
+  const host = HOSTS[link.name]
+  const q = host ? `site:${host} ${link.q}` : link.q
+  return "https://www.google.com/search?q=" + encodeURIComponent(q)
+}

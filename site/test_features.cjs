@@ -1109,6 +1109,15 @@ async function runThrough(pg, pick, max = 60) {
   }
   check('answering faster than the question can be read says so', rushedSeen,
     rushedSeen ? await pg.textContent('[data-testid=rushed]') : 'never flagged');
+  /* AoPS is a subscription: Beast Academy and the Prealgebra book both cost
+   * money. A child whose family does not buy them had no way back into a
+   * question she got wrong, so the first thing on a miss is ours — bundled,
+   * free, offline — and the chapter is the extra beside it. */
+  const lc = await pg.textContent('[data-testid=learn-card]').catch(() => '');
+  check('a miss teaches the skill right there, for free', !!lc && /\w/.test(lc), lc.replace(/\s+/g, ' ').slice(0, 100));
+  check('and names the trap out loud', !!(await pg.$('[data-testid=learn-trap]')));
+  const freeMarks = await pg.$$eval('[data-testid=learn-link]', (n) => n.map((e) => e.dataset.free));
+  check('every outside link says whether it costs money', freeMarks.length > 0 && freeMarks.every((f) => f === '1' || f === '0'), freeMarks.join(','));
   check('a maths miss names the chapter that teaches it, not a web search',
     !!(await pg.$('[data-testid=aops-hint]')) && !(await pg.$('[data-testid=learn-more]')),
     (await pg.textContent('[data-testid=aops-hint]').catch(() => '')).replace(/\s+/g, ' ').slice(0, 110));

@@ -3,8 +3,9 @@ import { ArrowLeft, ArrowRight, Award, BookOpen, Check, CheckCircle2, Eye, Gauge
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { BUDGET, CAUSES, findItem, paceFlag, readFloor, rec, recordAttempts, setTag, skillLevel, tooFast } from "@/lib/engine"
-import { aopsFor, learnQuery, learnUrl } from "@/lib/aops"
+import { aopsFor, learnCard, learnQuery, learnUrl } from "@/lib/aops"
 import { AopsHint } from "@/components/aops-hint"
+import { LearnCard } from "@/components/learn-card"
 import { syncBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
@@ -565,10 +566,13 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                   is worth anything. A named chapter beats a web search, so the
                   search is only the fallback for the skills we have nothing for:
                   Reading, and vocabulary. */}
+              {/* Ours first, because it is free and it is here. The AoPS chapter
+                  is the extra for a family that has it, not the way back in. */}
+              {!gotIt ? <LearnCard skill={it.sk} className="mt-2" /> : null}
               {!gotIt && aopsFor(subOf(it, subHint), it.sk) ? (
                 <AopsHint sub={subOf(it, subHint)} skill={it.sk} className="mt-2" />
               ) : null}
-              {!gotIt && !aopsFor(subOf(it, subHint), it.sk) && learnUrl(subOf(it, subHint), it) ? (
+              {!gotIt && !learnCard(it.sk) && !aopsFor(subOf(it, subHint), it.sk) && learnUrl(subOf(it, subHint), it) ? (
                 <a
                   href={learnUrl(subOf(it, subHint), it)}
                   target="_blank"

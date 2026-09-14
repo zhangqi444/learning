@@ -1,0 +1,254 @@
+{
+  "note": "Our own explainer for a skill, shown the moment she gets one wrong. First-party and bundled, so it costs nothing, needs no account and works offline — the AoPS chapter is the paid-or-free extra beside it, not the only way back in. Written to a ten-year-old: short sentences, one method, and the trap named out loud. `links` are site-scoped searches rather than deep links, because a deep link that 404s two years from now is worse than a search that always lands.",
+  "links_note": "free: true means no account and no payment. Anything marked false costs money to use properly.",
+  "skills": {
+    "Main idea": {
+      "sub": "rc",
+      "what": "What the whole passage is about — not one interesting thing in it.",
+      "how": [
+        "Say the passage back in one sentence, in your head, before looking at the choices.",
+        "A right answer covers the beginning, middle AND end. A wrong one covers only a bit.",
+        "Cross out any choice that is true but small."
+      ],
+      "trap": "The most tempting wrong answer is usually a real detail from the passage. True is not the same as main.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "main idea reading comprehension" },
+        { "name": "BBC Bitesize", "free": true, "q": "main idea of a text KS2" }
+      ]
+    },
+    "Supporting detail/evidence": {
+      "sub": "rc",
+      "what": "Something the passage actually says — findable, word for word.",
+      "how": [
+        "Find the line. Do not answer from memory.",
+        "Put your finger on the sentence that proves it before you pick.",
+        "If you cannot find a line for it, it is not the answer."
+      ],
+      "trap": "A choice that sounds sensible and is true about the world, but is never said in the passage.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "supporting details text evidence reading" }
+      ]
+    },
+    "Inference": {
+      "sub": "rc",
+      "what": "Something the passage makes almost certain without saying it outright.",
+      "how": [
+        "Ask: what must be true, given what it does say?",
+        "Stay close. An inference is one small step, not a big guess.",
+        "You should still be able to point at the lines that force it."
+      ],
+      "trap": "Going too far. If you need to invent anything at all, it is a guess, not an inference.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "making inferences reading comprehension" }
+      ]
+    },
+    "Organization/logic": {
+      "sub": "rc",
+      "what": "How the parts of the passage fit together — why this paragraph comes after that one.",
+      "how": [
+        "Give each paragraph a job in three words: sets it up, gives an example, argues back, sums up.",
+        "Then ask what the question is asking about: one paragraph, or how two relate?",
+        "Words like but, however, for example and so are the joins. Circle them."
+      ],
+      "trap": "Answering about what a paragraph SAYS when the question asked what it DOES.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "text structure and organization reading" },
+        { "name": "ReadWriteThink", "free": true, "q": "text structure paragraph purpose" }
+      ]
+    },
+    "Vocabulary in context": {
+      "sub": "rc",
+      "what": "What a word means in THIS sentence — which may not be its usual meaning.",
+      "how": [
+        "Cover the word. Read the sentence and say your own word in the gap.",
+        "Now find the choice closest to your word.",
+        "Put each choice back into the sentence and read it aloud."
+      ],
+      "trap": "Picking the word's most common meaning. The question exists because the passage is using a less common one.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "words in context reading comprehension" }
+      ]
+    },
+    "Tone/style/figurative language": {
+      "sub": "rc",
+      "what": "How the writer feels about it, and the tricks they use to show you.",
+      "how": [
+        "Look at the adjectives and the verbs — that is where feeling hides.",
+        "Decide first whether it is warm, cold, or neutral. Then pick the closest word.",
+        "A comparison with like or as is a simile; without them it is a metaphor."
+      ],
+      "trap": "Choosing a very strong word — furious, terrified — when the passage is only mildly anything. Most writing is mild.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "author tone and figurative language" }
+      ]
+    },
+
+    "Perimeter": {
+      "sub": "ma",
+      "what": "The distance all the way round the outside of a shape.",
+      "how": [
+        "Walk the edge in your head and add every side you step along.",
+        "A rectangle has four: length + width + length + width, which is 2 x (length + width).",
+        "Going backwards? Take off the two sides you know, then halve what is left."
+      ],
+      "trap": "Multiplying. Length x width is the area — the space inside — not the walk around the edge.",
+      "example": { "q": "A banner is 10 cm by 3 cm. What is its perimeter?", "work": "10 + 3 + 10 + 3 = 26 cm. (10 x 3 = 30 would be the area.)" },
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "perimeter of a rectangle" },
+        { "name": "Math is Fun", "free": true, "q": "perimeter" }
+      ]
+    },
+    "Area": {
+      "sub": "ma",
+      "what": "How much flat space is inside a shape.",
+      "how": [
+        "Rectangle: length x width — think of the squares that would fill it.",
+        "Triangle: half of base x height, because a triangle is half a rectangle.",
+        "Given the area and one side, divide to get the other side back."
+      ],
+      "trap": "Forgetting the half on a triangle, and adding sides instead of multiplying.",
+      "example": { "q": "A triangular flag has base 10 cm and height 6 cm.", "work": "Half of 10 x 6 = half of 60 = 30 cm2. (60 is the whole rectangle.)" },
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "area of rectangles and triangles" },
+        { "name": "Math is Fun", "free": true, "q": "area of plane shapes" }
+      ]
+    },
+    "Angles": {
+      "sub": "ma",
+      "what": "How far something turns, measured in degrees.",
+      "how": [
+        "The three angles of any triangle add to 180.",
+        "Angles on a straight line add to 180; all the way round a point is 360.",
+        "Given two angles of a triangle, subtract both from 180."
+      ],
+      "trap": "Using 360 for a triangle. A triangle is 180 — a four-sided shape is 360.",
+      "example": { "q": "A triangle has angles 45 and 60. What is the third?", "work": "180 - 45 - 60 = 75 degrees." },
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "angles in a triangle sum 180" }
+      ]
+    },
+    "Percent": {
+      "sub": "ma",
+      "what": "A number out of a hundred. 25% means 25 for every 100.",
+      "how": [
+        "Percent of a number: turn the percent into a fraction over 100, then multiply.",
+        "Learn the easy ones by heart: 50% is half, 25% is a quarter, 10% is divide by ten.",
+        "Build harder ones from those: 30% is three lots of 10%."
+      ],
+      "trap": "Finding the percent when the question asked what the whole was, or the other way round. Say out loud which number is the whole.",
+      "example": { "q": "What is 30% of 60?", "work": "10% of 60 is 6, so 30% is 3 x 6 = 18." },
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "percent of a number" },
+        { "name": "Math is Fun", "free": true, "q": "percentage" }
+      ]
+    },
+    "Fractions": {
+      "sub": "ma",
+      "what": "Part of a whole. The bottom says how many pieces; the top says how many you have.",
+      "how": [
+        "Adding or subtracting: make the bottoms match first, then only the tops change.",
+        "Multiplying: tops together, bottoms together. No matching needed.",
+        "Dividing by a fraction: flip it over and multiply."
+      ],
+      "trap": "Adding the bottoms. A half plus a quarter is not two sixths.",
+      "example": { "q": "1/2 + 1/4", "work": "1/2 is 2/4, so 2/4 + 1/4 = 3/4." },
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "adding fractions unlike denominators" },
+        { "name": "Math is Fun", "free": true, "q": "fractions" }
+      ]
+    },
+    "Decimals": {
+      "sub": "ma",
+      "what": "Another way of writing fractions, using place value after a dot.",
+      "how": [
+        "Line up the dots before adding or subtracting — always.",
+        "Multiplying: ignore the dots, multiply, then count how many digits came after dots altogether.",
+        "0.5 is a half, 0.25 a quarter, 0.1 a tenth."
+      ],
+      "trap": "Thinking 0.35 is bigger than 0.5 because it has more digits. Compare place by place.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "comparing and adding decimals" }
+      ]
+    },
+    "Whole-number operations": {
+      "sub": "ma",
+      "what": "Adding, subtracting, multiplying and dividing ordinary numbers, carefully.",
+      "how": [
+        "Line up the columns by place value before you start.",
+        "Estimate first: 2,400 + 1,750 is about 4,000, so an answer near 400 or 40,000 is wrong.",
+        "Check the answer against your estimate before moving on."
+      ],
+      "trap": "A single place-value slip. Estimating first catches almost all of them.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "multi digit addition and subtraction" }
+      ]
+    },
+    "Order of operations": {
+      "sub": "ma",
+      "what": "Which part of a long sum to do first.",
+      "how": [
+        "Brackets first, then multiply and divide, then add and subtract.",
+        "Multiply and divide are equal — do them left to right.",
+        "So are add and subtract. Left to right again."
+      ],
+      "trap": "Working strictly left to right through everything, which gets 2 + 3 x 4 wrong.",
+      "example": { "q": "2 + 3 x 4", "work": "Multiply first: 3 x 4 = 12, then 2 + 12 = 14. Not 20." },
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "order of operations" }
+      ]
+    },
+    "Parity": {
+      "sub": "qr",
+      "what": "Whether a number is odd or even, and what happens when you combine them.",
+      "how": [
+        "Even + even = even. Odd + odd = even. Odd + even = odd.",
+        "Anything multiplied by an even number is even.",
+        "Odd x odd is the only way to keep a product odd."
+      ],
+      "trap": "Assuming odd + odd is odd. Two odds always make an even.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "even and odd numbers rules" }
+      ]
+    },
+    "Number sense": {
+      "sub": "qr",
+      "what": "Knowing roughly what the answer should be before you work it out.",
+      "how": [
+        "Round each number to something easy and do the easy sum first.",
+        "Ask whether the answer should be bigger or smaller than what you started with.",
+        "Then compare your real answer to that. If they disagree, one of them is wrong."
+      ],
+      "trap": "Trusting a worked answer that is wildly the wrong size. The estimate is the check.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "estimation and number sense" }
+      ]
+    },
+    "Geometry": {
+      "sub": "qr",
+      "what": "Shapes, their sides and angles, and what stays true about them.",
+      "how": [
+        "Draw it, even roughly. Most geometry mistakes are picture mistakes.",
+        "Label every length and angle you are given, on the drawing.",
+        "Then ask which rule connects what you have to what you want."
+      ],
+      "trap": "Answering from the picture looking about right instead of from the numbers given.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "basic geometry shapes and properties" },
+        { "name": "Math is Fun", "free": true, "q": "geometry" }
+      ]
+    },
+    "Algebraic reasoning": {
+      "sub": "qr",
+      "what": "Working with a number you do not know yet, usually called a letter.",
+      "how": [
+        "Write the sentence as a sum, with a letter where the unknown goes.",
+        "Do the same thing to both sides until the letter is alone.",
+        "Put your answer back into the original sentence and check it works."
+      ],
+      "trap": "Changing one side and not the other. Whatever you do, do it to both.",
+      "links": [
+        { "name": "Khan Academy", "free": true, "q": "solving one step equations" }
+      ]
+    }
+  }
+}
