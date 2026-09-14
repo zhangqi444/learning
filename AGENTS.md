@@ -272,19 +272,29 @@ blocked by the *content*, not by the UI:
   24 is what you get if you divide instead of multiply. This is the one that is
   actually being built, and it is further along than this paragraph used to say.
   The `why` field carries it per wrong choice, the runner shows it above the
-  explanation, and **15 items have one**. What is missing is not the mechanism but
-  the writing.
+  explanation, and **209 of 326 numeric QR/MA items have one**. Everything that
+  can be said truthfully has been said; what is left is not writing that nobody
+  has got to yet.
 
-  How far it can honestly go is now measured rather than guessed —
-  `tools/why_candidates.py`. Of 326 numeric QR/MA items, **72 have every
-  distractor reachable by an exact identity** from the numbers already in the
-  question, 150 have some, and **89 have none at all**: their distractors are
-  plausible neighbours — 10, 8 and 7 against a correct 9 — with no mistake behind
-  them. That last group is the important number. It keeps no `why`, because the
-  only way to give it one is to invent the misconception, and a confident wrong
-  reason is worse for her than no reason at all. 119 items separately carry a
-  `misconceptions` tag naming the trap, which is a head start on the sentence but
-  is not itself shown to her anywhere.
+  `tools/why_candidates.py` is what decides that, by looking for an exact
+  arithmetic identity between a wrong choice and the numbers already in the
+  question. **96 items have none**, and that is the number to understand rather
+  than to reduce: their distractors are plausible neighbours — 10, 8 and 7
+  against a correct 9 — with no mistake behind them, so they keep no `why`. The
+  only way to give them one is to invent the misconception, and a confident wrong
+  reason is worse for her than no reason, because she cannot tell the difference
+  and has every cause to believe us. A further 21 have a stray derivable choice
+  apiece, all of them refused for the reason below.
+
+  **An identity that adds to or subtracts from the correct answer explains
+  nothing**, and the tool used to count those as writable. "37 is 34 + 3" is
+  perfectly true and perfectly useless: 34 is only *the answer*, so the sentence
+  measures her distance from it rather than naming what she did. Six authors
+  refused to write them before the tool knew to stop offering them. Doubling and
+  halving survive the rule, because "you doubled it" is a mistake with a name.
+
+  119 items separately carry a `misconceptions` tag naming the trap, which is a
+  head start on the sentence but is not itself shown to her anywhere.
 
 Two facts worth keeping, and the rule for re-deriving them so the next reader is
 not counting a different thing: over `content/question-banks/*.json` minus

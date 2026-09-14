@@ -40,13 +40,27 @@ def val(choice):
     n = nums(s)
     return n[0] if len(n) == 1 else None
 
-def identities(target, pool):
-    """Every exact way to reach `target` from `pool` with one simple step."""
+def identities(target, pool, answer=None):
+    """Every exact way to reach `target` from `pool` with one simple step.
+
+    Identities that ADD TO or SUBTRACT FROM the correct answer are dropped, and
+    that exclusion is the thing worth understanding. "37 is 34 + 3" is true, and
+    it is useless: 34 is only "the answer", so the sentence says she is three
+    above it and nothing about what she did. Six authors independently refused
+    to write those, which is how this was found — the tool had been counting
+    them as writable and overstating what the bank can honestly say.
+
+    Doubling and halving the answer survive, because "you doubled it" is a real
+    mistake with a name, not a measurement of the gap.
+    """
     out = []
     for a, b in itertools.permutations(pool, 2):
         for r, sym in ((a * b, '×'), (a + b, '+'), (a - b, '−'), (a / b if b else None, '÷')):
-            if r is not None and abs(r - target) < 1e-9:
-                out.append(f'{a:g} {sym} {b:g}')
+            if r is None or abs(r - target) >= 1e-9:
+                continue
+            if answer is not None and sym in '+−' and (abs(a - answer) < 1e-9 or abs(b - answer) < 1e-9):
+                continue                                  # an offset from the answer explains nothing
+            out.append(f'{a:g} {sym} {b:g}')
     for a in pool:
         for r, sym in ((a * a, f'{a:g} × {a:g}'), (a * 4, f'{a:g} × 4'), (a * 2, f'{a:g} × 2'), (a / 2, f'{a:g} ÷ 2')):
             if abs(r - target) < 1e-9:
@@ -73,7 +87,7 @@ def analyse(it):
         if letter == k:
             continue
         t = val(text)
-        rows.append((letter, text, [] if t is None else identities(t, pool)))
+        rows.append((letter, text, [] if t is None else identities(t, pool, cv)))
     return rows
 
 def main():
