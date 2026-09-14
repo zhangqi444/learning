@@ -64,7 +64,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "b8597ff0356892a6"
+      "why": {
+        "C": "18 is 36 ÷ 2, half the seats rather than two thirds of them. Split the 36 into three first: 36 ÷ 3 = 12, then 12 × 2 = 24."
+      },
+      "content_hash": "1c51458e62e5e06f"
     },
     {
       "id": "MA-SEP-004",
@@ -106,7 +109,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "789941045db6cc53"
+      "why": {
+        "A": "12.8 is 6.4 ÷ 0.5, the 6.4 divided by the half rather than multiplied by it. Multiplying by 0.5 takes half, and half of the 6.4 comes to 3.2."
+      },
+      "content_hash": "4e455df3b3869581"
     },
     {
       "id": "MA-SEP-006",
@@ -169,7 +175,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "b84aad80f6b9865f"
+      "why": {
+        "B": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28."
+      },
+      "content_hash": "19b3f7d03537cbfe"
     },
     {
       "id": "MA-SEP-009",
@@ -400,7 +409,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "d20bc0c06411f52d"
+      "why": {
+        "D": "18 is 36 ÷ 2, half the deck rather than two thirds of it. Split the 36 into three first: 36 ÷ 3 = 12, then 12 × 2 = 24."
+      },
+      "content_hash": "03a33a8223a015a4"
     },
     {
       "id": "MA-SEP-020",
@@ -421,7 +433,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "909541b14626fe97"
+      "why": {
+        "B": "1.2 is 0.6 × 2, the 0.6 doubled rather than divided into the 7.2. Make both numbers ten times bigger first: 72 ÷ 6 = 12."
+      },
+      "content_hash": "9a7df4d610076087"
     },
     {
       "id": "MA-SEP-021",
@@ -442,7 +457,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "6e816b2016a69d85"
+      "why": {
+        "D": "60 is 80 − 20, the twenty taken off the eighty rather than used as a percentage. Twenty per cent means two tenths: 80 ÷ 10 = 8, then 8 × 2 = 16."
+      },
+      "content_hash": "79ac2d4fee29fa66"
     },
     {
       "id": "MA-SEP-022",
@@ -552,7 +570,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "073327baf8864c4a"
+      "why": {
+        "B": "60 is 10 × 6, the base times the height — the whole rectangle around the triangle. The triangle fills half of it: 60 ÷ 2 = 30.",
+        "D": "16 is 10 + 6, the base and the height added rather than multiplied. Multiply them and take half: 10 × 6 = 60, then 60 ÷ 2 = 30."
+      },
+      "content_hash": "7577343221250ca9"
     },
     {
       "id": "MA-SEP-027",
@@ -646,12 +668,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "df0b23f73c6b5d47",
       "why": {
-        "A": "80 is 10 × 8, the whole rectangle the triangle sits inside. A triangle fills half of it.",
-        "B": "18 is 10 + 8, the base and the height added instead of multiplied.",
-        "D": "48 is 40 + 8 — the area with the height added on the end."
-      }
+        "A": "80 is 10 × 8, the whole rectangle the triangle sits in. A triangle fills half of it, so halve it: 40.",
+        "B": "18 is 10 + 8. Area multiplies the base and the height, it never adds them.",
+        "D": "48 is 40 + 8, the area with the height added on again. Once you have half of 10 × 8 you are done."
+      },
+      "content_hash": "b3b3ec14a8cb406f"
     },
     {
       "id": "MA-SEP-031",
@@ -693,12 +715,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "6effe976878d33aa",
       "why": {
-        "A": "28 is 7 × 4, the perimeter: the distance round the mosaic, not the space inside it.",
-        "C": "14 is 7 × 2, two sides. Area covers the whole square, so it is 7 × 7.",
-        "D": "56 is 49 + 7 — the area with one more side added on the end."
-      }
+        "A": "28 is 7 × 4, the perimeter — the distance round all four sides, not the space inside.",
+        "C": "14 is 7 × 2, two sides. Area covers the whole square: 7 × 7.",
+        "D": "56 is 49 + 7, the area with one more side added on. 7 × 7 = 49 is all of it."
+      },
+      "content_hash": "239ce884f3e3e386"
     },
     {
       "id": "MA-SEP-033",
@@ -745,7 +767,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "a5e1a88eaca163a5"
+      "why": {
+        "A": "14 is 10 + 4, the base and the height added rather than multiplied. Multiply them and take half: 10 × 4 = 40, then 40 ÷ 2 = 20.",
+        "B": "40 is 10 × 4, the base times the height — the whole rectangle around the triangle. The triangle fills half of it: 40 ÷ 2 = 20."
+      },
+      "content_hash": "1f05335aa4fde849"
     },
     {
       "id": "MA-SEP-035",
@@ -787,12 +813,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "7bf787d2a8942248",
       "why": {
-        "A": "20 is 16 + 4 — the area with one more side added on the end.",
-        "B": "12 is 16 − 4, the area with a side taken off it. The area is just 4 × 4.",
-        "C": "8 is 4 × 2, two sides. The board has four, and the area fills the whole of it."
-      }
+        "A": "20 is 16 + 4, the area with a side added on the end. The area is just 4 × 4.",
+        "B": "12 is 16 − 4. Nothing is taken off an area: 4 × 4 = 16.",
+        "C": "8 is 4 × 2, two sides. A square has four, and its area is 4 × 4."
+      },
+      "content_hash": "1480b44aa7cc44ff"
     },
     {
       "id": "MA-SEP-037",
@@ -897,12 +923,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "b2a9d398cdead66e",
       "why": {
-        "B": "18 is 9 × 2, two sides. Area is the whole stage: 9 × 9.",
-        "C": "36 is 9 × 4, the perimeter — the walk round the edge, not the space inside.",
-        "D": "90 is 81 + 9 — the area with one more side added on the end."
-      }
+        "B": "18 is 9 × 2, two sides. Area is 9 × 9.",
+        "C": "36 is 9 × 4, the perimeter — round the edge, not the space inside.",
+        "D": "90 is 81 + 9, the area with one more side added on. 9 × 9 = 81 is all of it."
+      },
+      "content_hash": "e173b5c254997f1b"
     },
     {
       "id": "MA-SEP-042",
@@ -986,7 +1012,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "42b5e1bc939c8cb4"
+      "why": {
+        "A": "24 is 48 ÷ 2, half of the forty-eight rather than three quarters of it. Quarter it first: 48 ÷ 4 = 12, then 12 × 3 = 36.",
+        "D": "12 is 48 ÷ 4, one quarter of the forty-eight rather than three quarters of it. Three quarters means three of those quarters: 12 × 3 = 36."
+      },
+      "content_hash": "d0aa3c5739dc30e9"
     },
     {
       "id": "MA-SEP-046",
@@ -1049,7 +1079,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "043d538a70b88fdc"
+      "why": {
+        "B": "64 is 8 × 8, eight eights rather than seven. Take one eight away: 64 − 8 = 56."
+      },
+      "content_hash": "448bf256696f108e"
     },
     {
       "id": "MA-SEP-049",
@@ -1091,7 +1124,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "9badcf7ce1c1f617"
+      "why": {
+        "D": "9 is 3 × 3, the three feet tripled rather than turned into inches. A foot is 12 inches, so 3 × 12 = 36."
+      },
+      "content_hash": "08b02e6b7049d0f4"
     },
     {
       "id": "MA-SEP-051",
@@ -1301,7 +1337,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "55ab6efa25366dff"
+      "why": {
+        "D": "16 is 4 × 4, the 4 multiplied by itself rather than by the other two sides. Volume uses all three: 7 × 5 = 35, then 35 × 4 = 140."
+      },
+      "content_hash": "21d40904c5f4e2a3"
     },
     {
       "id": "MA-SEP-061",
@@ -1574,7 +1613,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "2ca3a643c8b7d539"
+      "why": {
+        "D": "16 is 19 − 3, the total with the 3 taken off instead of the 7. The 7 comes off first: 19 − 7 = 12, then 12 ÷ 3 = 4."
+      },
+      "content_hash": "1333eb001154b3f4"
     },
     {
       "id": "MA-SEP-074",
@@ -1616,7 +1658,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "09b75c1c728d5341"
+      "why": {
+        "A": "48 is 58 − 10, the total with ten taken off it — one pack of points short. All five packs count: 5 × 10 = 50, then 50 + 8 = 58.",
+        "C": "63 is 58 + 5, the total with the 5 counted a second time. The 5 is the number of packs, not points of its own: 5 × 10 = 50, then 50 + 8 = 58."
+      },
+      "content_hash": "1886087ade36b942"
     },
     {
       "id": "MA-SEP-076",
@@ -1658,7 +1704,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "f5b61f1121f35281"
+      "why": {
+        "D": "12.8 is 6.4 × 2, the ribbon doubled rather than halved. Cutting in half means 6.4 ÷ 2 = 3.2 metres for each piece."
+      },
+      "content_hash": "0477117b748cb003"
     },
     {
       "id": "MA-SEP-078",
@@ -1679,7 +1728,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "ba1b0908f2332210"
+      "why": {
+        "C": "39 is 64 − 25, the 25 taken away as a plain number rather than used as a per cent. Twenty-five per cent means a quarter: 64 ÷ 4 = 16."
+      },
+      "content_hash": "1b4631331a03e0e9"
     },
     {
       "id": "MA-SEP-079",
@@ -1700,12 +1752,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "29133e47c596b9d0",
       "why": {
-        "B": "20 is 5 × 4, the perimeter: the distance all the way round the square.",
-        "C": "10 is 5 × 2, two sides only.",
-        "D": "30 is 25 + 5 — the area with a side added on the end."
-      }
+        "B": "20 is 5 × 4, the perimeter — the way round the edge, not the space inside.",
+        "C": "10 is 5 × 2, two sides. Area is 5 × 5.",
+        "D": "30 is 25 + 5, the area with a side added on. 5 × 5 = 25 is the answer."
+      },
+      "content_hash": "49cd3126c82e6e7b"
     },
     {
       "id": "MA-SEP-080",
@@ -1726,7 +1778,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "2adf56fffa500f90"
+      "why": {
+        "A": "15 is 5 × 3, two of the three sides multiplied — one face of the box, not the space inside it. The 7 still has to come in: 15 × 7 = 105."
+      },
+      "content_hash": "1fac6637dbf6a7d5"
     },
     {
       "id": "MA-SEP-081",
@@ -1768,7 +1823,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "2bac4fa858723897"
+      "why": {
+        "B": "22 is 26 − 4, the total with the 4 taken off instead of the 6. The 6 comes off first: 26 − 6 = 20, then 20 ÷ 4 = 5."
+      },
+      "content_hash": "3b32852cd3483558"
     },
     {
       "id": "MA-SEP-083",
@@ -1810,7 +1868,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "fff2b92cfc12f39a"
+      "why": {
+        "C": "67 is 61 + 6, the total with the 6 counted a second time. The 6 is only multiplied: 6 × 9 = 54, then 54 + 7 = 61.",
+        "D": "52 is 61 − 9, the total one nine short. There are six nines to add on: 6 × 9 = 54, then 54 + 7 = 61."
+      },
+      "content_hash": "cdcd52c65ac0f221"
     },
     {
       "id": "MA-SEP-085",
@@ -1831,7 +1893,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "8373bf05af2f3107"
+      "why": {
+        "A": "30 is 33 − 3, the total with the 3 taken off instead of the 9. The 9 comes off first: 33 − 9 = 24, then 24 ÷ 3 = 8."
+      },
+      "content_hash": "8aae6ff84251b17b"
     },
     {
       "id": "MA-SEP-086",
@@ -1873,7 +1938,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "4bc87a40908c61e4"
+      "why": {
+        "B": "8 is 2.4 ÷ 0.3, the two numbers divided rather than multiplied. Multiplying gives 24 × 3 = 72, then two decimal places: 0.72."
+      },
+      "content_hash": "5d76bbbd60ef16bf"
     },
     {
       "id": "MA-SEP-088",
@@ -1915,12 +1983,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "fba1f0604ae5d032",
       "why": {
-        "A": "16 is 8 × 2, two sides. Area fills the whole square: 8 × 8.",
+        "A": "16 is 8 × 2, two sides. Area is 8 × 8.",
         "B": "32 is 8 × 4, the perimeter — round the edge, not the space inside.",
-        "D": "72 is 64 + 8 — the area with one more side added on the end."
-      }
+        "D": "72 is 64 + 8, the area with one more side added on."
+      },
+      "content_hash": "683f8a3e01463eb3"
     },
     {
       "id": "MA-SEP-090",
@@ -2046,7 +2114,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "07f479bf353a589c"
+      "why": {
+        "A": "48 is 58 − 10, the value with ten taken off it — one ten short of the whole. All five tens count: 5 × 10 = 50, then 50 + 8 = 58.",
+        "C": "63 is 58 + 5, the value with the 5 counted a second time. The 5 only multiplies the 10: 5 × 10 = 50, then 50 + 8 = 58."
+      },
+      "content_hash": "56b57ac223922666"
     },
     {
       "id": "MA-SEP-096",

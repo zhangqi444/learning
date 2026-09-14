@@ -22,12 +22,12 @@
       "misconceptions": "fraction-of-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "72077fe6f5933ac1",
       "why": {
-        "A": "24 is 28 − 4, four bulbs taken off. A quarter of 28 is 7, not 4.",
-        "B": "18 is 21 − 3, three fewer than the answer. Three quarters is three lots of 7.",
-        "D": "25 is 28 − 3, three taken off. The 3 counts quarters, not bulbs."
-      }
+        "A": "24 is 28 − 4, one quarter taken off instead of one kept. A quarter of 28 is 7, so three quarters is 7 × 3 = 21.",
+        "B": "18 is three short of the answer. A quarter of 28 is 7, and three of those quarters is 7 × 3 = 21.",
+        "D": "25 is 28 − 3, three bulbs taken off the total. Three quarters means 7 × 3 = 21."
+      },
+      "content_hash": "3d426e6273f294f5"
     },
     {
       "id": "QR-W1-S1-02",
@@ -90,7 +90,10 @@
       "misconceptions": "rate-division-direction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "293f84d0177e7143"
+      "why": {
+        "C": "4 is 10 ÷ 2.5, the number of notebooks rather than the price of one. Divide the money by the notebooks instead: 10 ÷ 4 = $2.50."
+      },
+      "content_hash": "0bd5bdea7a7bc929"
     },
     {
       "id": "QR-W1-S1-05",
@@ -111,7 +114,10 @@
       "misconceptions": "inverse-fraction-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "9facf542f0ddbb2a"
+      "why": {
+        "D": "36 is 18 × 2, the eighteen students doubled. Those 18 make up three of the five parts, so one part is 6 and all five parts come to 30."
+      },
+      "content_hash": "43c148f6c6a51e43"
     },
     {
       "id": "QR-W1-S1-06",
@@ -132,12 +138,12 @@
       "misconceptions": "ratio-total-parts",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "a37eb6ee65a2872e",
       "why": {
-        "A": "8 is 2 × 4, four lots of the ratio's 2. There are five lots here: 25 ÷ 5 = 5.",
-        "B": "12 is 10 + 2, the answer with the ratio's 2 added on.",
-        "C": "15 is 25 − 10, the blue marbles — three parts, not two."
-      }
+        "A": "8 is 2 × 4. The ratio makes 5 parts, each 25 ÷ 5 = 5 marbles, so red is 2 × 5 = 10.",
+        "B": "12 is 3 × 4, using the blue number. Red is 2 parts of 5 marbles: 10.",
+        "C": "15 is the blue share, 3 parts of 5. Red is the other 2 parts: 10."
+      },
+      "content_hash": "2e51537a9a25b9b5"
     },
     {
       "id": "QR-W1-S1-07",
@@ -158,7 +164,11 @@
       "misconceptions": "unlike-denominator-subtraction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "e44488c4d1ecc748"
+      "why": {
+        "A": "20 is 60 ÷ 3, the pages left over after the first two thirds were read. Half of those 20 were then read as well, so 10 are still unread.",
+        "B": "30 is 60 ÷ 2, half of the whole book. The halving only applies to the 20 pages left after the first two thirds: half of 20 leaves 10 unread."
+      },
+      "content_hash": "428ca38ecc56cbbb"
     },
     {
       "id": "QR-W1-S1-08",
@@ -179,7 +189,10 @@
       "misconceptions": "rate-units-and-scaling",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "a4abd9ee6df86da1"
+      "why": {
+        "B": "90 is 180 ÷ 2, the miles shared over two hours rather than the three hours the car took. Divide by 3 instead: 180 ÷ 3 = 60 miles per hour."
+      },
+      "content_hash": "e6c78dad620c8a96"
     },
     {
       "id": "QR-W1-S1-09",
@@ -242,12 +255,12 @@
       "misconceptions": "unlike-denominator-subtraction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "b3b900ea95e7e6e8",
       "why": {
-        "B": "8 is the 8 from 1/8 on its own. The question is how many eighths fit in 3/4.",
-        "C": "4 is the 4 from 3/4 on its own — how many parts the cup is cut into.",
-        "D": "5 is 8 − 3, the two bottom numbers subtracted. Rename 3/4 as 6/8 and count the eighths."
-      }
+        "B": "8 is the 8 out of one-eighth, not a count of servings. Written as eighths, 3/4 is 6/8 — six of them.",
+        "C": "4 is the 4 out of three-quarters. Rename it in eighths: 6/8, so six servings.",
+        "D": "5 is 8 − 3, the two bottom numbers subtracted. Rename 3/4 as 6/8 and count: six."
+      },
+      "content_hash": "ca5bccb0b119feb9"
     },
     {
       "id": "QR-W1-S1-12",
@@ -289,12 +302,12 @@
       "misconceptions": "inverse-operation-order",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "6df3075c42137145",
       "why": {
-        "A": "6 is the price of one ticket, not the number of tickets.",
-        "B": "3 is 6 ÷ 2, half the ticket price. The tickets come from $24 ÷ $6.",
-        "D": "18 is 24 − 6, one ticket taken off the total. The money splits into $6 lots, so divide."
-      }
+        "A": "6 is the price of one ticket, not how many were bought. Divide instead: 24 ÷ 6 = 4.",
+        "B": "3 is 6 ÷ 2. The spend divides by the price: 24 ÷ 6 = 4 tickets.",
+        "D": "18 is 24 − 6, one ticket taken off the money. Each ticket costs 6, so 24 ÷ 6 = 4."
+      },
+      "content_hash": "817f6b689ff0e60f"
     },
     {
       "id": "QR-W1-S2-02",
@@ -357,7 +370,10 @@
       "misconceptions": "fraction-of-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "7d14c5b625eeeffc"
+      "why": {
+        "C": "36 is 18 × 2, the eighteen girls doubled. The girls make up three of the five parts, so one part is 6 and the whole class comes to 30."
+      },
+      "content_hash": "7da31fdd6a851bbd"
     },
     {
       "id": "QR-W1-S2-05",
@@ -441,12 +457,12 @@
       "misconceptions": "inverse-fraction-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "1ba2578bd96ac79e",
       "why": {
-        "B": "21 is 18 + 3, three gallons added. The missing quarter is 18 ÷ 3 = 6 gallons.",
-        "C": "22 is 18 + 4, four added — the 4 from 3/4 rather than the missing quarter.",
-        "D": "27 is 24 + 3, three more than the tank holds."
-      }
+        "B": "21 is 18 + 3. One quarter of the tank is 18 ÷ 3 = 6 gallons, so the full tank is 6 × 4 = 24.",
+        "C": "22 is 18 + 4. Three quarters is 18 gallons, so a quarter is 6 and the whole tank is 24.",
+        "D": "27 is 24 + 3, the answer with three more added on. The tank holds 24."
+      },
+      "content_hash": "189a0466b1abb615"
     },
     {
       "id": "QR-W1-S2-09",
@@ -488,7 +504,11 @@
       "misconceptions": "multiplicative-pattern-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "45bc264bef0b238f"
+      "why": {
+        "B": "216 is 54 × 4, the last design multiplied by 4 rather than by 3. The pattern triples each time: 54 × 3 = 162.",
+        "C": "108 is 54 × 2, the last design doubled. Each design is three times the one before, so 54 × 3 = 162."
+      },
+      "content_hash": "8f1ec1e16a156354"
     },
     {
       "id": "QR-W1-S2-11",
@@ -530,7 +550,11 @@
       "misconceptions": "ratio-total-parts",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "080f4d0e64acddab"
+      "why": {
+        "A": "21 is 7 × 3, the two ratio numbers multiplied together. Those numbers count parts, not animals: 50 animals make 10 parts of 5, and the cats have 7 parts, so 7 × 5 = 35.",
+        "C": "15 is 50 − 35, the animals left once the cats are counted — the dogs rather than the cats. The cats are 7 of the 10 parts: 7 × 5 = 35."
+      },
+      "content_hash": "9323120f19e5ae02"
     },
     {
       "id": "QR-W1-S2-13",
@@ -593,7 +617,11 @@
       "misconceptions": "scale-multiply-vs-divide",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "e23832d6e3bedaec"
+      "why": {
+        "A": "20 is 21 − 1, one mile short of the full distance. Each inch on the map stands for 6 miles, so 3.5 × 6 = 21 miles.",
+        "C": "24 is 6 × 4, four inches' worth of map rather than three and a half inches' worth. The towns are 3.5 inches apart, so 3.5 × 6 = 21 miles."
+      },
+      "content_hash": "e81df0654f78a776"
     },
     {
       "id": "QR-W2-S1-01",
@@ -614,12 +642,12 @@
       "misconceptions": "square-area-vs-side",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "eed4a55ae513d27a",
       "why": {
-        "A": "56 is 49 + 7, the display with one more row added on.",
-        "C": "28 is 7 × 4, four sevens. The display is seven rows of seven.",
-        "D": "14 is 7 + 7, two rows. There are seven."
-      }
+        "A": "56 is 49 + 7, the display with one more row added. Seven rows of seven is 7 × 7 = 49.",
+        "C": "28 is 7 × 4, four rows. There are seven: 7 × 7 = 49.",
+        "D": "14 is 7 + 7, two rows added rather than seven rows multiplied: 7 × 7 = 49."
+      },
+      "content_hash": "243ce14768374eeb"
     },
     {
       "id": "QR-W2-S1-02",
@@ -661,7 +689,10 @@
       "misconceptions": "area-to-side-square-root",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "6775f317a2df3b08"
+      "why": {
+        "D": "16 is 8 × 2, two rows of tiles rather than one. A row is the number that multiplies by itself to make 64: 8 × 8 = 64."
+      },
+      "content_hash": "41b8e7580ab185ae"
     },
     {
       "id": "QR-W2-S1-04",
@@ -724,7 +755,11 @@
       "misconceptions": "area-vs-perimeter",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "83d56111a11906b1"
+      "why": {
+        "C": "48 is 12 × 4, the distance all the way round the square, not the space inside it. Area is side times side: 12 × 12 = 144 cm².",
+        "D": "24 is 12 × 2, two of the sides added together. Area comes from multiplying a side by a side: 12 × 12 = 144 cm²."
+      },
+      "content_hash": "47a919109343bcb7"
     },
     {
       "id": "QR-W2-S1-07",
@@ -771,12 +806,12 @@
       "misconceptions": "multiplicative-pattern-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "42da18d73fb2740d",
       "why": {
-        "A": "24 is 25 − 1, one short. The counts are 1×1, 2×2, 3×3, 4×4, then 5×5.",
-        "B": "20 is 4 + 16, two earlier counts added together. The pattern squares its position instead.",
-        "C": "36 is 6 × 6, the square after the one asked for. The next position is 5."
-      }
+        "A": "24 is 25 − 1, one short. The counts are square arrays, and after 4 × 4 = 16 comes 5 × 5 = 25.",
+        "B": "20 is 4 + 16, two of the earlier counts added. Each count is a square number: next is 5 × 5 = 25.",
+        "C": "36 is 6 × 6, one square too far. The one straight after 16 is 5 × 5 = 25."
+      },
+      "content_hash": "e46314d0a7037856"
     },
     {
       "id": "QR-W2-S1-09",
@@ -839,7 +874,10 @@
       "misconceptions": "quotient-vs-remainder",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "4dacedaa8f112b55"
+      "why": {
+        "B": "3 is 6 ÷ 2, half of a box rather than what is left after the full boxes. Take the full boxes off the total: 6 × 8 = 48, and 53 − 48 = 5."
+      },
+      "content_hash": "fb4a84c1a08310a9"
     },
     {
       "id": "QR-W2-S1-12",
@@ -881,7 +919,10 @@
       "misconceptions": "area-to-side-square-root",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "e5c38c9c71db9e10"
+      "why": {
+        "D": "20 is 10 × 2, two sides' worth of squares rather than one side. One side is the number that multiplies by itself to make 100: 10 × 10 = 100."
+      },
+      "content_hash": "d494544651d2cff2"
     },
     {
       "id": "QR-W2-S2-02",
@@ -902,7 +943,10 @@
       "misconceptions": "area-to-side-square-root",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "83efa026f1eda09a"
+      "why": {
+        "D": "22 is 11 × 2, two rows of seats rather than one. A row is the number that multiplies by itself to make 121: 11 × 11 = 121."
+      },
+      "content_hash": "4041a13352a4e4f4"
     },
     {
       "id": "QR-W2-S2-03",
@@ -923,12 +967,12 @@
       "misconceptions": "exponent-as-repeated-multiplication",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "4a42c54810910ebd",
       "why": {
-        "A": "16 is 8 × 2, eight doubled. An 8-by-8 mural is 8 rows of 8.",
-        "C": "128 is 64 × 2, the mural counted twice.",
-        "D": "32 is 8 × 4, four eights. There are eight."
-      }
+        "A": "16 is 8 + 8, two rows added. The mural is 8 rows of 8: 8 × 8 = 64.",
+        "C": "128 is 64 × 2, the grid counted twice. Both cover 64.",
+        "D": "32 is 64 ÷ 2, half of it. 8 × 8 = 64, and doubling 2 six times also gives 64."
+      },
+      "content_hash": "67ac03556f368c54"
     },
     {
       "id": "QR-W2-S2-04",
@@ -970,7 +1014,10 @@
       "misconceptions": "multiplicative-pattern-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "f6c7b319389e67cf"
+      "why": {
+        "D": "66 is 33 × 2, the last row doubled. Each row is double the one before with 1 taken off: 33 × 2 − 1 = 65."
+      },
+      "content_hash": "d5b76f02d5d3f87f"
     },
     {
       "id": "QR-W2-S2-06",
@@ -991,12 +1038,12 @@
       "misconceptions": "lcm-vs-gcf",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "28aebae762a282f5",
       "why": {
-        "B": "12 is 6 × 2, a time the first bell rings. The 8-minute bell is not there — 8 does not divide 12.",
-        "C": "48 is 6 × 8, a time they do both ring, but not the first: 24 comes sooner.",
-        "D": "18 is 6 × 3, another of the first bell's times, and again the 8-minute bell is elsewhere."
-      }
+        "B": "12 is 6 × 2, when only the six-minute bell rings. The eight-minute bell is not there until 24.",
+        "C": "48 is 6 × 8, multiplying the two gaps. They do meet at 48, but 24 comes first.",
+        "D": "18 is 6 × 3, another six-minute ring. The first time both ring is 24."
+      },
+      "content_hash": "9f9ea51214efe2ff"
     },
     {
       "id": "QR-W2-S2-07",
@@ -1017,12 +1064,12 @@
       "misconceptions": "gcf-vs-lcm",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "f73a9ae39efbb964",
       "why": {
-        "A": "12 is 24 ÷ 2. It splits the blue ribbons, but 18 does not split into 12s.",
-        "B": "9 is 18 ÷ 2. It splits the red ribbons, but 24 does not split into 9s.",
-        "D": "3 splits both piles evenly, but it is not the largest that does: 6 splits both too."
-      }
+        "A": "12 is 24 ÷ 2, which does not divide 18. The largest number that divides both is 6.",
+        "B": "9 is 18 ÷ 2, which does not divide 24. The bundles must split both: 6.",
+        "D": "3 divides both, but it is not the largest that does. 6 divides 18 and 24 as well."
+      },
+      "content_hash": "ccd89df1cc18cc01"
     },
     {
       "id": "QR-W2-S2-08",
@@ -1043,7 +1090,10 @@
       "misconceptions": "prime-vs-composite-factor",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "a635877c9037c4e2"
+      "why": {
+        "C": "6 is 42 ÷ 7, what is left of the 42 once the 7 is taken out. It splits again into 2 × 3, so it is not a prime at all: the primes here are 2, 3 and 7, and the greatest is 7."
+      },
+      "content_hash": "ea2f60df7ff123c8"
     },
     {
       "id": "QR-W2-S2-09",
@@ -1106,7 +1156,10 @@
       "misconceptions": "estimate-vs-exact",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "2647b404d9a9301a"
+      "why": {
+        "A": "600 is 1200 ÷ 2, half of the full total. All six groups count: 198 is close to 200, and 200 × 6 = 1,200."
+      },
+      "content_hash": "8f60e5db151e7594"
     },
     {
       "id": "QR-W2-S2-12",
@@ -1127,7 +1180,10 @@
       "misconceptions": "substitute-before-operating",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "744cc293d01e485e"
+      "why": {
+        "B": "7 is 4 + 3, the two side lengths added together. Each one is squared first: 4 × 4 = 16 and 3 × 3 = 9, which come to 25."
+      },
+      "content_hash": "e1a6050858842a98"
     },
     {
       "id": "QR-W2-S2-13",
@@ -1169,12 +1225,12 @@
       "misconceptions": "complete-factor-list",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "ce813536fd1ec1ed",
       "why": {
-        "A": "16 is 2 × 8, but 16 is a factor of itself, and there is no 16 tag on the display.",
-        "B": "6 is 2 + 4, two of the tags added. The factors of 6 are 1, 2, 3 and 6.",
-        "C": "4 is one of the tags, but the factors of 4 stop at 4 — the 8 tag would belong to nothing."
-      }
+        "A": "16 has 1, 2, 4, 8 among its factors but 16 as well, so the tags would not stop at 8.",
+        "B": "6 is 2 + 4. Its factors are 1, 2, 3 and 6, which is not the list on the tags.",
+        "C": "4 has only 1, 2 and 4 as factors — the 8 would have no tag."
+      },
+      "content_hash": "98c75e1d883a947e"
     },
     {
       "id": "QR-W2-S2-15",
@@ -1216,12 +1272,12 @@
       "misconceptions": "volume-three-dimensions",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "0c64903dadd9c9ed",
       "why": {
-        "A": "20 is 5 × 4, one layer of the prism. It is 3 layers tall.",
-        "B": "12 is 4 × 3, one end of the prism. Volume needs all three: 5 × 4 × 3.",
-        "D": "120 is 60 × 2, the prism counted twice."
-      }
+        "A": "20 is 5 × 4, one layer. Volume needs the height as well: 5 × 4 × 3.",
+        "B": "12 is 4 × 3, one face. Volume uses all three measurements: 5 × 4 × 3 = 60.",
+        "D": "120 is 60 × 2, the volume counted twice. 5 × 4 × 3 = 60 already."
+      },
+      "content_hash": "e31a27c6cf3d053f"
     },
     {
       "id": "QR-W3-S1-02",
@@ -1242,12 +1298,12 @@
       "misconceptions": "inverse-volume-dimension",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "173cd35fb1fdbd0b",
       "why": {
-        "A": "4 is the width of the prism, not its height.",
-        "B": "6 is 3 × 2, twice the height.",
-        "C": "2 is 8 ÷ 4, the length divided by the width. The height is the volume divided by both."
-      }
+        "A": "4 is the width, not the height. Divide the volume by the floor: 96 ÷ 32 = 3.",
+        "B": "6 is 3 × 2, the height doubled. 96 ÷ 32 = 3.",
+        "C": "2 is 8 ÷ 4, the length over the width. The height is the volume over the floor: 96 ÷ 32 = 3."
+      },
+      "content_hash": "b67e232fd3dd0cf3"
     },
     {
       "id": "QR-W3-S1-03",
@@ -1268,7 +1324,11 @@
       "misconceptions": "inverse-volume-dimension",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "230b779da666cb6b"
+      "why": {
+        "B": "16 is 4 × 4, one square face of the cube. A cube has a third direction as well: 4 × 4 × 4 = 64 cubic inches.",
+        "D": "32 is 64 ÷ 2, half the volume of the cube. All three edges multiply together: 4 × 4 × 4 = 64 cubic inches."
+      },
+      "content_hash": "c1e4cf3aa0d0fd14"
     },
     {
       "id": "QR-W3-S1-04",
@@ -1315,12 +1375,12 @@
       "misconceptions": "triangle-one-half",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "b78b865c6f1cc17b",
       "why": {
-        "A": "60 is 10 × 6, the rectangle the triangle sits inside. A triangle is half of it.",
-        "C": "120 is 30 × 4, four triangles' worth.",
-        "D": "16 is 10 + 6, the base and height added instead of multiplied and halved."
-      }
+        "A": "60 is 10 × 6, the whole rectangle round the triangle. The triangle is half of it: 30.",
+        "C": "120 is 60 × 2 — the rectangle doubled. Halve it instead: half of 10 × 6 is 30.",
+        "D": "16 is 10 + 6. Area multiplies the base and the height."
+      },
+      "content_hash": "e8ecbfcce6057102"
     },
     {
       "id": "QR-W3-S1-06",
@@ -1404,7 +1464,10 @@
       "misconceptions": "coordinate-distance-to-area",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "2f4fa910482cf7a7"
+      "why": {
+        "A": "7 is 14 ÷ 2, half of the distance all the way round the rectangle. The area comes from the width times the height: 4 × 3 = 12."
+      },
+      "content_hash": "63f66a1a6b61c6e0"
     },
     {
       "id": "QR-W3-S1-10",
@@ -1425,7 +1488,11 @@
       "misconceptions": "mean-sum-vs-count",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "650d8f5f00c4cf6e"
+      "why": {
+        "A": "12 is 6 × 2, double the first reading — and one of the readings itself, not their mean. The mean adds all five and shares them out: 50 ÷ 5 = 10.",
+        "B": "9 is 15 − 6, the largest reading take away the smallest. The mean comes from adding all five and sharing: the total is 50, and 50 ÷ 5 = 10."
+      },
+      "content_hash": "d8db0212f6c1026a"
     },
     {
       "id": "QR-W3-S1-11",
@@ -1446,12 +1513,12 @@
       "misconceptions": "order-before-median",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "34deef01f7281853",
       "why": {
-        "B": "9 is halfway between 4 and 14 in value. A median is a place in the list, not a halfway point: with five numbers it is the third.",
-        "C": "4 is the second number in the list. The third is the middle one.",
-        "D": "10 is the fourth number. With five values the middle one is the third."
-      }
+        "B": "9 is halfway between 4 and 14, not a value in the list. With five in order the median is the third: 8.",
+        "C": "4 is the second locker number. The middle of five is the third: 8.",
+        "D": "10 is the fourth locker number, one past the middle. The third is 8."
+      },
+      "content_hash": "3f0311966ea4c860"
     },
     {
       "id": "QR-W3-S1-12",
@@ -1493,7 +1560,11 @@
       "misconceptions": "volume-three-dimensions",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "571fa9b93e7a2d34"
+      "why": {
+        "A": "45 is 9 × 5, two of the three measurements multiplied together — the 2 has not been used. Volume uses all three: 9 × 2 × 5 = 90.",
+        "B": "180 is 90 × 2, twice the volume of the prism. Each measurement is used once only: 9 × 2 × 5 = 90."
+      },
+      "content_hash": "056090c8a0c7ee16"
     },
     {
       "id": "QR-W3-S2-02",
@@ -1514,7 +1585,11 @@
       "misconceptions": "inverse-volume-dimension",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "f0a887fea43b3812"
+      "why": {
+        "A": "25 is 5 × 5, two edges multiplied — the area of one face, not the length of an edge. The edge is 5, because 5 × 5 × 5 = 125.",
+        "C": "10 is 5 × 2, double the length of an edge. Multiplying it back gives 10 × 10 × 10 = 1,000, far past 125; the edge that works is 5."
+      },
+      "content_hash": "c81d60f90c0f612d"
     },
     {
       "id": "QR-W3-S2-03",
@@ -1629,12 +1704,12 @@
       "misconceptions": "order-before-median",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "c62b5060cf6cddbe",
       "why": {
-        "A": "8 is halfway between the third and the fourth score. With seven values the median is one of them — the fourth.",
-        "B": "7 is the third score. Three sit below the middle and three above it, so the fourth is the median.",
-        "D": "12 is the fifth score, one past the middle."
-      }
+        "A": "8 is halfway between 7 and 9, and is not one of the scores. With seven in order the median is the fourth: 9.",
+        "B": "7 is the third score. The middle of seven values is the fourth: 9.",
+        "D": "12 is the fifth score, one past the middle. The fourth is 9."
+      },
+      "content_hash": "4eead505194e35ee"
     },
     {
       "id": "QR-W3-S2-08",
@@ -1655,7 +1730,10 @@
       "misconceptions": "mode-frequency-vs-value",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "2d80b4202d782b06"
+      "why": {
+        "A": "10 is 4 + 6, the red votes and the blue votes added together. No single colour got 10 — the question wants the biggest count on its own."
+      },
+      "content_hash": "9548e844c14843fb"
     },
     {
       "id": "QR-W3-S2-09",
@@ -1823,12 +1901,12 @@
       "misconceptions": "fraction-division-direction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "75f6b9ec77e4b576",
       "why": {
-        "B": "4 is the 4 from 3/4 — how many parts the cup is cut into, not how many pots are filled.",
-        "C": "8 is the 8 from 1/8 on its own. Rename 3/4 as 6/8 and count the eighths.",
-        "D": "3 is the 3 from 3/4 on its own."
-      }
+        "B": "4 is the 4 out of three-quarters, not a number of pots. Rename 3/4 as 6/8: six pots.",
+        "C": "8 is the 8 out of one-eighth. Count how many eighths are in 3/4: it is 6/8, so six.",
+        "D": "3 is the 3 out of three-quarters. As eighths that is 6/8, which fills six pots."
+      },
+      "content_hash": "4b69e44c49d6e5d8"
     },
     {
       "id": "QR-W4-S1-02",
@@ -1849,7 +1927,10 @@
       "misconceptions": "ratio-total-parts",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "e2c67a083dc275b9"
+      "why": {
+        "B": "12 is 3 × 4, the boys' three parts at 4 students each — the boys, not the girls. The girls are the other five parts: 5 × 4 = 20."
+      },
+      "content_hash": "39aeecac92a86978"
     },
     {
       "id": "QR-W4-S1-03",
@@ -1933,12 +2014,12 @@
       "misconceptions": "inverse-volume-dimension",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "b2d2bd99a00f6528",
       "why": {
-        "A": "2 is 6 ÷ 3, the width divided by the height. The height comes from the volume divided by both.",
-        "B": "4 is 10 − 6, the length minus the width.",
-        "D": "5 is 10 ÷ 2, half the length."
-      }
+        "A": "2 is 6 ÷ 3. The height comes from the volume: 180 ÷ 60 = 3.",
+        "B": "4 is 10 − 6, the length minus the width. Divide instead: 180 ÷ 60 = 3.",
+        "D": "5 is 10 ÷ 2, half the length. The height is 180 ÷ 60 = 3."
+      },
+      "content_hash": "aa3bb046e31de7c9"
     },
     {
       "id": "QR-W4-S1-07",
@@ -1959,12 +2040,12 @@
       "misconceptions": "area-to-perimeter-sequence",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "5fbfd99f5ab091da",
       "why": {
-        "A": "36 is 9 × 4, the perimeter of a square with side 9. This rectangle is 9 by 6.",
-        "B": "24 is 6 × 4, the perimeter of a square with side 6. Both sides matter: 9 and 6.",
-        "D": "15 is 9 + 6, one length and one width. A perimeter counts both pairs."
-      }
+        "A": "36 is 9 × 4, as if every side were 9. The width is 54 ÷ 9 = 6.",
+        "B": "24 is 9 + 9 + 3 + 3, going round a rectangle 9 by 3. This one is 9 by 6, because 54 ÷ 9 = 6.",
+        "D": "15 is 9 + 6, one length and one width. The perimeter is both pairs: 2 × 15 = 30."
+      },
+      "content_hash": "ca044b739805f5c9"
     },
     {
       "id": "QR-W4-S1-08",
@@ -2048,12 +2129,12 @@
       "misconceptions": "multiplicative-pattern-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "210b02476215df18",
       "why": {
-        "A": "30 is 6 + 24, two of the earlier weeks added. The pattern doubles instead.",
-        "B": "36 is 12 + 24, the two weeks before it added together.",
-        "C": "60 is 12 + 48, the answer with an earlier week added on."
-      }
+        "A": "30 is 24 + 6, adding an earlier week on. The pattern doubles each time: 24 × 2 = 48.",
+        "B": "36 is 12 + 24, the last two weeks added. They double rather than add: 48.",
+        "C": "60 is 12 + 48, one week too many added on. Doubling 24 gives 48."
+      },
+      "content_hash": "2cbabd3e02d47abd"
     },
     {
       "id": "QR-W4-S1-12",
@@ -2074,12 +2155,12 @@
       "misconceptions": "combined-divisibility-tests",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "eb25309a30d6af03",
       "why": {
-        "B": "20 divides by 4 but not by 6.",
-        "C": "18 divides by 6 but not by 4.",
-        "D": "30 divides by 6 but not by 4."
-      }
+        "B": "20 divides by 4 but not by 6. The count has to work for both: 24.",
+        "C": "18 divides by 6 but not by 4. The first that does both is 24.",
+        "D": "30 divides by 6 but not by 4. 24 divides by both: 24 ÷ 4 = 6 and 24 ÷ 6 = 4."
+      },
+      "content_hash": "c19411a3eee7d9d2"
     },
     {
       "id": "QR-W4-S2-01",
@@ -2100,7 +2181,10 @@
       "misconceptions": "inverse-fraction-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "babae74d7b16a76b"
+      "why": {
+        "B": "12 is 24 ÷ 2, half the jar rather than the whole of it. The 8 cups taken out are a third of the jar, so the full jar holds 8 × 3 = 24 cups."
+      },
+      "content_hash": "9aad3e86f63e6c25"
     },
     {
       "id": "QR-W4-S2-02",
@@ -2121,7 +2205,11 @@
       "misconceptions": "rate-units-and-scaling",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "e30f770cf9f2bce3"
+      "why": {
+        "C": "6 is 7.5 − 1.5, the miles with the hours taken off them. A rate comes from dividing: 7.5 ÷ 1.5 = 5 miles each hour.",
+        "D": "9 is 7.5 + 1.5, the miles and the hours added together. A rate comes from dividing instead: 7.5 ÷ 1.5 = 5 miles each hour."
+      },
+      "content_hash": "c09d040d6aa7a45d"
     },
     {
       "id": "QR-W4-S2-03",
@@ -2142,12 +2230,12 @@
       "misconceptions": "ratio-part-to-part",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "1aad89d4546e8c36",
       "why": {
-        "A": "15 is 21 − 6, the white cups — five parts, not two.",
-        "C": "7 is 2 + 5, how many parts the ratio has, not how many cups are blue.",
-        "D": "10 is 2 × 5, the two ratio numbers multiplied. Each part is 21 ÷ 7 = 3 cups."
-      }
+        "A": "15 is the white share, 5 parts of 7. Blue is the other 2 parts: 6 cups.",
+        "C": "7 is 2 + 5, the number of parts rather than cups. Each part is 21 ÷ 7 = 3, so blue is 6.",
+        "D": "10 is 2 × 5, the two ratio numbers multiplied. Blue is 2 parts of 3 cups: 6."
+      },
+      "content_hash": "4c2a005f3826bbb9"
     },
     {
       "id": "QR-W4-S2-04",
@@ -2252,7 +2340,11 @@
       "misconceptions": "volume-scale-factor",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "4e2585a7bed6003f"
+      "why": {
+        "B": "120 is 60 × 2, double the volume the question asks for — the prism before the height was cut. Halving the height halves the volume: 120 ÷ 2 = 60.",
+        "C": "30 is 6 × 5, two of the three measurements — one face of the prism, not a volume. Halving the height halves the whole volume: 120 ÷ 2 = 60."
+      },
+      "content_hash": "d38b415f8a189d22"
     },
     {
       "id": "QR-W4-S2-09",
@@ -2273,7 +2365,11 @@
       "misconceptions": "perimeter-to-area",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "67aa783d0cc1aaa9"
+      "why": {
+        "B": "144 is 36 × 4, the whole perimeter multiplied by four rather than shared between the four sides. One side comes from 36 ÷ 4 = 9, and the area is 9 × 9 = 81 square centimetres.",
+        "C": "72 is 36 × 2, the perimeter doubled. One side comes from 36 ÷ 4 = 9, and the area is 9 × 9 = 81 square centimetres."
+      },
+      "content_hash": "0705563063619669"
     },
     {
       "id": "QR-W4-S2-10",
@@ -2315,7 +2411,11 @@
       "misconceptions": "mean-total-relationship",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "bdcdb1da2bd50d7f"
+      "why": {
+        "C": "84 is 70 + 14, the five trays' total with one more 14 added on the end. Five trays with a mean of 14 come to 14 × 5 = 70 items.",
+        "D": "56 is 14 × 4, four trays' worth rather than five. The total is the mean multiplied by all five trays: 14 × 5 = 70 items."
+      },
+      "content_hash": "68dd6cf70220c36f"
     },
     {
       "id": "QR-W4-S2-12",

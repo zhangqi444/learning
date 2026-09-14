@@ -253,7 +253,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "178f1485f271b26a"
+      "why": {
+        "A": "8 is 96 ÷ 12, the 96 split into twelve parts instead. Twelve and a half per cent means an eighth of it: 96 ÷ 8 = 12."
+      },
+      "content_hash": "5c593aa674d93882"
     },
     {
       "id": "MA-W5-S2-Q01",
@@ -379,7 +382,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "67660e70bcbc3015"
+      "why": {
+        "D": "7.35 is 3 × 2.45, what the three notebooks cost, not the change. The change is what is left of the $10: 10 − 7.35 = 2.65."
+      },
+      "content_hash": "abf4a235d8c9a831"
     },
     {
       "id": "MA-W5-S2-Q07",
@@ -400,7 +406,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "2b754b08b491afd8"
+      "why": {
+        "D": "72 is 42 + 30, the sale price with the 30 added on as dollars rather than counted as a per cent. Taking 30 per cent off leaves seven tenths of the price, so 42 ÷ 7 = 6 and 6 × 10 = 60."
+      },
+      "content_hash": "915b07d2aecc8104"
     },
     {
       "id": "MA-W5-S2-Q08",
@@ -421,7 +430,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "0574d1e2c7dfc27d"
+      "why": {
+        "B": "53 is 28 + 25, the 25 added on as dollars rather than counted as a per cent. A quarter of the 28 goes on top: 28 ÷ 4 = 7, then 28 + 7 = 35."
+      },
+      "content_hash": "5fbf8a1a6d44af5a"
     },
     {
       "id": "MA-W5-S2-Q09",
@@ -463,7 +475,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "379e77d02322be32"
+      "why": {
+        "C": "50 is 200 − 150, the dollars the price fell by, not the per cent it fell by. The drop is measured against the starting price: 50 ÷ 200 gives a quarter, or 25 per cent."
+      },
+      "content_hash": "c93c6194024055a4"
     },
     {
       "id": "MA-W5-S2-Q11",
@@ -505,7 +520,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "60e82289f8f80524"
+      "why": {
+        "A": "6.25 is 12.5 ÷ 2, half of the tank. Two fifths of it is what remains: 12.5 ÷ 5 = 2.5, then 2 × 2.5 = 5.",
+        "B": "7.5 is 12.5 − 5, the water that was used. The question asks for what is left in the tank: 12.5 − 7.5 = 5 litres."
+      },
+      "content_hash": "26edd6f21a42dec0"
     },
     {
       "id": "MA-W6-S1-Q01",
@@ -526,7 +545,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "61a885bc7312c7a2"
+      "why": {
+        "B": "68 is 34 × 2, the size of angle B, not angle C. All three angles make 180°: 180 − 34 − 68 = 78."
+      },
+      "content_hash": "26321e65a504cae4"
     },
     {
       "id": "MA-W6-S1-Q02",
@@ -589,7 +611,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "7032534a09e587c5"
+      "why": {
+        "A": "140 is 70 × 2, the two base angles added together rather than one of them on its own. They share 180 − 40 = 140, so each base angle comes to 140 ÷ 2 = 70."
+      },
+      "content_hash": "a649c0e127341952"
     },
     {
       "id": "MA-W6-S1-Q05",
@@ -610,12 +635,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "dcc30b9e3d64f111",
       "why": {
-        "A": "17 is 34 ÷ 2, one length plus one width together. Take the width off it to get the length alone.",
-        "B": "28 is 34 − 6, one width taken off the whole perimeter. Two widths and a length are still in there.",
-        "C": "22 is 11 × 2, both lengths. The question asks for one of them."
-      }
+        "A": "17 is 34 ÷ 2, one length and one width together. Take the width off it: 17 − 6 = 11.",
+        "B": "28 is 34 − 6, the whole way round minus one width. Halve the perimeter first, then subtract.",
+        "C": "22 is 11 × 2, two lengths. The question asks for one."
+      },
+      "content_hash": "6e0c0eb13a25bf24"
     },
     {
       "id": "MA-W6-S1-Q06",
@@ -636,12 +661,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "42fb7104dad8672d",
       "why": {
-        "B": "36 is 9 × 4, the perimeter of a square with side 9. This rectangle is 9 by 8.",
-        "C": "81 is 9 × 9, the area of a square with side 9 — not this rectangle's perimeter.",
-        "D": "17 is 34 ÷ 2, one length plus one width. A perimeter counts both pairs."
-      }
+        "B": "36 is 9 × 4, as if all four sides were 9. The width is 72 ÷ 9 = 8, not 9.",
+        "C": "81 is 9 × 9, as if it were a square. The width is 72 ÷ 9 = 8.",
+        "D": "17 is 34 ÷ 2, one length and one width. The perimeter is both pairs: 2 × 17 = 34."
+      },
+      "content_hash": "a2cf08976e5e3e4c"
     },
     {
       "id": "MA-W6-S1-Q07",
@@ -662,7 +687,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "50d4f8e91ea25da7"
+      "why": {
+        "D": "40 is 8 × 5, the whole rectangle before the corner was cut away. The piece cut out still comes off: 40 − 6 = 34 sq cm."
+      },
+      "content_hash": "0c609a178c81ca00"
     },
     {
       "id": "MA-W6-S1-Q08",
@@ -683,12 +711,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "58c96038c6484745",
       "why": {
-        "A": "0 is 6 − 6. The two areas are equal, but the perimeters are 30 and 24.",
-        "B": "3 is 6 − 3, the difference between the two shorter sides. Each side is counted twice round a rectangle.",
-        "D": "9 is 12 − 3, the two sides of one rectangle compared with each other, not the two perimeters."
-      }
+        "A": "0 says the two perimeters are the same. The areas are — both 36 — but the perimeters are 30 and 24.",
+        "B": "3 is 6 − 3, one side from each rectangle. The question compares the whole way round both.",
+        "D": "9 is 6 + 3, one side of each. Going all the way round gives 30 and 24, a gap of 6."
+      },
+      "content_hash": "e4dff309ef100479"
     },
     {
       "id": "MA-W6-S1-Q09",
@@ -709,12 +737,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "7495aee80df04da9",
       "why": {
-        "B": "13 is 26 ÷ 2, the radius again — the distance from the centre to the edge, which is half the way across.",
-        "C": "6.5 is 13 ÷ 2, half the radius. A diameter is twice it, not half.",
-        "D": "52 is 26 × 2, the diameter doubled a second time."
-      }
+        "B": "13 is the radius you started with — the centre to the edge, half the way across.",
+        "C": "6.5 is 13 ÷ 2. That halves the radius; a diameter doubles it.",
+        "D": "52 is 26 × 2, the diameter doubled again. One doubling is enough."
+      },
+      "content_hash": "1bb65acc2c7bb26b"
     },
     {
       "id": "MA-W6-S1-Q10",
@@ -756,12 +784,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "b3d1c66206ecd7b2",
       "why": {
-        "A": "10 is 2 + 8, the two x-values added. The width is the gap between them: 8 − 2 = 6.",
-        "C": "20 is 5 × 4, the top edge's y-value times the height. The sides are 6 and 4.",
-        "D": "48 is 24 × 2, the area counted twice over."
-      }
+        "A": "10 is 2 + 8, two of the across numbers added. The rectangle is 8 − 2 = 6 wide and 5 − 1 = 4 tall, so 6 × 4 = 24.",
+        "C": "20 is 5 × 4, using a corner number instead of a side. The sides are 6 and 4: 6 × 4 = 24.",
+        "D": "48 is 24 × 2, the rectangle counted twice. 6 × 4 = 24."
+      },
+      "content_hash": "d7b6061d575c280f"
     },
     {
       "id": "MA-W6-S1-Q12",
@@ -803,7 +831,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "cce1979589b8faf1"
+      "why": {
+        "A": "108 is 12 × 9, the floor area in square feet, not the cost of covering it. Each square foot costs $3: 108 × 3 = 324."
+      },
+      "content_hash": "780753b7eb191ec2"
     },
     {
       "id": "MA-W6-S2-Q02",
@@ -845,7 +876,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "282b84e802952934"
+      "why": {
+        "A": "26 is 40 − 14, what is left of the perimeter after one 14-cm side — a length, not an area. The square's side is 40 ÷ 4 = 10, so it covers 100 sq cm, and the 14-by-6 rectangle covers 84: 100 − 84 = 16 sq cm."
+      },
+      "content_hash": "7e3ac710b1ccde2a"
     },
     {
       "id": "MA-W6-S2-Q04",
@@ -866,7 +900,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "c14aa689d0d36c28"
+      "why": {
+        "B": "24 is 96 ÷ 4, the distance all the way round in feet, not the cost of edging it. Each foot costs $4: 24 × 4 = $96.",
+        "D": "$48 is 96 ÷ 2, half of the full cost — edging for one long side and one short side, not all four. The whole way round is 24 feet, and 24 × $4 = $96."
+      },
+      "content_hash": "754ba1be2c31e1b1"
     },
     {
       "id": "MA-W6-S2-Q05",
@@ -887,7 +925,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "eee3cdc21ba72842"
+      "why": {
+        "A": "60° is 80 − 20, the first angle — the smaller of the pair, not the largest one. The second angle is 20° bigger: 60 + 20 = 80°.",
+        "B": "100° is 20 + 80, the 20° difference added on to the largest angle instead of to the first one. Adding the 20° to the first angle is what gives the largest: 60 + 20 = 80°."
+      },
+      "content_hash": "fb42e0e693fdbcd8"
     },
     {
       "id": "MA-W6-S2-Q06",
@@ -908,7 +950,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "0e5062ff6ef6038b"
+      "why": {
+        "D": "135° is 3 × 45, the larger of the two angles — three times the smaller one. The question asks for the smaller: 180 ÷ 4 = 45°."
+      },
+      "content_hash": "23f8308516c6cf84"
     },
     {
       "id": "MA-W6-S2-Q07",
@@ -929,12 +974,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "ee2e5ab869148968",
       "why": {
-        "A": "44 is 22 × 2, the way across doubled.",
-        "C": "11 is 22 ÷ 2 — the radius, half of the way across.",
-        "D": "5.5 is 11 ÷ 2, half the radius."
-      }
+        "A": "44 is 22 × 2, the path doubled again. Across the middle is 2 × 11 = 22.",
+        "C": "11 is the radius — the centre to the edge, which is half the path.",
+        "D": "5.5 is 11 ÷ 2. A path across the middle doubles the radius, it does not halve it."
+      },
+      "content_hash": "7b98a1a33c167227"
     },
     {
       "id": "MA-W6-S2-Q08",
@@ -955,7 +1000,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "09cb64fc886135a2"
+      "why": {
+        "A": "12 cm is 24 ÷ 2, the radius of the large circle — the first step, not the answer. A third of it gives the small radius, 4 cm, and doubling that gives the diameter: 2 × 4 = 8 cm.",
+        "B": "4 cm is 8 ÷ 2, the radius of the small circle — right, but the question asks for its diameter. Double it: 2 × 4 = 8 cm."
+      },
+      "content_hash": "cf55a6d71734b1d0"
     },
     {
       "id": "MA-W6-S2-Q09",
@@ -976,12 +1025,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "a93b9fb66f10c328",
       "why": {
-        "B": "6 is 2 × 3, the two numbers in the library's point multiplied. The distance is the gap in y: 11 − 3.",
-        "C": "14 is 3 + 11, the two y-values added instead of subtracted.",
-        "D": "11 is the school's y-value on its own — counted from 0 rather than from the library."
-      }
+        "B": "6 is 2 × 3, the library’s two numbers multiplied. Count along the line instead: 11 − 3 = 8.",
+        "C": "14 is 3 + 11, the two up-numbers added. Distance subtracts them: 11 − 3 = 8.",
+        "D": "11 is the school’s up-number on its own. The distance between them is 11 − 3 = 8."
+      },
+      "content_hash": "f7f8e9bb0dad2979"
     },
     {
       "id": "MA-W6-S2-Q10",
@@ -1002,7 +1051,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "68955feefddc6e61"
+      "why": {
+        "C": "130 m is 260 ÷ 2, half of the way round — one long side and one short side, not all four. All the way round is 2 × (8 + 5) = 26 units, and 26 × 10 = 260 m.",
+        "D": "26 m is 260 ÷ 10, the way round counted in grid squares rather than in metres. Each square stands for 10 metres: 26 × 10 = 260 m."
+      },
+      "content_hash": "bb678cbb6c25d07e"
     },
     {
       "id": "MA-W6-S2-Q11",
@@ -1044,7 +1097,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "a7157e649cd08926"
+      "why": {
+        "D": "48 sq m is 24 × 2, the fencing doubled — but fencing measures the way round the pen, not the space inside it. The two side lengths add to 12, and the biggest area they make is 6 × 6 = 36 sq m."
+      },
+      "content_hash": "409ecdf71a2b87de"
     },
     {
       "id": "MA-W7-S1-Q01",
@@ -1065,7 +1121,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "9c41b09421f539aa"
+      "why": {
+        "B": "340 is 85 × 4, the four scores added together — the total, not the mean. Share it between the four quizzes: 340 ÷ 4 = 85."
+      },
+      "content_hash": "e0b3c877f878c0d7"
     },
     {
       "id": "MA-W7-S1-Q02",
@@ -1086,7 +1145,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "96d9cad3922d7d33"
+      "why": {
+        "D": "100 is 120 − 20, the tickets with Dan's 20 left out. All four students count: 25 + 40 + 35 + 20 = 120."
+      },
+      "content_hash": "3f4931fc34d55f4c"
     },
     {
       "id": "MA-W7-S1-Q03",
@@ -1107,7 +1169,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "ee7a27ab1ad88003"
+      "why": {
+        "D": "19 is 31 − 12, the largest value take away the smallest — the spread of the numbers, not the middle of them. In order they run 12, 15, 19, 22, 26, 31, and with six values the median sits between the middle two: (19 + 22) ÷ 2 = 20.5."
+      },
+      "content_hash": "e28527db6d1eccc0"
     },
     {
       "id": "MA-W7-S1-Q04",
@@ -1128,7 +1193,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "539ffc8500a97886"
+      "why": {
+        "A": "56 is 3 + 53, the weight in ounces with the 3 pounds counted a second time. Those 3 pounds are already in there as 48 ounces: 48 + 5 = 53.",
+        "D": "48 is 3 × 16, the 3 pounds turned into ounces, without the 5 ounces that come with them. Add them on: 48 + 5 = 53."
+      },
+      "content_hash": "d1a1c8d071663003"
     },
     {
       "id": "MA-W7-S1-Q05",
@@ -1170,12 +1239,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "be989c934beb6259",
       "why": {
-        "A": "5 is 8 − 3, one day against one day. The question puts two days against two days.",
-        "B": "7 is 4 + 3, Monday and Wednesday on their own — the smaller pair, not the difference.",
-        "D": "15 is 7 + 8, Tuesday and Thursday on their own. Take the other pair away to get the difference."
-      }
+        "A": "5 is 8 − 3, Thursday take away Wednesday. Add each pair first: 7 + 8 = 15 and 4 + 3 = 7.",
+        "B": "7 is 4 + 3, Monday and Wednesday together. That is one pair; the other is 15, so the gap is 8.",
+        "D": "15 is 7 + 8, Tuesday and Thursday together. The question asks how many more, so take the other pair off: 15 − 7 = 8."
+      },
+      "content_hash": "4e693cfc2623ade1"
     },
     {
       "id": "MA-W7-S1-Q07",
@@ -1217,12 +1286,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "ce2a17d33e95a8b2",
       "why": {
-        "A": "6 is 2 + 4, the quarts and the cups-in-a-quart added instead of multiplied.",
-        "C": "16 is 4 × 4, four quarts' worth of cups. The recipe calls for two.",
-        "D": "4 is one quart's worth of cups. There are two quarts of broth."
-      }
+        "A": "6 is 2 + 4. Each quart is 4 cups, so the quarts multiply: 2 × 4 = 8.",
+        "C": "16 is 4 × 4, four quarts’ worth. There are two: 2 × 4 = 8.",
+        "D": "4 is the cups in one quart. The recipe asks for two: 2 × 4 = 8."
+      },
+      "content_hash": "4097118ae9999637"
     },
     {
       "id": "MA-W7-S1-Q09",
@@ -1243,7 +1312,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "18d71446e0a67f3d"
+      "why": {
+        "D": "12 is 3 × 4, the sandwiches paired with the sides — right, but the drinks are not in it yet. Each of those 12 can go with either drink: 12 × 2 = 24."
+      },
+      "content_hash": "71a11234d7b4fe22"
     },
     {
       "id": "MA-W7-S1-Q10",
@@ -1264,12 +1336,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "5a66aafc494a7bee",
       "why": {
-        "A": "3 is how many students own exactly 1 pet — the mode itself, not the students above it.",
-        "C": "6 is everyone who does not own exactly 1 pet, but two of those own none at all.",
-        "D": "5 is the most pets anyone owns, not a number of students."
-      }
+        "A": "3 is a number of pets in the list, not a number of students. The mode is 1, and four students own more than one.",
+        "C": "6 is 2 × 3. Count the students above the mode instead: the two with 2, the one with 3 and the one with 5.",
+        "D": "5 is the largest number of pets anyone owns, not how many students. Four own more than the mode."
+      },
+      "content_hash": "b57c520962df3315"
     },
     {
       "id": "MA-W7-S1-Q11",
@@ -1353,12 +1425,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "899b12bb0a2266bc",
       "why": {
-        "A": "6 is 18 − 12, the jump between Ana's first two weeks, not the gap between the totals.",
-        "B": "4 is 18 − 14, two of Ana's own weeks. The totals are 44 and 46.",
-        "C": "2 is the right size of the gap, the wrong way round: Ana sold 44 and Ben sold 46."
-      }
+        "A": "6 is 15 − 9, two of Ben’s weeks. Add all three for each: Ana 44 and Ben 46.",
+        "B": "4 is 18 − 14, two of Ana’s weeks. The totals are Ana 44 and Ben 46, so Ben is ahead.",
+        "C": "2 is the right gap with the wrong name on it: Ana sold 44 and Ben sold 46."
+      },
+      "content_hash": "afda2c8891ffa12f"
     },
     {
       "id": "MA-W7-S2-Q03",
@@ -1421,12 +1493,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "aade90cbe6642db0",
       "why": {
-        "A": "27 is 20 + 7, the students and the mean added instead of multiplied.",
-        "B": "70 is 140 ÷ 2, half the books.",
-        "C": "280 is 140 × 2, the whole class counted twice."
-      }
+        "A": "27 is 20 + 7, the class and the mean added. A mean is shared out, so it multiplies back: 7 × 20 = 140.",
+        "B": "70 is 140 ÷ 2, half the books. Every one of the 20 read 7 on average: 7 × 20 = 140.",
+        "C": "280 is 140 × 2, the total counted twice. 7 × 20 = 140."
+      },
+      "content_hash": "665383a385df3666"
     },
     {
       "id": "MA-W7-S2-Q06",
@@ -1447,7 +1519,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "ffeb8da36211e666"
+      "why": {
+        "B": "24 is 48 ÷ 2, half of the cups the cooler holds. There are two steps, both of them × 4: 3 × 4 = 12 quarts, then 12 × 4 = 48 cups.",
+        "C": "12 is 3 × 4, the cooler measured in quarts — right, but the question asks for cups. Each quart holds 4 cups: 12 × 4 = 48."
+      },
+      "content_hash": "db3bc127389329ef"
     },
     {
       "id": "MA-W7-S2-Q07",
@@ -1468,7 +1544,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "a018814eee6b772b"
+      "why": {
+        "C": "24 is 6 × 4, the four full symbols — right, but the half symbol is still to come. It stands for 3 more cars: 24 + 3 = 27.",
+        "D": "21 is 27 − 6, one whole symbol short — three full symbols and the half, rather than four and the half. The four full symbols come to 24, and the half adds 3: 24 + 3 = 27."
+      },
+      "content_hash": "186c790eb1370074"
     },
     {
       "id": "MA-W7-S2-Q08",
@@ -1489,12 +1569,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "29fa69201ef60384",
       "why": {
-        "B": "15 is 20 − 5, the pens that are not blue. The question asks for all of them.",
-        "C": "9 is 4 + 5, the 4 from the fraction added to the 5 blue pens. They multiply: four groups of five.",
-        "D": "25 is 5 × 5, five groups of five. The fraction says four groups."
-      }
+        "B": "15 is 20 − 5, the black pens. The question asks how many pens there are altogether: 4 × 5 = 20.",
+        "C": "9 is 4 + 5. The 5 blue pens are one of four equal parts, so the parts multiply: 4 × 5 = 20.",
+        "D": "25 is 5 × 5, five parts of five. A quarter means four parts: 4 × 5 = 20."
+      },
+      "content_hash": "97220def66f250e9"
     },
     {
       "id": "MA-W7-S2-Q09",
@@ -1515,7 +1595,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "fb6c9f3c3ff8978e"
+      "why": {
+        "B": "80 is 160 ÷ 2, half of the way round — one short side and one long side, 30 and 50. All four sides count: 30 + 50 + 30 + 50 = 160.",
+        "C": "130 is 160 − 30, the way round with one of the 30-centimetre sides missed out — three sides instead of four. A rectangle has two of each: 30 + 50 + 30 + 50 = 160."
+      },
+      "content_hash": "e3f3e50cfad3b4e8"
     },
     {
       "id": "MA-W7-S2-Q10",
@@ -1536,7 +1620,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "310e51a0d27b25a3"
+      "why": {
+        "C": "45 is the practice on Tuesday, and on Friday too — one day's minutes rather than the average of the five. The five days come to 180 minutes, and 180 ÷ 5 = 36.",
+        "D": "30 is Monday's practice on its own, one day out of the five rather than the average. The five days come to 180 minutes altogether, and 180 ÷ 5 = 36."
+      },
+      "content_hash": "1b6f501898b7cb4a"
     },
     {
       "id": "MA-W7-S2-Q11",
@@ -1557,12 +1645,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "17f0509c4bdf9d78",
       "why": {
-        "B": "20 is 60 ÷ 3, the basketball group on its own.",
-        "C": "30 is 60 ÷ 2, half the students. Soccer and basketball together are 35.",
-        "D": "35 is 15 + 20, soccer and basketball together — everyone who did not choose swimming."
-      }
+        "B": "20 is the basketball group, a third of the sixty. Swimming is what is left over: 60 − 15 − 20 = 25.",
+        "C": "30 is 60 ÷ 2, half the students. The two named sports take 15 and 20, leaving 25.",
+        "D": "35 is 15 + 20, the two named groups together. The rest is the answer: 60 − 35 = 25."
+      },
+      "content_hash": "705a0c684b79fc36"
     },
     {
       "id": "MA-W7-S2-Q12",
@@ -1604,7 +1692,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "4c0f21e7c7a895f0"
+      "why": {
+        "C": "14 is 7 × 2, the 7 doubled — and 7 × 14 = 98, not 91. Dividing is what undoes a × 7: 91 ÷ 7 = 13."
+      },
+      "content_hash": "c8f66e05a99473e6"
     },
     {
       "id": "MA-W8-S1-Q02",
@@ -1625,7 +1716,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "ce34c50d31c81fc1"
+      "why": {
+        "A": "13 is 9 + 4, as if the start were 4 rather than −4. Going right from −4 adds: −4 + 9 = 5.",
+        "B": "−5 is 5 with a minus sign on it — the right size, the wrong direction. Moving right from −4 lands on 5.",
+        "C": "−13 is −4 − 9, the nine counted to the left instead of to the right. Right means adding: −4 + 9 = 5."
+      },
+      "content_hash": "ae2761943f45b664"
     },
     {
       "id": "MA-W8-S1-Q03",
@@ -1646,7 +1742,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "8d4d2de7f6285e94"
+      "why": {
+        "C": "55 is 8 + 47, the 5n with the 8 put back on — right, but that is five n's, not one. Share it out: 55 ÷ 5 = 11.",
+        "D": "39 is 47 − 8, the 8 taken off 47 rather than put back on. Undoing a subtraction means adding: 47 + 8 = 55, and 55 ÷ 5 = 11."
+      },
+      "content_hash": "5e9dcccc67ae9525"
     },
     {
       "id": "MA-W8-S1-Q04",
@@ -1667,12 +1767,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "bbab7da9ef2f153e",
       "why": {
-        "A": "2 is 4 ÷ 2, the numbers inside the brackets divided. Inside those brackets they are added: 4 + 2 = 6.",
-        "C": "12 is 48 ÷ 4, dividing before the brackets are worked out.",
-        "D": "8 is 48 ÷ 6, the division done and the × 3 still to come."
-      }
+        "A": "2 is 4 − 2, the bracket subtracted instead of added. Inside first: 4 + 2 = 6, then 48 ÷ 6 = 8 and 8 × 3 = 24.",
+        "C": "12 is 48 ÷ 4, dividing before the bracket is done. The bracket is 6, so 48 ÷ 6 = 8 and 8 × 3 = 24.",
+        "D": "8 is 48 ÷ 6, the division done and the × 3 still to come: 8 × 3 = 24."
+      },
+      "content_hash": "7c886345684348fc"
     },
     {
       "id": "MA-W8-S1-Q05",
@@ -1693,7 +1793,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "858d9254f32793bb"
+      "why": {
+        "A": "2 is 6 − 4, a take away b with the 3 and the 2 left out. Each letter is multiplied first: 3 × 6 = 18 and 2 × 4 = 8, so 18 − 8 = 10."
+      },
+      "content_hash": "f0f8fa58125b72a5"
     },
     {
       "id": "MA-W8-S1-Q06",
@@ -1735,7 +1838,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "a725f6c0197cae66"
+      "why": {
+        "B": "7 is 11 − 4, which is n after the dividing by 6, not n itself. Multiply it back: 7 × 6 = 42."
+      },
+      "content_hash": "e1447353de286d83"
     },
     {
       "id": "MA-W8-S1-Q08",
@@ -1756,12 +1862,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "1fd99a0c52cad9ac",
       "why": {
-        "A": "20 is 12 + 8, the bracket added instead of subtracted.",
-        "B": "8 is 5 + 3, the first two numbers added before the rest is worked out.",
-        "D": "16 is what comes out working straight left to right: 5 + 3 = 8, then × 4, then ÷ 2. Multiplying and dividing go first."
-      }
+        "A": "20 is 5 × 4, adding the 5 in before the multiplying is done. Times and divide come first: 3 × 4 ÷ 2 = 6, then 5 + 6 = 11.",
+        "B": "8 is 5 + 3, adding left to right. The bracket and the × ÷ go first: 12 − 8 = 4, 3 × 4 = 12, 12 ÷ 2 = 6, so 11.",
+        "D": "16 is 8 × 2, using the 8 from inside the bracket after it has been used. The bracket is 4, and the answer is 5 + 6 = 11."
+      },
+      "content_hash": "448600d8d6accdc2"
     },
     {
       "id": "MA-W8-S1-Q09",
@@ -1824,7 +1930,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "dd13fa46fe918c08"
+      "why": {
+        "A": "30 is 2 + 28, the answer with the 2 added on instead of taken off. The rule multiplies and then subtracts: the second term is 4 × 3 − 2 = 10, and the third is 10 × 3 − 2 = 28."
+      },
+      "content_hash": "9de32cdc9046cbca"
     },
     {
       "id": "MA-W8-S1-Q12",
@@ -1845,12 +1954,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "87025a7df7a8b76f",
       "why": {
-        "B": "7 is 4 + 3, the two numbers on the left added. The 4 multiplies everything in the bracket.",
-        "C": "8 is 32 ÷ 4, which is n + 3. One step left: take off the 3.",
-        "D": "20 is 32 − 12, which is 4 × n. One step left: divide by 4."
-      }
+        "B": "7 is 4 + 3, the two numbers on the left added. Undo the 4 first: 32 ÷ 4 = 8, then 8 − 3 = 5.",
+        "C": "8 is 32 ÷ 4, which is n + 3 rather than n. Take the 3 off: 8 − 3 = 5.",
+        "D": "20 is 4 × 5, the answer multiplied back by the 4. n itself is 5."
+      },
+      "content_hash": "34ae7cd9ad58651a"
     },
     {
       "id": "MA-W8-S2-Q01",
@@ -1871,7 +1980,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "c01f1df66bb829c1"
+      "why": {
+        "C": "13 is 3 + 10, the $3 fee and the 10 miles added together — dollars and miles are not the same thing. The fee comes off the total first: 23 − 3 = 20, and 20 ÷ 2 = 10 miles."
+      },
+      "content_hash": "e24e41c03ed657d1"
     },
     {
       "id": "MA-W8-S2-Q02",
@@ -1892,12 +2004,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "a2a200f3815e7360",
       "why": {
-        "A": "5 is 25 ÷ 5, one fifth of the class. The ones who do not ride are two fifths.",
-        "B": "15 is 60% of 25 — the students who do ride. The question asks for the others.",
-        "D": "40 is the percentage left over, not a number of students. 40% of 25 is 10."
-      }
+        "A": "5 is 10 ÷ 2. Sixty per cent of 25 is 15 who do ride, so 25 − 15 = 10 who do not.",
+        "B": "15 is the number who DO ride the bus. The question asks for the rest: 25 − 15 = 10.",
+        "D": "40 is 10 × 4. The class is 25, and 15 of them ride, so 10 do not."
+      },
+      "content_hash": "6b118dfc307b769b"
     },
     {
       "id": "MA-W8-S2-Q03",
@@ -1918,7 +2030,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "c248c40a37250024"
+      "why": {
+        "C": "40 is 120 ÷ 3, Tuesday's pages — a third of the book, but only one of the two days. Monday's 48 pages count too: 120 − 48 − 40 = 32.",
+        "D": "88 is 120 − 32, the pages already read — Monday's 48 and Tuesday's 40 together. The question asks for the ones still left: 120 − 88 = 32."
+      },
+      "content_hash": "6f4e33e4c9d59276"
     },
     {
       "id": "MA-W8-S2-Q04",
@@ -1960,7 +2076,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "9ee902e32b130f27"
+      "why": {
+        "A": "11 is 14 − 3, the 14 with the 3 taken off it — but the 3 multiplies the bracket, and it is the 6 that comes off the 14. Brackets first: 14 − 6 = 8, then 3 × 8 = 24 and 20 ÷ 4 = 5, so 24 + 5 = 29.",
+        "B": "26 is 6 + 20, two of the numbers in the sum added straight together — but the 6 belongs inside the brackets and the 20 gets divided by 4. In order: 14 − 6 = 8, 3 × 8 = 24, 20 ÷ 4 = 5, and 24 + 5 = 29."
+      },
+      "content_hash": "5a177c73034c32f4"
     },
     {
       "id": "MA-W8-S2-Q06",
@@ -1981,7 +2101,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "6e93e52339585d75"
+      "why": {
+        "B": "36 is 9 × 4, the area of the rectangular rug in square feet — right, but the question asks for the side of the square. The side is the number that makes 36 when multiplied by itself: 6 × 6 = 36.",
+        "D": "18 is 9 × 2, the 9-foot side doubled — neither the area nor the side of the square. The area is 9 × 4 = 36, and the square's side is 6 because 6 × 6 = 36."
+      },
+      "content_hash": "5a61fa36811080d2"
     },
     {
       "id": "MA-W8-S2-Q07",
@@ -2002,7 +2126,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "ea02b294854919e5"
+      "why": {
+        "B": "The mean, by 1 has the gap right and the two the wrong way round. The mean comes to 70 ÷ 5 = 14 and the median is 15, so the median is the greater one.",
+        "C": "The median, by 2 names the right one but doubles the gap. The mean comes to 70 ÷ 5 = 14 and the median is 15, so the gap is 15 − 14 = 1."
+      },
+      "content_hash": "54011edc6bec539f"
     },
     {
       "id": "MA-W8-S2-Q08",
@@ -2023,7 +2151,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "4a2f041ee6baab73"
+      "why": {
+        "C": "5 is 12 − 7, the twelve members take away the seven left over. What the question wants is the left-over itself: 12 × 15 = 180, and 187 − 180 = 7."
+      },
+      "content_hash": "a953c96097c917cb"
     },
     {
       "id": "MA-W8-S2-Q09",
@@ -2044,7 +2175,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "ee181e89df1e305f"
+      "why": {
+        "C": "90 is 45 × 2, the two equal angles put together rather than one of them on its own. The three angles come to 180, so the two equal ones share 180 − 90 = 90, and 90 ÷ 2 = 45 degrees each."
+      },
+      "content_hash": "e475a9dd5a59d115"
     },
     {
       "id": "MA-W8-S2-Q10",
@@ -2065,7 +2199,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "0c4189fa43502bd7"
+      "why": {
+        "A": "14.4 is 3.6 × 4, the jug multiplied by the number of bottles instead of shared between them. Pouring equally means dividing: 3.6 ÷ 4 = 0.9 in each bottle."
+      },
+      "content_hash": "59d6b7cd7818f9cb"
     },
     {
       "id": "MA-W8-S2-Q11",
@@ -2086,12 +2223,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "d1e910540db39bed",
       "why": {
-        "B": "20 is 5 × 4, one layer of cubes. The box is three layers tall.",
-        "C": "12 is 4 × 3, one end of the box. The whole box holds 5 × 4 × 3 = 60.",
-        "D": "45 is the number of cubes taken out, not the number left behind."
-      }
+        "B": "20 is 5 × 4, one layer of the box. All three layers hold 5 × 4 × 3 = 60.",
+        "C": "12 is 4 × 3, one face of the box. It holds 5 × 4 × 3 = 60, and 60 − 45 = 15.",
+        "D": "45 is the number taken out, not the number left behind: 60 − 45 = 15."
+      },
+      "content_hash": "d98ef6063830f25d"
     },
     {
       "id": "MA-W8-S2-Q12",
