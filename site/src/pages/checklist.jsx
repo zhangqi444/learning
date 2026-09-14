@@ -2,7 +2,7 @@ import * as React from "react"
 import { CalendarDays, CheckCircle2, ChevronLeft, ChevronRight, Circle, ListChecks, Plus, Printer, Trash2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, currentWeek, setId, setsFor, weekLabel } from "@/lib/content"
-import { mockNextSteps, rec, reviewQueue, weekRecap } from "@/lib/engine"
+import { dayKey, mockNextSteps, rec, reviewQueue, weekRecap } from "@/lib/engine"
 import { actionsForWeek, reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { mixedThisWeek } from "@/pages/mixed"
@@ -23,7 +23,10 @@ import { mockSummary } from "@/pages/mock"
 import { allEvents } from "@/pages/calendar"
 
 /* ---------- date helpers ---------- */
-const iso = (d) => d.toISOString().slice(0, 10)
+/* Local, not UTC — see dayKey. Here it only feeds `addDays`, which starts from a
+ * local midnight, so the two cancelled out west of Greenwich and the bug was
+ * invisible; east of it every plan week would have started a day early. */
+const iso = (d) => dayKey(d.getTime())
 function addDays(s, n) { const d = new Date(s + "T00:00:00"); d.setDate(d.getDate() + n); return iso(d) }
 function weekRange(wk) { const a = D.starts[wk]; return [a, addDays(a, 6)] }
 function monthKey(s) { return s.slice(0, 7) }
@@ -85,7 +88,13 @@ export function weekItems(wk) {
     }
     // follow-up steps in the week of the mock and the week after
     const fin = (Store.s.mocks[m.id] || {}).finishedAt
-    if (fin) { const f = fin.slice(0, 10); if (f >= addDays(a, -7) && f <= b) mockNextSteps(m.id).filter((x) => x.kind !== "tag").forEach((x, i) => items.push({ id: `next:${m.id}:${i}`, group: "Mock follow-up", tag: "Mock", label: x.text, sub: `from ${m.name}`, done: null, path: x.path, auto: false })) }
+    // `finishedAt` is an instant, and the week it is compared against is a pair of
+    // local calendar dates — so the day has to be read locally too. Slicing the ISO
+    // string took the UTC date, which from about five in the afternoon on the west
+    // coast is already tomorrow: a mock finished on a Sunday evening landed on
+    // "Monday", fell outside the week she had just sat it in, and took its
+    // follow-up rows with it. Same mistake as the reading day, same fix.
+    if (fin) { const f = dayKey(fin); if (f >= addDays(a, -7) && f <= b) mockNextSteps(m.id).filter((x) => x.kind !== "tag").forEach((x, i) => items.push({ id: `next:${m.id}:${i}`, group: "Mock follow-up", tag: "Mock", label: x.text, sub: `from ${m.name}`, done: null, path: x.path, auto: false })) }
   }
   // Follow-ups a weekly or monthly digest asked for. Not `auto`, so they never move the
   // plan's own progress — they are extra work someone chose, ticked by hand.

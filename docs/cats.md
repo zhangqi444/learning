@@ -57,25 +57,30 @@ not because they are discouraged, but because they were never drawn.
 
 ## 3. Voice — including the meow
 
-The current calls are two triangle-wave notes from a pentatonic scale. They are
-in tune, they are identity-bearing, and they do not sound like a cat.
+**Built.** The calls were two triangle-wave notes from a pentatonic scale: in
+tune, identity-bearing, and not remotely a cat.
 
-**The fix is timbre, not pitch.** A meow is a pitch contour pushed through vowel
-formants; a formant is a bandpass filter. So a cat's call becomes: the *same two
-frequencies `callHz()` already returns*, played through two or three bandpass
-filters whose centres sweep along a vowel path — `ee → ah → oo` is "meow",
-`ah → oo` clipped short is "mrrp?" — with a little noise at the onset for the
-consonant. No sample, no file, no fetch. **Every existing guarantee survives**,
-because the guarantees are all about pitch: `benign` is still the same cat
-forever, five gates in a row are still in one scale, the octaves are still
-octaves, the chorus is still in tune. *(Mechanic — it extends recognition, which
-is recall.)*
+**The fix was timbre, not pitch.** A meow is a pitch contour pushed through vowel
+formants; a formant is a bandpass filter. So a call is now the *same two
+frequencies `callHz()` already returned*, played through two bandpass filters
+whose centres glide along a vowel path — open and closing for `mrrp?`, nearly
+`ee` opening wide for a Siamese. No sample, no file, no fetch. **Every existing
+guarantee survived**, because the guarantees are all about pitch: `benign` is the
+same cat forever, five gates in a row are in one scale, the octaves are octaves,
+the chorus is in tune. The proof is in the suite — against one build, the pitches
+recorded before and after are identical to the digit and only the filter count
+moves. *(Mechanic — it extends recognition, which is recall.)*
 
-**Accent is identity too.** The build the hash already picked can choose the
-vowel path and the contour, and it happens to be true of real cats: the oriental
-build gets the brighter, more nasal, more insistent call that Siamese actually
-have; the longhair gets a softer, breathier one; the shorthair keeps the short
-`mrrp?`. Same seed, so it is stable forever. *(Mechanic.)*
+Still open: a noise burst at the onset for the `m`, which is what would take it
+from a vowel to a word. It needs `createBufferSource` on the test stub, and the
+stub is the thing that keeps the scale honest, so it is a deliberate next step
+rather than a tweak.
+
+**Accent is identity too.** The build the hash already picked chooses the vowel
+path, and it happens to be true of real cats: the oriental build gets the
+brighter, more nasal, more insistent call that Siamese actually have; the
+longhair gets a softer, rounder one; the shorthair keeps the short `mrrp?`. Same
+seed, so it is stable forever. *(Mechanic.)*
 
 **What must never get a voice.** Sound belongs to *events involving a cat* and
 nothing else. No meow on navigation, on a tab change, on a checkbox, on a page
@@ -98,7 +103,7 @@ them. Existing: `glim-breathe`, `glim-flicker`, `pop`, `spark`.
 | Primitive | What it is | Where it belongs | |
 |---|---|---|---|
 | **arrive** | walks in from an edge and sits — never fades up on the spot | any cat entering: the gate, the reveal, the door | Skin |
-| **slow blink** | eyes close and reopen over ~600ms | acknowledgement — see below | Signal |
+| **slow blink** | eyes close and reopen over ~600ms | acknowledgement — see below. **Built** | Signal |
 | **ear-flick** | one ear rotates a few degrees, at random, rarely | idle cats, so a still page is not a dead one | Skin |
 | **tail-curl** | tail lifts and curls on hover or focus | interactive cats only — attention, not commitment | Skin |
 | **settle** | drops into a loaf over ~1s after a period of no input | long-lived pages: Glimbook, Den | Skin |
@@ -114,10 +119,20 @@ currently a tick or a silent state change.
 Making the blink the site's universal yes buys three things: one visual idiom for
 confirmation across seventeen pages, a signal that is *derived from something
 actually happening* rather than decorative, and a use of the animal that is
-affectionate
-without being a reward. It must never blink for something that has not actually
-happened — a blink on an optimistic save that later fails is the system lying,
-which is rule 3.
+affectionate without being a reward. It must never blink for something that has
+not actually happened — a blink on an optimistic save that later fails is the
+system lying, which is rule 3.
+
+**What is built.** `Glim` takes a `blink` seed: change it and the cat blinks
+once, and passing the same value twice does nothing. The first place it fires is
+the precision review, on the one transition that means something — a word going
+from nothing to her own words, which is the moment the cat comes to know her. It
+deliberately does not fire on every autosave, because a cat that blinks whenever
+she pauses typing is a tic rather than an acknowledgement, and a signal that
+fires when nothing happened is not a signal. Two assertions hold it to that: that
+nothing has blinked before she writes, and that something has after. The rest of
+the surfaces in the paragraph above are not done, and each needs the same
+question asked of it — what exactly is the thing that happened?
 
 ## 5. Distance and height — the unused mechanic
 

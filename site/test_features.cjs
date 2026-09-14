@@ -138,11 +138,22 @@ async function runThrough(pg, pick, max = 60) {
   // W2 is untouched here, so it is the honest before/after for the arrival.
   const dark2 = await pg.$$eval('[data-testid=pword] [data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
   check('a week she has not opened is all shadow', dark2.length > 20 && dark2.every((s) => s === 'Unseen'), [...new Set(dark2)].join(','));
+  // The other half of the blink check below: nothing has happened yet, so nothing
+  // is acknowledged. Without this the assertion after typing would pass against a
+  // cat that blinks permanently at everything.
+  check('and nobody has blinked at her yet, because nothing has happened',
+    (await pg.$$('[data-testid=glim-blink]')).length === 0);
   await pg.fill('[data-testid=pword] >> nth=0 >> textarea', 'imply is the speaker hinting; infer is the listener figuring it out');
   await pg.click('[data-testid=pword] >> nth=0 >> [data-testid=conf-3]');
   await pg.waitForTimeout(700);
   const lit = await pg.$$eval('[data-testid=pword] >> nth=0 >> [data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
   check('writing a word in her own words brings its cat into the light', lit.every((s) => s !== 'Unseen'), lit.join(','));
+  // A cat's slow blink is how it says it trusts you, so it is this app's way of
+  // saying yes — and it has to fire on something that actually happened. The
+  // moment is the word going from nothing to her own words, once, not on every
+  // autosave: a cat blinking whenever she pauses typing is a tic.
+  check('and the cat blinks at her — the acknowledgement, on a real event',
+    (await pg.$$('[data-testid=pword] >> nth=0 >> [data-testid=glim-blink]')).length > 0);
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=pword]');
   check('precision response + confidence persist', (await pg.$eval('[data-testid=pword] >> nth=0 >> textarea', (t) => t.value)).includes('speaker hinting') && /1\/20 written/.test(await body(pg)));
   check('submit disabled until every word is answered', await pg.$eval('[data-testid=submit-precision]', (b) => b.disabled));
@@ -264,6 +275,22 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForTimeout(400);
   const ckNow = await body(pg);
   check('a finished mock leaves follow-ups on the current week', /Mock follow-up/.test(ckNow), 'no Mock follow-up rows');
+  // Pin the day it is filed under, because the check above is only honest at the
+  // hour the suite happens to run: finishing a mock at half past eleven at night
+  // is already tomorrow in UTC, and reading the day off the ISO string moved the
+  // follow-ups out of the week she had just sat the thing in. Fixed to a local
+  // late evening so this fails whatever time of day the suite runs.
+  await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const d = new Date(); d.setHours(23, 30, 0, 0);
+    s.mocks.DGN.finishedAt = d.toISOString();
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=ck-item]');
+  await pg.waitForTimeout(300);
+  check('and stays on it when the mock was finished late in the evening',
+    /Mock follow-up/.test(await body(pg)), 'late-evening finish lost its follow-ups');
   // put the page back: the checks after this one are still reading the mock
   await pg.evaluate((h) => { location.hash = h; }, backTo);
   await pg.waitForTimeout(500);
@@ -880,6 +907,47 @@ async function runThrough(pg, pick, max = 60) {
   check('a word waiting at the door is drawn as the cat it is', door.includes('candid'), door.slice(0, 5).join(','));
   check('and only words — a Quantitative item is not a cat and is not drawn as one',
     (await pg.$$('[data-testid=at-the-door-qr] [data-testid=glim]')).length === 0);
+
+  // Three separate bugs have now been the same bug: a day read off an ISO string
+  // is Greenwich's day, and every day this app compares or shows is hers. Testing
+  // it in the machine's own timezone is what let all three through — west of
+  // Greenwich the two agree until the late afternoon, so the checks were green
+  // every morning. This runs in a timezone fourteen hours ahead, where they
+  // disagree for almost the whole day, and asserts the one number with no room
+  // for interpretation: a test set for today reads as today.
+  console.log('== the day is hers, not Greenwich\'s (runs in a shifted timezone)');
+  {
+    // Which side to stand on depends on the hour the suite runs: a +14 timezone
+    // is a day ahead of UTC only in UTC's afternoon and evening, and -11 is a day
+    // behind it only in the morning. Picking by the clock means the two never
+    // agree, so this check cannot go quietly green at three in the afternoon.
+    const tz = new Date().getUTCHours() < 11 ? 'Pacific/Midway' : 'Pacific/Kiritimati';
+    const far = await b.newContext({ viewport: { width: 1280, height: 900 }, timezoneId: tz });
+    await stubGoogle(far);
+    const fp = await far.newPage();
+    await fp.goto('http://localhost:8143/learning/', { waitUntil: 'networkidle' });
+    await signIn(fp);
+    const localToday = await fp.evaluate(() => {
+      const d = new Date();
+      const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+      const s = JSON.parse(localStorage.getItem('isee.v1'));
+      s.testDate = day;
+      localStorage.setItem('isee.v1', JSON.stringify(s));
+      return { day, utc: new Date().toISOString().slice(0, 10) };
+    });
+    check('the timezone really does disagree with UTC, or this proves nothing',
+      localToday.day !== localToday.utc, `${tz}: local ${localToday.day} vs UTC ${localToday.utc}`);
+    await fp.evaluate(() => { location.hash = '#/calendar'; });
+    await fp.reload({ waitUntil: 'networkidle' });
+    // Read the countdown element itself, not the page. The word "Today" also
+    // appears on the timeline marker, and matching the body text passed happily
+    // against the broken version — the check has to name the number it means.
+    await fp.waitForSelector('[data-testid=test-countdown]', { timeout: 8000 });
+    const countdown = (await fp.textContent('[data-testid=test-countdown]')).trim();
+    check('a test date of today reads as Today, not as a day either side of it',
+      countdown === 'Today', countdown);
+    await far.close();
+  }
 
   console.log('== the cats have voices (runs last: it replaces AudioContext)');
   // The only way to check synthesised sound is to record what it asks the audio

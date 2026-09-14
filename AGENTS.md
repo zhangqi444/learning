@@ -442,11 +442,13 @@ requirement. The abstract UI notes (`pick`, `right`, `wrong`) stay abstract note
 and stay where they are. Any change to how a cat *sounds* is a change to pitch or
 to timbre, and those are not the same: the pitches are load-bearing — two rising
 notes from one pentatonic scale, transposed only by octaves — because five gates
-in a row must not produce a sour interval. Timbre is free. The proposal to make a
-call an actual meow by filtering those same pitches through vowel formants is
-[docs/cats.md](docs/cats.md) §3; it is a proposal, and what makes it safe is that
-the existing audio check records every frequency the page asks for and would fail
-the moment a pitch moved.
+in a row must not produce a sour interval. Timbre is free. A call is an actual meow
+now — the same pitches pushed through two bandpass formants that glide along a
+vowel path, with the vowel chosen by the cat's own build, so its accent is as
+fixed as its coat ([docs/cats.md](docs/cats.md) §3). What made that safe to do is
+that the audio check records every frequency the page asks for: the pitches
+before and after are identical to the digit, and a check that a call went through
+a mouth at all fails against the version without one.
 
 The weekly plan carries a Wordwood row, but **outside the plan's percentage**
 (`auto: false`), and only once that week has yielded the six cats a walk needs.

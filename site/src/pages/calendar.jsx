@@ -1,7 +1,7 @@
 import * as React from "react"
 import { CalendarDays, ExternalLink, MapPin, Save, Timer } from "lucide-react"
 
-import { mockBand } from "@/lib/engine"
+import { dayKey, mockBand } from "@/lib/engine"
 import { D, fmtDate } from "@/lib/content"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
@@ -33,7 +33,13 @@ function parseLabelStart(label, year = 2026) {
   const mo = MONTHS[m[1]]
   return `${mo === 0 ? year + 1 : year}-${String(mo + 1).padStart(2, "0")}-${String(+m[2]).padStart(2, "0")}`
 }
-function iso(d) { return d.toISOString().slice(0, 10) }
+/* The LOCAL calendar day, through the engine's one implementation of it.
+ * `toISOString()` is UTC, and from about five in the afternoon on the west coast
+ * that is already tomorrow — so every evening this page marked the wrong day as
+ * today, counted one day too few to the test, and dropped today's events out of
+ * "coming up" because they were older than a "today" that had run ahead. The
+ * third time this exact mistake has been found; see dayKey in lib/engine.js. */
+function iso(d) { return dayKey(d.getTime()) }
 function fmtDay(s) { const d = new Date(s + "T00:00:00"); return { wd: d.toLocaleDateString(undefined, { weekday: "short" }), day: d.getDate(), month: d.toLocaleDateString(undefined, { month: "long", year: "numeric" }), key: s.slice(0, 7) } }
 function fmtShort(s) { return new Date(s + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" }) }
 
@@ -75,7 +81,7 @@ function TestDayCard() {
     <Card className="from-primary/5 to-card bg-gradient-to-t gap-4">
       <CardHeader>
         <CardDescription className="flex items-center gap-2"><Timer className="size-4" /> Sheila's real ISEE date</CardDescription>
-        <CardTitle className="text-2xl font-semibold tracking-tight">
+        <CardTitle className="text-2xl font-semibold tracking-tight" data-testid="test-countdown">
           {store.s.testDate ? (days > 0 ? `${days} days to go` : days === 0 ? "Today" : `${-days} days ago`) : "Which day will she take the real test?"}
         </CardTitle>
         <CardDescription>

@@ -42,7 +42,13 @@ function WordCard({ wk, entry, idx, state, submitted }) {
   const timer = React.useRef(null)
   React.useEffect(() => { setText(r.text || "") }, [r.text])
 
+  const [blink, setBlink] = React.useState(0)
   function save(next) {
+    // The cat comes to know her at one identifiable moment: the word going from
+    // nothing to her own words. So the blink fires on that transition only, not
+    // on every autosave — a cat that blinks each time she pauses typing is a
+    // tic, and a signal that fires when nothing happened is not a signal.
+    if (next.text && next.text.trim() && !String(r.text || "").trim()) setBlink((b) => b + 1)
     Store.setSlice("precision", wk, (cur) => {
       const words = { ...(cur.words || {}) }
       words[entry.word] = { ...(words[entry.word] || {}), ...next, at: new Date().toISOString() }
@@ -85,7 +91,7 @@ function WordCard({ wk, entry, idx, state, submitted }) {
                 className="focus-visible:ring-ring/50 rounded-full transition-transform outline-none hover:scale-110 focus-visible:ring-[3px]"
                 data-testid="hear-glim"
               >
-                <Glim word={n} stage={glow} className="size-11" title={`${n} — ${glow}`} />
+                <Glim word={n} stage={glow} className="size-11" title={`${n} — ${glow}`} blink={blink} />
               </button>
             ))}
           </span>
