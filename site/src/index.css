@@ -206,4 +206,15 @@
     45%      { opacity: 0.62; }
     60%      { opacity: 0.95; }
   }
+  /* The slow blink. In a real cat this is the affection signal — a cat that
+     slow-blinks at you is saying it trusts you — and it is the one piece of cat
+     behaviour that maps onto something this app needs everywhere: saying yes.
+     It runs once, on a thing that has actually happened, never on a loop: a cat
+     blinking at nothing is a tic. Scales the eyes rather than fading them, so
+     reduced motion leaves a cat with its eyes open, which is the right picture.
+     See docs/cats.md §4. */
+  @keyframes glim-blink {
+    0%, 100%  { transform: scaleY(1); }
+    42%, 58%  { transform: scaleY(0.06); }
+  }
 }

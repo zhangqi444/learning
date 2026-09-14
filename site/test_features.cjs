@@ -138,11 +138,22 @@ async function runThrough(pg, pick, max = 60) {
   // W2 is untouched here, so it is the honest before/after for the arrival.
   const dark2 = await pg.$$eval('[data-testid=pword] [data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
   check('a week she has not opened is all shadow', dark2.length > 20 && dark2.every((s) => s === 'Unseen'), [...new Set(dark2)].join(','));
+  // The other half of the blink check below: nothing has happened yet, so nothing
+  // is acknowledged. Without this the assertion after typing would pass against a
+  // cat that blinks permanently at everything.
+  check('and nobody has blinked at her yet, because nothing has happened',
+    (await pg.$$('[data-testid=glim-blink]')).length === 0);
   await pg.fill('[data-testid=pword] >> nth=0 >> textarea', 'imply is the speaker hinting; infer is the listener figuring it out');
   await pg.click('[data-testid=pword] >> nth=0 >> [data-testid=conf-3]');
   await pg.waitForTimeout(700);
   const lit = await pg.$$eval('[data-testid=pword] >> nth=0 >> [data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
   check('writing a word in her own words brings its cat into the light', lit.every((s) => s !== 'Unseen'), lit.join(','));
+  // A cat's slow blink is how it says it trusts you, so it is this app's way of
+  // saying yes — and it has to fire on something that actually happened. The
+  // moment is the word going from nothing to her own words, once, not on every
+  // autosave: a cat blinking whenever she pauses typing is a tic.
+  check('and the cat blinks at her — the acknowledgement, on a real event',
+    (await pg.$$('[data-testid=pword] >> nth=0 >> [data-testid=glim-blink]')).length > 0);
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=pword]');
   check('precision response + confidence persist', (await pg.$eval('[data-testid=pword] >> nth=0 >> textarea', (t) => t.value)).includes('speaker hinting') && /1\/20 written/.test(await body(pg)));
   check('submit disabled until every word is answered', await pg.$eval('[data-testid=submit-precision]', (b) => b.disabled));

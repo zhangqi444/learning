@@ -69,7 +69,11 @@ function Coat({ t, b }) {
  * @param word  which cat — the word itself, so the same word is the same cat
  * @param stage one of STAGES; how much of it is there
  */
-export function Glim({ word, stage = "Steady", className, title }) {
+/* `blink` is a seed, not a boolean: change it and the cat blinks once. A cat's
+ * slow blink is how it says it trusts you, so it is this app's acknowledgement —
+ * fired when something has genuinely happened, never on a timer. Passing the
+ * same value twice does nothing, which is what keeps it honest. */
+export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
   const t = traits(word)
   const c = t.coat
   const b = BUILD[t.build] || BUILD.short
@@ -156,12 +160,22 @@ export function Glim({ word, stage = "Steady", className, title }) {
           </g>
           {/* the eyes outlast the cat: at Unseen this is all there is */}
           <g opacity={s.eyes}>
-            <ellipse cx="26.4" cy="23" rx="3.8" ry="4.4" fill={t.eye} />
-            <ellipse cx="37.6" cy="23" rx="3.8" ry="4.4" fill={t.eye} />
-            <ellipse cx="26.4" cy="23" rx="1.3" ry="3.6" fill="#16161c" />
-            <ellipse cx="37.6" cy="23" rx="1.3" ry="3.6" fill="#16161c" />
-            <circle cx="25.2" cy="21.2" r="1" fill="#fff" opacity="0.95" />
-            <circle cx="36.4" cy="21.2" r="1" fill="#fff" opacity="0.95" />
+            {/* the blink rides its own wrapper, for the reason at the top of the
+                file: the stage's opacity lives on the group above and an
+                animation must never be in a position to replace it. `key`
+                restarts the run when the seed changes. */}
+            <g
+              key={`blink-${blink}`}
+              data-testid={blink ? "glim-blink" : undefined}
+              style={blink ? { animation: "glim-blink 620ms ease-in-out", transformOrigin: "32px 23px" } : undefined}
+            >
+              <ellipse cx="26.4" cy="23" rx="3.8" ry="4.4" fill={t.eye} />
+              <ellipse cx="37.6" cy="23" rx="3.8" ry="4.4" fill={t.eye} />
+              <ellipse cx="26.4" cy="23" rx="1.3" ry="3.6" fill="#16161c" />
+              <ellipse cx="37.6" cy="23" rx="1.3" ry="3.6" fill="#16161c" />
+              <circle cx="25.2" cy="21.2" r="1" fill="#fff" opacity="0.95" />
+              <circle cx="36.4" cy="21.2" r="1" fill="#fff" opacity="0.95" />
+            </g>
           </g>
         </g>
       </g>
