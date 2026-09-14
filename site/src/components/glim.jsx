@@ -26,14 +26,26 @@ const BUILD = {
 const TAIL = { short: "M47 57 C58.5 57.5 61 44 53.5 38.5", long: "M48 57 C61 57.5 63 42 53 36.5", slim: "M45 57.5 C57 58 60 43 52 37" }
 
 /* body: how much of the cat is drawn · glow: the halo · eyes: always the last
- * thing to go, because a cat in the dark is a pair of eyes. */
+ * thing to go, because a cat in the dark is a pair of eyes.
+ *
+ * near: how close it has come. The world bible's own first line about cats is
+ * that one which does not know you "keeps its distance and watches from
+ * somewhere high", and until now that was said only in opacity — nothing was
+ * ever actually far away. So the same honest number is read twice: a cat she
+ * does not know yet draws small and high in its box, and each stage brings it
+ * lower, nearer and larger until a Radiant one fills the frame. Derived from the
+ * stage every time, never stored, exactly as brightness is (rule 3), and
+ * `atLeast` still floors a cat she has just called right — being correct is
+ * never drawn as distant any more than it is drawn as faint. The box itself does
+ * not move: distance happens inside the cat's own square, so a shelf of them
+ * stays a grid. */
 const STAGE = {
-  Unseen: { body: 0.09, glow: 0, eyes: 0.4, anim: null },
-  Glimpsed: { body: 0.38, glow: 0.05, eyes: 0.8, anim: null },
-  Flickering: { body: 0.66, glow: 0.1, eyes: 0.95, anim: "glim-flicker 2.6s ease-in-out infinite" },
-  Steady: { body: 1, glow: 0.12, eyes: 1, anim: null },
-  Bright: { body: 1, glow: 0.3, eyes: 1, anim: "glim-breathe 4.4s ease-in-out infinite" },
-  Radiant: { body: 1, glow: 0.55, eyes: 1, anim: "glim-breathe 3.6s ease-in-out infinite" },
+  Unseen: { body: 0.09, glow: 0, eyes: 0.4, anim: null, near: 0.56, lift: -9 },
+  Glimpsed: { body: 0.38, glow: 0.05, eyes: 0.8, anim: null, near: 0.7, lift: -6 },
+  Flickering: { body: 0.66, glow: 0.1, eyes: 0.95, anim: "glim-flicker 2.6s ease-in-out infinite", near: 0.82, lift: -3.5 },
+  Steady: { body: 1, glow: 0.12, eyes: 1, anim: null, near: 0.92, lift: -1.5 },
+  Bright: { body: 1, glow: 0.3, eyes: 1, anim: "glim-breathe 4.4s ease-in-out infinite", near: 0.98, lift: -0.5 },
+  Radiant: { body: 1, glow: 0.55, eyes: 1, anim: "glim-breathe 3.6s ease-in-out infinite", near: 1, lift: 0 },
 }
 export const STAGES = Object.keys(STAGE)
 
@@ -99,6 +111,7 @@ export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
       data-marking={c.id}
       data-build={t.build}
       data-coat={c.base}
+      data-near={s.near}
     >
       <defs>
         <radialGradient id={halo}>
@@ -107,6 +120,13 @@ export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
         </radialGradient>
         <clipPath id={clip}><path d={b.body} /></clipPath>
       </defs>
+
+      {/* How far off she is. Scaled about the cat's own middle and lifted, so a
+          distant one sits small and high in its square rather than shrinking
+          into the corner of it. A plain attribute, not a CSS transform: the
+          animations below already use `transform`, and two of them on one
+          element would have the breathing replace the distance. */}
+      <g transform={`translate(32 ${34 + s.lift}) scale(${s.near}) translate(-32 -34)`}>
 
       {/* the animation goes on a wrapper, never on the element carrying the
           stage's own opacity: SVG multiplies nested group opacity, but a CSS
@@ -178,6 +198,7 @@ export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
             </g>
           </g>
         </g>
+      </g>
       </g>
     </svg>
   )
