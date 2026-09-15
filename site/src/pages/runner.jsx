@@ -494,7 +494,8 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                     word={arrival}
                     stage="Bright"
                     title={`${arrival} came to the gate`}
-                    className="motion-safe:animate-[pop_420ms_cubic-bezier(.34,1.56,.64,1)_both] absolute top-[66%] left-1/2 size-20 -translate-x-1/2 -translate-y-1/2"
+                    arrive
+                    className="absolute top-[66%] left-1/2 size-20 -translate-x-1/2 -translate-y-1/2"
                   />
                 ) : null}
               </div>
@@ -538,7 +539,18 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                     prints them. It is here on the reveal, at the brightness the
                     engine really reports for that skill, so the Percent cat gets
                     brighter as she gets better at percent. On a miss it does not
-                    leave, sulk or dim: nothing is taken away for being wrong. */}
+                    leave, sulk or dim: nothing is taken away for being wrong.
+
+                    It used to be given a bounce when she was right and nothing
+                    at all when she was wrong — the same cat, arriving at the same
+                    moment, behaving two different ways depending on her answer.
+                    That is precisely the reading docs/cats.md §2 rules out: a
+                    child does not see "the answer was correct", she sees the cat
+                    being pleased with her, and therefore sees the flat one as the
+                    cat not being pleased. So the cat now walks in the same way
+                    both times, and the Burst stays conditional, because a burst
+                    is the app marking the answer and makes no claim about how the
+                    animal feels about her. */}
                 {reactCat ? (
                   <span className="relative shrink-0">
                     {gotIt ? <Burst seed={i} n={10} /> : null}
@@ -547,7 +559,8 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                       word={reactCat.word}
                       stage={reactCat.stage}
                       title={it.sk}
-                      className={cn("size-14", gotIt && "motion-safe:animate-[pop_420ms_cubic-bezier(.34,1.56,.64,1)_both]")}
+                      arrive
+                      className="size-14"
                     />
                   </span>
                 ) : null}

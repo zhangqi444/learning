@@ -71,10 +71,27 @@ the chorus is in tune. The proof is in the suite — against one build, the pitc
 recorded before and after are identical to the digit and only the filter count
 moves. *(Mechanic — it extends recognition, which is recall.)*
 
-Still open: a noise burst at the onset for the `m`, which is what would take it
-from a vowel to a word. It needs `createBufferSource` on the test stub, and the
-stub is the thing that keeps the scale honest, so it is a deliberate next step
-rather than a tweak.
+**The `m` is built, and the instrument this section named for it was wrong.**
+The open item here used to read: *a noise burst at the onset, which needs
+`createBufferSource` on the test stub*. Both halves were mistaken. A burst is a
+**plosive** — the sound of a closure being released, which is a `p` or a `t`. An
+`m` is a **nasal**: the voicing never stops, the lips stay shut, the sound leaves
+through the nose, and what you hear is the same note with everything above the
+nasal murmur gone and most of the level with it. White noise in front of a meow
+does not read as *m*; it reads as *ts*, a cat with a lisp.
+
+So the onset is the two formants starting closed — 250 Hz and 420 Hz — held
+quiet for about 45 ms and then travelling to the first vowel frame, which *is*
+the mouth opening. The note is already sounding before the vowel arrives, so the
+call begins as a cat rather than as a tone a cat is applied to afterwards.
+
+It needed nothing added to the test stub, because it is two filter frequencies
+and a gain ramp and the fake context already recorded both. The stub gained a
+recording of *what the mouth was first set to*, which is how the suite now proves
+the call starts closed rather than on a vowel — and the pitch count did not move,
+so `the right cat answers in two notes` still passes unchanged. Timbre is free;
+pitch is load-bearing. Both calls and the chorus open this way; every cat in a
+chorus opens its own mouth, or the phrase is a tune with cats painted on it.
 
 **Accent is identity too.** The build the hash already picked chooses the vowel
 path, and it happens to be true of real cats: the oriental build gets the
@@ -102,12 +119,33 @@ them. Existing: `glim-breathe`, `glim-flicker`, `pop`, `spark`.
 
 | Primitive | What it is | Where it belongs | |
 |---|---|---|---|
-| **arrive** | walks in from an edge and sits — never fades up on the spot | any cat entering: the gate, the reveal, the door | Skin |
+| **arrive** | walks in from an edge and sits — never fades up on the spot. **Built** | any cat entering: the gate, the reveal, the door | Skin |
 | **slow blink** | eyes close and reopen over ~600ms | acknowledgement — see below. **Built** | Signal |
 | **ear-flick** | one ear rotates a few degrees, rarely, each cat on its own clock | idle cats, so a still page is not a dead one. **Built** | Skin |
 | **tail-curl** | tail lifts on hover or focus | interactive cats only — attention, not commitment. **Built**, and it turned out to be an affordance rather than decoration: a cat you can tap looks exactly like one you cannot | Skin |
 | **settle** | drops into a loaf over ~1s after a period of no input | long-lived pages: Glimbook, Den | Skin |
 | **stretch** | a single stretch when a section first becomes visible | section reveal, once, never on a loop | Skin |
+
+**Arrive was a correction, not an addition.** Both gate cats were already
+animated — with `pop`, which scales up from nothing *on the spot*, the exact
+thing the row above forbids. It carries no opacity now: the cat starts outside
+its own square and the SVG viewport clips it, so nothing is visible until the cat
+is genuinely inside the frame and there is no fade to get wrong. Direction comes
+off the same hash bit that mirrors the tail, so a given cat always comes from its
+own side. The last frame is `transform: none`, so what survives the global
+reduced-motion delete is a cat sitting where it belongs — and that is now
+asserted rather than eyeballed, with `emulateMedia`, which no check in this repo
+had ever used.
+
+**It also found something.** The runner's reveal cat was given a bounce when she
+was right and nothing at all when she was wrong: one cat, one moment, two
+behaviours, chosen by her answer. A ten-year-old does not read that as *correct*
+— she reads the cat as pleased with her, and therefore reads the flat one as the
+cat not being pleased. That is §2 exactly, arrived at from the motion table
+rather than from the guardrail, which is the sort of thing a written rule is for.
+The entrance is identical either way now and lives inside the drawing where a
+caller cannot make it conditional; the burst stays conditional, because a burst
+is the app marking an answer and makes no claim about the animal.
 
 **The slow blink is the important one.** In cats it is the actual affection
 signal — a cat that slow-blinks at you is saying it trusts you — and it is the

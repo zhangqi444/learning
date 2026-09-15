@@ -193,6 +193,28 @@
     62%  { transform: scale(1.05); opacity: 1; }
     100% { transform: scale(1); opacity: 1; }
   }
+  /* A cat coming in. The first rule in docs/cats.md §4 about entrances is that
+     a cat never fades up on the spot, and the gate cats did exactly that: `pop`,
+     scaled out of nothing, in place. A thing that materialises where it stands
+     is an image appearing; a thing that walks in came from somewhere.
+
+     So this walks, and it does it without touching opacity at all. The cat
+     starts outside its own square and the SVG viewport clips it — that clip is
+     the whole trick, because it means nothing is visible until the cat is
+     genuinely inside the frame, so there is no fade to get wrong. --glim-in is
+     the direction, +1 or -1, taken from the same hash bit that mirrors the tail,
+     so a given cat always comes from its own side and keeps doing so forever.
+     The two small rises are footfalls rather than a bounce: shoulders lift twice
+     over that distance, and the deceleration at the end is what reads as sitting
+     down. Resting frame is `transform: none` — motion reduced, the cat is simply
+     sitting where it belongs, which is the correct picture. */
+  @keyframes glim-arrive {
+    0%   { transform: translateX(calc(var(--glim-in, 1) * 30px)); }
+    28%  { transform: translateX(calc(var(--glim-in, 1) * 17px)) translateY(-0.9px); }
+    52%  { transform: translateX(calc(var(--glim-in, 1) * 9px)); }
+    76%  { transform: translateX(calc(var(--glim-in, 1) * 3px)) translateY(-0.7px); }
+    100% { transform: none; }
+  }
   /* A cat breathing. Used by components/glim.jsx for the two brightest stages;
      the resting frame is the picture, so reduced motion loses nothing. */
   @keyframes glim-breathe {
