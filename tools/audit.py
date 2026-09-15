@@ -16,6 +16,7 @@ L = 'ABCD'
 # The real paper, from AGENTS.md's level block: ISEE Lower Level.
 REAL = {'VR': 34, 'QR': 38, 'RC': 25, 'MA': 30}
 STOP = {'the', 'a', 'an', 'of', 'is', 'are', 'to', 'in', 'and', 'what', 'how', 'many', 'much'}
+NO_ANSWER = re.compile(r'not enough information|cannot be determined', re.I)
 
 def load():
     practice, mock = [], []
@@ -45,22 +46,32 @@ print('   Reading is the one to watch: passages are expensive to write, so it is
       '   half of the answer to that — see docs/design.md.\n')
 
 # --- 2. can she score above chance without reading the question? --------------
-print('2. length tell — is the answer the longest or shortest choice? (chance 25%)')
+print('2. length tell — can she score above chance without reading the question?')
+print('   "longest" counts a gap of any size; "by a mile" counts 16 characters or')
+print('   more, which is the only gap an eye picks up across four options. Chasing')
+print('   the first number down is padding for its own sake — a key one character')
+print('   longer than a distractor teaches nobody anything. The second is the one')
+print('   to keep at zero.')
 for s in ('VR', 'QR', 'RC', 'MA'):
     rows = [i for i in items if i.get('subject') == s]
     if not rows:
         continue
-    lo = sh = 0
+    lo = sh = wide = 0
     for i in rows:
         ln = [len(str(i['choices'][k])) for k in L]
-        k = ln[L.index(i['correct'])]
+        ki = L.index(i['correct'])
+        k, rest = ln[ki], [v for j, v in enumerate(ln) if j != ki]
         if k == max(ln) and ln.count(max(ln)) == 1: lo += 1
         if k == min(ln) and ln.count(min(ln)) == 1: sh += 1
-    mark = '  <-- a child could learn this' if lo / len(rows) > 0.33 or sh / len(rows) > 0.33 else ''
-    print(f'   {s}  longest {lo/len(rows):>4.0%}   shortest {sh/len(rows):>4.0%}{mark}')
-print('   Numbers make this meaningless for QR and MA. It matters where the\n'
-      '   choices are words, because the tell is learnable and the real paper\n'
-      '   does not have it.\n')
+        # "There is not enough information to tell" is a real ISEE option and is
+        # always going to be a sentence among numbers. It reads as a mile-wide
+        # tell and is not one: the bank offers it four times and it is the answer
+        # once, which is chance, so a child who always picked it would gain
+        # nothing. Length flags it; the strategy does not pay.
+        if k - max(rest) > 15 and not NO_ANSWER.search(str(i['choices'][L[ki]])): wide += 1
+    mark = '  <-- a child could learn this' if wide else ''
+    print(f'   {s}  longest {lo/len(rows):>4.0%}   shortest {sh/len(rows):>4.0%}   by a mile {wide:>3}{mark}')
+print('   Numbers make all of this meaningless for QR and MA.\n')
 
 # --- 3. the same question twice ----------------------------------------------
 print('3. repeated stems')
