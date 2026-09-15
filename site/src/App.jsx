@@ -53,6 +53,7 @@ function AgainRun({ id, from }) {
   const next = React.useMemo(() => anotherLike(id), [id])
   const back = React.useMemo(() => {
     if (!from) return next ? `/s/${next.sub}` : "/"
+    if (D.mocks.some((m) => m.id === from)) return `/mock/${from}`
     const { sub, wk, n } = parseSetId(from)
     return SUBJ[sub] && wk ? `/run/${sub}/${wk}/${n}` : "/"
   }, [from, next])
