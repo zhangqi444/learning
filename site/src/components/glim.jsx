@@ -110,7 +110,12 @@ function Coat({ t, b }) {
  * it. Off by default, and it should stay off anywhere a cat is simply present:
  * a Glimbook of forty cats all walking in on load is a stampede, and the
  * primitive means "somebody came", which is only true in a few places. */
-export function Glim({ word, stage = "Steady", className, title, blink = 0, arrive = false }) {
+/* `knead` is for a cat that is simply at home and staying — the Den's shelves.
+ * It is named for the behaviour and not for her: there is deliberately no
+ * `idle` here and no timer anywhere near it, because "the cat settles when she
+ * stops touching the page" is a cat with an opinion about her attendance, which
+ * is the first guardrail. It runs on the cat's own clock. See index.css. */
+export function Glim({ word, stage = "Steady", className, title, blink = 0, arrive = false, knead = false }) {
   const t = traits(word)
   const c = t.coat
   const b = BUILD[t.build] || BUILD.short
@@ -195,8 +200,25 @@ export function Glim({ word, stage = "Steady", className, title, blink = 0, arri
           <g clipPath={`url(#${clip})`}><Coat t={t} b={b} /></g>
           {/* a longhair's ruff, drawn over the body edge so it reads as fur */}
           {b.ruff ? <path d="M20 33 q12 11 24 0 q-3 9 -12 10 q-9 -1 -12 -10 Z" fill={c.belly} opacity="0.55" /> : null}
-          <ellipse cx="23.5" cy="56.2" rx="5.2" ry="3" fill={pawFill} stroke={rim} strokeWidth="0.7" />
-          <ellipse cx="40.5" cy="56.2" rx="5.2" ry="3" fill={pawFill} stroke={rim} strokeWidth="0.7" />
+          {/* Each paw on its own wrapper and its own clock: a cat kneads one paw
+              and then the other, and forty cats pressing in unison would read as
+              machinery — the same reason the ear grew a per-cat delay, taken
+              here from the same hash-chosen tilt. The multiplier is 2.1 rather
+              than the ear's 1.3 so a cat's knead and its ear never lock into
+              step. Not gated on stage: an Unseen cat kneads too, and its paws
+              are simply drawn at the stage's own opacity. Gating it would make
+              it a second readout of mastery — a Signal, and a false one, because
+              a child could then read it as the cats she knows being happy and
+              the ones she does not being unhappy. */}
+          {[23.5, 40.5].map((cx, i) => (
+            <g
+              key={cx}
+              data-testid={knead ? "glim-knead" : undefined}
+              style={knead ? { animation: "glim-knead 26s ease-in-out infinite", animationDelay: `${((t.tilt + 4) * 2.1 + i * 0.29).toFixed(2)}s`, transformOrigin: `${cx}px 56.2px` } : undefined}
+            >
+              <ellipse cx={cx} cy="56.2" rx="5.2" ry="3" fill={pawFill} stroke={rim} strokeWidth="0.7" />
+            </g>
+          ))}
         </g>
 
         <g transform={`rotate(${t.tilt} 32 30)`}>

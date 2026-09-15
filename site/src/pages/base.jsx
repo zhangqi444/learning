@@ -375,7 +375,7 @@ function Collections() {
               {shelf.map((c) => (
                 <figure key={c.name} className="flex w-16 flex-col items-center gap-0.5" data-testid="word-card" data-status={c.status} title={c.meaning || undefined}>
                   <button {...hearProps(c.name)}>
-                    <Glim word={c.name} stage={WORD_GLOW[c.status]} className="size-12" title={c.name} />
+                    <Glim word={c.name} stage={WORD_GLOW[c.status]} className="size-12" title={c.name} knead />
                   </button>
                   <figcaption className="w-full truncate text-center text-[11px] font-semibold">{c.name}</figcaption>
                 </figure>
@@ -420,7 +420,7 @@ function Collections() {
               {skillShelf.map((c) => (
                 <figure key={c.sub + c.sk} className="flex w-24 flex-col items-center gap-0.5" data-testid="skill-crest" data-level={c.level} title={`${SUBJ[c.sub].name} · ${c.sk} — ${W.glow[c.level]}`}>
                   <button {...hearProps(c.sub + ":" + c.sk, { label: c.sk })}>
-                    <Glim word={c.sub + ":" + c.sk} stage={W.glow[c.level]} className="size-12" title={c.sk} />
+                    <Glim word={c.sub + ":" + c.sk} stage={W.glow[c.level]} className="size-12" title={c.sk} knead />
                   </button>
                   <figcaption className="line-clamp-3 w-full text-center text-[11px] leading-tight font-semibold" style={{ color: SUBJ[c.sub].color }}>{c.sk}</figcaption>
                 </figure>

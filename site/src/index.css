@@ -251,6 +251,37 @@
     95%           { transform: rotate(-11deg); }
     97%           { transform: rotate(4deg); }
   }
+  /* Making biscuits. docs/cats.md §4 asked for a loaf and §8 asked the Den for
+     "settle, knead" without §4 ever defining the second one; this is that row,
+     and it is what replaces the loaf.
+
+     The loaf was refused on cat anatomy rather than on difficulty. Faked by
+     squashing this silhouette — body squat, head sunk toward the shoulders — it
+     is not a loaf at all but the HUNCHED posture, which in a real cat means pain
+     or illness. Drawing that on her own shelf is "no state a child could read as
+     I did this to it", arrived at from the animal rather than from aesthetics.
+     Kneading has no such twin: there is no sad knead, no hungry knead, no
+     reproachful one, so the sad version cannot be expressed, which is what §2
+     asks of a primitive rather than that it be merely tasteful.
+
+     And it runs on the cat's own clock, like glim-ear — NOT on an idle timer.
+     "After a period of no input" would mean the app measuring her attendance and
+     the cat changing because of it, which is the one thing the guardrails forbid
+     outright; and the return trip is worse, because a cat that un-settles when
+     she moves the mouse was waiting for her. On its own clock there is no second
+     state, nothing to undo, no listener, and nothing in the code that observes
+     her at all.
+
+     Four presses in the first 9% of a 26-second cycle: a bout of about two and a
+     half seconds and then stillness, the way a cat actually kneads, rather than a
+     paw going up and down forever. Resting frame is `transform: none`, which is
+     byte-for-byte the drawing that ships today — so the reduced-motion reader
+     loses the bout and keeps the correct cat, and there is no end-state that
+     could strand. */
+  @keyframes glim-knead {
+    0%, 2.3%, 4.5%, 6.8%, 9%, 100% { transform: none; }
+    1.2%, 3.4%, 5.7%, 7.9%         { transform: translateY(1.4px) scaleX(1.07); }
+  }
   /* A tail lifting when she points at a cat. The cats became things you can tap
      everywhere at once, and a button that looks exactly like a picture is a
      button nobody presses — so the cat answers the cursor before it answers the

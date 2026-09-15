@@ -16,9 +16,13 @@ const FAKE_GIS = `
 
 /** Routes googleapis.com to an in-memory Drive. Returns its state. */
 async function stubGoogle(ctx) {
-  const drive = { folder: null, file: null, body: null, calls: [] };
+  // `hold` lets a test keep an upload in the air: set it to a promise and the
+  // next PATCH waits on it, counting itself in `held` first. Without that there
+  // is no way to express "she edited while the last save was still going", which
+  // is the only window in which a save can be lost.
+  const drive = { folder: null, file: null, body: null, calls: [], hold: null, held: 0 };
   await ctx.route(/fonts\.g|accounts\.google\.com\/gsi/, (r) => r.abort());
-  await ctx.route(/googleapis\.com/, (r) => {
+  await ctx.route(/googleapis\.com/, async (r) => {
     const u = r.request().url(), m = r.request().method();
     drive.calls.push(m + ' ' + u.replace(/\?.*/, ''));
     const json = (o) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(o) });
@@ -29,7 +33,10 @@ async function stubGoogle(ctx) {
     }
     if (/drive\/v3\/files$/.test(u) && m === 'POST') { drive.folder = 'folder1'; return json({ id: 'folder1' }); }
     if (/upload\/drive\/v3\/files\?/.test(u) && m === 'POST') { drive.file = 'file1'; drive.body = r.request().postData(); return json({ id: 'file1' }); }
-    if (/upload\/drive\/v3\/files\/file1/.test(u) && m === 'PATCH') { drive.body = r.request().postData(); return json({ id: 'file1' }); }
+    if (/upload\/drive\/v3\/files\/file1/.test(u) && m === 'PATCH') {
+      if (drive.hold) { drive.held++; await drive.hold; }
+      drive.body = r.request().postData(); return json({ id: 'file1' });
+    }
     if (/drive\/v3\/files\/file1\?alt=media/.test(u)) return json(JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]));
     return r.fulfill({ status: 404, body: '{}' });
   });
