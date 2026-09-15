@@ -356,6 +356,10 @@ export const Store = {
   schedulePush() {
     if (!DRIVE_ENABLED || !this.s.driveGranted) return
     this.dirty = true
+    // Every edit gets a number. A flush records which one it set out with, so on
+    // the way back it can tell whether anything happened while it was away — see
+    // the two bugs described in flush().
+    this.edits = (this.edits || 0) + 1
     clearTimeout(this.pushTimer)
     this.pushTimer = setTimeout(() => this.flush(), 1200)
   },
@@ -363,14 +367,40 @@ export const Store = {
    *  save, coming back online, or closing the tab tries again. */
   flush() {
     clearTimeout(this.pushTimer)
-    if (!this.dirty || this.flushing) return Promise.resolve()
+    if (!this.dirty) return Promise.resolve()
+    // An edit made while a flush is in the air is not in that flush: `push()`
+    // serialises `body()` when it runs, and that already happened. This used to
+    // `return` here — and the `clearTimeout` above had *already consumed the
+    // timer that brought us*, so nothing was left armed. The edit then sat in
+    // localStorage until she happened to make another one, because `dirty` is
+    // the only thing the online and visibilitychange handlers re-arm from.
+    if (this.flushing) {
+      this.pushTimer = setTimeout(() => this.flush(), 600)
+      return Promise.resolve()
+    }
     this.flushing = true
+    const carried = this.edits || 0
     this.setStatus("syncing")
     // No folder yet means the session lapsed before it was set up: take the whole
     // path (token, folder, pull, push) so a save can still land.
     const run = this.folderId ? this.pull() : this.ensureToken().then(() => this.ensureFolder()).then(() => this.pull())
     return run
-      .then(() => { this.dirty = false; this.lastSync = new Date(); this.setStatus("live") })
+      .then(() => {
+        this.lastSync = new Date()
+        // Only what this flush actually carried is clean. Clearing `dirty`
+        // unconditionally was the other half of the same bug: an edit made during
+        // the upload is absent from what landed, and marking it saved stranded it
+        // for good while the header said "Saved to Drive" — the one failure a
+        // sync must never have, and the shape of the lost reading log.
+        //
+        // The test is deliberately conservative: an edit that arrived during the
+        // *read* half of the round trip did get into `body()`, and this will send
+        // it a second time. One redundant PATCH is the right price for never
+        // dropping one. It cannot loop — the redundant push carries the same
+        // number, so the next return finds nothing new and settles.
+        if ((this.edits || 0) === carried) { this.dirty = false; this.setStatus("live") }
+        else { this.setStatus("syncing"); clearTimeout(this.pushTimer); this.pushTimer = setTimeout(() => this.flush(), 400) }
+      })
       .catch((e) => {
         this.lastError = String(e.message || e)
         const auth = /Not connected|sign-in|popup|Drive 401/i.test(this.lastError)

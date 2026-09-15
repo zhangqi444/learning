@@ -196,6 +196,54 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   await pg.evaluate(() => { Object.defineProperty(document, 'visibilityState', { value: 'visible', configurable: true }); });
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=today]');
 
+  // ---- an edit made while a save is in the air ----
+  //
+  // The window nobody had tested. `push()` serialises `body()` when it runs, so
+  // anything she does during the upload is not in what lands. Two things then
+  // conspired to lose it: the debounce timer her edit armed fired, found
+  // `flushing` true, and returned — having already consumed itself on the
+  // `clearTimeout` at the top of flush(), so nothing was left armed — and the
+  // in-flight save then cleared `dirty` on the way back, which is the only flag
+  // the online and visibilitychange handlers re-arm from. The edit sat in
+  // localStorage for good while the header read "Saved to Drive".
+  //
+  // This is the shape of the lost reading log, and it needs the stub to hold an
+  // upload open, because it cannot happen at any speed a test otherwise runs at.
+  await pg.evaluate(() => { location.hash = '#/essay/W2'; });
+  await pg.waitForSelector('[data-testid=essay-prompt]');
+  await pg.click('text=Plan · 5');
+  let release = () => {};
+  drive.held = 0; drive.hold = new Promise((r) => { release = r; });
+  const patchesBefore = drive.calls.filter((c) => c.startsWith('PATCH')).length;
+  // the first edit: goes out on the debounce, and is then held in the air
+  await pg.click('[data-testid=timer-log-plan]');
+  await pg.fill('[data-testid=essay-time-plan]', '4');
+  await pg.press('[data-testid=essay-time-plan]', 'Enter');
+  const heldUp = await (async () => { for (let i = 0; i < 160; i++) { if (drive.held >= 1) return true; await pg.waitForTimeout(50); } return false; })();
+  check('a save can be caught in mid-air', heldUp, `held=${drive.held}`);
+  // the second edit, made while the first is still going. Same field, a different
+  // value: what matters is that it happened after `body()` was serialised, not
+  // which field it touched.
+  await pg.click('[data-testid=timer-log-plan]');
+  await pg.fill('[data-testid=essay-time-plan]', '6');
+  await pg.press('[data-testid=essay-time-plan]', 'Enter');
+  // long enough for the debounce it armed to fire and find a flush already running
+  await pg.waitForTimeout(1800);
+  drive.hold = null; release();
+  // long enough for the re-armed flush to go out and land
+  await (async () => { for (let i = 0; i < 100; i++) { if (remoteBody().essays.W2.time.plan === 6) return; await pg.waitForTimeout(100); } })();
+  const landed = remoteBody().essays.W2.time;
+  check('an edit made while a save was in the air still reaches Drive',
+    landed.plan === 6, JSON.stringify(landed));
+  check('and it took a second write to do it, rather than being quietly forgotten',
+    drive.calls.filter((c) => c.startsWith('PATCH')).length > patchesBefore + 1,
+    `${drive.calls.filter((c) => c.startsWith('PATCH')).length - patchesBefore} PATCHes`);
+  // Premise check, and it passes on the broken code too — that is the point of it.
+  // The device always recorded the edit; what was lost was only ever the sync, so
+  // if this one ever goes red the two above are failing for a different reason.
+  check('the device did record the second edit, so the failure above is the sync and not a lost keystroke',
+    (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).essays.W2.time.plan)) === 6);
+
   // disconnect clears everything
   await pg.click('button:has-text("Saved to Drive")');
   await pg.waitForSelector('[data-testid=signin-page]', { timeout: 8000 });
