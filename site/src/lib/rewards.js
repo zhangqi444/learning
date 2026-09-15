@@ -157,7 +157,7 @@ export function recentBadges(days = 3) {
  * can be cancelled, which puts them back. */
 export const SUGGESTED = [
   { name: "Pick Friday's movie", cost: 150 },
-  { name: "Boba on the way home", cost: 200 },
+  { name: "Boba on the way home", cost: 150 },
   { name: "Choose Saturday's dinner", cost: 250 },
   { name: "An extra hour of screen time", cost: 300 },
   { name: "A new book she picks herself", cost: 500 },
