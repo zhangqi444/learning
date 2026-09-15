@@ -104,6 +104,20 @@ async function runThrough(pg, pick, max = 60) {
   check('but a cat turns up beside the answer, and it is the skill\'s own cat', !!react && /^ma:/.test(react), react || 'none');
   const skillOf = await pg.$$eval('[data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
   check('and never drawn dimmer than Steady, so being right is never faint', skillOf.every((s) => ['Steady', 'Bright', 'Radiant'].includes(s)), skillOf.join(','));
+  // The reveal cat used to be given a bounce when she was right and nothing at
+  // all when she was wrong: one cat, one moment, two behaviours, chosen by her
+  // answer. A ten-year-old does not read that as "correct" — she reads the cat
+  // as pleased with her, and therefore reads the flat one as the cat not being
+  // pleased, which is the reading docs/cats.md §2 exists to rule out. So the
+  // entrance is now identical either way and lives inside the drawing, where it
+  // cannot be made conditional by a caller; the Burst stays conditional, because
+  // a burst is the app marking an answer and says nothing about the animal.
+  const revealCat = await pg.$eval('[data-testid=reveal] [data-testid=glim]', (e) => ({
+    own: getComputedStyle(e).animationName,
+    walks: !!e.querySelector('[data-testid=glim-arrive]'),
+  }));
+  check('the cat on the reveal walks in, and does so the same way whether she was right or wrong',
+    revealCat.walks && revealCat.own === 'none', `svg animation: ${revealCat.own}`);
 
   console.log('== precision review');
   await pg.evaluate(() => { location.hash = '#/s/vr/W1'; });
@@ -940,6 +954,36 @@ async function runThrough(pg, pick, max = 60) {
   const arrived = await pg.$eval('[data-testid=gate] ~ [data-testid=glim]', (e) => e.dataset.word + ':' + e.dataset.coat);
   check('the cat that turned up is the one she actually called, same face and all',
     arrived.startsWith(called + ':') && faces.includes(arrived), arrived + ' after calling ' + called);
+  // It walks in. docs/cats.md §4: a cat never fades up on the spot, because a
+  // thing that materialises where it stands is an image appearing rather than
+  // somebody arriving — and this cat used to do exactly that (`pop`, scaled out
+  // of nothing, in place). The walk carries no opacity at all: the cat starts
+  // outside its own square and the SVG viewport clips it, so there is nothing to
+  // fade and nothing to get wrong.
+  const walk = await pg.$eval('[data-testid=gate] ~ [data-testid=glim] [data-testid=glim-arrive]', (e) => {
+    const cs = getComputedStyle(e);
+    return { name: cs.animationName, dir: cs.getPropertyValue('--glim-in').trim() };
+  }).catch(() => null);
+  check('the cat at the gate walks in rather than appearing on the spot',
+    !!walk && walk.name === 'glim-arrive', walk ? walk.name : 'no arrival wrapper');
+  // Direction comes off the same hash bit that mirrors the tail, so a given cat
+  // always comes from its own side and goes on doing so forever. The value is
+  // the point, not which side it picked.
+  check('and it comes from one definite side, which is the cat\'s own',
+    !!walk && (walk.dir === '1' || walk.dir === '-1'), walk ? `--glim-in: ${walk.dir}` : 'none');
+  // The guard CLAUDE.md asks for and nothing has ever actually made: the global
+  // reduced-motion rule deletes every animation outright with `!important`, so
+  // the resting frame is the whole of what that reader sees. An entrance written
+  // frame-one-first would leave her cat stranded thirty units off the side of
+  // its own box, permanently, and it would be invisible on the machine it was
+  // written on. Here the last frame is `transform: none`, so what survives the
+  // deletion is a cat sitting where it belongs.
+  await pg.emulateMedia({ reducedMotion: 'reduce' });
+  const resting = await pg.$eval('[data-testid=gate] ~ [data-testid=glim] [data-testid=glim-arrive]',
+    (e) => getComputedStyle(e).transform);
+  check('and with motion reduced it is simply sitting there, not stranded off the edge',
+    resting === 'none' || resting === 'matrix(1, 0, 0, 1, 0, 0)', resting);
+  await pg.emulateMedia({ reducedMotion: null });
   const castMsg = (await pg.textContent('[data-testid=cast-result]')).replace(/\s+/g, ' ');
   const opened = /It comes when you call/.test(castMsg);
   check('a cast is recorded as ordinary vocabulary practice', await pg.evaluate(() => {
@@ -1123,7 +1167,16 @@ async function runThrough(pg, pick, max = 60) {
         window.__FORMANTS__ = (window.__FORMANTS__ || 0) + 1;
         return {
           type: '', Q: { value: 0 },
-          frequency: { setValueAtTime() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} },
+          // Only the FIRST value each filter is given is recorded, in __MOUTH__:
+          // that is the shape the mouth is in when the note begins, which is the
+          // one thing about a vowel path that is checkable from outside. The
+          // ramps stay unrecorded on purpose — asserting the whole path would
+          // pin the vowel table, and the vowels are a tuning question that
+          // should be free to change without a test to argue with.
+          frequency: {
+            setValueAtTime: (f) => { (window.__MOUTH__ = window.__MOUTH__ || []).push(Math.round(f)); },
+            linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {},
+          },
           connect: (n) => n,
         };
       }
@@ -1141,10 +1194,14 @@ async function runThrough(pg, pick, max = 60) {
     await pg.evaluate(() => { location.hash = '#/quest'; });
     await pg.reload({ waitUntil: 'networkidle' });
     await pg.waitForSelector('[data-testid=spell]');
-    await pg.evaluate(() => { window.__NOTES__ = []; });
+    await pg.evaluate(() => { window.__NOTES__ = []; window.__MOUTH__ = []; });
     await pg.click(`[data-testid=spell][data-word="${word}"]`);
     await pg.waitForSelector('[data-testid=cast-result]');
-    return { notes: await pg.evaluate(() => window.__NOTES__.slice()), text: (await pg.textContent('[data-testid=cast-result]')).replace(/\s+/g, ' ') };
+    return {
+      notes: await pg.evaluate(() => window.__NOTES__.slice()),
+      mouth: await pg.evaluate(() => (window.__MOUTH__ || []).slice()),
+      text: (await pg.textContent('[data-testid=cast-result]')).replace(/\s+/g, ' '),
+    };
   };
   const names = await pg.$$eval('[data-testid=spell]', (n) => n.map((e) => e.dataset.word));
   const firstTry = await listen(names[0]);
@@ -1154,6 +1211,18 @@ async function runThrough(pg, pick, max = 60) {
   const other = wrong === names[0] ? firstTry : await listen(wrong);
 
   check('the right cat answers in two notes, and they rise', right.notes.length === 2 && right.notes[1] > right.notes[0], right.notes.map((f) => Math.round(f)).join(' -> '));
+  // The call begins with the mouth shut — the `m`. An `m` is not a burst but a
+  // nasal: voicing continues, the lips stay closed, and everything above the
+  // murmur is gone. So the first thing either formant is ever set to must be the
+  // closed pair, not a vowel: a call that opens on a vowel is a cat saying "eow".
+  //
+  // This is also the line that proves the mouth cost nothing: timbre is free and
+  // pitch is load-bearing, so however the vowels are tuned, the check above must
+  // keep reporting exactly two notes. If a future mouth ever starts an
+  // oscillator, that one fails and this one will not — which is the right way
+  // round, because the scale is the guarantee and the vowel is the decoration.
+  check('and it opens its mouth to do it: the call starts closed, on an m',
+    right.mouth.slice(0, 2).join(',') === '250,420', right.mouth.slice(0, 4).join(',') || 'silent');
   // Every pitch any cat sings must belong to ONE pentatonic set, or two cats can
   // land a semitone apart — the sour interval the scale exists to rule out.
   // Checked as pitch classes off C5, so the octave a cat lives in stays free.

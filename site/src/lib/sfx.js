@@ -60,8 +60,27 @@ const VOWELS = {
   slim: [[430, 2150], [820, 1520], [640, 1180]],
 }
 
-/** One voiced note: the same pitch as `note()` would play, through a mouth. */
-function voiced(a, freq, at, dur, { gain = 0.09, slide = null, vowel = "short", q = 7 } = {}) {
+/* The mouth shut, which is the whole of what an `m` is.
+ *
+ * docs/cats.md §3 left this open and named the instrument: "a noise burst at the
+ * onset". That was wrong about the phonetics, and following it would have made
+ * the cat worse. A burst is a plosive — the sound of a closure being released,
+ * which is a `p` or a `t`. An `m` is a *nasal*: the voicing never stops, the
+ * lips stay shut, the sound leaves through the nose, and what you hear is the
+ * same note with everything above the nasal murmur taken away and most of the
+ * level with it. White noise in front of a meow does not read as "m", it reads
+ * as a "ts" — a cat with a lisp.
+ *
+ * So there is no noise here, and the happy consequence is that the audio stub
+ * needs nothing added to it: this is two filter frequencies and a gain ramp,
+ * every one of which the fake context already records. The pentatonic guarantee
+ * is a guarantee about pitch, and the pitch count does not move — a call is
+ * still exactly two notes. */
+const NASAL = [250, 420]
+
+/** One voiced note: the same pitch as `note()` would play, through a mouth.
+ *  `onset` is how long the mouth stays shut before the vowel opens — the `m`. */
+function voiced(a, freq, at, dur, { gain = 0.09, slide = null, vowel = "short", q = 7, onset = 0 } = {}) {
   const osc = a.createOscillator(), vol = a.createGain()
   const f1 = a.createBiquadFilter(), f2 = a.createBiquadFilter()
   const t0 = a.currentTime + at
@@ -72,15 +91,31 @@ function voiced(a, freq, at, dur, { gain = 0.09, slide = null, vowel = "short", 
   const path = VOWELS[vowel] || VOWELS.short
   f1.type = "bandpass"; f2.type = "bandpass"
   f1.Q.value = q; f2.Q.value = q
-  f1.frequency.setValueAtTime(path[0][0], t0)
-  f2.frequency.setValueAtTime(path[0][1], t0)
+  // where the vowel starts, and when: with an onset the filters begin shut and
+  // travel to the first vowel frame, which IS the mouth opening.
+  const open = t0 + onset
+  const span = Math.max(dur - onset, 0.04)
+  f1.frequency.setValueAtTime(onset ? NASAL[0] : path[0][0], t0)
+  f2.frequency.setValueAtTime(onset ? NASAL[1] : path[0][1], t0)
+  if (onset) {
+    f1.frequency.linearRampToValueAtTime(path[0][0], open)
+    f2.frequency.linearRampToValueAtTime(path[0][1], open)
+  }
   for (let i = 1; i < path.length; i++) {
-    const t = t0 + (dur * i) / (path.length - 1)
+    const t = open + (span * i) / (path.length - 1)
     f1.frequency.linearRampToValueAtTime(path[i][0], t)
     f2.frequency.linearRampToValueAtTime(path[i][1], t)
   }
   vol.gain.setValueAtTime(0.0001, t0)
-  vol.gain.exponentialRampToValueAtTime(gain, t0 + 0.02)
+  if (onset) {
+    // a closed mouth is quiet: up to the murmur, hold there while it is shut,
+    // then open. The hold is what makes it a sound rather than a click.
+    vol.gain.exponentialRampToValueAtTime(gain * 0.34, t0 + Math.min(0.015, onset * 0.4))
+    vol.gain.setValueAtTime(gain * 0.34, open)
+    vol.gain.exponentialRampToValueAtTime(gain, open + 0.03)
+  } else {
+    vol.gain.exponentialRampToValueAtTime(gain, t0 + 0.02)
+  }
   vol.gain.exponentialRampToValueAtTime(0.0001, t0 + dur)
   // The two formants sit in parallel across the source, which is what a vowel
   // is; in series they would cancel to a whistle.
@@ -109,11 +144,14 @@ const VOICES = {
  * she has read a word of the explanation. That is the lesson, delivered in
  * 300 milliseconds. */
 
-/** The cat you called, arriving: its two notes, up, bright — in its own mouth. */
+/** The cat you called, arriving: its two notes, up, bright — in its own mouth.
+ *  The first note starts with the mouth shut, which is the `m`: the note is
+ *  already sounding before the vowel opens, so what she hears begins as a cat
+ *  rather than as a tone that a cat is later applied to. */
 VOICES.call = (a, word) => {
   const [lo, hi] = callHz(word)
   const v = traits(word).build
-  voiced(a, lo, 0, 0.13, { gain: 0.075, vowel: v })
+  voiced(a, lo, 0, 0.13, { gain: 0.075, vowel: v, onset: 0.045 })
   voiced(a, hi, 0.105, 0.26, { gain: 0.08, vowel: v, slide: hi * 1.03 })
 }
 
@@ -124,7 +162,7 @@ VOICES.miscall = (a, word) => {
   const [lo, hi] = callHz(word)
   const v = traits(word).build
   note(a, lo * 0.5, 0, 0.2, { type: "sine", gain: 0.05 })
-  voiced(a, lo, 0.06, 0.18, { gain: 0.05, vowel: v })
+  voiced(a, lo, 0.06, 0.18, { gain: 0.05, vowel: v, onset: 0.04 })
   voiced(a, hi * 0.5, 0.17, 0.28, { gain: 0.048, vowel: v })
 }
 
@@ -139,7 +177,9 @@ VOICES.chorus = (a, words) => {
   list.forEach((w, i) => {
     const [lo, hi] = callHz(w)
     const v = traits(w).build
-    voiced(a, lo, i * 0.155, 0.19, { gain: 0.07, vowel: v })
+    // every cat in the phrase opens its own mouth, or the chorus is a tune
+    // with cats painted on it rather than cats singing
+    voiced(a, lo, i * 0.155, 0.19, { gain: 0.07, vowel: v, onset: 0.028 })
     // the last cat gets its full rising call, so the phrase lands rather than stops
     if (i === list.length - 1) voiced(a, hi, i * 0.155 + 0.14, 0.36, { gain: 0.08, vowel: v })
   })

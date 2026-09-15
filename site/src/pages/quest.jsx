@@ -164,7 +164,8 @@ export function Quest({ wk = null }) {
                 word={arrival.word}
                 stage={arrival.stage}
                 title={`${arrival.word} came to the gate`}
-                className="motion-safe:animate-[pop_420ms_cubic-bezier(.34,1.56,.64,1)_both] absolute top-[66%] left-1/2 size-24 -translate-x-1/2 -translate-y-1/2"
+                arrive
+                className="absolute top-[66%] left-1/2 size-24 -translate-x-1/2 -translate-y-1/2"
               />
             ) : null}
           </div>

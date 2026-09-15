@@ -13,9 +13,9 @@
    "prompt": "What is the passage mainly about?",
    "choices": {
     "A": "A garden changed an unused lot into a source of food and community connection.",
-    "B": "Tall buildings make gardening impossible.",
-    "C": "Bees are the most important part of every garden.",
-    "D": "Children prefer Saturday lessons to school."
+    "B": "Tall buildings and poor city soil make growing vegetables impossible.",
+    "C": "Collecting rainwater in barrels is what makes any city garden succeed.",
+    "D": "The garden's greatest value was the vegetables it grew through the summer."
    },
    "correct": "A",
    "explanation": "The food, shared tools, recipes, and lessons support both practical and social benefits. B contradicts the successful garden; C is one detail; D is unsupported. Strategy: choose the choice that covers the whole passage, not one example.",
@@ -23,7 +23,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
    "form": "W1",
-   "content_hash": "c9084ebe161ff19f"
+   "content_hash": "4e8c7646033b9599"
   },
   {
    "id": "RC-SEP-W1-S1-Q02",
@@ -101,9 +101,9 @@
    "prompt": "Why does the author mention tomatoes and bees before describing recipes and lessons?",
    "choices": {
     "A": "To show that the garden's visible growth led into its wider social effects.",
-    "B": "To prove that insects teach children to cook.",
-    "C": "To compare city gardens with farms.",
-    "D": "To explain why the soil test failed."
+    "B": "To prove that a garden beside tall buildings can feed a whole city block.",
+    "C": "To compare the crops of a city garden with those grown on a large farm.",
+    "D": "To show that the residents who doubted the garden had been right all along."
    },
    "correct": "A",
    "explanation": "The paragraph moves from physical success to community success. B and C invent purposes; D contradicts the passage. Strategy: track what each part adds to the author's developing point.",
@@ -111,7 +111,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
    "form": "W1",
-   "content_hash": "8eacf8f1e68d5f36"
+   "content_hash": "2d24442fb604c49f"
   },
   {
    "id": "RC-SEP-W1-S1-Q06",
@@ -144,9 +144,9 @@
    "difficulty": "Foundation",
    "prompt": "What is the passage mainly about?",
    "choices": {
-    "A": "Satellites are replacing ships.",
-    "B": "Sea travel was impossible before radio.",
-    "C": "Lamps are safer than flags in every situation.",
+    "A": "Ships used lamps at night because flags were useless in daylight.",
+    "B": "Codes were invented mainly to stop fog from interrupting messages.",
+    "C": "Satellite communication has replaced the need for agreed-upon codes.",
     "D": "Old and modern communication both depend on shared signal systems."
    },
    "correct": "D",
@@ -155,7 +155,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
    "form": "W1",
-   "content_hash": "b969042361777b2f"
+   "content_hash": "b717847fea15362c"
   },
   {
    "id": "RC-SEP-W1-S2-Q02",
@@ -232,10 +232,10 @@
    "difficulty": "Foundation",
    "prompt": "The final sentence mainly serves to",
    "choices": {
-    "A": "add a new example of bad weather.",
-    "B": "explain how to build a satellite.",
+    "A": "add one more example of the weather that could interrupt a signal.",
+    "B": "explain the steps engineers follow when they build a satellite system.",
     "C": "compare an older practice with a modern one to state a general principle.",
-    "D": "argue that flags should be used today."
+    "D": "argue that ships today would be safer if they went back to flags."
    },
    "correct": "C",
    "explanation": "It links ships' codes and satellites through the shared-system principle. A and B are unrelated; D is not argued. Strategy: ask how the ending changes or broadens the earlier information.",
@@ -243,7 +243,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
    "form": "W1",
-   "content_hash": "de588c4a96b21d25"
+   "content_hash": "b81d75abc803e44b"
   },
   {
    "id": "RC-SEP-W1-S2-Q06",
@@ -254,10 +254,10 @@
    "difficulty": "Foundation",
    "prompt": "The author's tone is best described as",
    "choices": {
-    "A": "amused and joking.",
-    "B": "worried and accusing.",
+    "A": "amused and gently teasing about old sea signals.",
+    "B": "worried and critical of modern satellite systems.",
     "C": "informative and appreciative of careful planning.",
-    "D": "mysterious and frightening."
+    "D": "regretful that ships no longer use flags and lamps."
    },
    "correct": "C",
    "explanation": "The explanation is calm and respects crews' efforts to reduce confusion. A, B, and D lack textual signals. Strategy: judge tone from word choice and purpose, not topic alone.",
@@ -265,7 +265,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
    "form": "W1",
-   "content_hash": "7d170426241081bd"
+   "content_hash": "4d751d4c7b73c9b7"
   },
   {
    "id": "RC-SEP-W2-S1-Q01",
@@ -276,10 +276,10 @@
    "difficulty": "Standard",
    "prompt": "Which statement best expresses the main idea?",
    "choices": {
-    "A": "Owls sleep more than falcons.",
+    "A": "Owls hunt in darkness, while falcons prefer to hunt in bright daylight.",
     "B": "Special feathers help owls fly quietly, though the feature has a limit.",
-    "C": "Every bird has velvety wings.",
-    "D": "Prey can always hear an owl coming."
+    "C": "Velvety feathers are found on the wings of nearly every bird that hunts.",
+    "D": "The owl's soft fringes make it the swiftest hunting bird in the air."
    },
    "correct": "B",
    "explanation": "Feather structure, quiet-flight benefits, and the speed tradeoff are the whole passage. A and C are absent; D contradicts it. Strategy: include both the central mechanism and the author's qualification.",
@@ -287,7 +287,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
-   "content_hash": "5ca4b46aaa81d139"
+   "content_hash": "065257341db973c6"
   },
   {
    "id": "RC-SEP-W2-S1-Q02",
@@ -342,9 +342,9 @@
    "difficulty": "Standard",
    "prompt": "As used in the passage, *tradeoff* means",
    "choices": {
-    "A": "a reward with no cost.",
-    "B": "a bird's hunting call.",
-    "C": "an exchange between two owls.",
+    "A": "an advantage an animal gains without giving anything up.",
+    "B": "a special call a hunting bird makes to frighten its prey.",
+    "C": "a deal in which two hunting birds share the same ground.",
     "D": "a balance in which gaining one benefit means giving up another."
    },
    "correct": "D",
@@ -353,7 +353,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
-   "content_hash": "693e1a7b4b961f3a"
+   "content_hash": "0ea00679729fe3de"
   },
   {
    "id": "RC-SEP-W2-S1-Q05",
@@ -364,9 +364,9 @@
    "difficulty": "Standard",
    "prompt": "The last sentence broadens the passage by",
    "choices": {
-    "A": "giving directions for observing owls.",
-    "B": "changing the subject to falcons.",
-    "C": "denying that feathers matter.",
+    "A": "explaining how the fringed feathers break air into smaller currents.",
+    "B": "arguing that a falcon's fast flight is more useful than silence.",
+    "C": "listing the two advantages that quiet flight gives a hunting owl.",
     "D": "turning the owl example into a general lesson about adaptations."
    },
    "correct": "D",
@@ -375,7 +375,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
-   "content_hash": "c97500233d1d36e3"
+   "content_hash": "8a7c4610b4339f55"
   },
   {
    "id": "RC-SEP-W2-S1-Q06",
@@ -452,10 +452,10 @@
    "difficulty": "Standard",
    "prompt": "Why might a subway map leave out many streets?",
    "choices": {
-    "A": "Streets no longer exist near stations.",
+    "A": "The streets near the stations change too often for a map to show them.",
     "B": "Riders need a clear route between stations more than a full street picture.",
-    "C": "Cartographers do not know city streets.",
-    "D": "Navigation charts are easier to make."
+    "C": "Every projection makes it impossible to draw a street in its right place.",
+    "D": "A navigation chart already shows those streets for anyone who needs them."
    },
    "correct": "B",
    "explanation": "The passage says omissions can make stations easier to follow. A, C, and D are invented. Strategy: infer the practical reason from the stated purpose.",
@@ -463,7 +463,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
-   "content_hash": "305204e5d94c273c"
+   "content_hash": "2afc0eeefd067ded"
   },
   {
    "id": "RC-SEP-W2-S2-Q04",
@@ -474,10 +474,10 @@
    "difficulty": "Standard",
    "prompt": "In the passage, *projection* is best understood as",
    "choices": {
-    "A": "a guess about the future.",
-    "B": "a speech made to an audience.",
+    "A": "a guess about how a place will change in future.",
+    "B": "the careful marking of water depth on a sea chart.",
     "C": "a way of representing the curved Earth on a flat map.",
-    "D": "a beam of light from a projector."
+    "D": "a beam of light that throws a picture on a screen."
    },
    "correct": "C",
    "explanation": "The previous sentence defines the mapping sense. A, B, and D are other meanings. Strategy: choose the meaning that fits this subject, not the familiar meaning.",
@@ -485,7 +485,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
-   "content_hash": "940f2a7f9eb971f7"
+   "content_hash": "3b3ca7b77fd1c89c"
   },
   {
    "id": "RC-SEP-W2-S2-Q05",
@@ -518,10 +518,10 @@
    "difficulty": "Standard",
    "prompt": "The final sentence encourages readers to be",
    "choices": {
-    "A": "suspicious of all maps.",
+    "A": "willing to give up on any map that changes something.",
     "B": "practical and thoughtful about how maps are used.",
-    "C": "frightened of making mistakes.",
-    "D": "entertained by cartographers."
+    "C": "certain that a map must be exact in every detail.",
+    "D": "grateful to cartographers for the choices they make."
    },
    "correct": "B",
    "explanation": "It directs readers to match a map to its job. A is too negative; C and D are unsupported. Strategy: turn the author's advice into a brief attitude description.",
@@ -529,7 +529,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
-   "content_hash": "44b55c0e9df563e0"
+   "content_hash": "39efe38469f02a29"
   },
   {
    "id": "RC-SEP-W3-S1-Q01",
@@ -540,9 +540,9 @@
    "difficulty": "Standard",
    "prompt": "Which statement best summarizes the passage?",
    "choices": {
-    "A": "Storms cannot damage shelves.",
-    "B": "Wet books should always be thrown away.",
-    "C": "A school gym is the best place for a library.",
+    "A": "Volunteers dried every wet book, so no titles needed to be replaced at all.",
+    "B": "Storm damage proved that libraries should keep their books in a school gym.",
+    "C": "The director's phrase showed the town wanted to forget the storm quickly.",
     "D": "The library learned from storm damage and rebuilt with better preparation."
    },
    "correct": "D",
@@ -551,7 +551,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "e296eabe69e1b506"
+   "content_hash": "fa3d66a144ab201a"
   },
   {
    "id": "RC-SEP-W3-S1-Q02",
@@ -584,10 +584,10 @@
    "difficulty": "Standard",
    "prompt": "What can be inferred about the new waterproof bins?",
    "choices": {
-    "A": "They were used to decorate the gym.",
+    "A": "They were bought to hold the boxes the volunteers had labelled.",
     "B": "They were intended to reduce damage in a future emergency.",
-    "C": "They made books heavier.",
-    "D": "They replaced every library shelf."
+    "C": "They were meant to replace the higher shelves the library built.",
+    "D": "They show the library expected no more trouble from future storms."
    },
    "correct": "B",
    "explanation": "They follow the storm and the lesson about future preparation. A, C, and D lack evidence. Strategy: use sequence plus purpose to make a modest inference.",
@@ -595,7 +595,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "9e0633e1620a59a5"
+   "content_hash": "96468e440dacd6c9"
   },
   {
    "id": "RC-SEP-W3-S1-Q04",
@@ -607,9 +607,9 @@
    "prompt": "As used here, *essential* most nearly means",
    "choices": {
     "A": "necessary and especially important.",
-    "B": "inexpensive.",
-    "C": "difficult to read.",
-    "D": "recently published."
+    "B": "costing the library very little.",
+    "C": "kept on the highest shelves.",
+    "D": "added to the library recently."
    },
    "correct": "A",
    "explanation": "The library needed to know which works mattered most to replace. B–D do not follow from the sentence. Strategy: identify what role the item plays in the situation.",
@@ -617,7 +617,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "893ce86de346c6a2"
+   "content_hash": "9a1cc3ea3427aab9"
   },
   {
    "id": "RC-SEP-W3-S1-Q05",
@@ -628,9 +628,9 @@
    "difficulty": "Standard",
    "prompt": "Why does the author include the director's phrase before the final two sentences?",
    "choices": {
-    "A": "To list every book that was saved.",
-    "B": "To introduce a new character who caused the storm.",
-    "C": "To argue that libraries should close.",
+    "A": "To give a complete list of the books the volunteers had saved.",
+    "B": "To introduce the director as the person who led the rescue work.",
+    "C": "To show that the repairs had cost far more than the town expected.",
     "D": "To change from factual events to the lesson those events illustrate."
    },
    "correct": "D",
@@ -639,7 +639,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "9e565c93311dad26"
+   "content_hash": "3fdc9b6b78d09d61"
   },
   {
    "id": "RC-SEP-W3-S1-Q06",
@@ -716,10 +716,10 @@
    "difficulty": "Standard",
    "prompt": "Why did Mara compare the two sides of the bridge?",
    "choices": {
-    "A": "She wanted to paint them different colors.",
-    "B": "She planned to remove all joints.",
+    "A": "She wanted to prove that her first idea had been useless.",
+    "B": "She had decided to rebuild the bridge without any joints.",
     "C": "She was looking for a difference that might explain the bending.",
-    "D": "She had already decided the bridge was perfect."
+    "D": "She wanted to make the second bridge much larger than the first."
    },
    "correct": "C",
    "explanation": "Comparing sides helped locate the shifted support and angled joint. A and B are invented; D conflicts with her investigation. Strategy: infer a step's purpose from what it helped the person discover.",
@@ -727,7 +727,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
    "form": "W3",
-   "content_hash": "b46a0fb1acda9ba0"
+   "content_hash": "4e38a9439b5818bf"
   },
   {
    "id": "RC-SEP-W3-S2-Q04",
@@ -804,10 +804,10 @@
    "difficulty": "Challenge",
    "prompt": "What is the main idea of the passage?",
    "choices": {
-    "A": "Desert rain is easy to predict.",
+    "A": "Desert rain follows a regular yearly pattern that seeds can match.",
     "B": "Seeds use dormancy and quick growth to survive uncertain desert conditions.",
-    "C": "All plants grow only after storms.",
-    "D": "Outer coats make flowers colorful."
+    "C": "Tough seed coats are the only reason desert plants survive dry spells.",
+    "D": "Heat from the desert sun is what finally wakes the sleeping seeds."
    },
    "correct": "B",
    "explanation": "Dormancy, substantial rain, rapid growth, and survival are all central. A and C are false; D is unsupported. Strategy: select the choice that explains both the pattern and its purpose.",
@@ -815,7 +815,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
-   "content_hash": "d8247e0e2633dbb1"
+   "content_hash": "52a77a8a74e901b3"
   },
   {
    "id": "RC-SEP-W4-S1-Q02",
@@ -848,10 +848,10 @@
    "difficulty": "Challenge",
    "prompt": "Why could sprouting after every small drizzle be risky?",
    "choices": {
-    "A": "The seed would become too heavy.",
-    "B": "It would make rain stop.",
+    "A": "The sprout would be washed away by the next storm that soaked the soil.",
+    "B": "Nearby seeds would then be left with too little water for their own growth.",
     "C": "The plant might use energy before enough water was available for full growth.",
-    "D": "The outer coat would become stronger."
+    "D": "The soil would dry out more quickly once many seeds had begun to grow."
    },
    "correct": "C",
    "explanation": "The last sentence states this cause and risk. A, B, and D are unsupported. Strategy: use an explicit warning to explain a cause-and-effect question.",
@@ -859,7 +859,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
-   "content_hash": "dc304839173b565c"
+   "content_hash": "839193fe388f0d97"
   },
   {
    "id": "RC-SEP-W4-S1-Q04",
@@ -870,9 +870,9 @@
    "difficulty": "Challenge",
    "prompt": "As used in the passage, *dormant* most nearly means",
    "choices": {
-    "A": "moving rapidly.",
-    "B": "active at night.",
-    "C": "ready to bloom.",
+    "A": "growing slowly beneath the dry soil.",
+    "B": "hidden underground and no longer alive.",
+    "C": "ready to sprout after a light drizzle.",
     "D": "inactive but able to become active later."
    },
    "correct": "D",
@@ -881,7 +881,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
-   "content_hash": "c393df424a5a4da1"
+   "content_hash": "a0836342d96b0913"
   },
   {
    "id": "RC-SEP-W4-S1-Q05",
@@ -936,10 +936,10 @@
    "difficulty": "Challenge",
    "prompt": "Which statement best expresses the passage's main idea?",
    "choices": {
-    "A": "Athletes should make every school decision.",
-    "B": "Later lunches always solve scheduling problems.",
+    "A": "The council's week-long trial proved the lunch change would work for all.",
+    "B": "The council gave the athletes what they wanted and ignored the music students.",
     "C": "A school council used evidence and revision to reach a better compromise.",
-    "D": "Music students dislike eating lunch."
+    "D": "Voting quickly is the fairest way for a council to settle a disagreement."
    },
    "correct": "C",
    "explanation": "The passage follows disagreement, trial, evidence, adjustment, and compromise. A, B, and D are too narrow, absolute, or false. Strategy: choose the full decision-making process, not one group's opinion.",
@@ -947,7 +947,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
-   "content_hash": "35a65c9285a6a763"
+   "content_hash": "1450aa082a4e04f9"
   },
   {
    "id": "RC-SEP-W4-S2-Q02",
@@ -981,9 +981,9 @@
    "prompt": "Why did the council move one rehearsal period on two days?",
    "choices": {
     "A": "To respond to the setup-time problem found during the trial.",
-    "B": "To make cafeteria lines longer.",
-    "C": "To eliminate lunch completely.",
-    "D": "To avoid collecting evidence."
+    "B": "To keep the cafeteria lines from growing during the trial week.",
+    "C": "To end the disagreement between athletes and music students for good.",
+    "D": "To give teachers more time for the interviews the council held."
    },
    "correct": "A",
    "explanation": "The adjustment follows the finding that groups lost setup time. B–D contradict the passage. Strategy: trace an action back to the result that prompted it.",
@@ -991,7 +991,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
-   "content_hash": "cfce0ecd6f75a5d7"
+   "content_hash": "344aff21f66ed321"
   },
   {
    "id": "RC-SEP-W4-S2-Q04",
@@ -1024,10 +1024,10 @@
    "difficulty": "Challenge",
    "prompt": "What is the role of the sentence beginning “The trial showed”?",
    "choices": {
-    "A": "It repeats the athletes' opinion without evidence.",
+    "A": "It repeats the athletes' complaint that they grow hungry early.",
     "B": "It provides results that lead directly to the council's adjustment.",
-    "C": "It introduces a historical fact about schools.",
-    "D": "It ends the debate before any decision."
+    "C": "It compares this school's lunch with lunches at other schools.",
+    "D": "It shows that the disagreement had been completely settled."
    },
    "correct": "B",
    "explanation": "The results reveal both a success and a problem, then the next sentence adjusts the plan. A, C, and D misread the sequence. Strategy: look for evidence → response links.",
@@ -1035,7 +1035,7 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
-   "content_hash": "56069e2ca1797af8"
+   "content_hash": "8bd730b6f39ae979"
   },
   {
    "id": "RC-SEP-W4-S2-Q06",

@@ -105,7 +105,12 @@ function Coat({ t, b }) {
  * slow blink is how it says it trusts you, so it is this app's acknowledgement —
  * fired when something has genuinely happened, never on a timer. Passing the
  * same value twice does nothing, which is what keeps it honest. */
-export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
+/* `arrive` is for a cat that is *entering* — the gate, a reveal, a door. It
+ * walks in from the edge of its own square instead of appearing in the middle of
+ * it. Off by default, and it should stay off anywhere a cat is simply present:
+ * a Glimbook of forty cats all walking in on load is a stampede, and the
+ * primitive means "somebody came", which is only true in a few places. */
+export function Glim({ word, stage = "Steady", className, title, blink = 0, arrive = false }) {
   const t = traits(word)
   const c = t.coat
   const b = BUILD[t.build] || BUILD.short
@@ -144,6 +149,17 @@ export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
         </radialGradient>
         <clipPath id={clip}><path d={b.body} /></clipPath>
       </defs>
+
+      {/* Walking in. Its own wrapper, outside the distance group rather than
+          inside it, for two reasons: distance is a transform as well and one
+          element cannot carry both, and a cat that is far away should still
+          cross the same ground to get here. `key` restarts the walk when a
+          different cat comes to the same gate. */}
+      <g
+        key={`arrive-${arrive ? word : ""}`}
+        data-testid={arrive ? "glim-arrive" : undefined}
+        style={arrive ? { animation: "glim-arrive 760ms cubic-bezier(.22,.68,.3,1)", "--glim-in": t.tail } : undefined}
+      >
 
       {/* How far off she is. Scaled about the cat's own middle and lifted, so a
           distant one sits small and high in its square rather than shrinking
@@ -233,6 +249,7 @@ export function Glim({ word, stage = "Steady", className, title, blink = 0 }) {
             </g>
           </g>
         </g>
+      </g>
       </g>
       </g>
     </svg>

@@ -516,6 +516,18 @@ The older `misconceptions` field on 616 items is a *tag* (`area-vs-perimeter`),
 not prose, and `make_bundle.py` has never carried it into the bundle. It is
 indexing for us, not text for her; `why` is the text.
 
+`tools/audit.py` asks the other question — not whether an item is well formed but
+whether it is a good question, which is the part no validator can gate on. It
+reports and never fails: the subject balance against the real paper, whether the
+answer is the longest choice often enough for her to learn that instead of the
+content, stems asked twice, and explanations that name a choice by its letter.
+Three things it currently finds are worth knowing before authoring more: Reading
+is 11% of the practice bank against 20% of the paper, a correct Reading answer is
+the longest one 37% of the time where chance is 25%, and **W4 repeats fifteen
+questions verbatim from W1–W3** — every other week repeats none, so it looks like
+an assembly slip rather than a decision, and it quietly lifts her W4 accuracy on
+recognition.
+
 **The readiness number has no essay in it, and the page says so.** Its six parts
 are accuracy 30, mock 20, mastery 20, pacing 10, review 10, consistency 10. The
 ISEE returns no score for the writing sample — it goes to the schools unscored
