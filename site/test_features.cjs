@@ -320,6 +320,46 @@ async function runThrough(pg, pick, max = 60) {
   await pg.click('[data-testid=cause-tags] >> nth=0 >> [data-testid=tag-rushed]');
   await pg.waitForTimeout(200);
   check('tagging a mock miss sticks', (await pg.$eval('[data-testid=cause-tags] >> nth=0', (e) => e.dataset.tag)) === 'rushed');
+  /* Classify, reteach, redo — the page says so itself, above the paper. The tags
+     classify and the lesson reteaches; this is the redo. It has to reach the
+     practice bank, because a mock question is tagged the way a paper tags it
+     ("whole-number addition") and the bank is indexed by the tidy name, so
+     without that translation every miss on this page was a dead end. */
+  const mockRedo = await pg.$$('[data-testid=try-another]');
+  const mockMissCount = (await pg.$$('[data-testid=cause-tags]')).length;
+  check('every missed mock question can be redone with a different one', mockRedo.length === mockMissCount && mockMissCount > 0,
+    `${mockRedo.length} of ${mockMissCount}`);
+  /* Checked against the data rather than by clicking through: this page sits in
+     the middle of the suite, and walking into a Verbal question from here opens
+     a Wordwood gate, which moves the state a later check counts. The claim is
+     about the lookup anyway — that every paper tag reaches a skill the practice
+     bank actually has questions for — so ask the bundle. */
+  const reach = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const alias = b.learn.aliases || {};
+    const bank = {};
+    for (const s of ['vr', 'qr', 'ma', 'rc']) for (const q of b.subjects[s]) {
+      const sk = s === 'vr' ? (/most nearly means/i.test(q.q || '') ? 'Synonyms' : /_{3,}/.test(q.q || '') ? 'Sentence completion' : 'Words in context') : q.sk;
+      bank[s + '|' + sk] = (bank[s + '|' + sk] || 0) + 1;
+    }
+    const SUB = { VR: 'vr', QR: 'qr', RC: 'rc', MA: 'ma' };
+    const dead = [];
+    for (const [sec, arr] of Object.entries(b.mockItems.DGN)) {
+      const s = SUB[sec];
+      for (const q of arr) {
+        const raw = s === 'vr' ? (/most nearly means/i.test(q.q || '') ? 'Synonyms' : /_{3,}/.test(q.q || '') ? 'Sentence completion' : 'Words in context') : q.sk;
+        const low = String(raw || '').trim().toLowerCase();
+        const sk = bank[s + '|' + raw] ? raw : (alias[low] || alias[low.split(/[\u2014\u2013]/)[0].trim()]);
+        // its own subject first, then the others — the papers file exponents
+        // under Mathematics and the bank keeps them under Quantitative
+        const found = [s, 'vr', 'qr', 'ma', 'rc'].some((x) => bank[x + '|' + sk]);
+        if (!found) dead.push(`${q.id}:${raw}`);
+      }
+    }
+    return dead;
+  });
+  check('and every one of them reaches the practice bank, not a dead end', reach.length === 0, reach.slice(0, 3).join(' | ') || 'all resolve');
+
   await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
   check('mock list shows the estimated band card', /Estimated score band/.test(await body(pg)) && /stanine/i.test(await body(pg)));
   await pg.evaluate(() => { location.hash = '#/mock/DGN'; }); await pg.waitForSelector('[data-testid=mock-corrections]');
@@ -1146,12 +1186,24 @@ async function runThrough(pg, pick, max = 60) {
     localStorage.setItem('isee.v1', JSON.stringify(s));
   });
   await pg.reload({ waitUntil: 'networkidle' });
-  // earlier sections have already walked the wood, so measure the delta
-  const vocabIds = () => pg.evaluate(() => {
+  /* Earlier sections have already walked the wood, so measure the delta — and
+     measure it in ATTEMPTS, not in ids that are new. Counting new ids quietly
+     assumes no gate has ever been cast before, which stops being true the moment
+     the seeded history and the clock put one of this week's words through the
+     wood on an earlier day: the walk still records five attempts, four of the
+     ids are merely not new, and the check fails on the calendar rather than on
+     anything about the wood. It broke on 15 September having passed on the 14th.
+     Attempts is also what the check says it counts. */
+  const vocabCounts = () => pg.evaluate(() => {
     const s = JSON.parse(localStorage.getItem('isee.v1') || '{}');
-    return Object.keys(s.items || {}).filter((id) => ((s.items[id].hist) || []).some((h) => h.ctx === 'vocab'));
+    const out = {};
+    for (const id of Object.keys(s.items || {})) {
+      const n = ((s.items[id].hist) || []).filter((h) => h.ctx === 'vocab').length;
+      if (n) out[id] = n;
+    }
+    return out;
   });
-  const vocabBefore = new Set(await vocabIds());
+  const vocabBefore = await vocabCounts();
   await pg.evaluate(() => { location.hash = '#/quest/W2'; });
   await pg.waitForSelector('[data-testid=spell]');
   let walked = 0;
@@ -1164,12 +1216,15 @@ async function runThrough(pg, pick, max = 60) {
     await pg.waitForTimeout(200);
     if (await pg.$('[data-testid=quest-done]')) break;
   }
-  const fresh = (await vocabIds()).filter((id) => !vocabBefore.has(id));
+  const vocabAfter = await vocabCounts();
+  const sum = (o) => Object.values(o).reduce((a, b) => a + b, 0);
+  const added = sum(vocabAfter) - sum(vocabBefore);
+  const fresh = Object.keys(vocabAfter).filter((id) => (vocabAfter[id] || 0) > (vocabBefore[id] || 0));
   const cast = await pg.evaluate((ids) => {
     const s = JSON.parse(localStorage.getItem('isee.v1') || '{}');
     return { ids, due: ids.filter((id) => s.items[id] && s.items[id].due && !s.items[id].cleared) };
   }, fresh);
-  check('a walk records one vocabulary attempt per gate', walked === 5 && cast.ids.length === 5, `${walked} gates -> ${cast.ids.length} new records`);
+  check('a walk records one vocabulary attempt per gate', walked === 5 && added === walked, `${walked} gates -> ${added} attempts on ${cast.ids.length} words`);
   check('and W2 is the cluster week, so some of them are cluster entries', cast.ids.some((id) => id.includes(' / ')), cast.ids.join(' | '));
   // W2 is the cluster week: nine of its gates call one side of a pair.
   check('a cluster gate records against its entry, not the bare name it called',

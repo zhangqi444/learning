@@ -4,7 +4,7 @@
  * few writers at the top. Nothing here ever deletes a result. */
 import { D, ORDER, SUBJ, LTR, keyOf, setId, setsFor, currentWeek } from "./content"
 import { Store, ts } from "./store"
-import { aopsFor } from "./aops"
+import { aopsFor, learnName } from "./aops"
 import { W, atLeast } from "./world"
 
 /* ---------- constants ---------- */
@@ -289,15 +289,28 @@ export function anotherLike(id) {
   const hit = findItem(id)
   if (!hit || !hit.it) return null
   const sub = hit.sub
-  const sk = skillOf(sub, hit.it)
-  const pool = ((skillTable(sub)[sk] || {}).ids || []).filter((x) => x !== id)
+  const raw = skillOf(sub, hit.it)
+  /* A mock question is tagged the way a paper tags it — "whole-number addition",
+   * "percent reasoning—reverse discount" — and the practice bank is indexed by
+   * the tidy name. Without this every question on a Long Night report was a dead
+   * end: the lesson was there to reteach it and there was nothing to redo it
+   * with, on the one page whose own instructions say classify, reteach, redo. */
+  const sk = skillTable(sub)[raw] ? raw : (learnName(raw) || raw)
+  /* And the skill may not live in this question's own subject. The mock papers
+     file exponents, factors and multiples under Mathematics; the practice bank
+     keeps every one of them under Quantitative. Staying inside `sub` made those
+     a dead end for no reason a ten-year-old would recognise — a question about
+     exponents is a question about exponents — so the search widens to the other
+     subjects rather than giving up. Its own subject is always tried first. */
+  const where = [sub, ...ORDER.filter((x) => x !== sub)].find((x) => ((skillTable(x)[sk] || {}).ids || []).length > (x === sub ? 1 : 0))
+  const pool = where ? ((skillTable(where)[sk] || {}).ids || []).filter((x) => x !== id) : []
   if (!pool.length) return null
   const byId = index()
   const at = (x) => { const r = rec(x); const h = (r && r.hist) || []; return h.length ? ts(h[h.length - 1].at) : 0 }
   const unseen = pool.filter((x) => !at(x))
   const pick = unseen.length ? unseen[0] : pool.slice().sort((a, b) => at(a) - at(b))[0]
   const row = byId[pick]
-  return row && row.it ? { sub, sk, it: row.it, left: unseen.length } : null
+  return row && row.it ? { sub: byId[pick].sub, sk, it: row.it, left: unseen.length } : null
 }
 
 export function skillTable(sub) {

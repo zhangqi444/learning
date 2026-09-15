@@ -301,6 +301,17 @@ function MockResults({ form }) {
                   anything arrives afterwards to the owner rather than to this
                   page. The chapter and the search ride inside the card. */}
               <LearnCard skill={sk} sub={sec.id.toLowerCase()} item={q} collapsed={again} />
+              {/* The page's own instructions are classify, reteach, redo. The
+                  tags classify and the lesson reteaches; this is the redo, and
+                  it has to be a different question — she has the whole paper's
+                  answers in front of her here, so the one she missed can no
+                  longer tell her anything. */}
+              <div>
+                <Button size="sm" variant="outline" data-testid="try-another" data-qid={q.id}
+                  onClick={() => go(`/again/${q.id}/${form}`)}>
+                  <RotateCcw /> Try another {lesson} question
+                </Button>
+              </div>
               <CauseTags id={q.id} />
             </CardContent>
           </Card>
