@@ -123,8 +123,60 @@ them. Existing: `glim-breathe`, `glim-flicker`, `pop`, `spark`.
 | **slow blink** | eyes close and reopen over ~600ms | acknowledgement — see below. **Built** | Signal |
 | **ear-flick** | one ear rotates a few degrees, rarely, each cat on its own clock | idle cats, so a still page is not a dead one. **Built** | Skin |
 | **tail-curl** | tail lifts on hover or focus | interactive cats only — attention, not commitment. **Built**, and it turned out to be an affordance rather than decoration: a cat you can tap looks exactly like one you cannot | Skin |
-| **settle** | drops into a loaf over ~1s after a period of no input | long-lived pages: Glimbook, Den | Skin |
-| **stretch** | a single stretch when a section first becomes visible | section reveal, once, never on a loop | Skin |
+| ~~**settle**~~ → **knead** | four presses of the front paws, a bout of ~2.3s inside a 26s cycle, on the cat's own clock. **Built** — and re-specified; the loaf was refused, see below | the Den's two shelves | Skin |
+| ~~**stretch**~~ | **struck.** A stretch is a pose change and the Glim is one fixed silhouette per build; there is no honest version of it. See below | — | — |
+
+**The last two rows were wrong, and this is what replaced them.** Four
+independent proposals were taken on how to build `settle` and `stretch`; all four
+said `stretch` should not be built, and the loaf lost on grounds better than the
+ones this document had.
+
+*Why not the loaf.* Not because it is hard to draw. The Glim is one fixed
+silhouette per build, so a loaf faked by scaling it — body squat, head sunk
+toward the shoulders — is not a loaf at all: it is the **hunched** posture, and a
+hunched cat with its head low is the one that is in pain. Drawing that on her own
+shelf is *no state a child could read as "I did this to it"*, reached from cat
+anatomy rather than from taste, which makes it the stronger refusal and the one
+worth writing down. (Drawing a *real* loaf was costed too: a second body path and
+tail per build is the small part — every marking in `Coat()` is authored in the
+sitting body's coordinate space and clipped to it, so it is three silhouettes ×
+five markings across twelve coats, and CSS cannot cross-fade between them without
+a fade, which is the exact thing `glim-arrive` had to remove.)
+
+*Why not after a period of no input.* This is the half that was a guardrail
+breach rather than a drawing problem, and it applies to any pose whatsoever.
+"After a period of no input" means the app measures how long she has not acted
+and the cat changes because of it — *a cat has no opinion about her attendance*,
+the first of the four. The return trip is worse: a cat that un-settles when she
+moves the mouse was **waiting for her**. No idle timer exists anywhere in `src/`
+today, and building one puts the measurement the next "notice she has been away"
+feature needs already sitting in the tree. There is a second failure underneath
+it: a pose driven by React state is *not an animation*, so the global
+reduced-motion rule does not delete it, and that reader would get the pose
+silently teleported in — strictly worse than the motion version.
+
+*What knead is.* §8 has always asked the Den for "settle, **knead**" and §4 never
+defined the second one. It is that row. Kneading is the one common feline display
+with exactly one meaning — there is no sad knead, no hungry knead, no reproachful
+one — so the sad version cannot be expressed, which is what §2 asks of a primitive
+rather than that it merely be pleasant. It runs on the cat's own clock like the
+ear-flick, with a per-cat delay off the same hash-chosen tilt (multiplier 2.1
+rather than the ear's 1.3, so a cat's knead and its ear never lock into step), so
+**nothing observes her at all**: no listener, no timer, no second state, nothing
+to undo. It is not gated on stage — an Unseen cat kneads too — because gating it
+would make it a second readout of mastery, a Signal and a false one, and a child
+could then read it as the cats she knows being happy and the ones she does not
+being unhappy.
+
+*Is it visible?* Asked properly, because "the paw is the body's own colour on any
+cat without socks or points, and it is internal rather than breaking the
+silhouette" is a real objection and it was raised against this. Measured at the
+size it actually ships at, with every other animation frozen so only the knead
+could differ: the knead changes **218** pixels by more than 6/255 and 66 by more
+than 32, against the shipped ear-flick's **212** and 47, at the same peak-delta.
+It is marginally *more* visible than a primitive already in the tree and already
+guarded by its own test. The objection was wrong, and it was wrong for a
+measurable reason rather than an arguable one.
 
 **Arrive was a correction, not an addition.** Both gate cats were already
 animated — with `pop`, which scales up from nothing *on the spot*, the exact
@@ -255,7 +307,7 @@ lying about its own state.
 | `quest` | 6 | the full grammar; meow voice, arrive, distance | M |
 | `precision` | 5 | meeting a cat: shadow → near, on writing it in her own words. Distance does the work here | M |
 | `review` | 3 | cats at the door, sitting at the distance their real status says | M |
-| `base` | 5 | the Den: settle, knead, the high shelf **used** as the unseen shelf | S |
+| `base` | 5 | the Den: **knead, built** on both shelves; the high shelf **used** as the unseen shelf. `settle` struck — §4 | S |
 | `runner` | 6 | unchanged before commitment; reveal cat gets the voice | M |
 | `score` | 2 | unchanged. The number stays plain — a cat must never decorate an honest readiness figure | — |
 | `mock` | 0 | nothing, start to finish — §6, and rule 5 | — |

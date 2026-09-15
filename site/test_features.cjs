@@ -588,6 +588,52 @@ async function runThrough(pg, pick, max = 60) {
   // someone adds a word. Ears exist, and they do not all move together.
   check('a shelf of cats is not perfectly still, and does not twitch in unison',
     earDelays.length >= 2 && new Set(earDelays).size > 1, `${earDelays.length} ears, ${new Set(earDelays).size} different delays`);
+  // Making biscuits. docs/cats.md §8 asked the Den for "settle, knead" and §4
+  // only ever defined the first; this is the second, and it is what replaced the
+  // loaf — which was refused on cat anatomy rather than on difficulty, because a
+  // loaf faked by squashing this silhouette is the hunched posture, and a hunched
+  // cat with its head low is the one that is in pain.
+  const paws = await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => {
+    const w = [...e.querySelectorAll('[data-testid=glim-knead]')];
+    return { n: w.length, names: w.map((g) => getComputedStyle(g).animationName).join('+'),
+             delays: w.map((g) => getComputedStyle(g).animationDelay).join('+'),
+             dur: w.length ? getComputedStyle(w[0]).animationDuration : '', stage: e.dataset.stage };
+  }));
+  check('every cat on the shelf has two paws and both of them knead',
+    paws.length >= 2 && paws.every((p) => p.n === 2 && p.names === 'glim-knead+glim-knead'), `${paws.length} cats, ${paws[0] ? paws[0].names : 'none'}`);
+  // A cat kneads one paw and then the other; both at once is a cat doing push-ups.
+  check('and it does them one paw after the other, not both at once',
+    paws.every((p) => new Set(p.delays.split('+')).size === 2), paws[0] ? paws[0].delays : '');
+  check('and no two cats on the shelf knead in time with each other',
+    new Set(paws.map((p) => p.delays)).size > 1, `${new Set(paws.map((p) => p.delays)).size} different pairs across ${paws.length} cats`);
+  // A bout, not a machine: four presses inside the first tenth of the cycle and
+  // then stillness. If the cycle ever shortens to something a person would watch,
+  // it has stopped being a thing noticed out of the corner of an eye.
+  check('and it is a bout now and then rather than a paw going up and down forever',
+    paws.every((p) => parseFloat(p.dur) >= 20), paws[0] ? paws[0].dur : '');
+  // Never a readout of mastery. If the knead were gated on stage, a child could
+  // read it as the cats she knows being happy and the ones she does not being
+  // unhappy — a Signal, and a false one. Decoration has to stay decoration.
+  // The word shelf can be all one brightness, so asking it this question proves
+  // nothing. The skill crests are the one place on the site where the whole range
+  // of brightnesses is on screen at once, so they are where the question has an
+  // answer: every distinct stage present must knead, and there must be more than
+  // one of them, or this check is passing on an empty room.
+  const crestKnead = await pg.$$eval('[data-testid=skill-crest] [data-testid=glim]',
+    (n) => n.map((e) => e.dataset.stage + ':' + e.querySelectorAll('[data-testid=glim-knead]').length));
+  const stagesSeen = new Set(crestKnead.map((c) => c.split(':')[0]));
+  check('every brightness of cat kneads the same — it is decoration, never a second score',
+    stagesSeen.size > 1 && crestKnead.every((c) => c.endsWith(':2')),
+    `${stagesSeen.size} brightnesses: ${[...stagesSeen].join(',')}`);
+  // §4's resting-frame rule, and the reason this replaced the loaf: a loaf is an
+  // END state, so with animation deleted the reader would get the sit and never
+  // the loaf — invisible on the machine it was written on. A knead rests at
+  // transform:none, which is byte-for-byte the cat that ships today.
+  await pg.emulateMedia({ reducedMotion: 'reduce' });
+  const still = await pg.$eval('[data-testid=word-cards] [data-testid=glim-knead]', (e) => getComputedStyle(e).transform);
+  check('with motion reduced the paws are exactly where they have always been',
+    still === 'none' || still === 'matrix(1, 0, 0, 1, 0, 0)', still);
+  await pg.emulateMedia({ reducedMotion: null });
   check('and a real build, not just a colour', kinds.every((k) => ['short', 'long', 'slim'].includes(k.split('|')[1])), [...new Set(kinds.map((k) => k.split('|')[1]))].join(','));
   const benignCoat = coats.find((c) => c.startsWith('benign:'));
   // A skill is a cat too, and this is the only place all six brightnesses get
@@ -685,6 +731,12 @@ async function runThrough(pg, pick, max = 60) {
   check('readiness score on the dashboard', /^\d+$/.test((await pg.textContent('[data-testid=readiness-score]')).trim()));
   check('streak + effort points on the Today card', /streak/.test(await pg.textContent('[data-testid=today]')) && /\d+ \S+ this week/.test(await pg.textContent('[data-testid=today]')));
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('[data-testid=score-parts]');
+  // docs/cats.md §9, "no cat on the readiness number". The skill crests on this
+  // page are cats, so the knead has to be withheld deliberately rather than by
+  // luck — the one figure that must never be made to feel better than it is.
+  check('nothing is making biscuits on the readiness number',
+    (await pg.$$('[data-testid=glim-knead]')).length === 0 && (await pg.$$('[data-testid=glim]')).length > 0,
+    `${(await pg.$$('[data-testid=glim]')).length} cats on the page, none kneading`);
   check('score page lists the six parts with weights', (await pg.$eval('[data-testid=score-parts]', (e) => e.children.length)) === 6 && (await pg.$('[data-testid=streak]')) !== null && /% of the score/.test(await body(pg)));
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=today]');
   check('mock band on the dashboard after one mock', /Latest mock ≈ stanine \d/.test(await body(pg)));
