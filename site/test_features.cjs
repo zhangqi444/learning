@@ -303,43 +303,73 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForTimeout(500);
   check('next steps worked out from the mock', (await pg.$('[data-testid=next-steps]')) !== null && /Next steps this week/.test(ov));
   check('stanine estimate per section in the results', /≈Stanine/.test(ov));
-  check('mock misses carry cause tags', (await pg.$$('[data-testid=cause-tags]')).length >= 3);
-  /* And every one of them teaches. The mock papers tag a question the way a
-     paper does, so before the names were widened this page asked for a card by
-     a name no card had and silently rendered nothing at all. */
-  const mockCards = await pg.$$eval('[data-testid=learn-card]', (n) => n.map((e) => e.dataset.skill));
-  const mockFolded = await pg.$$eval('[data-testid=learn-open]', (n) => n.map((e) => e.dataset.skill));
-  const mockMisses = (await pg.$$('[data-testid=cause-tags]')).length;
-  check('every missed mock question teaches its skill too', mockCards.length + mockFolded.length === mockMisses && mockMisses > 0,
-    `${mockCards.length + mockFolded.length} of ${mockMisses} · ${[...new Set(mockCards)].slice(0, 4).join(', ')}`);
-  /* And the same lesson is not printed once per question: a paper can leave
-     fifty misses on one skill, which would bury the other forty-four. */
-  check('a lesson stands open once per skill, folded on the repeats',
-    new Set(mockCards).size === mockCards.length && mockCards.length > 0,
-    `${mockCards.length} open · ${mockFolded.length} folded`);
+  /* The report is gathered by skill now, and the reason is a measurement: a real
+     diagnostic leaves ninety-four misses, and one flat list of them ran to
+     forty-six screens on a laptop and sixty-nine on a phone with seven hundred
+     buttons on it. Nobody classifies, reteaches and redoes anything on a page
+     that long — so this is the check that keeps it short. */
+  const shape = await pg.evaluate(() => ({
+    screens: document.documentElement.scrollHeight / innerHeight,
+    groups: [...document.querySelectorAll('[data-testid=miss-group]')].map((e) => +e.dataset.n),
+    rows: document.querySelectorAll('[data-testid=miss-row]').length,
+    buttons: document.querySelectorAll('button').length,
+  }));
+  const missTotal = shape.groups.reduce((a, b) => a + b, 0);
+  check('the report opens at a length a person can read', shape.screens < 15 && shape.buttons < 200,
+    `${shape.screens.toFixed(1)} screens · ${shape.buttons} buttons · ${shape.groups.length} skills`);
+  /* Against the heading's own number rather than one typed in here: the count
+     depends on how the paper went, and a check that only holds for one run of it
+     is a check that gets edited rather than believed. Read from the attribute,
+     not the text — in textContent the heading runs straight into the line under
+     it, and "125" followed by "39 skills" parses as 12539. */
+  const headCount = +(await pg.$eval('[data-testid=miss-total]', (e) => e.dataset.n));
+  check('and every missed question is inside one of the skills', missTotal === headCount && shape.rows === 0,
+    `${missTotal} of ${headCount} across ${shape.groups.length} skills, none open`);
+  check('heaviest skill first, because that is where the marks went',
+    shape.groups.every((n, i) => i === 0 || n <= shape.groups[i - 1]), shape.groups.slice(0, 6).join(' ≥ '));
+
+  /* Opening one gives her the whole of that skill: the lesson once, the redo
+     once, and every question she missed on it — nothing summarised away. */
+  await pg.click('[data-testid=miss-group-open] >> nth=0');
+  await pg.waitForTimeout(300);
+  const openGroup = await pg.evaluate(() => {
+    const g = document.querySelector('[data-testid=miss-group][data-open="1"]');
+    return {
+      skill: g && g.dataset.skill,
+      n: g && +g.dataset.n,
+      rows: document.querySelectorAll('[data-testid=miss-row]').length,
+      lessons: document.querySelectorAll('[data-testid=learn-card]').length,
+      redo: document.querySelectorAll('[data-testid=try-another]').length,
+      tags: document.querySelectorAll('[data-testid=cause-tags]').length,
+    };
+  });
+  check('opening a skill shows every question she missed on it', openGroup.rows === openGroup.n && openGroup.n > 0,
+    `${openGroup.skill} · ${openGroup.rows} of ${openGroup.n}`);
+  check('with its lesson once and its redo once, not once per question',
+    openGroup.lessons === 1 && openGroup.redo === 1, `${openGroup.lessons} lesson · ${openGroup.redo} redo`);
+  check('and classifying stays per question, because each miss has its own reason',
+    openGroup.tags === openGroup.n, `${openGroup.tags} tag rows`);
   await pg.click('[data-testid=cause-tags] >> nth=0 >> [data-testid=tag-rushed]');
   await pg.waitForTimeout(200);
   check('tagging a mock miss sticks', (await pg.$eval('[data-testid=cause-tags] >> nth=0', (e) => e.dataset.tag)) === 'rushed');
-  /* Classify, reteach, redo — the page says so itself, above the paper. The tags
-     classify and the lesson reteaches; this is the redo. It has to reach the
-     practice bank, because a mock question is tagged the way a paper tags it
-     ("whole-number addition") and the bank is indexed by the tidy name, so
-     without that translation every miss on this page was a dead end. */
   const mockRedo = await pg.$$('[data-testid=try-another]');
-  const mockMissCount = (await pg.$$('[data-testid=cause-tags]')).length;
-  check('every missed mock question can be redone with a different one', mockRedo.length === mockMissCount && mockMissCount > 0,
-    `${mockRedo.length} of ${mockMissCount}`);
+  const mockMissCount = openGroup.n;
+  check('every missed mock question can be redone with a different one', mockRedo.length === 1 && mockMissCount > 0,
+    `one redo for ${mockMissCount} misses of ${openGroup.skill}`);
   /* Checked against the data rather than by clicking through: this page sits in
      the middle of the suite, and walking into a Verbal question from here opens
-     a Wordwood gate, which moves the state a later check counts. The claim is
-     about the lookup anyway — that every paper tag reaches a skill the practice
-     bank actually has questions for — so ask the bundle. */
+     a Wordwood gate, which moves state a later check counts. The claim is about
+     the lookup anyway — that every paper tag reaches a skill the practice bank
+     actually has questions for — so ask the bundle. It found three on the first
+     run: the papers file exponents, factors and multiples under Mathematics and
+     the bank keeps every one of them under Quantitative. */
   const reach = await pg.evaluate(async () => {
     const b = await (await fetch('./content/bundle.json')).json();
     const alias = b.learn.aliases || {};
     const bank = {};
+    const vrSkill = (q) => (/most nearly means/i.test(q.q || '') ? 'Synonyms' : /_{3,}/.test(q.q || '') ? 'Sentence completion' : 'Words in context');
     for (const s of ['vr', 'qr', 'ma', 'rc']) for (const q of b.subjects[s]) {
-      const sk = s === 'vr' ? (/most nearly means/i.test(q.q || '') ? 'Synonyms' : /_{3,}/.test(q.q || '') ? 'Sentence completion' : 'Words in context') : q.sk;
+      const sk = s === 'vr' ? vrSkill(q) : q.sk;
       bank[s + '|' + sk] = (bank[s + '|' + sk] || 0) + 1;
     }
     const SUB = { VR: 'vr', QR: 'qr', RC: 'rc', MA: 'ma' };
@@ -347,13 +377,10 @@ async function runThrough(pg, pick, max = 60) {
     for (const [sec, arr] of Object.entries(b.mockItems.DGN)) {
       const s = SUB[sec];
       for (const q of arr) {
-        const raw = s === 'vr' ? (/most nearly means/i.test(q.q || '') ? 'Synonyms' : /_{3,}/.test(q.q || '') ? 'Sentence completion' : 'Words in context') : q.sk;
+        const raw = s === 'vr' ? vrSkill(q) : q.sk;
         const low = String(raw || '').trim().toLowerCase();
         const sk = bank[s + '|' + raw] ? raw : (alias[low] || alias[low.split(/[\u2014\u2013]/)[0].trim()]);
-        // its own subject first, then the others — the papers file exponents
-        // under Mathematics and the bank keeps them under Quantitative
-        const found = [s, 'vr', 'qr', 'ma', 'rc'].some((x) => bank[x + '|' + sk]);
-        if (!found) dead.push(`${q.id}:${raw}`);
+        if (![s, 'vr', 'qr', 'ma', 'rc'].some((x) => bank[x + '|' + sk])) dead.push(`${q.id}:${raw}`);
       }
     }
     return dead;

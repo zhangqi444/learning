@@ -1,5 +1,5 @@
 import * as React from "react"
-import { AlertTriangle, CheckCircle2, ChevronLeft, ChevronRight, Clock, Flag, Play, RotateCcw, Send, Swords, Timer } from "lucide-react"
+import { AlertTriangle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, Flag, Play, RotateCcw, Send, Swords, Timer } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { W } from "@/lib/world"
@@ -268,55 +268,93 @@ function MockResults({ form }) {
           </Table>
         </CardContent>
       </Card>
-      <h2 className="mt-2 text-xl font-semibold">Missed questions · {misses.length}</h2>
+      <MissedBySkill misses={misses} form={form} />
+    </>
+  )
+}
+
+
+/** The paper's misses, gathered by skill rather than laid out in paper order.
+ *
+ *  Measured before it was changed: a real diagnostic leaves ninety-four of these,
+ *  and one flat list of them ran to forty-six screens on a laptop and sixty-nine
+ *  on a phone, carrying seven hundred buttons. The page's own instruction is
+ *  "classify each miss, reteach, redo", and nobody can do that to ninety-four
+ *  cards in the order the paper happened to ask them.
+ *
+ *  So: one row per skill, heaviest first, because that is the order the marks
+ *  came off. The lesson and the redo belong to the skill and appear once each,
+ *  which is also what they always were — printing the same Percent lesson twelve
+ *  times was the old shape apologising for the missing one. The questions
+ *  themselves are still all there, every word of them, one tap inside the skill
+ *  they belong to; nothing is summarised away, only folded. */
+function MissedBySkill({ misses, form }) {
+  const groups = React.useMemo(() => {
+    const by = new Map()
+    for (const m of misses) {
+      const sub = m.sec.id.toLowerCase()
+      const sk = skillOf(sub, m.q)
+      const lesson = learnName(sk) || sk
+      if (!by.has(lesson)) by.set(lesson, { lesson, sub, sk, rows: [] })
+      by.get(lesson).rows.push(m)
+    }
+    return [...by.values()].sort((a, b) => b.rows.length - a.rows.length || a.lesson.localeCompare(b.lesson))
+  }, [misses])
+  const [open, setOpen] = React.useState(null)
+  if (!misses.length) return null
+  return (
+    <>
+      <h2 className="mt-2 text-xl font-semibold" data-testid="miss-total" data-n={misses.length}>Missed questions · {misses.length}</h2>
+      <p className="text-muted-foreground -mt-2 text-sm">{groups.length} skills, heaviest first. Open one to read its questions.</p>
       <div className="flex flex-col gap-3">
-        {/* A whole paper can leave ninety missed questions, and fifty of them can
-            be the same skill. Printing the same lesson fifty times is a wall, not
-            teaching — so it stands open on the first miss of a skill and folds to
-            one line on every repeat after it, where it is still one tap away. */}
-        {(() => { const taught = new Set(); return misses.map(({ sec, q, i, pick }) => {
-          const sk = skillOf(sec.id.toLowerCase(), q)
-          /* Dedupe on the card, not on the paper's tag: "synonym—adjective
-             precision" and "synonym—verb precision" are two labels for one lesson. */
-          const lesson = learnName(sk) || sk
-          const again = taught.has(lesson)
-          taught.add(lesson)
+        {groups.map((g) => {
+          const isOpen = open === g.lesson
           return (
-          <Card key={q.id} className="gap-3 border-destructive/40 py-5">
-            <CardHeader className="px-5">
-              <div className="flex items-center gap-2">
-                <Badge variant="destructive">{pick ? "Missed" : "Blank"}</Badge>
-                <span className="text-muted-foreground text-xs">{sec.id} · Q{i + 1}{q.sk ? " · " + q.sk : ""}</span>
-              </div>
-              <CardTitle className="text-[15px] leading-snug font-medium">{q.q}</CardTitle>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-2 px-5 text-sm">
-              <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{pick ? `${pick}. ${q.c[LTR.indexOf(pick)]}` : "—"}</span></div>
-              <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
-              {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
-              {/* Read the skill the same way the practice pages do, or a Verbal
-                  miss asks for a card called "vocabulary" and gets nothing.
-                  No cat, deliberately: a Long Night gets nothing from the first
-                  question to the last, and docs/cats.md §6 leaves whether
-                  anything arrives afterwards to the owner rather than to this
-                  page. The chapter and the search ride inside the card. */}
-              <LearnCard skill={sk} sub={sec.id.toLowerCase()} item={q} collapsed={again} />
-              {/* The page's own instructions are classify, reteach, redo. The
-                  tags classify and the lesson reteaches; this is the redo, and
-                  it has to be a different question — she has the whole paper's
-                  answers in front of her here, so the one she missed can no
-                  longer tell her anything. */}
-              <div>
-                <Button size="sm" variant="outline" data-testid="try-another" data-qid={q.id}
-                  onClick={() => go(`/again/${q.id}/${form}`)}>
-                  <RotateCcw /> Try another {lesson} question
-                </Button>
-              </div>
-              <CauseTags id={q.id} />
-            </CardContent>
-          </Card>
+            <Card key={g.lesson} className="gap-3 py-4" data-testid="miss-group" data-skill={g.lesson} data-n={g.rows.length} data-open={isOpen ? "1" : "0"}>
+              <CardHeader className="px-5">
+                <button type="button" className="flex w-full items-center gap-3 text-left" onClick={() => setOpen(isOpen ? null : g.lesson)} data-testid="miss-group-open">
+                  {isOpen ? <ChevronDown className="size-4 shrink-0" /> : <ChevronRight className="size-4 shrink-0" />}
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-semibold">{g.lesson}</span>
+                    <span className="text-muted-foreground text-xs">{g.rows.length} missed · {[...new Set(g.rows.map((r) => r.sec.id))].join(", ")}</span>
+                  </span>
+                  <Badge variant="destructive" className="tabular-nums">{g.rows.length}</Badge>
+                </button>
+              </CardHeader>
+              {isOpen ? (
+                <CardContent className="flex flex-col gap-3 px-5 text-sm">
+                  {/* Reteach, then redo, then the questions themselves. No cat:
+                      a Long Night gets nothing from the first question to the
+                      last, and docs/cats.md §6 leaves what happens afterwards to
+                      the owner rather than to this page. */}
+                  <LearnCard skill={g.sk} sub={g.sub} item={g.rows[0].q} />
+                  <div>
+                    <Button size="sm" variant="outline" data-testid="try-another" data-qid={g.rows[0].q.id}
+                      onClick={() => go(`/again/${g.rows[0].q.id}/${form}`)}>
+                      <RotateCcw /> Try another {g.lesson} question
+                    </Button>
+                  </div>
+                  {g.rows.map(({ sec, q, i, pick }) => (
+                    <div key={q.id} className="border-destructive/40 flex flex-col gap-2 rounded-lg border-2 p-4" data-testid="miss-row">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="destructive">{pick ? "Missed" : "Blank"}</Badge>
+                        <span className="text-muted-foreground text-xs">{sec.id} · Q{i + 1}{q.sk ? " · " + q.sk : ""}</span>
+                      </div>
+                      <p className="text-[15px] leading-snug font-medium">{q.q}</p>
+                      <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{pick ? `${pick}. ${q.c[LTR.indexOf(pick)]}` : "—"}</span></div>
+                      <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
+                      {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
+                      {/* Classifying stays per question: each miss has its own
+                          reason, and "I misread it" about twelve questions at
+                          once would be a guess rather than a record. */}
+                      <CauseTags id={q.id} compact />
+                    </div>
+                  ))}
+                </CardContent>
+              ) : null}
+            </Card>
           )
-        }) })()}
+        })}
       </div>
     </>
   )
