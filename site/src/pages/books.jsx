@@ -4,7 +4,7 @@ import { BookMarked, BookOpen, CalendarDays, Check, ChevronRight, Highlighter, L
 import { fmtDate } from "@/lib/content"
 import { W } from "@/lib/world"
 import {
-  addBook, addWord, books, currentBook, dayOf, finishBook, finishedBooks, logSession, progressOf, rateBook,
+  addBook, addWord, bookGlow, books, currentBook, dayOf, finishBook, finishedBooks, logSession, progressOf, rateBook,
   readToday, readingDays, removeBook, removeWord, reopenBook, setPages, shelf, startBook, suggestions,
   undoSession, wordsCollected,
 } from "@/lib/books"
@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Glim } from "@/components/glim"
 import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
 
@@ -40,6 +41,13 @@ function BookRow({ b, open, onToggle }) {
   const [word, setWord] = React.useState("")
   const [page, setPage] = React.useState("")
   const [on, setOn] = React.useState(today)
+  /* A seed, not a boolean (docs/cats.md §4): the cat blinks once when a reading
+   * day is actually written, and never on a render or a reload, because nothing
+   * happened on those. The slow blink is the site's acknowledgement, so it has
+   * to be attached to the thing that happened rather than to the page being
+   * looked at. */
+  const [blink, setBlink] = React.useState(0)
+  const glow = bookGlow(b)
   const readOn = (b.sessions || []).some((s) => s.on === today())
   const sessions = b.sessions || []
   // The form doubles as the editor: picking a logged day loads it, so a tap can never
@@ -47,14 +55,22 @@ function BookRow({ b, open, onToggle }) {
   const editing = sessions.find((s) => s.on === on) || null
   function reset() { setOn(today()); setPage("") }
   function pick(s) { setOn(s.on); setPage(s.page == null ? "" : String(s.page)) }
-  function log(day) { logSession(b.id, { on: day, page: page || null }); reset(); syncBadges() }
+  function log(day) { logSession(b.id, { on: day, page: page || null }); reset(); setBlink((n) => n + 1); syncBadges() }
   function removeDay(day) { undoSession(b.id, day); reset() }
   function finish() { finishBook(b.id); syncBadges() }
   return (
     <li className="flex flex-col gap-3 px-4 py-3" data-testid="book" data-status={b.status} data-id={b.id}>
       <div className="flex flex-wrap items-start gap-3">
+        {/* The book's own cat, once there is one. It takes the slot the status
+            icon had: status is still said three other ways on this row — the
+            tint behind the cat, the button beside it, and the line under the
+            title — and a shelf of cats she has collected is worth more than a
+            third tick. A book she has not opened keeps the plain shelf mark;
+            §7's empty state is a quiet place, not an apology. */}
         <span className={cn("mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-md", done ? "bg-success-soft text-success" : b.status === "reading" ? "bg-primary/10 text-primary" : "bg-muted text-muted-foreground")}>
-          {done ? <Check className="size-4" /> : b.status === "reading" ? <BookOpen className="size-4" /> : <Library className="size-4" />}
+          {glow
+            ? <Glim word={b.title} stage={glow} className="size-8" title={b.title} blink={blink} />
+            : <Library className="size-4" />}
         </span>
         <div className="flex min-w-0 flex-1 flex-col">
           <button type="button" className="text-left text-sm font-medium hover:underline" onClick={onToggle}>{b.title}</button>
@@ -247,7 +263,7 @@ export function Books() {
       <Card className="gap-2 py-4">
         <CardHeader className="px-4">
           <CardTitle className="text-base">The shelf</CardTitle>
-          <CardDescription>Reading first, then the list she wants to get to, then finished.</CardDescription>
+          <CardDescription>Reading first, then the list she wants to get to, then finished. A {W.cat} settles on every book she opens and brightens with the days she reads it.</CardDescription>
         </CardHeader>
         <CardContent className="px-0">
           <ul className="divide-y">
