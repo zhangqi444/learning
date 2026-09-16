@@ -852,6 +852,24 @@ async function runThrough(pg, pick, max = 60) {
   check('and it is marked paid, because a Beast Academy chapter is a book she may not own',
     revAops && (await revAops.evaluate((a) => a.dataset.free)) === '0' && /paid/.test(revAopsTxt), revAopsTxt);
 
+  /* The links on the lesson cards are deep links now, and a deep link is a claim
+     about somebody else's site that nothing in this repo can re-check on its own.
+     What it CAN check is the shape, which is where the one bad link came from: a
+     bare https://www.khanacademy.org/a/<slug> with no course path in it, which is
+     what a search engine hands you when it has the slug and not the page. Khan
+     serves articles, videos and exercises under a course, so a url of that shape
+     is a link nobody has actually opened. Read from the bundle rather than the
+     page, because every card's links have to hold, not the four on screen. */
+  const learnDoc = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, 'content', 'bundle.json'), 'utf8')).learn;
+  const allLinks = Object.entries(learnDoc.skills).flatMap(([sk, c]) => (c.links || []).map((l) => ({ sk, ...l })));
+  const urls = allLinks.filter((l) => l.url);
+  check('every lesson link is https or a search, never http', allLinks.every((l) => !l.url || l.url.startsWith('https://')), String(urls.length) + ' urls');
+  const bare = urls.filter((l) => /khanacademy\.org\/[ave]\//.test(l.url));
+  check('no Khan link is a bare slug with no course path — the shape a search engine invents',
+    bare.length === 0, bare.map((l) => l.sk + ': ' + l.url).join(' | '));
+  const noQ = allLinks.filter((l) => !l.url && !l.q);
+  check('a link with no url still has a search to fall back on', noQ.length === 0, noQ.map((l) => l.sk + ': ' + l.name).join(' | '));
+
   console.log('== reading log');
   await pg.evaluate(() => { location.hash = '#/books'; }); await pg.waitForSelector('[data-testid=book]');
   const bk = await body(pg);
