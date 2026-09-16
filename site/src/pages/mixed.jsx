@@ -27,7 +27,7 @@ export function Mixed() {
         <CardHeader>
           <CardDescription className="flex items-center gap-2"><Shuffle className="size-4" /> Mixed practice</CardDescription>
           <CardTitle className="text-2xl font-semibold tracking-tight">Twelve questions, all four subjects, shuffled</CardTitle>
-          <CardDescription>The real test never tells you which skill a question is testing. A mixed set pulls from the weeks already reached — skills sitting at Proficient (a right answer here is what promotes them to Mastered) and weak ones first. One a week from Week 2.</CardDescription>
+          <CardDescription>The real test never tells you which skill a question is testing. A mixed set pulls from the weeks already reached — skills sitting at Proficient first, then weak ones. This is where Proficient becomes Mastered, and the bar is two: a skill needs two of its questions right in a mixed set or a mock, each on a later day than the day she first met that question. One a week from Week 2.</CardDescription>
           <CardAction>
             <Button onClick={() => go("/mixed/run")} disabled={preview.length < 4} data-testid="mixed-start"><Play /> Start a mixed set</Button>
           </CardAction>
