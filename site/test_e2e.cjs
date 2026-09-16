@@ -15,6 +15,31 @@ const srv = http.createServer((req, res) => {
   if (!fs.existsSync(f)) { res.writeHead(404); return res.end(); }
   res.writeHead(200, { 'content-type': MIME[path.extname(f)] || 'application/octet-stream' }); res.end(fs.readFileSync(f));
 });
+/* How many practice sets the bundle actually implies.
+ *
+ * The dashboard prints "<done> of <total> sets", and both numbers used to be
+ * typed into this file by hand. The `done` half is the point of the check — it
+ * proves the seed migrated and the legacy set was counted — but the `total` half
+ * is just how much content exists, so it went red the day a batch of Reading
+ * passages landed, for a reason with nothing to do with what the check is for.
+ * That is the failure mode this repo has already been bitten by twice: a check
+ * that cries about something else teaches people to edit the number until it is
+ * quiet, and a number edited to match the page is not an assertion any more.
+ *
+ * So `done` stays hand-written and `total` is derived. The one-line rule below is
+ * the same one chunk() applies in src/lib/content.js — near-equal sets of at most
+ * SETSIZE per week — and if that ever changes, this is a place to change too. */
+const SETSIZE = 12;
+function totalSets() {
+  const b = JSON.parse(fs.readFileSync(path.join(DIST, 'content', 'bundle.json'), 'utf8'));
+  let n = 0;
+  for (const items of Object.values(b.subjects)) {
+    const perWeek = {};
+    for (const i of items) perWeek[i.w] = (perWeek[i.w] || 0) + 1;
+    for (const c of Object.values(perWeek)) n += Math.ceil(c / SETSIZE);
+  }
+  return n;
+}
 const exe = fs.existsSync('/opt/pw-browsers/chromium-1194/chrome-linux/chrome') ? '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' : undefined;
 let failures = 0;
 function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + name + (extra ? '  ' + extra : '')); if (!ok) failures++; }
@@ -40,7 +65,8 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
     const cards = await pg.$$eval('[data-slot=card-description]', (n) => n.map((x) => x.textContent.trim()));
     check('dashboard leads with Today, then Readiness', cards.includes('Today') && cards.includes('Readiness') && (await pg.$('[data-testid=continue]')) !== null, cards.slice(0, 4).join(','));
     const body = await pg.textContent('body');
-    check('seed applied + legacy set (11 of 83 sets)', /11\s*of\s*83/.test(body), body.match(/\d+\s*of\s*\d+/)?.[0]);
+    const SETS = totalSets();
+    check(`seed applied + legacy set (11 of ${SETS} sets)`, new RegExp(`11\\s*of\\s*${SETS}\\b`).test(body), body.match(/\d+\s*of\s*\d+/)?.[0]);
     check('legacy numeric timestamp renders as a date', /Sep 2/.test(body));
     check('review count 19 on dashboard', /19/.test(body));
     check('recent-sets table present', (await pg.$$('[data-slot=table-row]')).length > 1);
@@ -136,7 +162,7 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
     await pg.reload({ waitUntil: 'networkidle' });
     await pg.waitForSelector('[data-testid=today]');
     check('theme persists after reload', (await pg.evaluate(() => document.documentElement.classList.contains('dark'))) === nowDark);
-    check('progress persists after reload', /12\s*of\s*83/.test(await pg.textContent('body')));
+    check('progress persists after reload', new RegExp(`12\\s*of\\s*${totalSets()}\\b`).test(await pg.textContent('body')));
     await pg.click('button[aria-label="Toggle theme"]');   // back to light for the screenshot
 
     // Signed in through the gate, so the chip and the account row both say so

@@ -1058,6 +1058,654 @@
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
    "content_hash": "4419f14275a3932b"
+  },
+  {
+   "id": "RC-SEP-W1-S3-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Foundation",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "Gravity does more of a lock's work than a pump does.",
+    "B": "A lock raises the water, and the boat rises with it.",
+    "C": "Heavy gates hold back the water at each end of a lock.",
+    "D": "A canal cannot be built across ground that rises."
+   },
+   "correct": "B",
+   "explanation": "The closing sentences say plainly that the chamber raises the water and lets the floating boat rise with it, and every earlier step - the gates, the valves, the rising level - exists to make that happen. Gravity and the gates are true details inside that explanation, and the idea that hilly canals are impossible is the very thing the passage sets out to answer. Strategy: choose the choice that covers the whole passage, not one step of it.",
+   "why": {
+    "A": "The passage does say gravity does the lifting, but that is one step inside the explanation rather than the point the whole passage builds toward.",
+    "C": "Gates are mentioned at both ends, yet the passage is explaining how the boat gets higher, not which part holds water back.",
+    "D": "The passage opens by saying this only sounds impossible, and then spends the rest of its length showing how it is done."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S3-P",
+   "form": "W1",
+   "content_hash": "f966fb91d638920b"
+  },
+  {
+   "id": "RC-SEP-W1-S3-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, where does the water that fills the chamber come from?",
+   "choices": {
+    "A": "From the lower stretch behind the boat.",
+    "B": "From a pump built beside the gates.",
+    "C": "From the higher stretch of the canal.",
+    "D": "From the chamber the boat is waiting in."
+   },
+   "correct": "C",
+   "explanation": "The sentence about the valves names the source exactly: water from the higher stretch of canal, running downhill. The pump choice is contradicted two sentences later, the lower stretch is where the boat started rather than where the water begins, and the chamber is the destination named in that same sentence. Strategy: find the sentence that answers the question word - here, 'where' - and read it whole.",
+   "why": {
+    "A": "That is the side the boat came from, but water runs downhill into the chamber, so it has to arrive from the higher side.",
+    "B": "The passage says the opposite - gravity does the lifting, so most locks need no pump to do it.",
+    "D": "The chamber is where the water arrives, not where it starts; the sentence about the valves says the water runs into the chamber from somewhere else."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S3-P",
+   "form": "W1",
+   "content_hash": "0387f35d3504aa8b"
+  },
+  {
+   "id": "RC-SEP-W1-S3-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Challenge",
+   "prompt": "The passage suggests that how heavy a boat is does not matter much inside a lock because",
+   "choices": {
+    "A": "the gates are heavy enough to hold the boat steady.",
+    "B": "a boat weighs less once it has entered the chamber.",
+    "C": "most locks need no pump to do the lifting.",
+    "D": "the boat floats, and the water beneath it rises."
+   },
+   "correct": "D",
+   "explanation": "The passage says a lock solves the problem without lifting the boat at all, and that the boat rises only because it is floating on water that is rising. Since no part of the lock ever takes the boat's weight, how heavy the boat is never becomes the lock's problem. Strategy: join two nearby statements rather than making a leap past them, and check that a true statement actually answers the question asked.",
+   "why": {
+    "A": "The gates are described as holding back water, and the passage never gives them any job of supporting the boat.",
+    "B": "Nothing in the passage changes the boat at all - what changes is the level of the water underneath it.",
+    "C": "The passage does say this, but a missing pump is an answer to how the water moves, not to why the boat's weight stops mattering."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S3-P",
+   "form": "W1",
+   "content_hash": "1a7b3186474ceb63"
+  },
+  {
+   "id": "RC-SEP-W1-S3-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "In the passage, *stretch* most nearly means",
+   "choices": {
+    "A": "a continuous section or span.",
+    "B": "the act of pulling a rope tight.",
+    "C": "an exercise that loosens the arms.",
+    "D": "a period of time that feels long."
+   },
+   "correct": "A",
+   "explanation": "The phrase is 'the higher stretch of canal', and only a part of something long and continuous can be higher than another part, so the word names a section of the waterway. The pulling and exercising senses are the familiar ones, which is exactly why they are offered. Strategy: put each meaning back into the actual sentence and see which one still makes sense.",
+   "why": {
+    "B": "This is the everyday meaning of the word, but nothing in the sentence is being pulled - the phrase names the place the water comes from.",
+    "C": "A real meaning of the word, and the wrong one here, since an exercise cannot be higher than another exercise.",
+    "D": "The word can describe time, but this stretch is described as higher than another one, which only makes sense for a piece of the waterway."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S3-P",
+   "form": "W1",
+   "content_hash": "30cd8ed5abfed672"
+  },
+  {
+   "id": "RC-SEP-W1-S3-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Standard",
+   "prompt": "How does the passage arrange its description of a boat passing through a lock?",
+   "choices": {
+    "A": "It compares a lock with an older way of climbing a hill.",
+    "B": "It follows the lock's steps in the order they happen.",
+    "C": "It lists the parts of a lock from smallest to largest.",
+    "D": "It gives reasons why canals are built across hills."
+   },
+   "correct": "B",
+   "explanation": "Enters, close, then open, as the water rises, when the level matches - each sentence picks up where the last one stopped, so the description is a sequence of steps in time. The parts are indeed named, but their order is the order of the journey, not an order of size. Strategy: watch the time words ('then', 'as', 'when') to name how a passage is arranged.",
+   "why": {
+    "A": "Only one method is ever described, and no earlier method is brought in to compare it with.",
+    "C": "The chamber, gates and valves are all named, but they appear in the order they are used rather than by size.",
+    "D": "The passage explains how a boat gets up the hill, and never takes up the question of why the canal is there."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S3-P",
+   "form": "W1",
+   "content_hash": "11dddfb027f354f4"
+  },
+  {
+   "id": "RC-SEP-W1-S3-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Challenge",
+   "prompt": "The final sentence, \"It raises the water, and lets the boat do what a boat already does,\" is meant to",
+   "choices": {
+    "A": "show how simple the lock's trick really is.",
+    "B": "suggest that the boat does most of the real work.",
+    "C": "credit the canal's builders for a clever idea.",
+    "D": "warn that a lock can go wrong without warning."
+   },
+   "correct": "A",
+   "explanation": "Saying the boat does only what a boat already does is a quiet, pleased way of showing that the clever part was never complicated: raise the water, and floating handles the rest. Reading it as praise for the boat turns the sentence around, since floating costs the boat no effort at all, and reading it as praise for the builders credits people the passage never mentions. Strategy: ask what a closing sentence is admiring, not just what it mentions.",
+   "why": {
+    "B": "The only thing the boat does is float, which it would do anyway - the passage gives the lifting to gravity and the water.",
+    "C": "The sentence admires the arrangement itself, and the passage never mentions the people who designed or built a lock.",
+    "D": "The passage describes a lock working smoothly from start to finish and never raises the idea of failure."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S3-P",
+   "form": "W1",
+   "content_hash": "165ecb5a8b19d2e9"
+  },
+  {
+   "id": "RC-SEP-W1-S4-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Standard",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "The gas in dough comes from yeast feeding on sugar.",
+    "B": "Trapped gas from living yeast gives a loaf its shape.",
+    "C": "Kneading matters more than any other step in baking.",
+    "D": "The yeast in a loaf keeps working after it is baked."
+   },
+   "correct": "B",
+   "explanation": "Every part of the passage follows one chain: living yeast makes gas, the dough traps it, and the holes left behind are the proof. The closing line says the holes are a record of what the yeast was doing, which is the whole point in one sentence. Strategy: choose the choice that covers the whole passage, not one step of it.",
+   "why": {
+    "A": "This is true, but the passage does not stop at the gas being made; it follows that gas into the bubbles and into the holes left behind.",
+    "C": "Kneading is one step the passage explains, but nothing in it ranks the steps against one another.",
+    "D": "The passage says the yeast stops working in the oven, so this goes against what you read."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S4-P",
+   "form": "W1",
+   "content_hash": "34f421c858077bc7"
+  },
+  {
+   "id": "RC-SEP-W1-S4-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, what holds the bubbles inside the dough?",
+   "choices": {
+    "A": "Stretchy strands of protein.",
+    "B": "Bubbles of carbon dioxide gas.",
+    "C": "Sugars found in the dough.",
+    "D": "Heat from a hot oven."
+   },
+   "correct": "A",
+   "explanation": "The passage states directly that stretchy strands of protein form as the dough is kneaded and hold the bubbles in place. Strategy: point to the exact sentence before choosing.",
+   "why": {
+    "B": "The carbon dioxide is what the bubbles are made of, not what keeps them from escaping.",
+    "C": "The sugars are the yeast's food, and the passage gives them no job of holding anything.",
+    "D": "Heat makes the trapped gas expand later on; by then the bubbles are already being held."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S4-P",
+   "form": "W1",
+   "content_hash": "c13d4aefe080903e"
+  },
+  {
+   "id": "RC-SEP-W1-S4-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Challenge",
+   "prompt": "Based on the passage, what would most likely happen to dough that was never kneaded?",
+   "choices": {
+    "A": "It would rise faster with nothing to hold it.",
+    "B": "The yeast in it would stop making gas.",
+    "C": "It would need a cooler oven to finish baking.",
+    "D": "It would hold its gas poorly and swell less."
+   },
+   "correct": "D",
+   "explanation": "The passage ties the strands to kneading and the swelling to the strands, so dough with no kneading would have weaker strands, less help trapping its gas, and less swelling. Strategy: when a passage gives a cause, ask what follows if that cause is removed.",
+   "why": {
+    "A": "Holding the gas is what makes the lump swell, so losing that help would not speed the rising up.",
+    "B": "The yeast feeds on the sugars in the dough whether or not anyone kneads it.",
+    "C": "The passage never links kneading to the temperature the loaf is baked at."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S4-P",
+   "form": "W1",
+   "content_hash": "9cd3edf0bd184526"
+  },
+  {
+   "id": "RC-SEP-W1-S4-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "As used in the passage, *record* most nearly means",
+   "choices": {
+    "A": "a lasting sign of past action.",
+    "B": "the best result anyone has reached.",
+    "C": "a written list kept on paper.",
+    "D": "a copy saved in case it is needed."
+   },
+   "correct": "A",
+   "explanation": "The holes stay in the bread after the yeast has stopped, so they are a lasting sign of what happened earlier. Strategy: put each meaning back into the sentence and keep the one that still makes sense there.",
+   "why": {
+    "B": "That is the everyday meaning from races and contests, and nothing here is being compared or beaten.",
+    "C": "Nothing is written down in this passage; the holes themselves are what remain.",
+    "D": "A copy and a record both keep something, but nothing in the passage is copied — the holes are the original thing the yeast left behind."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S4-P",
+   "form": "W1",
+   "content_hash": "07add3daac071577"
+  },
+  {
+   "id": "RC-SEP-W1-S4-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Standard",
+   "prompt": "Why does the author describe the protein strands after describing the gas?",
+   "choices": {
+    "A": "To show that the strands make the gas.",
+    "B": "To show that kneading comes after baking.",
+    "C": "To show what holds the gas already made.",
+    "D": "To show that the strands stop the swelling."
+   },
+   "correct": "C",
+   "explanation": "Gas has to exist before anything can hold it, so the passage releases the carbon dioxide first and then brings in the strands as the thing that keeps it inside the dough. Strategy: when two parts of a process are described in order, ask whether the second one depends on the first.",
+   "why": {
+    "A": "The yeast is what releases the carbon dioxide; the strands only hold the bubbles that gas forms.",
+    "B": "Kneading comes before the oven in the passage, and heat is the last stage described.",
+    "D": "Holding the bubbles in place is exactly what lets the whole lump swell, not what prevents it."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S4-P",
+   "form": "W1",
+   "content_hash": "89220cdbe558853d"
+  },
+  {
+   "id": "RC-SEP-W1-S4-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Challenge",
+   "prompt": "Saying the holes are “not decoration” shows that the author treats them as",
+   "choices": {
+    "A": "a pattern the baker chose to add.",
+    "B": "part of how the loaf was made.",
+    "C": "a flaw a careful baker avoids.",
+    "D": "proof the yeast is still alive."
+   },
+   "correct": "B",
+   "explanation": "By ruling out decoration, the author says the holes are not there to be looked at — they were left behind by the yeast's work, so they belong to the story of how the loaf came to be. The sentence right after ties them back to what the yeast was doing. Strategy: when an author says what something is not, the point is usually whatever is put in its place.",
+   "why": {
+    "A": "Calling the holes not decoration rules out the idea that anyone designed them to look a certain way.",
+    "C": "The passage never treats the holes as a mistake; it explains where they came from with interest, not complaint.",
+    "D": "The passage says the yeast stops working in the oven, so the holes cannot show it is still at work."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W1-S4-P",
+   "form": "W1",
+   "content_hash": "434e961e2b07752c"
+  },
+  {
+   "id": "RC-SEP-W2-S3-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Foundation",
+   "prompt": "What is the story mainly about?",
+   "choices": {
+    "A": "Amara finds a way to stop everyone blinking.",
+    "B": "A third-grade class needs a newsletter photo.",
+    "C": "Amara decides she will be a photographer one day.",
+    "D": "Class photographs take longer than people think."
+   },
+   "correct": "A",
+   "explanation": "The first two pictures fail for one reason, everything in the middle is Amara working on that reason, and the last two sentences show the reason gone. Strategy: pick the choice that covers the beginning, the trouble and the ending together, not one fact from the opening.",
+   "why": {
+    "B": "That is the reason the photograph is being taken at all, but the story is about the trouble Amara ran into and what she did about it.",
+    "C": "The story never says what Amara wants to do later; it only shows her finishing one job on one afternoon.",
+    "D": "This turns one afternoon into a general rule about photographs, and the story makes no claim about photographs in general."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S3-P",
+   "form": "W2",
+   "content_hash": "38faacfb6b6c2c19"
+  },
+  {
+   "id": "RC-SEP-W2-S3-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "What does Amara tell the children to do?",
+   "choices": {
+    "A": "Squeeze closer together on the steps.",
+    "B": "Look at the little screen on the camera.",
+    "C": "Stand still until she says to move.",
+    "D": "Shut their eyes and open them on three."
+   },
+   "correct": "D",
+   "explanation": "Her only words in the story are the two sentences she speaks to the class, and both of them are about when to close and when to open. Strategy: when a question asks what someone said, find the quotation marks and read only what is inside them.",
+   "why": {
+    "A": "The children squeezed onto the steps at the start, before Amara said anything at all.",
+    "B": "Amara is the one who turns the screen around and looks at it; she never asks the class to.",
+    "C": "It sounds like something a photographer would say, but her two instructions are both about eyes."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S3-P",
+   "form": "W2",
+   "content_hash": "71f575c698ce5c3c"
+  },
+  {
+   "id": "RC-SEP-W2-S3-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Foundation",
+   "prompt": "What do Amara's actions after the second picture suggest?",
+   "choices": {
+    "A": "She had taken many class photographs before.",
+    "B": "She looked for a new idea, not another try.",
+    "C": "She was angry at the four in the front row.",
+    "D": "She wished someone else would take the picture."
+   },
+   "correct": "B",
+   "explanation": "Two pictures had already failed, and instead of pressing the button a third time she stopped, thought while the others complained, and then asked for something she had not asked for before. Strategy: when a story shows someone pausing, ask what they did next, and let the two together tell you what the pause was for.",
+   "why": {
+    "A": "Nothing in the story says she had done this before; she offered to take one picture for the newsletter.",
+    "C": "Four children had their eyes shut in the first picture, but the story never says Amara blamed them or felt cross.",
+    "D": "She stays with the camera and gets the photograph in the end, so she never hands the job away."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S3-P",
+   "form": "W2",
+   "content_hash": "1138ef0a6ec59923"
+  },
+  {
+   "id": "RC-SEP-W2-S3-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Foundation",
+   "prompt": "As used in the story, *grumbled* most nearly means",
+   "choices": {
+    "A": "shouted for her to hurry.",
+    "B": "rumbled like far-off thunder.",
+    "C": "complained in low voices.",
+    "D": "shuffled closer together."
+   },
+   "correct": "C",
+   "explanation": "Twenty-six children have been standing on the steps for two failed pictures, and the word names what the ones at the back are doing about it while Amara thinks. Strategy: ask what the people in the sentence have a reason to be doing right then, and choose the meaning that fits that reason.",
+   "why": {
+    "A": "Grumbling is quiet, and nothing in the story says anyone raised a voice at Amara.",
+    "B": "This is the way the word is used about weather, and here it is used about a row of waiting children.",
+    "D": "The children did squeeze together earlier, but this word names the noise they made while they waited, not a movement."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S3-P",
+   "form": "W2",
+   "content_hash": "1f8bda335b4bd2b3"
+  },
+  {
+   "id": "RC-SEP-W2-S3-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Foundation",
+   "prompt": "Why does the story describe the first two pictures before the third?",
+   "choices": {
+    "A": "To show what her new idea had to fix.",
+    "B": "To explain why the class lined up outside.",
+    "C": "To show that the camera was working properly.",
+    "D": "To prove that photographs take a long time."
+   },
+   "correct": "A",
+   "explanation": "The shut eyes in the first picture and the worse second picture are the problem, and putting them first is what lets a reader see why the count to three mattered. Strategy: when a story tells events in order, ask what each earlier part makes the later part mean.",
+   "why": {
+    "B": "The class lined up because the newsletter needed a photograph, which the story explains in its first sentence.",
+    "C": "The camera works the whole way through, so those two pictures would not be needed to prove it.",
+    "D": "The story is not measuring how long anything took; it is showing one problem and the answer to it."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S3-P",
+   "form": "W2",
+   "content_hash": "9df01a976e9ac1c6"
+  },
+  {
+   "id": "RC-SEP-W2-S3-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Foundation",
+   "prompt": "Saying the faces went dark “like a street when the lights cut out” suggests that",
+   "choices": {
+    "A": "the school lights went out.",
+    "B": "all the eyes shut at once.",
+    "C": "the steps were in shadow.",
+    "D": "the picture came out too dark."
+   },
+   "correct": "B",
+   "explanation": "A whole street of lights goes out in the same instant, and that is what the comparison hands to the faces: twenty-six pairs of eyes closing together on one instruction. Strategy: work out what the everyday thing in a comparison is like, then give that quality to the thing being described.",
+   "why": {
+    "A": "The comparison is a picture in words; no lights in the story actually go out.",
+    "C": "The story never describes the light on the steps, and this comparison is about the faces.",
+    "D": "The third picture is the one that works, so nothing went wrong with how dark it was."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S3-P",
+   "form": "W2",
+   "content_hash": "e87161bda40d75cc"
+  },
+  {
+   "id": "RC-SEP-W2-S4-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Foundation",
+   "prompt": "What is the passage mainly about?",
+   "choices": {
+    "A": "The teeth of a zipper usually wear out before the slider does.",
+    "B": "The slider both closes and opens the teeth, and it wears out.",
+    "C": "Two rows of teeth can hook together without any slider.",
+    "D": "The Y-shaped channels are the newest part of a zipper."
+   },
+   "correct": "B",
+   "explanation": "The passage puts the slider at the center twice: it does the closing, it does the opening, and it is what eventually gives out. Everything else is detail attached to that one point. Strategy: when a passage ends by naming one part as the important one, check that your answer names that part too.",
+   "why": {
+    "A": "The passage says the opposite in two plain sentences: the teeth are usually fine, and what wears out is the slider.",
+    "C": "The first sentence says this is what a zipper looks like, and then says flatly that the teeth cannot.",
+    "D": "The channels are described, but the passage never says when they were invented or compares them with anything older."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S4-P",
+   "form": "W2",
+   "content_hash": "454e2151ba9900f4"
+  },
+  {
+   "id": "RC-SEP-W2-S4-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, the two narrow channels inside the slider",
+   "choices": {
+    "A": "drive a wedge between the rows.",
+    "B": "snap shut like a small spring.",
+    "C": "lie beneath each row of teeth.",
+    "D": "meet in the shape of a Y."
+   },
+   "correct": "D",
+   "explanation": "One sentence answers this directly, and it is the sentence that begins with the word \"Inside\". The wedge is inside the slider too, but the question asks about the channels, and the channels are described by their shape. Strategy: when a question names one particular thing, answer for that thing and not for whatever else the sentence nearby happens to mention.",
+   "why": {
+    "A": "It is the slider that drives the wedge, and only when it is pulled the opening way; the channels are not what the passage says does this.",
+    "B": "No spring appears anywhere; what closes the rows is the angle the channels guide them into.",
+    "C": "Something does lie beneath a tooth, but it is a hollow, and the channels are inside the slider, not under the rows."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S4-P",
+   "form": "W2",
+   "content_hash": "57ff90e2defca38e"
+  },
+  {
+   "id": "RC-SEP-W2-S4-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Standard",
+   "prompt": "A repair shop fixes a zipper that keeps opening behind the slider by gently squeezing the slider narrower. Based on the passage, this works because",
+   "choices": {
+    "A": "it makes the teeth seat again.",
+    "B": "it sharpens the worn-down teeth.",
+    "C": "it removes the wedge from inside.",
+    "D": "it stiffens both rows of teeth."
+   },
+   "correct": "A",
+   "explanation": "The passage names one cause for a zipper that reopens behind the slider: channels that have spread let the teeth pass through without seating. Squeezing the slider narrower undoes the spreading, so the teeth can settle into their hollows once more. The passage never describes this repair, so you have to run its explanation backwards. Strategy: when a question describes a fix, find the sentence that names the problem the fix would undo.",
+   "why": {
+    "B": "Squeezing the slider does not touch the teeth, and the passage says the teeth are usually fine to begin with.",
+    "C": "The wedge is what opens a zipper, so taking it out would stop the zipper opening rather than help it stay closed.",
+    "D": "Stiffness is never mentioned, and the repair is done to the slider rather than to the rows."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S4-P",
+   "form": "W2",
+   "content_hash": "b794d06892599ba6"
+  },
+  {
+   "id": "RC-SEP-W2-S4-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "As used in the passage, *seating* most nearly means",
+   "choices": {
+    "A": "moving past without stopping.",
+    "B": "settling firmly into place.",
+    "C": "sitting down for a rest.",
+    "D": "pressing two things flat."
+   },
+   "correct": "B",
+   "explanation": "An earlier sentence has already shown the action in plainer words: the top of a tooth settles into the hollow of the tooth facing it. The later sentence describes teeth that fail to do that. Strategy: when a word looks odd, look earlier in the passage for the same action described more simply.",
+   "why": {
+    "A": "That is what the teeth do when seating fails, so it is the opposite of what the word means.",
+    "C": "This is the everyday meaning of the word's root, but nothing in the passage sits down.",
+    "D": "It sounds mechanical, which makes it tempting, but the teeth are not flattened; one drops into a hollow in the other."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S4-P",
+   "form": "W2",
+   "content_hash": "f2a0c487e4ef449e"
+  },
+  {
+   "id": "RC-SEP-W2-S4-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Challenge",
+   "prompt": "Why does the author explain how the slider works before mentioning the annoyance?",
+   "choices": {
+    "A": "To explain the mechanism the later failure depends on.",
+    "B": "To compare a zipper with an older kind of fastener.",
+    "C": "To list the steps for repairing a worn-out slider.",
+    "D": "To show that the teeth are the most important part."
+   },
+   "correct": "A",
+   "explanation": "The sentence \"This explains a familiar annoyance\" points backwards. The channels had to be described first, or the word \"This\" would have nothing to refer to, and the spreading channels later on would mean nothing. Strategy: a sentence beginning with \"This\" tells you the part before it was the setup.",
+   "why": {
+    "B": "No other fastener appears in the passage, so there is nothing being compared.",
+    "C": "The passage explains why a slider fails but never says how to mend one.",
+    "D": "The teeth get a lot of description, but the passage says plainly that all the work belongs to the slider."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S4-P",
+   "form": "W2",
+   "content_hash": "9d902a73780dcdd4"
+  },
+  {
+   "id": "RC-SEP-W2-S4-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Challenge",
+   "prompt": "The last sentence of the passage works mainly by",
+   "choices": {
+    "A": "introducing a part the passage never mentioned.",
+    "B": "admitting the cause is still unknown.",
+    "C": "pointing at the slider without naming it.",
+    "D": "warning that the teeth will fail next."
+   },
+   "correct": "C",
+   "explanation": "The author has spent the whole passage arguing that one small part does all the work, and then ends by calling it exactly that without using the word \"slider\". The reader has to supply the name, which is the author's way of proving the point has landed. Strategy: when a passage ends on a phrase instead of a name, ask what the phrase is describing and why the writer left the name out.",
+   "why": {
+    "A": "No new part arrives at the end; the small part is the one the whole passage has been describing.",
+    "B": "The cause has already been given, so the ending is confident rather than puzzled.",
+    "D": "The passage says the teeth are usually fine, and the ending looks back at the slider instead of forward at trouble."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W2-S4-P",
+   "form": "W2",
+   "content_hash": "a714c14f56eee33f"
   }
  ]
 }

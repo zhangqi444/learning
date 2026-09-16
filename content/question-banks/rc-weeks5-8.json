@@ -1058,6 +1058,654 @@
    "passage_id": "RC-W8-S2-P",
    "form": "W8",
    "content_hash": "0752c1894af8cc0b"
+  },
+  {
+   "id": "RC-W5-S3-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Standard",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "A bird's color depends on the food that the bird eats.",
+    "B": "A feather's color disappears once the feather is crushed.",
+    "C": "Each branch of a feather holds a layer of keratin.",
+    "D": "A jay's blue comes from structure, not from a pigment."
+   },
+   "correct": "D",
+   "explanation": "The passage opens by showing that grinding a jay's feather takes the blue away, explains that the color comes from the spacing of air pockets, and closes by saying the jay makes its blue rather than carrying it. Saying a bird's color comes from its food describes only the cardinal, which the passage brings in to contrast with the jay. Strategy: the main idea has to hold true for the beginning and the ending, not just one example in the middle.",
+   "why": {
+    "A": "That is how the cardinal's red is made, and the passage offers it as the opposite case to the jay, not as the rule for both birds.",
+    "B": "The red feather ground to powder leaves red dust, so crushing a feather does not take every color away — only a color that depends on an arrangement can be crushed out of one.",
+    "C": "The passage does say this, which is why it feels familiar, but it is one small piece of the explanation rather than the point the whole passage is making."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S3-P",
+   "form": "W5",
+   "content_hash": "60932b29c7bd23b6"
+  },
+  {
+   "id": "RC-W5-S3-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, what happens when a red feather is ground into powder?",
+   "choices": {
+    "A": "The dust turns a dull brown, as the jay's did.",
+    "B": "The dust left in the palm is still red.",
+    "C": "The dust keeps a faint trace of pink.",
+    "D": "The dust looks red at certain angles."
+   },
+   "correct": "B",
+   "explanation": "The third paragraph states that a red feather ground to powder leaves red dust in the palm, because the color is a pigment and a pigment is a thing you can hold. The dull brown dust belongs to the jay's feather in the first paragraph. Strategy: check which bird the detail belongs to before you pick it.",
+   "why": {
+    "A": "Dull brown dust is what the jay's feather leaves behind, and the passage brings the red feather in precisely because it behaves differently.",
+    "C": "The passage calls the dust red, with nothing to suggest the color weakens when the feather is ground.",
+    "D": "No angle is mentioned for the dust; the passage's second test is about light coming through from behind, not about where a viewer stands."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S3-P",
+   "form": "W5",
+   "content_hash": "83cd76b957ebf69f"
+  },
+  {
+   "id": "RC-W5-S3-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Challenge",
+   "prompt": "A feather from an unfamiliar bird is ground to powder, and the powder is still orange. The passage best supports concluding that",
+   "choices": {
+    "A": "the feather held air pockets arranged inside it.",
+    "B": "the orange came from a pigment in the feather.",
+    "C": "the bird eats the same food a cardinal eats.",
+    "D": "light from behind would turn the feather brown."
+   },
+   "correct": "B",
+   "explanation": "The passage sets up a test: a color made by an arrangement disappears when the arrangement is crushed, while a color made by pigment survives, as the red dust does. Orange powder that keeps its color therefore behaves like the cardinal's red and must be a pigment. Strategy: when a question gives you a new case, apply the rule the passage demonstrated rather than looking for the new case in the text.",
+   "why": {
+    "A": "Arranged air pockets make a color that lasts only as long as the arrangement does, so a color that survives grinding points away from this answer.",
+    "C": "The passage says a bird builds a pigment from what it eats, but it never says that one pigment means one particular diet.",
+    "D": "Turning brown in light from behind is the jay's result, and this feather has just behaved like the cardinal's, which stays its own color when it is lit that way."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S3-P",
+   "form": "W5",
+   "content_hash": "2faebf2303695dc8"
+  },
+  {
+   "id": "RC-W5-S3-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Challenge",
+   "prompt": "In the second paragraph, *swallows* most nearly means",
+   "choices": {
+    "A": "darts and dives like a small bird.",
+    "B": "swiftly eats a bite of food.",
+    "C": "takes it in and absorbs it.",
+    "D": "sends it straight back to the eye."
+   },
+   "correct": "C",
+   "explanation": "The sentence before says the red and yellow light travels deeper into the feather, and it never comes back out, so the dark pigment takes it in. The bird meaning is planted by the subject matter, which is exactly why it is worth testing inside the sentence. Strategy: read the sentence before the word to see what the word is actually doing there.",
+   "why": {
+    "A": "A swallow is a bird, and the word is planted in a passage about birds, but here it names what a layer of dark pigment does, and a layer of pigment is not a creature.",
+    "B": "This is the everyday meaning, and a layer of pigment does not eat anything; what reaches it is light.",
+    "D": "Sending light back toward the eye is what the air pockets do with blue, and it is the opposite of what happens to the light that travels deeper in."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S3-P",
+   "form": "W5",
+   "content_hash": "4ca05358d8afb758"
+  },
+  {
+   "id": "RC-W5-S3-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Standard",
+   "prompt": "The paragraph beginning \"A cardinal's red works the other way\" mainly serves to",
+   "choices": {
+    "A": "set a true pigment beside the jay's kind of blue.",
+    "B": "give one more example of color made by structure.",
+    "C": "explain why the cardinal's red is the brighter color.",
+    "D": "teach a reader how to test a feather at home."
+   },
+   "correct": "A",
+   "explanation": "The paragraph begins by saying the cardinal's red works the other way, then describes two tests that come out differently for a pigment and for an arrangement. Its job is comparison, which is why the word other is doing so much work in its first sentence. Strategy: watch the opening sentence of a paragraph for a signal about what the paragraph is for.",
+   "why": {
+    "B": "The cardinal's red is a pigment, which is the other kind of color entirely, so this paragraph adds a contrast rather than another example.",
+    "C": "The passage never compares how bright the two colors are; it compares how each one is made.",
+    "D": "Two tests are described, but they are there to show that the two colors behave differently, not to hand a reader a procedure to carry out."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S3-P",
+   "form": "W5",
+   "content_hash": "c7eac93c3423e56b"
+  },
+  {
+   "id": "RC-W5-S3-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Foundation",
+   "prompt": "In the last two sentences, saying that the jay does not carry its blue but makes it suggests that",
+   "choices": {
+    "A": "the color happens when light meets the structure.",
+    "B": "the jay can change its feathers' color at will.",
+    "C": "the feather works to keep its blue from fading.",
+    "D": "the feather would be blue even in the dark."
+   },
+   "correct": "A",
+   "explanation": "The closing lines draw a line between having a color, the way the cardinal has a pigment you can hold, and making one, which happens only when light strikes the arranged pockets and comes back. Reading makes as effort or as choice turns a figure of speech into a literal claim the passage does not make. Strategy: ask what an author's phrase is contrasted with before deciding what it means.",
+   "why": {
+    "B": "The bird is not choosing anything here; makes describes the feather's structure at work, not a decision the jay takes.",
+    "C": "This takes makes to mean effort, and no fading and no effort appear anywhere in the passage.",
+    "D": "The sentence says the blue arrives with the light, and the paragraph before says the blue depends on light bouncing back off a structure."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S3-P",
+   "form": "W5",
+   "content_hash": "7433238da6229b5f"
+  },
+  {
+   "id": "RC-W5-S4-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Standard",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "A tree's rings record each year's weather, and that record can date old wood.",
+    "B": "Counting a tree's rings is the surest way to learn how old the tree really is.",
+    "C": "Trees growing in warm, wet places are of little use to researchers.",
+    "D": "A wide ring proves that one tree was healthier than the trees near it."
+   },
+   "correct": "A",
+   "explanation": "The passage grants that counting rings gives an age, calls that the least interesting thing they can tell you, and then spends two paragraphs on what the widths record and how that record dates a beam from an old roof. The choice about counting for age stops where the first paragraph stops. Strategy: when a passage calls an idea the least interesting thing, the main idea is what comes after it.",
+   "why": {
+    "B": "Counting for age is the one use the passage grants and then sets aside as the least interesting thing the rings can tell you, and the last paragraph shows a count can even be off by a year.",
+    "C": "Those trees are one limit named near the end, not what the passage as a whole is about.",
+    "D": "A wide ring is tied to a wet, mild year, not to one tree doing better than its neighbours."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S4-P",
+   "form": "W5",
+   "content_hash": "c7c2c0bcb3225898"
+  },
+  {
+   "id": "RC-W5-S4-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, the ring a reader sees is the line between",
+   "choices": {
+    "A": "the pale spring wood and the dark wood of that year.",
+    "B": "one year's dark wood and next spring's pale wood.",
+    "C": "the bark of the tree and the new wood beneath it.",
+    "D": "the wood of a wet year and the wood of a dry year."
+   },
+   "correct": "B",
+   "explanation": "The second paragraph names the line outright: the ring you see is where one year's dark wood stops and next spring's pale wood begins. The pale-and-dark pair inside one year is a real boundary but not the one the passage points at, and the new layer of wood goes beneath the bark rather than on it. Strategy: find the sentence that defines the thing and read it exactly.",
+   "why": {
+    "A": "Those two do sit side by side within a single year, but the passage points at the other edge — where one year's dark wood stops and the next spring's pale wood begins.",
+    "C": "The tree adds its new layer of wood beneath the bark, so the bark is not the edge being described.",
+    "D": "Wet and dry years give wide and narrow rings, but the line itself is a change from dark wood to pale wood, not a border between two kinds of year."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S4-P",
+   "form": "W5",
+   "content_hash": "9813b57a5da6f522"
+  },
+  {
+   "id": "RC-W5-S4-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Challenge",
+   "prompt": "The passage suggests that the researcher could not date the beam without",
+   "choices": {
+    "A": "a mark left on the beam by whoever built the roof.",
+    "B": "a count of how many rings the beam still holds.",
+    "C": "rings from trees whose years are already known.",
+    "D": "a sample taken from the same roof's other beams."
+   },
+   "correct": "C",
+   "explanation": "A living tree's outermost ring is this year's, so its rings can be counted back to real years; the beam is dated by sliding its own pattern along that record until the wide and narrow years line up. Without a set of rings whose years are already settled, the beam's pattern is just a pattern with nowhere to sit. Strategy: ask what a method borrows from outside the object it is examining.",
+   "why": {
+    "A": "The passage says the beam is dated though nobody wrote a date on it, so a written mark is exactly what is missing.",
+    "B": "Counting tells you how many years the wood grew, not which years those were.",
+    "D": "The pattern is slid along the record kept by living trees, and other beams from the same roof would carry no known years of their own."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S4-P",
+   "form": "W5",
+   "content_hash": "92e25b20b03b1693"
+  },
+  {
+   "id": "RC-W5-S4-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Challenge",
+   "prompt": "In the third paragraph, *agreement* most nearly means",
+   "choices": {
+    "A": "a promise made between two people.",
+    "B": "the same weather from year to year.",
+    "C": "a rule about matching word forms.",
+    "D": "a close match between patterns."
+   },
+   "correct": "D",
+   "explanation": "The sentence just before says the bands run in step, so the agreement named next is that matching between trees. The everyday promise-between-people meaning is the trap, and the weather choice lifts a true phrase from the sentence before and attaches the word to the wrong thing — what runs in step is the patterns. Strategy: put your choice into the sentence in place of the word and check that it still describes the same thing.",
+   "why": {
+    "A": "That is the word's everyday meaning, but nobody here is promising anything — what is happening is that bands are matching.",
+    "B": "The sentence before does say trees in one region live through the same weather, but that agreement points back at the patterns running in step, and the passage's whole point is that the weather differs from year to year.",
+    "C": "Agreement does mean that in a grammar lesson, where a subject and a verb must match, but this sentence is about bands of wood rather than words."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S4-P",
+   "form": "W5",
+   "content_hash": "7217cc5fe9bf09a9"
+  },
+  {
+   "id": "RC-W5-S4-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Standard",
+   "prompt": "The last paragraph mainly serves to",
+   "choices": {
+    "A": "set out the limits of a method the passage has explained.",
+    "B": "explain again how a tree lays down wood each spring.",
+    "C": "argue that ring patterns are too unreliable to use.",
+    "D": "explain how one beam is matched against the living record."
+   },
+   "correct": "A",
+   "explanation": "The paragraph announces that the limits are the ordinary kind and then names them — no clear band where it is warm and wet all year, a skipped year, a doubled one — before closing with the safeguard of checking many trees. Saying ring patterns are too unreliable to use goes further than a paragraph that ends by explaining how researchers work around the trouble, and the matching of a beam to the living record has already happened a paragraph earlier. Strategy: a paragraph that names limits and then a safeguard is qualifying a method, not throwing it out.",
+   "why": {
+    "B": "That was settled in the second paragraph; the last one turns to where the method runs into trouble.",
+    "C": "The paragraph raises problems and then closes with the safeguard of checking many trees, which is a caution rather than a rejection.",
+    "D": "Matching a beam against the living record is the third paragraph's job; the last one is about where that matching cannot be trusted."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S4-P",
+   "form": "W5",
+   "content_hash": "637bdaa166da9b09"
+  },
+  {
+   "id": "RC-W5-S4-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Foundation",
+   "prompt": "The comparison in “the rings are a row of entries, one for every year the tree stood” suggests that the rings",
+   "choices": {
+    "A": "are written by hand onto the wood.",
+    "B": "keep a record, one year at a time.",
+    "C": "are all exactly the same width.",
+    "D": "grow larger each year of a tree's life."
+   },
+   "correct": "B",
+   "explanation": "An entry is a line written in a record, and the passage sets the rings in order with one for every year the tree stood, so the comparison turns the trunk into a year-by-year log. Taking the picture literally, as writing on the wood, misses that a comparison borrows a quality rather than stating a fact. Strategy: with a comparison, ask which quality is being borrowed, not whether the picture is literally true.",
+   "why": {
+    "A": "The rings are compared to written entries, but nothing in the passage says anyone writes on the wood.",
+    "C": "The passage says the opposite — wide in a wet, mild year and narrow in a dry, hard one.",
+    "D": "Ring width depends on the weather of that year, not on how old the tree has become."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W5-S4-P",
+   "form": "W5",
+   "content_hash": "c1583679dafd5cef"
+  },
+  {
+   "id": "RC-W6-S3-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Standard",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "Sawdust was the coldest material the workers in the ice trade could find.",
+    "B": "Ice lasted the summer because the walls and the stacking both slowed heat.",
+    "C": "Ships once carried ice from northern ponds to harbors in far warmer places.",
+    "D": "Winters in the past were far colder than any winter people now know of."
+   },
+   "correct": "B",
+   "explanation": "The passage says the icehouse made no cold of its own and was built only to slow heat down, and then spends two paragraphs on the two ways that was done: doubled walls packed with sawdust, and blocks cut large and stacked tight so little surface was left in the open. The choice about ships is a real detail from the last paragraph, but a detail cannot be the main idea. Strategy: pick the statement the middle paragraphs are busy proving, not the one that appears only once.",
+   "why": {
+    "A": "The passage says flatly that sawdust is not cold — its whole usefulness is that heat travels through it badly.",
+    "C": "That is true, but it is one sentence near the end, not what the whole passage is built to explain.",
+    "D": "The passage never compares old winters with modern ones; it only describes what people did with the ice a winter gave them."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S3-P",
+   "form": "W6",
+   "content_hash": "c9e5f09b501066d2"
+  },
+  {
+   "id": "RC-W6-S3-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, why did workers cut the ice into large blocks instead of small pieces?",
+   "choices": {
+    "A": "A large block has less surface than the same ice in pieces.",
+    "B": "Large blocks were easier for the crews to carry down a hill.",
+    "C": "Small pieces would have melted before reaching the icehouse.",
+    "D": "Large blocks sold for a higher price in the warm harbors."
+   },
+   "correct": "A",
+   "explanation": "The third paragraph gives the reason directly: ice melts at its surface, and one large block has less surface, for the amount of ice in it, than the same ice chopped into pieces. Less exposed surface means slower melting, which is why workers also stacked the blocks tight and filled the seams. Strategy: when a paragraph states a rule and then a practice, the rule is the answer to \"why\".",
+   "why": {
+    "B": "The passage mentions hauling the blocks but never says the large size made carrying them any easier.",
+    "C": "The passage does say the blocks were hauled some distance, but the reason it gives for cutting them large is about how slowly stored ice melts, not about the trip.",
+    "D": "The passage says nothing about price — only about how quickly ice of different shapes melts."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S3-P",
+   "form": "W6",
+   "content_hash": "6e820e1b1b4092b4"
+  },
+  {
+   "id": "RC-W6-S3-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Challenge",
+   "prompt": "Based on the passage, which change would most likely make stored ice last longer?",
+   "choices": {
+    "A": "Splitting the blocks into smaller pieces before they are stacked.",
+    "B": "Packing a thicker layer of sawdust between the doubled walls.",
+    "C": "Leaving wide gaps between the blocks so air can circulate.",
+    "D": "Rinsing the blocks with cold water before stacking them."
+   },
+   "correct": "B",
+   "explanation": "Sawdust is described as a poor path for heat, and the passage concludes that heat which cannot get in cannot melt anything, so a thicker packing in the wall cavity means less heat reaching the ice. The rinsing choice is the tempting one, because cold water sounds helpful; only the passage's own sentence about meltwater — it carries heat into the pile faster than still air could — rules it out. Strategy: apply the reason the passage gives for each practice to see whether a change helps it or fights it.",
+   "why": {
+    "A": "Smaller pieces have more surface for the same amount of ice, and surface is exactly what sets the pace of melting.",
+    "C": "Workers did the opposite, stacking the blocks tight and filling the seams so little ice was left in the open.",
+    "D": "Cold water sounds like it should help, but the passage says water lying against the ice carries heat into it faster than still air does."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S3-P",
+   "form": "W6",
+   "content_hash": "0a76a8f96b096fd6"
+  },
+  {
+   "id": "RC-W6-S3-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "In the third paragraph, *standing* most nearly means",
+   "choices": {
+    "A": "upright on its feet, not lying down.",
+    "B": "waiting its turn in a line.",
+    "C": "lasting on and on for years.",
+    "D": "not draining away from a place."
+   },
+   "correct": "D",
+   "explanation": "The rest of the same sentence explains the word: the floor was sloped, and a floor is sloped for water that would otherwise sit where it lands. Meltwater standing against the pile is meltwater that has not drained away, and that is the water the passage says carries heat into the ice. The upright sense is the one the word usually carries, which is what makes it the trap. Strategy: when a familiar word sits oddly, look for the detail in the same sentence that was built to deal with it — here, the slope.",
+   "why": {
+    "A": "That is the word's everyday meaning, but water has no feet; the sentence is about water that stays where it collects.",
+    "B": "Nothing in the passage is queuing — the meltwater is not waiting for anything, it is sitting against the ice.",
+    "C": "\"Standing\" can mean long-lasting, but this is meltwater running off a pile of ice, and the slope exists to get rid of it quickly."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S3-P",
+   "form": "W6",
+   "content_hash": "c7af934791dce342"
+  },
+  {
+   "id": "RC-W6-S3-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Standard",
+   "prompt": "The sentence \"The shape of the stack mattered too\" tells the reader that the third paragraph will",
+   "choices": {
+    "A": "add another reason the ice melted slowly.",
+    "B": "repeat the point about sawdust in new words.",
+    "C": "explain how ships reached the far-off harbors.",
+    "D": "admit how much of each load melted anyway."
+   },
+   "correct": "A",
+   "explanation": "The word \"too\" adds something to what came before: the second paragraph explained the building, and the third explains the ice, with exposed surface as one more thing that controlled melting. A paragraph that only restated the sawdust point would have no use for \"too\". Strategy: a small linking word like \"too\" or \"also\" usually announces that a new reason is being added to an old one.",
+   "why": {
+    "B": "The paragraph leaves the walls behind entirely and talks about the ice itself — its surface, its size, how it was stacked.",
+    "C": "The ships do not appear until the paragraph after this one, and their voyage is not what \"the stack\" refers to.",
+    "D": "The passage does admit that, but a paragraph later; this sentence is still introducing the ways melting was slowed."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S3-P",
+   "form": "W6",
+   "content_hash": "a501af5eea40396d"
+  },
+  {
+   "id": "RC-W6-S3-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Challenge",
+   "prompt": "The last sentence, \"It was a machine for making winter last,\" suggests that the icehouse",
+   "choices": {
+    "A": "was powered by an engine that the workers ran.",
+    "B": "made the winter season itself grow longer.",
+    "C": "held on to winter's ice well into the summer.",
+    "D": "was more useful in winter than in the summer."
+   },
+   "correct": "C",
+   "explanation": "The passage sets the sentence against its opposite — the icehouse was never a machine for making cold — so what it makes is time: ice cut in January is still solid in August. Reading \"machine\" literally, as something with an engine, misses that the whole sentence is a figure of speech. Strategy: when a sentence says what something is *not* right before saying what it is, use the contrast to pin down the meaning.",
+   "why": {
+    "A": "\"Machine\" is being used as a figure of speech; the building described has walls, a door and a sloped floor, and no moving parts at all.",
+    "B": "No building can stretch a season; what was stretched was the usefulness of one winter's ice.",
+    "D": "The opening says the January work was for July, and the ice was still solid in August — the icehouse earned its keep in the warm months."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S3-P",
+   "form": "W6",
+   "content_hash": "8fde77b1c67bc593"
+  },
+  {
+   "id": "RC-W6-S4-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Standard",
+   "prompt": "What does the scene mainly show about Ines's job that evening?",
+   "choices": {
+    "A": "It taught her to understand the talk as well as Rosa did.",
+    "B": "It looked like nothing and demanded constant attention.",
+    "C": "It was harder than she should have been asked to try.",
+    "D": "It mattered far less to the talk than she had hoped."
+   },
+   "correct": "B",
+   "explanation": "The first sentence calls it the easiest job in the hall, and everything after it is work — the failed plan, the red slash, the counting back, the thumb held in place until it wore a crease in the paper. The choice about understanding the talk is ruled out by the passage's own words that the typed words meant almost nothing to her. Strategy: when a story opens by calling something easy, read the rest as the answer to that claim.",
+   "why": {
+    "A": "The passage says the typed words \"meant almost nothing to her\" — she worked from the shapes on the page and the red slashes, not from following what her aunt was saying.",
+    "C": "She finds the job hard and does it anyway; nothing in the passage suggests she was wrongly asked, and by the end she is managing it without looking down.",
+    "D": "The story points the other way: each photograph had to land on the sentence that needed it, and the one that lands correctly is the moment her aunt can keep reading."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S4-P",
+   "form": "W6",
+   "content_hash": "e3b498cf1db29ab7"
+  },
+  {
+   "id": "RC-W6-S4-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, how did Ines know when to change the picture?",
+   "choices": {
+    "A": "She listened for the words just before each change.",
+    "B": "She waited for a nod from her aunt across the room.",
+    "C": "She counted the sentences as her aunt read them.",
+    "D": "She watched Rosa's finger reach the red slash."
+   },
+   "correct": "D",
+   "explanation": "The fourth paragraph gives the method in order: find the red slash, count back two lines, put a thumb there, get ready when the finger arrives at the thumb, and press when the finger arrives at the slash. Listening for the words is a real detail from the passage, but it is the plan she abandoned. Strategy: check whether a detail describes what the character tried or what actually worked.",
+   "why": {
+    "A": "That was her first plan, and the passage says it failed: by the time she heard those words, \"they had gone past.\"",
+    "B": "Rosa never signals her. The passage makes a point of saying Rosa did not glance over, which is why Ines has to find the cue herself.",
+    "C": "The counting in the passage happens once, on paper — two lines back from a slash — and not as a running count through the talk."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S4-P",
+   "form": "W6",
+   "content_hash": "b8f0972382c7a6a3"
+  },
+  {
+   "id": "RC-W6-S4-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Standard",
+   "prompt": "Ines treats her aunt's not glancing over as \"the highest compliment available\" most likely because it means",
+   "choices": {
+    "A": "the picture had not needed changing on that line.",
+    "B": "the picture came on time and did not interrupt Rosa.",
+    "C": "Rosa was pleased with how the talk itself was going.",
+    "D": "Rosa had forgotten that Ines was sitting nearby."
+   },
+   "correct": "B",
+   "explanation": "A picture that arrived late or on the wrong sentence would force the speaker to look across and check, so a speaker who never looks across is a speaker who was never interrupted. Reading the line as forgetfulness mistakes being unnoticed for being unneeded, when the whole scene rests on how much Rosa needs her. Strategy: ask what would have happened instead if the character had done the job badly.",
+   "why": {
+    "A": "It did need changing, and it changed: the sentence just before says the photograph arrived on the word it belonged to.",
+    "C": "Nothing in the passage reports what Rosa thought of her own talk; the sentence attaches her steadiness to the photograph landing correctly.",
+    "D": "Rosa is depending on her for pictures she cannot change herself, and being forgotten would be no compliment at all."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S4-P",
+   "form": "W6",
+   "content_hash": "7419bdf8b830b0a2"
+  },
+  {
+   "id": "RC-W6-S4-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Challenge",
+   "prompt": "In \"black clusters where the paragraphs were busy,\" *busy* most nearly means",
+   "choices": {
+    "A": "packed tightly with words.",
+    "B": "occupied with hard work.",
+    "C": "noisy and full of movement.",
+    "D": "hurrying from place to place."
+   },
+   "correct": "A",
+   "explanation": "The second half of the same sentence gives the measure: the clusters are black where the paragraphs are busy and white where they thin out, so the word is describing how crowded the printing looks. The ordinary meaning about a person with too much to do is the one to test first and then reject, because a paragraph has no errands. Strategy: when a sentence sets two halves against each other, the second half often defines the first.",
+   "why": {
+    "B": "This is the everyday meaning of the word, but it describes a person with a lot to do, and a paragraph on a page has no work to be occupied with.",
+    "C": "A busy street is noisy, but the sentence is about how a printed page looks to someone holding it, not about sound or motion.",
+    "D": "This describes someone rushing about; the paragraphs in the passage are sitting still on a sheet of paper, differing only in how crowded they are."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S4-P",
+   "form": "W6",
+   "content_hash": "7434e61866b757b6"
+  },
+  {
+   "id": "RC-W6-S4-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Challenge",
+   "prompt": "The three sentences beginning \"You sat at a small table\" mainly serve to",
+   "choices": {
+    "A": "give the reader directions for running the pictures.",
+    "B": "describe what the rest of the room did during the talk.",
+    "C": "show the job as Ines pictured it before she tried it.",
+    "D": "suggest that Ines had been talked into taking the job."
+   },
+   "correct": "C",
+   "explanation": "The story steps out of Ines for three sentences to lay out the job the way she expected it, as though it were obvious to anybody — and then drops straight back with the line about her mistake. Everything after that is the same job from the inside: a finger to watch, a slash to find, a thumb to keep in place. Strategy: when a narrator changes who the sentences are about, ask what that change shows which the ordinary telling could not.",
+   "why": {
+    "A": "They instruct nobody. They restate what the job sounded like from outside, which is why the very next line calls it a mistake.",
+    "B": "The room is not doing these things; sitting at the small table and pressing the button are Ines's own job, seen before she began it.",
+    "D": "The first sentence says she agreed because of how the job sounded, and the passage never shows anyone persuading her."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S4-P",
+   "form": "W6",
+   "content_hash": "e74a24d2cd1b03ee"
+  },
+  {
+   "id": "RC-W6-S4-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Foundation",
+   "prompt": "The comparison \"She watched the way a person crossing a street watches\" suggests that Ines",
+   "choices": {
+    "A": "paid attention to what was coming, not what was here.",
+    "B": "watched several things happening at the same time.",
+    "C": "was frightened by the traffic on the road outside.",
+    "D": "thought the room was as crowded as a busy street."
+   },
+   "correct": "A",
+   "explanation": "Someone stepping off a kerb is not watching the empty road in front of them but the car that has not arrived yet, and the rest of the sentence spells the comparison out: ahead of herself, two lines early, her thumb already in place. Taking the street literally turns a figure of speech into a scene the story never has. Strategy: after a comparison, read the words that follow it — the author usually explains the image straight away.",
+   "why": {
+    "B": "A busy street is the first thing the word brings to mind, but the rest of the sentence is about being early rather than about watching a crowd.",
+    "C": "There is no traffic in the story; the street is a comparison, not a place anyone goes.",
+    "D": "The comparison is about how she watched, not about how full or noisy the hall was."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W6-S4-P",
+   "form": "W6",
+   "content_hash": "0951707a614a5c57"
   }
  ]
 }
