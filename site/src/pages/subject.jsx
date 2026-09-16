@@ -110,7 +110,7 @@ export function SkillsCard({ sub }) {
           {pace.n >= 8 ? ` · median ${Math.round(pace.median)} s a question against a ${pace.budget} s budget` : ""}
         </CardDescription>
         <CardAction><Button size="sm" variant="ghost" onClick={() => setAll((v) => !v)}>{all ? "Practiced only" : "All skills"}</Button></CardAction>
-        {rows.some((k) => weak(k) && aopsFor(sub, k.sk)) ? <CardDescription className="text-xs">Weak skills carry the AoPS chapter that teaches them — hover for the Beast Academy unit, the Prealgebra chapter and the Alcumus topic.</CardDescription> : null}
+        {rows.some((k) => weak(k) && aopsFor(sub, k.sk)) ? <CardDescription className="text-xs">Weak skills carry the free Alcumus topic that drills them — hover for the Prealgebra chapter and the Beast Academy unit behind it.</CardDescription> : null}
       </CardHeader>
       {rows.length ? (
         <CardContent className="px-5">

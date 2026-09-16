@@ -91,33 +91,47 @@ export function LearnCard({ skill, sub, item, cat, className, collapsed }) {
             </Badge>
           </a>
         ))}
-        {/* The AoPS chapter, marked paid because that is what a chapter of Beast
-            Academy is, even though the link itself opens free Alcumus practice.
-            Erring that way round is the only safe one: a free thing marked paid
-            costs her a moment's surprise, a paid thing marked free costs a
-            family that does not buy books their afternoon.
+        {/* This badge opens Alcumus, so it says Alcumus and it is marked free.
+            It used to be named for the Beast Academy chapter and marked paid,
+            on the reasoning that a chapter of Beast Academy is a book — true of
+            the book, and the wrong question, because the mark is on a link and
+            a link is answered by what it opens. AoPS say Alcumus is free, this
+            repo's own aops.json note has said "free with an AoPS account" the
+            whole time, and the badge still called it paid. A free thing marked
+            paid is not the harmless direction of the error either: it is the
+            free adaptive problem set, the one thing here that will keep feeding
+            her questions after our bank runs out, wearing the label that tells
+            a family who does not buy books to skip it.
 
-            The whole Beast Academy unit, title and all. The old line took the
-            code off the front of it and glued on the *Prealgebra* chapter name
-            instead, so the Volume lesson advertised "5A · Perimeter and Area" —
-            two true facts spliced into one false label, which is worse than
-            either alone because it looks like a lookup gone wrong. */}
+            The chapter is not lost, it has moved to where a book belongs: the
+            tooltip, named as a book and as something that costs money, beside
+            the free videos that teach the same chapter. `data-ba` keeps it
+            assertable without needing a hover.
+
+            The label carries the whole Alcumus focus topic, because that is the
+            thing she has to do on arrival — Alcumus has no per-topic deep link,
+            so the topic name IS the instruction. An earlier version of this row
+            took the code off the front of the Beast Academy unit and glued on
+            the *Prealgebra* chapter name instead, so the Volume lesson
+            advertised "5A · Perimeter and Area": two true facts spliced into one
+            false label, which is worse than either alone because it looks like a
+            lookup gone wrong. */}
         {a ? (
           <Tooltip>
             <TooltipTrigger asChild>
-              <a href={ALCUMUS_URL} target="_blank" rel="noopener noreferrer" data-testid="aops-hint" data-skill={skill} data-free="0">
+              <a href={ALCUMUS_URL} target="_blank" rel="noopener noreferrer" data-testid="aops-hint" data-skill={skill} data-free="1" data-ba={a.ba}>
                 <Badge variant="outline" className="font-normal">
-                  <BookOpen className="size-3" /> AoPS {a.ba}
-                  <Cost free={false} />
+                  <BookOpen className="size-3" /> Alcumus · {a.alcumus}
+                  <Cost free />
                   <ExternalLink className="size-3" />
                 </Badge>
               </a>
             </TooltipTrigger>
             <TooltipContent className="max-w-72">
               <span className="font-medium">{a.why}</span>
-              <br />Beast Academy {a.ba}{a.ba2 ? ` · ${a.ba2}` : ""}
+              <br />Set the Alcumus focus topic to {a.alcumus}. Free with an AoPS account.
               <br />Prealgebra: {a.pa} (free videos)
-              <br />Alcumus focus topic: {a.alcumus}
+              <br />Beast Academy {a.ba}{a.ba2 ? ` · ${a.ba2}` : ""} — a book, and not free
             </TooltipContent>
           </Tooltip>
         ) : null}

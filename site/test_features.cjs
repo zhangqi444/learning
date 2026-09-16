@@ -836,7 +836,12 @@ async function runThrough(pg, pick, max = 60) {
   await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
   const hints = await pg.$$eval('[data-testid=aops-hint]', (n) => n.map((x) => x.dataset.skill));
   check('weak maths skills carry the AoPS chapter that teaches them', hints.includes('Percent') && hints.includes('Fractions'), hints.join(', '));
-  check('the pointer names a Beast Academy unit and a Prealgebra chapter', /5D · Percents/.test(await pg.textContent('[data-testid=skills]')));
+  // The badge says what it opens — Alcumus, and the focus topic to set there,
+  // because Alcumus has no per-topic deep link and the topic name is the
+  // instruction. The Beast Academy chapter is still carried, on data-ba, and is
+  // named in the tooltip as the book it is.
+  check('the pointer names the Alcumus focus topic to set', /Alcumus · Percents/.test(await pg.textContent('[data-testid=skills]')));
+  check('and still carries the Beast Academy unit, whole', /5D · Percents/.test((await pg.$$eval('[data-testid=aops-hint]', (n) => n.map((x) => x.dataset.ba || ''))).join(' | ')));
   await pg.evaluate(() => { location.hash = '#/s/vr'; }); await pg.waitForSelector('[data-testid=skills]');
   check('verbal gets no AoPS pointer, because there is no honest one', (await pg.$$('[data-testid=aops-hint]')).length === 0);
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('[data-testid=review-ma]');
@@ -847,10 +852,18 @@ async function runThrough(pg, pick, max = 60) {
   const revAops = await pg.$('[data-testid=review-ma] [data-testid=aops-hint]');
   const revAopsTxt = revAops ? (await revAops.textContent()).replace(/\s+/g, ' ').trim() : '';
   const revAopsHref = revAops ? await revAops.evaluate((a) => a.href) : '';
-  check('the review pile names the chapter for its worst maths skill',
-    !!revAops && /AoPS \w+ · .+/.test(revAopsTxt) && /artofproblemsolving\.com\/alcumus/.test(revAopsHref), revAopsTxt);
-  check('and it is marked paid, because a Beast Academy chapter is a book she may not own',
-    revAops && (await revAops.evaluate((a) => a.dataset.free)) === '0' && /paid/.test(revAopsTxt), revAopsTxt);
+  check('the review pile names the focus topic for its worst maths skill',
+    !!revAops && /Alcumus · .+/.test(revAopsTxt) && /artofproblemsolving\.com\/alcumus/.test(revAopsHref), revAopsTxt);
+  /* Marked free, because that is what the link opens: AoPS say Alcumus is free
+     and aops.json has said "free with an AoPS account" since it was written.
+     The rule the old check was reaching for is still the rule — a paid thing may
+     never be marked free — so the half that matters now is that the badge marked
+     free does not name the book. The Beast Academy chapter rides data-ba and the
+     tooltip, where it is called a book and called not free. */
+  check('and it is marked free, because Alcumus is what the link opens',
+    revAops && (await revAops.evaluate((a) => a.dataset.free)) === '1' && /free/.test(revAopsTxt), revAopsTxt);
+  check('and the badge marked free never advertises the book',
+    !/Beast Academy/.test(revAopsTxt) && !/\b\dD\b/.test(revAopsTxt), revAopsTxt);
 
   /* The links on the lesson cards are deep links now, and a deep link is a claim
      about somebody else's site that nothing in this repo can re-check on its own.
@@ -1697,7 +1710,7 @@ async function runThrough(pg, pick, max = 60) {
      three different kinds of thing. */
   const routes = await pg.$$eval('[data-testid=learn-card] a[data-free]', (n) => n.map((a) => (a.textContent || '').replace(/\s+/g, ' ').trim()));
   check('every way out of a maths miss sits in the card, in one row',
-    routes.some((t) => /^Khan Academy/.test(t)) && routes.some((t) => /^AoPS /.test(t)) && routes.some((t) => /^Search the web/.test(t)),
+    routes.some((t) => /^Khan Academy/.test(t)) && routes.some((t) => /^Alcumus · /.test(t)) && routes.some((t) => /^Search the web/.test(t)),
     routes.join(' | '));
 
   /* The search searches the idea, never the question, because an ISEE stem typed
