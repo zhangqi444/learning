@@ -1,5 +1,5 @@
 {
-  "note": "Our own explainer for a skill, shown the moment she gets one wrong. First-party and bundled, so it costs nothing, needs no account and works offline — the AoPS chapter is the paid-or-free extra beside it, not the only way back in. Written to a ten-year-old: short sentences, one method, and the trap named out loud. `links` carry a `url` wherever the page has been found and checked; the ones without fall back to a site-scoped search. The old rule here was that a deep link which 404s two years from now is worse than a search that always lands, and it is still the right worry — it is answered by keeping the search badge on the card beside the deep links rather than by refusing to link, and by checking the urls against the sites' own indexes when they are added or changed. Every url here was checked that way on 2026-09-16. A url with no course path in it, of the bare /a/<slug> form, is the shape that failed: it is what a search engine hands you when it has the slug and not the page.",
+  "note": "Our own explainer for a skill, shown the moment she gets one wrong. First-party and bundled, so it costs nothing, needs no account and works offline — the AoPS chapter is the paid-or-free extra beside it, not the only way back in. Written to a ten-year-old: short sentences, one method, and the trap named out loud. Every `links` entry carries a `url` to a page somebody has opened. There is no search-only entry, because a badge naming a site is indistinguishable from a badge opening that site's lesson, and two of them were searches wearing a lesson's clothes. A skill with no on-topic page on a given site simply does not list that site; the card's own Search the web badge is the search, and it says so. The old rule here was that a deep link which 404s two years from now is worse than a search that always lands, and it is still the right worry — it is answered by keeping the search badge on the card beside the deep links rather than by refusing to link, and by checking the urls against the sites' own indexes when they are added or changed. Every url here was checked that way on 2026-09-16. A url with no course path in it, of the bare /a/<slug> form, is the shape that failed: it is what a search engine hands you when it has the slug and not the page.",
   "links_note": "free: true means no account and no payment. Anything marked false costs money to use properly.",
   "skills": {
     "Synonyms": {
@@ -26,7 +26,7 @@
         {
           "name": "BBC Bitesize",
           "free": true,
-          "q": "synonyms KS2"
+          "url": "https://www.bbc.co.uk/bitesize/articles/z8t8pbk"
         }
       ]
     },
@@ -50,11 +50,6 @@
           "free": true,
           "q": "using context clues to figure out new words",
           "url": "https://www.khanacademy.org/ela/5th-grade-reading-and-vocab/xb350e60168d6e96f:the-stories-we-tell-5/xb350e60168d6e96f:understanding-words-in-context-5/v/context-g5-reading"
-        },
-        {
-          "name": "BBC Bitesize",
-          "free": true,
-          "q": "sentence completion cloze KS2"
         }
       ]
     },
@@ -77,7 +72,7 @@
         {
           "name": "BBC Bitesize",
           "free": true,
-          "q": "main idea of a text KS2"
+          "url": "https://www.bbc.co.uk/bitesize/articles/zvtbf82"
         }
       ]
     },
@@ -132,11 +127,6 @@
           "free": true,
           "q": "text structure and organization reading",
           "url": "https://www.khanacademy.org/ela/4th-grade-reading-and-vocab/xe0e52cf20ce2546d:craft-and-structure-4/xe0e52cf20ce2546d:identifying-text-structure-4/a/identifying-informational-text-structures"
-        },
-        {
-          "name": "ReadWriteThink",
-          "free": true,
-          "q": "text structure paragraph purpose"
         }
       ]
     },
