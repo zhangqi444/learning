@@ -1,5 +1,5 @@
 {
-  "note": "Our own explainer for a skill, shown the moment she gets one wrong. First-party and bundled, so it costs nothing, needs no account and works offline — the AoPS chapter is the paid-or-free extra beside it, not the only way back in. Written to a ten-year-old: short sentences, one method, and the trap named out loud. `links` are site-scoped searches rather than deep links, because a deep link that 404s two years from now is worse than a search that always lands.",
+  "note": "Our own explainer for a skill, shown the moment she gets one wrong. First-party and bundled, so it costs nothing, needs no account and works offline — the AoPS chapter is the paid-or-free extra beside it, not the only way back in. Written to a ten-year-old: short sentences, one method, and the trap named out loud. `links` carry a `url` wherever the page has been found and checked; the ones without fall back to a site-scoped search. The old rule here was that a deep link which 404s two years from now is worse than a search that always lands, and it is still the right worry — it is answered by keeping the search badge on the card beside the deep links rather than by refusing to link, and by checking the urls against the sites' own indexes when they are added or changed. Every url here was checked that way on 2026-09-16. A url with no course path in it, of the bare /a/<slug> form, is the shape that failed: it is what a search engine hands you when it has the slug and not the page.",
   "links_note": "free: true means no account and no payment. Anything marked false costs money to use properly.",
   "skills": {
     "Synonyms": {
@@ -822,7 +822,7 @@
           "name": "Khan Academy",
           "free": true,
           "q": "square roots intro",
-          "url": "https://www.khanacademy.org/a/square-roots-of-perfect-squares-art"
+          "url": "https://www.khanacademy.org/math/cc-eighth-grade-math/cc-8th-numbers-operations/cc-8th-roots/a/square-roots-of-perfect-squares-art"
         }
       ]
     },

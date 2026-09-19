@@ -44,6 +44,41 @@ export function readingDays() {
   for (const b of books()) for (const s of b.sessions || []) if (s.on) days.add(s.on)
   return days
 }
+/** The cat on a book's row — or null, while no cat has come.
+ *
+ *  docs/cats.md §8 asks the reading page for "a cat settles on the book she is
+ *  actually reading; reading days feed it". Settling is the whole of it: once a
+ *  book has been opened the cat is on that row for good, finished shelf
+ *  included, because no cat leaves. A book still on the want-to-read list has
+ *  none — an empty spot is a quiet place, not a dim animal.
+ *
+ *  Brightness is the reading days on *that* book, which is the same shape the
+ *  Wordwood already uses: a cat comes to know her by her coming back. That
+ *  makes it a Signal rather than decoration, and it makes the sad version
+ *  inexpressible for a reason better than tact — the count is a tally of days
+ *  that happened, so it can climb and it can sit still, and there is no reading
+ *  of it where the cat has an opinion about a day she did not read.
+ *
+ *  A finished book is Radiant whatever the log says. Three of the starter books
+ *  were finished before the log existed and carry no sessions at all; drawing a
+ *  barely-there cat on a book she has read cover to cover would be the app
+ *  arguing with her, which is what `atLeast` exists elsewhere to stop. */
+export function bookGlow(b) {
+  if (!b || b.removed) return null
+  const n = (b.sessions || []).length
+  if (b.status === "finished") return "Radiant"
+  if (b.status !== "reading" && !n) return null
+  // The bottom rung is Flickering rather than Unseen or Glimpsed, and that is
+  // the same judgement `atLeast` makes elsewhere: a book with no logged days is
+  // not a book she has not read — Harry Potter is open at page 77 and the log
+  // simply started later — so drawing it as a smudge would be the page
+  // contradicting the shelf. The first logged day still moves it, because a
+  // ladder whose bottom two rungs draw the same cat means her first tap changes
+  // nothing she can see, and "it brightens with the days she reads it" is then
+  // a sentence the page does not keep on the day it matters most.
+  return n >= 7 ? "Radiant" : n >= 3 ? "Bright" : n >= 1 ? "Steady" : "Flickering"
+}
+
 export function wordsCollected() { return books().reduce((n, b) => n + (b.words || []).length, 0) }
 /** Pages read, when she has told us both numbers. */
 export function progressOf(b) {

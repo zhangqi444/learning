@@ -220,9 +220,20 @@ from nothing to her own words, which is the moment the cat comes to know her. It
 deliberately does not fire on every autosave, because a cat that blinks whenever
 she pauses typing is a tic rather than an acknowledgement, and a signal that
 fires when nothing happened is not a signal. Two assertions hold it to that: that
-nothing has blinked before she writes, and that something has after. The rest of
-the surfaces in the paragraph above are not done, and each needs the same
-question asked of it — what exactly is the thing that happened?
+nothing has blinked before she writes, and that something has after.
+
+**The second place is the reading log**, and the question that had to be answered
+first — what exactly is the thing that happened? — has an unusually clean answer
+there: a reading day being written. Not the page number changing, not the form
+opening, not an autosave; the one event the whole page exists to record. So the
+book's own cat blinks when a day is logged, from a seed bumped inside the write
+rather than derived from the row, which is what keeps it silent on a render and
+on a reload — nothing happened on those. Held by the same pair of assertions,
+because the "nothing has blinked yet" half is the one that catches an animation
+that merely fires whenever the page is looked at.
+
+The remaining surfaces in the paragraph above — a save to Drive, a checklist row
+— are not done, and each needs that same question asked of it.
 
 ## 5. Distance and height — **built**
 
@@ -312,7 +323,7 @@ lying about its own state.
 | `score` | 2 | unchanged. The number stays plain — a cat must never decorate an honest readiness figure | — |
 | `mock` | 0 | nothing, start to finish — §6, and rule 5 | — |
 | `essay` | **0 world nouns** | **the Telling** — the biggest single gap: a named world event with no world in it. A place is only hers once she has written it down | S |
-| `books` | 0 cats | **the Beacon** — light from outside the world. A cat settles on the book she is actually reading; reading days feed it | S/Signal |
+| `books` | one cat per opened book | **built.** The Beacon is said, and a cat settles on every book she opens. Brightness is that book's own reading days; the blink is the day being written | S/Signal |
 | `rewards` | 0 cats | already speaks `W.currency`; Hum is warmth, so the page should look warm, and the cats gather where it is | S |
 | `checklist` | 0 | the eight weeks are **Reaches** (`W.reach`, unused) | S |
 | `calendar` | 0 | Long Nights and Reaches on the timeline, by name | S |

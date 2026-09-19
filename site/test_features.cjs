@@ -852,6 +852,24 @@ async function runThrough(pg, pick, max = 60) {
   check('and it is marked paid, because a Beast Academy chapter is a book she may not own',
     revAops && (await revAops.evaluate((a) => a.dataset.free)) === '0' && /paid/.test(revAopsTxt), revAopsTxt);
 
+  /* The links on the lesson cards are deep links now, and a deep link is a claim
+     about somebody else's site that nothing in this repo can re-check on its own.
+     What it CAN check is the shape, which is where the one bad link came from: a
+     bare https://www.khanacademy.org/a/<slug> with no course path in it, which is
+     what a search engine hands you when it has the slug and not the page. Khan
+     serves articles, videos and exercises under a course, so a url of that shape
+     is a link nobody has actually opened. Read from the bundle rather than the
+     page, because every card's links have to hold, not the four on screen. */
+  const learnDoc = JSON.parse(require('fs').readFileSync(require('path').join(__dirname, 'content', 'bundle.json'), 'utf8')).learn;
+  const allLinks = Object.entries(learnDoc.skills).flatMap(([sk, c]) => (c.links || []).map((l) => ({ sk, ...l })));
+  const urls = allLinks.filter((l) => l.url);
+  check('every lesson link is https or a search, never http', allLinks.every((l) => !l.url || l.url.startsWith('https://')), String(urls.length) + ' urls');
+  const bare = urls.filter((l) => /khanacademy\.org\/[ave]\//.test(l.url));
+  check('no Khan link is a bare slug with no course path — the shape a search engine invents',
+    bare.length === 0, bare.map((l) => l.sk + ': ' + l.url).join(' | '));
+  const noQ = allLinks.filter((l) => !l.url && !l.q);
+  check('a link with no url still has a search to fall back on', noQ.length === 0, noQ.map((l) => l.sk + ': ' + l.name).join(' | '));
+
   console.log('== reading log');
   await pg.evaluate(() => { location.hash = '#/books'; }); await pg.waitForSelector('[data-testid=book]');
   const bk = await body(pg);
@@ -868,10 +886,31 @@ async function runThrough(pg, pick, max = 60) {
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=book][data-id=harry-potter-1]');
   check('Little Women is the one she is reading', (await pg.$eval('[data-testid=book][data-id=little-women]', (e) => e.dataset.status)) === 'reading');
   check('Charlie is finished', (await pg.$eval('[data-testid=book][data-id=charlie]', (e) => e.dataset.status)) === 'finished');
+  // docs/cats.md §8 asks the reading page for a cat that settles on the book she
+  // is actually reading. It is a Signal, so the checks are about where the stage
+  // comes from, not about a cat being present: reading days on that book, a
+  // finished book at full brightness however thin its log, and no cat at all on
+  // one she has not opened.
+  const catOn = async (id) => pg.$eval(`[data-testid=book][data-id=${id}]`, (e) => { const g = e.querySelector('[data-testid=glim]'); return g ? g.dataset.stage : null; });
+  check('a cat has settled on the book she is reading', (await catOn('little-women')) === 'Flickering', String(await catOn('little-women')));
+  check('and it stays on a book she has finished, at full brightness even with no log behind it', (await catOn('charlie')) === 'Radiant', String(await catOn('charlie')));
+  check('a book is always the same cat', (await pg.$eval('[data-testid=book][data-id=charlie] >> [data-testid=glim]', (e) => e.dataset.word)) === 'Charlie and the Chocolate Factory');
+  await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.books['harry-potter-1'].status = 'want'; localStorage.setItem('isee.v1', JSON.stringify(s)); });
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=book][data-id=harry-potter-1]');
+  check('a book she has not opened yet has no cat on it', (await catOn('harry-potter-1')) === null, String(await catOn('harry-potter-1')));
+  await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.books['harry-potter-1'].status = 'reading'; localStorage.setItem('isee.v1', JSON.stringify(s)); });
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=book][data-id=harry-potter-1]');
   check('suggested next reads offered', (await pg.$$('[data-testid=suggestion]')).length >= 8 && /inference/.test(bk));
+  // The slow blink is acknowledgement (docs/cats.md §4), so it has to be absent
+  // until something has genuinely been written and present afterwards. Both
+  // halves, or an animation that fires on every render passes the second one.
+  const blinked = async () => (await pg.$('[data-testid=book][data-id=little-women] >> [data-testid=glim-blink]')) !== null;
+  check('nothing has blinked before she logs anything', !(await blinked()));
   await pg.click('[data-testid=log-little-women]');
   await pg.waitForSelector('[data-testid=log-little-women]:has-text("Read today")');
   check('a reading day is logged with one tap', /1 reading day/.test(await body(pg)));
+  check('and the book\'s cat slow-blinks once the day is actually written', await blinked());
+  check('her first logged day is visible on the cat, not only in the count', (await catOn('little-women')) === 'Steady', String(await catOn('little-women')));
   const readPts = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); const b = s.books['little-women']; return { n: (b.sessions || []).length, on: (b.sessions || [])[0] && (b.sessions || [])[0].on } });
   // Her reading day is the local calendar day (lib/books.js dayOf), not the UTC one, or an
   // evening tap west of Greenwich would be filed under tomorrow.
@@ -894,6 +933,7 @@ async function runThrough(pg, pick, max = 60) {
   await pg.waitForTimeout(200);
   const back = await pg.evaluate((y) => { const s = JSON.parse(localStorage.getItem('isee.v1')); const b = s.books['little-women']; const ses = b.sessions.find((x) => x.on === y); return { n: b.sessions.length, on: ses && ses.on, at: ses && ses.at.slice(0, 10), page: b.page, order: b.sessions.map((x) => x.on) }; }, yday);
   check('a back-dated reading day is stored on that day and does not move the page back', back.n === 2 && back.on === yday && back.page === 120 && back.order[0] === yday && /2 reading days/.test(await body(pg)), JSON.stringify(back));
+  check('and a second day never takes brightness back off it', (await catOn('little-women')) === 'Steady', String(await catOn('little-women')));
   check('the date picker cannot go into the future', await pg.$eval('[data-testid=book][data-id=little-women] >> [data-testid=log-date]', (i) => { const d = new Date(); return i.max === `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; }));
   // tapping a logged day loads it for editing — it must never delete on one tap
   const bk1 = '[data-testid=book][data-id=little-women]';
