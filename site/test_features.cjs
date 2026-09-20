@@ -880,8 +880,16 @@ async function runThrough(pg, pick, max = 60) {
   const bare = urls.filter((l) => /khanacademy\.org\/[ave]\//.test(l.url));
   check('no Khan link is a bare slug with no course path — the shape a search engine invents',
     bare.length === 0, bare.map((l) => l.sk + ': ' + l.url).join(' | '));
-  const noQ = allLinks.filter((l) => !l.url && !l.q);
-  check('a link with no url still has a search to fall back on', noQ.length === 0, noQ.map((l) => l.sk + ': ' + l.name).join(' | '));
+  /* Stronger than it used to be, and for a reason found by trying to finish the
+     job. This asked only that a link without a url still carried a search, so a
+     badge could not go nowhere. But the row draws a search-only entry exactly
+     like a deep link — same icon, same site name, same "free" — so "BBC
+     Bitesize" could open a search results page while looking like a lesson. Two
+     of them did. A site with no on-topic page for a skill is now simply not
+     listed on that skill, and the card's own Search the web badge is the search,
+     under its own name. */
+  const noUrl = allLinks.filter((l) => !l.url);
+  check('no lesson link is a search wearing a lesson\'s clothes', noUrl.length === 0, noUrl.map((l) => l.sk + ': ' + l.name).join(' | '));
 
   console.log('== reading log');
   await pg.evaluate(() => { location.hash = '#/books'; }); await pg.waitForSelector('[data-testid=book]');
