@@ -22,7 +22,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "acaa0cc1faba5037"
+   "why": {
+    "A": "Hurried means done quickly and in a rush, but candid is about being open and truthful — you can be candid and take all the time you like.",
+    "B": "Secretive means keeping things to yourself and not letting others know, which is the very opposite of being candid.",
+    "C": "Polite but vague means softening your words until nobody can tell what you really think, while a candid person says plainly what she thinks even when it is awkward."
+   },
+   "content_hash": "95e23dd390009381"
   },
   {
    "id": "VR-W5-S2-Q02",
@@ -43,7 +48,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "187d5af3ef6aa96a"
+   "why": {
+    "A": "Friendly to strangers says how someone treats people, while thorough says how completely something is done — every part covered, nothing skipped.",
+    "B": "Work done in a great hurry is rushed, and rushing is how things get missed; thorough work is the opposite, covering everything carefully.",
+    "D": "Difficult to believe describes a far-fetched story, while thorough is about how completely a job has been done, not about whether anyone believes it."
+   },
+   "content_hash": "6a94fcca5da018b3"
   },
   {
    "id": "VR-W5-S2-Q03",
@@ -64,7 +74,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "90d39707258254d0"
+   "why": {
+    "A": "Temporary means lasting only a short time, but plausible is about whether something could reasonably be true, not about how long it lasts.",
+    "B": "Expensive means costing a lot of money, and a plausible excuse costs nothing — it is simply one that could be true.",
+    "C": "Impossible means it could not happen at all, which is the opposite of plausible; a plausible story is one that easily could be so."
+   },
+   "content_hash": "032ad91a4438b7e6"
   },
   {
    "id": "VR-W5-S2-Q04",
@@ -85,7 +100,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "8a9ec682a95c5a37"
+   "why": {
+    "A": "Hard to reach means far away or awkward to get to, like a shelf too high, whereas tedious describes a job that drags on and bores you.",
+    "B": "Sudden and loud describes a bang or a crash, over in a moment, and a tedious job is the opposite — it drags on and on until it wears you out.",
+    "C": "Brief and lively means short and full of energy, which is exactly what a tedious lesson is not."
+   },
+   "content_hash": "0bfc0c6e728d3a44"
   },
   {
    "id": "VR-W5-S2-Q05",
@@ -106,7 +126,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "201cf9743acd2ca5"
+   "why": {
+    "A": "To promise again is to give your word a second time, but disputing is about challenging what someone has said, not pledging anything.",
+    "C": "To agree quickly is to say yes at once, and someone who disputes a decision is refusing to go along with it.",
+    "D": "To explain politely is to make something clear in a kind way, and you can explain something you completely agree with; disputing it means saying outright that it is wrong."
+   },
+   "content_hash": "93009e9ae5ed4a8e"
   },
   {
    "id": "VR-W5-S2-Q06",
@@ -127,7 +152,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "def03ae0c52c01d4"
+   "why": {
+    "B": "Ancient means very old, from long ago, but superficial is about depth — staying on the surface, like a superficial scratch.",
+    "C": "Generous means giving freely to others, while superficial says how deep something goes; a superficial friendship is a shallow one, not a mean one.",
+    "D": "Sturdy means strong and solidly built, but superficial means going no further than the surface, like a cut that barely breaks the skin."
+   },
+   "content_hash": "76d8c48e45dbcc02"
   },
   {
    "id": "VR-W5-S2-Q07",
@@ -148,7 +178,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "a9d4e06e23b97781"
+   "why": {
+    "A": "Clearly excellent means very good indeed, and mediocre falls well short of that — middling, nothing special either way.",
+    "B": "Very expensive means costing a lot, but mediocre is about quality being middling, and something mediocre can carry any price at all.",
+    "D": "Extremely rare means hardly ever found, while mediocre things are everywhere — the word means no better than average."
+   },
+   "content_hash": "14120a0003508957"
   },
   {
    "id": "VR-W5-S2-Q08",
@@ -169,7 +204,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "d74abe069bcce9a1"
+   "why": {
+    "B": "Difficult to please describes someone you can never quite satisfy, but a lenient teacher is easily satisfied and forgives small mistakes.",
+    "C": "Strict and demanding means holding people to every rule and expecting a lot of them, while a lenient teacher lets small slips go.",
+    "D": "Quick to anger means losing your temper easily, whereas lenient means going easy on people, which is a calmer sort of kindness."
+   },
+   "content_hash": "c7e053b40a2b90e6"
   },
   {
    "id": "VR-W5-S2-Q09",
@@ -190,7 +230,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "cc256af6db788ca5"
+   "why": {
+    "A": "Strangely old-fashioned means belonging to a much earlier time, which tells you when something comes from; admirable tells you it deserves respect.",
+    "B": "Unusually noisy is about how much sound something makes, but admirable is about deserving praise, and the quietest acts are often the most admirable.",
+    "C": "Barely acceptable means only just good enough to get by, and something admirable is far more than that — it earns real respect."
+   },
+   "content_hash": "cf9f899dbc01b8cb"
   },
   {
    "id": "VR-W5-S2-Q10",
@@ -211,7 +256,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "6772a02963641bba"
+   "why": {
+    "A": "Sleepy means tired and ready for bed, but a skeptical listener is wide awake — she simply is not convinced yet.",
+    "C": "Generous means quick to share what you have, while skeptical is about whether you believe something, not about what you hand out.",
+    "D": "Trusting means taking what you are told as true without needing proof, which is the opposite of skeptical."
+   },
+   "content_hash": "28156835be2f8d50"
   },
   {
    "id": "VR-W5-S2-Q11",
@@ -232,7 +282,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "445474f02f24715e"
+   "why": {
+    "B": "To insist is to keep saying firmly that you are right and refuse to back down, but the sentence says Marcus had to give in.",
+    "C": "To imagine is to picture something in your mind, and Marcus is not picturing anything here — he actually admits his sister was right.",
+    "D": "To deny something is to say it is not true, and denying that his sister was right is exactly what he could no longer do."
+   },
+   "content_hash": "40c362d082744a6b"
   },
   {
    "id": "VR-W5-S2-Q12",
@@ -253,7 +308,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "f55e3cbe164d2375"
+   "why": {
+    "A": "To scold is to tell someone off for doing something wrong, and hard work deserves the opposite reaction.",
+    "B": "To warn is to tell someone about trouble that may be coming, and the students had done well, so there was nothing to warn them about.",
+    "D": "To replace is to put something new in the place of something else, and a principal pleased with the class is not swapping the students for others."
+   },
+   "content_hash": "d006c4e857ebd347"
   },
   {
    "id": "VR-W5-S2-Q13",
@@ -274,7 +334,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "ec3c59fcd5e6ef3f"
+   "why": {
+    "A": "Careful means paying close attention so as not to make mistakes, and Mia could still do that; what her brother's racing takes away is her ability to favor neither side.",
+    "C": "Patient means waiting calmly without getting annoyed, and having a brother in the race would not make Mia impatient — it would make her want him to win.",
+    "D": "Capable means having the skill to do the job, and nobody says Mia cannot judge, only that she could not do it fairly this time."
+   },
+   "content_hash": "4df8af3a2ea22067"
   },
   {
    "id": "VR-W5-S2-Q14",
@@ -295,7 +360,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "2de380c6d863842d"
+   "why": {
+    "A": "Clever means quick-witted and sharp, but answering before reading the whole question is the opposite of sharp, and Ana regretted it.",
+    "B": "Patient means willing to hold back and wait without fretting, which is exactly what Ana was not — she shouted before she had finished reading.",
+    "D": "Generous means open-handed, happy to give others what you have, and that has nothing to do with rushing an answer out too soon."
+   },
+   "content_hash": "2c86bbb2227205ff"
   },
   {
    "id": "VR-W5-S2-Q15",
@@ -316,7 +386,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "0d5f1736dbc78b53"
+   "why": {
+    "A": "An announcement is a public notice telling people that something is happening, but Ms. Bell was weighing up the essay, not sharing news.",
+    "B": "An invitation asks someone to come to something, and nobody is being invited here — the writing judges the essay.",
+    "C": "An apology says sorry for something you did wrong, and Ms. Bell had nothing to be sorry for; she was giving a judgement on the essay."
+   },
+   "content_hash": "5926850202321a7e"
   },
   {
    "id": "VR-W5-S2-Q16",
@@ -337,7 +412,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "74c21cfdb1fd656c"
+   "why": {
+    "B": "Boastful means showing off about how good you are, which is not what an apology does at all.",
+    "C": "Sarcastic means saying the opposite of what you really mean, often to mock, so a sarcastic apology is one that is not meant — and the clue says she truly meant it.",
+    "D": "Confusing means hard to understand, but the sentence says anyone could tell how she felt, so nothing was unclear."
+   },
+   "content_hash": "a4e8b0c65442cc50"
   },
   {
    "id": "VR-W5-S2-Q17",
@@ -358,7 +438,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "094feaea0774cef7"
+   "why": {
+    "A": "A reward is something good given to you for doing well, and forgetting the tickets cost the group an hour — nobody was rewarded for that.",
+    "C": "A bargain is something you get for less than it is worth, a piece of good luck, and losing an hour is the opposite of a good deal.",
+    "D": "A custom is something a group has always done, a tradition handed down, while forgetting the tickets was a one-off mistake."
+   },
+   "content_hash": "78257a5dc9b6b84b"
   },
   {
    "id": "VR-W5-S2-Q18",
@@ -379,7 +464,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "2059c5dfaca6c673"
+   "why": {
+    "A": "Framed means set in a border ready to hang, but the judges here are choosing which photograph wins, and that means looking hard at each one.",
+    "B": "Purchased means bought, and judges in a contest choose a winner rather than paying for the entries.",
+    "D": "Ignored means paid no attention to, and judges who ignored the photographs could never pick a winner."
+   },
+   "content_hash": "b2923640370d40f6"
   },
   {
    "id": "VR-W5-S2-Q19",
@@ -400,7 +490,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "beccee2984e5cf1d"
+   "why": {
+    "B": "Damage is harm done to something, which would be a reason to drop a plan rather than to call it worth trying.",
+    "C": "Silence is the absence of sound, and a plan cannot contain silence — the coach is saying the plan has real worth.",
+    "D": "Delay means being held up or made to wait, which would be a fault in a plan, not a reason to try it."
+   },
+   "content_hash": "95498cfc1c864f59"
   },
   {
    "id": "VR-W5-S2-Q20",
@@ -421,7 +516,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "0b1eee6129463a1e"
+   "why": {
+    "A": "Clumsy means awkward, likely to trip or drop things, but playing three positions equally well is a compliment, not a complaint.",
+    "B": "Solitary means alone or doing things by yourself, and Nia plays right across a team in three different positions.",
+    "D": "Nervous means anxious and easily worried, and the sentence praises how much Nia can do, not how she feels before a match."
+   },
+   "content_hash": "74e39e9be1e5f2b5"
   },
   {
    "id": "VR-W5-S3-Q01",
@@ -442,7 +542,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "2021ac1a8b72bfe1"
+   "why": {
+    "A": "A reward is what you get for doing something well, a prize or a treat, whereas a flaw is something wrong with a thing — a crack or a weak spot.",
+    "B": "A promise is something you pledge to do, but a flaw is a fault in a thing, like a chip in a bowl.",
+    "D": "A journey is a trip from one place to another, and a flaw has nothing to do with travelling — it is an imperfection."
+   },
+   "content_hash": "18ded73dd6995da6"
   },
   {
    "id": "VR-W5-S3-Q02",
@@ -463,7 +568,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "f5d647971b9f6fce"
+   "why": {
+    "A": "Expensive says how much something costs, but trivial says how much it matters, and a trivial detail is one hardly worth mentioning.",
+    "B": "Noisy means making a lot of sound, while trivial means mattering so little that it can safely be passed over.",
+    "C": "Frozen means turned to ice or held fast by cold, which has nothing to do with trivial, a word about small unimportant things."
+   },
+   "content_hash": "a7d661a4ad4229c7"
   },
   {
    "id": "VR-W5-S3-Q03",
@@ -484,7 +594,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "bb709857ef0d9fd5"
+   "why": {
+    "A": "Gentle means mild and kind, the very opposite of harsh — a harsh winter or a harsh word is rough, not soft.",
+    "B": "Curious means eager to find things out, but harsh describes something rough or severe, like a harsh punishment.",
+    "C": "Damp means slightly wet, and although a winter can be damp, harsh means severe and hard to bear rather than merely moist."
+   },
+   "content_hash": "5fe651a0582fe383"
   },
   {
    "id": "VR-W5-S3-Q04",
@@ -505,7 +620,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "83810c0e3e3db432"
+   "why": {
+    "A": "To argue against something is to speak out and say it is wrong, which is the opposite of approving it.",
+    "B": "To forget entirely is to let something slip out of your mind, but approving is an active decision that something is good.",
+    "D": "To repeat aloud is to say something over again, and you could repeat a plan aloud without approving of it at all."
+   },
+   "content_hash": "22ac4d2f45efe3a1"
   },
   {
    "id": "VR-W5-S3-Q05",
@@ -526,7 +646,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "22276639acc9d2aa"
+   "why": {
+    "A": "Loud and talkative describes how much noise a person makes, but prudent is about thinking ahead, and a quiet person and a chatty one can both be prudent.",
+    "C": "Rich and famous is about money and being well known, while prudent describes how carefully someone thinks before acting.",
+    "D": "Bold and reckless means rushing in without weighing the risk, which is the opposite of prudent."
+   },
+   "content_hash": "0226ee067e885d8f"
   },
   {
    "id": "VR-W5-S3-Q06",
@@ -547,7 +672,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "5c911989c154cd2b"
+   "why": {
+    "A": "Expensive means costing a lot of money, and something shoddy is usually cheap rather than costly; shoddy is about how badly a thing is made, not its price.",
+    "B": "Brightly colored means having strong, vivid colors; shoddy is about the quality of the work, and a badly made thing can be any color at all.",
+    "D": "Carefully built means put together with attention so that it lasts, which is the exact opposite of shoddy."
+   },
+   "content_hash": "da51adc9b1efb4fe"
   },
   {
    "id": "VR-W5-S3-Q07",
@@ -568,7 +698,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "17028301b583f06d"
+   "why": {
+    "B": "To blame unfairly is to accuse someone of a fault that is not theirs, whereas to flatter is the opposite kind of remark: praise laid on thicker than the person has earned.",
+    "C": "To arrive early is to turn up before the time set; flatter has nothing to do with time, and means to praise someone more than they deserve.",
+    "D": "To explain clearly is to make something easy to understand; to flatter is to praise someone far beyond what is deserved, often to get something out of them."
+   },
+   "content_hash": "78bff3841b392998"
   },
   {
    "id": "VR-W5-S3-Q08",
@@ -589,7 +724,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "61fea7de34993e40"
+   "why": {
+    "A": "To celebrate loudly is to make a noisy show of joy over something good, while to condemn is to declare that something is very wrong — the two point in opposite directions.",
+    "C": "To praise quietly is still to say good things about something; condemning is declaring it wrong, which is the reverse.",
+    "D": "To repair something carefully is to mend what is broken, but to condemn is to say in words that something is very wrong, which mends nothing."
+   },
+   "content_hash": "da9536ab5bff7224"
   },
   {
    "id": "VR-W5-S3-Q09",
@@ -610,7 +750,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "8c03c65f768e7368"
+   "why": {
+    "B": "To apologize is to say sorry for something you did, and Ravi is not saying sorry — he is making the fish bigger with every telling.",
+    "C": "To whisper is to speak very softly; the trouble with Ravi is not how loudly he tells the story but that he makes it bigger than it really was.",
+    "D": "To hesitate is to pause because you are not sure, and Ravi never pauses — he simply adds another foot to the fish."
+   },
+   "content_hash": "99b32c24685d54c4"
   },
   {
    "id": "VR-W5-S3-Q10",
@@ -631,7 +776,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "c33a2031413a59af"
+   "why": {
+    "B": "To grumble is to complain in a low, muttering way, which is what an unhappy person does; these winners were proud, so the warning was about bragging.",
+    "C": "To chatter is to talk quickly and lightly about small things, but the warning here is about crowing over a win, which is bragging rather than idle talk.",
+    "D": "To complain is to say out loud that you are unhappy about something; a proud winning team has nothing to complain of, which is why they were warned about bragging instead."
+   },
+   "content_hash": "9fb2b4000d32702a"
   },
   {
    "id": "VR-W5-S3-Q11",
@@ -652,7 +802,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "99dba2bc322dcf63"
+   "why": {
+    "A": "Lengthy means long, going on and on; a plan can be long and still collapse, so length is not what failed here — weakness is.",
+    "B": "Generous means willing to give freely, which describes a person's kindness rather than whether a plan can stand up to one hard question.",
+    "C": "Sturdy means strong and solidly made, and this plan fell apart at the first hard question, so it was the opposite of sturdy."
+   },
+   "content_hash": "35245156fd0c2da2"
   },
   {
    "id": "VR-W5-S3-Q12",
@@ -673,7 +828,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "3d1772cb4301112f"
+   "why": {
+    "A": "To enjoy something is to take pleasure in it, and nobody sends for an expert to take pleasure in damage — they send for someone to judge how bad it is.",
+    "B": "To cause something is to make it happen, but the damage had already happened before the expert arrived, so his job was to judge it, not create it.",
+    "C": "To ignore something is to take no notice of it on purpose; an expert called in before repairs begin is there to look closely, not to look away."
+   },
+   "content_hash": "d8ecfba82ec336dc"
   },
   {
    "id": "VR-W5-S3-Q13",
@@ -694,7 +854,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "903705bdeda013e4"
+   "why": {
+    "A": "Hilarious means extremely funny, and a doctor's note is what makes an excuse hold up — nothing about it is a joke.",
+    "C": "Untrue means false, and the doctor's note is exactly what shows her excuse was genuine, so untrue is the opposite of what the sentence tells you.",
+    "D": "Hidden means put out of sight, and she produced a doctor's note, so her excuse was shown openly rather than concealed."
+   },
+   "content_hash": "161079ccdae47d79"
   },
   {
    "id": "VR-W5-S3-Q14",
@@ -715,7 +880,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "b95c716125d9180d"
+   "why": {
+    "A": "Generous means giving freely to other people; Theo spent the money on a poster for himself, and the point is that it left him short, not that he gave anything away.",
+    "C": "Wise means showing good judgement, and Theo now has nothing left for the class trip, so his choice turned out to be the opposite of good judgement.",
+    "D": "Cheerful means happy and in good spirits; Theo may well feel gloomy, but the word here has to describe his decision, not his mood."
+   },
+   "content_hash": "627165ecc1d4c600"
   },
   {
    "id": "VR-W5-S3-Q15",
@@ -736,7 +906,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "8076075a6223c69e"
+   "why": {
+    "A": "Generous means ready to give away what you have, which is a fine quality but not the one on show here: comparing prices at three stores is judging value sharply.",
+    "B": "Sleepy means drowsy and ready for bed, and a shopper who visits three stores before buying is wide awake and thinking hard.",
+    "C": "Careless means not paying attention, but this shopper paid a great deal of attention, checking three stores before she spent her money."
+   },
+   "content_hash": "cf078b9af09d6a33"
   },
   {
    "id": "VR-W5-S3-Q16",
@@ -757,7 +932,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "4c3aeb5b1c754057"
+   "why": {
+    "A": "Jealous means wanting what somebody else has, or fearing you will lose what is yours; the librarian is the one being given the honor, so there is nobody for her to envy.",
+    "C": "Guilty means having done something wrong, and years of service is the opposite — it is what earns an honor rather than what deserves blame.",
+    "D": "Afraid means frightened; the sentence is about deserving the town's highest honor, not about being scared of it."
+   },
+   "content_hash": "3e6308e4a8427d68"
   },
   {
    "id": "VR-W5-S3-Q17",
@@ -778,7 +958,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "9d0bbc85e5bce58a"
+   "why": {
+    "A": "Silence is the absence of sound or of comment, and a successful first concert wins loud public praise, which is the opposite of nobody saying anything.",
+    "B": "Confusion means being muddled and not understanding, but her concert was a success, and what a success earns is public praise rather than puzzlement.",
+    "D": "Blame is being held responsible for something that went wrong, which follows a failure; this pianist's first concert was a triumph."
+   },
+   "content_hash": "baa68ab5d1e57b49"
   },
   {
    "id": "VR-W6-S2-Q01",
@@ -799,7 +984,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "3d1dca018876907a"
+   "why": {
+    "A": "Strict about rules means insisting that every rule be kept exactly, which is a different quality from benevolent — bene means \"good\", and a benevolent person wishes others well, strictly or not.",
+    "C": "Noisy and restless describes someone who cannot sit still or stay quiet, while benevolent is about wishing other people well, and a quiet person can be just as kind.",
+    "D": "Quick to forget things means forgetful, having a poor memory; benevolent is about goodwill toward other people, not about what you can remember."
+   },
+   "content_hash": "966947611cf30f8f"
   },
   {
    "id": "VR-W6-S2-Q02",
@@ -820,7 +1010,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "a1ecc587a2055a6d"
+   "why": {
+    "B": "Extremely tired is what exhausted means, but malicious comes from mal-, \"bad\", and describes someone who means to do harm, however rested that person is.",
+    "C": "Difficult to lift means heavy, and malicious describes an intention to hurt somebody, which has no weight at all.",
+    "D": "Brightly colored means full of strong, vivid colors; malicious is not about how a thing looks at all, but about meaning to do harm on purpose."
+   },
+   "content_hash": "ab5d622dcc572d87"
   },
   {
    "id": "VR-W6-S2-Q03",
@@ -841,7 +1036,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "b9efe45e65b65d7e"
+   "why": {
+    "A": "Highly organized means keeping everything tidy and in order, but dejected is a feeling — de- means \"down\" and ject means \"thrown\", so it means low in spirits.",
+    "B": "Very wealthy means having a great deal of money, while dejected describes spirits thrown down, which happens to rich and poor alike.",
+    "C": "Wide awake means alert and not at all sleepy, and you can be wide awake and downhearted at the same moment."
+   },
+   "content_hash": "93656c1f4cf45c10"
   },
   {
    "id": "VR-W6-S2-Q04",
@@ -862,7 +1062,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "7b017dbedbb553bb"
+   "why": {
+    "A": "Colorful means full of bright colors, or lively and vivid, and abrupt is about something happening with no warning, which has nothing to do with how it looks.",
+    "B": "Polite means having good manners, and an abrupt answer is close to the opposite — so short and unexpected that it can seem rude.",
+    "C": "Lengthy means long and drawn out, which is the opposite of abrupt: begun or finished all at once, with no warning."
+   },
+   "content_hash": "646fe36975a5820c"
   },
   {
    "id": "VR-W6-S2-Q05",
@@ -883,7 +1088,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "67e8cc8450533bfd"
+   "why": {
+    "A": "To polish is to rub something until it shines, whereas obstruct is built from ob- \"against\" and struct \"build\", so it means putting something in the way.",
+    "B": "To measure is to find out how big or how long something is, but to obstruct a road is to put something across it so that nothing can get past.",
+    "D": "To invite is to ask somebody to come, and to obstruct is the reverse — standing in the way so that nothing can come through."
+   },
+   "content_hash": "895f7c2fdc41b2d8"
   },
   {
    "id": "VR-W6-S2-Q06",
@@ -904,7 +1114,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "940020a897263986"
+   "why": {
+    "A": "To write down is to put words on paper, whereas retract is re- \"back\" and tract \"pull\", so a writer who retracts a statement pulls it back after it has already been written.",
+    "C": "To shout loudly is to say something at great volume, but retracting is about withdrawing what you said, not about how loudly you said it.",
+    "D": "To repeat often is to say the same thing again and again, which is the opposite of retracting it — pulling it back in, the way a cat pulls in its claws."
+   },
+   "content_hash": "6da9448d2abef782"
   },
   {
    "id": "VR-W6-S2-Q07",
@@ -925,7 +1140,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "c50f361f60c3f1b6"
+   "why": {
+    "A": "Costly means expensive, and credit may be what makes you think of money, but the root cred means \"believe\", so a credible witness is one you can believe.",
+    "B": "Recent means happening not long ago, while credible is about whether an account can be believed, and an old account can be every bit as believable as a new one.",
+    "C": "Crowded means full of people, and credible describes a witness or a story you can believe, which is not a matter of numbers."
+   },
+   "content_hash": "d437d719ed003015"
   },
   {
    "id": "VR-W6-S2-Q08",
@@ -946,7 +1166,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "958ba3528490a3ca"
+   "why": {
+    "A": "A volunteer is somebody who offers to help without being paid, and a novice may well be a volunteer too, but nov- means \"new\", so the word itself says only that she is new to the thing.",
+    "C": "A leader is the one who guides everybody else, and nov- means \"new\", so a novice stands at the other end — new to the activity and still learning it.",
+    "D": "A stranger is somebody you do not know, but a novice may be perfectly familiar to you and still be new at the activity, which is all the word claims."
+   },
+   "content_hash": "f9f875a720cfd009"
   },
   {
    "id": "VR-W6-S2-Q09",
@@ -967,7 +1192,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "27e078c56916b68e"
+   "why": {
+    "A": "A serious mistake is a bad error, and surplus comes from sur- \"over\", meaning what is left over, which is not a mistake at all.",
+    "B": "A short delay is a little wait before something happens, but a surplus is about amount rather than time — it is what remains once everyone has enough.",
+    "D": "A shortage of supplies is having too little of something, and a surplus is exactly the reverse: more than is needed."
+   },
+   "content_hash": "5a68d697c754179b"
   },
   {
    "id": "VR-W6-S2-Q10",
@@ -988,7 +1218,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "fb68b4a078e5856d"
+   "why": {
+    "A": "A lawyer's long speech is an address to the court arguing one side, and the verdict is ver- \"truth\" and dict \"speak\" — what the jury speaks once all the speeches are done.",
+    "C": "A written promise is a contract or pledge set down on paper, whereas a verdict is spoken aloud at the end of a trial to settle the matter.",
+    "D": "A witness's story is testimony, an account of what that person saw, and it is evidence heard before the verdict rather than the verdict itself."
+   },
+   "content_hash": "b6ee1e829449753a"
   },
   {
    "id": "VR-W6-S2-Q11",
@@ -1009,7 +1244,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "a5d4685186b4a6ff"
+   "why": {
+    "A": "To assemble is to put the parts of something together, or to gather in one place, but this robot is already built — the crew is waiting for lights that have sunk out of sight beneath the water.",
+    "B": "To announce is to make something known out loud, but the robot is doing something rather than saying something, and lights that have to reappear tell you it has gone down under the water.",
+    "C": "To apologize is to say sorry, and a robot has nothing to be sorry for; the crew waiting for its lights to reappear tells you it has gone down under the water."
+   },
+   "content_hash": "4e309b7a3eb5d000"
   },
   {
    "id": "VR-W6-S2-Q12",
@@ -1030,7 +1270,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "80e71567f98f6545"
+   "why": {
+    "A": "Transparent means clear enough to see straight through, like glass, and this chamber is described by how far down it lies, not by what you can see through it.",
+    "B": "Portable means easy to carry from place to place, and a stone chamber an hour's climb below ground is the last thing anybody could pick up and carry.",
+    "D": "Flooded means filled or covered with water, and although caves can flood, this chamber is simply a cool one deep underground, where the bats can sleep dry."
+   },
+   "content_hash": "b6d7d1e7140dc651"
   },
   {
    "id": "VR-W6-S2-Q13",
@@ -1051,7 +1296,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "b913f970a677e22e"
+   "why": {
+    "B": "Impossible means it could not happen at all, but the announcement plainly did happen — the trouble was that it happened too early.",
+    "C": "Harmless means doing no damage, and this announcement did do damage, since the trophy had to be taken back and handed to somebody else.",
+    "D": "Traditional means done a certain way for many years because that is the custom, and there is nothing customary about naming a winner before the race has finished."
+   },
+   "content_hash": "46b4f9c21fb73bde"
   },
   {
    "id": "VR-W6-S2-Q14",
@@ -1072,7 +1322,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "ecb8dcf875ec262c"
+   "why": {
+    "A": "Imitate means to copy the way someone speaks or moves; the clue \"even when you are sure she is wrong\" is about arguing with what she said, not about copying her.",
+    "B": "Praise means to say out loud how good someone is, which is a kind thing to do in front of guests, not the rude thing the sentence needs.",
+    "D": "Congratulate means to tell someone you are glad about their success or good luck, and nobody would call that rude."
+   },
+   "content_hash": "15bec80484aa3368"
   },
   {
    "id": "VR-W6-S2-Q15",
@@ -1093,7 +1348,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "3983229feb0ba3bd"
+   "why": {
+    "A": "A penalty is a punishment for breaking a rule, and a punishment waiting for you would not keep anyone cheerful through exam season.",
+    "B": "A disappointment is the flat feeling you get when something you hoped for does not happen, but the twins are cheerful precisely because the beach week is still ahead of them.",
+    "C": "A burden is a heavy load that weighs you down, and a week at the beach is the opposite of a weight on your shoulders."
+   },
+   "content_hash": "8daf390dab899ea1"
   },
   {
    "id": "VR-W6-S2-Q16",
@@ -1114,7 +1374,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "484af4c1b0b585f9"
+   "why": {
+    "B": "Postpone means to put something off until later, but the large harvest let the country send its rice to its neighbors, not delay anything.",
+    "C": "Memorize means to learn something by heart so you can say it without looking, and you cannot memorize tons of rice.",
+    "D": "Inherit means to receive money or property from someone after they die, which is not how a country sends its harvest abroad."
+   },
+   "content_hash": "fbe17f82a5f57397"
   },
   {
    "id": "VR-W6-S2-Q17",
@@ -1135,7 +1400,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "35d1e8a30a4785f8"
+   "why": {
+    "A": "Rehearse means to practice a play, a speech, or a piece of music before performing it, and the jeweler is not practicing anything — he is cutting initials into the ring.",
+    "C": "Predict means to say what will happen before it happens, and the jeweler is putting initials on the ring rather than foretelling anything.",
+    "D": "Swallow means to send food or drink down your throat, which has nothing to do with marking initials inside a ring."
+   },
+   "content_hash": "c0c499d47a99f795"
   },
   {
    "id": "VR-W6-S2-Q18",
@@ -1156,7 +1426,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "4b8c855ada1d51e1"
+   "why": {
+    "A": "Flatten means to press or knock something flat, and the barrels are there to send the cars a different way, not to squash them.",
+    "B": "Applaud means to clap to show you like something, and traffic at a flooded street needs steering, not applause.",
+    "D": "Purchase means to buy, and the workers are steering traffic around the flood, not paying for it."
+   },
+   "content_hash": "971f9aaa0fd5fd47"
   },
   {
    "id": "VR-W6-S2-Q19",
@@ -1177,7 +1452,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "ca96af18d2877755"
+   "why": {
+    "A": "Forgive means to stop being angry with someone for what they did, which is not something a kick can do to a swimmer.",
+    "B": "Dissolve means to break up and spread right through a liquid until it disappears, the way sugar does in water, and a swimmer crossing a pool does no such thing.",
+    "D": "Measure means to find out how big or how far something is, but the kick did not find out the distance — it drove her along it."
+   },
+   "content_hash": "217248e0f86b3550"
   },
   {
    "id": "VR-W6-S2-Q20",
@@ -1198,7 +1478,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "e19aef7ae3eb4217"
+   "why": {
+    "A": "Edible means safe to eat; it ends in -ible just as audible does, but edible is about food while audible is about what can be heard.",
+    "B": "Grateful means thankful, which tells you how Dev feels rather than whether the back of the room could hear him.",
+    "C": "Portable means able to be carried about easily, like a portable radio, but Ms. Reyes is asking about how well Dev can be heard."
+   },
+   "content_hash": "4c498c75e52d06f4"
   },
   {
    "id": "VR-W6-S3-Q01",
@@ -1219,7 +1504,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "f709278554eaccbb"
+   "why": {
+    "A": "To measure carefully is to find out exactly how big or how much something is, while eject is about throwing something out, not sizing it up.",
+    "B": "To join together is to fasten two things into one, which is the reverse of eject, where the e- means out.",
+    "D": "To praise loudly is to say aloud how good someone is, and eject has nothing to do with approval — only with forcing something out."
+   },
+   "content_hash": "87641fded81c9bc3"
   },
   {
    "id": "VR-W6-S3-Q02",
@@ -1240,7 +1530,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "40ce850f02aee782"
+   "why": {
+    "A": "A long journey is a trip from one place to another, but spect means look, so a spectacle is something worth stopping to look at, wherever you are.",
+    "B": "A quiet whisper is speech so soft you can barely hear it, and a spectacle is something you see rather than something you hear.",
+    "C": "A small mistake is something done wrong, while a spectacle is a sight that makes people stare."
+   },
+   "content_hash": "dab08b7053d96e9c"
   },
   {
    "id": "VR-W6-S3-Q03",
@@ -1261,7 +1556,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "d02d5edf6522147a"
+   "why": {
+    "A": "A musical instrument is something you play, like a violin or a flute; manu means hand and script means write, so a manuscript is writing, not music.",
+    "C": "A printed poster is made by a machine and pasted up for everyone to read, whereas a manuscript is the author's own text as she wrote it, before any printing.",
+    "D": "A spoken speech is words said aloud to an audience, but script means write, so a manuscript sits on the page rather than in the air."
+   },
+   "content_hash": "4fb135f792b818d9"
   },
   {
    "id": "VR-W6-S3-Q04",
@@ -1282,7 +1582,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "b2c4db05889ba11f"
+   "why": {
+    "A": "A loud cheer is a shout of approval from a crowd, which is only noise; a rupture is something breaking, as in erupt and interrupt.",
+    "C": "A warm welcome is the friendly greeting you give someone who arrives, while a rupture is something splitting or breaking apart.",
+    "D": "A long delay means being kept waiting, which is about time, but a rupture is about something breaking, like a burst pipe."
+   },
+   "content_hash": "ec81fe04ac3a0bcb"
   },
   {
    "id": "VR-W6-S3-Q05",
@@ -1303,7 +1608,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "abdf7ed6a274bd06"
+   "why": {
+    "B": "To sing along is to join in with the words of a song, which is something you do with your voice, while a- means away and vert means turn, so averting your eyes is turning them away.",
+    "C": "To count again is to go back over a total to check it, and avert has nothing to do with numbers — it means turning away.",
+    "D": "To gather up is to collect things together into one place, which brings them toward you, while avert turns something away."
+   },
+   "content_hash": "6b8c85015e5e7d32"
   },
   {
    "id": "VR-W6-S3-Q06",
@@ -1324,7 +1634,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "0d4bb9de4357a189"
+   "why": {
+    "A": "A bad habit is something you do over and over without thinking about it, while magn- means great, so magnitude is about how great something is.",
+    "B": "A soft sound is a faint one, but magnitude does not name a sound at all — it names how great a thing is, like the magnitude of an earthquake.",
+    "D": "A short pause is a brief stop, which is about time, whereas magnitude is about size."
+   },
+   "content_hash": "b1cddee4b4c8b6b6"
   },
   {
    "id": "VR-W6-S3-Q07",
@@ -1345,7 +1660,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "302893f525654fa6"
+   "why": {
+    "A": "Being able to run very fast makes you swift or speedy; flu means flow, and it is a fluent speaker's words that flow, not her feet.",
+    "B": "Being able to lift heavy loads makes you strong, while fluent describes words coming out smoothly, not muscles.",
+    "C": "Being able to draw neatly makes you a careful artist, but fluent is about speech that flows easily, not about a steady hand."
+   },
+   "content_hash": "c391096c18ff6d60"
   },
   {
    "id": "VR-W6-S3-Q08",
@@ -1366,7 +1686,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "b900b5e8c8277efa"
+   "why": {
+    "B": "Crowded means packed full of people, which is the opposite of vacant — vac means empty, as in vacuum.",
+    "C": "Expensive means costing a lot of money, but a vacant room is simply an empty one, and an empty room can be cheap or costly.",
+    "D": "Noisy means full of sound, while vacant is about whether anyone is there at all, and an empty hall is usually the quiet one."
+   },
+   "content_hash": "d1511e36048ba0ba"
   },
   {
    "id": "VR-W6-S3-Q09",
@@ -1387,7 +1712,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "a864956924eaf200"
+   "why": {
+    "A": "A preface is the short introduction at the front of a book, before the main text, so a preface comes first while she added her note after signing.",
+    "B": "A caption is the line of words printed under a picture to explain it, not something you squeeze onto the end of a letter.",
+    "C": "A heading is the title at the top of a page or section, so it goes first, but she remembered the party only after she had signed her name."
+   },
+   "content_hash": "511ccf4dba9f8c47"
   },
   {
    "id": "VR-W6-S3-Q10",
@@ -1408,7 +1738,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "e0f632b15a7f4047"
+   "why": {
+    "A": "Assemble means to fit parts together to build something, which is the reverse of what the dentist does in pulling a tooth out.",
+    "C": "Translate means to put what someone said or wrote into another language, and the tooth is being pulled, not put into words.",
+    "D": "Inflate means to fill something with air until it swells, like a balloon, while the dentist is drawing the tooth out rather than pumping it up."
+   },
+   "content_hash": "720292837234757c"
   },
   {
    "id": "VR-W6-S3-Q11",
@@ -1429,7 +1764,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "58ed4c786549844f"
+   "why": {
+    "A": "Borrow means to take something for a while meaning to give it back, and the whale is pushing the spray out, not taking anything.",
+    "B": "Gather means to collect things together and bring them in, whereas the whale is driving the spray out of its blowhole.",
+    "D": "Invent means to make something that never existed before, but air and water already exist and the whale is simply blowing them out."
+   },
+   "content_hash": "c0a38d579c4e7710"
   },
   {
    "id": "VR-W6-S3-Q12",
@@ -1450,7 +1790,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "2affd5e0afa6bbe4"
+   "why": {
+    "A": "Sharpen means to give something a fine point or edge, the way you sharpen a pencil, and a tower is not putting a point on its signal.",
+    "C": "Decorate means to make something look prettier by adding things to it, which is not what a radio tower does with a signal.",
+    "D": "Swallow means to send food or drink down your throat, which if anything is the opposite of sending a signal out across a hundred miles."
+   },
+   "content_hash": "6532e19f7f814e8d"
   },
   {
    "id": "VR-W6-S3-Q13",
@@ -1471,7 +1816,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "7810d7d0eef25f2a"
+   "why": {
+    "B": "Courteous means polite and well mannered, and however polite the receptionist is, politeness alone will not let her understand a family speaking Spanish.",
+    "C": "Punctual means always on time, which is a fine quality but no help when half the families speak a language the receptionist does not.",
+    "D": "Reliable means you can count on someone to do what she promised, but the receptionist could turn up faithfully every day and still not understand the families who speak only Spanish."
+   },
+   "content_hash": "c940e405a03094b1"
   },
   {
    "id": "VR-W6-S3-Q14",
@@ -1492,7 +1842,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "340037326e1545cf"
+   "why": {
+    "A": "A delivery truck is a vehicle that brings goods to people's doors, but ped means foot, and a crosswalk is painted for people crossing on foot.",
+    "B": "A chimney is the tall shaft above a fireplace that lets smoke out through the roof, and no chimney ever stood in a crosswalk.",
+    "C": "A textbook is a book you study a subject from, so it is not something a sign would tell drivers to stop for."
+   },
+   "content_hash": "b9fe04f428728936"
   },
   {
    "id": "VR-W6-S3-Q15",
@@ -1513,7 +1868,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "4c3529fc0a700ccd"
+   "why": {
+    "B": "An archway is a curved opening you walk or ride through, and although an aqueduct is often carried on rows of arches, an archway by itself brings no water to the fountains.",
+    "C": "A monument is a statue or structure built to keep the memory of a person or an event alive, and admiring one would never make the fountains run.",
+    "D": "A furnace is a closed chamber where a fire burns to heat a building or melt metal, so it gives the city heat rather than the water it needed."
+   },
+   "content_hash": "20c32e7efffc2d6a"
   },
   {
    "id": "VR-W6-S3-Q16",
@@ -1534,7 +1894,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "62f0676eb5cf3b65"
+   "why": {
+    "B": "Flatten means to press or squash something flat, which is not what a lantern does to a tent.",
+    "C": "Translate means to put words into another language, and a lantern gives light, not words.",
+    "D": "Purchase means to buy, so a lantern can be purchased but it cannot purchase anything itself."
+   },
+   "content_hash": "13a35a6d1b306a48"
   },
   {
    "id": "VR-W6-S3-Q17",
@@ -1555,7 +1920,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "870fea11ad3a7786"
+   "why": {
+    "A": "Postpone means to put something off until later, but her jump had already happened, and what it did was go beyond the old record.",
+    "B": "Borrow means to take something for a while meaning to return it, and a record is not lent out — it is beaten.",
+    "D": "Describe means to say in words what something is like, and the jump did not talk about the record, it went past it."
+   },
+   "content_hash": "5fda172600c50ef6"
   },
   {
    "id": "VR-W7-S2-Q01",
@@ -1576,7 +1946,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "21e63d18a8b76495"
+   "why": {
+    "A": "Being eager to give money away is being generous, while frugal describes someone careful about what she spends, which is a different quality altogether.",
+    "B": "Being born into great wealth is about how much money you start with, but frugal is about how carefully you spend it, and rich and poor people alike can be frugal.",
+    "C": "Being quick to waste money is the exact opposite of frugal, since a frugal person spends carefully and tries never to waste anything."
+   },
+   "content_hash": "41e7d6b5d52933ac"
   },
   {
    "id": "VR-W7-S2-Q02",
@@ -1597,7 +1972,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "28f1d7de61749de5"
+   "why": {
+    "A": "Being quick to boast about winning is showing off after a victory; an inquisitive person is not showing anything off, she is asking questions because she wants to find things out.",
+    "C": "Being unwilling to change plans is stubbornness, keeping to what you already decided; inquisitive is about wanting to know more, which has nothing to do with plans.",
+    "D": "Being frightened by new places is fear of the unfamiliar, and an inquisitive person feels the opposite about anything new — she wants to go and find out about it."
+   },
+   "content_hash": "5c70733966af2820"
   },
   {
    "id": "VR-W7-S2-Q03",
@@ -1618,7 +1998,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "eb671ebf1bd0a506"
+   "why": {
+    "A": "Being shy around strangers means feeling small and quiet with people you do not know, which is the reverse of arrogant — an arrogant person thinks very highly of herself.",
+    "B": "Being quick to forgive means letting a wrong go easily; arrogant is about how high an opinion you hold of yourself, which is a different thing altogether.",
+    "C": "Being careful with details means checking the small things closely; arrogant describes a swollen opinion of yourself, and a careful person need not have one."
+   },
+   "content_hash": "4aa9d052e97e689a"
   },
   {
    "id": "VR-W7-S2-Q04",
@@ -1639,7 +2024,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "5e804269763a7891"
+   "why": {
+    "A": "Gentle and forgiving means soft with people and quick to let a fault go, and a stern teacher is the opposite — she means the rule to be kept.",
+    "C": "Unsure and hesitant describes someone holding back because she does not know what to do; a stern person is not hesitating at all, she is being firm.",
+    "D": "Cheerful and chatty means bright and full of talk, and stern is the grave, serious face that makes a room go quiet."
+   },
+   "content_hash": "ce719eb220a95e77"
   },
   {
    "id": "VR-W7-S2-Q05",
@@ -1660,7 +2050,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "2656e76d75919b17"
+   "why": {
+    "B": "Careless in a hurry means rushing and letting mistakes through; diligent means the opposite, working steadily and taking the care the job needs.",
+    "C": "Quick to give up means dropping a task as soon as it gets hard, and a diligent worker is exactly the one who stays with it.",
+    "D": "Unwilling to share is about holding on to what is yours; diligent describes how hard and steadily you work, which is a different thing entirely."
+   },
+   "content_hash": "c571d6cb857608a4"
   },
   {
    "id": "VR-W7-S2-Q06",
@@ -1681,7 +2076,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "a91da134e5ef5a27"
+   "why": {
+    "A": "Joking and playful means treating things lightly, for fun; earnest is the opposite — an earnest person means every word she says.",
+    "B": "Bored and distant describes someone whose mind has drifted away, and an earnest person is the one who cares most about what is being said.",
+    "C": "Angry and rude is about a hot temper and bad manners; earnest says only that you are serious and truly mean it, and you can be earnest quite politely."
+   },
+   "content_hash": "3359bbaf008d545c"
   },
   {
    "id": "VR-W7-S2-Q07",
@@ -1702,7 +2102,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "2e15193a6f0f9e24"
+   "why": {
+    "A": "Delighted means filled with pleasure, and indignant is anger — the particular anger you feel when something is unfair.",
+    "C": "Curious means wanting to find out about something; indignant is not a question at all, it is anger at unfairness.",
+    "D": "Worried means uneasy about what might happen next, and indignant is not unease at all — it is the anger you feel when something is unfair."
+   },
+   "content_hash": "70fadf874c078618"
   },
   {
    "id": "VR-W7-S2-Q08",
@@ -1723,7 +2128,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "6e1735e0a8c5e18e"
+   "why": {
+    "A": "Being afraid of new people is shyness, and envious is not fear at all — it is wanting what somebody else has.",
+    "B": "Being glad about other people's good luck is the very opposite of envious; an envious person wishes that luck had been hers instead.",
+    "D": "Being proud of your own success is about what you have done yourself, and envious is about looking at what somebody else has and wanting it."
+   },
+   "content_hash": "cc2658061accc4d9"
   },
   {
    "id": "VR-W7-S2-Q09",
@@ -1744,7 +2154,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "719b7cee6ef5a5b1"
+   "why": {
+    "A": "Being bored by the whole idea means it does not interest you, and enthusiastic is the opposite — brimming with interest.",
+    "B": "Calm and very careful describes someone taking her time and weighing each step, and enthusiastic is about eagerness instead — how keen you are, not how slowly you go.",
+    "D": "Polite but distant means being pleasant while keeping your feelings back; an enthusiastic helper holds nothing back, she throws herself in."
+   },
+   "content_hash": "cd92b5d17b048b13"
   },
   {
    "id": "VR-W7-S2-Q10",
@@ -1765,7 +2180,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "bab865046734752b"
+   "why": {
+    "A": "Friendly to strangers is about being warm with people you do not know; cautious is about watching for danger, and you can easily be both at once.",
+    "B": "Willing to take chances means running the risk and hoping it turns out, which is exactly what a cautious person will not do.",
+    "C": "Quick and impatient means rushing because waiting annoys you, and cautious means slowing down on purpose so that nothing goes wrong."
+   },
+   "content_hash": "6ab9aba30b13dabc"
   },
   {
    "id": "VR-W7-S2-Q11",
@@ -1786,7 +2206,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "5ebcb17cdb8e1c26"
+   "why": {
+    "A": "Frugal means careful and sparing with money, and it is praise; the family is not praising Marcus, and refusing a loan he would have back the next day saves him nothing.",
+    "B": "Practical means sensible and down-to-earth about how things really work, and there is nothing sensible about refusing to lend a dollar the cousins would have handed straight back.",
+    "C": "Thrifty is praise too — it means making your money go a long way by not wasting it, and nothing here was going to be wasted, since the cousins would have paid him back."
+   },
+   "content_hash": "97a2063841d0e17f"
   },
   {
    "id": "VR-W7-S2-Q12",
@@ -1807,7 +2232,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "c989b0122c292fe4"
+   "why": {
+    "B": "Honest means truthful and open, but Rico is hiding what he did and the grin gives him away; sly means getting something by quiet trickery.",
+    "C": "Puzzled means not understanding something, and Rico understands perfectly well what became of the cupcake — that is why he is grinning.",
+    "D": "Gracious means warm and well-mannered, and Rico's grin is not good manners; it is the look of someone pleased with a trick he has got away with."
+   },
+   "content_hash": "3de55bc210eed565"
   },
   {
    "id": "VR-W7-S2-Q13",
@@ -1828,7 +2258,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "ce04970349e60540"
+   "why": {
+    "A": "Reckless means charging ahead without thinking what could go wrong, and the inventor is doing the careful opposite — claiming only what she is sure of.",
+    "B": "Boastful means talking up how good you are, and the inventor does the reverse — she deliberately keeps her claim small.",
+    "C": "A grand claim is a huge, sweeping one, and hers was deliberately small — one extra hour, not changing the world."
+   },
+   "content_hash": "38e74b1f4ca2d2ce"
   },
   {
    "id": "VR-W7-S2-Q14",
@@ -1849,7 +2284,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "77e0a180a6ad8830"
+   "why": {
+    "A": "Popular means liked by a great many people, and the sentence is not about how many people like Dana — it is about her standing by the one friend everyone else dropped.",
+    "C": "Boastful means going on about how good you are, and Dana says nothing about herself; she just keeps walking Priya home.",
+    "D": "Impatient means quickly annoyed at having to wait; nobody is waiting for anything here, and walking Priya home is faithfulness, not irritation."
+   },
+   "content_hash": "f584ebee36bd511f"
   },
   {
    "id": "VR-W7-S2-Q15",
@@ -1870,7 +2310,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "7667ddee3c11b4b9"
+   "why": {
+    "A": "Gentle means soft and careful of people's feelings, and his advice stung, so it was anything but gentle; blunt means saying the truth without softening it.",
+    "B": "Vague means unclear and short on detail, and he named two exact faults — the dull writing and the unchecked spelling — so his advice was the opposite of vague.",
+    "C": "Tactful means telling the truth in a way that spares the other person's feelings, and his remark spared none, which is what made it sting."
+   },
+   "content_hash": "0213ac87d5738df9"
   },
   {
    "id": "VR-W7-S2-Q16",
@@ -1891,7 +2336,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "6dc4a644188742dd"
+   "why": {
+    "A": "Puzzled means confused and unable to work something out; nothing confuses the cast here — they know exactly what Mr. Odile did and are thanking him for it.",
+    "B": "Indifferent means not caring one way or the other, and a card and applause are what people do when they care very much.",
+    "D": "Annoyed means mildly cross, and the cast has nothing to be cross about — the forgotten costumes were their own fault and he put it right."
+   },
+   "content_hash": "deb4eaf76ed37f34"
   },
   {
    "id": "VR-W7-S2-Q17",
@@ -1912,7 +2362,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "99cbbd7f7c352788"
+   "why": {
+    "A": "Playful means full of fun and games, and this is the moment even the fidgeters go still; solemn means grave and serious.",
+    "C": "Casual means easy-going and informal, the way you are with friends, and a minute of silence for the school's founder is as formal as an assembly gets.",
+    "D": "Festive means cheerful in the way a party or a holiday is, and this silence is a mark of respect, which is grave rather than merry."
+   },
+   "content_hash": "3861344dc88ff982"
   },
   {
    "id": "VR-W7-S2-Q18",
@@ -1933,7 +2388,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "999a7b1a8df32f24"
+   "why": {
+    "A": "Indifferent means not caring either way, and an indifferent voice would have left Danny feeling nothing at all rather than understood.",
+    "B": "Severe means harsh and stern; Ms. Ortiz did hold him to the rule, but she did it in a kind voice, and severe describes a voice that is not kind.",
+    "C": "Mocking means making fun of someone, and nobody is laughing at Danny — he comes away feeling understood."
+   },
+   "content_hash": "f04a4cae97c37148"
   },
   {
    "id": "VR-W7-S2-Q19",
@@ -1954,7 +2414,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "678279989f9957b8"
+   "why": {
+    "B": "Impatient means fed up with waiting, and Grandma is not waiting for anything; she is looking back at summers that are already over.",
+    "C": "Anxious means worried about what might happen, and her feeling points backwards to the lake summers she misses, not forwards to anything to fear.",
+    "D": "Bitter means sour and angry over something that went wrong, and she is smiling as she remembers, so her feeling is fond rather than sour."
+   },
+   "content_hash": "68ea95080a286f2c"
   },
   {
    "id": "VR-W7-S2-Q20",
@@ -1975,7 +2440,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "e417d0dcb5ce56a7"
+   "why": {
+    "A": "Cheerful means bright and in good spirits, and Ana has gone quiet and is mumbling, which is what being worn out looks like at the end of a long walk.",
+    "C": "Playful means in the mood for fun and games, and someone in that mood would still be chattering; Ana has stopped altogether.",
+    "D": "Alarmed means suddenly frightened by something, and nothing on the trail has frightened Ana — she is simply worn out."
+   },
+   "content_hash": "1d319dc1dcbaaf4a"
   },
   {
    "id": "VR-W7-S3-Q01",
@@ -1996,7 +2466,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "cd4c45cbed48fb7d"
+   "why": {
+    "B": "Always complaining about others is grumbling and faultfinding, and a boastful person's subject is not other people at all — it is himself.",
+    "C": "Being very generous with money means giving it away freely, and boastful says nothing about money; it is about how a person talks about himself.",
+    "D": "Being easily frightened by noise is being jumpy or timid, and a boastful person is not shrinking from anything — he is announcing how good he is."
+   },
+   "content_hash": "754b9aefaa6abab5"
   },
   {
    "id": "VR-W7-S3-Q02",
@@ -2017,7 +2492,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "ccdbf5fdea06e63d"
+   "why": {
+    "A": "Wildly funny is about making people laugh, which is humor rather than manners, and gracious is about how warmly and politely you treat people.",
+    "B": "Being confused by simple things means struggling to understand, and gracious has nothing to do with how quickly you understand — it is about kind good manners.",
+    "D": "Coldly rude is meeting someone with no warmth at all, and gracious is its exact opposite — warmth and good manners."
+   },
+   "content_hash": "42cb96a3711d2540"
   },
   {
    "id": "VR-W7-S3-Q03",
@@ -2038,7 +2518,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "588efc9714576a99"
+   "why": {
+    "B": "Being eager to begin a task is keenness, wanting to get started, while resentful is a sour, angry feeling that looks back at something already done to you.",
+    "C": "Grateful means thankful for a kindness, and resentful is its opposite — the bitterness left behind when you feel you were treated unfairly.",
+    "D": "Being puzzled by a new rule means not understanding it, and a resentful person understands the rule perfectly well — she just feels she was treated unfairly and stays angry about it."
+   },
+   "content_hash": "bb086889a83e0d93"
   },
   {
    "id": "VR-W7-S3-Q04",
@@ -2059,7 +2544,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "ed3a06bc4689d0b5"
+   "why": {
+    "A": "Extremely funny is about making people laugh, and melancholy is a low, lingering sadness — the furthest thing from laughter.",
+    "C": "Wide awake is about being alert rather than sleepy, and melancholy describes a mood; you can feel melancholy wide awake or half asleep.",
+    "D": "Full of energy describes someone bursting to get going, and melancholy is a quiet, heavy sadness that slows a person down."
+   },
+   "content_hash": "3d286720ed66efed"
   },
   {
    "id": "VR-W7-S3-Q05",
@@ -2080,7 +2570,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "75659ec592b8c1de"
+   "why": {
+    "A": "Warm and welcoming is how a friend greets you at the door, and grim is the opposite — hard, cheerless and forbidding.",
+    "B": "Silly and light means playful and not serious, while grim is heavy and severe, the look on a face when the news is bad.",
+    "C": "Bright and hopeful means expecting things to turn out well, and grim is the opposite in feeling — hard, cheerless and gloomy to look at."
+   },
+   "content_hash": "282133f85c537ab8"
   },
   {
    "id": "VR-W7-S3-Q06",
@@ -2101,7 +2596,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "7c079368594d1d9b"
+   "why": {
+    "B": "Being proud of a win is pleasure in something you did well, and apologetic is the opposite feeling — regret for something you did badly.",
+    "C": "Being curious about a plan means wanting to know more about it, and apologetic carries no question in it at all, only sorriness for a fault.",
+    "D": "Being angry at a rule is temper aimed at the rule, and an apologetic person is not angry; she is admitting she was in the wrong."
+   },
+   "content_hash": "f27114cd76cd1cc6"
   },
   {
    "id": "VR-W7-S3-Q07",
@@ -2122,7 +2622,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "90c75e2e67e4ca2c"
+   "why": {
+    "B": "Eager to help describes someone quick to pitch in, which says nothing about scorn — scorn is the cold feeling that a thing is beneath you.",
+    "C": "Admiration is looking up to someone and thinking well of them, which is the exact opposite of scorn — a scornful person looks down.",
+    "D": "Being unsure of the answer is doubt, which is about not knowing something; scorn is about looking down on a thing as not worth your respect."
+   },
+   "content_hash": "e6bbc36533867358"
   },
   {
    "id": "VR-W7-S3-Q08",
@@ -2143,7 +2648,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "36eab1762df61065"
+   "why": {
+    "A": "Easily amused means quick to find things funny, which is about laughing, not about standing up to an order.",
+    "B": "Grateful means full of thanks for something you have been given, and someone defiant is refusing rather than thanking.",
+    "D": "Quietly obedient means doing as you are told without any fuss, which is the very opposite of defiant — defiance is refusing out loud."
+   },
+   "content_hash": "2e8a51ca4602d99f"
   },
   {
    "id": "VR-W7-S3-Q09",
@@ -2164,7 +2674,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "f0c77ffcced99de5"
+   "why": {
+    "A": "Timid means shy and easily frightened, but Maya insists out loud that her teacher deserves the credit, and insisting takes nerve rather than shyness.",
+    "C": "Indifferent means not caring one way or the other, and Maya plainly cares a great deal — she insists her teacher be given credit."
+   },
+   "content_hash": "953125d2a0605834"
   },
   {
    "id": "VR-W7-S3-Q10",
@@ -2185,7 +2699,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "679a02592876c307"
+   "why": {
+    "A": "Gracious means being kind and generous about other people, especially when you have won, and Trent does the opposite by reminding everyone of his own cleverness.",
+    "D": "Apologetic means looking sorry, as though you wished you had not done something, and Trent is enjoying himself far too much for that."
+   },
+   "content_hash": "9a515c65bf41cdc2"
   },
   {
    "id": "VR-W7-S3-Q11",
@@ -2206,7 +2724,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "62bf49371df9a98a"
+   "why": {
+    "A": "Obedient means doing what you are told, and a kitten who sweeps every pencil off the desk is doing the opposite of what she is told.",
+    "B": "Vicious means cruel and meaning to cause harm, which is far too strong for a kitten knocking pencils about for fun.",
+    "D": "Timid means shy and easily scared, but this kitten darts off with her tail high, which is the swagger of a confident cat."
+   },
+   "content_hash": "8577bab9510efd18"
   },
   {
    "id": "VR-W7-S3-Q12",
@@ -2227,7 +2750,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "e6c272b5da29f1f0"
+   "why": {
+    "A": "Gloomy means low-spirited and expecting the worst, and the coach tells his players the comeback is still theirs, which is expecting the best.",
+    "B": "Furious means extremely angry, and the coach is encouraging his players rather than raging at them.",
+    "D": "Uncertain means not knowing which way things will go, but \"still theirs for the taking\" is said with confidence, not with doubt."
+   },
+   "content_hash": "96991f52c0e02c10"
   },
   {
    "id": "VR-W7-S3-Q13",
@@ -2248,7 +2776,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "f2010b8658accc4f"
+   "why": {
+    "B": "Disappointed is what you feel when something you hoped for does not happen, and Ravi's name is on the list, so the hoped-for thing did happen.",
+    "C": "Alarmed means suddenly frightened by something bad, and finding out you have been cast is good news, not a fright.",
+    "D": "Annoyed means mildly cross at something irritating, and there is nothing to be cross about when you have been cast after expecting to fail."
+   },
+   "content_hash": "869a270cd03df0c7"
   },
   {
    "id": "VR-W7-S3-Q14",
@@ -2269,7 +2802,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "0429bb779f1a2d54"
+   "why": {
+    "A": "Blunt means saying exactly what you think without softening it, which is precisely what Nina avoided by praising the colors first.",
+    "B": "Boastful means showing off about yourself, and Nina says nothing about herself at all — she is talking about the painting.",
+    "C": "Rude means openly disrespectful, and Nina goes out of her way to be kind about the painting before she suggests a change."
+   },
+   "content_hash": "76cadcfb08cbcdc6"
   },
   {
    "id": "VR-W7-S3-Q15",
@@ -2290,7 +2828,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "fac9a1e08704ac65"
+   "why": {
+    "B": "Hostile means unfriendly and ready for a fight, and a dog who settles his head in your lap is doing the opposite of picking one.",
+    "C": "Indifferent means not caring either way, but this dog nudges Nora's hand until she pets him, so he cares very much.",
+    "D": "Fearful means frightened and expecting to be hurt, and a dog who feels that way shrinks back rather than pushing his head into someone's hands."
+   },
+   "content_hash": "5ecaa9f7375e5db3"
   },
   {
    "id": "VR-W7-S3-Q16",
@@ -2311,7 +2854,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "fe73eb747abec89e"
+   "why": {
+    "B": "Relaxed means calm and free of worry, and someone chewing his sleeve and watching the clock is the opposite of calm.",
+    "C": "Bored means having nothing interesting to occupy you, but Dev is not short of something on his mind — he is certain the news will be bad.",
+    "D": "Delighted means filled with joy, and Dev expects bad news, which is nobody's idea of a delight."
+   },
+   "content_hash": "46398c52522f91d7"
   },
   {
    "id": "VR-W7-S3-Q17",
@@ -2332,7 +2880,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "d3292ea2d542d57f"
+   "why": {
+    "A": "Neutral means taking neither side, but a review that lists every flaw and praises almost nothing has plainly taken a side.",
+    "B": "Cheerful means bright and good-humoured, which is not how a review reads when it finds fault with everything in the play.",
+    "D": "Admiring means full of praise for something, and this review praises almost nothing."
+   },
+   "content_hash": "2df25e42f318c393"
   },
   {
    "id": "VR-W8-S2-Q01",
@@ -2353,7 +2906,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "ac23391fe0775def"
+   "why": {
+    "B": "A loud and public complaint is an outcry or a protest; discretion points the other way, at quietly being trusted to make the choice yourself.",
+    "C": "A rule that must always be followed leaves nobody any choice, and discretion is exactly the opposite — it is what you have when the choice is left up to you.",
+    "D": "A careful written record is a log or a register, but discretion is not something written down; it is the freedom to decide."
+   },
+   "content_hash": "5f7fa943cbc83691"
   },
   {
    "id": "VR-W8-S2-Q02",
@@ -2374,7 +2932,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "74a113bb1a3ece3c"
+   "why": {
+    "B": "A decision made by one person in charge is a decree, an order given from the top; unanimous means every single member agreed, not just the one in charge.",
+    "C": "Putting something off until a later meeting is postponing it, which is about when the decision is made, not about how many people agreed.",
+    "D": "Kept secret from every member is not what unanimous means — that word, with a u, means every single member agreed. You may be thinking of anonymous, which does not mean secret either: there the thing is out in the open and only the name behind it is unknown."
+   },
+   "content_hash": "903e209ef3bddc40"
   },
   {
    "id": "VR-W8-S2-Q03",
@@ -2395,7 +2958,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "ed7ffc3b8b3947ac"
+   "why": {
+    "A": "Someone extremely careful about details in their work, because they want it done properly, is conscientious — the word that looks and sounds like this one; conspicuous is about being easy to see.",
+    "B": "Something kept carefully out of sight is hidden, which is the opposite of conspicuous — a conspicuous thing is right there where you cannot miss it.",
+    "D": "Acting in a sneaky, guilty way is suspicious, another look-alike word; something conspicuous simply stands out where everyone notices it, with no guilt about it at all."
+   },
+   "content_hash": "7824a5efeab19773"
   },
   {
    "id": "VR-W8-S2-Q04",
@@ -2416,7 +2984,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "2c68747a49cc7e5d"
+   "why": {
+    "B": "Large and very heavy is massive or bulky, and size has nothing to do with benign — a huge old dog can be perfectly benign.",
+    "C": "Quick and noisy describes how something moves and sounds, while benign describes whether it can do you any harm.",
+    "D": "Sharply critical of others means finding fault with people, which is the opposite of benign — a benign remark hurts nobody."
+   },
+   "content_hash": "fe667b7cba470cba"
   },
   {
    "id": "VR-W8-S2-Q05",
@@ -2437,7 +3010,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "a9e6c992e057df47"
+   "why": {
+    "B": "A promise made in front of a crowd is a pledge or a vow, but a predicament is trouble you are stuck in, not something you promised.",
+    "C": "A guess about what will happen next is a prediction, the look-alike word; a predicament is the fix you are already in.",
+    "D": "A long delay before an event is a wait or a postponement, which is about time passing, while a predicament is a difficulty you cannot easily get out of."
+   },
+   "content_hash": "8ceba66f15c02326"
   },
   {
    "id": "VR-W8-S2-Q06",
@@ -2458,7 +3036,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "1ed22f73aba36070"
+   "why": {
+    "A": "To remind someone is to make them think of something they still have to do, while to reminisce, which looks similar, is to look back at the past for pleasure.",
+    "B": "To apologize is to say sorry for something you did wrong, and reminiscing is simply sharing stories about the past, with no fault in it.",
+    "C": "To plan carefully for next year looks forward to what has not happened yet, and reminiscing looks the other way, back at what already has."
+   },
+   "content_hash": "def492c31afe8534"
   },
   {
    "id": "VR-W8-S2-Q07",
@@ -2479,7 +3062,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "28f8e493e3c93440"
+   "why": {
+    "B": "To break apart suddenly is to shatter, but waning is slow and gradual, the way the moon loses a sliver each night.",
+    "C": "To stay exactly the same is to remain constant, but something that wanes is changing all the while by growing less.",
+    "D": "To grow larger and brighter is to wax, wane's partner word; wane is the shrinking half of the pair."
+   },
+   "content_hash": "044073bf12ada194"
   },
   {
    "id": "VR-W8-S2-Q08",
@@ -2500,7 +3088,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "9e0586f72f3d987a"
+   "why": {
+    "A": "Spoken in a very loud voice is about how something is said, not about what the words mean, and literal is entirely about meaning.",
+    "B": "Having to do with books and authors is literary, the look-alike word with two r's; literal has one r and means taking words exactly as they stand.",
+    "D": "Full of colorful comparisons describes figurative language, which is the opposite of literal — the literal meaning is the plain one, with no comparison in it."
+   },
+   "content_hash": "2542e67ba0186f1d"
   },
   {
    "id": "VR-W8-S2-Q09",
@@ -2521,7 +3114,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "1515dd18d4c960f3"
+   "why": {
+    "B": "Being in charge of everyone else makes you superior, and a subordinate is the one ranked below, not above.",
+    "C": "Exactly equal in rank means neither one stands above the other, but subordinate always means lower than something else.",
+    "D": "Needed more than anything else is essential, and subordinate says the opposite — that this concern matters less than the main one."
+   },
+   "content_hash": "9a733a9fa674c117"
   },
   {
    "id": "VR-W8-S2-Q10",
@@ -2542,7 +3140,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "c53e967f1e1929c5"
+   "why": {
+    "A": "Used only one time is disposable, which is about how often you use a thing, not about how much room it takes up.",
+    "C": "Made of very soft material is about what a thing is made of, while compact is about how tightly it is packed into a small space — a compact kitchen can be full of soft things.",
+    "D": "Spread out over a wide area is the opposite of compact, which means everything gathered neatly into a small space."
+   },
+   "content_hash": "c8bbec47792b8649"
   },
   {
    "id": "VR-W8-S2-Q11",
@@ -2563,7 +3166,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "03bf976b30daef5f"
+   "why": {
+    "A": "A trace is a tiny amount of something, or a mark it leaves behind, which is the opposite of the large sum ovens and rent cost.",
+    "B": "A sanctuary is a safe place where something is protected, like a wildlife sanctuary, and a new bakery needs money rather than shelter.",
+    "D": "A conflict is a fight or a disagreement, and this sentence is about what must be paid for before the first loaf is sold, not about anyone quarrelling."
+   },
+   "content_hash": "6752f18fdc3ffbcd"
   },
   {
    "id": "VR-W8-S2-Q12",
@@ -2584,7 +3192,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "0126f1572ea67855"
+   "why": {
+    "A": "Volume can mean how much there is of something — how many pages an essay runs to — and Mr. Alvarez is grading the ideas inside it, not the amount.",
+    "B": "Discipline is training yourself to keep at something and behave well, which is a habit a person has, not something written inside an essay.",
+    "C": "Stock is the supply of goods a shop keeps ready to sell, so it has nothing to do with the ideas and evidence in an essay."
+   },
+   "content_hash": "a747eeb901c86de7"
   },
   {
    "id": "VR-W8-S2-Q13",
@@ -2605,7 +3218,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "43c5386160547036"
+   "why": {
+    "A": "A riddle is a puzzling question meant to be guessed at, but \"habitat\" is not a puzzle — it is a word with a settled meaning.",
+    "B": "A rumor is a story passed from person to person that may well not be true, and \"habitat\" is a word from science, not gossip.",
+    "D": "A custom is something a group has long been in the habit of doing, like a holiday tradition, and \"habitat\" is a word, not a practice."
+   },
+   "content_hash": "40a3579170164d44"
   },
   {
    "id": "VR-W8-S2-Q14",
@@ -2626,7 +3244,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "9650d5dfe13f5562"
+   "why": {
+    "B": "A verdict is the decision reached at the end of a trial, which has nothing to do with a book beside Grandma's chair.",
+    "C": "A sanctuary is a safe place where something is protected, such as a bird sanctuary, and an encyclopedia is a set of books, not a refuge.",
+    "D": "Stock is the supply of goods a shop keeps to sell, so a shop might hold a stock of encyclopedias, but one book of the set is a volume."
+   },
+   "content_hash": "d6486ecbc9a98e33"
   },
   {
    "id": "VR-W8-S2-Q15",
@@ -2647,7 +3270,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "4ef6276800b81516"
+   "why": {
+    "A": "Suspended means stopped for a while with the idea of starting again later, but the fire department did not pause its help — it carried water and blankets out that same night.",
+    "B": "Eradicated means wiped out completely, the way a disease can be eradicated; help given to families is handed over, not destroyed.",
+    "C": "Refused means said no and would not do it, which is the opposite of a crew delivering water and blankets to every family before midnight."
+   },
+   "content_hash": "d5dcc1fde107f025"
   },
   {
    "id": "VR-W8-S2-Q16",
@@ -2668,7 +3296,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "77e4d6de7b1d6cf7"
+   "why": {
+    "A": "A warning tells you trouble may be coming so you can get ready for it; a warning from the city would not have paid for a new roof.",
+    "B": "A custom is a way of doing something that people have kept up for years, like a birthday custom — it is a habit, not money a museum can apply for.",
+    "C": "A verdict is the decision a jury or a judge reaches at the end of a trial, and nobody is being judged here; the museum was given money."
+   },
+   "content_hash": "5b9fa8fd96025b98"
   },
   {
    "id": "VR-W8-S2-Q17",
@@ -2689,7 +3322,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "d7e48fbb0b732641"
+   "why": {
+    "B": "Stifle means to smother something or hold it back, the way you stifle a yawn in class; you can stifle a laugh, but you cannot stifle a boat.",
+    "C": "Eradicate means to get rid of something completely, like eradicating the weeds from a garden — the team needed to hire a boat, not destroy one.",
+    "D": "Suspect means to think something may be true before you have proof; the team's problem is not a doubt about the boat, it is having no boat at all."
+   },
+   "content_hash": "dab1ca4a24cdc91d"
   },
   {
    "id": "VR-W8-S2-Q18",
@@ -2710,7 +3348,11 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "2715cfb2568c59ba"
+   "why": {
+    "A": "Retaliate means to strike back at someone who has hurt you first, but ticket numbers are not paying anybody back — they are simply falling.",
+    "B": "Cultivate means to tend something so that it grows, the way a gardener tends a row of beans; sales going from four hundred to fifty are shrinking, not growing."
+   },
+   "content_hash": "8c8a1e0d874f2eba"
   },
   {
    "id": "VR-W8-S2-Q19",
@@ -2731,7 +3373,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "64b7d05538210e4c"
+   "why": {
+    "A": "Domestic means having to do with the home — domestic chores, a domestic cat — so it can describe a household, but not the sound of someone's voice.",
+    "C": "Tangible means solid enough to touch, like a receipt you can hold in your hand; a voice can be heard but never touched, and it is the vet's kindness that calms the kitten.",
+    "D": "Restless means unable to keep still or settle down, which is how the frightened kitten was — the vet is the opposite, moving slowly and speaking gently."
+   },
+   "content_hash": "091333cb815435bd"
   },
   {
    "id": "VR-W8-S2-Q20",
@@ -2752,7 +3399,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "67b3f8eac92972a6"
+   "why": {
+    "A": "A trace is a tiny bit of something left behind, like a trace of mud on the floor; what fills this radio is a loud crackling, which is the opposite of a tiny bit.",
+    "C": "Conflict means a fight or a clash between people or ideas, and a radio crackling on a shelf is making a noise, not having an argument.",
+    "D": "Rust is the reddish-brown flaking that grows on old iron when it gets wet; rust can ruin a radio, but it is something you see, not the crackle you hear."
+   },
+   "content_hash": "7cb5ab3b6a9a5f0c"
   },
   {
    "id": "VR-W8-S3-Q01",
@@ -2773,7 +3425,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "7d452f6fabb1881c"
+   "why": {
+    "A": "Repairing something with care is mending or restoring it, which leaves a thing better than you found it; someone who exploits people is using them for his own gain instead.",
+    "C": "Praising someone in public is complimenting or commending them, which is treating them well; exploiting them is treating them unfairly.",
+    "D": "Handing something over willingly is surrendering or giving it up, and the giving is your own choice; exploiting is taking advantage of someone who has no such choice."
+   },
+   "content_hash": "c5ce13c4df058cab"
   },
   {
    "id": "VR-W8-S3-Q02",
@@ -2794,7 +3451,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "7acbb372e8d8c860"
+   "why": {
+    "A": "Waiting for someone else to act is being passive and leaving the work to others, while striving is effort you make yourself.",
+    "B": "Wandering with no plan is roaming or drifting, going wherever you happen to end up; someone who strives is heading somewhere on purpose.",
+    "D": "Giving up quickly is quitting, which is exactly what striving is not — you strive by keeping at something even when it is hard."
+   },
+   "content_hash": "7f3572711e8391f9"
   },
   {
    "id": "VR-W8-S3-Q03",
@@ -2815,7 +3477,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "8b479d881f25fe01"
+   "why": {
+    "A": "A sudden burst of anger is an outburst, or losing your temper — a feeling that takes hold of you; discipline is the steady self-control that stops feelings taking hold.",
+    "B": "A talent a person is born with is a gift, something you have without working for it; discipline is trained, which is the whole point of the word.",
+    "D": "A piece of unexpected good luck is a stroke of fortune that arrives by chance; discipline is built on purpose, a little at a time, and chance has nothing to do with it."
+   },
+   "content_hash": "d50419a59d32d4e0"
   },
   {
    "id": "VR-W8-S3-Q04",
@@ -2836,7 +3503,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "2a62bbdc99506bc7"
+   "why": {
+    "B": "Shy and easily frightened is timid, and a timid puppy backs away from a bigger dog rather than barking boldly at it, which is what a feisty one does.",
+    "C": "Polite and quiet in a crowd is reserved or well-mannered; feisty describes someone spirited and ready to stand up for herself, which is rarely quiet.",
+    "D": "Slow and always sleepy is sluggish, and it takes energy to square up to a much larger dog; feisty is full of that energy."
+   },
+   "content_hash": "003c0fbe1f91d832"
   },
   {
    "id": "VR-W8-S3-Q05",
@@ -2857,7 +3529,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "92846b70df6e2674"
+   "why": {
+    "A": "Done by a large group is collective work, everybody's effort together; prompt tells you how soon something happened, not how many people did it.",
+    "B": "Done again from the start is repeated; a prompt reply is a quick one, and a reply can be quick the very first time it is sent.",
+    "C": "Done very carefully is meticulous; prompt is about being quick, and you can be prompt and sloppy, or slow and careful."
+   },
+   "content_hash": "13e62b2ae1baf2d7"
   },
   {
    "id": "VR-W8-S3-Q06",
@@ -2878,7 +3555,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "ffbd935a2c8bb213"
+   "why": {
+    "B": "Cutting down and clearing away is clearing or felling, which takes a growing thing away; cultivating is the opposite, keeping it growing.",
+    "C": "Copying exactly is imitating or duplicating; cultivating a friendship or a garden means building it up over time, with nothing copied from anybody.",
+    "D": "Buying in large amounts is stocking up; a farmer who cultivates a field works the soil and raises the crop rather than buying it ready-made."
+   },
+   "content_hash": "18dfdaa2a1e76c27"
   },
   {
    "id": "VR-W8-S3-Q07",
@@ -2899,7 +3581,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "27ea60993f7e1224"
+   "why": {
+    "A": "Coming from somewhere outside your own country is what foreign means, and foreign is domestic's opposite — domestic points at home, whether that is your house or your own country.",
+    "B": "Living wild in the forest is being wild or feral; a domestic animal is the tame one kept at home, which is the other end of the same scale.",
+    "C": "Built a very long time ago is ancient; domestic tells you something belongs to the home and says nothing at all about its age."
+   },
+   "content_hash": "834655270c3692f2"
   },
   {
    "id": "VR-W8-S3-Q08",
@@ -2920,7 +3607,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "bc3d9b75fcb33d34"
+   "why": {
+    "B": "Moving away from danger is retreating, and retreat looks a lot like retaliate at the start; retaliating means hitting back rather than backing off.",
+    "C": "Going back to fetch something is retrieving it — a dog retrieves a ball — and retrieve is the look-alike word; retaliating is something you do back to a person, not something you go and get.",
+    "D": "Saying sorry and making peace is apologizing and forgiving, the gentlest way a quarrel can end; retaliating is the harshest, striking back at whoever harmed you."
+   },
+   "content_hash": "fe2db31674bb586b"
   },
   {
    "id": "VR-W8-S3-Q09",
@@ -2941,7 +3633,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "b39f26083124bb53"
+   "why": {
+    "A": "Whimsical means playful and full of odd little fancies that change from moment to moment; Nadia training every single morning is steady, which is the opposite of whimsical.",
+    "B": "Literal means sticking to the plain, exact meaning of words rather than picture-language; it describes how a person reads or speaks, not how firmly she holds to a goal.",
+    "C": "Subordinate means lower in rank, placed under somebody else's authority; the sentence is not about Nadia's rank, it is about her refusing to give up on the record."
+   },
+   "content_hash": "21168c5ec972f86f"
   },
   {
    "id": "VR-W8-S3-Q10",
@@ -2962,7 +3659,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "ebe9d10b070b33cf"
+   "why": {
+    "A": "Unanimous means agreed on by everybody, with nobody against it; the class could all agree on a theory and still have no photograph and no footprint.",
+    "C": "Remote means far away — a remote farmhouse, or a remote chance, meaning a very slight one — but what the class lacks is proof solid enough to point to, not proof from somewhere distant.",
+    "D": "Benign means harmless and kindly, the way a benign smile does nobody any damage; proof is either there or missing, and that is not a question of harm."
+   },
+   "content_hash": "ceae3f9aa166c245"
   },
   {
    "id": "VR-W8-S3-Q11",
@@ -2983,7 +3685,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "a6959dbdfcef8e9a"
+   "why": {
+    "A": "Exploit means to use someone or something unfairly for your own gain; the rule in the sentence is crushing curiosity, not making a profit from it.",
+    "B": "Measure means to find out how much or how big something is; a rule that punishes every mistake is not measuring curiosity, it is snuffing it out.",
+    "C": "Cultivate means to tend something so that it keeps growing, which is what the teacher hopes to do with curiosity — the rule does the reverse."
+   },
+   "content_hash": "b0e06c3567564531"
   },
   {
    "id": "VR-W8-S3-Q12",
@@ -3004,7 +3711,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "c461f3658e0800ac"
+   "why": {
+    "B": "Compact here means packed neatly into a small space, like a compact kitchen — a size or a shape, which says nothing about whether a person can be trusted.",
+    "C": "Conspicuous means easy to notice, standing out so that everyone sees you; this messenger worked quietly, which is why nobody caught him for so long.",
+    "D": "Literal means taking words at their exact, plain meaning; a messenger can be literal-minded and still be perfectly loyal, so it says nothing about carrying plans to the enemy."
+   },
+   "content_hash": "dfc959dcf5d38776"
   },
   {
    "id": "VR-W8-S3-Q13",
@@ -3025,7 +3737,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "6c47fbae22f5f1c3"
+   "why": {
+    "A": "Static means staying the same without changing, and as a noun it is the crackle that spoils a radio; neither one describes an offer that sounds too good to be true.",
+    "B": "Unanimous means agreed on by everyone, with nobody disagreeing; only Mom is judging this offer, and what she feels about it is doubt.",
+    "D": "Compact means packed tightly into a small space; the sentence is about how believable the offer is, not about how much room it takes up."
+   },
+   "content_hash": "1db3d640ec6b7136"
   },
   {
    "id": "VR-W8-S3-Q14",
@@ -3046,7 +3763,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "cfae77781b634f0f"
+   "why": {
+    "A": "Extend means to make something longer or stretch it out, so extending the game would add to it; the lightning made the umpires stop it instead.",
+    "C": "Announce means to tell everybody something openly; the umpires probably did announce their decision, but the word for halting the game while the storm passes is not announce.",
+    "D": "Repeat means to do something over again from the beginning; the teams are waiting under the bleachers for the same game to carry on, not to start afresh."
+   },
+   "content_hash": "841b8b4ed8c1399e"
   },
   {
    "id": "VR-W8-S3-Q15",
@@ -3067,7 +3789,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "3c8921a637b01dcd"
+   "why": {
+    "A": "A boundary is the line where one piece of land ends and the next begins; an owl cannot be carried to a line and fed by hand there.",
+    "B": "A laboratory is a room fitted out for experiments and testing; the volunteers are feeding the owl until it can hunt again, which is looking after it, not experimenting on it.",
+    "C": "A predicament is a difficult spot you are stuck in, and the injured owl was certainly in one — but a predicament is a situation, not a place anyone can carry a bird to."
+   },
+   "content_hash": "0a44238f4634dce4"
   },
   {
    "id": "VR-W8-S3-Q16",
@@ -3088,7 +3815,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "15a5d3e69e73781a"
+   "why": {
+    "A": "A verdict is the decision reached at the end of a trial; snow melting off a field is weather, and there is nothing for anyone to decide.",
+    "C": "Volume means how much of something there is — it can also mean loudness, or one book of a set; here the word needed is for the tiniest bit left behind, which is what a trace is.",
+    "D": "A custom is something people have done the same way for years, like a family custom at Christmas; snow on a field is weather, not a habit."
+   },
+   "content_hash": "e2c50fdd9f1c25fe"
   },
   {
    "id": "VR-W8-S3-Q17",
@@ -3109,7 +3841,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "51ae2a8b47ea83ec"
+   "why": {
+    "A": "Forget means to let something slip out of your mind, and Dad has done the opposite — three missing sandwiches are very much on it.",
+    "B": "Announce means to tell people something openly; Dad is only beginning to think the puppy is guilty, and he has not declared it to anyone.",
+    "C": "Guarantee means to promise something for certain, and Dad is nowhere near certain — he has a hunch, a puppy, and three missing sandwiches."
+   },
+   "content_hash": "f5ccf01bd2717b11"
   }
  ]
 }
