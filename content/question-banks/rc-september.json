@@ -1706,6 +1706,654 @@
    "passage_id": "RC-SEP-W2-S4-P",
    "form": "W2",
    "content_hash": "a714c14f56eee33f"
+  },
+  {
+   "id": "RC-SEP-W3-S3-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Foundation",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "The bumps are small, but they are our main way of keeping warm.",
+    "B": "A tiny muscle lifts each hair, though the bumps do little for us.",
+    "C": "A furry animal's raised coat traps air and holds in warmth.",
+    "D": "Human hair is shorter and finer than the hair of other animals."
+   },
+   "correct": "B",
+   "explanation": "Every sentence is doing one of two jobs: showing what makes a goosebump, and then measuring how much good it does. The muscle and the hair are the how; the short human hair and the bumps that warm almost nothing are the how much, and the main idea needs both halves. Strategy: when a passage explains something and then judges how well it works, your answer should carry both.",
+   "why": {
+    "A": "The passage says the bumps warm almost nothing, so the second half of this is the opposite of what you read, however reasonable the first half sounds.",
+    "C": "This is true in the passage, but the animal is brought in to explain what our own bumps fail to do, so it is one step and not the point.",
+    "D": "The passage says human hair is too short and too fine to hold much air; it never measures our hair against another animal's, and either way that detail is one step inside the explanation rather than the point the whole passage is built to make."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S3-P",
+   "form": "W3",
+   "content_hash": "5487c3b489d90fb3"
+  },
+  {
+   "id": "RC-SEP-W3-S3-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, what is the tiny muscle attached to?",
+   "choices": {
+    "A": "To the tip of the hair itself.",
+    "B": "To the small mound of raised skin.",
+    "C": "To a nerve that senses the cold.",
+    "D": "To the pocket each hair starts in."
+   },
+   "correct": "D",
+   "explanation": "The sentence that first introduces the muscle also says exactly where it is fixed: a hair starts in a small pocket in the skin, and a tiny muscle is attached to that pocket. Strategy: read to the end of the sentence that first names the thing you are being asked about, because the answer is usually still inside it.",
+   "why": {
+    "A": "The muscle does pull the hair upright, but the passage names the pocket, not the tip, as the place it is fixed to.",
+    "B": "The mound is what appears after the muscle tightens, so it is a result rather than the thing the muscle is attached to.",
+    "C": "The passage does say the muscle acts when you are cold, but it never mentions a nerve, and the one sentence that says what the muscle is attached to names the pocket."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S3-P",
+   "form": "W3",
+   "content_hash": "57e36d840ddce15a"
+  },
+  {
+   "id": "RC-SEP-W3-S3-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Standard",
+   "prompt": "Based on the passage, what must happen before the skin can gather into a little mound?",
+   "choices": {
+    "A": "The hair in that spot has to grow longer.",
+    "B": "The air around the arm has to dry out.",
+    "C": "A muscle under the skin has to tighten.",
+    "D": "The bumps have to trap a layer of air."
+   },
+   "correct": "C",
+   "explanation": "One sentence lists what the muscle does, in order: it tightens, it pulls the hair upright, and the skin gathers into a mound. The mound is the last thing in that chain, so nothing is going to push the skin up until the muscle pulls. Strategy: when a passage names the steps of a single action, the later steps are the ones that depend on the earlier ones, so read the order as well as the list.",
+   "why": {
+    "A": "The passage says the hair is pulled upright, not that it grows, and it never makes the length of a person's hair something that changes.",
+    "B": "The passage gives cold as what sets the muscle off and says nothing at all about how dry or wet the air is.",
+    "D": "Trapping air is what a furry animal's raised coat does, and in any case it could only come after the bumps exist, not before."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S3-P",
+   "form": "W3",
+   "content_hash": "9c0e2669dbc088d7"
+  },
+  {
+   "id": "RC-SEP-W3-S3-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "As used in the passage, *pocket* most nearly means",
+   "choices": {
+    "A": "a small hollow in the skin.",
+    "B": "a pouch sewn into clothing.",
+    "C": "a small patch of raised skin.",
+    "D": "a store of trapped warm air."
+   },
+   "correct": "A",
+   "explanation": "A pocket is normally something you keep a key in, but the passage puts this one in the skin, says a hair starts inside it, and attaches a muscle to it. Those three facts only fit a small hollow that a hair grows out of. Strategy: when a familiar word turns up somewhere unfamiliar, let the words beside it choose the meaning, and here 'in the skin' settles it.",
+   "why": {
+    "B": "This is the everyday meaning, and it is tempting in a passage about coats and staying warm, but the passage puts this pocket in the skin, where nothing is sewn.",
+    "C": "That is the little mound, which appears later and only when you are cold, while the pocket is there all along as the place a hair starts.",
+    "D": "Air is trapped by a furry animal's raised coat, not inside the place a hair grows from, so this borrows a meaning from a different sentence."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S3-P",
+   "form": "W3",
+   "content_hash": "7d99fd7955d6edea"
+  },
+  {
+   "id": "RC-SEP-W3-S3-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Challenge",
+   "prompt": "Why does the author describe a furry animal before returning to human hair?",
+   "choices": {
+    "A": "It shows a job raised hair does that human hair cannot.",
+    "B": "It adds a second reason the bumps appear on a cold arm.",
+    "C": "It proves that goosebumps do keep a cold person warm.",
+    "D": "It introduces the tiny muscle that lifts each hair."
+   },
+   "correct": "A",
+   "explanation": "The furry animal is there to show raised hair succeeding, so that the very next sentence can say plainly how little the same trick does on a person. Without the animal, there would be nothing for that sentence to stand against. Strategy: ask what a comparison makes the sentence right after it mean.",
+   "why": {
+    "B": "The reason the bumps appear has already been given, and the animal sentence is about what the raised hair achieves, not about what causes it.",
+    "C": "The very next sentence says the bumps warm almost nothing, so the animal is there to set up a contrast, not to prove this.",
+    "D": "The muscle arrives several sentences earlier, so the animal cannot be what introduces it."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S3-P",
+   "form": "W3",
+   "content_hash": "03aad3cbede1d78a"
+  },
+  {
+   "id": "RC-SEP-W3-S3-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Challenge",
+   "prompt": "The closing phrase \"muscles with almost nothing left to lift\" suggests that the muscles",
+   "choices": {
+    "A": "have become too weak to tighten any more at all.",
+    "B": "still work, but their old job has mostly gone.",
+    "C": "still tighten, but now they pull skin, not hair.",
+    "D": "will disappear from the body before long."
+   },
+   "correct": "B",
+   "explanation": "The muscles keep doing exactly what they always did; what has gone is the thick coat they were once raising. Calling this an old instruction the body still follows makes them sound faithful and a little out of date, not broken or useless. Strategy: notice whether a closing image is being unkind about something or simply fond of it.",
+   "why": {
+    "A": "The passage has them tightening and pulling every time you are cold, so they are working; what is missing is the thick coat, not the strength.",
+    "C": "The skin does rise into a mound, but the passage has that happen as the muscle pulls the hair upright, and 'nothing left to lift' describes something gone rather than a new job taken up.",
+    "D": "The passage says the body still follows the old instruction and never suggests it is on its way out."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S3-P",
+   "form": "W3",
+   "content_hash": "89b6e921cd3670d3"
+  },
+  {
+   "id": "RC-SEP-W3-S4-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Foundation",
+   "prompt": "What is the story mainly about?",
+   "choices": {
+    "A": "Nina changes how she shows Rafi so he can copy.",
+    "B": "Rafi learns to tie his shoes in one afternoon.",
+    "C": "Nina stays patient with Rafi the whole time.",
+    "D": "Left-handed people tie their shoes differently."
+   },
+   "correct": "A",
+   "explanation": "The first half is a lesson that is not working, the turning point is Nina noticing which hand holds the lace, and the last two sentences are the same lesson working from a new seat. Strategy: pick the choice that covers the trouble and the ending together, not one fact from either end.",
+   "why": {
+    "B": "He does tie a shoe by the end, but one afternoon is what Nina expected at the start, and the story never says how long the lesson ran; what it follows is what Nina tried and what she changed.",
+    "C": "She was about to tell him he wasn't watching, so patience is not what the story is showing about her.",
+    "D": "Being left-handed is the fact Nina discovers, not the point of the story; the story is about what she did once she knew."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S4-P",
+   "form": "W3",
+   "content_hash": "ca13768c3b254c8b"
+  },
+  {
+   "id": "RC-SEP-W3-S4-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "Where did Nina sit when she first showed Rafi?",
+   "choices": {
+    "A": "Facing him, so he could copy her.",
+    "B": "Behind him, guiding both his hands.",
+    "C": "Kneeling down in front of his shoe.",
+    "D": "Beside him, on his left, as always."
+   },
+   "correct": "D",
+   "explanation": "One sentence gives the seat and says it was her usual one, which is why she never thought about it. Strategy: when a question asks where or when, find the sentence that says so and take only what it says.",
+   "why": {
+    "A": "That is where she moves at the end, after she works out what is wrong, not where she begins.",
+    "B": "The story seats her beside him, not behind him, and never shows her taking hold of his hands.",
+    "C": "The story says she sat down, and it never puts her on the floor at his shoe."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S4-P",
+   "form": "W3",
+   "content_hash": "68327548ed9a825d"
+  },
+  {
+   "id": "RC-SEP-W3-S4-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Standard",
+   "prompt": "The story suggests that Nina's first mistake was that she",
+   "choices": {
+    "A": "had forgotten how the knot was tied.",
+    "B": "chose an afternoon that was too short.",
+    "C": "expected Rafi to learn the way she had.",
+    "D": "showed him the steps too quickly."
+   },
+   "correct": "C",
+   "explanation": "Nina worked this knot out by herself at five, and then sat down the way she had always sat, taking for granted that the same steps would arrive at Rafi the same way they had arrived at her. Nothing was wrong with the knot or with how carefully she showed it; what was wrong was the assumption underneath. Strategy: when a story opens by telling you what someone was sure of, hold that certainty against what actually happens next.",
+   "why": {
+    "A": "She goes through the knot slowly, step by step, and Rafi copies those same steps later, so forgetting it is not what went wrong.",
+    "B": "The afternoon is borrowed from the opening line, but the story never runs out of time; it ends with Rafi tying the other shoe.",
+    "D": "The story says she went through it slowly, so speed is the one cause it rules out."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S4-P",
+   "form": "W3",
+   "content_hash": "be4846627d85e9c6"
+  },
+  {
+   "id": "RC-SEP-W3-S4-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "As used in the story, *stalled* most nearly means",
+   "choices": {
+    "A": "waited there on purpose.",
+    "B": "stopped before finishing.",
+    "C": "moved faster and faster.",
+    "D": "grew tired and shaky."
+   },
+   "correct": "B",
+   "explanation": "The comparison sits right next to the word and tells you what it means: something that starts and then does not reach its end. Strategy: when a comparison follows a hard word, read the comparison first and let it define the word.",
+   "why": {
+    "A": "Stalling can mean delaying on purpose, but Rafi is trying his best, and the word here is about hands that will not go on.",
+    "C": "Nothing speeds up here; the word names the moment the movement runs out.",
+    "D": "The story never says his hands were tired, and the comparison beside the word is about something unfinished, not something weak."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S4-P",
+   "form": "W3",
+   "content_hash": "f4d5dadf085d3cb7"
+  },
+  {
+   "id": "RC-SEP-W3-S4-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Standard",
+   "prompt": "Why does the story show what Rafi's hands did before it says he was left-handed?",
+   "choices": {
+    "A": "So the reader meets the trouble before its cause.",
+    "B": "So the reader learns the three steps of the knot.",
+    "C": "So the reader sees that Nina had taught herself.",
+    "D": "So the reader sees that Nina's steps were right."
+   },
+   "correct": "A",
+   "explanation": "Hands that go the other way are a puzzle until one short sentence solves it, and the story hands over the puzzle first so that the solving lands where Nina's does. Strategy: when two sentences sit side by side, ask what the first one makes the second one worth.",
+   "why": {
+    "B": "The three steps are given earlier, in the sentence about going through it slowly.",
+    "C": "The opening sentence already says that, and it is there to explain her confidence, not his hands.",
+    "D": "Hands that go the other way every time do suggest the steps were not at fault, but that says nothing about why this part comes before the short sentence that names the cause."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S4-P",
+   "form": "W3",
+   "content_hash": "e1ce7ab85c05d1ca"
+  },
+  {
+   "id": "RC-SEP-W3-S4-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Foundation",
+   "prompt": "In the last sentence, the word “only” before *watched* mainly suggests that",
+   "choices": {
+    "A": "Nina had lost interest in the lesson.",
+    "B": "Rafi did not need showing any more.",
+    "C": "Nina was checking his work closely.",
+    "D": "Rafi wanted to finish by himself."
+   },
+   "correct": "B",
+   "explanation": "Up to this sentence Nina has been doing something at every step: sitting, showing, getting up, moving. In the last sentence she does nothing but watch, and that one small word is what says so, which means the showing is over because it is no longer needed. Strategy: when a small word is tucked into a sentence, take it out and read the sentence again; whatever changes is the work that word was doing.",
+   "why": {
+    "A": "A teacher who merely watches can look bored, but Nina has just got the lesson working, and the story gives no sign she stopped caring.",
+    "C": "Watching can mean inspecting, but the small word says she did nothing except watch, which is the opposite of leaning in to check.",
+    "D": "The story gives what Rafi managed, not what he wished for; it never says anything about what he wanted."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W3-S4-P",
+   "form": "W3",
+   "content_hash": "edfc66c1bd6629d9"
+  },
+  {
+   "id": "RC-SEP-W4-S3-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Foundation",
+   "prompt": "What is the passage mainly about?",
+   "choices": {
+    "A": "Water turned to steam bursts the shell and puffs the kernel.",
+    "B": "A popcorn kernel's shell is the hardest part of the plant.",
+    "C": "The starch inside a kernel softens into a thick paste.",
+    "D": "Old kernels should be thrown away once they no longer pop."
+   },
+   "correct": "A",
+   "explanation": "Every sentence is a step in one chain: water becomes steam, the shell holds it in, pressure rises, the shell bursts, and the paste expands. The choice about water and steam is the only one that names that chain, and the whole passage exists to explain it. Strategy: a main-idea answer should cover the passage from its first sentence to its last, not one true detail taken out of the middle.",
+   "why": {
+    "B": "The passage does call the shell hard, but it never compares it with any other part of the plant, and a passage's main idea has to be something it actually says.",
+    "C": "This one is stated in so many words, which is what makes it tempting, but the softening starch is a single step in the chain rather than the chain itself, so it is too narrow to be what the whole passage is about.",
+    "D": "The passage never tells anyone what to do with an old kernel."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S3-P",
+   "form": "W4",
+   "content_hash": "8bfcc18a464ddf24"
+  },
+  {
+   "id": "RC-SEP-W4-S3-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, what happens to the starch inside a kernel as it heats?",
+   "choices": {
+    "A": "It turns into steam and escapes.",
+    "B": "It sets hard before the shell breaks.",
+    "C": "It leaks out through the hard shell.",
+    "D": "It softens into a hot, thick paste."
+   },
+   "correct": "D",
+   "explanation": "The sentence about pressure ends by saying the starch softens into a hot, thick paste, which answers the question in the passage's own words. The other choices each take something the passage really says and attach it to the wrong substance or the wrong moment. Strategy: find the sentence that names the thing the question asks about, and read that sentence to its end before choosing.",
+   "why": {
+    "A": "That is what the water does, not the starch; the passage keeps the two apart and only the water is described as becoming steam.",
+    "B": "The setting does happen, but only after the shell bursts and the paste has expanded, so this choice has the order backwards.",
+    "C": "The passage has the shell holding the steam in until it bursts, and nothing at all is described as leaking out of it."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S3-P",
+   "form": "W4",
+   "content_hash": "477fd506fce88461"
+  },
+  {
+   "id": "RC-SEP-W4-S3-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Standard",
+   "prompt": "Based on the passage, when a kernel with a small hole in its shell is heated, it would most likely",
+   "choices": {
+    "A": "pop sooner than an unbroken kernel would.",
+    "B": "lose its steam before pressure builds.",
+    "C": "hold on to its water while it sits.",
+    "D": "expand into a much larger piece of foam."
+   },
+   "correct": "B",
+   "explanation": "The passage gives the shell a job: it holds the steam in, and the held-in steam is the reason pressure climbs. Put a hole in the shell and the cause named in that sentence is gone, so the steam slips out quietly instead of building. Strategy: when a passage explains why something happens, you can often work out what a break in that chain would do by removing one link and reading the sentence again.",
+   "why": {
+    "A": "It sounds reasonable that a damaged shell would break sooner, but the passage makes the sealed shell the reason pressure rises at all, so an opening works against the popping rather than hurrying it.",
+    "C": "A hole in the shell lets things out rather than keeping them in, which is the opposite of what this choice claims.",
+    "D": "The passage ties the expanding foam to the sudden release of trapped steam, so a kernel that had been leaking would have less pushing outward, not more."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S3-P",
+   "form": "W4",
+   "content_hash": "11e3301de3611612"
+  },
+  {
+   "id": "RC-SEP-W4-S3-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "As used in the passage, *climbs* most nearly means",
+   "choices": {
+    "A": "moves up using its grip.",
+    "B": "leaks out little by little.",
+    "C": "keeps getting greater.",
+    "D": "falls back down again."
+   },
+   "correct": "C",
+   "explanation": "Nothing inside the kernel is going up a hill or a ladder, so the everyday meaning cannot be the one at work. The sentence is about how much pressure there is: it rises while the starch softens, and it rises until the shell can no longer hold. Strategy: try each meaning in the sentence, and if the ordinary one needs hands or feet that the subject does not have, look for the meaning about amount instead.",
+   "why": {
+    "A": "That is the everyday meaning of the word, used about a person on a ladder or a rock, and pressure inside a sealed kernel has nothing to hold on to.",
+    "B": "This reads the word as though it said climbs out, but the sentence before it says the shell holds the steam in, so nothing is getting out yet.",
+    "D": "The sentence builds toward a shell that finally gives way, which only happens if the pressure has been going up rather than dropping."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S3-P",
+   "form": "W4",
+   "content_hash": "562f4d0346535e77"
+  },
+  {
+   "id": "RC-SEP-W4-S3-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Challenge",
+   "prompt": "Why does the author mention that the shell holds the steam in before mentioning the rising pressure?",
+   "choices": {
+    "A": "To show that the trapping is why pressure rises.",
+    "B": "To show that the shell is stronger than the steam.",
+    "C": "To explain why a kernel must be heated slowly.",
+    "D": "To show that steam is hotter than the starch."
+   },
+   "correct": "A",
+   "explanation": "The sentence puts the trapping first and then the word so, which is the passage's way of saying that one thing causes the other: the steam cannot get out, and that is why pressure rises. Turn the two around and the pressure would look like the reason the steam stays in, which is not what the passage claims. Strategy: when two facts sit on either side of so or because, the one in front is usually the cause the author wants you to see.",
+   "why": {
+    "B": "The shell does hold and then break, but the passage never measures one against the other; the order of the sentence is doing something else.",
+    "C": "No advice about heating appears anywhere in the passage; it explains what happens inside a kernel, not how anyone should cook.",
+    "D": "The steam and the paste are both hot here, but their temperatures are never compared, and heat is not what the order of the sentence is arranging."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S3-P",
+   "form": "W4",
+   "content_hash": "c150a07e9341580d"
+  },
+  {
+   "id": "RC-SEP-W4-S3-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Challenge",
+   "prompt": "The phrase “the water was the whole engine” suggests that the water",
+   "choices": {
+    "A": "was pushed along by a machine of some kind.",
+    "B": "did all the work that made the kernel pop.",
+    "C": "was the only thing inside the hard shell.",
+    "D": "did its work only after the shell broke."
+   },
+   "correct": "B",
+   "explanation": "An engine is the part of a machine that supplies the power, so calling the water the whole engine says that the popping happened because of the water and that nothing else would have driven it. Placing the phrase right after a kernel that has lost its water and stopped popping makes that reading the only one the passage supports. Strategy: when an author compares one thing to another, ask what job the second thing is known for, because that job is what the author is claiming for the first.",
+   "why": {
+    "A": "This takes the word engine literally; there is no machine in the passage, and the water is called the engine rather than something an engine acts on.",
+    "C": "The passage puts starch in there too, so the phrase is about which ingredient does the work, not about which ingredients are present.",
+    "D": "The water is already working before the break: the steam it becomes is what makes the pressure climb while the shell is still whole."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S3-P",
+   "form": "W4",
+   "content_hash": "4cd7c453b69c049f"
+  },
+  {
+   "id": "RC-SEP-W4-S4-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Foundation",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "Warm air near the ground rises and then spreads out and cools.",
+    "B": "Cloud bottoms line up flat because vapor condenses at one height.",
+    "C": "Invisible water vapor turns into droplets as air cools.",
+    "D": "The tops of puffy clouds heap and tumble as a cloud grows."
+   },
+   "correct": "B",
+   "explanation": "Every sentence is building toward the flat bottoms: rising air, cooling, one height where the vapor condenses, and every parcel reaching that height together. The choice about rising air and the choice about vapor turning into droplets are both true, and both are single steps inside that chain. The choice about heaping tops takes a contrast from the final sentence and treats it as the subject. Strategy: when several choices are true, pick the one the other true ones are working for.",
+   "why": {
+    "A": "This is a true step in the explanation, but it is only the first step - the passage keeps going until it reaches the flat bottoms.",
+    "C": "This is a true step in the chain, and the passage does say it - but it is the middle of the explanation, not the point the explanation is heading toward.",
+    "D": "The tops are mentioned only in the last sentence, and they are there to set off the bottoms, which are what the passage is really about."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S4-P",
+   "form": "W4",
+   "content_hash": "6fdfa1cfd53510f4"
+  },
+  {
+   "id": "RC-SEP-W4-S4-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, what happens to rising air as it climbs into thinner air?",
+   "choices": {
+    "A": "It speeds up and grows warmer.",
+    "B": "It sinks back toward the ground.",
+    "C": "It stops carrying water vapor.",
+    "D": "It spreads out and cools."
+   },
+   "correct": "D",
+   "explanation": "The second sentence answers this in its own words: the climbing air spreads out and cools. Growing warmer contradicts that sentence directly. Sinking is never described anywhere. And the vapor does not leave the air - it turns into droplets, which is why a cloud becomes visible at all. Strategy: find the sentence that uses the question's own words, and read it to the end before choosing.",
+   "why": {
+    "A": "The passage says the opposite about temperature - the whole explanation depends on the rising air getting cooler, not warmer.",
+    "B": "The air in this passage only goes up; nothing in it ever comes back down.",
+    "C": "The vapor is still there - it changes into droplets at a certain height, which is not the same as the air stopping carrying it."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S4-P",
+   "form": "W4",
+   "content_hash": "b85336b11bc2aea3"
+  },
+  {
+   "id": "RC-SEP-W4-S4-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Standard",
+   "prompt": "What does the passage suggest about the clear air just below a cloud's flat bottom?",
+   "choices": {
+    "A": "It carries water vapor that has not yet condensed.",
+    "B": "It has no water in it until the cloud drifts over.",
+    "C": "It is cooler than the air inside the cloud above.",
+    "D": "It already holds droplets too small to see."
+   },
+   "correct": "A",
+   "explanation": "Two statements have to be joined. The rising air carries water vapor that is invisible, and the vapor only condenses once the air reaches a particular height. So the air below that height is carrying the same vapor, still uncondensed - which is exactly why you cannot see a cloud there. The choice about air with no water in it is the picture most people start with, and the passage quietly corrects it. The choice about droplets already being there goes wrong in the other direction, since the passage puts the first droplets at the condensation height and not below it. Strategy: when a passage says something is invisible, do not let invisible slide into absent.",
+   "why": {
+    "B": "The passage says the rising air is carrying vapor the whole way up, and that vapor is invisible, so empty-looking air is not the same as dry air.",
+    "C": "This turns the passage upside down - air cools as it climbs, so the air lower down is the warmer air, not the cooler.",
+    "D": "Droplets are where a lot of readers' instinct goes, but the passage puts the first droplets at the height where the vapor condenses, so below that height none have formed yet."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S4-P",
+   "form": "W4",
+   "content_hash": "060c3fac6497fb32"
+  },
+  {
+   "id": "RC-SEP-W4-S4-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Foundation",
+   "prompt": "As used in the passage, *parcels* most nearly means",
+   "choices": {
+    "A": "packages sent by mail.",
+    "B": "separate bodies of air.",
+    "C": "small pieces of farmland.",
+    "D": "drops of water in a cloud."
+   },
+   "correct": "B",
+   "explanation": "The phrase is parcels of air, and the sentence says each one rises, cools and reaches a temperature - so the word is naming separate portions or bodies of the air itself. The mail meaning and the farmland meaning are both real meanings of the word, which is what makes them tempting. The droplets belong to a different stage of the process. Strategy: put each meaning back into the sentence and ask whether it can do what the sentence says it does.",
+   "why": {
+    "A": "This is the everyday meaning of the word, which is why it is offered - but a package cannot rise from warm ground and cool as it climbs.",
+    "C": "This is a genuine meaning of the word, and the wrong one here, since the passage is describing something moving upward through the sky.",
+    "D": "Droplets do appear in the passage, but they form later and higher up; these parcels are still rising and still invisible when they are named."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S4-P",
+   "form": "W4",
+   "content_hash": "4ebf3e4493486daf"
+  },
+  {
+   "id": "RC-SEP-W4-S4-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Standard",
+   "prompt": "How is the passage arranged?",
+   "choices": {
+    "A": "It begins with what a reader can see, then explains why.",
+    "B": "It lists kinds of clouds in order from lowest to highest.",
+    "C": "It compares a summer sky with the sky on a winter day.",
+    "D": "It gives the reasons for and against one idea about air."
+   },
+   "correct": "A",
+   "explanation": "The first sentence is a picture anybody could look up and check - clouds resting on an invisible shelf. The very next sentence starts the causes, and everything after it works backward from that picture: rising air, cooling, condensing, one height. Nothing is compared, listed by kind, or argued against. Strategy: ask what the first sentence is doing, then ask what job the rest of the passage does for it.",
+   "why": {
+    "B": "Only one kind of cloud appears, and no list of kinds is ever given.",
+    "C": "Summer is mentioned once to set the scene, and winter is never mentioned at all, so there is no comparison being made.",
+    "D": "The passage never argues two sides; it explains a single process from beginning to end."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S4-P",
+   "form": "W4",
+   "content_hash": "286cbd7626850d37"
+  },
+  {
+   "id": "RC-SEP-W4-S4-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.08.31",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Challenge",
+   "prompt": "The phrase \"drawn by one rule\" suggests that the flat bottoms",
+   "choices": {
+    "A": "were sketched by someone with a ruler.",
+    "B": "follow a law that people agreed on.",
+    "C": "are produced by the same single cause.",
+    "D": "are flat because the ground below is level."
+   },
+   "correct": "C",
+   "explanation": "The word rule is doing double work. It brings in the straight edge of a ruler, which is why the bottoms look so level, and it brings in the idea of one principle acting everywhere, which is the reason the passage has just given: every parcel of air begins alike, cools the same way, and condenses at nearly the same height. The literal sketching reading grabs one ordinary meaning and stops, and the people-made-law reading grabs the other. The choice about level ground borrows the flatness but puts the cause in the wrong place. Strategy: when a final phrase sounds like a picture, check it against the explanation the passage just finished giving.",
+   "why": {
+    "A": "The phrase sounds like drawing with a ruler on purpose, but clouds are not sketched by anyone, so the words are doing something other than describing a hand.",
+    "B": "A rule can mean something people decide on, and here it means something nature does the same way every time, with nobody deciding anything.",
+    "D": "The parcels do rise from the same ground, but the passage never calls that ground level, and it puts the flatness down to the height where the vapor condenses."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-SEP-W4-S4-P",
+   "form": "W4",
+   "content_hash": "bae591aa7ad4b454"
   }
  ]
 }

@@ -1706,6 +1706,654 @@
    "passage_id": "RC-W6-S4-P",
    "form": "W6",
    "content_hash": "0951707a614a5c57"
+  },
+  {
+   "id": "RC-W7-S3-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Standard",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "Graphite is a soft form of carbon once mistaken for a kind of lead.",
+    "B": "Pencils with more clay leave fainter lines than pencils with more graphite.",
+    "C": "A pencil is made by baking a mixed core and closing it in grooved boards.",
+    "D": "Pencil casings are made from soft cedar rather than a harder wood."
+   },
+   "correct": "C",
+   "explanation": "The passage moves from the graphite-and-clay paste, through firing and waxing, to the two grooved boards glued around the finished cores, and the closing line names that method outright. A main idea has to cover both the core and the wood, not one recipe detail, not the wood alone, and not the opening fact about the name. Strategy: pick the choice that accounts for the last paragraph as well as the first.",
+   "why": {
+    "A": "This is true, but it is only the opening hook, and the passage spends four more paragraphs on how the pencil is actually put together.",
+    "B": "This is a real detail from the third paragraph, but it explains one recipe rather than the whole process the passage traces.",
+    "D": "The cedar is real and the passage does call it soft, but this covers only the wood around the core and leaves out everything the passage says about the core itself."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S3-P",
+   "form": "W7",
+   "content_hash": "777965220deabc6c"
+  },
+  {
+   "id": "RC-W7-S3-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, why does a pencil slide instead of scratching?",
+   "choices": {
+    "A": "The graphite was stirred with clay and water.",
+    "B": "The baked core has been soaked in warm wax.",
+    "C": "The wood around it is soft, straight cedar.",
+    "D": "The paste was squeezed through a round hole."
+   },
+   "correct": "B",
+   "explanation": "The sentence about the wax says outright \"which is why\" a pencil slides instead of scratching, so the cause is stated and does not have to be guessed at. The other choices all borrow real steps and details from the passage, which is exactly what makes them tempting; none of them is offered as the reason for the smooth feel. Strategy: when a sentence contains the words \"which is why\", the answer to a why question is usually sitting right in front of it.",
+   "why": {
+    "A": "That really happens, but the passage ties the clay to binding the powder and to how hard and how dark the line is, not to how smoothly the pencil moves.",
+    "C": "The cedar is real, and it is soft, but the passage brings it up to explain the boards, not the feel of the writing.",
+    "D": "That is how the paste is shaped into a strand, which happens long before the core is finished and says nothing about sliding."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S3-P",
+   "form": "W7",
+   "content_hash": "f70407c3ec5573ea"
+  },
+  {
+   "id": "RC-W7-S3-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Standard",
+   "prompt": "Based on the passage, if the grooves in the two boards did not line up when they were glued, the finished pencils would most likely",
+   "choices": {
+    "A": "leave a fainter line on the paper.",
+    "B": "come out round instead of six-sided.",
+    "C": "need a second soak in warm wax.",
+    "D": "break as soon as they were sharpened."
+   },
+   "correct": "D",
+   "explanation": "The passage never mentions grooves that fail to meet, but it does say what goes wrong when a core sits off center: it snaps at the first sharpening. Grooves that do not line up would leave the core off center, so the stated consequence carries straight over. Strategy: when a question describes something the passage never names, look for the nearest thing the passage does warn about and ask whether it would happen here too.",
+   "why": {
+    "A": "A fainter line comes from more clay in the core, which is decided back at the mixing stage and has nothing to do with where the groove sits.",
+    "B": "Round and six-sided are both real shapes from the same sentence, but the passage treats that as a choice made when the pencils are shaped, not a result of a crooked groove.",
+    "C": "The wax soak is a real step, and it happens to the cores before they ever reach the boards, so gluing could not send them back for another one."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S3-P",
+   "form": "W7",
+   "content_hash": "4795aac01fe41650"
+  },
+  {
+   "id": "RC-W7-S3-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Challenge",
+   "prompt": "In the fourth paragraph, *wander* most nearly means",
+   "choices": {
+    "A": "to drift off a straight line.",
+    "B": "to roam with no goal in mind.",
+    "C": "to move along very slowly.",
+    "D": "to lose track of a thought."
+   },
+   "correct": "A",
+   "explanation": "The clause right after the word says what the trouble turns out to be: a core sitting off center. So the drill is not roaming about for its own amusement; it is drifting away from the straight path it was started on. The roaming meaning is the one most readers meet first, which is exactly what makes it worth testing inside the sentence and then rejecting. Strategy: read the clause just after the word and ask what problem it names.",
+   "why": {
+    "B": "This is the meaning the word usually carries, and it fits a person on a walk, but a drill in a machine has no choice about where it is going.",
+    "C": "A long hole would take time to drill, yet the sentence is worried about where the hole ends up, not about how long it takes.",
+    "D": "A mind can wander in this sense, and the word is genuine, but nothing in the paragraph is thinking about anything."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S3-P",
+   "form": "W7",
+   "content_hash": "856de0842606e46f"
+  },
+  {
+   "id": "RC-W7-S3-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Challenge",
+   "prompt": "The fourth paragraph raises the idea of drilling a hole mainly in order to",
+   "choices": {
+    "A": "show that pencils were once made a different way.",
+    "B": "explain why pencils are assembled instead.",
+    "C": "list the steps in mixing the gray paste.",
+    "D": "caution readers about sharpening too hard."
+   },
+   "correct": "B",
+   "explanation": "The paragraph names the method a reader would expect, gives two reasons it would fail, and then introduces the real method with the word instead, so the drilling exists to set up the contrast. This is a very common shape in explanations: the wrong idea first, so the right one has something to push against. Strategy: when a paragraph says \"You might expect\", look for the correction that follows and ask what the setup is doing for it.",
+   "why": {
+    "A": "The paragraph offers drilling as something a reader might expect, not as something pencil makers used to do; the passage never mentions an older method at all.",
+    "C": "The mixing steps are all in the second paragraph, and by the fourth paragraph the cores are already finished.",
+    "D": "Sharpening comes up only to show what would go wrong with an off-center core, not as advice about how to sharpen a pencil."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S3-P",
+   "form": "W7",
+   "content_hash": "84ddfe60fa3a869e"
+  },
+  {
+   "id": "RC-W7-S3-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Foundation",
+   "prompt": "The author calls the glued assembly a *sandwich* in order to suggest that",
+   "choices": {
+    "A": "the core lies between two layers of wood.",
+    "B": "the wood is built up from many thin sheets.",
+    "C": "the two boards are pressed together while soft.",
+    "D": "the boards are stacked in a pile to dry."
+   },
+   "correct": "A",
+   "explanation": "A sandwich is a filling held between two slices, which is exactly what the paragraph has just described: cores laid in the grooves of the lower board and the second board pressed on top. Counting extra layers, or reading the word as being about soft wood, misses that the comparison is being made about arrangement. Strategy: ask what two things the image is putting side by side before deciding what it means.",
+   "why": {
+    "B": "A sandwich can be piled up in several layers, which makes this tempting, but the paragraph gives the pencil exactly two boards with the cores between them.",
+    "C": "Pressing is in the sentence and the cedar is called soft, yet the comparison is about how the parts are arranged, not about anything bending.",
+    "D": "Drying does happen earlier, to the cores, and the boards in this sentence are glued together rather than stacked and waiting."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S3-P",
+   "form": "W7",
+   "content_hash": "6bf4234e6667807d"
+  },
+  {
+   "id": "RC-W7-S4-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Standard",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "Neel is a more patient teacher than Dalia had expected him to be.",
+    "B": "Practicing over a bed is what keeps a beginner from giving up.",
+    "C": "Dalia turns out to be naturally quick with her hands.",
+    "D": "Dalia learns to juggle by fixing the throw instead of the catch."
+   },
+   "correct": "D",
+   "explanation": "Every step of the story pushes Dalia away from catching and toward the throw: the handing mistake, the Thursday drill in which both bags are allowed to land, and the sentence where the second throw stops being a decision. The choice about the bed picks up a real detail that is far too narrow to be the main idea. Strategy: the main idea has to cover the whole passage, not one true sentence inside it.",
+   "why": {
+    "A": "Neel is patient, but the passage never says Dalia expected anything else of him, and how good a teacher he is is not what the story is about.",
+    "B": "The bed is one true detail in one sentence; a single detail is too small to be the point of the whole passage.",
+    "C": "She is not quick at all — she repeats one throw eighty times and drops two bags sixty more, which is the opposite of natural talent."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S4-P",
+   "form": "W7",
+   "content_hash": "6b8afbf12715134b"
+  },
+  {
+   "id": "RC-W7-S4-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, why did Dalia and Neel practice over the bed?",
+   "choices": {
+    "A": "so a dropped bag would not thump on the floor below",
+    "B": "so a dropped bag did not have to be picked up off the carpet",
+    "C": "so the highest throws would have plenty of open room above them",
+    "D": "so Dalia would not have to share the room with anyone else"
+   },
+   "correct": "B",
+   "explanation": "The reason is stated in the same sentence that names the bed: bending to pick things off a carpet is how people quit. The bags do thump onto the quilt later, but that thumping is never offered as a reason for choosing the spot. Strategy: when the passage gives a reason in the word because, take that one and stop hunting.",
+   "why": {
+    "A": "This sounds like a sensible reason for practicing over a bed, but the passage never mentions the floor below or gives noise as the reason for the spot.",
+    "C": "This sounds sensible for juggling, but the passage says nothing about the height of the room.",
+    "D": "The room is Neel's and no one else appears in it, but the passage gives a different reason outright."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S4-P",
+   "form": "W7",
+   "content_hash": "e637bbbe3dfc3242"
+  },
+  {
+   "id": "RC-W7-S4-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Challenge",
+   "prompt": "What Neel showed Dalia on Thursday felt to her “like being told to fail” most likely because",
+   "choices": {
+    "A": "she believed Neel had run out of ways to teach her the skill.",
+    "B": "letting the bags land was the thing she had been trying to prevent.",
+    "C": "she had thrown well on Tuesday and expected a harder task instead.",
+    "D": "she had wanted to move on to all three bags that same afternoon."
+   },
+   "correct": "B",
+   "explanation": "Up to Thursday, a bag on the quilt was what going wrong looked like, so a drill in which she stands with her hands open and lets both bags land asks her to do the failing on purpose. The passage shows Neel still teaching her afterwards, which rules out the idea that he had nothing left to offer. Strategy: read the sentences just before a feeling to find what caused it.",
+   "why": {
+    "A": "Neel keeps teaching her and hands her a third bag two days later, so nothing in the passage suggests he was out of ideas.",
+    "C": "Tuesday did go well, but the passage never shows her wanting something harder — the trouble came as soon as there were two bags.",
+    "D": "She does reach three bags eventually, but the passage never says she was impatient to get there."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S4-P",
+   "form": "W7",
+   "content_hash": "62268a14bf5a241b"
+  },
+  {
+   "id": "RC-W7-S4-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "In the last paragraph, *pattern* most nearly means",
+   "choices": {
+    "A": "a design printed on a piece of cloth.",
+    "B": "a paper guide for cutting out cloth.",
+    "C": "the repeating shape the bags made.",
+    "D": "a habit someone repeats without thinking."
+   },
+   "correct": "C",
+   "explanation": "The pattern hangs in the air for eleven throws and then comes apart, so it is the shape three bags trace as they go up and over again and again. The printed-cloth meaning is the one a reader thinks of first, which is exactly why it is offered here. Strategy: put each dictionary meaning back into the actual sentence and see which one still makes sense.",
+   "why": {
+    "A": "That is the meaning most readers meet first, but nothing in this paragraph is printed or made of cloth.",
+    "B": "This is a real meaning of the word, and it belongs to sewing; nobody in the passage is cutting anything out.",
+    "D": "Dalia has certainly built a habit, but this pattern hangs in the air and then comes apart, so it is something visible rather than something inside her."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S4-P",
+   "form": "W7",
+   "content_hash": "2b0e8629dd2bbde7"
+  },
+  {
+   "id": "RC-W7-S4-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Challenge",
+   "prompt": "The last paragraph differs from the paragraphs before it mainly because it",
+   "choices": {
+    "A": "shows the skill working with no new instruction given.",
+    "B": "returns to the bus stop where the passage first began.",
+    "C": "saves the hardest of Neel's instructions for the end.",
+    "D": "explains the rules a juggler is expected to follow."
+   },
+   "correct": "A",
+   "explanation": "Each earlier paragraph carries something Neel gives her to do — start with one, forty times and then forty more, that is handing, and the drill he throws for her on Thursday. The last one says plainly that there was nothing new to tell, and spends its space on eleven throws that work. Strategy: ask what a paragraph does differently from the ones around it, not only what it mentions.",
+   "why": {
+    "B": "Stories often circle back to where they opened, but this one stays in Neel's room; the bus stop is never mentioned again.",
+    "C": "The passage says the opposite — Neel tells her nothing new on Saturday.",
+    "D": "The paragraph shows one girl juggling; it does not set out rules for juggling in general."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S4-P",
+   "form": "W7",
+   "content_hash": "817e43974e386096"
+  },
+  {
+   "id": "RC-W7-S4-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Foundation",
+   "prompt": "The comparison “like someone passing a note” suggests that Dalia was",
+   "choices": {
+    "A": "moving the bag across rather than throwing it up.",
+    "B": "handling the bag as gently as a folded piece of paper.",
+    "C": "trying to hide what she was doing from her cousin.",
+    "D": "growing tired after tossing one bag eighty times."
+   },
+   "correct": "A",
+   "explanation": "A note travels from one hand to another; nobody throws one across a room. That is exactly what Dalia does with the second beanbag, and the next sentence puts a name to it: handing, not throwing. Strategy: ask what the two things being compared actually have in common before you choose.",
+   "why": {
+    "B": "A note is a delicate thing, so gentleness is the first idea the comparison brings to mind, but the comparison is about the path the bag takes, not about how softly she holds it.",
+    "C": "Notes are often passed secretly, and that association is what makes this tempting; Neel is watching her closely and she is hiding nothing.",
+    "D": "She really does throw one bag eighty times, but a true detail from the paragraph before does not explain what this comparison means."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W7-S4-P",
+   "form": "W7",
+   "content_hash": "28427cdf5d94596a"
+  },
+  {
+   "id": "RC-W8-S3-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Standard",
+   "prompt": "Which statement best expresses the main idea of the passage?",
+   "choices": {
+    "A": "The Moon does not spin at all, which is why one face always points at us.",
+    "B": "The Moon's far side was first photographed by a spacecraft that flew behind it.",
+    "C": "The half we never see is permanently dark, unlike the half that faces Earth.",
+    "D": "Earth's pull settled the Moon into a spin that matches its orbit."
+   },
+   "correct": "D",
+   "explanation": "The passage sets up a puzzle in the first paragraph (the Moon must turn once per lap to keep one face toward us) and spends the third paragraph explaining what put it into that rhythm. The choice about the 1959 spacecraft is true but is a single closing detail, and the choice about a permanently dark half is contradicted in the last paragraph. Strategy: the main idea has to cover the whole passage, not one sentence of it.",
+   "why": {
+    "A": "This is the exact guess the first paragraph calls the reverse of the truth, so it is the idea the passage sets out to correct.",
+    "B": "That happens in the very last sentence, and one closing fact is far too small to be what the whole passage is about.",
+    "C": "The passage says outright that the hidden half gets as much sunlight as the half we know."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S3-P",
+   "form": "W8",
+   "content_hash": "b9410def0147346a"
+  },
+  {
+   "id": "RC-W8-S3-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, what is happening on the far side of the Moon when the Moon looks full to us?",
+   "choices": {
+    "A": "It is dark there for all time.",
+    "B": "It is going through its night.",
+    "C": "It is turned toward the Sun.",
+    "D": "It is warmer than the near side."
+   },
+   "correct": "B",
+   "explanation": "The last paragraph states it directly: when the Moon looks full to us, the far side is in night. The choice about lasting darkness borrows the name people use for that half, which is the very name the paragraph calls wrong. Strategy: for a detail question, find the sentence that mentions the thing the question names, and read it all the way to the end.",
+   "why": {
+    "A": "This is the dark-side idea the paragraph is written to correct, since the far side gets as much sunlight as the half we know.",
+    "C": "A full Moon means our side is the lit one, so the far side is the side facing away from the sunlight just then.",
+    "D": "The passage never compares the two halves for warmth. It says only which one is in night."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S3-P",
+   "form": "W8",
+   "content_hash": "8c17ba9cf2d6141d"
+  },
+  {
+   "id": "RC-W8-S3-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Challenge",
+   "prompt": "The passage suggests that if the Moon's orbit were a perfect circle,",
+   "choices": {
+    "A": "the Moon would stop turning on its axis.",
+    "B": "the far side would get sunlight of its own.",
+    "C": "observers would have less of the Moon to chart.",
+    "D": "the Moon would need much longer to finish a lap."
+   },
+   "correct": "C",
+   "explanation": "The thin strip of the far side that observers managed to chart comes from the rocking, and the rocking comes from the Moon hurrying and lagging in an orbit that is not a true circle. Take the uneven orbit away and that strip goes with it, so there would be less of the Moon to map than the little-more-than-half they reached. Strategy: when a question removes a cause, follow the chain the passage already built and ask which effect shrinks.",
+   "why": {
+    "A": "Nothing in the passage ties the shape of the orbit to whether the Moon turns. The spin was settled long ago by the bulge.",
+    "B": "The far side already gets as much sunlight as the near side, so a rounder orbit would change nothing about that.",
+    "D": "The passage says the orbit's shape makes the Moon hurry and lag along the way, not that it changes how long a lap takes."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S3-P",
+   "form": "W8",
+   "content_hash": "6366123f5b002d7c"
+  },
+  {
+   "id": "RC-W8-S3-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "In the third paragraph, *faint* most nearly means",
+   "choices": {
+    "A": "so slight it is hard to notice.",
+    "B": "weak and about to fall over.",
+    "C": "too quiet to be heard clearly.",
+    "D": "lacking courage or firmness."
+   },
+   "correct": "A",
+   "explanation": "The bulge is the small stretch that Earth's slightly stronger pull produces, so faint here means barely there, hardly noticeable. The dizzy and the quiet-sound meanings are both genuine senses of the word, which is what makes them tempting, but neither fits a shape in rock. Strategy: read each meaning back into the actual sentence and keep the one that still makes sense.",
+   "why": {
+    "B": "That is a real meaning of the word, but rock does not feel dizzy, and the sentence is describing a shape.",
+    "C": "A bulge is something you could see or measure, not something that makes a sound.",
+    "D": "This meaning turns up in words like faint-hearted, and nothing in a stretched piece of rock is being called cowardly."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S3-P",
+   "form": "W8",
+   "content_hash": "88e93ad2197fcaa2"
+  },
+  {
+   "id": "RC-W8-S3-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Challenge",
+   "prompt": "The second paragraph mainly serves to",
+   "choices": {
+    "A": "let the reader act out the Moon's once-per-lap turn.",
+    "B": "introduce the gravity explained in the paragraph after it.",
+    "C": "prove that a chair and a moon obey the same laws.",
+    "D": "show that the Moon's motion is too odd to picture."
+   },
+   "correct": "A",
+   "explanation": "The first paragraph makes a claim that sounds wrong at first hearing, and the chair paragraph hands the reader a way to perform that same turn and feel that it is true. It introduces no new cause and it argues nothing about laws. Strategy: ask what a short paragraph does for the paragraph before it, not just what objects it mentions.",
+   "why": {
+    "B": "Gravity does not appear anywhere in the chair paragraph; it arrives fresh at the start of the next one.",
+    "C": "The paragraph asks the reader to walk one circle, and nothing more. It never claims that a chair and a moon are governed by the same laws, which would be a far larger claim than this passage makes anywhere.",
+    "D": "The paragraph does the opposite, making the motion easy to picture by putting the reader inside it."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S3-P",
+   "form": "W8",
+   "content_hash": "a4451d8c5f1ab044"
+  },
+  {
+   "id": "RC-W8-S3-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Foundation",
+   "prompt": "In saying that the same dark patches *stare back*, the author suggests that",
+   "choices": {
+    "A": "the Moon is keeping watch over Earth.",
+    "B": "the same view meets us each time.",
+    "C": "the dark patches slowly change shape.",
+    "D": "the patches are hard to see clearly."
+   },
+   "correct": "B",
+   "explanation": "Patches of rock cannot stare, so the phrase has to mean something else, and the two words before it say what: tonight, and again next month, the same ones. It is a way of saying the view never changes. Strategy: when a writer gives an object a human action, ask what the action is standing in for, and look at the words around it for the answer.",
+   "why": {
+    "A": "This takes the staring literally. The patches are markings, and the author is describing what we see, not something the Moon is doing on purpose.",
+    "C": "The whole point of the sentence is that the patches do not change, which is what makes the rest of the passage surprising.",
+    "D": "The patches are the part that is easy to see; the passage never says anything about how hard they are to make out."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S3-P",
+   "form": "W8",
+   "content_hash": "f828a8dde86ca641"
+  },
+  {
+   "id": "RC-W8-S4-Q01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Main idea",
+   "difficulty": "Standard",
+   "prompt": "The author's main purpose in this passage is to",
+   "choices": {
+    "A": "explain why the grade of Hill Street is gentler at the park gate than at the top.",
+    "B": "argue that Hill Street needs benches back and that the town must keep them up.",
+    "C": "describe how one neighbor has done her shopping on foot for the past fifty years.",
+    "D": "persuade neighbors to take turns driving Ruth up the hill to the grocery store."
+   },
+   "correct": "B",
+   "explanation": "The first paragraph makes the request — benches back on Hill Street, spaced so that nobody climbs a whole block without a stop — and the third paragraph adds the other half of it, that the washing and the painting come out of the same budget as the benches. Everything else supports that request: the slope sets it up, Ruth shows what a bench does, the ending says what is at stake. Strategy: the main idea has to account for the whole argument, including the part about upkeep.",
+   "why": {
+    "A": "The slope is described in the opening lines, but it is the setting for the argument rather than the thing the author is asking the town to do.",
+    "C": "Ruth is one example used to support the request, and a main idea has to cover the whole passage, not a single person inside it.",
+    "D": "The car does appear in the passage, but the author is addressing the town and asking for benches, not organizing rides for anybody."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S4-P",
+   "form": "W8",
+   "content_hash": "e5b745fe57563907"
+  },
+  {
+   "id": "RC-W8-S4-Q02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Supporting detail/evidence",
+   "difficulty": "Foundation",
+   "prompt": "According to the passage, what did Ruth do while the bench outside the bakery was still there?",
+   "choices": {
+    "A": "She had her groceries brought to her by car on Tuesdays.",
+    "B": "She walked up on Tuesdays and carried her shopping down.",
+    "C": "She waited at the bench for someone to drive her up the hill.",
+    "D": "She carried her shopping up the hill and walked back down."
+   },
+   "correct": "B",
+   "explanation": "One sentence in the second paragraph answers this directly: while the bench stood outside the bakery, she walked up on Tuesdays and carried her shopping down. The sentence after it describes the present arrangement, groceries arriving by car, and one choice turns her trip around so that the shopping goes uphill. Strategy: when a passage describes a before and an after, put your finger on which one the question asks about, then check the direction of travel.",
+   "why": {
+    "A": "That is what happens now that the bench is gone, so this choice puts the after-picture into the before-slot.",
+    "C": "Nobody in the passage waits at the bench for a ride; the bench is a place to stop partway through her own climb.",
+    "D": "Every piece of this is in the sentence, but the trip runs the other way: she walked up and carried the shopping down."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S4-P",
+   "form": "W8",
+   "content_hash": "568f9db385a8d79e"
+  },
+  {
+   "id": "RC-W8-S4-Q03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Inference",
+   "difficulty": "Challenge",
+   "prompt": "Suppose the town offered to install twelve benches but would not pay to wash or repaint them. Based on the passage, the author would most likely",
+   "choices": {
+    "A": "prefer six benches the town has promised to look after.",
+    "B": "accept the twelve, since more places to stop is the goal.",
+    "C": "ask that the money go toward widening the sidewalk instead.",
+    "D": "agree, if neighbors themselves did the washing and painting."
+   },
+   "correct": "A",
+   "explanation": "The author has already faced this exact trade. There is room on Hill Street for twelve, and the author asks for six anyway, on the grounds that benches nobody looks after splinter before long — so a smaller number with the upkeep attached is the deal the author chose once cost was the objection. Strategy: when a question invents a new situation, look for the place where the author has already made the same choice.",
+   "why": {
+    "B": "More benches sounds like more of what the author wants, but the author says plainly that the ask is six with upkeep, even though twelve would fit on the street.",
+    "C": "A wider sidewalk was the town's own answer last time, and the second paragraph exists to say that a bench does what widening cannot.",
+    "D": "The author asks for the upkeep to come out of the town's budget, and nowhere offers to take that work on."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S4-P",
+   "form": "W8",
+   "content_hash": "db5301397a0769c9"
+  },
+  {
+   "id": "RC-W8-S4-Q04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Vocabulary in context",
+   "difficulty": "Standard",
+   "prompt": "In the first paragraph, *grade* most nearly means",
+   "choices": {
+    "A": "a mark given on a piece of schoolwork.",
+    "B": "a level of school, such as fifth year.",
+    "C": "the quality or rank of a material.",
+    "D": "the slope of a rising road."
+   },
+   "correct": "D",
+   "explanation": "The sentence sets the word between gentle and steep and attaches it to a street that earns the name Hill, so it has to mean the slope itself — how sharply the road rises. The two school meanings are real meanings of the word, which is exactly why they are offered here. Strategy: read the whole sentence with each meaning slotted in and keep the one that still makes sense.",
+   "why": {
+    "A": "This is the meaning you meet most often at school, but a park gate cannot be given a mark.",
+    "B": "A street does not have school years, and the sentence is comparing the bottom of the hill with the top.",
+    "C": "The word can describe how good a material is, but here gentle and steep are describing a slope, not a quality."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S4-P",
+   "form": "W8",
+   "content_hash": "67ff98d386718ec1"
+  },
+  {
+   "id": "RC-W8-S4-Q05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Organization/logic",
+   "difficulty": "Challenge",
+   "prompt": "The last two sentences of the passage mainly serve to",
+   "choices": {
+    "A": "restate the cost of upkeep that the third paragraph accepts.",
+    "B": "recall how Ruth used the bench outside the bakery.",
+    "C": "admit what benches cannot do and name what they decide.",
+    "D": "predict how many people will sit on the benches each week."
+   },
+   "correct": "C",
+   "explanation": "Having said what a bench does, the author closes by giving one thing up and claiming another: the hill will stay exactly as steep as it was, and the benches will settle who is able to walk up it. Neither sentence goes back to the money, and neither counts anybody. Strategy: a closing line often concedes something small in order to hold on to something large — read the ending for that trade.",
+   "why": {
+    "A": "The cost of keeping benches up is granted in the paragraph before this one, and the closing lines never return to it.",
+    "B": "Ruth's Tuesdays belong to the second paragraph, and the ending does not go back to her.",
+    "D": "The author never counts users; the last line is about who is able to climb the hill, not how many will sit down."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S4-P",
+   "form": "W8",
+   "content_hash": "dd6430949fdaed96"
+  },
+  {
+   "id": "RC-W8-S4-Q06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "RC",
+   "skill": "Tone/style/figurative language",
+   "difficulty": "Foundation",
+   "prompt": "In the last paragraph the author calls a sidewalk with benches “a room” in order to suggest that",
+   "choices": {
+    "A": "benches turn a place people pass through into a place they stay.",
+    "B": "benches take up as much space as the walls of a small building.",
+    "C": "the town should build a shelter over the sidewalk on Hill Street.",
+    "D": "a bench can make a public sidewalk feel like part of a home."
+   },
+   "correct": "A",
+   "explanation": "A corridor is somewhere you walk through on your way elsewhere, and the author sets it against a room, then says straight out that people stay in rooms and offers two small pictures of staying. The figure is about what the sidewalk becomes for the people on it, not about the size of a bench or about turning a public place into a private one. Strategy: when an author makes a comparison, read the sentence just after it, which usually tells you what the comparison is for.",
+   "why": {
+    "B": "The passage does compare a bench to a small building, but that comparison is about upkeep, not about how much room a bench fills.",
+    "C": "Nobody is asking for a roof here; the room is a way of describing the sidewalk, not a thing to be built on top of it.",
+    "D": "A room does suggest a house, but the contrast the author draws is corridor against room — passing through against staying — not public against private."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "passage_id": "RC-W8-S4-P",
+   "form": "W8",
+   "content_hash": "39ea8bad95d2a72e"
   }
  ]
 }
