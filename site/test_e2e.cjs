@@ -161,6 +161,47 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
         if (over > 1) wide.push(`${h} +${over}px`);
       }
       check('no page runs off the side of a phone', wide.length === 0, wide.join(', '));
+
+      /* Not running off the side was never the whole of it. The same header kept
+         the button and starved the title instead: "Split diagnostic" broken over
+         two lines and its one-sentence blurb poured down a column four words
+         wide, inside a card with room for all of it. Nothing overflowed, so the
+         check above was green the whole time. So this measures what the title
+         actually got — a header whose text is beside a button on a phone has
+         lost the argument, and 90% is the line between wrapping because the
+         words are long and wrapping because something else took the room. */
+      const squeezed = [];
+      for (const h of ['#/', '#/mock/DGN', '#/score', '#/essay', '#/books']) {
+        await pg.evaluate((x) => { location.hash = x; }, h);
+        await pg.waitForTimeout(350);
+        const r = await pg.evaluate(() => {
+          const out = [];
+          for (const hd of document.querySelectorAll('[data-slot=card-header]')) {
+            const t = hd.querySelector('[data-slot=card-title]');
+            if (!t || !hd.querySelector('[data-slot=card-action]')) continue;
+            // against the header's content box, not its border box: the card's
+            // own side padding is not width the button took.
+            const cs = getComputedStyle(hd);
+            const w = hd.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+            const tw = t.getBoundingClientRect().width;
+            if (w > 0 && tw / w < 0.95) out.push(`${(t.textContent || '').trim().slice(0, 24)} ${Math.round((tw / w) * 100)}%`);
+          }
+          return out;
+        });
+        if (r.length) squeezed.push(`${h}: ${r.join(', ')}`);
+      }
+      check('and no card header on a phone hands its width to the button', squeezed.length === 0, squeezed.join(' | '));
+
+      /* The 32px square beside a mock section holds the code she will see on the
+         day — VR, QR, RC, MA. "ESSAY" is not a code, it is the word, and five
+         characters printed straight out through both sides of the box. A break
+         already draws a clock there; the essay draws a pen. */
+      await pg.evaluate(() => { location.hash = '#/mock/DGN'; });
+      await pg.waitForTimeout(350);
+      const tags = await pg.evaluate(() => [...document.querySelectorAll('[data-testid=sec-tag]')]
+        .map((e) => (e.textContent || '').trim())
+        .filter((t) => t.length > 2));
+      check('nothing writes a whole word in the section square', tags.length === 0, tags.join(', '));
     }
 
     await pg.evaluate(() => { location.hash = '#/'; });

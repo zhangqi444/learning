@@ -1,5 +1,5 @@
 import * as React from "react"
-import { AlertTriangle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, Flag, Play, RotateCcw, Send, Swords, Timer } from "lucide-react"
+import { AlertTriangle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, Flag, PenLine, Play, RotateCcw, Send, Swords, Timer } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { W } from "@/lib/world"
@@ -176,8 +176,15 @@ export function MockOverview({ form }) {
             <ul className="flex flex-col">
               {rows.filter((x) => !part || x.s.part === part).map(({ s, r, er, isBreak, isEssay, status }) => (
                 <li key={s.id} className={cn("flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm", isBreak && "text-muted-foreground")}>
-                  <span className={cn("bg-muted text-muted-foreground flex size-8 shrink-0 items-center justify-center rounded-md text-xs font-semibold", status === "done" && "bg-success-soft text-success", status === "live" && "bg-warning-soft text-warning")}>
-                    {isBreak ? <Clock className="size-4" /> : status === "done" ? <CheckCircle2 className="size-4" /> : s.id}
+                  <span data-testid="sec-tag" className={cn("bg-muted text-muted-foreground flex size-8 shrink-0 items-center justify-center rounded-md text-xs font-semibold", status === "done" && "bg-success-soft text-success", status === "live" && "bg-warning-soft text-warning")}>
+                    {/* The square is 32px and holds a section code: VR, QR, RC, MA —
+                        the abbreviations she will see on the day, which is why they
+                        are worth showing. "ESSAY" is not one of those, it is the
+                        whole word, and at five characters it printed straight out
+                        through both sides of its own box. A pen, the way a break
+                        already gets a clock: the row spells out "Essay" beside it
+                        either way, so nothing is lost by not saying it twice. */}
+                    {isBreak ? <Clock className="size-4" /> : status === "done" ? <CheckCircle2 className="size-4" /> : isEssay ? <PenLine className="size-4" /> : s.id}
                   </span>
                   <span className="flex min-w-0 flex-1 flex-col">
                     <span className="font-medium">{s.name}</span>

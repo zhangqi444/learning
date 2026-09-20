@@ -12,12 +12,27 @@ function Card({ className, ...props }) {
   )
 }
 
+/* The action sits beside the title on a wide screen and under it on a narrow
+ * one, and that is a fix rather than a preference. The second column was `auto`
+ * — max-content — so a header with a wide action gave the action whatever it
+ * asked for and left the title the rest: on a 390px phone the Long Night page
+ * put "Start Verbal Reasoning" in half the card and broke "Split diagnostic"
+ * across two lines with "Baseline, split across two sittings" running down a
+ * column four words wide. A `min-w-0` on the action fixes the overflow and not
+ * this, because the track can then shrink but still takes what it wants first.
+ *
+ * Keyed on @md/main rather than a media query, because what has run out is the
+ * card's room and not the window's — the same card is narrow beside an open
+ * sidebar and wide without one. No CardAction in this codebase is authored
+ * before its CardTitle, so stacking puts it under the text every time; if one
+ * ever is, it will appear above the title and look like a header that lost its
+ * heading. */
 function CardHeader({ className, ...props }) {
   return (
     <div
       data-slot="card-header"
       className={cn(
-        "@container/card-header grid auto-rows-min grid-rows-[auto_auto] items-start gap-1.5 px-6 has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
+        "@container/card-header grid auto-rows-min items-start gap-1.5 px-6 @md/main:has-data-[slot=card-action]:grid-cols-[1fr_auto] [.border-b]:pb-6",
         className
       )}
       {...props}
@@ -37,7 +52,10 @@ function CardAction({ className, ...props }) {
   return (
     <div
       data-slot="card-action"
-      className={cn("col-start-2 row-span-2 row-start-1 self-start justify-self-end", className)}
+      className={cn(
+        "col-start-1 self-start justify-self-start @md/main:col-start-2 @md/main:row-span-2 @md/main:row-start-1 @md/main:justify-self-end",
+        className
+      )}
       {...props}
     />
   )
