@@ -26,6 +26,11 @@ const LEARN_CTX = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 }  
 // it, so getting it right means something and getting it wrong should schedule
 // it — exactly as it would inside a set.
 export const LEVELS = ["Not started", "Started", "Needs work", "Familiar", "Proficient", "Mastered"]
+/** How many of a skill's questions have to come back right in a mixed set or a
+ *  mock, each on a later day than she first met that question, before the skill
+ *  is Mastered. Named because it is now said out loud on the page, and a number
+ *  the page quotes and the engine enforces must be one number. */
+export const PROMOTE_AT = 2
 const LEVEL_SCORE = { "Not started": 0, Started: 0.2, "Needs work": 0.35, Familiar: 0.6, Proficient: 0.85, Mastered: 1 }
 const SEC2SUB = { VR: "vr", QR: "qr", RC: "rc", MA: "ma" }
 const DAY = 86400000
@@ -354,7 +359,7 @@ export function skillLevel(sub, sk, asOf) {
   const acc = attempted ? cur / attempted : null
   let level = "Not started"
   if (attempted && attempted < 3) level = "Started"
-  else if (attempted) level = acc < 0.7 ? "Needs work" : acc < 0.85 ? "Familiar" : overdue ? "Familiar" : promoted >= 2 ? "Mastered" : "Proficient"
+  else if (attempted) level = acc < 0.7 ? "Needs work" : acc < 0.85 ? "Familiar" : overdue ? "Familiar" : promoted >= PROMOTE_AT ? "Mastered" : "Proficient"
   return { sk, level, acc, attempted, total: info.ids.length, overdue, promoted, weeks: [...info.weeks].sort(), score: LEVEL_SCORE[level] }
 }
 export function skillsFor(sub, asOf) {
@@ -397,6 +402,54 @@ export function buildMixedSet(n = 12, seed = todayKey()) {
   }
   return out.sort((a, b) => a.rnd - b.rnd).slice(0, n).map((x) => x.it)
 }
+/** What a set can actually move, skill by skill — the promotion rule, counted.
+ *
+ *  `skillLevel` has always promoted on PROMOTE_AT, and the rule has always been
+ *  invisible. The page described it in prose and the set itself said nothing
+ *  about which skills were even in play, so the most consequential thing a mixed
+ *  set does was the one thing she could not see it doing. Khan Academy's Mastery
+ *  Challenge states its terms before it starts — six questions, three skills,
+ *  two each, both right and the skill levels up — and being told the deal is
+ *  what makes the deal worth taking.
+ *
+ *  Counted here and not in the page because it IS the engine's rule. A second
+ *  copy of it in JSX is a second copy that will disagree, which is exactly how
+ *  the mixed page came to promise promotion on one right answer when the engine
+ *  had never accepted fewer than two.
+ *
+ *  `eligible` is the honest part and the part a page would get wrong. A question
+ *  can only promote if she met it on an earlier day: answering one for the first
+ *  time today moves nothing, and that is the rule working rather than an edge of
+ *  it, because what is being measured is remembering. So a skill can be sitting
+ *  at Proficient, have four questions in today's set, and still have nothing
+ *  today that can lift it. Saying "up for Mastered" in that case would be a
+ *  promise the set cannot keep. */
+export function promotionsIn(items, asOf) {
+  const by = new Map()
+  for (const q of items || []) {
+    const id = q && q.id ? q.id : q
+    const hit = findItem(id)
+    if (!hit || !hit.it) continue
+    const sub = hit.sub, sk = skillOf(sub, hit.it)
+    const key = sub + "\u0000" + sk
+    let g = by.get(key)
+    if (!g) by.set(key, (g = { sub, sk, n: 0, eligible: 0 }))
+    g.n++
+    const hs = attemptsOf(rec(id), asOf)
+    if (!hs.length) continue
+    const firstDay = dayKey(hs[0].at)
+    if (firstDay === todayKey()) continue
+    const already = hs.some((h) => h.ok && (h.ctx === "mixed" || h.ctx === "mock") && dayKey(h.at) !== firstDay)
+    if (!already) g.eligible++
+  }
+  return [...by.values()].map((g) => {
+    const L = skillLevel(g.sub, g.sk, asOf) || {}
+    const promoted = L.promoted || 0
+    const needs = Math.max(0, PROMOTE_AT - promoted)
+    return { ...g, level: L.level || "Not started", promoted, needs, canReach: L.level === "Proficient" && needs > 0 && g.eligible >= needs }
+  }).sort((a, b) => (b.canReach - a.canReach) || (a.needs - b.needs) || a.sk.localeCompare(b.sk))
+}
+
 export function mixedResults() {
   return Object.keys(Store.s.mixed || {}).map((k) => ({ id: k, ...Store.s.mixed[k] })).sort((a, b) => ts(b.at) - ts(a.at))
 }

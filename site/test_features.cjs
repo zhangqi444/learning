@@ -800,11 +800,87 @@ async function runThrough(pg, pick, max = 60) {
   // mixed set
   await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=mixed-start]');
   check('mixed set previews all four subjects', /Verbal · \d/.test(await body(pg)) && /Reading · \d/.test(await body(pg)));
+  /* The promotion contract. The number the page quotes and the number the engine
+     enforces have to be one number — they were not, once: the page promised
+     Mastered on a single right answer when skillLevel had never accepted fewer
+     than two. So this seeds a skill into the exact state the claim is about and
+     then checks the claim against the engine's own verdict, rather than reading
+     the sentence and believing it.
+
+     Every answer on record is cleared first and put back afterwards, because the
+     claim is about one skill's standing among the others and a set built from
+     whatever the earlier checks happened to answer is not a state anything can
+     be asserted about. Clearing the records is not enough on its own: backfill()
+     rebuilds one for every question in a stored set, so the stored sets go too. Three of one skill's Week 1 questions, all right ten days
+     ago, one of them already carried by a mixed set five days ago: Proficient
+     with one of the two promotions banked, so the page owes her "1 more". */
+  /* The stub Drive serves back the last document the app uploaded, and the app
+     merges it on every load — so a seed written to localStorage is undone by the
+     first reload after it, silently and only sometimes, depending on which won
+     the race. The remote is emptied for the length of this check and put back
+     after, the same way the merge checks below do it. */
+  const promoRemote = drive.body;
+  drive.body = JSON.stringify({ schema: 4, results: {} });
+  const seeded = await pg.evaluate(async () => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const bySk = {};
+    for (const it of (b.subjects.ma || [])) if (it.w === 'W1') (bySk[it.sk] = bySk[it.sk] || []).push(it.id);
+    const sk = Object.keys(bySk).find((k) => bySk[k].length >= 3);
+    const ids = bySk[sk].slice(0, 3);
+    const day = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return d.toISOString(); };
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    sessionStorage.setItem('promo-stash', JSON.stringify(s));
+    // `results` and `mocks` have to go with `items`: backfill() rebuilds a
+    // learning record for anything answered in a stored set, so clearing the
+    // records alone puts them straight back on the next load.
+    s.items = {}; s.results = {}; s.mocks = {};
+    ids.forEach((id, i) => {
+      const hist = [{ at: day(10), ok: true, ctx: 'set' }];
+      if (i === 0) hist.push({ at: day(5), ok: true, ctx: 'mixed' });
+      s.items[id] = { hist, due: null, cleared: day(10) };
+    });
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    return { sk, ids };
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=promotion-plan]');
+  const plan = await pg.$$eval('[data-testid=promotion-row]', (n) => n.map((x) => `${x.dataset.sk}:${x.dataset.needs}`));
+  check('the mixed set names the skill it can lift, and what that skill still needs',
+    plan.includes(`${seeded.sk}:1`), `seeded ${seeded.sk} | plan: ${plan.join(' | ') || 'empty'}`);
+  /* And the number it quoted is the number that moves it: bank the second
+     promotion by hand and the engine says Mastered. If the page and the engine
+     ever disagree again, this fails rather than the page quietly lying. */
+  await pg.evaluate((s0) => {
+    const day = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return d.toISOString(); };
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.items[s0.ids[1]].hist.push({ at: day(2), ok: true, ctx: 'mixed' });
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, seeded);
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  const mastered = await pg.evaluate((sk) => {
+    const row = [...document.querySelectorAll('[data-testid=skills] tr')].find((r) => (r.textContent || '').includes(sk));
+    return row ? (row.textContent || '').replace(/\s+/g, ' ').trim() : null;
+  }, seeded.sk);
+  check('and one more promotion is exactly what it took — the engine agrees with the page',
+    !!mastered && /Mastered/.test(mastered), String(mastered));
+  drive.body = promoRemote;
+  await pg.evaluate(() => { const s = sessionStorage.getItem('promo-stash'); if (s) localStorage.setItem('isee.v1', s); });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=mixed-start]');
+
   await pg.click('[data-testid=mixed-start]'); await pg.waitForSelector('[data-testid=choice]');
   check('mixed runner titled', /Mixed set · all subjects/.test(await body(pg)) && /1 \/ 12/.test(await body(pg)));
   await runThrough(pg, 2, 14);
   await pg.waitForSelector('[data-testid=score]');
   check('finishing a mixed set announces the badge it earned', (await pg.$('[data-testid=badges-won]')) !== null && /Shuffled/.test(await pg.textContent('[data-testid=badges-won]')));
+  /* The other half of the contract: having said what was in play, the card
+     has to say what happened to it. Every row is one of the two outcomes and
+     never a third, because a promotion report with a blank row is the thing
+     that would read as a verdict. */
+  const report = await pg.$$eval('[data-testid=promotion-result]', (n) => n.map((x) => `${x.dataset.sk}:${x.dataset.moved}:${(x.textContent || '').replace(/\s+/g, ' ').trim()}`));
+  check('and the score card says what became of each skill it named',
+    report.every((r) => /:1:/.test(r) ? /Mastered/.test(r) : /\d of 2/.test(r)), report.join(' | ') || 'no rows');
   await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('text=Mixed sets so far');
   check('mixed result stored with per-subject split', (await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); const r = Object.values(s.mixed)[0]; return r && r.n === 12 && r.bySub && Object.keys(r.bySub).length === 4; })));
   // vocabulary quiz

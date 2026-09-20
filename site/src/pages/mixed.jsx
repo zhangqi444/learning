@@ -2,12 +2,13 @@ import * as React from "react"
 import { Play, Shuffle } from "lucide-react"
 
 import { ORDER, SUBJ, fmtDate } from "@/lib/content"
-import { buildMixedSet, dayKey, mixedResults } from "@/lib/engine"
+import { buildMixedSet, dayKey, mixedResults, promotionsIn } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { PromotionPlan } from "@/components/promotion"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Runner } from "@/pages/runner"
 
@@ -32,9 +33,17 @@ export function Mixed() {
             <Button onClick={() => go("/mixed/run")} disabled={preview.length < 4} data-testid="mixed-start"><Play /> Start a mixed set</Button>
           </CardAction>
         </CardHeader>
-        <CardContent className="flex flex-wrap gap-1.5">
-          {ORDER.map((s) => <Badge key={s} variant="outline" className="font-normal"><span className="mr-1 inline-block size-2 rounded-full" style={{ background: SUBJ[s].color }} />{SUBJ[s].short} · {counts[s] || 0}</Badge>)}
-          {preview.length < 12 ? <span className="text-muted-foreground text-xs">Only {preview.length} questions are eligible today — more open up as weeks are finished.</span> : null}
+        <CardContent className="flex flex-col gap-2">
+          <div className="flex flex-wrap gap-1.5">
+            {ORDER.map((s) => <Badge key={s} variant="outline" className="font-normal"><span className="mr-1 inline-block size-2 rounded-full" style={{ background: SUBJ[s].color }} />{SUBJ[s].short} · {counts[s] || 0}</Badge>)}
+            {preview.length < 12 ? <span className="text-muted-foreground text-xs">Only {preview.length} questions are eligible today — more open up as weeks are finished.</span> : null}
+          </div>
+          {/* The terms, before she starts, naming the skills today's set can
+              actually lift. The paragraph above has always said what the rule
+              is; this says what it means for these twelve questions, which is
+              the difference between a rule she is scored by and a rule she can
+              use. */}
+          <PromotionPlan items={preview} />
         </CardContent>
       </Card>
 
@@ -66,6 +75,11 @@ export function Mixed() {
 
 export function MixedRun() {
   const items = React.useMemo(() => buildMixedSet(12), [])
+  /* Taken before a single answer is recorded, because the engine only ever
+     reports now: by the time the score card renders, "was it Proficient?" has
+     already become "is it Mastered?". The snapshot is what lets the card say
+     something moved without storing anything to say it with. */
+  const before = React.useMemo(() => promotionsIn(items), [items])
   if (items.length < 4) return <Mixed />
   const key = "mx:" + new Date().toISOString().slice(0, 16)
   return (
@@ -77,6 +91,7 @@ export function MixedRun() {
       title="Mixed set · all subjects"
       exitPath="/mixed"
       exitLabel="Back to mixed practice"
+      promotion={before}
       onFinish={(sum) => Store.setSlice("mixed", key, () => ({ ...sum }))}
     />
   )

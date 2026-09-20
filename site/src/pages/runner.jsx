@@ -19,6 +19,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip
 import { Burst, useCountUp } from "@/components/burst"
 import { Gate, inscribe } from "@/components/gate"
 import { Glim, hearProps } from "@/components/glim"
+import { PromotionReport } from "@/components/promotion"
 import { sfx } from "@/lib/sfx"
 
 const { useState, useEffect, useRef } = React
@@ -138,9 +139,10 @@ function SoftTimer({ since, budget }) {
 /**
  * items: questions · setId: results key for plan sets · custom: not a plan set (review, mixed, corrections, word quiz)
  * ctx: set | review | mixed | corr | vocab — what kind of evidence the answers are · onFinish(summary): custom flows
+ * promotion: a promotionsIn() snapshot taken before the set, for flows that can move a skill to Mastered
  * prior: an earlier result to reopen · record=false: nothing is written (corrections right after a mock).
  */
-export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, prior, record = true, onFinish, sub: subHint, backTo }) {
+export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, prior, record = true, onFinish, sub: subHint, backTo, promotion }) {
   const kind = ctx || (custom ? "review" : "set")
   const store = useStore()
   const [i, setI] = useState(0)
@@ -324,6 +326,12 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                 ))}
               </div>
             ) : null}
+            {/* What the set moved, under the cats and above the badges: it is
+                about the same skills the cats name, and it is not itself a
+                reward. Only flows that can actually promote pass a snapshot, so
+                a plan set and a word quiz render nothing here rather than an
+                empty heading. */}
+            {promotion ? <PromotionReport before={promotion} className="mt-4" /> : null}
             {won.length ? (
               <div
                 className="border-primary bg-primary/10 mt-4 flex flex-col items-center gap-2 rounded-2xl border-2 p-4 shadow-[0_3px_0_0_var(--primary-press)] motion-safe:animate-[pop_420ms_cubic-bezier(.34,1.56,.64,1)_both]"
