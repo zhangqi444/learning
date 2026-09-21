@@ -72,7 +72,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "1ed85b3b44279033"
+   "why": {
+    "A": "3 out of every 4 puts the reds over the greens instead of over all the apples. The 3 reds and 4 greens make 7 together, so 3 of every 7 are red.",
+    "B": "3 red and 4 green is only one basket that fits — 6 and 8, or 30 and 40, fit the same ratio. What must be true is that 3 of every 7 apples are red.",
+    "C": "4 out of every 7 is the green share. There are 7 apples in each group and the reds are the 3, so it is 3 out of every 7."
+   },
+   "content_hash": "60f39b581c5c9461"
   },
   {
    "id": "QR-W5-S1-Q04",
@@ -193,7 +198,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "6d26e33210b169ee"
+   "why": {
+    "A": "8 inches borrows the 8 from the scale, but that 8 counts feet, not the model's inches. Share the 60 feet out 8 at a time: 60 ÷ 8 = 7 1/2 inches.",
+    "B": "480 is 60 × 8, multiplying where the scale asks you to divide. Every 8 real feet squeeze into 1 model inch, so 60 ÷ 8 = 7 1/2 inches.",
+    "C": "6 is 60 ÷ 10, as if each inch stood for 10 feet. The scale says 8 feet to the inch: 60 ÷ 8 = 7 1/2 inches."
+   },
+   "content_hash": "3db16e1a629ef968"
   },
   {
    "id": "QR-W5-S1-Q09",
@@ -214,7 +224,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "70a75f79394a1133"
+   "why": {
+    "A": "15 ounces for $4.50 is the smaller price tag, but the smaller jar costs more for each ounce: $4.50 ÷ 15 = $0.30 an ounce against $6.72 ÷ 24 = $0.28, so the 24-ounce jar wins by 2 cents an ounce.",
+    "C": "24 ounces is the better buy — that part is right — but the gap is 2 cents, not 4: $4.50 ÷ 15 = $0.30 an ounce, $6.72 ÷ 24 = $0.28, and 30 − 28 = 2.",
+    "D": "The two are close but not equal. Divide each price by its ounces: $4.50 ÷ 15 = $0.30 and $6.72 ÷ 24 = $0.28, so the big jar saves 2 cents an ounce."
+   },
+   "content_hash": "752a428c02552d59"
   },
   {
    "id": "QR-W5-S1-Q10",
@@ -261,7 +276,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "20c5eaa9d5e42fb9"
+   "why": {
+    "B": "Twice as fast would mean Ana did double Ben's work in the same time, but she took more minutes as well. Per minute they match: 24 ÷ 40 = 0.6 and 21 ÷ 35 = 0.6.",
+    "C": "Ben did finish in fewer minutes — 35 against Ana's 40 — but he also stacked fewer boxes. Boxes per minute is what decides: 21 ÷ 35 = 0.6 and 24 ÷ 40 = 0.6, the same.",
+    "D": "Ana's 24 boxes is the bigger pile, but she took longer over it too. Boxes per minute is what decides: 24 ÷ 40 = 0.6 and 21 ÷ 35 = 0.6, the same."
+   },
+   "content_hash": "690ce79bb2224588"
   },
   {
    "id": "QR-W5-S1-Q12",
@@ -282,7 +302,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "4a6e6487123ac0d4"
+   "why": {
+    "A": "96 is 12 × 8, the drawing's length times its width — and that is the space inside the rectangle, not a length. Even so, nothing here says what one centimeter stands for.",
+    "C": "48 is 12 × 4, which assumes 4 meters to every centimeter. The question never says what the scale is, so that 4 has been invented.",
+    "D": "20 is 12 + 8, the two sides added. Turning centimeters into meters needs a scale, and this drawing has not been given one."
+   },
+   "content_hash": "a007b8993a5e9d94"
   },
   {
    "id": "QR-W5-S2-Q01",
@@ -376,7 +401,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "4e1afd21e23430fc"
+   "why": {
+    "A": "1/3 does not match this bag. The bottom number is every tile there is — 3 + 5 = 8 — and 3 of those 8 are red, so the chance is 3/8.",
+    "B": "3/5 puts the reds over the greens. The bottom number is every tile in the bag: 3 + 5 = 8, so the chance is 3/8.",
+    "C": "5/8 is the chance of pulling a green one. The reds are the 3, so drawing red is 3 out of 8 tiles, or 3/8."
+   },
+   "content_hash": "61f099effe92c661"
   },
   {
    "id": "QR-W5-S2-Q05",
@@ -446,7 +476,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "56a9906dfd377d76"
+   "why": {
+    "A": "7 is the fourth height once they are in order, one place past the middle. In order they go 4, 5, 6, 7, 9, and the middle one of five is the third: 6 cm.",
+    "C": "4 is the middle of the list as it was written down, before the heights were put in order. Sorted they read 4, 5, 6, 7, 9, so the median is 6 cm.",
+    "D": "5 is the second height in order, one place short of the middle. Counting in from both ends of 4, 5, 6, 7, 9 stops at the third one, 6 cm."
+   },
+   "content_hash": "28a0fac1aa8e0ca6"
   },
   {
    "id": "QR-W5-S2-Q08",
@@ -493,7 +528,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "42761a19fb741d5c"
+   "why": {
+    "A": "(5, 6) is halfway along the top, not a corner — 5 is the middle between 1 and 9. The fourth corner is straight above (1, 1), at (1, 6).",
+    "B": "(1, 5) uses how tall the rectangle is — 6 − 1 = 5 — as the height of the corner. Counting 5 steps up from (1, 1) lands on 6, so the corner is (1, 6).",
+    "C": "(6, 1) has the two numbers the wrong way round. Across comes first: 1 across and 6 up is (1, 6)."
+   },
+   "content_hash": "1d2db668de579f13"
   },
   {
    "id": "QR-W5-S2-Q10",
@@ -514,7 +554,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "bc2bf96415a628d2"
+   "why": {
+    "A": "9 counts the part-full glass as a whole one. Only 8 3/4 glasses' worth is in the pitcher, so 8 glasses fill and 3/10 quart stays behind.",
+    "B": "8 glasses is right, but the 1/2 is the half quart from 3 1/2, not what is left at the end. The 8 glasses use 8 × 2/5 = 16/5 = 3 1/5 quarts, leaving 3/10.",
+    "C": "7 is one glass short: 7 glasses use 7 × 2/5 = 14/5 = 2 4/5 quarts, and the 7/10 quart left is plenty for another 2/5 glass. Pour it and 3/10 remains."
+   },
+   "content_hash": "7df0d6c5475da3cc"
   },
   {
    "id": "QR-W5-S2-Q11",
@@ -535,7 +580,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "c9dcf7e4452c621b"
+   "why": {
+    "A": "6 rounds the answer up to a whole number. Half of an odd number keeps its half: 3n = 26 + 7 = 33, so n = 11 and half of 11 is 5 1/2.",
+    "C": "16 1/2 halves the 33 before dividing by 3. The 33 is three times the number, so first 33 ÷ 3 = 11, and then half of 11 is 5 1/2.",
+    "D": "11 is the number itself, and the question asks for half of it. 3 × 11 − 7 = 26 shows 11 is right so far; halving gives 5 1/2."
+   },
+   "content_hash": "725ff342bef457fb"
   },
   {
    "id": "QR-W5-S2-Q12",
@@ -582,7 +632,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "05d3dc9bf25b9a38"
+   "why": {
+    "A": "27 is more inches than the room has feet, and this scale always shrinks: every 4 feet is drawn as 3 inches. 18 feet is 4 1/2 of those groups, so 4.5 × 3 = 13 1/2 inches.",
+    "B": "12 is 4 × 3, counting only 4 whole groups of 4 feet. 18 feet makes 4 1/2 of those groups, so it is 4.5 × 3 = 13 1/2 inches.",
+    "C": "24 is 18 ÷ 3 × 4, the scale turned round — 4 inches for every 3 feet. It is 3 inches for every 4 feet, so 18 ÷ 4 × 3 = 13 1/2 inches."
+   },
+   "content_hash": "bd04e509cff6952a"
   },
   {
    "id": "QR-W5-S2-Q14",
@@ -603,7 +658,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
-   "content_hash": "096c8a89b0a04c50"
+   "why": {
+    "A": "82 is 80 + 2, as if one quiz two points above the target lifted the whole mean by two. The four she has taken are each 2 short, so the fifth carries all 8: 80 + 8 = 88.",
+    "C": "90 is 80 + 10, counting two spare points for all five quizzes. Only the four already taken are short: 4 × 2 = 8, so she needs 80 + 8 = 88.",
+    "D": "84 is 80 + 4, one spare point for each quiz taken. Each of those four is 2 below 80, not 1, so the make-up is 4 × 2 = 8 and the score is 88."
+   },
+   "content_hash": "7ae9b1a1e9a7c6b9"
   },
   {
    "id": "QR-W5-S2-Q15",
@@ -672,7 +732,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "1d857b87abbb10eb"
+   "why": {
+    "A": "2,000 is 6,000 ÷ 3, dividing by 3 rather than by 30. The 29 rounds to 30, and 6,000 ÷ 30 = 200.",
+    "B": "20 is 600 ÷ 30, with a zero lost from the 6,127. Rounded, it is 6,000 ÷ 30 = 200.",
+    "D": "20,000 is bigger than the 6,127 you started with, and splitting 6,127 into 29 groups must give less than that. Rounded, it is 6,000 ÷ 30 = 200."
+   },
+   "content_hash": "588265bbefa60b51"
   },
   {
    "id": "QR-W6-S1-Q03",
@@ -693,7 +758,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "e01fe9b7a0939b24"
+   "why": {
+    "A": "9 is 3 × 3, so 3 divides it and it is not prime. 17 has no factors except 1 and itself.",
+    "B": "21 is 3 × 7, so it has factors besides 1 and 21. Only 17 here cannot be split that way.",
+    "D": "15 is 3 × 5, so it is not prime. A prime has no factors except 1 and itself, and that is 17."
+   },
+   "content_hash": "85a1cbee6038ab1f"
   },
   {
    "id": "QR-W6-S1-Q04",
@@ -762,7 +832,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "075e6b50e9263eab"
+   "why": {
+    "B": "12 is 2 + 3 + 7, with the 5 left out. 210 = 2 × 3 × 5 × 7, and those four add to 17.",
+    "C": "15 is 3 + 5 + 7, with the 2 missed. 210 is even, so 2 is a prime factor too, and the sum is 17.",
+    "D": "21 is a factor of 210 (3 × 7), not a sum. The prime factors are 2, 3, 5 and 7, which add to 17."
+   },
+   "content_hash": "4b9c2b6ba8821875"
   },
   {
    "id": "QR-W6-S1-Q07",
@@ -783,7 +858,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "efe53d52c7c51305"
+   "why": {
+    "A": "4,000 is about 400 × 10. There are 18 lots of about 400, not 10, so the product is near 7,200.",
+    "B": "7 is the last digit of 397, and 7 × 8 = 56, so the product ends in 6. But the real check is size: 397 is nearly 400, and 400 × 18 = 7,200.",
+    "D": "5,146 being even is fine — 18 is even, so the product must be even. It is the size that is wrong: 397 is nearly 400, and 400 × 18 = 7,200."
+   },
+   "content_hash": "c9eef9806200c7b2"
   },
   {
    "id": "QR-W6-S1-Q08",
@@ -828,7 +908,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "39f2820c2a116717"
+   "why": {
+    "A": "4,650 is the first number that rounds up to 4,700. The largest one that still rounds to 4,600 is 4,649.",
+    "B": "4,599 is the largest number below 4,600, but numbers just above 4,600 round back down to 4,600 as well, all the way up to 4,649.",
+    "C": "4,699 is nearer to 4,700 than to 4,600, so it rounds up. The last one that rounds down is 4,649."
+   },
+   "content_hash": "1333baa838ef75e0"
   },
   {
    "id": "QR-W6-S1-Q10",
@@ -849,7 +934,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "6da81a6e665d67c7"
+   "why": {
+    "A": "15 is 3 × 5, so its factors are 1, 3, 5 and 15 — four of them. Exactly three means a prime times itself, and that is 49 = 7 × 7.",
+    "B": "21 is 3 × 7, giving four factors: 1, 3, 7 and 21. The one with three is 49 = 7 × 7.",
+    "D": "64 is a square, but 8 is not prime, so 64 has seven factors. 49 = 7 × 7 has only 1, 7 and 49."
+   },
+   "content_hash": "a6b7068ba8a1b4a7"
   },
   {
    "id": "QR-W6-S1-Q11",
@@ -870,7 +960,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "cfa8f2752e092ac6"
+   "why": {
+    "A": "29 is a little too big: 29 × 29 = 841. The number that works is 27, since 27 × 27 = 729.",
+    "C": "23 is too small: 23 × 23 = 529, not 729. The number that works is 27, since 27 × 27 = 729.",
+    "D": "81 is 729 ÷ 9, not the number multiplied by itself. That number is 27, because 27 × 27 = 729."
+   },
+   "content_hash": "e36f4f3b030f63a4"
   },
   {
    "id": "QR-W6-S1-Q12",
@@ -891,7 +986,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "abe12abbc29099bb"
+   "why": {
+    "A": "Two evens and an odd do add to an odd total, but so do three odds: 3 + 5 + 7 = 15. So it need not be true — the one that must be true is that at least one number is odd.",
+    "B": "Three odds do make an odd total — 1 + 3 + 5 = 9 — but so does 2 + 4 + 5 = 11. Only 'at least one is odd' is certain.",
+    "C": "One odd with two evens gives an odd total, but three odds do too: 1 + 3 + 5 = 9. Either way, at least one is odd."
+   },
+   "content_hash": "6574e1e64a4f97ca"
   },
   {
    "id": "QR-W6-S2-Q01",
@@ -912,7 +1012,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "b89b4dfabdb2dd69"
+   "why": {
+    "A": "4/6 is two thirds, more than half: half of 6 would be 3 on top, not 4. The one that is exactly half is 5/10.",
+    "B": "3/8 is less than half, because half of 8 is 4 and the top is only 3. Half of 10 is 5, so 5/10 is the one.",
+    "D": "2/5 is less than half: half of 5 is 2 and a half, and the top is only 2. In 5/10 the top is exactly half the bottom."
+   },
+   "content_hash": "3d8aeccde5cfe6fa"
   },
   {
    "id": "QR-W6-S2-Q02",
@@ -959,7 +1064,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "062135419ef6140c"
+   "why": {
+    "A": "126 does divide by 6, but its digits add to 1 + 2 + 6 = 9, so 9 divides it too. The one that misses 9 is 132.",
+    "C": "135 is odd, so 6 cannot divide it — every multiple of 6 is even. 132 is even, and its digits add to 6, not 9.",
+    "D": "108 divides by 6, but 108 ÷ 9 = 12, so it is a multiple of 9 as well. 132 is the one that misses 9."
+   },
+   "content_hash": "76cf6a5864ce7518"
   },
   {
    "id": "QR-W6-S2-Q04",
@@ -1004,7 +1114,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "71c4aa91db67cc6f"
+   "why": {
+    "B": "2,400 is 48 × 50, with the 32 seats rounded all the way up to 50. 32 is nearer 30, and 48 rows is nearer 50, so the estimate is 50 × 30 = 1,500.",
+    "C": "1,200 is 40 × 30, with 48 rounded down to 40. 48 is much nearer 50, and 50 × 30 = 1,500.",
+    "D": "1,800 would need about 60 rows of 30 seats, and there are only 48 rows. Rounding gives 50 × 30 = 1,500."
+   },
+   "content_hash": "4c91e5eb81a0989c"
   },
   {
    "id": "QR-W6-S2-Q06",
@@ -1123,7 +1238,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "4409a240205b2417"
+   "why": {
+    "A": "5/8 is 0.625, which is bigger than 0.6, so it cannot come first. The order is 0.6, 5/8, 2/3, 0.7.",
+    "B": "0.6 does come first, but 5/8 is 0.625 and 2/3 is about 0.667, so 5/8 belongs before 2/3.",
+    "D": "2/3 is about 0.667, so it is not the smallest — 0.6 is. As decimals: 0.6, 0.625, 0.667, 0.7."
+   },
+   "content_hash": "0f3635bd75c66d17"
   },
   {
    "id": "QR-W6-S2-Q11",
@@ -1168,7 +1288,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "e0727d0fd662ecf0"
+   "why": {
+    "B": "63 is $60 plus 5%, from 25 − 20 = 5 and 5% of $60 = $3. The 20% comes off the raised price instead: $75 − $15 = $60.",
+    "C": "75 is the raised price, before the 20% comes off. 20% of 75 is 15, so the final price is 75 − 15 = 60.",
+    "D": "57 is $60 with 5% taken off, since 5% of $60 = $3 and $60 − $3 = $57. But the rise comes first: $60 becomes $75, and $15 off leaves $60."
+   },
+   "content_hash": "ba6e1af21385fe20"
   },
   {
    "id": "QR-W6-S2-Q13",
@@ -1189,7 +1314,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "39ff6bbae6b8aa18"
+   "why": {
+    "A": "4 and 18 do multiply to 72, but they add to 22, so the perimeter would be 44. The sides must add to 18.",
+    "C": "8 × 9 = 72 as well, but 8 + 9 = 17 makes the perimeter 34. The pair adding to 18 is 6 and 12.",
+    "D": "3 and 24 give an area of 72, but a perimeter of 54. Half of 36 is 18, and 6 + 12 = 18 with 6 × 12 = 72."
+   },
+   "content_hash": "258bcea825efbc43"
   },
   {
    "id": "QR-W6-S2-Q14",
@@ -1236,7 +1366,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
-   "content_hash": "07c4ed891f50597f"
+   "why": {
+    "B": "This one is true: an even and an odd always add to an odd, like 4 + 3 = 7. The false one is about two evens — 2 × 2 = 4, which 8 does not divide.",
+    "C": "This one is true: two odds each leave one over, and those pair up, like 3 + 5 = 8. The false one is about two evens — 2 × 2 = 4, which 8 does not divide.",
+    "D": "This one is true: odd times odd is always odd, like 3 × 5 = 15. The false statement is the one about two evens: 2 × 2 = 4."
+   },
+   "content_hash": "50ebd2b25b8f43e3"
   },
   {
    "id": "QR-W7-S1-Q01",
@@ -1334,7 +1469,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "8826aeb0f1ea43eb"
+   "why": {
+    "A": "11 is the 6th age in the list. With nine ages the middle one is the 5th, and that is 10.",
+    "B": "9 is how many students there are, not the middle age. Count in to the 5th age: 10.",
+    "C": "13 is the oldest age, the end of the list rather than its middle. The 5th of the nine ages is 10."
+   },
+   "content_hash": "bd20817e89b79c90"
   },
   {
    "id": "QR-W7-S1-Q05",
@@ -1456,7 +1596,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "d0983fdeae4d4ea9"
+   "why": {
+    "A": "Bag X does hold more red marbles, but more of everything else too: 4 out of 12 is 1 in 3, and 3 out of 8 is a bigger share.",
+    "B": "The size of the bag does not matter, only the share that is red. Bag X is 4 out of 12, or 1 in 3; Bag Y is 3 out of 8, which is a little more.",
+    "C": "They are close but not equal: 1/3 is 8/24 and 3/8 is 9/24, so Bag Y is slightly ahead."
+   },
+   "content_hash": "44977bb9000fed2b"
   },
   {
    "id": "QR-W7-S1-Q10",
@@ -1477,7 +1622,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "a5dfeb52c0b3fd5b"
+   "why": {
+    "A": "3 times counts the longer side and forgets the width was halved. Three times one side and half the other gives 3 × 1/2 = 1 1/2 times.",
+    "B": "Tripling and halving do not cancel out: the new rug is 18 by 2, so 36 square feet against 24.",
+    "D": "1 1/3 is too small a jump. The rugs are 24 and 36 square feet, and 36 is one and a half times 24."
+   },
+   "content_hash": "c91e9ea13c74a679"
   },
   {
    "id": "QR-W7-S1-Q11",
@@ -1498,7 +1648,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "02306899b26de89d"
+   "why": {
+    "A": "30 would push the total to 100 and the mean to about 16 2/3, which is too high. Six numbers must total 90 and five of them total 70, so the sixth is 90 − 70 = 20.",
+    "C": "15 is the new mean, not the new number. All six total 6 × 15 = 90 and the first five total 70, so the sixth is 20.",
+    "D": "16 is 15 + 1, adding one for the one-point rise. The rise has to cover all six numbers, so the sixth is 90 − 70 = 20."
+   },
+   "content_hash": "13f01b60e80f46ab"
   },
   {
    "id": "QR-W7-S1-Q12",
@@ -1543,7 +1698,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "7c0f7a4f20fd6ccc"
+   "why": {
+    "B": "64 ends in 4, so 5 leaves a remainder: 64 ÷ 5 is 12 with 4 over. Multiples of 5 end in 0 or 5, and here that is 75.",
+    "C": "58 ends in 8, and a number divides by 5 only when it ends in 0 or 5 — 55 and 60 sit either side of it. Here that number is 75.",
+    "D": "42 ends in 2, so 5 does not divide it — 40 and 45 are the multiples of 5 nearest to it. The one ending in 5 is 75."
+   },
+   "content_hash": "2f74d7e18847505a"
   },
   {
    "id": "QR-W7-S2-Q02",
@@ -1616,7 +1776,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "20f4720000500bc0"
+   "why": {
+    "A": "26 is 30 − 4, taking 4 off instead of 5. Each step down is 5, so the next number is 25.",
+    "B": "24 is 30 − 6, one too far. The pattern drops by 5 each time: 30 − 5 = 25.",
+    "C": "20 is 30 − 10, two steps at once. One step gives 25, and 20 is the number after that."
+   },
+   "content_hash": "99c760f3d20b78ae"
   },
   {
    "id": "QR-W7-S2-Q05",
@@ -1687,7 +1852,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "48b1d71898b65fb8"
+   "why": {
+    "B": "1/5 would mean only two of the ten cards are prime. There are four — 2, 3, 5 and 7 — so it is 4/10 = 2/5.",
+    "C": "1/2 is the chance of an odd card, and 1 and 9 are odd without being prime. The primes are 2, 3, 5 and 7: 4 out of 10.",
+    "D": "3/10 counts 3, 5 and 7 but leaves out 2, which is prime as well. Four cards out of ten is 2/5."
+   },
+   "content_hash": "fabc4b8c6d077cbd"
   },
   {
    "id": "QR-W7-S2-Q08",
@@ -1708,7 +1878,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "5c90a22e94328a83"
+   "why": {
+    "A": "1/4 is smaller than 1/3, because quarters are smaller pieces than thirds. In twelfths it is 3/12, below 4/12, and the one in between is 5/12.",
+    "B": "2/3 is bigger than 1/2 — two of three pieces is more than half. Between 4/12 and 6/12 sits 5/12.",
+    "C": "3/5 is more than half, since half of 5 is 2 and a half and the top is 3. The one in between is 5/12."
+   },
+   "content_hash": "6bf988f645955217"
   },
   {
    "id": "QR-W7-S2-Q09",
@@ -1729,7 +1904,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "0e76429643f1e942"
+   "why": {
+    "B": "1/12 comes from trying to use twelfths, but eighths do not fit into twelfths. Twenty-fourths fit both: 2/3 = 16/24 and 5/8 = 15/24, so the gap is 1/24.",
+    "C": "3/5 is the tops and the bottoms worked apart — 5 − 2 = 3 and 8 − 3 = 5. Fractions have to share a bottom number first: 16/24 − 15/24 = 1/24.",
+    "D": "1/8 is a whole extra eighth, which would carry her past two thirds — 6/8 is more than 2/3. The gap is smaller than that: 16/24 − 15/24 = 1/24."
+   },
+   "content_hash": "a93173227cf64db9"
   },
   {
    "id": "QR-W7-S2-Q10",
@@ -1774,7 +1954,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "9209d7cc8512b10c"
+   "why": {
+    "B": "(2, 1) is the right pair written the wrong way round. The across number comes first, so the corner is (1, 2).",
+    "C": "(5, 2) borrows the 5 from (1, 5), but that 5 is a height, not an across number. The new corner sits straight below (1, 5), so it keeps the 1: (1, 2).",
+    "D": "(1, 9) picks up the 9 from (9, 2), but 9 is that corner's across number, not its height. The new corner is level with (9, 2), so it takes the 2: (1, 2)."
+   },
+   "content_hash": "9dc22f0bbf121550"
   },
   {
    "id": "QR-W7-S2-Q12",
@@ -1795,7 +1980,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "6a18b4b8a8d0cf30"
+   "why": {
+    "A": "13,000 is past even rounding every number up: 5,000 + 4,000 + 3,000 = 12,000. Rounded the usual way they are 4,000, 4,000 and 3,000 — about 11,000.",
+    "B": "10,000 is 10,955 with the 955 dropped rather than rounded. More than half a thousand is left over, so the total rounds up to 11,000.",
+    "D": "9,000 is 4,000 + 3,000 + 2,000, every number chopped down to its first digit. Rounded to the nearest thousand they are 4,000, 4,000 and 3,000, which come to 11,000."
+   },
+   "content_hash": "5a734213b9d75846"
   },
   {
    "id": "QR-W7-S2-Q13",
@@ -1841,7 +2031,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "0b6518ed0b99ac24"
+   "why": {
+    "A": "82 is the mean she started with, as if dropping a score left the average where it was. Losing a low score lifts it: the four that are left total 348, and 348 ÷ 4 = 87.",
+    "B": "85 is 340 ÷ 4, which needs the four scores to total 340. Take 62 off 410 and the total is 348, and 348 ÷ 4 = 87.",
+    "D": "92 is 82 + 10, a guess at how far the mean jumps. The 62 was 20 below the mean, and those 20 points spread over the four left: 20 ÷ 4 = 5, so 82 + 5 = 87."
+   },
+   "content_hash": "744ce40d22be3eeb"
   },
   {
    "id": "QR-W7-S2-Q15",
@@ -1862,7 +2057,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "27cd309a6caab617"
+   "why": {
+    "A": "42 is 21 × 2, as if the 21 extra riders filled the walkers' 2 parts. The gap is 3 parts, so one part is 21 ÷ 3 = 7, and the class's 7 parts make 49.",
+    "C": "35 is 5 × 7, the riders on their own. The 2 × 7 = 14 walkers belong in the class too: 35 + 14 = 49.",
+    "D": "63 is 21 × 3, the extra riders multiplied by the three spare parts instead of shared among them. One part is 21 ÷ 3 = 7, and seven parts make 49."
+   },
+   "content_hash": "13e23b22c15c3869"
   },
   {
    "id": "QR-W8-S1-Q01",
@@ -1907,7 +2107,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "d5f2eda54258197b"
+   "why": {
+    "B": "1/2 would mean 4 slices still there. Three were eaten, not four, so 8 − 3 = 5 are left: 5/8.",
+    "C": "3/5 sets the 3 eaten against the 5 left. A fraction of the pizza counts all 8 slices underneath, and 5 remain: 5/8.",
+    "D": "3/8 is the part that was eaten. The question asks for what is left: 8 − 3 = 5 slices, so 5/8."
+   },
+   "content_hash": "3b3636b3f7e0e4e6"
   },
   {
    "id": "QR-W8-S1-Q03",
@@ -1928,7 +2133,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "1b877c8528f3ede6"
+   "why": {
+    "A": "$1.00 short would mean the three came to $21.00. They come to $19.00: $6.85 and $7.95 make $14.80, and $4.20 more makes $19.00, so a dollar is left over.",
+    "C": "$0 left is what rounding every price up to the next dollar gives: $7 + $5 + $8 = $20. The real prices total $19.00, so $1.00 stays in her pocket.",
+    "D": "$2.00 is what the cents come to on their own — 85 + 20 + 95 = 200 cents — not what is left. The bill is $19.00, so the change from $20 is $1.00."
+   },
+   "content_hash": "5c302a070d9caa47"
   },
   {
    "id": "QR-W8-S1-Q04",
@@ -1949,7 +2159,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "39ffe3695efcfb74"
+   "why": {
+    "A": "250 is 5,000 cut by 2 and then by 10, but 50 is five tens, not two. Cutting by 5 and then by 10 gives 5,000 ÷ 50 = 100.",
+    "B": "10 is 5,000 ÷ 500, one zero too many on the number she is dividing by. 51 is about 50, and 5,000 ÷ 50 = 100.",
+    "C": "1,000 is 5,000 ÷ 5, as if she were dividing by 5 rather than by about 50. Fifty goes into 5,000 a hundred times."
+   },
+   "content_hash": "4194538ae4bee93b"
   },
   {
    "id": "QR-W8-S1-Q05",
@@ -1970,7 +2185,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "7019004f8f1160ba"
+   "why": {
+    "A": "20 is the mean before the fifth friend arrived. The new 25 is above 20, so the mean creeps up: 80 + 25 = 105, and 105 ÷ 5 = 21.",
+    "B": "22 is close to halfway between 20 and 25, as if the new score weighed as much as the other four together. It is one score of five: 80 + 25 = 105, and 105 ÷ 5 = 21.",
+    "C": "25 is the new friend's own score, not the mean of everybody. All five together total 105, and 105 ÷ 5 = 21."
+   },
+   "content_hash": "0678914f6fadcc69"
   },
   {
    "id": "QR-W8-S1-Q06",
@@ -2120,7 +2340,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "0da66445a3a829c8"
+   "why": {
+    "B": "$59.00 is $66 − $7, with the 10% rounded up to a whole dollar. Ten per cent of $66 is $6.60, and $66 − $6.60 = $59.40.",
+    "C": "$60.60 is 60 cents above the $60 it started at, but the price ends below where it started: the $6.60 drop beats the $6.00 rise, so $66 − $6.60 = $59.40.",
+    "D": "$60.00 is what you get if the 10% up and the 10% down cancel out. They do not: the rise is $6.00 on $60, but the drop is $6.60 on $66, leaving $59.40."
+   },
+   "content_hash": "b52a96bfdeda3809"
   },
   {
    "id": "QR-W8-S1-Q12",
@@ -2167,7 +2392,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "2a94c10a1d83c997"
+   "why": {
+    "A": "3/5 is 0.6 — six tenths, which is a tenth short of 0.7. Lining all four up as decimals settles it: 0.6, 0.68, about 0.67 and 0.7.",
+    "B": "0.68 has more digits than 0.7, but more digits does not mean more. Line them up as 0.68 and 0.70 and the 0.7 is two hundredths bigger.",
+    "C": "2/3 works out at about 0.67, which beats 3/5 but is still under 0.7. Dividing 2 by 3 gives 0.666..., a shade short of seven tenths."
+   },
+   "content_hash": "99048de1e0bdf08d"
   },
   {
    "id": "QR-W8-S2-Q02",
@@ -2212,7 +2442,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "3e46f1550dc435b1"
+   "why": {
+    "A": "414 is even and 4 + 1 + 4 = 9 is a multiple of 3, so 6 does go in: 6 × 69 = 414. The one it misses is 358 — 3 + 5 + 8 = 16, which 3 does not divide.",
+    "B": "246 is even and 2 + 4 + 6 = 12 is a multiple of 3, so 6 goes in exactly: 6 × 41 = 246. The one it misses is 358 — 3 + 5 + 8 = 16, which 3 does not divide.",
+    "C": "132 is even and 1 + 3 + 2 = 6 is a multiple of 3, so 6 divides it: 6 × 22 = 132. The one that fails is 358, because 3 + 5 + 8 = 16 is not a multiple of 3."
+   },
+   "content_hash": "438d397e1ecf7eb1"
   },
   {
    "id": "QR-W8-S2-Q04",
@@ -2335,7 +2570,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "ed9bc1150fed68f9"
+   "why": {
+    "A": "4 lands either side of 15 rather than on it: 4 × 3 = 12 and 4 × 4 = 16. The factors of 15 are 1, 3, 5 and 15.",
+    "B": "6 is 1 + 5, the digits of 15 added, which does not make a factor. 6 × 2 = 12 and 6 × 3 = 18, and 15 is neither.",
+    "D": "2 divides even numbers, and 15 is odd, so 15 ÷ 2 leaves half a piece over. 15 = 3 × 5, so 5 is the factor here."
+   },
+   "content_hash": "2d58ac65755f8738"
   },
   {
    "id": "QR-W8-S2-Q09",
@@ -2356,7 +2596,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "dc993907236e5047"
+   "why": {
+    "B": "120 is the larger angle if the two add to 180° instead of 90°. Complementary means they make a right angle: 30 + 60 = 90.",
+    "C": "30 is the smaller of the two angles. The larger is twice it: 2 × 30 = 60°.",
+    "D": "45 is 90 ÷ 2, the right angle split evenly. Here one angle is twice the other, so 90° splits into 30° and 60°."
+   },
+   "content_hash": "9d130dad0c163564"
   },
   {
    "id": "QR-W8-S2-Q10",
@@ -2377,7 +2622,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "59b62e0eeb7c6fcd"
+   "why": {
+    "A": "They are close but not equal: 3 × 3 × 3 = 27 and 5 × 5 = 25, which leaves 2 between them.",
+    "C": "3 × 3 × 3 is indeed the bigger one, but the gap is smaller than 4: 27 − 25 = 2.",
+    "D": "5 × 5 comes to 25 while three 3s make 27, so the 2 goes the other way — the 3s are ahead."
+   },
+   "content_hash": "c5d93bc14aff321b"
   },
   {
    "id": "QR-W8-S2-Q11",
@@ -2398,7 +2648,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "4f16c4eba6d87e77"
+   "why": {
+    "A": "4/15 counts the white buttons instead of the black ones. Five of the 15 are black, and 5/15 is the same as 1/3.",
+    "B": "1/5 is 5/15 tidied up with two different numbers — 5 ÷ 5 on the top but 15 ÷ 3 underneath. Divide both by 5 and 5/15 becomes 1/3.",
+    "D": "2/5 is 6/15, the chance of a blue button. Black has 5 of the 15, which is 1/3."
+   },
+   "content_hash": "5f23b747a462800e"
   },
   {
    "id": "QR-W8-S2-Q12",
@@ -2419,7 +2674,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "ee04c2d9f393e00b"
+   "why": {
+    "A": "9 is what 43 ÷ 5 rounds to with the 3 extra books still in the pile. They were added afterwards, so take them off first: 43 − 3 = 40, and 40 ÷ 5 = 8.",
+    "B": "10 is 50 ÷ 5, the answer if there were 50 books in all. There are 43, and the 3 added ones come off first: 40 ÷ 5 = 8.",
+    "D": "7 is one short — five boxes of 7 plus the 3 extra make 38, not 43. One more book in each box gets there: 5 × 8 + 3 = 43."
+   },
+   "content_hash": "64283631eb006c92"
   },
   {
    "id": "QR-W8-S2-Q13",
@@ -2466,7 +2726,12 @@
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
-   "content_hash": "aa2c260da4e4544f"
+   "why": {
+    "A": "8 is 20 ÷ 2.50, as if a notebook cost $2.50. At $2.95 each, 8 would cost $23.60, well past her $20.",
+    "B": "7 is what 20 ÷ 2.95 rounds up to, but she cannot buy part of a notebook and 7 whole ones cost $20.65. Six cost $17.70, which she can afford.",
+    "D": "5 is 20 ÷ 4, as if a notebook cost $4. They are $2.95, so a sixth one still fits: 6 × $2.95 = $17.70."
+   },
+   "content_hash": "959303586566ed9e"
   },
   {
    "id": "QR-W8-S2-Q15",

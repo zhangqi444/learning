@@ -1325,7 +1325,15 @@ async function runThrough(pg, pick, max = 60) {
     // Read the countdown element itself, not the page. The word "Today" also
     // appears on the timeline marker, and matching the body text passed happily
     // against the broken version — the check has to name the number it means.
-    await fp.waitForSelector('[data-testid=test-countdown]', { timeout: 8000 });
+    // 20s, like the other reload-and-render waits in this file, and not the 8s
+    // this used to carry. Eight seconds was comfortable when it was written and
+    // is not now: the bundle has grown by a third in one stretch of content work
+    // (765KB to just over 1MB), and a fetch-and-parse that long sits inside this
+    // wait. A timeout tuned against a smaller bundle is the same fault as a sleep
+    // tuned on an idle machine and a set count typed in by hand — a constant that
+    // silently tightens as the thing it measures grows. It passed alone and
+    // failed in the loaded gate, which is the signature.
+    await fp.waitForSelector('[data-testid=test-countdown]', { timeout: 20000 });
     const countdown = (await fp.textContent('[data-testid=test-countdown]')).trim();
     check('a test date of today reads as Today, not as a day either side of it',
       countdown === 'Today', countdown);

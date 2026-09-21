@@ -218,7 +218,22 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   // returns before the payload exists.
   await pushed(() => remoteBody().essays.W2.time.draft === 18);
   const hideCalls = drive.calls.slice(hideFrom).map((c) => c.split(' ')[0]);
-  check('hiding the page flushes at once, reading before writing', hideCalls.join(',') === 'GET,PATCH' && remoteBody().reviews['essay:W4:2026-09-07'] && remoteBody().essays.W2.time.draft === 18, hideCalls.join(','));
+  // The thing under test is that the page going hidden never fires a BLIND
+  // PATCH — the one write that skips the read-and-merge and can overwrite
+  // another device's work. That invariant is "every PATCH has a GET in front of
+  // it", and it is what is asserted here.
+  //
+  // It used to be asserted as the literal string 'GET,PATCH', which was the same
+  // thing only as long as exactly one flush happened. It is not any more: typing
+  // into the field and pressing Enter each schedule a save, so the flush returns
+  // to find an edit newer than the one it carried and re-arms — deliberately,
+  // since that is what stops the second edit being stranded. Two flushes is
+  // correct behaviour, and whether the second lands inside this window is a
+  // race, so pinning the exact sequence made a good check fail on a good result.
+  const blindPatch = hideCalls.some((c, n) => c === 'PATCH' && hideCalls[n - 1] !== 'GET');
+  check('hiding the page flushes at once, reading before writing',
+    hideCalls[0] === 'GET' && hideCalls.includes('PATCH') && !blindPatch
+    && remoteBody().reviews['essay:W4:2026-09-07'] && remoteBody().essays.W2.time.draft === 18, hideCalls.join(','));
   await pg.evaluate(() => { Object.defineProperty(document, 'visibilityState', { value: 'visible', configurable: true }); });
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=today]');
 

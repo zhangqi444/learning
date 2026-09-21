@@ -48,7 +48,12 @@
       "misconceptions": "fraction-of-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "62652b4be452c99c"
+      "why": {
+        "A": "Equal would mean the same share, but over eighteenths 5/6 is 15/18 and 7/9 is 14/18 — one eighteenth apart.",
+        "C": "There is enough here: give both fractions the same bottom number. 5/6 becomes 15/18 and 7/9 becomes 14/18, so the 5/6 runner did more.",
+        "D": "7/9 has the bigger numbers, but bigger numbers do not mean a bigger share. In eighteenths it is 14/18, just under 5/6 at 15/18."
+      },
+      "content_hash": "7886202ca3669960"
     },
     {
       "id": "QR-W1-S1-03",
@@ -69,7 +74,12 @@
       "misconceptions": "ratio-proportional-scaling",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "54ea507e15f1d40b"
+      "why": {
+        "A": "7 is half a cup short — the 7 1/2 rounded down to a whole cup. 20 muffins is 2 1/2 lots of 8, and 3 × 2 1/2 = 7 1/2 cups.",
+        "B": "8 is the number of muffins in the recipe, not a number of cups. 20 muffins is 2 1/2 times as many, so it takes 3 × 2 1/2 = 7 1/2 cups.",
+        "C": "6 is 3 × 2, enough flour for 16 muffins. Twenty muffins is 2 1/2 lots of 8, so 3 × 2 1/2 = 7 1/2 cups."
+      },
+      "content_hash": "e9b6dc0d583eb60c"
     },
     {
       "id": "QR-W1-S1-04",
@@ -213,7 +223,11 @@
       "misconceptions": "unlike-denominator-addition",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "9436e4bb18fafe29"
+      "why": {
+        "C": "7/12 is 4/12 + 3/12, and 2/3 is not 4/12 — the 4 is what you multiply by, not the new top number. Multiply both parts by 4: 2/3 is 8/12, so 8/12 + 3/12 = 11/12.",
+        "D": "3/4 is what is left when the 1/4 of gravel is taken off the whole trail. Here the two parts are added instead: 8/12 + 3/12 = 11/12."
+      },
+      "content_hash": "ef00a8bf950e7ad3"
     },
     {
       "id": "QR-W1-S1-10",
@@ -234,7 +248,12 @@
       "misconceptions": "unlike-denominator-subtraction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "b6c2180f5030d3f4"
+      "why": {
+        "B": "2 1/4 comes from 5 − 2 = 3 and then taking the whole 3/4 off, with the half yard dropped on the way. Borrow instead: 5 1/2 is 4 and 6/4, and 6/4 − 3/4 = 3/4, so 2 3/4 yards.",
+        "C": "2 1/2 comes from 5 1/2 − 3, with the 2 3/4 rounded up to 3. Keep the quarters: 5 1/2 is 4 and 6/4, and 6/4 − 3/4 = 3/4, leaving 2 3/4 yards.",
+        "D": "3 1/4 turns the fraction round, taking 1/2 from 3/4 because the half looked too small to take from. Borrow instead: 5 1/2 is 4 and 6/4, and 6/4 − 3/4 = 3/4, so 2 3/4 yards."
+      },
+      "content_hash": "ac336aa2bc3851ef"
     },
     {
       "id": "QR-W1-S1-11",
@@ -281,7 +300,11 @@
       "misconceptions": "equivalent-ratio-scaling",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "a4f2eeb4537d2001"
+      "why": {
+        "A": "16:25 times each part by itself, 4 × 4 and 5 × 5. An equal ratio needs both parts times the same number: 4 × 3 = 12 and 5 × 3 = 15.",
+        "C": "10:12 halves down to 5:6, which keeps the gap of one but not the mix. Both parts of 4:5 times 3 gives 12:15."
+      },
+      "content_hash": "74afa331d6a0cd26"
     },
     {
       "id": "QR-W1-S2-01",
@@ -328,7 +351,12 @@
       "misconceptions": "fraction-comparison-benchmark",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "a2d1f5014b315185"
+      "why": {
+        "A": "2/3 is a whole third away from one, the biggest gap of the four. 9/10 is short by only 1/10.",
+        "B": "3/4 is 1/4 away from a whole pie, and a quarter is bigger than a tenth. 9/10 misses by just 1/10.",
+        "D": "7/10 is 3/10 away from a whole pie — three times as far as 9/10, which misses by 1/10."
+      },
+      "content_hash": "30846937d66d9800"
     },
     {
       "id": "QR-W1-S2-03",
@@ -349,7 +377,10 @@
       "misconceptions": "rate-units-and-scaling",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "278e3b351314f23d"
+      "why": {
+        "D": "10 is 8 × 1.25, and $1.25 is $7.50 shared six ways rather than five. Share it five ways: 7.50 ÷ 5 = $1.50, so eight pens cost $12."
+      },
+      "content_hash": "5483a095cda631b9"
     },
     {
       "id": "QR-W1-S2-04",
@@ -394,7 +425,11 @@
       "misconceptions": "percent-as-part-of-whole",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "1f7a0499d7c64bb0"
+      "why": {
+        "B": "16 is 48 ÷ 3, a third of the seats instead of a quarter. 25% is one quarter, and 48 ÷ 4 = 12.",
+        "D": "10 is a quarter of 40, with the 48 rounded down first. A quarter of 48 itself is 48 ÷ 4 = 12."
+      },
+      "content_hash": "5f130bda315105e1"
     },
     {
       "id": "QR-W1-S2-06",
@@ -415,7 +450,10 @@
       "misconceptions": "fraction-equivalence",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "fd4e7ebb0ab1e926"
+      "why": {
+        "C": "2/3 is 4/6, which is 2 taken off the top and the bottom instead of both being halved. Halving gives 6 ÷ 2 = 3 and 8 ÷ 2 = 4, so 3/4."
+      },
+      "content_hash": "f6e91514277fa261"
     },
     {
       "id": "QR-W1-S2-07",
@@ -436,7 +474,12 @@
       "misconceptions": "ratio-simplification",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "6c36bc32b8770cac"
+      "why": {
+        "A": "6:4 is 18:12 with both parts divided by 3, and it will still simplify — 6 and 4 both halve. Dividing by 6 in one go gives 3:2.",
+        "B": "2:3 is cellos to violins, the right pair the wrong way round. Violins come first here, so 18:12 becomes 3:2.",
+        "D": "3:4 divides 18 by 6 but 12 by 3. Both parts have to be divided by the same number: 18 ÷ 6 = 3 and 12 ÷ 6 = 2, so 3:2."
+      },
+      "content_hash": "866ca6cf9b820bab"
     },
     {
       "id": "QR-W1-S2-08",
@@ -483,7 +526,12 @@
       "misconceptions": "unit-price-comparison",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "8bc1245200da7269"
+      "why": {
+        "A": "The two are not the same once you price one marker: 9 ÷ 6 = $1.50 at the first store and 14 ÷ 10 = $1.40 at the second.",
+        "B": "There is enough here — divide each price by the number of markers it buys: 9 ÷ 6 = $1.50 and 14 ÷ 10 = $1.40.",
+        "D": "Store A has the smaller bill, but it also hands over fewer markers. Per marker it is 9 ÷ 6 = $1.50, against 14 ÷ 10 = $1.40 at Store B."
+      },
+      "content_hash": "90b208a33e3b968a"
     },
     {
       "id": "QR-W1-S2-10",
@@ -529,7 +577,11 @@
       "misconceptions": "mean-sum-vs-count",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "92b4fe0ee0afc995"
+      "why": {
+        "C": "11 1/3 comes from dividing 34 by 3, one too many in the total. The three scores come to 8 + 10 + 15 = 33, and 33 ÷ 3 = 11 exactly.",
+        "D": "10 is the middle score, not the average of all three. Add them first: 8 + 10 + 15 = 33, and 33 ÷ 3 = 11."
+      },
+      "content_hash": "1f2403daa1c34fe4"
     },
     {
       "id": "QR-W1-S2-12",
@@ -575,7 +627,12 @@
       "misconceptions": "unlike-denominator-subtraction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "d1fb23cabe1915b8"
+      "why": {
+        "A": "1/2 is how much less the water is, not how much water there is. Take it off the milk: 8/10 − 5/10 = 3/10 cup.",
+        "B": "1/10 comes from writing 4/5 as 4/10, doubling only the bottom — that leaves just a tenth between 4/10 and 5/10. 4/5 is really 8/10, and 8/10 − 5/10 = 3/10 cup.",
+        "C": "2/5 is half of 4/5, as if the water were half as much. It is half a cup less, not half as much: 8/10 − 5/10 = 3/10 cup."
+      },
+      "content_hash": "b9f018d711c8c1a5"
     },
     {
       "id": "QR-W1-S2-14",
@@ -596,7 +653,11 @@
       "misconceptions": "unlike-denominator-subtraction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1",
-      "content_hash": "49d1758debf37f50"
+      "why": {
+        "A": "3 1/4 counts the last quarter as left over, but nothing is left over — that quarter goes into the third bottle. 2 1/4 is 9/4, and 9/4 ÷ 3/4 = 3 exactly.",
+        "C": "2 is the whole-number part of 2 1/4, not how many 3/4s fit inside it. Three fit: 3/4 + 3/4 + 3/4 = 2 1/4."
+      },
+      "content_hash": "9b98e4daddeacede"
     },
     {
       "id": "QR-W1-S2-15",
@@ -668,7 +729,12 @@
       "misconceptions": "area-to-side-square-root",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "d847a7b8da249e9c"
+      "why": {
+        "A": "10 would need 10 × 10 = 100 square inches, more than the mosaic has. 9 × 9 = 81, so the side is 9 in.",
+        "B": "8 gives 8 × 8 = 64 square inches, short of 81. The side that fills 81 is 9, because 9 × 9 = 81.",
+        "D": "7 gives 7 × 7 = 49 square inches, far short of 81. 9 × 9 = 81, so each side is 9 in."
+      },
+      "content_hash": "a673924e5e507297"
     },
     {
       "id": "QR-W2-S1-03",
@@ -713,7 +779,12 @@
       "misconceptions": "square-root-benchmark",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "caaabc700532ef6f"
+      "why": {
+        "A": "6 and 7 square to 36 and 49, and 49 is still under 50 — so the side is more than 7, not less.",
+        "C": "8 and 9 square to 64 and 81, both past 50. The pair that traps 50 is 7 and 8, since 49 is under it and 64 is over it.",
+        "D": "5 and 6 square to 25 and 36, and 25 is only half of 50 — the side is not half the area. 7 × 7 = 49 sits just under 50, so the side is between 7 and 8."
+      },
+      "content_hash": "c4cbc41dd9f35fb6"
     },
     {
       "id": "QR-W2-S1-05",
@@ -734,7 +805,12 @@
       "misconceptions": "property-vs-example",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "1dfaa6103ad0de1d"
+      "why": {
+        "A": "32 makes rows like 4 by 8, never the same number each way. 36 does it, because 6 × 6 = 36.",
+        "B": "40 makes 5 by 8 or 4 by 10, but never equal rows and columns. 6 × 6 = 36 is the square one.",
+        "C": "30 makes 5 by 6, one row short of a square. The count that works is 36, since 6 × 6 = 36."
+      },
+      "content_hash": "b4f6a77964a70374"
     },
     {
       "id": "QR-W2-S1-06",
@@ -832,7 +908,12 @@
       "misconceptions": "parity-operation-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "82d2e47212628269"
+      "why": {
+        "A": "Even totals come from two odd beads or two even ones. One of each always leaves a single bead over, so the total is odd: 3 + 4 = 7.",
+        "B": "Primes do turn up, as 3 + 4 = 7, but 3 + 6 = 9 is not prime. The part that is always true is that odd + even is odd.",
+        "D": "Multiples of 4 are all even, and one odd bead with one even bead always leaves a single bead over — 3 + 4 = 7, 5 + 2 = 7. The total is odd every time."
+      },
+      "content_hash": "ec059338142be59e"
     },
     {
       "id": "QR-W2-S1-10",
@@ -853,7 +934,12 @@
       "misconceptions": "divisibility-rule-selection",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "70af2395d96e2ff7"
+      "why": {
+        "A": "3 does not have to be the last digit — 234 ÷ 3 = 78 with nothing left over. The test for 3 is the digit sum: 2 + 3 + 4 = 9.",
+        "B": "Being even is the test for dividing by 2, not by 3. For 3 you add the digits: 2 + 3 + 4 = 9, and 9 divides by 3.",
+        "C": "2 + 3 + 4 comes to 9, not 8. Nine divides by 3, so 234 does too."
+      },
+      "content_hash": "9f67fd72c6c3fe53"
     },
     {
       "id": "QR-W2-S1-11",
@@ -898,7 +984,12 @@
       "misconceptions": "factor-vs-multiple",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "fb849910c9b06944"
+      "why": {
+        "B": "8 leaves 2 flags over: 8 × 5 = 40, and there are 42. Rows of 6 fit exactly, since 6 × 7 = 42.",
+        "C": "9 leaves 6 over: 9 × 4 = 36, six short of 42. Rows of 6 work, because 6 × 7 = 42.",
+        "D": "5 leaves 2 over: 5 × 8 = 40, not 42. Six goes in exactly — 6 × 7 = 42."
+      },
+      "content_hash": "7e9ce66aad4ccb50"
     },
     {
       "id": "QR-W2-S2-01",
@@ -993,7 +1084,12 @@
       "misconceptions": "square-benchmark-interval",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "b24375151c3f981c"
+      "why": {
+        "B": "50 and 64 are both bigger than 40, and 50 is not a square number at all. The squares either side of 40 are 36 and 49.",
+        "C": "36 is a square number, but 38 is not. The next square after 6 × 6 = 36 is 7 × 7 = 49.",
+        "D": "34 and 36 both sit below 40, so 40 is not between them. It falls between 6 × 6 = 36 and 7 × 7 = 49."
+      },
+      "content_hash": "a84872536e4ca584"
     },
     {
       "id": "QR-W2-S2-05",
@@ -1114,7 +1210,12 @@
       "misconceptions": "parity-operation-rule",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "9cb62b1ae0a568b3"
+      "why": {
+        "A": "n² is an odd number times itself — 3 × 3 = 9, 5 × 5 = 25 — and that stays odd.",
+        "C": "2n is even, but adding 1 tips it back to odd: with n = 3 it comes to 7. It takes another odd number added on to make it even.",
+        "D": "2 added to an odd number keeps it odd — 5 + 2 = 7. It takes an odd number added on, like 3, to tip it to even."
+      },
+      "content_hash": "ec36d0c0b3e1efbf"
     },
     {
       "id": "QR-W2-S2-10",
@@ -1135,7 +1236,12 @@
       "misconceptions": "consecutive-middle-average",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "4815948b4ec036c4"
+      "why": {
+        "B": "10 is the middle of 9, 10 and 11, and those three only come to 30. Three lockers adding to 36 share out as 36 ÷ 3 = 12 in the middle.",
+        "C": "13 is the largest of the three lockers, not the middle one. They are 11, 12 and 13, so the middle is 12.",
+        "D": "11 is the smallest of the three lockers. They are 11, 12 and 13, so the one in the middle is 12."
+      },
+      "content_hash": "0073ad251830dfec"
     },
     {
       "id": "QR-W2-S2-11",
@@ -1204,7 +1310,12 @@
       "misconceptions": "axis-direction-and-sign",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "f7f1b028669bc275"
+      "why": {
+        "A": "(4,1) uses the 4 steps as the new across number instead of adding them to the 2 it started on: 2 + 4 = 6, so (6,1).",
+        "C": "(6,5) is a move of 2 up rather than 2 down. Down makes the second number smaller: 3 − 2 = 1, so (6,1).",
+        "D": "(-2,1) is 4 steps to the left instead of the right. Right makes the first number bigger: 2 + 4 = 6, so (6,1)."
+      },
+      "content_hash": "f0ca4ad71961af85"
     },
     {
       "id": "QR-W2-S2-14",
@@ -1251,7 +1362,12 @@
       "misconceptions": "square-benchmark-interval",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
-      "content_hash": "96eb7dce850852b2"
+      "why": {
+        "A": "72 sits between 8 × 8 = 64 and 9 × 9 = 81, so no whole number times itself lands on it. The count that does is 9 × 9 = 81.",
+        "B": "88 sits between 9 × 9 = 81 and 10 × 10 = 100, so nothing times itself makes 88. Between 70 and 90 the square count is 9 × 9 = 81.",
+        "C": "75 also sits between 8 × 8 = 64 and 9 × 9 = 81, with no whole number times itself landing on it. The one that works is 9 × 9 = 81."
+      },
+      "content_hash": "077dc3ef729c91e0"
     },
     {
       "id": "QR-W3-S1-01",
@@ -1401,7 +1517,12 @@
       "misconceptions": "straight-angle-total",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "c04b16c75a6800df"
+      "why": {
+        "A": "65° is what you get if 120 comes off 180 to make 60 and then the last 5 is added on instead of taken off. All of the 125 has to come off: 180 − 125 = 55°.",
+        "B": "75° is 200 − 125, which happens when 180 is rounded up to 200 to make the take-away easy and the extra 20 is never taken back off. Angles on a straight line make 180°: 180 − 125 = 55°.",
+        "C": "45° is ten short of the answer. Count up from 125 instead: five gets you to 130 and fifty more reaches 180, so the angle is 55°."
+      },
+      "content_hash": "e1184b704f826c78"
     },
     {
       "id": "QR-W3-S1-07",
@@ -1422,7 +1543,12 @@
       "misconceptions": "reflection-lines-count",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "2ab21d9c69e35733"
+      "why": {
+        "A": "2 counts the fold down the middle and the fold across, and stops there. A square also matches along both of its diagonals, making 4 lines.",
+        "C": "3 is one fold short: the two straight folds and one diagonal. The other diagonal folds neatly too, so a square has 4.",
+        "D": "1 is the single fold down the middle. A square also folds across and along both diagonals, so there are 4 lines in all."
+      },
+      "content_hash": "5f3f0e338bf03f29"
     },
     {
       "id": "QR-W3-S1-08",
@@ -1443,7 +1569,12 @@
       "misconceptions": "volume-linear-scale-factor",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "540be14f46a7452a"
+      "why": {
+        "A": "The same would mean the box did not change, but it is now twice as tall. Twice the height holds twice as much.",
+        "B": "Half as large is what halving the height would do. The height here is doubled, so the volume doubles too.",
+        "D": "Four times as large is what happens when two of the measurements double. Only the height changed, so the volume simply doubles."
+      },
+      "content_hash": "db759741696b414c"
     },
     {
       "id": "QR-W3-S1-09",
@@ -1539,7 +1670,12 @@
       "misconceptions": "range-max-minus-min",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "bc739ce212de6752"
+      "why": {
+        "A": "6° is three short of the answer. Take the low from the high: 20 − 11 = 9°.",
+        "B": "8° is 19 − 11, one degree lost off the top. The high really is 20, so the range is 20 − 11 = 9°.",
+        "C": "7° is two short of the answer. The range is always the high take away the low: 20 − 11 = 9°."
+      },
+      "content_hash": "4aff451ae9d1aacd"
     },
     {
       "id": "QR-W3-S2-01",
@@ -1662,7 +1798,12 @@
       "misconceptions": "triangle-angle-sum",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "02b64119a0eaf278"
+      "why": {
+        "A": "60° is one of the angles already given, written down again. Add the two you have and take them off 180: 180 − 110 = 70°.",
+        "C": "90° is the size of a right angle, but this triangle has none. The three angles make 180°, so the third is 180 − 50 − 60 = 70°.",
+        "D": "80° is 180 − 100, with 50 and 60 added up as 100. They make 110, so the third angle is 70°."
+      },
+      "content_hash": "f0a43dcb8b0f6d6f"
     },
     {
       "id": "QR-W3-S2-06",
@@ -1683,7 +1824,12 @@
       "misconceptions": "mean-total-relationship",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "d339ba45bf73051f"
+      "why": {
+        "A": "24 is 72 ÷ 3, the whole total shared out again instead of the missing number being found. Take the 50 away: 72 − 50 = 22.",
+        "C": "18 is the mean itself, copied down as the missing number. Four numbers averaging 18 total 4 × 18 = 72, so the fourth is 72 − 50 = 22.",
+        "D": "20 is 70 − 50, which is what you get if 4 × 18 slips to 70. It is really 72, so the fourth number is 72 − 50 = 22."
+      },
+      "content_hash": "978c951471d34c2e"
     },
     {
       "id": "QR-W3-S2-07",
@@ -1754,7 +1900,12 @@
       "misconceptions": "favorable-over-total",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "901736fb3eeaadcb"
+      "why": {
+        "B": "1/2 would mean half of the marbles are blue. Only 2 of the 10 are blue, and 2 out of 10 is 1/5.",
+        "C": "1/4 sets the 2 blue against the 8 that are not blue. A probability counts them against every marble: 2 out of 10, which is 1/5.",
+        "D": "1/10 is one marble out of the ten, but there are 2 blue ones. Two out of ten is 1/5."
+      },
+      "content_hash": "7facbe9ecf760be3"
     },
     {
       "id": "QR-W3-S2-10",
@@ -1775,7 +1926,12 @@
       "misconceptions": "probability-complement",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "3fbaa6146147a3e7"
+      "why": {
+        "A": "1/2 is the 5 green marbles out of 10. Not red means blue and green together: 2 + 5 = 7, so 7/10.",
+        "C": "3/10 is the chance of picking a red one, the opposite of what was asked. The other 7 marbles are not red: 7/10.",
+        "D": "4/5 is 8 out of 10, the 2 blue marbles taken away instead of the 3 red. Taking the red away leaves 7, so 7/10."
+      },
+      "content_hash": "2d694e5ae9257507"
     },
     {
       "id": "QR-W3-S2-11",
@@ -1796,7 +1952,12 @@
       "misconceptions": "area-scale-factor-squared",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "faaf118f39424089"
+      "why": {
+        "A": "Twice as large is what one doubled side would do. Both sides doubled here, so the area grows by 2 × 2 = 4.",
+        "B": "Eight times as large is 2 × 2 × 2, a doubling counted three times. A rectangle has only length and width: 2 × 2 = 4.",
+        "C": "Three times as large leaves out the corner. Doubling the length doubles the area and doubling the width doubles it again, so it grows by 2 × 2 = 4."
+      },
+      "content_hash": "ec9cea156937ce8e"
     },
     {
       "id": "QR-W3-S2-12",
@@ -1817,7 +1978,12 @@
       "misconceptions": "volume-linear-scale-factor",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "e60192d6dcbe1a0d"
+      "why": {
+        "A": "Four times is what happens when two of the measurements double. Only the length changed, so the volume doubles.",
+        "B": "Half is the result of halving the length rather than doubling it. Twice as long holds twice as much.",
+        "D": "The same would mean nothing changed, but the box is now twice as long. Twice the length means twice the volume."
+      },
+      "content_hash": "5bb673a06521fe39"
     },
     {
       "id": "QR-W3-S2-13",
@@ -1838,7 +2004,12 @@
       "misconceptions": "reflection-sign-change",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "3414fda09c3668d6"
+      "why": {
+        "B": "(−3,2) has both numbers flipped. A mirror on the y-axis only flips the across number, so the −2 stays as it is: (−3,−2).",
+        "C": "(3,2) flips the up-and-down number instead of the across one. The mirror turns 3 into −3 and leaves −2 alone: (−3,−2).",
+        "D": "(2,−3) has the 3 and the 2 swapped over, with the minus left sitting on the second number. The mirror leaves the second number alone and changes the sign of the first: (−3,−2)."
+      },
+      "content_hash": "0a6d34181cc805a3"
     },
     {
       "id": "QR-W3-S2-14",
@@ -1859,7 +2030,12 @@
       "misconceptions": "outlier-effect-on-mean",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "6db2319843f44751"
+      "why": {
+        "A": "It stays 5 only if the number added is 5 itself. 20 is far above the others, so the total grows faster than the count and the mean rises.",
+        "B": "It decreases is what a number below 5 would do. 20 is well above the old mean, so it pulls the mean up, to 40 ÷ 5 = 8.",
+        "C": "Cannot tell would be right if the new number were a mystery, but we know it is 20 — bigger than every value there, so the mean goes up."
+      },
+      "content_hash": "a17c0fb91d01b3db"
     },
     {
       "id": "QR-W3-S2-15",
@@ -1880,7 +2056,12 @@
       "misconceptions": "outlier-mean-vs-median",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
-      "content_hash": "716ade83e6e1ce32"
+      "why": {
+        "A": "All measures equally sounds fair, but they are worked out in different ways. Only the mean adds every value in, so an outlier moves it most.",
+        "B": "Mode is whichever value turns up most often, and one new number rarely changes that. The mean adds the value itself in, so it shifts most.",
+        "D": "Median is the middle value once they are lined up, so one huge number only nudges it along a place. The mean uses the size of that number, so it moves much more."
+      },
+      "content_hash": "26705658caddd7e1"
     },
     {
       "id": "QR-W4-S1-01",
@@ -1951,7 +2132,12 @@
       "misconceptions": "rate-division-direction",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "79b69f0e7ac24b0f"
+      "why": {
+        "A": "0.25 is 3.00 ÷ 12, with the sixty cents left off the price. Divide all of it: 3.60 ÷ 12 = $0.30 an ounce.",
+        "B": "0.36 is 3.60 ÷ 10, the price shared between ten ounces instead of twelve. There are 12: 3.60 ÷ 12 = $0.30.",
+        "D": "0.20 is ten cents short. Twelve ounces at 20 cents would come to $2.40, and the box costs $3.60, so each ounce is 3.60 ÷ 12 = $0.30."
+      },
+      "content_hash": "195f37cb7ec426cf"
     },
     {
       "id": "QR-W4-S1-04",
@@ -1972,7 +2158,12 @@
       "misconceptions": "area-to-side-square-root",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "f6cb470d57cdadc2"
+      "why": {
+        "B": "10 gives 10 × 10 = 100 tiles, which is not enough. 12 × 12 = 144, so a side holds 12.",
+        "C": "11 makes 11 × 11 = 121 tiles, just short of 144. One more each way gives 12 × 12 = 144.",
+        "D": "14 rows of 14 would need 196 tiles, more than there are. 12 × 12 = 144 exactly, so the side is 12."
+      },
+      "content_hash": "01e90c0ef507926f"
     },
     {
       "id": "QR-W4-S1-05",
@@ -1993,7 +2184,12 @@
       "misconceptions": "perfect-square-identification",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "d0b22eb35f81d7d3"
+      "why": {
+        "A": "64 is 8 × 8, so it does make a square. The count that cannot is 72, which sits between 8 × 8 and 9 × 9.",
+        "C": "81 is 9 × 9, a square of nine rows. 72 is the one that cannot be arranged that way.",
+        "D": "49 is 7 × 7, seven rows of seven. 72 is the odd one out — no whole number times itself makes 72."
+      },
+      "content_hash": "944a73ad299ace1c"
     },
     {
       "id": "QR-W4-S1-06",
@@ -2066,7 +2262,12 @@
       "misconceptions": "isosceles-triangle-angle-sum",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "5d326881d62895f2"
+      "why": {
+        "A": "60° is the size each angle would be if all three were equal. Two of these are 55, so the third is 180 − 55 − 55 = 70°.",
+        "C": "75° comes from adding the two 55s as 50 + 50 + 5 = 105, with one of the fives left out. They really make 110, so the third angle is 180 − 110 = 70°.",
+        "D": "65° is 180 − 115, with the two 55s added up as 115. They make 110, so the third angle is 70°."
+      },
+      "content_hash": "7a2840cdf4d9b490"
     },
     {
       "id": "QR-W4-S1-09",
@@ -2087,7 +2288,12 @@
       "misconceptions": "mean-sum-vs-count",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "a1dc19648d7483e5"
+      "why": {
+        "A": "22 comes from 60 − 42 taken column by column, with 0 − 2 turned into 2. Count up from 42 instead: 42 + 18 = 60, so x = 18.",
+        "B": "20 is 60 ÷ 3, the total shared out between the three numbers that are already there. All four must total 4 × 15 = 60, and 12 + 14 + 16 = 42, so x = 18.",
+        "C": "16 is the last of the numbers you were given, written down as the answer. All four must total 4 × 15 = 60, and 12 + 14 + 16 = 42, so x = 18."
+      },
+      "content_hash": "d7a0342240fe10de"
     },
     {
       "id": "QR-W4-S1-10",
@@ -2108,7 +2314,12 @@
       "misconceptions": "probability-complement",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "ae7283531c3ab248"
+      "why": {
+        "A": "3/8 is the chance of landing on red, or on blue — one colour on its own. Not green means both together: 6 of the 8 sections, which is 3/4.",
+        "C": "1/4 is 2 out of 8, the chance of landing ON green. The question asks for the rest: 6 out of 8, which is 3/4.",
+        "D": "5/8 takes the 3 red sections away instead of the 2 green. Taking the green away leaves 8 − 2 = 6, so 6/8 = 3/4."
+      },
+      "content_hash": "8e9cd8abd5c9089d"
     },
     {
       "id": "QR-W4-S1-11",
@@ -2256,7 +2467,12 @@
       "misconceptions": "equivalent-powers",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "d645ffd7efca551f"
+      "why": {
+        "A": "9+9 is 18, the two nines added instead of multiplied. A 9-by-9 board is 9 rows of 9, which is 81 — and 3⁴ = 3 × 3 × 3 × 3 is 81 as well.",
+        "B": "81 ÷ 9 is 9, the length of one side rather than the number of spaces. The spaces are 9 × 9 = 81, and 3⁴ comes to 81 too.",
+        "D": "9 × 2 is 18, which is 9 doubled — not 9 nines. A 9-by-9 board has 9 rows of 9, which is 81, and 3⁴ is 81 too."
+      },
+      "content_hash": "5898149c20622e5d"
     },
     {
       "id": "QR-W4-S2-05",
@@ -2277,7 +2493,12 @@
       "misconceptions": "square-root-benchmark",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "017fbb6b86764528"
+      "why": {
+        "A": "9 and 10 goes one square too far: 9 × 9 = 81 is already past 70. Since 8 × 8 = 64 is under 70, the side sits between 8 and 9.",
+        "B": "7 and 8 stops one square short: 8 × 8 = 64 is still less than 70. The next square up, 9 × 9 = 81, is more, so the side is between 8 and 9.",
+        "D": "6 and 7 would mean 70 tiles fitting in a 7-by-7 square, but 7 × 7 is only 49. Keep going: 8 × 8 = 64 is under 70 and 9 × 9 = 81 is over, so the side is between 8 and 9."
+      },
+      "content_hash": "88d942bf103a3bd6"
     },
     {
       "id": "QR-W4-S2-06",
@@ -2298,7 +2519,12 @@
       "misconceptions": "combined-divisibility-tests",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "f1ba20ad81c1af4b"
+      "why": {
+        "A": "75 can be split by 3 and by 5, but it is an odd number, so 2 does not go into it. 30 takes all three: 30 ÷ 2 = 15, 30 ÷ 3 = 10, 30 ÷ 5 = 6.",
+        "C": "45 divides by 3 and by 5, but it is odd, so it fails the 2. The number has to pass all three tests, and 30 does.",
+        "D": "50 divides by 2 and by 5, but 3 does not go into it — 3 × 16 is 48 and 3 × 17 is 51. 30 works for all three."
+      },
+      "content_hash": "c5cf0a4ad4e900c1"
     },
     {
       "id": "QR-W4-S2-07",
@@ -2319,7 +2545,12 @@
       "misconceptions": "growing-difference-pattern",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "ed6ad0f5d3f0f7e3"
+      "why": {
+        "A": "37 is 25 + 12, the same jump as last time. The jumps double each step — 3, 6, 12 — so the next one is 24 and 25 + 24 = 49.",
+        "B": "43 is 25 + 18, as if the next jump were the last two added together, 6 + 12. The jumps double instead: 3, 6, 12, then 24, so 25 + 24 = 49.",
+        "C": "51 is 25 × 2 + 1, with the one added on instead of taken off. Each number is double the one before, less 1: 25 × 2 − 1 = 49."
+      },
+      "content_hash": "becfb20e10cd372b"
     },
     {
       "id": "QR-W4-S2-08",
@@ -2390,7 +2621,12 @@
       "misconceptions": "triangle-angle-sum",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "8cf97f09f4f57cc1"
+      "why": {
+        "A": "48 is 50 − 2, the rounding put right the wrong way round. Rounding 38 up to 40 takes 2 too many away, so the 2 goes back on: 90 − 40 = 50, then 50 + 2 = 52.",
+        "C": "42 is the jump from 38 up to 80, one ten short of 90. Carry on: 38 and 2 more makes 40, and 50 more makes 90, so the other angle is 52°.",
+        "D": "62 is 100 − 38. The two angles in a right angle add up to 90, not 100, so it is 90 − 38 = 52."
+      },
+      "content_hash": "31fc9487a9295161"
     },
     {
       "id": "QR-W4-S2-11",
@@ -2436,7 +2672,12 @@
       "misconceptions": "order-before-median",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "6071a5ede0b3a92f"
+      "why": {
+        "A": "5 would slip in between the 3 and the 6, making 3, 5, 6, 9, 15, whose middle value is 6. For 9 to stay in the middle, x has to be above 9.",
+        "B": "8 sits just in front of the 9, making 3, 6, 8, 9, 15, and then the middle value is 8. x has to land above the 9, and 12 does.",
+        "C": "2 is smaller than everything else, so the list reads 2, 3, 6, 9, 15 and the middle value is 6. Put x above 9 instead: 3, 6, 9, 12, 15."
+      },
+      "content_hash": "7a3240795543d238"
     },
     {
       "id": "QR-W4-S2-13",
@@ -2457,7 +2698,12 @@
       "misconceptions": "favorable-over-total",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "858a4b177d9e362d"
+      "why": {
+        "B": "1/6 counts only one winning roll. Both 5 and 6 are greater than 4, so it is 2 rolls out of 6, which is 1/3.",
+        "C": "1/2 is 3 out of 6, which counts the 4 as well. Greater than 4 leaves only 5 and 6, so it is 2 out of 6 = 1/3.",
+        "D": "2/3 is 2/6 with only the bottom number halved. Both numbers halve together, so 2 out of 6 is 1/3 — and 5 and 6 are the only rolls greater than 4."
+      },
+      "content_hash": "4257bf83a06f2d77"
     },
     {
       "id": "QR-W4-S2-14",
@@ -2478,7 +2724,12 @@
       "misconceptions": "axis-direction-and-sign",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "2712015a118ecbc7"
+      "why": {
+        "B": "(-7,4) is -2 − 5, five steps to the left instead of five to the right. Moving right adds: -2 + 5 = 3, so the point lands at (3,4).",
+        "C": "(5,4) uses the size of the move as the answer. The move starts from -2, so it is -2 + 5 = 3, giving (3,4).",
+        "D": "(-2,9) moves the up-down number instead of the across one. Going right changes the first number: -2 + 5 = 3, so the point is (3,4)."
+      },
+      "content_hash": "84146f57f5154a23"
     },
     {
       "id": "QR-W4-S2-15",
@@ -2499,7 +2750,12 @@
       "misconceptions": "multi-step-whole-tracking",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
-      "content_hash": "0889d8ad6c402238"
+      "why": {
+        "A": "4/5 is 48 out of 60, as if only one day of reading had happened. Three days is 12 × 3 = 36 pages, leaving 24, and 24/60 = 2/5.",
+        "B": "3/5 is 36 out of 60 — the pages she has read, not the ones still waiting. The 24 unread pages make 24/60 = 2/5.",
+        "D": "1/5 is 12 out of 60, the pages read in a single day. Three days is 12 × 3 = 36 read, so 24 are still waiting: 24/60 = 2/5."
+      },
+      "content_hash": "f1d67fb8e2bec640"
     }
   ]
 }
