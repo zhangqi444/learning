@@ -359,6 +359,80 @@ async function runThrough(pg, pick, max = 60) {
   });
   check('opening a skill shows every question she missed on it', openGroup.rows === openGroup.n && openGroup.n > 0,
     `${openGroup.skill} · ${openGroup.rows} of ${openGroup.n}`);
+
+  /* What became of each miss, which is the number this page was missing: it said
+     how many went wrong and never whether any of them had been dealt with. All
+     three steps are read from evidence that already exists, so the test is about
+     which evidence lights which step — and, just as much, which does not.
+
+     The tag is clicked for real, because that path is a button on this page. The
+     other two are seeded, with the stub Drive emptied for the length of it: the
+     app merges the last uploaded document on load and would otherwise put the
+     pre-seed records back over the top, silently and only sometimes. */
+  const missIds = await pg.$$eval('[data-testid=miss-row]', (n) => n.map((x) => x.dataset.qid));
+  check('every miss row names the question it is about', missIds.length > 0 && missIds.every(Boolean), missIds.slice(0, 3).join(', '));
+  const stageRemote = drive.body;
+  drive.body = JSON.stringify({ schema: 4, results: {} });
+  /* The practice is done rather than seeded, because seeding it would test the
+     wrong thing. Try another on a mock miss resolves the paper's own wording to
+     the bank's name and hands back a BANK question, so the evidence lands on an
+     id that is not in the paper at all — write it onto the mock question and the
+     check passes against a shape the app never produces. Answered correctly on
+     purpose: a wrong answer there is not practice. */
+  await pg.click('[data-testid=try-another]');
+  await pg.waitForSelector('[data-testid=question]');
+  const againOk = await pg.evaluate(async () => {
+    const id = document.querySelector('[data-testid=question]').dataset.qid;
+    const b = await (await fetch('content/bundle.json')).json();
+    for (const sub of Object.keys(b.subjects)) {
+      const it = (b.subjects[sub] || []).find((x) => x.id === id);
+      if (it) return { id, key: it.k || it.correct };
+    }
+    return { id, key: null };
+  });
+  check('try another on a mock miss lands on a question from the bank', !!againOk.key, JSON.stringify(againOk));
+  await pg.click(`[data-testid=choice] >> nth=${'ABCD'.indexOf(againOk.key)}`);
+  await pg.click('[data-testid=next]');
+  await pg.waitForTimeout(500);
+  /* Now the clocks. The practice really happened, a moment ago, so on its own it
+     counts for every miss on the paper — which proves nothing. Backdating it ten
+     minutes and putting two of the misses on either side is the whole
+     experiment: one event, and it has to count for the pair missed before it and
+     not for the pair missed after. */
+  await pg.evaluate(({ ids, bankId }) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const at = (mins) => new Date(Date.now() + mins * 60000).toISOString();
+    for (const h of (s.items[bankId] || {}).hist || []) if (h.ctx === 'again') h.at = at(-10);
+    ids.forEach((id, k) => {
+      const hist = (s.items[id] || {}).hist || [];
+      for (let i = hist.length - 1; i >= 0; i--) if (!hist[i].ok) { hist[i].at = k < 2 ? at(-60) : at(-5); break; }
+      if (k === 1) hist.push({ at: at(-5), ok: true, ctx: 'review' });
+    });
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, { ids: missIds.slice(0, 4), bankId: againOk.id });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate((h) => { location.hash = h; }, backTo);
+  await pg.waitForSelector('[data-testid=miss-group]');
+  await pg.click('[data-testid=miss-group-open] >> nth=0');
+  await pg.waitForTimeout(400);
+  await pg.click(`[data-testid=miss-row][data-qid="${missIds[2]}"] >> [data-testid=tag-misread]`);
+  await pg.waitForTimeout(250);
+  const stages = await pg.evaluate((ids) => ids.map((id) => {
+    const row = document.querySelector(`[data-testid=miss-row][data-qid="${id}"]`);
+    const chip = row && row.querySelector('[data-testid=miss-stage]');
+    return chip ? chip.dataset.stage : 'none';
+  }), missIds.slice(0, 4));
+  check('a miss whose skill was practised since says so', stages[0] === 'practised', stages.join(' | '));
+  check('and the question she has since got right outranks it', stages[1] === 'redone', stages.join(' | '));
+  check('a miss she has only classified says only that', stages[2] === 'classified', stages.join(' | '));
+  /* The one that matters most, because it is how this number would quietly
+     become a lie: the practice happened before these two were missed, and
+     practice before a miss is not work on it. */
+  check('and practice from before a miss does not count as working on it', stages[3] === 'none', stages.join(' | '));
+  const roll = await pg.$eval('[data-testid=miss-progress]', (e) => ({ n: +e.dataset.n, c: +e.dataset.classified, p: +e.dataset.practised, r: +e.dataset.redone }));
+  check('and the paper counts them up, each step on its own evidence',
+    roll.n >= 4 && roll.c >= 1 && roll.p >= 1 && roll.r >= 1 && roll.c <= roll.n && roll.p <= roll.n && roll.r <= roll.n, JSON.stringify(roll));
+  drive.body = stageRemote;
   check('with its lesson once and its redo once, not once per question',
     openGroup.lessons === 1 && openGroup.redo === 1, `${openGroup.lessons} lesson · ${openGroup.redo} redo`);
   check('and classifying stays per question, because each miss has its own reason',
