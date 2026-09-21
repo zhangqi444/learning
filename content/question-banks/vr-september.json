@@ -1466,7 +1466,7 @@
       "subject": "VR",
       "skill": "vocabulary",
       "difficulty": "M",
-      "prompt": "Despite small changes in the weather, the patient's condition remained ______.",
+      "prompt": "The patient's condition changed a little each hour, but it never worsened and remained ______.",
       "choices": {
         "A": "stable",
         "B": "subjective",
@@ -1474,15 +1474,16 @@
         "D": "inferior"
       },
       "correct": "A",
-      "explanation": "Stable means steady, holding safely where it is, which is what a condition that survives small changes does; static would mean nothing changed at all, and subjective and inferior are not about steadiness.",
+      "explanation": "Stable means steady, holding safely where it is, which is what a condition does when it moves a little each hour and nothing goes wrong; static would mean not changing at all, and this condition did change, while subjective and inferior are not about steadiness.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2",
       "why": {
-        "B": "Subjective means based on personal feelings rather than facts, like a subjective opinion; a patient's condition is a fact about her health, not an opinion.",
-        "D": "Inferior means lower in rank or worse in quality, and it compares one thing with another; the sentence is saying the condition held its ground, not that it was worse than something else."
+        "B": "Subjective means based on someone's personal feelings rather than on facts; a patient's condition is a fact about her health that a doctor checks and writes down, not anyone's opinion.",
+        "C": "Static means not changing at all, and the sentence says the condition changed a little each hour, so it did change; the word wanted is the one for moving a little and still holding safe.",
+        "D": "Inferior means worse than something else, and the sentence says the condition never worsened, so nothing here is getting worse."
       },
-      "content_hash": "1e82cb8bfdcc7566"
+      "content_hash": "9073f2eb9a763fa7"
     },
     {
       "id": "VR-SEP-W2-054",
@@ -3049,23 +3050,24 @@
       "subject": "VR",
       "skill": "vocabulary",
       "difficulty": "M",
-      "prompt": "The committee could not reach a ______ because several members still disagreed.",
+      "prompt": "The committee could not reach a ______ about the new logo because several members still disagreed.",
       "choices": {
         "A": "refuge",
         "B": "consensus",
-        "C": "verdict",
+        "C": "remedy",
         "D": "charter"
       },
       "correct": "B",
-      "explanation": "A consensus is agreement by the whole group, which is exactly what members who still disagree cannot reach; a refuge, a verdict and a charter are not agreements.",
+      "explanation": "A consensus is agreement by the whole group, which is exactly what members who still disagree cannot reach; a refuge is a safe place, a remedy fixes something that has gone wrong, and a charter is a written set of rules.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3",
       "why": {
-        "A": "A refuge is somewhere you go to be safe from harm; the committee is trying to agree about something, and agreement is not a place.",
-        "D": "A charter is a written paper that sets out what a group may do; the committee is failing to agree, and agreement is not a piece of paper."
+        "A": "A refuge is somewhere you go to be safe from harm; the committee is short of agreement, and agreement is not a place you can go to.",
+        "C": "A remedy is a cure or a fix for something that has gone wrong, like medicine for a cough; nothing here is broken or ill, the members are only choosing a logo and not all of them agree.",
+        "D": "A charter is a written paper that sets out what a group may do; nothing is being written down here, and several members are simply still disagreeing."
       },
-      "content_hash": "3a6078225dbb073a"
+      "content_hash": "d9f11315f178059d"
     },
     {
       "id": "VR-SEP-W3-078",
@@ -4166,7 +4168,7 @@
       "subject": "VR",
       "skill": "vocabulary",
       "difficulty": "M",
-      "prompt": "The witness gave a ______ account that contradicted the earlier statement.",
+      "prompt": "The teacher could not tell which story was true because the two accounts were ______.",
       "choices": {
         "A": "prompt",
         "B": "unanimous",
@@ -4174,16 +4176,16 @@
         "D": "stationary"
       },
       "correct": "C",
-      "explanation": "Conflicting accounts disagree with each other, which is what contradicting the earlier statement means; prompt, unanimous and stationary do not describe a clash.",
+      "explanation": "Conflicting means clashing rather than matching, which is why two accounts can leave a listener with no way to tell which story is true; prompt is about speed, unanimous means everybody agrees, and stationary is about staying still.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4",
       "why": {
-        "A": "Prompt means quick and without delay, but this sentence is about an account that disagrees with the earlier one, not about how fast it arrived.",
-        "B": "Unanimous means agreed on by everybody, which is the opposite of an account that contradicts what was said before.",
-        "D": "Stationary means staying in one place, which is about where a thing is, not about whether two accounts match."
+        "A": "Prompt means quick, given without delay; two prompt accounts would simply arrive early and could still say exactly the same thing, so being quick is no reason for the teacher to be stuck.",
+        "B": "Unanimous means agreed on by everybody, so unanimous accounts would match each other and the teacher would know at once which story to believe.",
+        "D": "Stationary means staying in one place without moving, like a parked car; it describes where a thing sits, not whether two accounts agree."
       },
-      "content_hash": "5eb0006020d139c4"
+      "content_hash": "ee58e1f02bab809e"
     },
     {
       "id": "VR-SEP-W4-067",
