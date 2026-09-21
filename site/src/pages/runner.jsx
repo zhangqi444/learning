@@ -20,6 +20,7 @@ import { Burst, useCountUp } from "@/components/burst"
 import { Gate, inscribe } from "@/components/gate"
 import { Glim, hearProps } from "@/components/glim"
 import { PromotionReport } from "@/components/promotion"
+import { MissProgress, MissStage } from "@/components/miss-status"
 import { sfx } from "@/lib/sfx"
 
 const { useState, useEffect, useRef } = React
@@ -310,7 +311,13 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
               </CardDescription>
             )}
             {canTag && misses.length ? (
-              <CardDescription className="text-xs" data-testid="tag-progress">{tagged} of {misses.length} miss{misses.length === 1 ? "" : "es"} tagged — one tap each below says why it went wrong.</CardDescription>
+              <CardDescription className="flex flex-col items-center gap-1 text-xs" data-testid="tag-progress">
+                {/* What became of the misses, not just how many there were. On a
+                    set just finished it stays hidden until something has
+                    actually happened — see MissProgress. */}
+                <MissProgress ids={misses.map((q) => q.id)} quiet={!done.reopened} />
+                {tagged < misses.length ? <span>{tagged} of {misses.length} miss{misses.length === 1 ? "" : "es"} tagged — one tap each below says why it went wrong.</span> : null}
+              </CardDescription>
             ) : null}
             {came.length ? (
               <div className="mt-3 flex flex-wrap justify-center gap-2" data-testid="set-came">
@@ -366,6 +373,7 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
                     <span className="text-muted-foreground text-xs">Q{j + 1}{q.sk ? " · " + q.sk : ""}</span>
                     {ms ? <span className="text-muted-foreground text-xs tabular-nums">· {fmtSec(ms)}</span> : null}
                     {flag ? <Badge variant={flag.tone} className="text-xs">{flag.label}</Badge> : null}
+                    {!ok ? <MissStage id={q.id} /> : null}
                   </div>
                   <CardTitle className="text-[15px] leading-snug font-medium">{q.q}</CardTitle>
                 </CardHeader>

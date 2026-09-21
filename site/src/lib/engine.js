@@ -318,6 +318,72 @@ export function anotherLike(id) {
   return row && row.it ? { sub: byId[pick].sub, sk, it: row.it, left: unseen.length } : null
 }
 
+/** How far a miss has been worked, and nothing about how far it should have been.
+ *
+ *  The mock page has told her the loop since it was written — "classify each
+ *  miss, reteach, redo" — and then reported a score out of nine, which says how
+ *  many went wrong and nothing about whether any of them were dealt with. The
+ *  three steps all leave evidence already, so none of this asks her to tick
+ *  anything: the cause tag is a tap she takes anyway, "Try another" records its
+ *  attempts under `again`, and the review pile brings the question itself back
+ *  until she gets it right.
+ *
+ *  The middle step is named for the evidence rather than for the intention, and
+ *  that is deliberate. It is not "reteached", because a lesson read at the
+ *  kitchen table leaves nothing here and this page must not claim to know it did
+ *  not happen; and it is not "the lesson was opened", because on a score card
+ *  the lesson for a miss is already open before she has done anything, so every
+ *  miss would arrive pre-reteached and the whole column would mean nothing. It
+ *  is "practised": a question of that skill answered through Try another, after
+ *  the miss, which is an act she cannot perform by accident.
+ *
+ *  `missAt` is the most recent wrong answer and not the first. A question she
+ *  missed in March, fixed, and missed again last night is a miss that is not
+ *  dealt with, whatever happened in March. */
+export function missStage(id) {
+  const r = rec(id)
+  const hs = attemptsOf(r)
+  let missAt = null
+  for (let i = hs.length - 1; i >= 0; i--) if (!hs[i].ok) { missAt = ts(hs[i].at); break }
+  if (missAt == null) return null
+  const after = (h) => h.ok && ts(h.at) > missAt
+  const redone = hs.some(after)
+  let practised = hs.some((h) => h.ctx === "again" && after(h))
+  if (!practised) {
+    const hit = findItem(id)
+    if (hit && hit.it) {
+      /* Through the same alias `anotherLike` uses, and it has to be: a mock
+         tags its questions the way a paper does, "percent reasoning—reverse
+         discount", and the bank calls that skill "Percent". Try another on a
+         mock miss resolves the name and hands back a BANK question, so the
+         practice is recorded against the bank's skill. Looking it up under the
+         paper's own wording finds an empty table and reports that nothing has
+         been practised — quietly, and only for mock misses, which is the half
+         of the report this number exists for. */
+      const raw = skillOf(hit.sub, hit.it)
+      const sk = skillTable(hit.sub)[raw] ? raw : (learnName(raw) || raw)
+      for (const other of ((skillTable(hit.sub)[sk] || {}).ids || [])) {
+        if (other !== id && attemptsOf(rec(other)).some((h) => h.ctx === "again" && after(h))) { practised = true; break }
+      }
+    }
+  }
+  const classified = !!(r && r.tag)
+  return { classified, practised, redone, missAt, stage: redone ? "redone" : practised ? "practised" : classified ? "classified" : "new" }
+}
+
+/** The same thing for a set or a paper: how many of its misses have been worked. */
+export function missProgress(ids) {
+  const rows = (ids || []).map((id) => ({ id, ...(missStage(id) || { classified: false, practised: false, redone: false, stage: "new" }) }))
+  return {
+    n: rows.length,
+    classified: rows.filter((x) => x.classified).length,
+    practised: rows.filter((x) => x.practised).length,
+    redone: rows.filter((x) => x.redone).length,
+    untouched: rows.filter((x) => x.stage === "new").length,
+    rows,
+  }
+}
+
 export function skillTable(sub) {
   if (!SK_CACHE || SK_FOR !== D) { SK_CACHE = {}; SK_FOR = D }
   if (SK_CACHE[sub]) return SK_CACHE[sub]

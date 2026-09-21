@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
+import { MissProgress, MissStage } from "@/components/miss-status"
 import { RadioGroup } from "@/components/ui/radio-group"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Textarea } from "@/components/ui/textarea"
@@ -313,6 +314,12 @@ function MissedBySkill({ misses, form }) {
     <>
       <h2 className="mt-2 text-xl font-semibold" data-testid="miss-total" data-n={misses.length}>Missed questions · {misses.length}</h2>
       <p className="text-muted-foreground -mt-2 text-sm">{groups.length} skills, heaviest first. Open one to read its questions.</p>
+      {/* This page is written to be read a day or two after the paper, which is
+          exactly when "how many went wrong" stops being the useful number and
+          "how many have been dealt with" starts. Not quiet here for the same
+          reason: on the night itself nothing could have happened yet, but nobody
+          reads a Long Night report on the night itself. */}
+      <MissProgress ids={misses.map((m) => m.q.id)} className="-mt-1" />
       <div className="flex flex-col gap-3">
         {groups.map((g) => {
           const isOpen = open === g.lesson
@@ -324,6 +331,7 @@ function MissedBySkill({ misses, form }) {
                   <span className="min-w-0 flex-1">
                     <span className="block font-semibold">{g.lesson}</span>
                     <span className="text-muted-foreground text-xs">{g.rows.length} missed · {[...new Set(g.rows.map((r) => r.sec.id))].join(", ")}</span>
+                    <MissProgress ids={g.rows.map((r) => r.q.id)} className="mt-0.5" quiet />
                   </span>
                   <Badge variant="destructive" className="tabular-nums">{g.rows.length}</Badge>
                 </button>
@@ -342,10 +350,11 @@ function MissedBySkill({ misses, form }) {
                     </Button>
                   </div>
                   {g.rows.map(({ sec, q, i, pick }) => (
-                    <div key={q.id} className="border-destructive/40 flex flex-col gap-2 rounded-lg border-2 p-4" data-testid="miss-row">
+                    <div key={q.id} className="border-destructive/40 flex flex-col gap-2 rounded-lg border-2 p-4" data-testid="miss-row" data-qid={q.id}>
                       <div className="flex items-center gap-2">
                         <Badge variant="destructive">{pick ? "Missed" : "Blank"}</Badge>
                         <span className="text-muted-foreground text-xs">{sec.id} · Q{i + 1}{q.sk ? " · " + q.sk : ""}</span>
+                        <MissStage id={q.id} />
                       </div>
                       <p className="text-[15px] leading-snug font-medium">{q.q}</p>
                       <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{pick ? `${pick}. ${q.c[LTR.indexOf(pick)]}` : "—"}</span></div>
