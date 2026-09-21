@@ -115,21 +115,42 @@ export function SkillsCard({ sub }) {
       {rows.length ? (
         <CardContent className="px-5">
           <Table>
-            <TableHeader><TableRow><TableHead>Skill</TableHead><TableHead className="hidden @md/main:table-cell">Weeks</TableHead><TableHead className="text-right">Right now</TableHead><TableHead className="text-right">Level</TableHead></TableRow></TableHeader>
+            {/* Four columns need 441px and a phone gives this card 314. The
+                table has always been in an overflow-x box, so nothing spilled
+                onto the page and every check stayed green while a hundred and
+                twenty-seven pixels of it — the whole "Right now" column and half
+                of Level — sat off the right-hand edge behind a sideways scroll
+                with nothing on screen to say it was there. A number she cannot
+                find is not on the page.
+
+                Weeks was already dropped on a narrow card and the Alcumus topic
+                already sits under the skill's name, so there is a place for a
+                figure that has nowhere else to go: the accuracy moves under the
+                name too, and the column it came from is hidden rather than
+                scrolled to. Two columns fit. Nothing is lost at any width. */}
+            <TableHeader><TableRow><TableHead>Skill</TableHead><TableHead className="hidden @md/main:table-cell">Weeks</TableHead><TableHead className="hidden text-right @md/main:table-cell">Right now</TableHead><TableHead className="text-right">Level</TableHead></TableRow></TableHeader>
             <TableBody>
-              {rows.map((k) => (
+              {rows.map((k) => {
+                const now = k.acc == null ? "—" : `${Math.round(k.acc * 100)}% · ${k.attempted}/${k.total}`
+                return (
                 <TableRow key={k.sk}>
-                  <TableCell className="font-medium">
+                  {/* Every table cell is nowrap by default, so "Whole-number
+                      operations · 2 due" set the column's width and pushed the
+                      level badge off the edge. The name is the one thing here
+                      that can wrap without losing anything. */}
+                  <TableCell className="font-medium whitespace-normal">
                     <span className="flex flex-col gap-0.5">
                       <span>{k.sk}{k.overdue ? <span className="text-warning ml-2 text-xs">{k.overdue} due</span> : null}</span>
+                      <span className="text-muted-foreground text-xs tabular-nums @md/main:hidden" data-testid="skill-now">{now}</span>
                       {weak(k) ? <AopsHint sub={sub} skill={k.sk} inline /> : null}
                     </span>
                   </TableCell>
                   <TableCell className="text-muted-foreground hidden text-xs @md/main:table-cell">{k.weeks.join(" ")}</TableCell>
-                  <TableCell className="text-right tabular-nums">{k.acc == null ? "—" : `${Math.round(k.acc * 100)}% · ${k.attempted}/${k.total}`}</TableCell>
+                  <TableCell className="hidden text-right tabular-nums @md/main:table-cell" data-testid="skill-now">{now}</TableCell>
                   <TableCell className="text-right"><LevelBadge level={k.level} /></TableCell>
                 </TableRow>
-              ))}
+                )
+              })}
             </TableBody>
           </Table>
         </CardContent>
