@@ -19,6 +19,28 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   await ctx.route(/fonts\.g|accounts\.google\.com\/gsi/, (r) => r.abort());
   const drive = await stubGoogle(ctx);
   const pg = await ctx.newPage(); const errs = []; pg.on('pageerror', (e) => errs.push(e.message));
+  /* Wait for a push to actually land, rather than for a number of milliseconds.
+   *
+   * Every one of these waits is a debounce (1200ms) plus a Drive round trip, and
+   * the sleeps that used to cover them were tuned on an idle machine. Run the
+   * whole gate at once, with a vite build competing for the cores, and they are
+   * not long enough: the assertion then reads the body from BEFORE the push and
+   * fails on a value that is perfectly correct a moment later. That is the worst
+   * kind of red — it is not reproducible alone, so it teaches whoever sees it to
+   * re-run instead of to read, and this repo has already been bitten by a suite
+   * nobody trusted. test_features learned the same lesson: see the note on
+   * runThrough about the old 30ms loops stalling on a loaded machine.
+   *
+   * So: poll the condition, up to a generous ceiling, and return the moment it
+   * holds. A passing run gets faster, not slower — the ceiling is only spent
+   * when something is genuinely wrong. */
+  const pushed = async (ready, ms = 15000) => {
+    for (let waited = 0; waited < ms; waited += 100) {
+      try { if (ready()) return true } catch { /* body not parseable yet */ }
+      await pg.waitForTimeout(100)
+    }
+    return false
+  };
   await pg.goto('http://localhost:8142/', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=signin-page]');
   check('a fresh visit is gated: the sign-in page, nothing else, no popup on load',
@@ -49,7 +71,8 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   // finish a set -> pushed to Drive
   await pg.evaluate(() => { location.hash = '#/run/ma/W2/0'; }); await pg.waitForSelector('[data-testid=choice]');
   for (let i = 0; i < 12; i++) { await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]'); if (i < 11) await pg.waitForSelector('[data-testid=choice]'); }
-  await pg.waitForSelector('[data-testid=score]'); await pg.waitForTimeout(1600);
+  await pg.waitForSelector('[data-testid=score]');
+  await pushed(() => /"ma:W2:0"/.test(drive.body));
   check('finished set pushed to Drive', /"ma:W2:0"/.test(drive.body));
   check('learning records travel with it (schema 6, items, mixed, reviews, base)', /"schema":6/.test(drive.body) && /"items":\{"/.test(drive.body) && /"mixed"/.test(drive.body) && /"reviews":\{/.test(drive.body) && /"base":\{/.test(drive.body));
 
@@ -96,7 +119,7 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   // what it already had — which is what made this check fail roughly one run in
   // three and looked like a broken merge rather than a test writing into a file
   // the app was still holding a pen over. Let the debounce drain first.
-  await pg.waitForTimeout(1600);
+  await pushed(() => remoteBody().items[missId]);
   {
     const remote = JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]);
     const r = remote.items[missId];
@@ -131,9 +154,9 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   { const remote = remoteBody(); remote.reviews['essay:W3:2026-09-06'] = mkReview('W3', '2026-09-06'); drive.body = JSON.stringify(remote); }
   const callsBefore = drive.calls.length;
   await pg.click('[data-testid=timer-log-plan]'); await pg.fill('[data-testid=essay-time-plan]', '5'); await pg.press('[data-testid=essay-time-plan]', 'Enter');   // any local save
-  await pg.waitForTimeout(1800);
-  const pushed = remoteBody();
-  check('a local save merges the remote copy first, so a review it never saw is kept', pushed.reviews['essay:W3:2026-09-06'] && pushed.reviews['essay:W2:2026-09-05'] && pushed.essays.W2.time.plan === 5, drive.calls.slice(callsBefore).join(' , '));
+  await pushed(() => remoteBody().essays.W2.time.plan === 5);
+  const afterSave = remoteBody();
+  check('a local save merges the remote copy first, so a review it never saw is kept', afterSave.reviews['essay:W3:2026-09-06'] && afterSave.reviews['essay:W2:2026-09-05'] && afterSave.essays.W2.time.plan === 5, drive.calls.slice(callsBefore).join(' , '));
   check('and the review is now on this device too', await pg.evaluate(() => !!JSON.parse(localStorage.getItem('isee.v1')).reviews['essay:W3:2026-09-06']));
 
   // A room built on the other device must arrive here and must never be undone
@@ -190,7 +213,10 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   const hideFrom = drive.calls.length;
   await pg.click('text=Draft · 20'); await pg.click('[data-testid=timer-log-draft]'); await pg.fill('[data-testid=essay-time-draft]', '18'); await pg.press('[data-testid=essay-time-draft]', 'Enter');
   await pg.evaluate(() => { Object.defineProperty(document, 'visibilityState', { value: 'hidden', configurable: true }); document.dispatchEvent(new Event('visibilitychange', { bubbles: true })); });
-  await pg.waitForTimeout(400);
+  // wait for the BODY, not for the call to be logged: the stub records the call
+  // on the way in and assigns drive.body on the way out, so a call-count wait
+  // returns before the payload exists.
+  await pushed(() => remoteBody().essays.W2.time.draft === 18);
   const hideCalls = drive.calls.slice(hideFrom).map((c) => c.split(' ')[0]);
   check('hiding the page flushes at once, reading before writing', hideCalls.join(',') === 'GET,PATCH' && remoteBody().reviews['essay:W4:2026-09-07'] && remoteBody().essays.W2.time.draft === 18, hideCalls.join(','));
   await pg.evaluate(() => { Object.defineProperty(document, 'visibilityState', { value: 'visible', configurable: true }); });
@@ -231,7 +257,7 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   await pg.waitForTimeout(1800);
   drive.hold = null; release();
   // long enough for the re-armed flush to go out and land
-  await (async () => { for (let i = 0; i < 100; i++) { if (remoteBody().essays.W2.time.plan === 6) return; await pg.waitForTimeout(100); } })();
+  await pushed(() => remoteBody().essays.W2.time.plan === 6);
   const landed = remoteBody().essays.W2.time;
   check('an edit made while a save was in the air still reaches Drive',
     landed.plan === 6, JSON.stringify(landed));
