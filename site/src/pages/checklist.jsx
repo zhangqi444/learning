@@ -94,7 +94,20 @@ export function weekItems(wk) {
     // coast is already tomorrow: a mock finished on a Sunday evening landed on
     // "Monday", fell outside the week she had just sat it in, and took its
     // follow-up rows with it. Same mistake as the reading day, same fix.
-    if (fin) { const f = dayKey(fin); if (f >= addDays(a, -7) && f <= b) mockNextSteps(m.id).filter((x) => x.kind !== "tag").forEach((x, i) => items.push({ id: `next:${m.id}:${i}`, group: "Mock follow-up", tag: "Mock", label: x.text, sub: `from ${m.name}`, done: null, path: x.path, auto: false })) }
+    /* The upper edge is this week's last day, except on the week the plan is
+       actually on, where it is today. The plan has a hole in it on purpose:
+       W3 ends Sep 20 and W4 begins Sep 28, because the week between them is the
+       one she sits the diagnostic in. `currentWeek()` answers "the last week
+       that has begun", so through all seven of those days the checklist opens on
+       W3 — a week that has ended — while a mock finished on any of them is dated
+       after W3's last day and before W4's first. It fell through the gap and its
+       follow-ups appeared on no week at all until the 28th, which is a week
+       after the paper they came from and no use to anybody.
+
+       Only the current week absorbs days past its own end, and only as far as
+       today, so a finished week stays a record of itself. */
+    const hi = wk === currentWeek() ? (dayKey(new Date()) > b ? dayKey(new Date()) : b) : b
+    if (fin) { const f = dayKey(fin); if (f >= addDays(a, -7) && f <= hi) mockNextSteps(m.id).filter((x) => x.kind !== "tag").forEach((x, i) => items.push({ id: `next:${m.id}:${i}`, group: "Mock follow-up", tag: "Mock", label: x.text, sub: `from ${m.name}`, done: null, path: x.path, auto: false })) }
   }
   // Follow-ups a weekly or monthly digest asked for. Not `auto`, so they never move the
   // plan's own progress — they are extra work someone chose, ticked by hand.
