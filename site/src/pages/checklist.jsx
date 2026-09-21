@@ -2,7 +2,7 @@ import * as React from "react"
 import { CalendarDays, CheckCircle2, ChevronLeft, ChevronRight, Circle, ListChecks, Plus, Printer, Trash2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, currentWeek, setId, setsFor, weekLabel } from "@/lib/content"
-import { dayKey, mockNextSteps, rec, reviewQueue, weekRecap } from "@/lib/engine"
+import { dayKey, mockNextSteps, rec, reviewQueue, tagTally, weekRecap } from "@/lib/engine"
 import { actionsForWeek, reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { mixedThisWeek } from "@/pages/mixed"
@@ -71,7 +71,9 @@ export function weekItems(wk) {
     }
     setsFor(s, wk).forEach((set, n) => {
       const r = Store.s.results[setId(s, wk, n)]
-      items.push({ id: `set:${s}:${wk}:${n}`, group: SUBJ[s].name, tag: SUBJ[s].short, short: `Set ${n + 1}`, label: `Set ${n + 1} — ${set.length} questions`, sub: r ? `${r.right}/${r.n}` : "one sitting, no notes", done: !!r, path: `/run/${s}/${wk}/${n}`, auto: true })
+      /* `tags` and not a longer `sub`: the compact list renders `sub` as a
+         right-hand figure and 6/9 has to stay 6/9 there. */
+      items.push({ id: `set:${s}:${wk}:${n}`, group: SUBJ[s].name, tag: SUBJ[s].short, short: `Set ${n + 1}`, label: `Set ${n + 1} — ${set.length} questions`, sub: r ? `${r.right}/${r.n}` : "one sitting, no notes", tags: r && (r.wrong || []).length ? tagTally(r.wrong) : null, done: !!r, path: `/run/${s}/${wk}/${n}`, auto: true })
     })
   }
   if (D.essay && D.essay.weeks[wk]) {
@@ -308,6 +310,28 @@ function Row({ item, listKey, compact, testId = "ck-item" }) {
           <span className={cn("text-sm font-medium", done && "line-through decoration-muted-foreground/60")}>{item.label}</span>
         )}
         {item.sub && !compact ? <span className="text-muted-foreground text-xs">{item.sub}</span> : null}
+        {/* Why the misses went wrong, on the row that reports them. She taps the
+            reason on the score card already; until now the only way to read it
+            back was to reopen the set and go through the questions one at a
+            time, so in practice nobody ever did. Three misread words and three
+            methods nobody has taught her are the same 6/9 and a completely
+            different week's work. */}
+        {item.tags && !compact ? (
+          <span className="mt-1 flex flex-wrap items-center gap-1" data-testid="set-tags" data-n={item.tags.n}>
+            {item.tags.rows.map((t) => (
+              <Badge key={t.id} variant="outline" className="font-normal" data-testid="set-tag" data-cause={t.id} data-count={t.n}>
+                <span className="tabular-nums">{t.n}</span> {t.label.toLowerCase()}
+              </Badge>
+            ))}
+            {/* Last, and quieter than the reasons, because not having said yet is
+                not a kind of mistake. */}
+            {item.tags.untagged ? (
+              <span className="text-muted-foreground/70 text-xs tabular-nums" data-testid="set-untagged" data-n={item.tags.untagged}>
+                {item.tags.untagged} not said yet
+              </span>
+            ) : null}
+          </span>
+        ) : null}
         {item.pct != null ? <Progress value={item.pct * 100} className="mt-1 h-1" /> : null}
       </div>
       {compact && item.sub && done ? <span className="text-muted-foreground shrink-0 text-xs tabular-nums">{item.sub}</span> : null}

@@ -979,6 +979,57 @@ async function runThrough(pg, pick, max = 60) {
   // checklist carries the new items
   await pg.evaluate(() => { location.hash = '#/checklist/W2'; }); await pg.waitForSelector('[data-testid=ck-item]');
   const ck2 = await body(pg);
+  /* The reasons behind a set's misses, on the row that reports them. She taps
+     them on the score card; until now the only way to read one back was to
+     reopen the set and scroll the questions, so 6/9 was the whole story a week
+     later. The invariant is the check: every miss is either a named reason or
+     one not said yet, and the row has to add up to the misses it is about —
+     otherwise a reason quietly goes missing and the line still looks right. */
+  /* The remote is emptied so the merge on the next load cannot put the
+     pre-seed records back over the top. It is restored to what the page is
+     holding afterwards rather than to the snapshot taken here: handing the app
+     back a document older than its own state leaves a stale remote sitting in
+     front of every later check, which is how this took a book off the shelf
+     three hundred lines further down. */
+  drive.body = JSON.stringify({ schema: 4, results: {} });
+  const seededTags = await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const causes = ['misread', 'careless', 'know'];
+    const out = [];
+    for (const key of Object.keys(s.results)) {
+      if (!key.includes(':W1:')) continue;
+      const w = s.results[key].wrong || [];
+      if (w.length < 2) continue;
+      w.forEach((id, i) => { if (i < 2) s.items[id] = { ...(s.items[id] || { hist: [] }), tag: causes[i] }; });
+      out.push({ key, misses: w.length });
+    }
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    return out;
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/checklist/W1'; });
+  await pg.waitForSelector('[data-testid=ck-item]');
+  await pg.waitForTimeout(500);
+  const tally = await pg.$$eval('[data-testid=set-tags]', (n) => n.map((e) => ({
+    n: +e.dataset.n,
+    named: [...e.querySelectorAll('[data-testid=set-tag]')].reduce((a, b) => a + +b.dataset.count, 0),
+    untagged: +((e.querySelector('[data-testid=set-untagged]') || {}).dataset || { n: 0 }).n,
+    causes: [...e.querySelectorAll('[data-testid=set-tag]')].map((b) => b.dataset.cause).join(','),
+  })));
+  check('a finished set says why its misses went wrong, not just how many',
+    tally.length >= 2 && tally.some((t) => t.causes.includes('misread')), JSON.stringify(tally.slice(0, 3)));
+  check('and the reasons account for every miss on that row, with none invented',
+    tally.length > 0 && tally.every((t) => t.named + t.untagged === t.n), JSON.stringify(tally.slice(0, 4)));
+  /* A set with nothing wrong has nothing to explain, and must not draw an empty
+     row saying so. */
+  const clean = await pg.evaluate(() => [...document.querySelectorAll('[data-testid=ck-item]')]
+    .filter((li) => /Set \d+ — /.test(li.textContent) && /(\d+)\/\1\b/.test(li.textContent.replace(/\s+/g, ' ')))
+    .filter((li) => li.querySelector('[data-testid=set-tags]')).length);
+  check('a set she got all right explains nothing, because there is nothing to explain', clean === 0, String(clean));
+  drive.body = await pg.evaluate(() => localStorage.getItem('isee.v1'));
+  await pg.evaluate(() => { location.hash = '#/checklist/W2'; });
+  await pg.waitForSelector('[data-testid=ck-item]');
+
   check('week checklist has the word quiz and the mixed set', /Word quiz/.test(ck2) && /mixed set/.test(ck2),
     `quiz=${/Word quiz/.test(ck2)} mixed=${/mixed set/.test(ck2)}`);
 

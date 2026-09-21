@@ -340,6 +340,26 @@ export function anotherLike(id) {
  *  `missAt` is the most recent wrong answer and not the first. A question she
  *  missed in March, fixed, and missed again last night is a miss that is not
  *  dealt with, whatever happened in March. */
+/** The reasons behind a set's misses, counted, in the order the buttons offer them.
+ *
+ *  "6 of 9" says three went wrong and stops. The reason each one went wrong is
+ *  already recorded — she taps it herself on the score card — and then had
+ *  nowhere to be read back except by reopening the set and scrolling through the
+ *  questions one at a time. Three misread words and three methods she has never
+ *  been taught are the same 6/9 and not remotely the same week.
+ *
+ *  Untagged is carried separately rather than folded in as a fifth reason,
+ *  because "we have not said yet" is not a kind of mistake. */
+export function tagTally(ids) {
+  const n = { untagged: 0 }
+  for (const id of ids || []) {
+    const t = (rec(id) || {}).tag
+    if (t && CAUSE_LABEL[t]) n[t] = (n[t] || 0) + 1
+    else n.untagged++
+  }
+  return { rows: CAUSES.filter((c) => n[c.id]).map((c) => ({ id: c.id, label: c.label, n: n[c.id] })), untagged: n.untagged, n: (ids || []).length }
+}
+
 export function missStage(id) {
   const r = rec(id)
   const hs = attemptsOf(r)
