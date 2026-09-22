@@ -60,7 +60,30 @@ async function runThrough(pg, pick, max = 60) {
   check('nothing calls it "Games", which would mean "the fun after the work"',
     !/game/i.test(await pg.textContent('[data-slot=sidebar]')), world.label);
   check('Essay sits in the Subjects card as its own row', /Essay/.test(await pg.textContent('[data-testid=subjects]')) && /0 of 8 weeks/.test(await pg.textContent('[data-testid=subjects]')));
-  check('dashboard Coming up lists a mock', /Coming up.*Split diagnostic/.test(await body(pg)));
+  /* Not "a mock is listed", which was only ever true on the days the suite
+     happened to run. A mock is labelled as a seven-day window and has to stay in
+     Coming up for the whole of it: it dropped out the morning after its window
+     opened, which on 22 September meant the split diagnostic disappeared with
+     Part A still to sit the next day. Computed from the bundle against today, so
+     it holds on every date rather than on most of them. */
+  const soon = await pg.evaluate(async () => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const d = new Date();
+    const today = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    const txt = (document.body.textContent || '').replace(/\s+/g, ' ');
+    return b.mocks.map((m) => {
+      const e = new Date(m.start + 'T00:00:00'); e.setDate(e.getDate() + 6);
+      const end = `${e.getFullYear()}-${String(e.getMonth() + 1).padStart(2, '0')}-${String(e.getDate()).padStart(2, '0')}`;
+      return { name: m.name, open: m.start <= today && today <= end, over: end < today, listed: txt.includes(m.name) };
+    });
+  });
+  /* Only the next few events fit on the card, so a mock in November being absent
+     is the card working. The rule is about the one she is in the middle of, and
+     about the next one up: neither may fall off. */
+  const nextUp = soon.find((m) => !m.over);
+  check('a mock whose week is open, and the next one due, are both on the dashboard',
+    soon.filter((m) => m.open).every((m) => m.listed) && !!nextUp && nextUp.listed,
+    soon.map((m) => `${m.name}:${m.over ? 'past' : m.open ? 'OPEN' : 'due'}:${m.listed ? 'listed' : 'MISSING'}`).join(' | '));
   // Her first Glim is derived from her own record — the first word she ever put
   // into her own words — so it is hers, not ours, and cannot be faked.
   const firstCat = await pg.$eval('[data-testid=first-glim]', (e) => e.dataset.word).catch(() => null);

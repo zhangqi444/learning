@@ -54,7 +54,15 @@ export function allEvents() {
   const band = mockBand()
   for (const m of D.mocks) {
     const done = band.mocks.find((x) => x.form === m.id)
-    ev.push({ id: "mock-" + m.id, kind: "mock", date: m.start, title: done ? `${m.name} · ${done.pct}% · stanine ≈${done.st}` : m.name, detail: done ? `Finished ${fmtDate(done.at)}. ${m.blurb}` : m.blurb, path: "/mock/" + m.id })
+    /* A mock is a week, not a day. Every one of them is labelled as a seven-day
+       window — "Sep 21 – 27" — and it had only a start, so `upcoming` dropped it
+       the morning after the window opened: on the 22nd of September the split
+       diagnostic vanished from the dashboard with Part A still to sit the next
+       day and Part B on the Saturday. The same six-day arithmetic the plan weeks
+       above already use, and it also stops the calendar greying the row out
+       while she is in the middle of sitting it. */
+    const mEnd = new Date(m.start + "T00:00:00"); mEnd.setDate(mEnd.getDate() + 6)
+    ev.push({ id: "mock-" + m.id, kind: "mock", date: m.start, end: iso(mEnd), title: done ? `${m.name} · ${done.pct}% · stanine ≈${done.st}` : m.name, detail: done ? `Finished ${fmtDate(done.at)}. ${m.blurb}` : m.blurb, path: "/mock/" + m.id })
   }
   for (const b of D.breaks || []) {
     if (/mock/i.test(b.what)) continue                       // mocks come from D.mocks with real dates
