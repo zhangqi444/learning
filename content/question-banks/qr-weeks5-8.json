@@ -622,7 +622,7 @@
    "difficulty": "H",
    "prompt": "On a floor plan, 3 inches represents 4 feet. A room is 18 feet long. How long is that room on the plan?",
    "choices": {
-    "A": "27 inches",
+    "A": "54 inches",
     "B": "12 inches",
     "C": "24 inches",
     "D": "13 1/2 inches"
@@ -633,11 +633,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
    "why": {
-    "A": "27 is more inches than the room has feet, and this scale always shrinks: every 4 feet is drawn as 3 inches. 18 feet is 4 1/2 of those groups, so 4.5 × 3 = 13 1/2 inches.",
+    "A": "54 is 18 × 3, the room's feet multiplied by the 3 inches with the 4 feet those inches stand for never used. 18 feet makes 18 ÷ 4 = 4 1/2 of those groups, and each group is drawn 3 inches long, so 4.5 × 3 = 13 1/2 inches.",
     "B": "12 is 4 × 3, counting only 4 whole groups of 4 feet. 18 feet makes 4 1/2 of those groups, so it is 4.5 × 3 = 13 1/2 inches.",
     "C": "24 is 18 ÷ 3 × 4, the scale turned round — 4 inches for every 3 feet. It is 3 inches for every 4 feet, so 18 ÷ 4 × 3 = 13 1/2 inches."
    },
-   "content_hash": "bd04e509cff6952a"
+   "content_hash": "5d4bb0b4155b16aa"
   },
   {
    "id": "QR-W5-S2-Q14",
@@ -962,10 +962,10 @@
    "form": "W6",
    "why": {
     "A": "29 is a little too big: 29 × 29 = 841. The number that works is 27, since 27 × 27 = 729.",
-    "C": "23 is too small: 23 × 23 = 529, not 729. The number that works is 27, since 27 × 27 = 729.",
+    "C": "23 is the smaller of the two numbers in the twenties whose square can end in 9, since only 3 × 3 = 9 and 7 × 7 = 49 leave a 9 at the end. 23 × 23 = 529, short of 729, and 27 × 27 = 729.",
     "D": "81 is 729 ÷ 9, not the number multiplied by itself. That number is 27, because 27 × 27 = 729."
    },
-   "content_hash": "e36f4f3b030f63a4"
+   "content_hash": "56fb7a493253b45f"
   },
   {
    "id": "QR-W6-S1-Q12",
@@ -1107,7 +1107,7 @@
     "A": "1,500",
     "B": "2,400",
     "C": "1,200",
-    "D": "1,800"
+    "D": "2,000"
    },
    "correct": "A",
    "explanation": "48 is about 50 and 32 is about 30, so the total is about 50 x 30 = 1,500; the exact product is 1,536.",
@@ -1117,9 +1117,9 @@
    "why": {
     "B": "2,400 is 48 × 50, with the 32 seats rounded all the way up to 50. 32 is nearer 30, and 48 rows is nearer 50, so the estimate is 50 × 30 = 1,500.",
     "C": "1,200 is 40 × 30, with 48 rounded down to 40. 48 is much nearer 50, and 50 × 30 = 1,500.",
-    "D": "1,800 would need about 60 rows of 30 seats, and there are only 48 rows. Rounding gives 50 × 30 = 1,500."
+    "D": "2,000 is 50 × 40, with the 32 seats pushed up to 40 instead of down to the nearer 30. 48 does round to 50, but 32 rounds to 30, so the estimate is 50 × 30 = 1,500, and the exact count is 48 × 32 = 1,536."
    },
-   "content_hash": "4c91e5eb81a0989c"
+   "content_hash": "93d2205f506e0eb0"
   },
   {
    "id": "QR-W6-S2-Q06",
@@ -1615,7 +1615,7 @@
     "A": "3 times as large",
     "B": "The same",
     "C": "1 1/2 times as large",
-    "D": "1 1/3 times as large"
+    "D": "Half as large"
    },
    "correct": "C",
    "explanation": "The first rug covers 6×4=24 sq ft; the second is 18 by 2, or 36 sq ft, and 36÷24=1 1/2. Tripling one side and halving the other multiplies the area by 3×1/2.",
@@ -1625,9 +1625,9 @@
    "why": {
     "A": "3 times counts the longer side and forgets the width was halved. Three times one side and half the other gives 3 × 1/2 = 1 1/2 times.",
     "B": "Tripling and halving do not cancel out: the new rug is 18 by 2, so 36 square feet against 24.",
-    "D": "1 1/3 is too small a jump. The rugs are 24 and 36 square feet, and 36 is one and a half times 24."
+    "D": "Half as large keeps the width being halved and loses the length being tripled. Three times one side and half the other multiplies the area by 3 × 1/2 = 1 1/2, so 24 square feet becomes 36."
    },
-   "content_hash": "c91e9ea13c74a679"
+   "content_hash": "0109c9f8ff130286"
   },
   {
    "id": "QR-W7-S1-Q11",
@@ -1843,7 +1843,7 @@
    "prompt": "Ten cards numbered 1 through 10 are placed face down and one is drawn at random. What is the probability that the card drawn shows a prime number?",
    "choices": {
     "A": "2/5",
-    "B": "1/5",
+    "B": "3/5",
     "C": "1/2",
     "D": "3/10"
    },
@@ -1853,11 +1853,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
    "why": {
-    "B": "1/5 would mean only two of the ten cards are prime. There are four — 2, 3, 5 and 7 — so it is 4/10 = 2/5.",
+    "B": "3/5 counts the six cards that are not prime — 1, 4, 6, 8, 9 and 10 — instead of the four that are. The primes are 2, 3, 5 and 7, so the chance is 4/10 = 2/5.",
     "C": "1/2 is the chance of an odd card, and 1 and 9 are odd without being prime. The primes are 2, 3, 5 and 7: 4 out of 10.",
     "D": "3/10 counts 3, 5 and 7 but leaves out 2, which is prime as well. Four cards out of ten is 2/5."
    },
-   "content_hash": "fabc4b8c6d077cbd"
+   "content_hash": "7a0f8f920bf79bc2"
   },
   {
    "id": "QR-W7-S2-Q08",
@@ -1970,7 +1970,7 @@
    "difficulty": "M",
    "prompt": "A stadium sold 4,180 tickets on Friday, 3,905 on Saturday, and 2,870 on Sunday. Which is the best estimate of the total number of tickets sold?",
    "choices": {
-    "A": "about 13,000",
+    "A": "about 12,000",
     "B": "about 10,000",
     "C": "about 11,000",
     "D": "about 9,000"
@@ -1981,11 +1981,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
    "why": {
-    "A": "13,000 is past even rounding every number up: 5,000 + 4,000 + 3,000 = 12,000. Rounded the usual way they are 4,000, 4,000 and 3,000 — about 11,000.",
+    "A": "12,000 is 5,000 + 4,000 + 3,000, every number pushed up to the next whole thousand instead of to the nearer one. 4,180 is nearer 4,000 and 3,905 is nearer 4,000, so the three come to 4,000 + 4,000 + 3,000 = 11,000.",
     "B": "10,000 is 10,955 with the 955 dropped rather than rounded. More than half a thousand is left over, so the total rounds up to 11,000.",
     "D": "9,000 is 4,000 + 3,000 + 2,000, every number chopped down to its first digit. Rounded to the nearest thousand they are 4,000, 4,000 and 3,000, which come to 11,000."
    },
-   "content_hash": "5a734213b9d75846"
+   "content_hash": "c3fe7ea3bc0f3c2a"
   },
   {
    "id": "QR-W7-S2-Q13",
@@ -2047,7 +2047,7 @@
    "difficulty": "H",
    "prompt": "In a class, the ratio of students who walk to school to students who ride is 2:5. There are 21 more riders than walkers. How many students are in the class?",
    "choices": {
-    "A": "42",
+    "A": "21",
     "B": "49",
     "C": "35",
     "D": "63"
@@ -2058,11 +2058,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
    "why": {
-    "A": "42 is 21 × 2, as if the 21 extra riders filled the walkers' 2 parts. The gap is 3 parts, so one part is 21 ÷ 3 = 7, and the class's 7 parts make 49.",
+    "A": "21 shares the 21 extra riders among all 7 parts instead of among the 3 parts the gap is worth, and 21 ÷ 7 = 3 followed by 7 × 3 lands back on the 21 it started from. The gap is 5 − 2 = 3 parts, so one part is 21 ÷ 3 = 7 and the class is 7 × 7 = 49.",
     "C": "35 is 5 × 7, the riders on their own. The 2 × 7 = 14 walkers belong in the class too: 35 + 14 = 49.",
     "D": "63 is 21 × 3, the extra riders multiplied by the three spare parts instead of shared among them. One part is 21 ÷ 3 = 7, and seven parts make 49."
    },
-   "content_hash": "13e23b22c15c3869"
+   "content_hash": "54bd4b7690bd2292"
   },
   {
    "id": "QR-W8-S1-Q01",
@@ -2149,7 +2149,7 @@
    "difficulty": "E",
    "prompt": "Which is the best estimate of 4,982 ÷ 51?",
    "choices": {
-    "A": "250",
+    "A": "500",
     "B": "10",
     "C": "1,000",
     "D": "100"
@@ -2160,11 +2160,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
    "why": {
-    "A": "250 is 5,000 cut by 2 and then by 10, but 50 is five tens, not two. Cutting by 5 and then by 10 gives 5,000 ÷ 50 = 100.",
+    "A": "500 is 5,000 with one zero crossed off to match the zero in 50, and the dividing by the 5 then never done. Finish it: 500 ÷ 5 = 100, and 50 × 100 = 5,000.",
     "B": "10 is 5,000 ÷ 500, one zero too many on the number she is dividing by. 51 is about 50, and 5,000 ÷ 50 = 100.",
     "C": "1,000 is 5,000 ÷ 5, as if she were dividing by 5 rather than by about 50. Fifty goes into 5,000 a hundred times."
    },
-   "content_hash": "4194538ae4bee93b"
+   "content_hash": "73fdc4ccf449e377"
   },
   {
    "id": "QR-W8-S1-Q05",
@@ -2332,7 +2332,7 @@
    "choices": {
     "A": "$59.40",
     "B": "$59.00",
-    "C": "$60.60",
+    "C": "$66.00",
     "D": "$60.00"
    },
    "correct": "A",
@@ -2342,10 +2342,10 @@
    "form": "W8",
    "why": {
     "B": "$59.00 is $66 − $7, with the 10% rounded up to a whole dollar. Ten per cent of $66 is $6.60, and $66 − $6.60 = $59.40.",
-    "C": "$60.60 is 60 cents above the $60 it started at, but the price ends below where it started: the $6.60 drop beats the $6.00 rise, so $66 − $6.60 = $59.40.",
+    "C": "$66.00 is the price after the 10% rise, with the 10% drop that comes next never taken off. Ten per cent of $66 is $6.60, so the final price is $66 − $6.60 = $59.40.",
     "D": "$60.00 is what you get if the 10% up and the 10% down cancel out. They do not: the rise is $6.00 on $60, but the drop is $6.60 on $66, leaving $59.40."
    },
-   "content_hash": "b52a96bfdeda3809"
+   "content_hash": "29954e177fac9ddb"
   },
   {
    "id": "QR-W8-S1-Q12",
@@ -2614,7 +2614,7 @@
    "choices": {
     "A": "They are equal",
     "B": "3 × 3 × 3, by 2",
-    "C": "3 × 3 × 3, by 4",
+    "C": "3 × 3 × 3, by 3",
     "D": "5 × 5, by 2"
    },
    "correct": "B",
@@ -2624,10 +2624,10 @@
    "form": "W8",
    "why": {
     "A": "They are close but not equal: 3 × 3 × 3 = 27 and 5 × 5 = 25, which leaves 2 between them.",
-    "C": "3 × 3 × 3 is indeed the bigger one, but the gap is smaller than 4: 27 − 25 = 2.",
+    "C": "3 × 3 × 3, by 3 counts 25, 26, 27 and calls that three steps, but the number you start from is not a step. 3 × 3 × 3 = 27 and 5 × 5 = 25, so the three 3s are ahead by 27 − 25 = 2.",
     "D": "5 × 5 comes to 25 while three 3s make 27, so the 2 goes the other way — the 3s are ahead."
    },
-   "content_hash": "c5d93bc14aff321b"
+   "content_hash": "1758c5b1caf3bc74"
   },
   {
    "id": "QR-W8-S2-Q11",

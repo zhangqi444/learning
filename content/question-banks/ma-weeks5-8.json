@@ -116,8 +116,8 @@
       "prompt": "What is 5/8 ÷ 1/4?",
       "choices": {
         "A": "2 1/2",
-        "B": "1 1/2",
-        "C": "3 1/2",
+        "B": "2",
+        "C": "2/5",
         "D": "5/32"
       },
       "correct": "A",
@@ -126,9 +126,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
       "why": {
+        "B": "2 is the whole-number part of 20/8, the leftover thrown away. Eight goes into 20 twice with 4 over, and those 4 eighths are half of one more: 5/8 ÷ 1/4 = 2 1/2.",
+        "C": "2/5 is 8/5 × 1/4, the flip landing on the wrong fraction. It is the second fraction, the one you are dividing by, that turns over: 5/8 × 4 = 20/8 = 2 1/2.",
         "D": "5/32 is 5/8 × 1/4, the two fractions multiplied instead of divided. Dividing by 1/4 asks how many quarters fit inside 5/8: 5/8 × 4 = 20/8, which is 2 1/2."
       },
-      "content_hash": "6bba31442f1a95b1"
+      "content_hash": "a3ab4a5803990610"
     },
     {
       "id": "MA-W5-S1-Q06",
@@ -140,8 +142,8 @@
       "prompt": "What is 2 1/2 × 1 3/5?",
       "choices": {
         "A": "2 3/10",
-        "B": "3 1/2",
-        "C": "4 1/2",
+        "B": "3 1/5",
+        "C": "4 1/10",
         "D": "4"
       },
       "correct": "D",
@@ -150,9 +152,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
       "why": {
-        "A": "2 3/10 multiplies the wholes on their own, 2 × 1 = 2, and the fractions on their own, 1/2 × 3/5 = 3/10. Turn both into improper fractions instead: 5/2 × 8/5 = 40/10 = 4."
+        "A": "2 3/10 multiplies the wholes on their own, 2 × 1 = 2, and the fractions on their own, 1/2 × 3/5 = 3/10. Turn both into improper fractions instead: 5/2 × 8/5 = 40/10 = 4.",
+        "B": "3 1/5 is 2 × 1 3/5, the half of the 2 1/2 left out of the multiplying. Both parts of it have to be used: 5/2 × 8/5 = 40/10 = 4.",
+        "C": "4 1/10 is 2 1/2 + 1 3/5, the two mixed numbers added instead of multiplied — 1/2 + 3/5 = 11/10, which is 1 1/10 on top of the 3. Multiplying wants improper fractions: 5/2 × 8/5 = 40/10 = 4."
       },
-      "content_hash": "4a94e8aa5bf87e2b"
+      "content_hash": "ffdedf941803fdd8"
     },
     {
       "id": "MA-W5-S1-Q07",
@@ -240,7 +244,7 @@
       "difficulty": "E",
       "prompt": "Which decimal is equal to 3/8?",
       "choices": {
-        "A": "0.385",
+        "A": "0.125",
         "B": "0.625",
         "C": "0.375",
         "D": "0.83"
@@ -251,9 +255,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
       "why": {
-        "B": "0.625 is 5/8, the five eighths left over rather than the three you were asked for. Divide the 3 by the 8: 3 ÷ 8 = 0.375."
+        "A": "0.125 is 1/8, one eighth where the question asks for three. The 3 on top counts how many eighths there are: 3 ÷ 8 = 0.375.",
+        "B": "0.625 is 5/8, the five eighths left over rather than the three you were asked for. Divide the 3 by the 8: 3 ÷ 8 = 0.375.",
+        "D": "0.83 puts the 8 before the 3, the bottom number of the fraction written first. The line in 3/8 means divide, and it is the 3 being shared out: 3 ÷ 8 = 0.375."
       },
-      "content_hash": "8431cecfd1b5345c"
+      "content_hash": "4c36d13b2635f5ff"
     },
     {
       "id": "MA-W5-S1-Q11",
@@ -316,7 +322,7 @@
       "choices": {
         "A": "4 3/4",
         "B": "5 3/4",
-        "C": "6",
+        "C": "3 1/2",
         "D": "5 1/2"
       },
       "correct": "D",
@@ -327,9 +333,9 @@
       "why": {
         "A": "4 3/4 comes from adding the 2 batches on rather than doubling: 2 3/4 + 2 = 4 3/4. Two batches means twice as much: 2 3/4 + 2 3/4 = 5 1/2 cups.",
         "B": "5 3/4 turns the 6/4 into 1 3/4 by keeping the 3 you started with. Six quarters is one whole and 2/4, so 4 + 1 1/2 = 5 1/2 cups.",
-        "C": "6 is 3 × 2, the 2 3/4 rounded up to 3 whole cups first. Keep the quarters: 2 3/4 + 2 3/4 = 5 1/2 cups."
+        "C": "3 1/2 is 2 + 1 1/2, the 3/4 doubled but the 2 whole cups left as one batch's worth. Both parts double: 2 3/4 + 2 3/4 = 4 + 1 1/2 = 5 1/2 cups."
       },
-      "content_hash": "ccd68ce1bad3df9f"
+      "content_hash": "3246715d9065fbd5"
     },
     {
       "id": "MA-W5-S2-Q02",
@@ -393,8 +399,8 @@
       "choices": {
         "A": "3 3/8",
         "B": "6",
-        "C": "5",
-        "D": "8"
+        "C": "1 1/2",
+        "D": "18"
       },
       "correct": "B",
       "explanation": "9/2 ÷ 3/4 = 9/2 × 4/3 = 36/6 = 6 pieces.",
@@ -403,9 +409,10 @@
       "form": "W5",
       "why": {
         "A": "3 3/8 comes from multiplying by 3/4 instead of dividing by it: 4 1/2 × 3/4 = 3 3/8. Asking how many 3/4-foot pieces fit is a division: 9/2 ÷ 3/4 = 9/2 × 4/3 = 6.",
-        "C": "5 is the number of cuts you make, and that is always one fewer than the number of pieces. The pieces come to 9/2 ÷ 3/4 = 6."
+        "C": "1 1/2 comes from dividing by the 3 alone and leaving its quarters out: 4 1/2 ÷ 3 = 1 1/2. The pieces are 3/4 of a foot, not 3 feet: 9/2 ÷ 3/4 = 9/2 × 4/3 = 6.",
+        "D": "18 is the number of quarter-feet in the ribbon, since 4 1/2 feet is 18/4 — but each piece takes three of those quarters. One more step finishes it: 18 ÷ 3 = 6 pieces."
       },
-      "content_hash": "318514f136444537"
+      "content_hash": "4a134e766d087d7a"
     },
     {
       "id": "MA-W5-S2-Q05",
@@ -417,7 +424,7 @@
       "prompt": "Apples cost $1.35 per pound. What is the cost of 2.4 pounds of apples?",
       "choices": {
         "A": "$3.24",
-        "B": "$2.75",
+        "B": "$2.70",
         "C": "$32.40",
         "D": "$3.42"
       },
@@ -427,10 +434,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
       "why": {
+        "B": "$2.70 is 1.35 × 2, the 0.4 of a pound never paid for. That last 0.4 pound costs 1.35 × 0.4 = 0.54, and 2.70 + 0.54 = $3.24.",
         "C": "$32.40 is the right digits with the point one place too far over. 1.35 and 2.4 have three decimal places between them, so 135 × 24 = 3240 becomes 3.240, which is $3.24.",
         "D": "$3.42 is the answer with its last two digits swapped round. 1.35 × 2 = 2.70 and 1.35 × 0.4 = 0.54, and 2.70 + 0.54 = 3.24."
       },
-      "content_hash": "fc83e81c17fd6ef1"
+      "content_hash": "457385b812d084da"
     },
     {
       "id": "MA-W5-S2-Q06",
@@ -516,7 +524,7 @@
         "A": "15%",
         "B": "37.5%",
         "C": "62.5%",
-        "D": "26.5%"
+        "D": "75%"
       },
       "correct": "B",
       "explanation": "15 out of 40 is 15/40 = 3/8 = 0.375, which is 37.5%.",
@@ -525,9 +533,10 @@
       "form": "W5",
       "why": {
         "A": "15% is the 15 who play read straight off as a percent, as if the choir had 100 people in it. Out of 40 it is 15/40 = 0.375, which is 37.5%.",
-        "C": "62.5% is the share who do not play an instrument — the other 25 of the 40. The 15 who do play are 15 out of 40, and 15/40 = 0.375, or 37.5%."
+        "C": "62.5% is the share who do not play an instrument — the other 25 of the 40. The 15 who do play are 15 out of 40, and 15/40 = 0.375, or 37.5%.",
+        "D": "75% is 15 + 60, the 40 pushed up to 100 by adding 60 and that same 60 added to the 15. Scaling to 100 multiplies instead: 40 × 2.5 = 100, so 15 × 2.5 = 37.5, which is 37.5%."
       },
-      "content_hash": "be59bf9dc32b77ae"
+      "content_hash": "fc979f62873ce958"
     },
     {
       "id": "MA-W5-S2-Q10",
@@ -1470,9 +1479,9 @@
       "difficulty": "M",
       "prompt": "A movie starts at 1:45 p.m. and lasts 2 hours 40 minutes. At what time does the movie end?",
       "choices": {
-        "A": "4:15 p.m.",
+        "A": "2:25 p.m.",
         "B": "3:25 p.m.",
-        "C": "4:05 p.m.",
+        "C": "3:45 p.m.",
         "D": "4:25 p.m."
       },
       "correct": "D",
@@ -1481,9 +1490,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
       "why": {
-        "B": "3:25 counts only 1 hour of the 2 hours 40 minutes. The full two hours carry 1:45 to 3:45, and 40 minutes more makes 4:25 p.m."
+        "A": "2:25 p.m. is 1:45 with the 40 minutes added and the 2 hours left off. Both parts of the length go on: 1:45 and 2 hours is 3:45, and 40 minutes more makes 4:25 p.m.",
+        "B": "3:25 counts only 1 hour of the 2 hours 40 minutes. The full two hours carry 1:45 to 3:45, and 40 minutes more makes 4:25 p.m.",
+        "C": "3:45 p.m. adds the 2 hours and stops there, leaving the 40 minutes unused. They still have to go on: 3:45 plus 40 minutes is 4:25 p.m."
       },
-      "content_hash": "17ac54b76ce163fb"
+      "content_hash": "d87a291b91b84cda"
     },
     {
       "id": "MA-W7-S1-Q12",
@@ -1572,7 +1583,7 @@
       "difficulty": "M",
       "prompt": "A soccer practice lasts 1 hour 50 minutes and ends at 6:05 p.m. At what time does the practice start?",
       "choices": {
-        "A": "4:25 p.m.",
+        "A": "4:55 p.m.",
         "B": "4:15 p.m.",
         "C": "4:35 p.m.",
         "D": "5:15 p.m."
@@ -1583,9 +1594,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
       "why": {
+        "A": "4:55 p.m. borrows 100 minutes rather than 60: 105 − 50 = 55. An hour is 60 minutes, so the minutes are 65 − 50 = 15, and the start is 4:15 p.m.",
+        "C": "4:35 p.m. reads 1 hour 50 minutes as one and a half hours and takes off 90 minutes: 6:05 back 1 hour 30 is 4:35. Fifty minutes is ten short of an hour, not half of one — back an hour to 5:05, then 50 more to 4:15 p.m.",
         "D": "5:15 p.m. takes off the 50 minutes but never the hour. Go back one hour to 5:05, then 50 minutes further back to 4:15 p.m."
       },
-      "content_hash": "6593ca1bb920662f"
+      "content_hash": "5380c53eb5d88076"
     },
     {
       "id": "MA-W7-S2-Q04",

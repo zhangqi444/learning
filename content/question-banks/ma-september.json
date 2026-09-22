@@ -2237,8 +2237,8 @@
       "choices": {
         "A": "30",
         "B": "28",
-        "C": "33",
-        "D": "24"
+        "C": "7",
+        "D": "42"
       },
       "correct": "B",
       "explanation": "40%×70=28.",
@@ -2246,9 +2246,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
       "why": {
-        "A": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28."
+        "A": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28.",
+        "C": "7 is one tenth of 70, the first step done and then left there. Forty per cent is four of those tenths: 7 × 4 = 28.",
+        "D": "42 is 70 − 28, the seedlings that did not sprout rather than the ones that did. Forty per cent is four tenths: 70 ÷ 10 = 7, and 7 × 4 = 28."
       },
-      "content_hash": "59826a451a3e10c1"
+      "content_hash": "dca1cabf3a9b540c"
     },
     {
       "id": "MA-SEP-089",
