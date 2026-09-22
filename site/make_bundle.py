@@ -65,9 +65,33 @@ out['books']=json.load(open('content/books.json'))
 out['aops']=json.load(open('content/aops.json'))
 out['catcare']=json.load(open('content/catcare.json'))
 out['learn']=json.load(open('content/learn.json'))
-import os as _os
+import os as _os, datetime as _dt
 if _os.path.exists('site/content/seed.json'):
     out['seed']=json.load(open('site/content/seed.json'))
+# When each question entered the bank.
+#
+# Reading was one set of twelve a week until the 15th of September, when it
+# doubled, and again on the 19th. Weeks she had already finished grew a second
+# set overnight: the card went from 2/2 to 1/2, the new set said "Not started",
+# and nothing anywhere said why. She reported it as a bug, which is the right
+# reading of a number that changes on its own and offers no account of itself.
+#
+# The map is seeded from git — the first commit in which each id appears in the
+# built bundle, which is exact rather than remembered — and maintained here: an
+# id nobody has seen before is stamped with today. It is a side map rather than
+# a field on the item so that no content_hash moves, and so the banks stay the
+# authored truth with nothing generated mixed into them.
+SINCE='content/since.json'
+since=json.load(open(SINCE)) if _os.path.exists(SINCE) else {}
+today=_dt.date.today().isoformat()
+fresh=[i['id'] for s in out['subjects'].values() for i in s if i['id'] not in since]
+for i in fresh: since[i]=today
+known={i['id'] for s in out['subjects'].values() for i in s}
+since={k:v for k,v in since.items() if k in known}   # a question removed from the bank leaves with it
+json.dump(since,open(SINCE,'w'),ensure_ascii=False,indent=0,sort_keys=True)
+out['since']=since
+if fresh: print(f'  {len(fresh)} new question(s) stamped {today}')
+
 os.makedirs('site/content',exist_ok=True)
 json.dump(out,open('site/content/bundle.json','w'),ensure_ascii=False,separators=(',',':'))
 n=sum(len(v) for v in out['subjects'].values())

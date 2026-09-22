@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ChevronRight, Play } from "lucide-react"
 
-import { D, SETSIZE, SUBJ, currentWeek, itemsFor, nextSet, setId, setsFor, subjProgress, weekLabel } from "@/lib/content"
+import { D, SETSIZE, SUBJ, currentWeek, itemsFor, nextSet, setAddedAfter, setId, setsFor, subjProgress, weekLabel } from "@/lib/content"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { PLACE } from "@/lib/world"
@@ -67,6 +67,9 @@ export function WeekCard({ sub, wk, highlight }) {
           })() : null}
           {sets.map((set, n) => {
             const r = store.s.results[setId(sub, wk, n)]
+            /* Only asked about a set she has not done: a set she HAS done needs
+               no account of where it came from. */
+            const grew = r ? null : setAddedAfter(sub, wk, n)
             return (
               <li key={n}>
                 <button
@@ -78,6 +81,13 @@ export function WeekCard({ sub, wk, highlight }) {
                   <span className="flex min-w-0 flex-1 flex-col">
                     <span className="font-medium">Set {n + 1}</span>
                     <span className="text-muted-foreground text-xs">{set.length} questions{r ? ` · done${r.at ? " " + new Date(r.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : ""} · tap to see your answers` : ""}</span>
+                    {/* Said plainly, because the alternative is her doing the
+                        arithmetic herself and getting "the site lost my work". */}
+                    {grew ? (
+                      <span className="text-muted-foreground/80 text-xs" data-testid="set-added" data-added={grew.added}>
+                        added {new Date(grew.added + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })}, after you finished this week
+                      </span>
+                    ) : null}
                   </span>
                   <ScoreBadge r={r} />
                   <ChevronRight className="text-muted-foreground size-4" />

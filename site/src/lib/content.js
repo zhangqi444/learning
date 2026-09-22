@@ -28,6 +28,42 @@ export function chunk(all) {
   return out
 }
 export function setsFor(sub, wk) { return chunk(itemsFor(sub, wk)) }
+/** When a set's questions arrived, if they all arrived after the week was first
+ *  finished — otherwise null, because then there is nothing to explain.
+ *
+ *  Reading was one set of twelve a week until the 15th of September. It doubled
+ *  that day and again on the 19th, and weeks she had already finished grew a
+ *  second set: the card went from 2/2 to 1/2, the new set said "Not started",
+ *  and nothing said why. That is indistinguishable from the site losing her
+ *  work, which is exactly what it got reported as — twice.
+ *
+ *  Only a set that is entirely new counts. A set with one new question in it is
+ *  a set she has largely met, and calling that "added" would be the opposite
+ *  mistake. And it is measured against the day she finished something else in
+ *  the same week, so a set added before she ever started says nothing: it was
+ *  there when she arrived. */
+export function setAddedAfter(sub, wk, n) {
+  const since = (D && D.since) || null
+  if (!since) return null
+  const set = setsFor(sub, wk)[n]
+  if (!set || !set.length) return null
+  let newest = null
+  for (const it of set) {
+    const day = since[it.id]
+    if (!day) return null                       // one question of unknown age is enough to say nothing
+    if (!newest || day > newest) newest = day
+  }
+  let doneBefore = null
+  setsFor(sub, wk).forEach((_, i) => {
+    if (i === n) return
+    const r = Store.s.results[setId(sub, wk, i)]
+    const at = r && r.at ? String(r.at).slice(0, 10) : null
+    if (at && at < newest && (!doneBefore || at > doneBefore)) doneBefore = at
+  })
+  return doneBefore ? { added: newest, after: doneBefore } : null
+}
+
+
 export function setId(sub, wk, n) { return `${sub}:${wk}:${n}` }
 export function parseSetId(id) { const [sub, wk, n] = id.split(":"); return { sub, wk, n: +n } }
 export function weekLabel(w) { const hit = D.weeks.find((x) => x.w === w); return hit ? hit.label : w }
