@@ -287,9 +287,9 @@
       "difficulty": "H",
       "prompt": "What is 750 ÷ 10?",
       "choices": {
-        "A": "69",
-        "B": "77",
-        "C": "81",
+        "A": "7.5",
+        "B": "70",
+        "C": "740",
         "D": "75"
       },
       "correct": "D",
@@ -297,7 +297,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "74a2d4d0a6f910e1"
+      "why": {
+        "A": "7.5 is 750 ÷ 100, the point moved two places instead of one. Dividing by 10 moves each digit one place to the right: 10 × 75 = 750, so 750 ÷ 10 = 75.",
+        "B": "70 is 700 ÷ 10, with the 50 of the 750 never shared out. Those 50 make five more tens, because 50 ÷ 10 = 5, so 750 ÷ 10 = 75.",
+        "C": "740 is 750 − 10, the 10 taken away rather than shared out. Sharing 750 into 10 equal parts gives 750 ÷ 10 = 75."
+      },
+      "content_hash": "fc9755129f3abca1"
     },
     {
       "id": "MA-SEP-013",
@@ -410,9 +415,9 @@
       "difficulty": "M",
       "prompt": "What is 720 ÷ 8?",
       "choices": {
-        "A": "84",
-        "B": "92",
-        "C": "96",
+        "A": "9",
+        "B": "72",
+        "C": "80",
         "D": "90"
       },
       "correct": "D",
@@ -420,7 +425,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "be8076c8128a1b26"
+      "why": {
+        "A": "9 is 72 ÷ 8, the 720 read as 72 and its zero left out of the answer. Put the zero back: 8 × 90 = 720, so 720 ÷ 8 = 90.",
+        "B": "72 is 720 with a zero crossed off, which shares it into 10 rather than into 8 — that shortcut only works when the dividing is by 10. Eight nines make 72, so eight nineties make 720: 720 ÷ 8 = 90.",
+        "C": "80 is 720 ÷ 9, the fact remembered the wrong way round — 72 ÷ 9 = 8 in place of 72 ÷ 8 = 9. Here the 8 is the one doing the sharing: 8 × 90 = 720, so 720 ÷ 8 = 90."
+      },
+      "content_hash": "3377593720ca2078"
     },
     {
       "id": "MA-SEP-018",
@@ -529,9 +539,9 @@
       "difficulty": "E",
       "prompt": "What is 630 ÷ 6?",
       "choices": {
-        "A": "111",
-        "B": "99",
-        "C": "107",
+        "A": "15",
+        "B": "100",
+        "C": "315",
         "D": "105"
       },
       "correct": "D",
@@ -539,7 +549,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "33503c9c65a68949"
+      "why": {
+        "A": "15 is 105 with the 0 in the middle left out. Six will not go into the 3, and that step puts a 0 in the answer rather than nothing at all: 6 × 105 = 630.",
+        "B": "100 is 600 ÷ 6, with the 30 of the 630 never shared out. The 30 gives another 5, because 6 × 5 = 30, so 630 ÷ 6 = 105.",
+        "C": "315 is 630 ÷ 2, halved and then not shared any further. Dividing by 6 is halving and then sharing into 3: 315 ÷ 3 = 105."
+      },
+      "content_hash": "7cace83f7ac68588"
     },
     {
       "id": "MA-SEP-023",
@@ -905,9 +920,9 @@
       "difficulty": "E",
       "prompt": "A $100 item is 75% off. What is its sale price?",
       "choices": {
-        "A": "20",
-        "B": "10",
-        "C": "30",
+        "A": "75",
+        "B": "175",
+        "C": "12.50",
         "D": "25"
       },
       "correct": "D",
@@ -915,7 +930,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "18be283cae925a41"
+      "why": {
+        "A": "75 is three quarters of the $100, which is the money that comes off — not the price paid. The sale price is what is left: 100 − 75 = 25.",
+        "B": "175 is 100 + 75, the discount added on instead of taken off. A sale makes the price smaller: 100 − 75 = 25.",
+        "C": "12.50 is 100 ÷ 8, one halving too many — 100 halves to 50, then to 25, then to 12.50. A quarter of the price is left, not an eighth: 100 − 75 = 25."
+      },
+      "content_hash": "1dd6067935e63629"
     },
     {
       "id": "MA-SEP-038",
@@ -926,17 +946,22 @@
       "difficulty": "M",
       "prompt": "What is 5.5÷0.1?",
       "choices": {
-        "A": "65",
-        "B": "45",
+        "A": "0.55",
+        "B": "5.5",
         "C": "55",
-        "D": "120"
+        "D": "550"
       },
       "correct": "C",
       "explanation": "Dividing by 0.1 makes the number ten times as large: 55.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "b195c1831f00127f"
+      "why": {
+        "A": "0.55 is 5.5 × 0.1, the tenth multiplied in rather than divided into. Dividing asks how many tenths are in 5.5, and there are 55 of them.",
+        "B": "5.5 is 5.5 ÷ 1, the 0.1 read as a whole 1. A tenth goes in ten times as often as a 1 does: 5.5 ÷ 0.1 = 55.",
+        "D": "550 is 5.5 ÷ 0.01, the point moved two places instead of one. Dividing by 0.1 makes a number ten times bigger, not a hundred times: 5.5 ÷ 0.1 = 55."
+      },
+      "content_hash": "01a83a9d501d07d0"
     },
     {
       "id": "MA-SEP-039",
@@ -948,16 +973,21 @@
       "prompt": "Solve 3x+5=83.",
       "choices": {
         "A": "26",
-        "B": "13",
-        "C": "40",
-        "D": "21"
+        "B": "27",
+        "C": "78",
+        "D": "75"
       },
       "correct": "A",
       "explanation": "Subtract 5, then divide by 3: x=26.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "ef70951206d28f01"
+      "why": {
+        "B": "27 is what 83 ÷ 3 comes to with the remainder dropped — the sharing done before the 5 came off, since 3 × 27 = 81 leaves 2 over. The 5 comes off first: 83 − 5 = 78, then 78 ÷ 3 = 26.",
+        "C": "78 is 83 − 5, the first step on its own — that is 3x, not x. Share it out: 78 ÷ 3 = 26.",
+        "D": "75 is 78 − 3, the 3 taken away as well as the 5. The 3 is multiplying x, and dividing is what undoes that: 78 ÷ 3 = 26."
+      },
+      "content_hash": "b99af45f2d07292a"
     },
     {
       "id": "MA-SEP-040",
@@ -1019,16 +1049,21 @@
       "prompt": "What is 160÷2?",
       "choices": {
         "A": "80",
-        "B": "70",
-        "C": "90",
-        "D": "140"
+        "B": "8",
+        "C": "320",
+        "D": "40"
       },
       "correct": "A",
       "explanation": "Half of 160 is 80.",
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "89c41a7f616b9ca7"
+      "why": {
+        "B": "8 is 16 ÷ 2, with the zero of the 160 left off the answer. Sixteen tens shared between 2 is eight tens: 160 ÷ 2 = 80.",
+        "C": "320 is 160 × 2, the 160 doubled rather than halved. Dividing by 2 makes it smaller: 160 ÷ 2 = 80.",
+        "D": "40 is 160 ÷ 4, one halving too many — 160 halves to 80, and 80 halves again to 40. Only one halving was asked for: 160 ÷ 2 = 80."
+      },
+      "content_hash": "79524f889eb31c10"
     },
     {
       "id": "MA-SEP-043",
