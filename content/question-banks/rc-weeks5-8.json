@@ -23,7 +23,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S1-P",
    "form": "W5",
-   "content_hash": "c342ec4aad8b0ae3"
+   "why": {
+    "A": "The barnacle is one of three animals the passage uses as an example, and it never says one shore animal is tougher than another; the question asks what the whole passage is about.",
+    "C": "The pools only look peaceful from a distance, and the last paragraph says plainly that the pool is the harsher place.",
+    "D": "A rainstorm is one of the fast swings a pool animal has to meet, and the passage says nothing in the open ocean changes that quickly."
+   },
+   "content_hash": "eb7bc94acd923864"
   },
   {
    "id": "RC-W5-S1-Q02",
@@ -45,7 +50,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S1-P",
    "form": "W5",
-   "content_hash": "f5a3a67abe107580"
+   "why": {
+    "A": "No pool animal leaves for deeper water in this passage; the fish from twenty meters down is the one carried in, and it would not last an afternoon.",
+    "B": "Traveling back to a worn groove is what the limpet does, and the question asks about the sea stars.",
+    "C": "The hard plates belong to the barnacle, which shuts them to trap a little seawater; the question asks how the sea stars get out of the sun."
+   },
+   "content_hash": "06002f9437e28269"
   },
   {
    "id": "RC-W5-S1-Q03",
@@ -67,7 +77,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S1-P",
    "form": "W5",
-   "content_hash": "19d52932d26bdf13"
+   "why": {
+    "A": "The passage never has limpets competing for space on the rock; what matters about the groove is that this limpet's own shell fits it.",
+    "B": "Shade is how the sea stars escape the high sun, and the passage never says the groove is any cooler than the rock around it.",
+    "D": "Months of feeding are how the groove got worn, but the passage never says the limpet keeps food there; it returns because its shell fits the worn stone tightly."
+   },
+   "content_hash": "f8381e0c2e643311"
   },
   {
    "id": "RC-W5-S1-Q04",
@@ -89,7 +104,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S1-P",
    "form": "W5",
-   "content_hash": "0d88371f04104078"
+   "why": {
+    "B": "That is a real meaning of the word, but what the barnacle traps inside its plates is seawater, and water is a thing rather than a way of behaving.",
+    "C": "That is the meaning you get from booking a seat ahead of time; here the barnacle is keeping enough seawater to stay damp until the ocean comes back.",
+    "D": "That is a nature reserve, the meaning a passage about sea animals invites; here the reserve is the small amount of seawater a barnacle traps inside its plates."
+   },
+   "content_hash": "9c4f46e01c4b87bf"
   },
   {
    "id": "RC-W5-S1-Q05",
@@ -111,7 +131,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S1-P",
    "form": "W5",
-   "content_hash": "8f33ea869347a3a2"
+   "why": {
+    "B": "The animals' equipment is the paragraph before this one; here the passage stops adding examples and tells you what kind of place the pool really is.",
+    "C": "The fish from twenty meters down is mentioned only to show it would not last an afternoon in a pool, and nobody in the passage collects or studies it.",
+    "D": "That is the opening, where the pools look peaceful from a distance, and the third paragraph exists to correct that first impression."
+   },
+   "content_hash": "03090bf71fa4e074"
   },
   {
    "id": "RC-W5-S1-Q06",
@@ -133,7 +158,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S1-P",
    "form": "W5",
-   "content_hash": "b942c43bac3855b2"
+   "why": {
+    "A": "The passage credits the animals with “equipment, not luck” and calls them specialists, which is the opposite of small and helpless.",
+    "B": "The passage never says the pools are in any danger of disappearing; it is about what the animals living in them can withstand.",
+    "C": "The animals do come through it here, like the barnacle staying damp until the ocean returns, and the author never doubts that."
+   },
+   "content_hash": "d38341f2ef9e438a"
   },
   {
    "id": "RC-W5-S2-Q01",
@@ -155,7 +185,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S2-P",
    "form": "W5",
-   "content_hash": "b74bf46c120f10fd"
+   "why": {
+    "A": "Mail coming to farmhouses is the step that changed the counties' minds, and the passage does say so. The question asks what the whole passage is about, and it runs from the riders' campaign to the roads cars later used.",
+    "B": "It is the other way round in the passage: the new machines were “almost useless on a rutted road,” while the heavy wagons could grind through whatever the weather left.",
+    "C": "The first paragraph says farmers complained about the ruts; what they resisted was paying for paving out of everyone's taxes."
+   },
+   "content_hash": "be69277770b7c51f"
   },
   {
    "id": "RC-W5-S2-Q02",
@@ -177,7 +212,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S2-P",
    "form": "W5",
-   "content_hash": "05ccff76c05c421f"
+   "why": {
+    "A": "Mapping the worst stretches is what the riders' clubs did in their campaign, and the question asks what the Post Office required.",
+    "C": "The passage never has families paying anything for delivery; the one condition named is about the road the mail wagon had to travel.",
+    "D": "The Post Office asked only for a route a mail wagon could travel all year, which is not the same as stone paving from end to end."
+   },
+   "content_hash": "6cd30d1f9cdf6603"
   },
   {
    "id": "RC-W5-S2-Q03",
@@ -199,7 +239,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S2-P",
    "form": "W5",
-   "content_hash": "d067e48d9aae0604"
+   "why": {
+    "B": "The cars come later in the passage: by the time they were common, the surveys and county road departments were already in place.",
+    "C": "The passage never says the heavy wagons stopped; what had to get through all year was the mail wagon.",
+    "D": "The clubs asked state legislatures for the money, which is the very thing the farmers objected to paying for."
+   },
+   "content_hash": "42fc2c77a3e4566e"
   },
   {
    "id": "RC-W5-S2-Q04",
@@ -221,7 +266,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S2-P",
    "form": "W5",
-   "content_hash": "52f65d42e12c0420"
+   "why": {
+    "A": "Things can mount in that sense, but here the clubs mounted the campaign themselves, and the next sentence lists the doing of it: pamphlets, maps, requests for money.",
+    "B": "That is the meaning for mounting a picture; a campaign of pamphlets and requests to legislatures is not fastened to anything.",
+    "D": "Riders do climb onto bicycles, which is why this meaning feels right in a passage full of them, but nobody climbs onto a campaign."
+   },
+   "content_hash": "7142d269f31be9b2"
   },
   {
    "id": "RC-W5-S2-Q05",
@@ -243,7 +293,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S2-P",
    "form": "W5",
-   "content_hash": "2092964e412a9d17"
+   "why": {
+    "A": "The pamphlets and the maps are listed in the paragraph before; this sentence announces a change rather than adding to that list.",
+    "B": "The objection about taxes and city sportsmen comes just before, and this sentence turns it over instead of saying it again.",
+    "C": "The sentence after this one does say families used to travel to town for their letters, but this short sentence marks the turn in the argument, which is what the question asks about."
+   },
+   "content_hash": "f3a0ecba02edde60"
   },
   {
    "id": "RC-W5-S2-Q06",
@@ -265,7 +320,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S2-P",
    "form": "W5",
-   "content_hash": "62b8eeec0450006a"
+   "why": {
+    "A": "The passage never wishes the automobiles away; it says the drivers owed something to the riders who came first.",
+    "C": "Nobody in the passage ever pays the riders back. The debt is a way of saying drivers got the benefit of work other people had already done.",
+    "D": "The passage never has the cyclists driving anything; their part was the campaign that got smooth roads built."
+   },
+   "content_hash": "1b45c533dcb54357"
   },
   {
    "id": "RC-W6-S1-Q01",
@@ -287,7 +347,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S1-P",
    "form": "W6",
-   "content_hash": "fbbc1de3c72784bc"
+   "why": {
+    "A": "Theo minds the stall for two hours and has time to straighten every plum stem, so the amount of work is not what gets in his way.",
+    "B": "By four o'clock the whole crate of cherries is gone, so the scene ends with him selling them, just not in the way he had practiced.",
+    "D": "Nobody touched the cherries while the neat card was propped up, and the crate emptied after he rewrote a line in handwriting that was not nearly as neat."
+   },
+   "content_hash": "a34ed87c0a74428b"
   },
   {
    "id": "RC-W6-S1-Q02",
@@ -309,7 +374,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S1-P",
    "form": "W6",
-   "content_hash": "d3cd58f415ecd6c7"
+   "why": {
+    "B": "Theo had memorized the prices himself and written them out before the market opened; no list of his grandmother's is mentioned.",
+    "C": "He keeps the card he made. He crosses out one line and writes underneath it.",
+    "D": "He does prop the card up, but against the scale at the start of the morning, and the question asks what he does to it after the woman buys."
+   },
+   "content_hash": "8e516b5473000b45"
   },
   {
    "id": "RC-W6-S1-Q03",
@@ -331,7 +401,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S1-P",
    "form": "W6",
-   "content_hash": "a0e8f15987af34a8"
+   "why": {
+    "A": "Nothing in the scene uses the bowl for keeping count, and the cherries in it are the ones people get to taste.",
+    "B": "That is what Theo assumes, and the passage adds that his grandmother never ate anything at the market; watch what the bowl actually does when the woman stops.",
+    "C": "The passage never calls any of the cherries bruised; the ones in the bowl are the same cherries as the ones in the crate."
+   },
+   "content_hash": "dd2c8ecf4ceb9dd9"
   },
   {
    "id": "RC-W6-S1-Q04",
@@ -353,7 +428,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S1-P",
    "form": "W6",
-   "content_hash": "1b654ff077dafe25"
+   "why": {
+    "A": "That is the meaning when you say you do not mind something, but a fruit stall cannot be bothered by anything; the stall was his to look after.",
+    "C": "Theo did memorize the prices, which makes this meaning feel close, but the thing that was his for two hours was the stall itself.",
+    "D": "The word can mean obeying a person, and here what he minds is a stall, which nobody obeys."
+   },
+   "content_hash": "43d3be737788f02a"
   },
   {
    "id": "RC-W6-S1-Q05",
@@ -375,7 +455,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S1-P",
    "form": "W6",
-   "content_hash": "bbcbc68c764eb64a"
+   "why": {
+    "B": "His grandmother has gone to find change and does not come back anywhere in the scene; Theo is the one who stops the sentence.",
+    "C": "The woman had already asked her question, and the passage says he stopped because he could hear how it sounded.",
+    "D": "The prices are not the trouble. He stops because the practiced sentence sounded “like a boy repeating something.”"
+   },
+   "content_hash": "2ea864c655066bbe"
   },
   {
    "id": "RC-W6-S1-Q06",
@@ -397,7 +482,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S1-P",
    "form": "W6",
-   "content_hash": "0ea404e2a3e71932"
+   "why": {
+    "A": "Nothing in the sentence sounds sorry, and an empty crate is good news at a market stall.",
+    "C": "No money and no total appear at the end, and the sentence is quiet rather than boastful.",
+    "D": "The narrator is gentle here: the joke is that the beautifully arranged plums are the ones still sitting there, and it is not aimed at Theo."
+   },
+   "content_hash": "e5f95cdef67c976c"
   },
   {
    "id": "RC-W6-S2-Q01",
@@ -419,7 +509,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S2-P",
    "form": "W6",
-   "content_hash": "7248905fcb5638bc"
+   "why": {
+    "A": "The damper is the answer to one problem, the swaying that lingers, and the frame's measured give comes before it; the question asks what the whole passage is about.",
+    "B": "The passage never ranks the dangers a tall building faces. It explains what engineers do about wind.",
+    "C": "The first paragraph says the movement “is not a flaw” and that engineers planned it."
+   },
+   "content_hash": "db1a84088eab0434"
   },
   {
    "id": "RC-W6-S2-Q02",
@@ -441,7 +536,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S2-P",
    "form": "W6",
-   "content_hash": "2be96831dd6b20e9"
+   "why": {
+    "A": "The damper in the passage is one enormous weight, not something spread through the walls floor by floor.",
+    "B": "The wind tunnel in the last paragraph holds a model, and the question asks where a damper sits in a real tower.",
+    "D": "The passage hangs the weight high in the building, which is the opposite end from the foundation."
+   },
+   "content_hash": "9f6ca92ec087eef4"
   },
   {
    "id": "RC-W6-S2-Q03",
@@ -463,7 +563,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S2-P",
    "form": "W6",
-   "content_hash": "2da0a3bfdc8505f9"
+   "why": {
+    "B": "The passage says the sway “fades in seconds instead of minutes,” so the movement is shortened rather than stopped.",
+    "C": "Stiffness is the thing the passage warns about, because wind pressing on a rigid wall has nowhere to send its force; the damper does not stiffen the frame.",
+    "D": "Cost never comes up for the damper. The only cost the passage names is the hidden one in building a tower too stiff."
+   },
+   "content_hash": "d97bba6c6bee9bad"
   },
   {
    "id": "RC-W6-S2-Q04",
@@ -485,7 +590,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S2-P",
    "form": "W6",
-   "content_hash": "dcd1d9db12d1477f"
+   "why": {
+    "A": "That is the meaning tied to giving things away, and a steel frame is not sharing anything.",
+    "B": "A beam can give way, which is why this meaning feels close, but this frame bends, sheds the energy of the gust, and “returns to where it started.”",
+    "C": "That is a present; here the word names what the frame does in the wind, bending a little and springing back."
+   },
+   "content_hash": "083380e24734dce6"
   },
   {
    "id": "RC-W6-S2-Q05",
@@ -507,7 +617,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S2-P",
    "form": "W6",
-   "content_hash": "04cf46af198fd0ba"
+   "why": {
+    "A": "The passage never names a tower that a storm damaged, and this sentence is pointing ahead to the next problem rather than giving an example.",
+    "C": "The author agrees with this sentence and spends the rest of the paragraph on the lingering it names.",
+    "D": "The opening paragraph is about the leaning, and this sentence sets the leaning aside to raise something new: how long the swaying lasts."
+   },
+   "content_hash": "7dcfebc1f6c0fadb"
   },
   {
    "id": "RC-W6-S2-Q06",
@@ -529,7 +644,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S2-P",
    "form": "W6",
-   "content_hash": "206bf33e5cb2376a"
+   "why": {
+    "A": "The engineers in these lines are measuring exactly what they mean to measure, and nothing suggests the test is not worth doing.",
+    "C": "Alarm is what the whole passage argues against, starting with the movement being “a few centimeters at most” and “not a flaw.”",
+    "D": "These lines narrow the test to one thing, how quickly the motion stops, and the passage has no complaint about that."
+   },
+   "content_hash": "8957ae713353a389"
   },
   {
    "id": "RC-W7-S1-Q01",
@@ -551,7 +671,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S1-P",
    "form": "W7",
-   "content_hash": "fc8ef720e0670ac2"
+   "why": {
+    "A": "The author never claims repair is cheaper — he says outright that the point of the hour \"is not to save the school money on chairs.\"",
+    "B": "The passage really does list those forty-one items, but Fenwick is one example offered as support; the question asks what the whole passage is written to do.",
+    "C": "Birdhouses and model bridges are in the first paragraph, but the author asks for repair to be added, not for building to be taken away."
+   },
+   "content_hash": "843886bd6953b74a"
   },
   {
    "id": "RC-W7-S1-Q02",
@@ -573,7 +698,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S1-P",
    "form": "W7",
-   "content_hash": "e952cc8a3ef77f69"
+   "why": {
+    "A": "The forty-one is right, but the same list also gives nine backpacks and fifteen library books, so lamps and umbrellas are only part of it.",
+    "C": "Four is a real number from that paragraph, but it counts the students still at the table in June, not the things they mended.",
+    "D": "Those two numbers have traded places: the passage gives nine backpacks and fifteen library books with broken spines."
+   },
+   "content_hash": "afb74d40d1a90748"
   },
   {
    "id": "RC-W7-S1-Q03",
@@ -595,7 +725,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S1-P",
    "form": "W7",
-   "content_hash": "314c23983982fed4"
+   "why": {
+    "A": "The author sets this measure aside himself — the point of the hour \"is not to save the school money on chairs.\"",
+    "B": "The last paragraph says plainly that some objects truly cannot be mended, so fixing everything could not be the author's test of success.",
+    "C": "The author admits repairing is slower than replacing and answers that objection rather than promising speed — and no repair shop appears in the passage at all."
+   },
+   "content_hash": "3acd1041cf0e8bf5"
   },
   {
    "id": "RC-W7-S1-Q04",
@@ -617,7 +752,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S1-P",
    "form": "W7",
-   "content_hash": "e019f8e43e5d85a0"
+   "why": {
+    "A": "That is the meaning of the word you meet most often, but a chair being checked for a broken part is not making any noise.",
+    "C": "The sentence is about which parts of the chair are still fine, not about what it would cost to buy a new one.",
+    "D": "\"Sound asleep\" is a real use of the word, but nobody in the paragraph is sleeping."
+   },
+   "content_hash": "7dbdf135bcf57e39"
   },
   {
    "id": "RC-W7-S1-Q05",
@@ -639,7 +779,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S1-P",
    "form": "W7",
-   "content_hash": "87c201a75762ef50"
+   "why": {
+    "A": "Fenwick is real evidence from a real school, but it arrives in the paragraph after this one; here the author is still dealing with the objection.",
+    "B": "The author asks for one box of tools, but the passage never lists what would go inside it.",
+    "D": "The author does grant part of the objection — \"That is true\" — but then answers it, and the plan from the first paragraph stays exactly as it was."
+   },
+   "content_hash": "876cf85a9a91738d"
   },
   {
    "id": "RC-W7-S1-Q06",
@@ -661,7 +806,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S1-P",
    "form": "W7",
-   "content_hash": "b04ebd0a1451a418"
+   "why": {
+    "B": "The author does say machines will keep getting harder to open, but he says that makes the case stronger, not finished.",
+    "C": "Nothing in the last paragraph wavers; it closes by saying the skill of telling what can be fixed matters more, not less.",
+    "D": "Modern machines do come up, but the line is a serious turn in the argument rather than a joke."
+   },
+   "content_hash": "7c4c6ebed16cb288"
   },
   {
    "id": "RC-W7-S2-Q01",
@@ -683,7 +833,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S2-P",
    "form": "W7",
-   "content_hash": "236cf6c36e473fdd"
+   "why": {
+    "A": "The eight days of ice really are in the passage, but that is one episode in the story; the question asks what the whole passage is about.",
+    "B": "It is the other way round: the engineers wanted the bridge and offered the prize to get that first line across, and by the last sentence the bridge is standing.",
+    "D": "The passage does end with a bridge, but it tells the story of one crossing in 1848 rather than how bridges get built in cold places in general."
+   },
+   "content_hash": "282344224d56a7f9"
   },
   {
    "id": "RC-W7-S2-Q02",
@@ -705,7 +860,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S2-P",
    "form": "W7",
-   "content_hash": "bf5d9909cc79663e"
+   "why": {
+    "A": "The passage gives one distance, eight hundred feet, and never says the gorge is narrower on either side.",
+    "B": "A ferry is in the passage — it is how Homan got over to the Canadian side — but the passage never says it stopped running. The one reason it gives for crossing is the wind.",
+    "D": "The prize went to whoever could fly a kite across and tie the string on the opposite rim; the passage never says which side you had to start from."
+   },
+   "content_hash": "1eba3c3dd19a92d1"
   },
   {
    "id": "RC-W7-S2-Q03",
@@ -727,7 +887,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S2-P",
    "form": "W7",
-   "content_hash": "56ba153c2309234c"
+   "why": {
+    "A": "The passage never compares his kite with anyone else's — it only says the kite came down on the far bank, and he mended it and flew it again.",
+    "B": "Nothing in the passage says Homan had worked on a bridge before; he was a boy of about fifteen who lived nearby.",
+    "C": "The prize was open to whoever could do it, so other people were free to try."
+   },
+   "content_hash": "064fde74a20a5868"
   },
   {
    "id": "RC-W7-S2-Q04",
@@ -749,7 +914,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S2-P",
    "form": "W7",
-   "content_hash": "8f0e67bb63d0d300"
+   "why": {
+    "B": "That is the meaning most readers reach for first, but nobody is holding the string in that sentence — the string itself is doing the holding.",
+    "C": "A meeting can be held in that sense, but this sentence is about a kite line, not an event.",
+    "D": "A jug holds water in that sense; here the point is whether the line stayed unbroken, as it had not the first time."
+   },
+   "content_hash": "0f1f52dd99c2db14"
   },
   {
    "id": "RC-W7-S2-Q05",
@@ -771,7 +941,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S2-P",
    "form": "W7",
-   "content_hash": "75d52ab0ff179c41"
+   "why": {
+    "A": "A ferry appears once, carrying Homan across, and the last paragraph is not about ferries at all — it follows the string as it becomes a cord, a rope, and then a cable.",
+    "B": "There really is a contest in the passage, but the author never says contests are the best way to solve a problem.",
+    "C": "He does find the kite and mend it, and that is real — but it happens in the paragraph before the last one."
+   },
+   "content_hash": "77be51a9f5429585"
   },
   {
    "id": "RC-W7-S2-Q06",
@@ -793,7 +968,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W7-S2-P",
    "form": "W7",
-   "content_hash": "863411611f74ce47"
+   "why": {
+    "A": "The engineers announced the prize precisely because they needed that first line, and Homan worked out the wind rather than stumbling into it.",
+    "C": "The passage says he understood something the adults seem to have overlooked — which way the wind blew — and crossed to the far side because of it, so the author is not treating the flight as ordinary.",
+    "D": "Setting a kite string beside a finished bridge in the closing line is praise, and nothing in the passage calls the flight reckless."
+   },
+   "content_hash": "f63fe97966ebf205"
   },
   {
    "id": "RC-W8-S1-Q01",
@@ -815,7 +995,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S1-P",
    "form": "W8",
-   "content_hash": "01bbe7fc59b175c2"
+   "why": {
+    "A": "The grandmother really is teaching her, but she is teaching her to row, and nobody swims anywhere in this story.",
+    "B": "The spray does soak her knees, but that is one moment of the first hard stroke; the question asks what the whole passage is about.",
+    "C": "The ending says the opposite in so many words: she \"was not stronger than she had been an hour before.\""
+   },
+   "content_hash": "288f7dd04963bcdd"
   },
   {
    "id": "RC-W8-S1-Q02",
@@ -837,7 +1022,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S1-P",
    "form": "W8",
-   "content_hash": "0a04e7fe073cf63a"
+   "why": {
+    "A": "That is a real sentence from the story, but it describes the later stroke, after her grandmother tells her to let the blade bite first.",
+    "C": "The heron does leave, but it watches her first and then lifts away \"without hurrying\" — the passage never says it was startled.",
+    "D": "The handles do jump out of her grip twice, but no oar breaks."
+   },
+   "content_hash": "755348aa8af8d8d3"
   },
   {
    "id": "RC-W8-S1-Q03",
@@ -859,7 +1049,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S1-P",
    "form": "W8",
-   "content_hash": "60fa55f10db0b116"
+   "why": {
+    "A": "Her silence is called \"her way of teaching,\" and she does speak — three exact instructions that work at once.",
+    "B": "The advice she gives works the moment Nadia follows it, so she plainly knows how to row.",
+    "C": "She sits in the back of the boat with her hands folded, and she speaks at exactly the right moment, after the hard pulling fails — she could not do that asleep."
+   },
+   "content_hash": "9c4d0325398affbf"
   },
   {
    "id": "RC-W8-S1-Q04",
@@ -881,7 +1076,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S1-P",
    "form": "W8",
-   "content_hash": "3aaee0e1d18a5dd0"
+   "why": {
+    "A": "The lines just after show the water taking hold of the blade; nothing in the story reaches for the bottom of the lake.",
+    "B": "Her shoulders do burn and the handles do jump from her grip, but this instruction is about what the blade does in the water.",
+    "D": "That is the everyday meaning of the word, but an oar has no teeth — the story shows the water gripping the blade like a hand closing round it."
+   },
+   "content_hash": "91be02893a27a375"
   },
   {
    "id": "RC-W8-S1-Q05",
@@ -903,7 +1103,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S1-P",
    "form": "W8",
-   "content_hash": "db337b08f943c8a4"
+   "why": {
+    "B": "The heron belongs to the paragraph before, and it never comes back.",
+    "C": "The still lake is in the first sentence, but no part of the passage explains why it is calm.",
+    "D": "The grandmother is in the boat from the first paragraph, and Nadia still has the oars at the end, half way across the lake."
+   },
+   "content_hash": "9ac077d251fbe629"
   },
   {
    "id": "RC-W8-S1-Q06",
@@ -925,7 +1130,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S1-P",
    "form": "W8",
-   "content_hash": "1dd52dc8f25f2ee9"
+   "why": {
+    "A": "The oars do jump out of her hands, but the passage never says they were old or that they creaked.",
+    "B": "The lake is \"perfectly still\" in the opening sentence, so the trouble is coming from her strokes rather than the water.",
+    "C": "The quarrel is between the oars and the water, and it is a picture of her strokes; Nadia never says a word in this story."
+   },
+   "content_hash": "f0d6b53af293ee0d"
   },
   {
    "id": "RC-W8-S2-Q01",
@@ -947,7 +1157,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S2-P",
    "form": "W8",
-   "content_hash": "d1af7faf4e201bfa"
+   "why": {
+    "A": "The passage never claims salt is the only thing crews use, and it goes on to give a temperature past which salt stops working at all.",
+    "B": "This is true and the passage says it, but it is one detail about the coldest places; the question asks for the idea that covers the whole passage.",
+    "C": "Thirty winters are mentioned, but as thirty years of salt building up on the same road, not as storms getting worse."
+   },
+   "content_hash": "4544df294e581178"
   },
   {
    "id": "RC-W8-S2-Q02",
@@ -969,7 +1184,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S2-P",
    "form": "W8",
-   "content_hash": "7cd35f28a973824e"
+   "why": {
+    "A": "The passage says the early salt is there to stop a film of water from freezing at all, and it never compares how fast salt works on dry or wet pavement.",
+    "C": "That sounds likely in real life, but the passage never gives it as a reason for going out early.",
+    "D": "The last paragraph has crews dissolving salt into a brine on purpose, so wet salt has not lost its power."
+   },
+   "content_hash": "f08defeb5099d247"
   },
   {
    "id": "RC-W8-S2-Q03",
@@ -991,7 +1211,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S2-P",
    "form": "W8",
-   "content_hash": "65f787cc0f321aed"
+   "why": {
+    "A": "Sand is the wrong tool for that job: the passage says sand \"cannot lower a freezing point at all.\"",
+    "B": "Plain water freezes at thirty-two degrees, so at about fifty there is no ice for either salt or sand to deal with.",
+    "D": "Thirty degrees is well inside the range where salt still works, and stopping ice from forming is exactly the job the passage gives salt."
+   },
+   "content_hash": "1ae61d9740d85ba1"
   },
   {
    "id": "RC-W8-S2-Q04",
@@ -1013,7 +1238,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S2-P",
    "form": "W8",
-   "content_hash": "3b8b3944916f376c"
+   "why": {
+    "B": "The sentence says what forms \"stays liquid\" below freezing, so it is not a crust of anything.",
+    "C": "That is the meaning you meet most often, and a passage about a winter problem makes it very tempting; here the word names the salty liquid itself.",
+    "D": "City trucks are in the passage, but this sentence describes what happens when salt dissolves in water, not a decision anyone made."
+   },
+   "content_hash": "4d424bcdb7643360"
   },
   {
    "id": "RC-W8-S2-Q05",
@@ -1035,7 +1265,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S2-P",
    "form": "W8",
-   "content_hash": "fe443b468188b7d9"
+   "why": {
+    "A": "The brine is real, but it comes at the very end, and the passage ties it to using less salt because of the harm, not to this limit.",
+    "B": "The first paragraph explains how salt works; what follows this sentence is where it stops working, so the sentence adds something instead of repeating it.",
+    "D": "That harm is genuinely in the passage, but a paragraph later — what comes right after this sentence is the freezing point, the six-below cut-off, and the sand."
+   },
+   "content_hash": "e0b03d0e28cf679e"
   },
   {
    "id": "RC-W8-S2-Q06",
@@ -1057,7 +1292,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W8-S2-P",
    "form": "W8",
-   "content_hash": "0752c1894af8cc0b"
+   "why": {
+    "B": "The line says the chemistry \"has not changed,\" which is the opposite of scientists disagreeing, and the passage never mentions scientists.",
+    "C": "Salt still works exactly as it did; what the author says changed is how carefully crews spend it.",
+    "D": "The same paragraph says brine \"uses far less salt,\" so the author offers it as the gentler choice, not the more harmful one."
+   },
+   "content_hash": "38b9fd73b8f28450"
   },
   {
    "id": "RC-W5-S3-Q01",

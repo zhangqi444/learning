@@ -23,7 +23,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
    "form": "W1",
-   "content_hash": "4e8c7646033b9599"
+   "why": {
+    "B": "Some residents did doubt it at the start, but by midsummer the tomatoes were climbing and the bees were visiting the flowers, so the passage shows the doubt was wrong.",
+    "C": "The barrels under the roof drains are really there, but they are one thing the volunteers set up, and the question asks what the whole passage is about.",
+    "D": "The garden did produce food, but the passage says its larger success was social - people who had barely nodded to one another began trading recipes and sharing tools."
+   },
+   "content_hash": "508fabafe95bddfc"
   },
   {
    "id": "RC-SEP-W1-S1-Q02",
@@ -45,7 +50,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
    "form": "W1",
-   "content_hash": "81728c8c5cf2f586"
+   "why": {
+    "A": "The work in the passage is done by neighbors and volunteers, and nobody is hired.",
+    "B": "Children are in the passage, but as the ones the Saturday lessons were planned for, not as the people who did the planting.",
+    "C": "The tall buildings are mentioned as what the garden grew beside, and nothing in the passage says they were taken down."
+   },
+   "content_hash": "770fa16de586b92e"
   },
   {
    "id": "RC-SEP-W1-S1-Q03",
@@ -67,7 +77,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
    "form": "W1",
-   "content_hash": "ec2acc00c905107d"
+   "why": {
+    "A": "The passage never says what the neighbors ate - and the people in it end up trading recipes, which points the other way.",
+    "B": "Nothing in the passage is about selling the lot - by midsummer the neighbors are sharing tools and planning Saturday lessons for children.",
+    "D": "The passage ends with the lot as a place where neighbors had a reason to work together, which is the opposite of not needing it."
+   },
+   "content_hash": "065cd544eb5e7369"
   },
   {
    "id": "RC-SEP-W1-S1-Q04",
@@ -89,7 +104,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
    "form": "W1",
-   "content_hash": "7fe8b5ba4c3e21f2"
+   "why": {
+    "A": "This is the opposite of what the lot was - it had sat collecting litter for years before anyone used it.",
+    "B": "Testing the soil and building the beds came later, once the volunteers got to work; the word describes the lot as it was before any of that.",
+    "C": "The passage calls it a city lot, beside tall buildings - so it is not somewhere far from town."
+   },
+   "content_hash": "f08e41da358d3386"
   },
   {
    "id": "RC-SEP-W1-S1-Q05",
@@ -111,7 +131,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
    "form": "W1",
-   "content_hash": "2d24442fb604c49f"
+   "why": {
+    "B": "The garden did produce food, but the passage never says how many people it fed.",
+    "C": "No large farm appears anywhere in the passage, so there is nothing for the garden's crops to be compared with.",
+    "D": "The doubters are in the passage, but the climbing tomatoes and the visiting bees show they turned out to be wrong."
+   },
+   "content_hash": "f763f2b0bc541dd9"
   },
   {
    "id": "RC-SEP-W1-S1-Q06",
@@ -133,7 +158,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
    "form": "W1",
-   "content_hash": "ad135dd950d62eae"
+   "why": {
+    "A": "Greener here points to the plants that grew, not to paint - and the phrase goes on past the greenness to something more.",
+    "B": "The passage never says anything about the lot's size, and the tomatoes did grow there.",
+    "C": "The flowers are described as bright, with bees visiting them, so nothing was lost."
+   },
+   "content_hash": "579cf011d263cd50"
   },
   {
    "id": "RC-SEP-W1-S2-Q01",
@@ -155,7 +185,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
    "form": "W1",
-   "content_hash": "b717847fea15362c"
+   "why": {
+    "A": "The passage says a flag could carry a message during daylight; lamps were what extended signaling on into the dark.",
+    "B": "Fog is named as a problem, but the passage says the crews learned codes to reduce confusion about what a signal meant.",
+    "C": "The last sentence says satellite communication depends on the same basic rule, so the need for an agreed system did not go away."
+   },
+   "content_hash": "5c48f2a5cb6d3719"
   },
   {
    "id": "RC-SEP-W1-S2-Q02",
@@ -177,7 +212,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
    "form": "W1",
-   "content_hash": "caa7adb316cf5d74"
+   "why": {
+    "B": "A shared code is the passage's fix for confusion, not one of the things that got in the way.",
+    "C": "Daylight is when a flag could carry a message, so it helped rather than interrupted.",
+    "D": "Careful observation is listed among the things ships relied on, which makes it a help and not an obstacle."
+   },
+   "content_hash": "9f05d64799b5501e"
   },
   {
    "id": "RC-SEP-W1-S2-Q03",
@@ -199,7 +239,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
    "form": "W1",
-   "content_hash": "bc9131aed0d9968f"
+   "why": {
+    "A": "The passage names fog and heavy rain as things that could interrupt communication, so a lamp was not always visible.",
+    "C": "The passage says the captain did not need to guess what the pattern meant, which is not the same as having nothing to decide.",
+    "D": "Both ships had agreed in advance what the pattern meant, so a pattern that changed daily would undo the whole point."
+   },
+   "content_hash": "10b9ce6892a5d722"
   },
   {
    "id": "RC-SEP-W1-S2-Q04",
@@ -221,7 +266,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
    "form": "W1",
-   "content_hash": "385bf05e1dd75715"
+   "why": {
+    "A": "The sentence lists fog, heavy rain and long distances - troubles for a message, and not anything to celebrate.",
+    "B": "Nothing in the sentence is being copied; the weather and the distance are keeping the message from getting through.",
+    "C": "This is the opposite: the sentence names fog, rain and distance as things that got in the way."
+   },
+   "content_hash": "285716437ad6a577"
   },
   {
    "id": "RC-SEP-W1-S2-Q05",
@@ -243,7 +293,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
    "form": "W1",
-   "content_hash": "b81d75abc803e44b"
+   "why": {
+    "A": "The weather that could interrupt a signal comes earlier in the passage; by the last sentence it has moved on to satellites.",
+    "B": "Satellites are mentioned, but the sentence gives no steps for building one - it states a rule about a sender and a receiver.",
+    "D": "The passage never says today's ships should change anything; it says the old way and the new one rest on the same rule."
+   },
+   "content_hash": "2c0cc3746b47d29e"
   },
   {
    "id": "RC-SEP-W1-S2-Q06",
@@ -265,7 +320,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
    "form": "W1",
-   "content_hash": "4d751d4c7b73c9b7"
+   "why": {
+    "A": "The flags, bells and lamps are described plainly, and nothing in the passage makes fun of them.",
+    "B": "Satellite communication is called much faster, and the passage raises no worry about it at all.",
+    "D": "The passage notices the change without wishing the old way back; what interests it is the rule that stayed the same."
+   },
+   "content_hash": "c306a73ef7852240"
   },
   {
    "id": "RC-SEP-W2-S1-Q01",
@@ -287,7 +347,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
-   "content_hash": "065257341db973c6"
+   "why": {
+    "A": "The passage never says when either bird hunts - the falcon comes in only as the fast flier the owl's feathers are not built for.",
+    "C": "The velvety surface is described on the owl alone, and the passage says nothing about the wings of other hunting birds.",
+    "D": "This turns the passage around: the very feathers that make the owl quiet are the ones not designed for high speed."
+   },
+   "content_hash": "36f6f9389c16b9b4"
   },
   {
    "id": "RC-SEP-W2-S1-Q02",
@@ -309,7 +374,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
-   "content_hash": "861f23d91d1093a0"
+   "why": {
+    "B": "The passage describes the owl's feathers and its hearing, and never mentions its eyes.",
+    "C": "Nests are not in the passage - the fringes are described as breaking moving air into smaller currents.",
+    "D": "The passage says the opposite, that these specialized feathers are not designed for high-speed flight."
+   },
+   "content_hash": "c1e6bc620b1a366c"
   },
   {
    "id": "RC-SEP-W2-S1-Q03",
@@ -331,7 +401,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
-   "content_hash": "349554701e2d0e3a"
+   "why": {
+    "A": "The quiet in the passage comes from the wings as they move, so the owl is flying while it listens.",
+    "C": "The passage says these feathers are not designed for a falcon's high-speed flight, and hearing would not change that.",
+    "D": "Feather color never comes up; what the passage describes is the soft fringes and the velvety surface."
+   },
+   "content_hash": "629add1e025f2322"
   },
   {
    "id": "RC-SEP-W2-S1-Q04",
@@ -353,7 +428,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
-   "content_hash": "0ea00679729fe3de"
+   "why": {
+    "A": "The owl does give something up - the next sentence says these feathers are not designed for high-speed flight.",
+    "B": "No call appears in the passage, and the owl's whole advantage is that it makes remarkably little noise.",
+    "C": "That is the everyday sense of trading with someone else; here the exchange happens inside one bird, silence gained and speed given up."
+   },
+   "content_hash": "d0d842979aa8c223"
   },
   {
    "id": "RC-SEP-W2-S1-Q05",
@@ -375,7 +455,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
-   "content_hash": "8a7c4610b4339f55"
+   "why": {
+    "A": "The passage does explain that, but near its start - by the last sentence it has stopped talking about owls at all.",
+    "B": "The passage never ranks the two birds; its point is that a feature helpful in one situation may limit an animal in another.",
+    "C": "The two advantages of quiet flight are listed earlier; the closing sentence widens out to features in nature generally."
+   },
+   "content_hash": "d75f83931608fa6f"
   },
   {
    "id": "RC-SEP-W2-S1-Q06",
@@ -397,7 +482,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
-   "content_hash": "3674bfd34e280ae3"
+   "why": {
+    "B": "Remarkably is a word of mild wonder, and nothing in the passage is unfriendly to the owl.",
+    "C": "The passage describes an owl approaching prey with the advantage on its side, and no hunt goes wrong in it.",
+    "D": "The owl's feathers and its quiet flight are described as plain facts, with no doubt anywhere in the passage."
+   },
+   "content_hash": "34e28a01823ff089"
   },
   {
    "id": "RC-SEP-W2-S2-Q01",
@@ -419,7 +509,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
-   "content_hash": "ab538b8b89e57364"
+   "why": {
+    "A": "The passage offers leaving streets out as a sensible choice on a subway map, so it is not asking every map to show them all.",
+    "B": "What the passage says is that showing a curved Earth on a flat surface always changes something, not that it cannot be drawn.",
+    "D": "The two maps are put side by side to show different purposes, and the passage never says one is more accurate than the other."
+   },
+   "content_hash": "f50cc2ab1f74d25e"
   },
   {
    "id": "RC-SEP-W2-S2-Q02",
@@ -441,7 +536,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
-   "content_hash": "1f6a1f5c5db26f28"
+   "why": {
+    "B": "What the passage names for the chart is position, water depth and hazards - restaurants are not on that list.",
+    "C": "Stations belong to the subway map in this passage, and nothing is said about their colors.",
+    "D": "Garden paths never come up - the chart in the passage attends to position, water depth and hazards."
+   },
+   "content_hash": "941bcbc7aceaf1c8"
   },
   {
    "id": "RC-SEP-W2-S2-Q03",
@@ -463,7 +563,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
-   "content_hash": "2afc0eeefd067ded"
+   "why": {
+    "A": "Streets changing is not something the passage says; the reason it gives is that leaving them out makes the stations easier to follow.",
+    "C": "The passage says every projection changes something, which is not the same as a street being impossible to place.",
+    "D": "The navigation chart in the passage attends to position, water depth and hazards, and streets are not among them."
+   },
+   "content_hash": "4b01cd4c7cbc33fd"
   },
   {
    "id": "RC-SEP-W2-S2-Q04",
@@ -485,7 +590,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
-   "content_hash": "3b3ca7b77fd1c89c"
+   "why": {
+    "A": "That is a real meaning of the word, but here it belongs to drawing a round Earth flat, not to what a place will become.",
+    "B": "Water depth is in the passage, but it belongs to the navigation chart further down, not to this word.",
+    "D": "This is the everyday meaning from films and slide shows; here the sentence just before explains showing a curved Earth on a flat surface, and that is the sense the word carries."
+   },
+   "content_hash": "d22ef380e52aa1cd"
   },
   {
    "id": "RC-SEP-W2-S2-Q05",
@@ -507,7 +617,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
-   "content_hash": "1d35ccb2f36a57c7"
+   "why": {
+    "A": "The two maps are set in contrast in the passage, and it uses that difference to make its point.",
+    "B": "Hazards are mentioned once, for the chart, but neither map is offered as a danger of travel.",
+    "C": "The passage never says when either kind of map was invented."
+   },
+   "content_hash": "5d488263b2611ba4"
   },
   {
    "id": "RC-SEP-W2-S2-Q06",
@@ -529,7 +644,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
-   "content_hash": "39efe38469f02a29"
+   "why": {
+    "A": "The passage says plainly that every projection changes something and that this does not make maps useless.",
+    "C": "The last sentence says readers should not ask whether a map is perfectly exact, so this is the question it steers away from.",
+    "D": "The cartographers' choices are explained, but the passage asks readers to judge whether a map does its job, not to thank anyone."
+   },
+   "content_hash": "b67ac9fde1deaa46"
   },
   {
    "id": "RC-SEP-W3-S1-Q01",
@@ -551,7 +671,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "fa3d66a144ab201a"
+   "why": {
+    "A": "The passage says some books were too damaged to return, and that the inventory then helped the library work out which ones to replace.",
+    "B": "The gym is in the passage, but only as the dry place the books were carried to after the storm; the passage then describes the repaired building with its higher shelves and waterproof bins.",
+    "C": "The passage says the opposite — the phrase meant the town had not forgotten the storm, and had used what it learned."
+   },
+   "content_hash": "1b594a9b304e0aec"
   },
   {
    "id": "RC-SEP-W3-S1-Q02",
@@ -573,7 +698,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "7dbd2a508ebfa38c"
+   "why": {
+    "A": "The town did use what it learned to prepare for future trouble, but nothing in the passage says the inventory helped anyone predict a storm.",
+    "B": "Volunteers are in the passage, but as the people doing the work; no training is mentioned anywhere.",
+    "D": "The books were moved, but only as far as a dry school gym, and the question asks what the inventory itself helped with."
+   },
+   "content_hash": "2372ff84a174aad9"
   },
   {
    "id": "RC-SEP-W3-S1-Q03",
@@ -595,7 +725,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "96468e440dacd6c9"
+   "why": {
+    "A": "The volunteers really did label boxes, but that was during the rescue months earlier, and the passage never connects those boxes to the new bins.",
+    "C": "The passage lists the higher shelves and the bins side by side as two things the repaired building had, so one is not standing in for the other.",
+    "D": "The passage says the town used what it learned to prepare for future trouble, and the bins are part of that — so they show the library expected more trouble, not less."
+   },
+   "content_hash": "0fe9a6bbcc08a757"
   },
   {
    "id": "RC-SEP-W3-S1-Q04",
@@ -617,7 +752,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "9a1cc3ea3427aab9"
+   "why": {
+    "B": "The passage never mentions what any book cost; the inventory was about which works mattered most.",
+    "C": "Higher shelves do appear in the passage, but months later in the repaired building, and this word describes which books mattered rather than where they sat.",
+    "D": "The passage never says when any of the books arrived, and essential works are the ones the library could not do without."
+   },
+   "content_hash": "84f366e2a3a61e32"
   },
   {
    "id": "RC-SEP-W3-S1-Q05",
@@ -639,7 +779,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "3fdc9b6b78d09d61"
+   "why": {
+    "A": "The passage never tells us the name of any book, and the director's phrase is about the changes to the building rather than about the books.",
+    "B": "The director does appear here, but only as the person who said the phrase; the passage gives the rescue work to the volunteers.",
+    "C": "The passage never mentions what anything cost, so the phrase cannot be there to make that point."
+   },
+   "content_hash": "256033d65ab61b11"
   },
   {
    "id": "RC-SEP-W3-S1-Q06",
@@ -661,7 +806,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
-   "content_hash": "b37af24d5c654af9"
+   "why": {
+    "A": "Wiser is a hopeful word here, and the sentence says recovery can be more than getting back what was lost.",
+    "B": "Money is never mentioned in the passage, and wiser is about what the town learned from the storm, not about what anything cost.",
+    "D": "The passage is about a library putting itself back together, and never suggests staying away from one."
+   },
+   "content_hash": "7835da06fb412a29"
   },
   {
    "id": "RC-SEP-W3-S2-Q01",
@@ -683,7 +833,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
    "form": "W3",
-   "content_hash": "f220ea0c2f0dd6b6"
+   "why": {
+    "A": "Mara builds and tests two bridges in the passage, so this is the opposite of what happens.",
+    "C": "Her second bridge held eleven kilograms, so the passage shows this is not true.",
+    "D": "Glue is mentioned once, for the joint that was set at a slight angle, and the passage says nothing about what materials engineers use in general."
+   },
+   "content_hash": "29b90c91b873820b"
   },
   {
    "id": "RC-SEP-W3-S2-Q02",
@@ -705,7 +860,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
    "form": "W3",
-   "content_hash": "3b0caffb50ce8ba9"
+   "why": {
+    "B": "The passage says she measured where the supports had shifted, so the bridge did have supports.",
+    "C": "The bridge bent under six kilograms when she had expected ten, so the weights were not too light — the angled joint was the trouble.",
+    "D": "She compared the two sides and found they were not the same: one joint had been glued at a slight angle."
+   },
+   "content_hash": "6cbcacfe00393d84"
   },
   {
    "id": "RC-SEP-W3-S2-Q03",
@@ -727,7 +887,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
    "form": "W3",
-   "content_hash": "4e38a9439b5818bf"
+   "why": {
+    "A": "She was hunting for a reason, not for proof that she was wrong — the passage has her measuring where the supports shifted and comparing the two sides.",
+    "B": "She changed the one angled joint rather than getting rid of joints, and the passage never mentions a bridge without them.",
+    "D": "The passage never says the second bridge was any bigger, only that she changed the joint that had been glued at an angle."
+   },
+   "content_hash": "dc370139ab03a4e2"
   },
   {
    "id": "RC-SEP-W3-S2-Q04",
@@ -749,7 +914,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
    "form": "W3",
-   "content_hash": "95750771058494e9"
+   "why": {
+    "A": "This is the opposite, and the passage says so directly: instead of hiding the result, she measured it.",
+    "C": "The trial pointed at the part that needed attention; changing the joint was what Mara did next.",
+    "D": "She did run a second test, but this word is about what the first trial told her, not about doing it again."
+   },
+   "content_hash": "da60dfce82fab685"
   },
   {
    "id": "RC-SEP-W3-S2-Q05",
@@ -771,7 +941,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
    "form": "W3",
-   "content_hash": "bbc15c6fe984fba2"
+   "why": {
+    "A": "That same sentence has her measuring where the supports shifted and comparing the two sides, which is collecting data rather than avoiding it.",
+    "B": "Art never comes up; the sentence stays with the bridge and what she measured on it.",
+    "D": "She expected ten kilograms and got six, so the test told her something she did not already know."
+   },
+   "content_hash": "4285287844f6e050"
   },
   {
    "id": "RC-SEP-W3-S2-Q06",
@@ -793,7 +968,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
    "form": "W3",
-   "content_hash": "c0ed9c9a9b5f4978"
+   "why": {
+    "B": "The first trial gave her something useful — it showed which part of the design needed attention — so it was not a failure with no result.",
+    "C": "The passage makes a point of saying she did not hide the result, so keeping it secret is the opposite of what it admires.",
+    "D": "Nobody is hurt in the passage, and the bending bridge was a surprise to Mara rather than something she planned."
+   },
+   "content_hash": "5071018d5910aa80"
   },
   {
    "id": "RC-SEP-W4-S1-Q01",
@@ -815,7 +995,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
-   "content_hash": "52a77a8a74e901b3"
+   "why": {
+    "A": "The passage calls the desert unpredictable, which is the opposite of rain arriving in a pattern a seed could match.",
+    "C": "The tough coats do help, but they are only one part: the passage also gives the long wait beneath dry soil and the quick growth after a storm.",
+    "D": "In this passage it is a storm soaking the ground that gets the seeds going; the sun's heat is never given that job."
+   },
+   "content_hash": "b5a7cd281c014da5"
   },
   {
    "id": "RC-SEP-W4-S1-Q02",
@@ -837,7 +1022,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
-   "content_hash": "f7bed1139a0db573"
+   "why": {
+    "B": "Flowers do appear in the passage, but only after the seeds have sprouted, so they cannot be what holds the sprouting back.",
+    "C": "Leaves come later, once the plant is growing; the part that protects the waiting seed is its tough outer coat.",
+    "D": "Stems are never mentioned in the passage, and the question asks what keeps a seed from sprouting too soon."
+   },
+   "content_hash": "cfecd4a2932f1f7a"
   },
   {
    "id": "RC-SEP-W4-S1-Q03",
@@ -859,7 +1049,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
-   "content_hash": "839193fe388f0d97"
+   "why": {
+    "A": "The passage treats a soaking storm as the seed's chance to grow, and never mentions anything being washed away.",
+    "B": "The passage never has seeds sharing or competing for water; the risk it names belongs to the one seed that sprouts too early.",
+    "D": "The soil does dry again in the passage, but nothing there says growing seeds are what dries it."
+   },
+   "content_hash": "f0ff7cafbcb4de37"
   },
   {
    "id": "RC-SEP-W4-S1-Q04",
@@ -881,7 +1076,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
-   "content_hash": "a0836342d96b0913"
+   "why": {
+    "A": "The passage saves the growing for after a storm soaks the ground, and calls it quick; a dormant seed has not started growing.",
+    "B": "The seeds do lie beneath the soil, but they germinate once a storm soaks the ground, so they were alive the whole time they waited.",
+    "C": "The passage says the tough coats stop the seeds sprouting after only a trace of moisture, so this is the opposite."
+   },
+   "content_hash": "230777efed7be30b"
   },
   {
    "id": "RC-SEP-W4-S1-Q05",
@@ -903,7 +1103,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
-   "content_hash": "14d052be5e8003e6"
+   "why": {
+    "B": "No animal appears anywhere in the passage.",
+    "C": "The seeds in the passage are waiting for water rather than avoiding it — a soaking storm is exactly what they need.",
+    "D": "The substantial storm in the passage is the helpful one; the closing example is about too little rain, not too much."
+   },
+   "content_hash": "0fc263112b6a9070"
   },
   {
    "id": "RC-SEP-W4-S1-Q06",
@@ -925,7 +1130,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
-   "content_hash": "2be849c883b5f33f"
+   "why": {
+    "A": "Calling the wait active is how the author rules this out, right after admitting it may seem like waiting.",
+    "C": "The word strategy gives the waiting a purpose, and the last sentence says what a seed avoids by doing it.",
+    "D": "The seeds go on to germinate, flower and make new seeds, so waiting is not a sign of a dead seed."
+   },
+   "content_hash": "93f532f27cd2b5c6"
   },
   {
    "id": "RC-SEP-W4-S2-Q01",
@@ -947,7 +1157,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
-   "content_hash": "1450aa082a4e04f9"
+   "why": {
+    "A": "The trial did happen, but it also turned up music groups losing setup time, and the passage says the disagreement was not erased.",
+    "B": "The council moved a rehearsal period on two days to deal with the music groups' lost setup time, so they were not ignored.",
+    "D": "The passage credits the council for not voting immediately, and for gathering evidence first."
+   },
+   "content_hash": "cf0eafdf90d09e24"
   },
   {
    "id": "RC-SEP-W4-S2-Q02",
@@ -969,7 +1184,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
-   "content_hash": "7c86a5f16b984f68"
+   "why": {
+    "A": "Cafeteria lines do come up, but as something the trial found stayed manageable, not as a worry anyone raised beforehand.",
+    "C": "Practice is in the passage as the reason the athletes got hungry early, and the question asks what the music students were worried about.",
+    "D": "The interviews went the other way round — the council interviewed the teachers — and nobody worried about them stopping."
+   },
+   "content_hash": "531eee9edecec248"
   },
   {
    "id": "RC-SEP-W4-S2-Q03",
@@ -991,7 +1211,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
-   "content_hash": "344aff21f66ed321"
+   "why": {
+    "B": "The trial found the lines stayed manageable, so they were not the problem the council had to fix.",
+    "C": "The passage says the disagreement was not erased, and the question asks what the council was answering — the setup time the music groups lost during the trial.",
+    "D": "The council did interview teachers, but that was part of gathering evidence, and the passage never links it to moving a rehearsal."
+   },
+   "content_hash": "a093ce6be9177c0d"
   },
   {
    "id": "RC-SEP-W4-S2-Q04",
@@ -1013,7 +1238,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
-   "content_hash": "67646d4a6018a53f"
+   "why": {
+    "A": "This is the opposite: lines staying manageable was the good news the trial week turned up.",
+    "B": "The word here is about the lines being workable, not about them being interesting to watch.",
+    "C": "Saying the lines stayed manageable means they could be handled, not that anyone could look past them."
+   },
+   "content_hash": "6567e42e3194432e"
   },
   {
    "id": "RC-SEP-W4-S2-Q05",
@@ -1035,7 +1265,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
-   "content_hash": "8bd730b6f39ae979"
+   "why": {
+    "A": "The athletes' early hunger is in the passage, but before the trial; this sentence reports what the week of testing found.",
+    "C": "No other school is mentioned anywhere in the passage.",
+    "D": "This sentence reports a new problem with setup time, and the passage later says the disagreement was not erased."
+   },
+   "content_hash": "73c93b30a99e7f00"
   },
   {
    "id": "RC-SEP-W4-S2-Q06",
@@ -1057,7 +1292,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
-   "content_hash": "4419f14275a3932b"
+   "why": {
+    "A": "The passage describes what the students said and did straight, with no teasing in it.",
+    "B": "The same sentence says the process led to a compromise that dealt with more than one group's concern, which is said with approval.",
+    "D": "Nothing in the passage sounds cross; lunch is simply the thing the council was deciding about."
+   },
+   "content_hash": "e05b5234e22bbde4"
   },
   {
    "id": "RC-SEP-W1-S3-Q01",
