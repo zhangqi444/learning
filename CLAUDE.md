@@ -31,6 +31,18 @@ Run both from the repository root:
 python3 site/make_bundle.py && git diff --exit-code -- site/content/bundle.json
 ```
 
+`npm test` now runs `tools/validate_content.py` first and stops on it, so the
+content is checked before anything is built out of it. It did not, until a
+checker pointed out that neither of these two commands ever called the
+validator — and that was demonstrated rather than argued: one `content_hash` was
+corrupted by hand, and `npm test` reported all four suites passing while the
+bundle check reported no drift. A stale hash, a `why` written on a correct
+answer, an item with no explanation, a `passage_id` pointing at nothing, or a
+week whose answer positions have gone cyclic would all have landed. That is the
+same failure as the leaking `cd` below, and it wants the same remedy: put the
+check inside the command people actually run, rather than trusting them to
+remember a third one.
+
 The subshell is not decoration. Without it the `cd` leaks into the second line,
 `site/make_bundle.py` is looked for at `site/site/…` and fails, the bundle is
 never rebuilt — and `git diff -- site/content/bundle.json` then matches no path
