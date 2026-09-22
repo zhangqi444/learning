@@ -12,7 +12,7 @@
       "difficulty": "E",
       "prompt": "What is 2,400 + 1,750?",
       "choices": {
-        "A": "4160",
+        "A": "3150",
         "B": "4050",
         "C": "4150",
         "D": "4250"
@@ -23,10 +23,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
       "why": {
+        "A": "3,150 is the sum with the carried thousand left behind. The 400 and the 750 make 1,150, so that thousand joins the others: 2,400 + 1,750 = 4,150.",
         "B": "4,050 is a hundred short. The 400 and the 750 make 1,150, and it is easy to carry the thousand and leave the extra hundred behind: put it back and 2,400 + 1,750 = 4,150.",
         "D": "4,250 is a hundred too many, one carry counted twice. The 400 and the 750 make 1,150, so 2,400 + 1,750 = 4,150."
       },
-      "content_hash": "471aaa1604e56c79"
+      "content_hash": "cb89cb18daed57d8"
     },
     {
       "id": "MA-SEP-002",
@@ -161,8 +162,8 @@
       "difficulty": "E",
       "prompt": "Thirty percent of 90 campers choose chess. How many campers?",
       "choices": {
-        "A": "23",
-        "B": "32",
+        "A": "9",
+        "B": "63",
         "C": "27",
         "D": "60"
       },
@@ -172,9 +173,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
       "why": {
+        "A": "9 is 90 ÷ 10, one tenth of the campers with the other two tenths never added on. Thirty per cent means three tenths: 9 × 3 = 27.",
+        "B": "63 is 90 − 27, the campers who did not choose chess rather than the ones who did. Three tenths chose it: 90 ÷ 10 = 9, then 9 × 3 = 27.",
         "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty per cent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
       },
-      "content_hash": "3b181238219af4ee"
+      "content_hash": "795ba8de3ba37a64"
     },
     {
       "id": "MA-SEP-008",
@@ -187,8 +190,8 @@
       "choices": {
         "A": "28",
         "B": "30",
-        "C": "33",
-        "D": "24"
+        "C": "42",
+        "D": "7"
       },
       "correct": "A",
       "explanation": "40% × 70 = 28.",
@@ -196,9 +199,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
       "why": {
-        "B": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28."
+        "B": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28.",
+        "C": "42 is 70 − 28, the part left behind rather than the part asked for. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28.",
+        "D": "7 is 70 ÷ 10, one tenth found and the other three tenths never added on. Four tenths means 7 × 4 = 28."
       },
-      "content_hash": "19b3f7d03537cbfe"
+      "content_hash": "3a41376a3b256109"
     },
     {
       "id": "MA-SEP-009",
@@ -365,9 +370,9 @@
       "difficulty": "H",
       "prompt": "Thirty percent of 90 badges are blue. How many badges?",
       "choices": {
-        "A": "32",
+        "A": "63",
         "B": "27",
-        "C": "23",
+        "C": "9",
         "D": "60"
       },
       "correct": "B",
@@ -376,9 +381,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
       "why": {
+        "A": "63 is 90 − 27, the badges that are not blue rather than the blue ones. Three tenths are blue: 90 ÷ 10 = 9, then 9 × 3 = 27.",
+        "C": "9 is 90 ÷ 10, one tenth of the badges with the other two tenths never added on. Thirty per cent means three tenths: 9 × 3 = 27.",
         "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty per cent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
       },
-      "content_hash": "5e440d0965133dd3"
+      "content_hash": "1649b1f1dc5ac1cb"
     },
     {
       "id": "MA-SEP-016",
@@ -668,8 +675,8 @@
       "prompt": "A roof triangle has angles 45° and 60°. What is its third angle?",
       "choices": {
         "A": "75",
-        "B": "65",
-        "C": "85",
+        "B": "120",
+        "C": "105",
         "D": "135"
       },
       "correct": "A",
@@ -678,9 +685,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
       "why": {
+        "B": "120 is 180 − 60, with the 45° angle never taken off. Both known angles come off the 180: 180 − 45 − 60 = 75.",
+        "C": "105 is 45 + 60, the two known angles added together instead of taken away from 180. The three angles make 180, so 180 − 105 = 75.",
         "D": "135 is 180 − 45, with the 60° angle never taken off. Both known angles come off the 180: 180 − 45 − 60 = 75."
       },
-      "content_hash": "bb7d129256f790f4"
+      "content_hash": "14d399d5f3890f75"
     },
     {
       "id": "MA-SEP-028",
@@ -771,8 +780,8 @@
       "choices": {
         "A": "115",
         "B": "60",
-        "C": "70",
-        "D": "50"
+        "C": "120",
+        "D": "125"
       },
       "correct": "B",
       "explanation": "Triangle angles total 180°: the third angle is 60°.",
@@ -780,9 +789,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
       "why": {
-        "A": "115 is 180 − 65, with the 55° angle never taken off. Both known angles come off the 180: 180 − 65 − 55 = 60."
+        "A": "115 is 180 − 65, with the 55° angle never taken off. Both known angles come off the 180: 180 − 65 − 55 = 60.",
+        "C": "120 is 65 + 55, the two known angles added together instead of taken away from 180. The three angles make 180, so 180 − 120 = 60.",
+        "D": "125 is 180 − 55, with the 65° angle never taken off. Both known angles come off the 180: 180 − 65 − 55 = 60."
       },
-      "content_hash": "45f81c8fbe2c3888"
+      "content_hash": "e13b395a330e0aeb"
     },
     {
       "id": "MA-SEP-032",
@@ -870,10 +881,10 @@
       "difficulty": "M",
       "prompt": "A roof triangle has angles 45° and 75°. What is its third angle?",
       "choices": {
-        "A": "50",
+        "A": "105",
         "B": "60",
         "C": "135",
-        "D": "70"
+        "D": "120"
       },
       "correct": "B",
       "explanation": "Triangle angles total 180°: the third angle is 60°.",
@@ -881,9 +892,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
       "why": {
-        "C": "135 is 180 − 45, with the 75° angle never taken off. Both known angles come off the 180: 180 − 45 − 75 = 60."
+        "A": "105 is 180 − 75, with the 45° angle never taken off. Both known angles come off the 180: 180 − 45 − 75 = 60.",
+        "C": "135 is 180 − 45, with the 75° angle never taken off. Both known angles come off the 180: 180 − 45 − 75 = 60.",
+        "D": "120 is 45 + 75, the two known angles added together instead of taken away from 180. The three angles make 180, so 180 − 120 = 60."
       },
-      "content_hash": "cafca878c932e5bf"
+      "content_hash": "44f111ad71e106c1"
     },
     {
       "id": "MA-SEP-036",
@@ -998,10 +1011,10 @@
       "difficulty": "E",
       "prompt": "Four tenths of 70 teams earn a badge. How many teams earn a badge?",
       "choices": {
-        "A": "18",
+        "A": "7",
         "B": "56",
         "C": "28",
-        "D": "36"
+        "D": "66"
       },
       "correct": "C",
       "explanation": "Four tenths of 70 is 28.",
@@ -1009,9 +1022,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
       "why": {
-        "B": "56 is four fifths of 70, from halving the bottom of 4/10 and leaving the top alone. Four tenths means 70 ÷ 10 = 7, then 7 × 4 = 28."
+        "A": "7 is 70 ÷ 10, one tenth of the teams with the other three tenths never added on. Four tenths means 7 × 4 = 28.",
+        "B": "56 is four fifths of 70, from halving the bottom of 4/10 and leaving the top alone. Four tenths means 70 ÷ 10 = 7, then 7 × 4 = 28.",
+        "D": "66 is 70 − 4, the four taken off the seventy rather than used as four tenths of it. A tenth of 70 is 7, so four tenths is 7 × 4 = 28."
       },
-      "content_hash": "6244cdad4dc54a29"
+      "content_hash": "07848f42e2ac9e90"
     },
     {
       "id": "MA-SEP-041",
@@ -1075,9 +1090,9 @@
       "prompt": "What is 25% of 88?",
       "choices": {
         "A": "11",
-        "B": "17",
+        "B": "44",
         "C": "22",
-        "D": "30"
+        "D": "63"
       },
       "correct": "C",
       "explanation": "One fourth of 88 is 22.",
@@ -1085,9 +1100,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
       "why": {
-        "A": "11 is 88 ÷ 8, one eighth of the 88 rather than one quarter — one halving too many. A quarter is two halvings: 88 ÷ 2 = 44, then 44 ÷ 2 = 22."
+        "A": "11 is 88 ÷ 8, one eighth of the 88 rather than one quarter — one halving too many. A quarter is two halvings: 88 ÷ 2 = 44, then 44 ÷ 2 = 22.",
+        "B": "44 is 88 ÷ 2, the first halving done and the second one forgotten. A quarter is two halvings: 44 ÷ 2 = 22.",
+        "D": "63 is 88 − 25, the twenty-five taken off the eighty-eight rather than used as a percentage. A quarter of 88 is 88 ÷ 4 = 22."
       },
-      "content_hash": "de80099a78c34780"
+      "content_hash": "515f2ec24b1b026e"
     },
     {
       "id": "MA-SEP-044",
@@ -1098,10 +1115,10 @@
       "difficulty": "M",
       "prompt": "What is 7×6?",
       "choices": {
-        "A": "50",
+        "A": "49",
         "B": "42",
         "C": "84",
-        "D": "20"
+        "D": "13"
       },
       "correct": "B",
       "explanation": "7×6=42.",
@@ -1109,9 +1126,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
       "why": {
-        "C": "84 is 7 × 12, twelve sevens rather than six — the six doubled. Halve it back: 84 ÷ 2 = 42."
+        "A": "49 is 7 × 7, seven sevens counted rather than six. Take one seven off: 49 − 7 = 42.",
+        "C": "84 is 7 × 12, twelve sevens rather than six — the six doubled. Halve it back: 84 ÷ 2 = 42.",
+        "D": "13 is 7 + 6, the two numbers added rather than multiplied. Six sevens: 7 × 6 = 42."
       },
-      "content_hash": "879f0753ab3ac434"
+      "content_hash": "3832504a4890c7f9"
     },
     {
       "id": "MA-SEP-045",
@@ -1172,9 +1191,9 @@
       "difficulty": "M",
       "prompt": "2.5 feet equals how many inches?",
       "choices": {
-        "A": "15",
+        "A": "24",
         "B": "30",
-        "C": "50",
+        "C": "14.5",
         "D": "25"
       },
       "correct": "B",
@@ -1183,9 +1202,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
       "why": {
+        "A": "24 is 2 × 12, the half foot never turned into inches. Half a foot is 6 inches, so 24 + 6 = 30.",
+        "C": "14.5 is 12 + 2.5, the twelve added on rather than multiplied by. Each foot is 12 inches: 2.5 × 12 = 30.",
         "D": "25 is 2.5 × 10, counted as if a foot were ten inches. A foot is twelve inches: 2.5 × 12 = 30."
       },
-      "content_hash": "f2f4ffd4b244ac95"
+      "content_hash": "66c6da6d4a42a282"
     },
     {
       "id": "MA-SEP-048",
@@ -1658,7 +1679,7 @@
       "difficulty": "H",
       "prompt": "A bag holds 3 red and 3 blue marbles. What is P(red)?",
       "choices": {
-        "A": "2/3",
+        "A": "6/3",
         "B": "1/6",
         "C": "3/6",
         "D": "3/3"
@@ -1669,10 +1690,11 @@
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
       "why": {
+        "A": "6/3 is the fraction upside down, all six marbles set over the three reds. A chance counts the reds out of every marble: 3/6.",
         "B": "1/6 is the chance of one particular marble out of the six. Any of the 3 reds counts, so it is 3/6.",
         "D": "3/3 sets the reds against the blues, and it would mean red every time. A chance is out of all 6 marbles: 3/6."
       },
-      "content_hash": "930ffcfb3f768bd3"
+      "content_hash": "ec6870d28be3f2c6"
     },
     {
       "id": "MA-SEP-067",
