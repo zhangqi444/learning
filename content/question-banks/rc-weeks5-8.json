@@ -312,10 +312,10 @@
     "A": "the author wishes that automobiles had never replaced bicycles at all.",
     "B": "drivers benefited from work that cyclists had done for reasons of their own.",
     "C": "drivers should have repaid the old cycling clubs with money of their own.",
-    "D": "cyclists handled the early automobiles better than other people did."
+    "D": "the people who had been pedaling owed a debt to the later drivers."
    },
    "correct": "B",
-   "explanation": "No payment appears anywhere in the passage; the debt is figurative, naming a benefit drivers received from a campaign fought for bicycles. The choice about repaying the clubs with money takes the figure of speech literally, which is the usual trap in this kind of item. Strategy: ask what an image stands for before accepting its literal sense.",
+   "explanation": "The debt is figurative — nobody ever pays the riders back. The clubs campaigned so that bicycles would have smooth roads, and by the time cars were common the surveys, the county road departments and the public money for highways were “already in place.” Strategy: ask what an image stands for before accepting its literal sense.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W5-S2-P",
@@ -323,9 +323,9 @@
    "why": {
     "A": "The passage never wishes the automobiles away; it says the drivers owed something to the riders who came first.",
     "C": "Nobody in the passage ever pays the riders back. The debt is a way of saying drivers got the benefit of work other people had already done.",
-    "D": "The passage never has the cyclists driving anything; their part was the campaign that got smooth roads built."
+    "D": "The sentence runs the other way: it is the drivers who owed something, to the riders whose campaign got the roads built first."
    },
-   "content_hash": "1b45c533dcb54357"
+   "content_hash": "f10c2d9c757a248b"
   },
   {
    "id": "RC-W6-S1-Q01",
@@ -364,22 +364,22 @@
    "prompt": "What does Theo do to his price card after the woman buys the cherries?",
    "choices": {
     "A": "He crosses out a line and adds new words in messier handwriting.",
-    "B": "He copies the prices onto it from his grandmother’s own list.",
+    "B": "He writes the prices on it in his neatest handwriting.",
     "C": "He throws the card away and writes out a new one from scratch.",
     "D": "He props it up against the crate of plums at the end of the table."
    },
    "correct": "A",
-   "explanation": "The last paragraph says he crossed out one line and wrote underneath “in handwriting that was not nearly as neat.” The choice about propping the card against the plums moves a real detail — the card propped against the scale — to the wrong moment in the scene. Strategy: watch where in the scene each detail happens.",
+   "explanation": "The last paragraph says he crossed out one line on his careful card and wrote underneath, “in handwriting that was not nearly as neat.” Strategy: watch where in the scene each detail happens.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-W6-S1-P",
    "form": "W6",
    "why": {
-    "B": "Theo had memorized the prices himself and written them out before the market opened; no list of his grandmother's is mentioned.",
+    "B": "He did write the prices in his neatest handwriting, but that was before the market opened. The question asks what he does to the card after the woman buys.",
     "C": "He keeps the card he made. He crosses out one line and writes underneath it.",
     "D": "He does prop the card up, but against the scale at the start of the morning, and the question asks what he does to it after the woman buys."
    },
-   "content_hash": "8e516b5473000b45"
+   "content_hash": "f56c6beb15bf58a3"
   },
   {
    "id": "RC-W6-S1-Q03",

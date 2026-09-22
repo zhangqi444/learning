@@ -393,10 +393,10 @@
     "A": "It could avoid using its wings.",
     "B": "It could locate prey before the prey notices it.",
     "C": "It could fly faster than a falcon.",
-    "D": "It could change its feather color."
+    "D": "It could find prey that was not moving."
    },
    "correct": "B",
-   "explanation": "Hearing movement and giving less warning together support this conclusion. A, C, and D are unsupported. Strategy: combine two nearby facts rather than making a leap.",
+   "explanation": "One sentence gives the owl two advantages at once: it can hear faint rustling below, and its prey receives less warning. Put those together and the owl knows where the animal is while the animal has had almost no warning that the owl is there. Strategy: combine two nearby facts rather than making a leap.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
@@ -404,9 +404,9 @@
    "why": {
     "A": "The quiet in the passage comes from the wings as they move, so the owl is flying while it listens.",
     "C": "The passage says these feathers are not designed for a falcon's high-speed flight, and hearing would not change that.",
-    "D": "Feather color never comes up; what the passage describes is the soft fringes and the velvety surface."
+    "D": "The one sound the passage names is faint rustling below, and rustling is prey that is moving. Sharp hearing does not find an animal that keeps still."
    },
-   "content_hash": "629add1e025f2322"
+   "content_hash": "987b12a05520541c"
   },
   {
    "id": "RC-SEP-W2-S1-Q04",
@@ -472,22 +472,22 @@
    "prompt": "The phrase “remarkably little noise” creates a tone of",
    "choices": {
     "A": "admiration for an unusual adaptation.",
-    "B": "anger at birds.",
+    "B": "sympathy for a slower flier.",
     "C": "humor about a failed hunt.",
     "D": "uncertainty about whether owls exist."
    },
    "correct": "A",
-   "explanation": "“Remarkably” signals mild wonder while the passage remains scientific. B–D lack support. Strategy: pay attention to evaluative adjectives.",
+   "explanation": "“Remarkably” is not needed to say how quiet the owl is — the author adds it to call that quiet surprising, and what makes it is the soft fringes and the velvety surface described in the next two sentences. Everything around that word stays plain and factual, so the one word carries the tone. Strategy: notice the words that judge as well as describe.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
    "form": "W2",
    "why": {
-    "B": "Remarkably is a word of mild wonder, and nothing in the passage is unfriendly to the owl.",
+    "B": "The passage does say these feathers are not built for a falcon's speed, but it reports that as a plain fact. The phrase in the question is about how quietly the owl flies.",
     "C": "The passage describes an owl approaching prey with the advantage on its side, and no hunt goes wrong in it.",
     "D": "The owl's feathers and its quiet flight are described as plain facts, with no doubt anywhere in the passage."
    },
-   "content_hash": "34e28a01823ff089"
+   "content_hash": "8752c121d1de67a0"
   },
   {
    "id": "RC-SEP-W2-S2-Q01",
@@ -526,22 +526,22 @@
    "prompt": "Which feature does the passage say a navigation chart emphasizes?",
    "choices": {
     "A": "Water depth.",
-    "B": "Restaurant locations.",
+    "B": "Exact shape.",
     "C": "Station colors.",
-    "D": "Garden paths."
+    "D": "Bent routes."
    },
    "correct": "A",
-   "explanation": "Water depth is named with position and hazards. B–D are not mentioned. Strategy: find the exact example named in the passage.",
+   "explanation": "The passage says a navigation chart “gives careful attention to position, water depth, and hazards.” That sentence opens with “in contrast,” setting the chart apart from the map described just before it. Strategy: find the exact example named in the passage.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
    "form": "W2",
    "why": {
-    "B": "What the passage names for the chart is position, water depth and hazards - restaurants are not on that list.",
+    "B": "Shape is in the passage, but not as something the chart watches. What it watches is position, water depth and hazards.",
     "C": "Stations belong to the subway map in this passage, and nothing is said about their colors.",
-    "D": "Garden paths never come up - the chart in the passage attends to position, water depth and hazards."
+    "D": "Bending a route is something the subway map does in this passage. The map the question names is the chart, and what it attends to is position, water depth and hazards."
    },
-   "content_hash": "941bcbc7aceaf1c8"
+   "content_hash": "4ceb6abe6f976349"
   },
   {
    "id": "RC-SEP-W2-S2-Q03",
@@ -798,20 +798,20 @@
     "A": "pointless.",
     "B": "purely expensive.",
     "C": "a chance for improvement.",
-    "D": "a reason to avoid libraries."
+    "D": "getting back what was lost."
    },
    "correct": "C",
-   "explanation": "“Wiser” signals hopeful improvement after loss. A, B, and D conflict with the ending. Strategy: use a key figurative phrase to identify the author's outlook.",
+   "explanation": "The sentence just before says recovery is more than restoring what was lost, and “wiser” names what the town added as well: higher shelves and waterproof storage bins, built from what the storm taught it. Strategy: use a key figurative phrase to identify the author's outlook.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
    "form": "W3",
    "why": {
-    "A": "Wiser is a hopeful word here, and the sentence says recovery can be more than getting back what was lost.",
+    "A": "Wiser is a hopeful word here — the passage has the town using what it learned to get ready for next time.",
     "B": "Money is never mentioned in the passage, and wiser is about what the town learned from the storm, not about what anything cost.",
-    "D": "The passage is about a library putting itself back together, and never suggests staying away from one."
+    "D": "Getting back what was lost is in that sentence, but as the thing recovery is more than. Wiser points at what the town built afterwards."
    },
-   "content_hash": "7835da06fb412a29"
+   "content_hash": "7269db70c01e13b6"
   },
   {
    "id": "RC-SEP-W3-S2-Q01",
@@ -955,15 +955,15 @@
    "subject": "RC",
    "skill": "Tone/style/figurative language",
    "difficulty": "Standard",
-   "prompt": "The phrase “failed well” would best describe a failure that",
+   "prompt": "Calling the bent bridge “an unexpected result” shows that the author values a failure that",
    "choices": {
     "A": "produces useful information.",
     "B": "has no result at all.",
     "C": "is kept secret.",
-    "D": "happens on purpose to hurt someone."
+    "D": "comes from one small mistake."
    },
    "correct": "A",
-   "explanation": "The passage treats the first trial as data that improved the second. B–D contradict that view. Strategy: use the ending to interpret an unusual title phrase.",
+   "explanation": "The passage says Mara's first trial “revealed which part of the design needed attention,” and the last sentence says that by treating an unexpected result as information, she turned a disappointment into a better experiment. A failure that shows you where to look is what the author is praising. Strategy: when an author renames a setback, the new name tells you what is being praised.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
@@ -971,9 +971,9 @@
    "why": {
     "B": "The first trial gave her something useful — it showed which part of the design needed attention — so it was not a failure with no result.",
     "C": "The passage makes a point of saying she did not hide the result, so keeping it secret is the opposite of what it admires.",
-    "D": "Nobody is hurt in the passage, and the bending bridge was a surprise to Mara rather than something she planned."
+    "D": "One joint really had been glued at a slight angle, but that is what went wrong. What the author admires is that the trial showed her where to look."
    },
-   "content_hash": "5071018d5910aa80"
+   "content_hash": "59fc61add6e909a0"
   },
   {
    "id": "RC-SEP-W4-S1-Q01",
@@ -1093,22 +1093,22 @@
    "prompt": "Why does the author end with the example of a small drizzle?",
    "choices": {
     "A": "To explain why waiting for substantial rain is useful.",
-    "B": "To introduce a new kind of desert animal.",
+    "B": "To show how quickly flowers appear after rain.",
     "C": "To argue that seeds dislike water.",
     "D": "To show that all storms are harmful."
    },
    "correct": "A",
-   "explanation": "It gives the consequence that justifies dormancy. B–D misstate the example. Strategy: ask which earlier claim a final example supports.",
+   "explanation": "The closing sentence says a seed that sprouted after every small drizzle “would risk using its stored energy before conditions could support a full plant.” That is the cost of not waiting, so the example is there to back up the earlier claim that the waiting “is an active survival strategy.” Strategy: ask which earlier claim a final example supports.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
    "form": "W4",
    "why": {
-    "B": "No animal appears anywhere in the passage.",
+    "B": "Flowers really do appear quickly, but that is after a soaking storm, earlier in the passage. The last sentence is about rain that is too small to help.",
     "C": "The seeds in the passage are waiting for water rather than avoiding it — a soaking storm is exactly what they need.",
     "D": "The substantial storm in the passage is the helpful one; the closing example is about too little rain, not too much."
    },
-   "content_hash": "0fc263112b6a9070"
+   "content_hash": "80793b1b9a6855c7"
   },
   {
    "id": "RC-SEP-W4-S1-Q06",
@@ -1173,23 +1173,23 @@
    "difficulty": "Challenge",
    "prompt": "What concern did music students raise?",
    "choices": {
-    "A": "Cafeteria lines would disappear.",
+    "A": "Lunch would be moved earlier.",
     "B": "Rehearsal would be shortened.",
     "C": "Athletes would miss practice.",
     "D": "Teachers would stop interviewing students."
    },
    "correct": "B",
-   "explanation": "The passage directly states this concern. A, C, and D are not their concern. Strategy: match the group named in the question to its stated reason.",
+   "explanation": "The passage states it outright: “Music students worried that the new schedule would shorten rehearsal.” Strategy: match the group named in the question to its stated reason.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
    "form": "W4",
    "why": {
-    "A": "Cafeteria lines do come up, but as something the trial found stayed manageable, not as a worry anyone raised beforehand.",
+    "A": "The council was considering moving lunch later, not earlier — and that was the proposal itself, not anyone's worry about it. What the music students raised was about their rehearsal time.",
     "C": "Practice is in the passage as the reason the athletes got hungry early, and the question asks what the music students were worried about.",
     "D": "The interviews went the other way round — the council interviewed the teachers — and nobody worried about them stopping."
    },
-   "content_hash": "531eee9edecec248"
+   "content_hash": "355e5c5fe05780b0"
   },
   {
    "id": "RC-SEP-W4-S2-Q03",
