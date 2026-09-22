@@ -309,25 +309,34 @@ function Row({ item, listKey, compact, testId = "ck-item" }) {
         ) : (
           <span className={cn("text-sm font-medium", done && "line-through decoration-muted-foreground/60")}>{item.label}</span>
         )}
-        {item.sub && !compact ? <span className="text-muted-foreground text-xs">{item.sub}</span> : null}
-        {/* Why the misses went wrong, on the row that reports them. She taps the
-            reason on the score card already; until now the only way to read it
-            back was to reopen the set and go through the questions one at a
-            time, so in practice nobody ever did. Three misread words and three
-            methods nobody has taught her are the same 6/9 and a completely
-            different week's work. */}
-        {item.tags && !compact ? (
-          <span className="mt-1 flex flex-wrap items-center gap-1" data-testid="set-tags" data-n={item.tags.n}>
-            {item.tags.rows.map((t) => (
-              <Badge key={t.id} variant="outline" className="font-normal" data-testid="set-tag" data-cause={t.id} data-count={t.n}>
-                <span className="tabular-nums">{t.n}</span> {t.label.toLowerCase()}
-              </Badge>
-            ))}
-            {/* Last, and quieter than the reasons, because not having said yet is
-                not a kind of mistake. */}
-            {item.tags.untagged ? (
-              <span className="text-muted-foreground/70 text-xs tabular-nums" data-testid="set-untagged" data-n={item.tags.untagged}>
-                {item.tags.untagged} not said yet
+        {/* The score and the reasons share one wrapping line. They are one
+            sentence about one set — 6/9, and here is what the three were — and
+            stacked on two lines the reasons read as a separate thing that had
+            happened to the row rather than as the rest of its result.
+
+            Why the misses went wrong belongs on the row that reports them at
+            all. She taps the reason on the score card already; until now the
+            only way to read one back was to reopen the set and go through the
+            questions one at a time, so in practice nobody ever did. Three
+            misread words and three methods nobody has taught her are the same
+            6/9 and a completely different week's work. */}
+        {(item.sub || item.tags) && !compact ? (
+          <span className="text-muted-foreground flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+            {item.sub ? <span>{item.sub}</span> : null}
+            {item.tags ? (
+              <span className="flex flex-wrap items-center gap-1" data-testid="set-tags" data-n={item.tags.n}>
+                {item.tags.rows.map((t) => (
+                  <Badge key={t.id} variant="outline" className="font-normal" data-testid="set-tag" data-cause={t.id} data-count={t.n}>
+                    <span className="tabular-nums">{t.n}</span> {t.label.toLowerCase()}
+                  </Badge>
+                ))}
+                {/* Last, and quieter than the reasons, because not having said
+                    yet is not a kind of mistake. */}
+                {item.tags.untagged ? (
+                  <span className="text-muted-foreground/70 tabular-nums" data-testid="set-untagged" data-n={item.tags.untagged}>
+                    {item.tags.untagged} not said yet
+                  </span>
+                ) : null}
               </span>
             ) : null}
           </span>
