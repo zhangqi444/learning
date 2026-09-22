@@ -2764,6 +2764,344 @@
         "D": "1/5 is 12 out of 60, the pages read in a single day. Three days is 12 × 3 = 36 read, so 24 are still waiting: 24/60 = 2/5."
       },
       "content_hash": "f1d67fb8e2bec640"
+    },
+    {
+      "id": "QR-W4-X01",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Average",
+      "difficulty": "Foundation",
+      "prompt": "Four bus journeys to school took 6 minutes, 12 minutes, 20 minutes, and 30 minutes. What is the average journey time?",
+      "choices": {
+        "A": "18 minutes",
+        "B": "22 2/3 minutes",
+        "C": "17 minutes",
+        "D": "68 minutes"
+      },
+      "correct": "C",
+      "explanation": "The four journeys come to 6 + 12 + 20 + 30 = 68 minutes, and 68 ÷ 4 = 17 minutes. Add everything up first and then divide by how many journeys there were — it is the count, not the adding, that this kind of question catches people on.",
+      "why": {
+        "A": "18 minutes is halfway between the shortest journey and the longest, which leaves the other two out. All four count: 6 + 12 + 20 + 30 = 68, and 68 ÷ 4 = 17 minutes.",
+        "B": "22 2/3 minutes is 68 ÷ 3, one of the four journeys left out of the count. There were four: 68 ÷ 4 = 17 minutes.",
+        "D": "68 minutes is the four journeys added together, before they are shared out. Divide that total by the four journeys: 68 ÷ 4 = 17 minutes."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "a02ff6795c633fc3"
+    },
+    {
+      "id": "QR-W4-X02",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Consecutive integers",
+      "difficulty": "Foundation",
+      "prompt": "Four consecutive pages of a library book start at page 17. What is the last of the four pages?",
+      "choices": {
+        "A": "21",
+        "B": "20",
+        "C": "19",
+        "D": "68"
+      },
+      "correct": "B",
+      "explanation": "Consecutive whole numbers go up by 1, and page 17 counts as the first of the four, so the pages are 17, 18, 19 and 20 and the last is 20. To count on, add one fewer than the number of terms: 17 + 3 = 20.",
+      "why": {
+        "A": "21 is 17 + 4, four steps counted on past 17 instead of 17 itself counting as the first page. The four pages are 17, 18, 19 and 20.",
+        "C": "19 is 17 + 2, the third page of the four. Counting 17 as the first, the four pages are 17, 18, 19 and 20.",
+        "D": "68 is 17 × 4, the first page multiplied by four rather than counted on from. Four pages in a row from 17 are 17, 18, 19 and 20."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "0c68b7af9a182ada"
+    },
+    {
+      "id": "QR-W4-X03",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Exponents",
+      "difficulty": "Foundation",
+      "prompt": "A number machine starts at 1 and multiplies by 10 three times. Written as 10³, what number comes out?",
+      "choices": {
+        "A": "30",
+        "B": "300",
+        "C": "1,000",
+        "D": "10,000"
+      },
+      "correct": "C",
+      "explanation": "10³ means three tens multiplied together: 10 × 10 = 100, and 100 × 10 = 1,000. The little number counts how many of the big number are multiplied, so with tens it is simply how many zeros the answer carries.",
+      "why": {
+        "A": "30 is 10 × 3, the base multiplied by the little number instead of used three times. 10³ means 10 × 10 × 10 = 1,000.",
+        "B": "300 is 100 × 3, two tens multiplied and the third turned into a multiply by 3. The third ten multiplies as well: 10 × 10 × 10 = 1,000.",
+        "D": "10,000 is 10 × 10 × 10 × 10, one multiplication too many — the machine multiplies three times, not four. The little 3 counts the tens: 10 × 10 × 10 = 1,000."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "882831c6ce8bc2f8"
+    },
+    {
+      "id": "QR-W4-X04",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Expression",
+      "difficulty": "Foundation",
+      "prompt": "Pens cost $3 each and a notebook costs $5. The cost in dollars of p pens and one notebook is 3p + 5. What does Ana pay for 6 pens and one notebook?",
+      "choices": {
+        "A": "$48",
+        "B": "$23",
+        "C": "$18",
+        "D": "$33"
+      },
+      "correct": "B",
+      "explanation": "In 3p + 5 the p stands for the number of pens, so six pens cost 3 × 6 = 18 dollars and the notebook adds 5, giving $23. The number written in front of the letter is the one that multiplies; the number standing on its own is added once, however many pens there are.",
+      "why": {
+        "A": "$48 is 8 × 6, the pen price and the notebook price added before multiplying. Only the pens multiply: 3 × 6 = 18, and the notebook adds 5, so $23.",
+        "C": "$18 is 3 × 6, the six pens on their own with the notebook left out. Add the notebook on: 18 + 5 = 23.",
+        "D": "$33 is 30 + 3, with the 5 multiplied by the pens and the 3 left on its own. In 3p + 5 it is the 3 that multiplies: 3 × 6 = 18, and 18 + 5 = 23."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "82adff9d592915b1"
+    },
+    {
+      "id": "QR-W4-X05",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Geometry",
+      "difficulty": "Foundation",
+      "prompt": "A display sign is a triangle with two equal sides and a third side of 8 cm. The perimeter of the sign is 26 cm. How long is each of the two equal sides?",
+      "choices": {
+        "A": "9 cm",
+        "B": "18 cm",
+        "C": "5 cm",
+        "D": "34 cm"
+      },
+      "correct": "A",
+      "explanation": "The 8 cm side uses up part of the 26 cm, so the two equal sides share what is left: 26 − 8 = 18, and 18 ÷ 2 = 9 cm each. When a perimeter is given and a side is missing, take off every length you already know before sharing the rest out, and check at the end that all the sides add back to the perimeter.",
+      "why": {
+        "B": "18 is 26 − 8, which is what the two equal sides come to together, not what one of them is. Share it between them: 18 ÷ 2 = 9 cm.",
+        "C": "5 is 13 − 8, from halving the 26 before taking the third side off. Take the 8 cm side off first: 26 − 8 = 18, and half of 18 is 9 cm.",
+        "D": "34 is 26 + 8, the third side added on instead of removed, which makes a side longer than the whole way round. The two equal sides come to 26 − 8 = 18, so each is 9 cm."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "e7615d0bdd9505b8"
+    },
+    {
+      "id": "QR-W4-X06",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Measurement",
+      "difficulty": "Foundation",
+      "prompt": "A school club meets for 2.5 hours. How many minutes is that? (1 hour = 60 minutes)",
+      "choices": {
+        "A": "170 minutes",
+        "B": "120 minutes",
+        "C": "150 minutes",
+        "D": "250 minutes"
+      },
+      "correct": "C",
+      "explanation": "Two hours is 2 × 60 = 120 minutes and the half hour adds 30 more, so 2.5 hours is 150 minutes. Hours are counted in sixties, never in tens — that one fact is the whole trick in a question like this.",
+      "why": {
+        "A": "170 minutes is 120 + 50, the .5 of an hour read as 50 minutes. Half an hour is 30 minutes: 120 + 30 = 150.",
+        "B": "120 minutes is 2 × 60, the half hour dropped. Half an hour is 30 minutes more: 120 + 30 = 150.",
+        "D": "250 minutes is 2.5 × 100, with an hour counted as 100 minutes. An hour is 60 minutes: 2.5 × 60 = 150."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "f2e1da5bf9cd8e6e"
+    },
+    {
+      "id": "QR-W4-X07",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Mixed reasoning",
+      "difficulty": "Challenge",
+      "prompt": "A market stall starts the day with 84 pears. It sells one quarter of them in the morning and 19 more in the afternoon. How many pears are left?",
+      "choices": {
+        "A": "65",
+        "B": "63",
+        "C": "40",
+        "D": "44"
+      },
+      "correct": "D",
+      "explanation": "A quarter of 84 is 84 ÷ 4 = 21, so 84 − 21 = 63 pears are left at midday, and the afternoon's 19 bring it to 63 − 19 = 44. Take the sales away one at a time, and keep asking what is left rather than what has gone.",
+      "why": {
+        "A": "65 is 84 − 19, the afternoon's pears taken off but not the morning's. A quarter of 84 is 21, so 84 − 21 − 19 = 44 are left.",
+        "B": "63 is 84 − 21, what is left after the morning alone. The afternoon's 19 still have to come off: 63 − 19 = 44.",
+        "C": "40 is 21 + 19, the pears sold rather than the ones still on the stall. Taking those from the starting 84 leaves 84 − 40 = 44."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "31d0d2c1f82eb863"
+    },
+    {
+      "id": "QR-W4-X08",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Mode",
+      "difficulty": "Foundation",
+      "prompt": "The goals a team scored in six games were 4, 7, 4, 9, 4 and 6. What is the mode of these scores?",
+      "choices": {
+        "A": "9",
+        "B": "5",
+        "C": "3",
+        "D": "4"
+      },
+      "correct": "D",
+      "explanation": "The mode is the value that appears most often, and 4 appears three times while 6, 7 and 9 each appear once. Putting a tally beside each different value first makes the mode easy to read straight off.",
+      "why": {
+        "A": "9 is the largest score in the list, not the one that comes up most often. 4 appears three times and every other score once, so the mode is 4.",
+        "B": "5 is halfway between 4 and 6, the middle of the ordered list 4, 4, 4, 6, 7, 9 — that makes it the median, not the mode. The mode is the value that repeats most, and that is 4.",
+        "C": "3 is how many times 4 appears, the count rather than the score itself. The question asks which score comes up most often, and that is 4."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "a4bc9e344bbf56fe"
+    },
+    {
+      "id": "QR-W4-X09",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Multiples",
+      "difficulty": "Foundation",
+      "prompt": "A class counts out loud by sevens, starting at 7. What is the tenth number they say?",
+      "choices": {
+        "A": "63",
+        "B": "77",
+        "C": "17",
+        "D": "70"
+      },
+      "correct": "D",
+      "explanation": "Counting by sevens gives 7, 14, 21 and so on, so the tenth number is ten sevens: 7 × 10 = 70. When a count starts at the step size itself, the position in the list is the number you multiply the step by.",
+      "why": {
+        "A": "63 is 7 × 9, one number short. From the first 7 to the tenth number is nine steps, so nine sevens stops at 63. The tenth number they say is 7 × 10 = 70.",
+        "B": "77 is 7 × 11, one number further on than the one asked for. The tenth number they say is 7 × 10 = 70.",
+        "C": "17 is 7 + 10, the seven and the ten added instead of ten sevens counted out. Ten sevens is 7 × 10 = 70."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "9fdaedd34cb40d97"
+    },
+    {
+      "id": "QR-W4-X10",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Prime factors",
+      "difficulty": "Foundation",
+      "prompt": "In a number game, a card shows a number broken into its prime factors: 2 × 3 × 11. What number is on the card?",
+      "choices": {
+        "A": "16",
+        "B": "33",
+        "C": "22",
+        "D": "66"
+      },
+      "correct": "D",
+      "explanation": "Prime factors multiply back together to rebuild the number: 2 × 3 = 6, and 6 × 11 = 66. Multiply two at a time and cross each factor off the card as you use it, so none of them is left behind.",
+      "why": {
+        "A": "16 is 2 + 3 + 11, the prime factors added instead of multiplied. Factors are multiplied back together: 2 × 3 × 11 = 66.",
+        "B": "33 is 3 × 11, with the 2 left out. Every factor on the card goes into the product: 2 × 3 × 11 = 66.",
+        "C": "22 is 2 × 11, with the 3 left out. All three factors multiply together: 2 × 3 × 11 = 66."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "8f5c8937fae025cc"
+    },
+    {
+      "id": "QR-W4-X11",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Range",
+      "difficulty": "Foundation",
+      "prompt": "Six books on a market stall cost $18, $25, $19, $34, $21 and $26. What is the range of the prices?",
+      "choices": {
+        "A": "$52",
+        "B": "$34",
+        "C": "$16",
+        "D": "$15"
+      },
+      "correct": "C",
+      "explanation": "Range is the highest value minus the lowest, and here that is 34 − 18 = 16, so the range is $16. Find and mark the two ends of the list before doing any arithmetic — everything in between makes no difference.",
+      "why": {
+        "A": "52 is 34 + 18, the dearest and the cheapest added instead of one taken from the other. Range is the gap between them: 34 − 18 = 16.",
+        "B": "34 is the dearest book on its own, with the cheapest never taken off it. Range means the distance from cheapest to dearest: 34 − 18 = 16.",
+        "D": "15 is 34 − 19, with 19 used as the cheapest book instead of 18. The cheapest is 18, so the range is 34 − 18 = 16."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "2055d969411a433e"
+    },
+    {
+      "id": "QR-W4-X12",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Remainders",
+      "difficulty": "Foundation",
+      "prompt": "A school trip takes 44 children, and each van holds 8 children. How many vans are needed so that every child has a seat?",
+      "choices": {
+        "A": "5",
+        "B": "6",
+        "C": "5.5",
+        "D": "4"
+      },
+      "correct": "B",
+      "explanation": "Five vans hold 8 × 5 = 40 children, and 44 − 40 = 4 children are still waiting, so a sixth van is needed and the answer is 6. When something is left over and everyone must be carried, the leftover always buys one more whole van, box or bus — never half of one.",
+      "why": {
+        "A": "5 is 40 ÷ 8, the number of vans that fill up completely — but 44 − 40 = 4 children are still standing. They need a van too, which makes 6.",
+        "C": "5.5 is 44 ÷ 8 exactly, and half a van cannot be sent. Five vans carry 40 children and the last 4 need a whole van of their own, so 6 vans go.",
+        "D": "4 is 44 − 40, the children left over after five full vans, not a number of vans. Those 4 need a sixth van, so the answer is 6."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "f55f6af06174ca3a"
+    },
+    {
+      "id": "QR-W4-X13",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "Scale reasoning",
+      "difficulty": "Foundation",
+      "prompt": "A drawing of a window measures 4 cm by 7 cm. A photocopier enlarges it so that every length is twice as long. What does the copy measure?",
+      "choices": {
+        "A": "8 cm by 14 cm",
+        "B": "6 cm by 9 cm",
+        "C": "16 cm by 28 cm",
+        "D": "8 cm by 7 cm"
+      },
+      "correct": "A",
+      "explanation": "Every length is twice as long, so 4 × 2 = 8 and 7 × 2 = 14, and the copy measures 8 cm by 14 cm. Enlarging multiplies each length — it never adds the same amount to both.",
+      "why": {
+        "B": "6 cm by 9 cm adds the same 2 cm to each side instead of doubling them: 4 + 2 = 6 and 7 + 2 = 9. Twice as long means 4 × 2 = 8 and 7 × 2 = 14.",
+        "C": "16 cm by 28 cm doubles each side and then doubles it again: 4 × 4 = 16 and 7 × 4 = 28. One doubling is all that is asked for, so the copy is 4 × 2 = 8 by 7 × 2 = 14.",
+        "D": "8 cm by 7 cm doubles the 4 cm side and leaves the 7 cm side exactly as it was. Both lengths grow: 4 × 2 = 8 and 7 × 2 = 14."
+      },
+      "misconceptions": "",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "W4",
+      "content_hash": "f2ee055a49142d6c"
     }
   ]
 }
