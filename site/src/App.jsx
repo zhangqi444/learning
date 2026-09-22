@@ -25,6 +25,7 @@ import { Quest } from "@/pages/quest"
 import { Rewards } from "@/pages/rewards"
 import { Books } from "@/pages/books"
 import { Import } from "@/pages/import"
+import { DriveSettings } from "@/pages/drive"
 
 /** The queue is read once on mount, so finishing the run (which reschedules every item) keeps the score screen up. */
 function ReviewRun({ sub, mode }) {
@@ -126,6 +127,7 @@ function Screen({ route }) {
   if (top === "mock") return <MockList />
   if (top === "calendar") return <Calendar />
   if (top === "checklist") return a === "month" ? <Checklist month={b} /> : <Checklist wk={a} />
+  if (top === "drive") return <DriveSettings />
   if (top === "import") return <Import key={a || ""} payload={a || ""} />
   return <Home />
 }

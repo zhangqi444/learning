@@ -20,7 +20,11 @@ async function stubGoogle(ctx) {
   // next PATCH waits on it, counting itself in `held` first. Without that there
   // is no way to express "she edited while the last save was still going", which
   // is the only window in which a save can be lost.
-  const drive = { folder: null, file: null, body: null, calls: [], hold: null, held: 0 };
+  // `folders` is name -> id and `parent` is where progress.json currently lives,
+  // because the settings page can rename the folder and MOVE the file into it.
+  // Modelled rather than waved through: a stub that answers every folder lookup
+  // with the same id cannot tell a move that happened from one that did not.
+  const drive = { folder: null, file: null, body: null, calls: [], hold: null, held: 0, folders: {}, parent: null, moves: [] };
   await ctx.route(/fonts\.g|accounts\.google\.com\/gsi/, (r) => r.abort());
   await ctx.route(/googleapis\.com/, async (r) => {
     const u = r.request().url(), m = r.request().method();
@@ -28,16 +32,42 @@ async function stubGoogle(ctx) {
     const json = (o) => r.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(o) });
     if (/userinfo/.test(u)) return json({ email: 'qi@example.com', name: 'Qi Zhang' });
     if (/drive\/v3\/files\?/.test(u) && m === 'GET') {
-      if (/google-apps\.folder/.test(decodeURIComponent(u))) return json({ files: drive.folder ? [{ id: drive.folder, name: 'Sheila ISEE Practice' }] : [] });
-      return json({ files: drive.file ? [{ id: drive.file, name: 'progress.json' }] : [] });
+      const q = decodeURIComponent(u);
+      if (/google-apps\.folder/.test(q)) {
+        const want = (q.match(/name='([^']*)'/) || [])[1];
+        const id = drive.folders[want];
+        return json({ files: id ? [{ id, name: want }] : [] });
+      }
+      // The real query is scoped to the folder, so a file that was never moved
+      // is simply not there — which is the whole point of asking.
+      const inParent = (q.match(/'([^']*)' in parents/) || [])[1];
+      const found = drive.file && (!inParent || inParent === drive.parent);
+      return json({ files: found ? [{ id: drive.file, name: 'progress.json' }] : [] });
     }
-    if (/drive\/v3\/files$/.test(u) && m === 'POST') { drive.folder = 'folder1'; return json({ id: 'folder1' }); }
-    if (/upload\/drive\/v3\/files\?/.test(u) && m === 'POST') { drive.file = 'file1'; drive.body = r.request().postData(); return json({ id: 'file1' }); }
+    if (/drive\/v3\/files$/.test(u) && m === 'POST') {
+      const name = (JSON.parse(r.request().postData() || '{}').name) || 'Sheila ISEE Practice';
+      const id = drive.folders[name] || ('folder' + (Object.keys(drive.folders).length + 1));
+      drive.folders[name] = id; drive.folder = id; return json({ id });
+    }
+    if (/upload\/drive\/v3\/files\?/.test(u) && m === 'POST') {
+      drive.file = 'file1'; drive.body = r.request().postData();
+      const meta = JSON.parse(drive.body.split('\r\n\r\n')[1].split('\r\n--')[0]);
+      drive.parent = (meta.parents || [])[0] || drive.folder;
+      return json({ id: 'file1' });
+    }
     if (/upload\/drive\/v3\/files\/file1/.test(u) && m === 'PATCH') {
       if (drive.hold) { drive.held++; await drive.hold; }
       drive.body = r.request().postData(); return json({ id: 'file1' });
     }
     if (/drive\/v3\/files\/file1\?alt=media/.test(u)) return json(JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]));
+    // Changing a file's parents: one call, no re-upload. This is how the record
+    // follows a renamed folder instead of being left behind in the old one.
+    if (/drive\/v3\/files\/file1\?/.test(u) && m === 'PATCH') {
+      const q = new URL(u).searchParams;
+      const add = q.get('addParents');
+      if (add) { drive.moves.push((q.get('removeParents') || '-') + '>' + add); drive.parent = add; }
+      return json({ id: 'file1', parents: [drive.parent] });
+    }
     return r.fulfill({ status: 404, body: '{}' });
   });
   await ctx.addInitScript(FAKE_GIS);

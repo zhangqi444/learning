@@ -285,6 +285,57 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   check('the device did record the second edit, so the failure above is the sync and not a lost keystroke',
     (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).essays.W2.time.plan)) === 6);
 
+  // ---- the Drive settings page ----
+  //
+  // All of this existed and none of it was reachable. The folder id was resolved
+  // on every sync and offered as one link in a menu; the file id was known only
+  // to the code that wrote it; the folder's name was a constant. Someone who
+  // wanted to open the record, download it, or keep it somewhere of their own
+  // had nowhere to go.
+  await pg.click('[data-slot=sidebar-footer] [data-slot=dropdown-menu-trigger]');
+  await pg.click('[data-testid=drive-settings-link]');
+  await pg.waitForSelector('[data-testid=drive-settings]', { timeout: 8000 });
+  check('the account menu opens the Drive settings page', (await pg.evaluate(() => location.hash)) === '#/drive');
+  check('the trail names it, so the back link is not a guess', /Drive settings/.test(await pg.textContent('[data-slot=breadcrumb]')));
+  check('it says who is connected', /Connected/.test(await pg.textContent('[data-testid=drive-state]')) && /qi@example\.com/.test(await pg.textContent('[data-testid=drive-account]')));
+  check('the folder opens in Drive', (await pg.$eval('[data-testid=drive-folder]', (a) => a.href)) === 'https://drive.google.com/drive/folders/folder1');
+  // The file, not just the folder: this is the thing she would download, copy or
+  // send to somebody, and until now its id never left the code that wrote it.
+  check('and so does progress.json itself', (await pg.$eval('[data-testid=drive-file]', (a) => a.href)) === 'https://drive.google.com/file/d/file1/view'
+    && (await pg.$eval('[data-testid=drive-file]', (a) => a.dataset.ready)) === '1');
+  check('the folder name shown is the one it is saving into', (await pg.inputValue('[data-testid=drive-folder-name]')) === 'Sheila ISEE Practice');
+
+  // Saving somewhere else. The file is MOVED, never re-created: a fresh
+  // progress.json in the new folder would leave every answer she has given in a
+  // folder the app has stopped looking at, and the next load would merge that
+  // empty remote over a full local. That is the shape of every data-loss story
+  // in this file, so it is asserted three ways — the move went out, no second
+  // file was made, and the work is still in the one file there is.
+  const resultsBefore = Object.keys(remoteBody().results).length;
+  const uploadsBefore = drive.calls.filter((c) => c === 'POST https://www.googleapis.com/upload/drive/v3/files').length;
+  await pg.fill('[data-testid=drive-folder-name]', 'Sheila ISEE 2026');
+  await pg.click('[data-testid=drive-folder-save]');
+  await pushed(() => drive.moves.length);
+  check('renaming the folder moves the record into it', drive.moves.join(',') === 'folder1>folder2' && drive.parent === 'folder2', drive.moves.join(',') + ' parent=' + drive.parent);
+  check('the file itself is the same file, not a copy', drive.file === 'file1'
+    && drive.calls.filter((c) => c === 'POST https://www.googleapis.com/upload/drive/v3/files').length === uploadsBefore);
+  check('and everything she had done is still in it', Object.keys(remoteBody().results).length >= resultsBefore, `${Object.keys(remoteBody().results).length} of ${resultsBefore}`);
+  await pg.waitForFunction(() => (document.querySelector('[data-testid=drive-folder]') || {}).href === 'https://drive.google.com/drive/folders/folder2', null, { timeout: 8000 });
+  check('the shortcut follows it', /Sheila ISEE 2026/.test(await pg.textContent('[data-testid=drive-folder]')));
+
+  // The device that has forgotten the file id has to find it again, by name, in
+  // the folder — which is only possible if the move above really happened.
+  await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); delete s.drive.fileId; localStorage.setItem('isee.v1', JSON.stringify(s)); });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('button:has-text("Saved to Drive")', { timeout: 20000 });
+  check('a device that looks the file up again finds it in the new folder',
+    drive.file === 'file1' && drive.calls.filter((c) => c === 'POST https://www.googleapis.com/upload/drive/v3/files').length === uploadsBefore
+    && Object.keys(remoteBody().results).length >= resultsBefore);
+  check('the chosen folder survives a reload', (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).driveFolder)) === 'Sheila ISEE 2026');
+  // Said out loud on the page, because a picker is impossible under drive.file
+  // and a control that looks like browsing and is not would be worse than none.
+  check('the page is honest about why there is no folder picker', /narrowest Drive permission/.test(await pg.textContent('[data-testid=drive-settings]')));
+
   // disconnect clears everything
   await pg.click('button:has-text("Saved to Drive")');
   await pg.waitForSelector('[data-testid=signin-page]', { timeout: 8000 });

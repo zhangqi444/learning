@@ -1,6 +1,7 @@
 import * as React from "react"
-import { Cloud, CloudOff, FolderOpen, HardDrive, LogOut, MonitorSmartphone, Moon, MoreVertical, RefreshCw, Sun } from "lucide-react"
+import { Cloud, CloudOff, FolderOpen, HardDrive, LogOut, MonitorSmartphone, Moon, MoreVertical, RefreshCw, Settings2, Sun } from "lucide-react"
 
+import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
@@ -87,6 +88,12 @@ export function NavUser() {
                         </a>
                       </DropdownMenuItem>
                     ) : null}
+                    {/* One link out of a menu was the whole of it: the folder id
+                        was resolved on every sync and offered nowhere else, and
+                        the file id was known only to the code that wrote it. */}
+                    <DropdownMenuItem onSelect={() => go("/drive")} data-testid="drive-settings-link">
+                      <Settings2 /> Drive settings
+                    </DropdownMenuItem>
                     <DropdownMenuItem onSelect={() => store.signOut()}>
                       <LogOut /> Disconnect Drive
                     </DropdownMenuItem>

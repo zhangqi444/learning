@@ -4,7 +4,7 @@
 import { useSyncExternalStore } from "react"
 
 const KEY = "isee.v1"          // the project was renamed "learning"; this key stays, her data lives under it
-const FOLDER = "Sheila ISEE Practice"
+const FOLDER = "Sheila ISEE Practice"   // the default; she can rename it — see setFolder()
 const FILE = "progress.json"
 const CLIENT_ID = (typeof window !== "undefined" && window.__OAUTH_CLIENT_ID__) || ""
 const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.file"
@@ -44,7 +44,7 @@ export const Store = {
     }
     // Resume a Drive session that is still inside its one-hour token window.
     const d = this.s.drive
-    if (d && d.token) { this.token = d.token; this.tokenExp = d.exp || 0; this.email = d.email || null; this.name = d.name || null; this.picture = d.picture || null; this.folderId = d.folderId || null }
+    if (d && d.token) { this.token = d.token; this.tokenExp = d.exp || 0; this.email = d.email || null; this.name = d.name || null; this.picture = d.picture || null; this.folderId = d.folderId || null; this.fileId = d.fileId || null }
     else if (this.s.driveOptIn && DRIVE_ENABLED) this.status = "expired"
     return this.s
   },
@@ -216,12 +216,52 @@ export const Store = {
       })
   },
   saveSession() {
-    this.s.drive = { token: this.token, exp: this.tokenExp, email: this.email, name: this.name, picture: this.picture, folderId: this.folderId }
+    this.s.drive = { token: this.token, exp: this.tokenExp, email: this.email, name: this.name, picture: this.picture, folderId: this.folderId, fileId: this.fileId }
     lsSave(this.s)
   },
   /** Where her progress actually lives, as a link anyone can open. Null until the
    *  first sync has resolved the folder (or restored it from the saved session). */
+  /** The folder this device saves into. A local preference, deliberately not part
+   *  of the Drive payload: it describes where a device puts the file, and syncing
+   *  it would let one device silently move another device's folder. */
+  folderName() { return (this.s && this.s.driveFolder) || FOLDER },
   driveUrl() { return this.folderId ? `https://drive.google.com/drive/folders/${this.folderId}` : null },
+  /** The record itself, openable in Drive. Knowing the folder is not the same as
+   *  being able to put your hands on the file, and the file is the thing she
+   *  would want to download, copy or send to somebody. */
+  fileUrl() { return this.fileId ? `https://drive.google.com/file/d/${this.fileId}/view` : null },
+  /** Save somewhere else, and take the record with you.
+   *
+   *  The file is MOVED rather than left behind and re-created. Creating a fresh
+   *  progress.json in the new folder would leave the only copy of her work in a
+   *  folder the app has stopped looking at, and the next load would merge an
+   *  empty remote over a full local — the shape of every data-loss story in this
+   *  file. Drive changes a parent in one call, so the record is never in two
+   *  places and never in none.
+   *
+   *  The scope is drive.file: the app can only see what it made. So this renames
+   *  or creates a folder of its own, and cannot pick an existing folder from her
+   *  Drive — saying so plainly on the page is better than a picker that only
+   *  appears to work. */
+  setFolder(name) {
+    const want = String(name || "").trim().slice(0, 80)
+    if (!want || want === this.folderName()) return Promise.resolve(false)
+    const from = this.folderId
+    this.s.driveFolder = want
+    lsSave(this.s)
+    this.folderId = null
+    this.setStatus("syncing")
+    return this.ensureToken()
+      .then(() => this.ensureFolder())
+      .then(() => {
+        if (!this.fileId || !this.folderId || this.folderId === from) return null
+        const q = `addParents=${this.folderId}${from ? `&removeParents=${from}` : ""}&fields=id,parents`
+        return this.api(`https://www.googleapis.com/drive/v3/files/${this.fileId}?${q}`, { method: "PATCH" })
+      })
+      .then(() => this.pull())
+      .then(() => { this.lastSync = new Date(); this.setStatus("live"); emit(); return true })
+      .catch((e) => { this.lastError = String((e && e.message) || e); this.setStatus("error"); emit(); throw e })
+  },
   signOut() {
     const t = this.token
     this.token = null; this.tokenExp = 0; this.folderId = null; this.fileId = null
@@ -258,7 +298,8 @@ export const Store = {
       })
   },
   ensureFolder() {
-    const q = encodeURIComponent(`mimeType='application/vnd.google-apps.folder' and name='${FOLDER}' and trashed=false`)
+    const name = this.folderName().replace(/'/g, "\\'")
+    const q = encodeURIComponent(`mimeType='application/vnd.google-apps.folder' and name='${name}' and trashed=false`)
     return this.api(`https://www.googleapis.com/drive/v3/files?q=${q}&fields=files(id,name)`)
       .then((r) => r.json())
       .then((d) => {
@@ -267,7 +308,7 @@ export const Store = {
         if (d.files && d.files.length) { this.folderId = d.files[0].id; this.saveSession(); return }
         return this.api("https://www.googleapis.com/drive/v3/files", {
           method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name: FOLDER, mimeType: "application/vnd.google-apps.folder" }),
+          body: JSON.stringify({ name: this.folderName(), mimeType: "application/vnd.google-apps.folder" }),
         }).then((r) => r.json()).then((f) => { this.folderId = f.id; this.saveSession() })
       })
   },
