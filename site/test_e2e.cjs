@@ -239,6 +239,87 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
     check('no page/console errors', !errs.length, errs.slice(0, 4).join(' | '));
     await ctx.close();
   }
+
+  /* Time travel, because twice in two days this suite went red overnight with
+     nothing committed against it. Neither failure was a render breaking; both
+     were the same shape — a rule that held on the day it was written and stopped
+     holding on a later one. A mock had a start and no end, so it left the
+     dashboard the morning after its week opened. Follow-ups were filtered
+     against a week that had already finished, so a paper sat on the wrong seven
+     days filed them nowhere.
+     
+     The dates are taken from the plan rather than typed here, and the ones that
+     matter are the holes in it: W3 ends on a Sunday and W4 starts eight days
+     later, because the week between is the diagnostic's. `currentWeek()` answers
+     "the last week that has begun", so inside a hole it names a week that has
+     ended — which is the state both bugs needed. The day after the final week is
+     the permanent version of the same hole, and every day after her exam is
+     spent in it. */
+  {
+    const D = JSON.parse(fs.readFileSync(path.join(DIST, 'content', 'bundle.json'), 'utf8'));
+    const day = (from, n) => { const d = new Date(from + 'T00:00:00'); d.setDate(d.getDate() + n); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; };
+    const starts = D.weeks.map((w) => D.starts[w.w]).sort();
+    const probe = [];
+    starts.forEach((st, i) => {
+      const next = starts[i + 1];
+      const after = day(st, 7);
+      if (!next) probe.push({ when: day(st, 9), why: 'after the last plan week' });
+      else if (next !== after) { probe.push({ when: after, why: 'first day of a gap in the plan' }); probe.push({ when: day(st, 9), why: 'mid-gap' }); }
+    });
+    probe.push({ when: day(starts[0], 3), why: 'an ordinary day inside a plan week' });
+    for (const { when, why } of probe) {
+      const ctx = await b.newContext({ viewport: { width: 1280, height: 900 } });
+      const drive = await stubGoogle(ctx);
+      const pg = await ctx.newPage();
+      await pg.clock.install({ time: new Date(when + 'T10:00:00') });
+      await pg.goto('http://localhost:8140/learning/', { waitUntil: 'networkidle' });
+      await signIn(pg);
+      const openMock = await pg.evaluate(() => {
+        const t = new Date();
+        const k = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`;
+        return { k, txt: (document.body.textContent || '').replace(/\s+/g, ' ') };
+      });
+      const shouldList = D.mocks.filter((m) => m.start <= openMock.k && openMock.k <= day(m.start, 6));
+      check(`on ${when} (${why}) a mock in its own week is still on the dashboard`,
+        shouldList.every((m) => openMock.txt.includes(m.name)), shouldList.map((m) => m.name).join(', ') || 'none open');
+      // a paper finished on this date has to file its follow-ups on the week the
+      // checklist opens by itself, whichever week that turns out to be
+      await pg.evaluate(async () => {
+        const bd = await (await fetch('content/bundle.json')).json();
+        const m = bd.mocks[0];
+        const s = JSON.parse(localStorage.getItem('isee.v1'));
+        const secs = {};
+        for (const def of m.sections) {
+          if (def.id.startsWith('BREAK') || def.id === 'ESSAY') continue;
+          const qs = (bd.mockItems[m.id] || {})[def.id] || [];
+          const picks = {}, times = {};
+          qs.forEach((q, i) => { picks[i] = i % 3 === 0 ? 'A' : (q.k || q.correct); times[i] = 30000; });
+          secs[def.id] = { submittedAt: new Date().toISOString(), picks, times, right: qs.filter((q, i) => picks[i] === (q.k || q.correct)).length, started: new Date().toISOString() };
+        }
+        s.mocks = { ...(s.mocks || {}), [m.id]: { sections: secs, finishedAt: new Date().toISOString(), essay: { submittedAt: new Date().toISOString(), text: 'x '.repeat(220) }, at: new Date().toISOString() } };
+        localStorage.setItem('isee.v1', JSON.stringify(s));
+      });
+      /* Hand the stub Drive the state that was just seeded, rather than emptying
+         it and hoping. Emptying it races the app's own debounced push: if that
+         push lands first the remote holds the pre-seed document, the reload
+         merges it back, and the seed is gone. It went both ways on the same date
+         on consecutive runs, which made this check worse than no check —
+         five greens out of six for reasons that had nothing to do with the
+         thing being tested. Settle, then make the remote agree with the page, so
+         the merge has nothing to say either way. */
+      await pg.waitForTimeout(1200);
+      drive.body = await pg.evaluate(() => localStorage.getItem('isee.v1'));
+      await pg.reload({ waitUntil: 'networkidle' });
+      await pg.evaluate(() => { location.hash = '#/checklist'; });
+      await pg.waitForSelector('[data-testid=ck-item]');
+      await pg.waitForTimeout(400);
+      const ck = await pg.evaluate(() => (document.body.textContent || '').replace(/\s+/g, ' '));
+      check(`and a paper finished on ${when} leaves its follow-ups on the week that opens`,
+        /Mock follow-up/.test(ck), why);
+      await ctx.close();
+    }
+  }
+
   await b.close(); srv.close();
   console.log(failures ? `\n${failures} FAILURE(S)` : '\nall checks passed');
   process.exit(failures ? 1 : 0);
