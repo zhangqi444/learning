@@ -996,6 +996,56 @@ async function runThrough(pg, pick, max = 60) {
   check('word answers recorded on the word records', wordRecs === 20, wordRecs + ' words');
   // skills + mastery on the subject page, and the score page
   await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  /* A week she had finished grew a second set. Reading was one set of twelve a
+     week until the 15th of September; it doubled that day and again on the 19th,
+     so W1 and W2 went from 2/2 sets to 1/2 overnight with a new "Not started"
+     row and no account of where it came from. She reported that as the site
+     losing her work, twice, and she was right to — a number that changes on its
+     own and explains nothing is indistinguishable from a bug.
+
+     The dates come from `since`, which make_bundle keeps and which was seeded
+     from the first commit each question appears in, so this asserts against the
+     real history rather than a date typed here. */
+  const grewRemote = drive.body;
+  drive.body = JSON.stringify({ schema: 4, results: {} });
+  const grew = await pg.evaluate(async () => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const rcW1 = (b.subjects.rc || []).filter((i) => i.w === 'W1');
+    const set2 = rcW1.slice(12);                       // second set of twelve
+    const added = set2.map((i) => b.since[i.id]).sort().pop();
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    // Set 1 finished well before Set 2's questions existed
+    s.results['rc:W1:0'] = { n: 12, right: 12, at: '2026-09-01T10:00:00.000Z', wrong: [], picks: {} };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    return { added, n: set2.length };
+  });
+  await pg.waitForTimeout(900);
+  drive.body = await pg.evaluate(() => localStorage.getItem('isee.v1'));
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/s/rc'; });
+  await pg.waitForSelector('[data-testid=skills]');
+  await pg.waitForTimeout(600);
+  const notes = await pg.$$eval('[data-testid=set-added]', (n) => n.map((e) => e.dataset.added));
+  check('a set added after she finished the week says so, with the date it arrived',
+    grew.n === 12 && !!grew.added && notes.includes(grew.added), `set 2 added ${grew.added} · notes ${notes.join(',') || 'none'}`);
+  /* The two halves that keep it from becoming noise: a set she has done needs no
+     account of itself, and a set that was there before she ever started is not
+     something that "arrived" — every Verbal set predates her first answer. */
+  const vrNotes = await pg.evaluate(async () => {
+    location.hash = '#/s/vr';
+    await new Promise((r) => setTimeout(r, 900));
+    return [...document.querySelectorAll('[data-testid=set-added]')].length;
+  });
+  check('and a subject whose questions were all there from the start says nothing', vrNotes === 0, String(vrNotes));
+  await pg.evaluate(() => { location.hash = '#/s/rc'; });
+  await pg.waitForTimeout(700);
+  const onDone = await pg.evaluate(() => {
+    const rows = [...document.querySelectorAll('li')].filter((li) => /tap to see your answers/.test(li.innerText || ''));
+    return rows.filter((li) => li.querySelector('[data-testid=set-added]')).length;
+  });
+  check('and a set she has finished never carries the note', onDone === 0, String(onDone));
+  drive.body = grewRemote;
+
   check('subject page lists skill levels', (await pg.$$('[data-testid=skills] [data-level]')).length >= 3 && /Proficient|Familiar|Needs work/.test(await body(pg)));
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('text=How the number is built');
   check('score page explains the parts and lists subjects', /Accuracy · 30%/.test(await body(pg)) && /comes? from attempts, not accuracy/.test(await body(pg)));
