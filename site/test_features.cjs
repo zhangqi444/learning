@@ -2036,6 +2036,124 @@ async function runThrough(pg, pick, max = 60) {
     heldNow ? (await pg.textContent('[data-testid=holding]')).replace(/\s+/g, ' ') : 'not holding');
   await pg.click('[data-testid=careful-toggle]');
 
+  /* ---- a set put down halfway ----
+   *
+   *  The Runner kept every answer in React state and wrote nothing at all until
+   *  the last question, so a set abandoned at nine of twelve came back empty:
+   *  twenty minutes of work gone, no error, and the week still calling it "Not
+   *  started". Reported from the word quiz, but the word quiz only inherits it —
+   *  every run on the site goes through this component.
+   *
+   *  The set is chosen rather than named because this suite has already worked
+   *  its way through a good deal of Maths by now, and a half-finished set is
+   *  only half-finished if nothing has finished it. */
+  const halfKey = await pg.evaluate(() => {
+    const res = JSON.parse(localStorage.getItem('isee.v1')).results || {};
+    for (const w of ['W8', 'W7', 'W6', 'W5', 'W4']) for (const n of [1, 0]) { const k = `ma:${w}:${n}`; if (!res[k]) return k; }
+    return null;
+  });
+  check('there is an untouched set to put down halfway', !!halfKey, String(halfKey));
+  if (halfKey) {
+    const [, hw, hn] = halfKey.split(':');
+    const RUN = `http://localhost:8143/learning/#/run/ma/${hw}/${hn}`;
+    await pg.goto(RUN, { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=question]');
+    const firstStem = (await pg.textContent('[data-testid=question]')).trim();
+    let firstPick = null;
+    for (let k = 0; k < 5; k++) {
+      const idx = k % 4;
+      const texts = await pg.$$eval('[data-testid=choice]', (n) => n.map((e) => e.textContent.replace(/\s+/g, ' ').trim()));
+      if (k === 0) firstPick = texts[idx];
+      await pg.click(`[data-testid=choice] >> nth=${idx}`);
+      await pg.click('[data-testid=next]');
+      await pg.waitForFunction((want) => { const c = document.querySelector('[data-testid=counter]'); return c && c.textContent.trim().startsWith(String(want)); }, k + 2, { timeout: 10000 });
+    }
+    // She quits. A hash-only goto is a same-document navigation, so the store is
+    // still sitting in memory and a resume proved by one would prove nothing
+    // about a phone that went to sleep — the reload is the check.
+    await pg.goto('http://localhost:8143/learning/#/', { waitUntil: 'networkidle' });
+    await pg.reload({ waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=today]', { timeout: 15000 });
+    const draft = await pg.evaluate((k) => (JSON.parse(localStorage.getItem('isee.v1')).drafts || {})[k], halfKey);
+    check('an unfinished set is written down as she answers', !!draft && draft.answered === 5 && draft.picks.filter((p) => p != null).length === 5,
+      JSON.stringify(draft && draft.picks));
+    // and NOT to Drive: an additive merge cannot say "this was finished
+    // somewhere else", so a synced draft would come back and offer to resume a
+    // set she had already handed in.
+    check('a draft stays on the device that made it', !/"drafts"/.test(drive.body));
+
+    await pg.goto(`http://localhost:8143/learning/#/s/ma/${hw}`, { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=set-part]', { timeout: 8000 });
+    check('the week stops calling a half-done set "Not started"',
+      (await pg.getAttribute('[data-testid=set-part]', 'data-answered')) === '5' && /5\/12 so far/.test(await pg.textContent('[data-testid=set-part]')),
+      (await pg.textContent('[data-testid=set-part]')).trim());
+
+    await pg.goto(RUN, { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=question]');
+    check('coming back lands on the question she had reached', (await pg.textContent('[data-testid=counter]')).trim().startsWith('6'),
+      (await pg.textContent('[data-testid=counter]')).trim());
+    for (let k = 0; k < 5; k++) { await pg.keyboard.press('Backspace'); await pg.waitForTimeout(120); }
+    const checkedText = await pg.$eval('[data-testid=choice][data-state=checked]', (e) => e.textContent.replace(/\s+/g, ' ').trim()).catch(() => null);
+    check('and the answers waiting there are the ones she actually gave',
+      (await pg.textContent('[data-testid=question]')).trim() === firstStem && checkedText === firstPick,
+      `${checkedText} vs ${firstPick}`);
+
+    await runThrough(pg, 0, 20);
+    await pg.waitForSelector('[data-testid=score]', { timeout: 20000 });
+    const after = await pg.evaluate((k) => { const s = JSON.parse(localStorage.getItem('isee.v1')); return { draft: (s.drafts || {})[k], res: s.results[k] }; }, halfKey);
+    check('finishing it files the real record and throws the draft away', !after.draft && !!after.res && after.res.n === 12, JSON.stringify(after.draft || {}));
+  }
+
+  /* The guard that matters more than the resume. Answers are restored BY
+     POSITION, and three of the four kinds of run here build their questions
+     fresh — the word quiz shuffles its choices from the day's seed, mixed
+     practice from what she has reached. A draft applied to a different set of
+     questions would not lose an answer, it would invent one: a "C" against a
+     question whose C is no longer the option she tapped. So a draft that does
+     not match exactly is dropped, and the set starts clean. */
+  await pg.goto('http://localhost:8143/learning/#/precision/W1/quiz', { waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=question]', { timeout: 10000 });
+  for (let k = 0; k < 3; k++) {
+    await pg.click('[data-testid=choice] >> nth=0');
+    await pg.click('[data-testid=next]');
+    await pg.waitForFunction((want) => { const c = document.querySelector('[data-testid=counter]'); return c && c.textContent.trim().startsWith(String(want)); }, k + 2, { timeout: 10000 });
+  }
+  await pg.goto('http://localhost:8143/learning/#/precision/W1', { waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=word-quiz]');
+  check('the word quiz says it has something of hers waiting', /Carry on the word quiz · 3 answered/.test((await pg.textContent('[data-testid=word-quiz]')).replace(/\s+/g, ' ')),
+    (await pg.textContent('[data-testid=word-quiz]')).replace(/\s+/g, ' ').trim());
+  await pg.click('[data-testid=word-quiz]');
+  await pg.waitForSelector('[data-testid=question]');
+  check('and opening it again carries on rather than starting over', (await pg.textContent('[data-testid=counter]')).trim().startsWith('4'),
+    (await pg.textContent('[data-testid=counter]')).trim());
+  // Now make the questions no longer the questions the draft was taken against.
+  // Off the quiz page first: the run that is on screen holds the draft in
+  // memory and writes it out again as it leaves, so editing underneath it
+  // simply gets overwritten — which is how the first version of this check
+  // passed the resume it was supposed to be refusing.
+  await pg.goto('http://localhost:8143/learning/#/', { waitUntil: 'networkidle' });
+  /* And then wait for it to stop writing. A load ends in a Drive pull, a merge
+     and a debounced push, and every one of those saves the whole of
+     localStorage from memory — so an edit made the moment the page looked idle
+     was simply undone a second later, and the check passed a resume it was
+     meant to be refusing. Written, read back, and only believed once it holds. */
+  let stale = false;
+  for (let k = 0; k < 25 && !stale; k++) {
+    await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.drafts['vocab:W1'].sig = 'stale:20'; localStorage.setItem('isee.v1', JSON.stringify(s)); });
+    await pg.waitForTimeout(400);
+    stale = (await pg.evaluate(() => (JSON.parse(localStorage.getItem('isee.v1')).drafts['vocab:W1'] || {}).sig)) === 'stale:20';
+  }
+  check('the draft can be made to look like one taken against other questions', stale);
+  // and read back from disk rather than from the copy the page is still holding
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=today]', { timeout: 15000 });
+  await pg.goto('http://localhost:8143/learning/#/precision/W1/quiz', { waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=question]');
+  check('a draft that no longer matches the questions is dropped, not applied by position',
+    (await pg.textContent('[data-testid=counter]')).trim().startsWith('1')
+    && (await pg.$('[data-testid=choice][data-state=checked]')) === null,
+    (await pg.textContent('[data-testid=counter]')).trim());
+
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });
   await b.close(); srv.close();

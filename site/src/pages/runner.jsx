@@ -89,6 +89,27 @@ function picksFromResult(items, r) {
   })
 }
 
+/** A fingerprint of the exact questions on screen, in order, with their choices
+ *  and their keys.
+ *
+ *  A resumed set restores answers BY POSITION, so it may only do so against the
+ *  same questions in the same order with the options in the same order. Three of
+ *  the four kinds of run here are generated rather than stored — the word quiz
+ *  shuffles its choices from the day's seed, mixed practice builds itself from
+ *  what she has reached, the review queue is whatever is due — and all three are
+ *  stable within a day and none of them is stable across one. Without this, a
+ *  draft picked up after midnight would put "C" against a question whose C is no
+ *  longer the option she tapped, which is worse than losing the draft: it is a
+ *  wrong answer in her record that she never gave. Mismatch means discard. */
+function sigOf(items) {
+  let h = 2166136261
+  for (const q of items) {
+    const s = q.id + "|" + (q.c || []).join("~") + "|" + keyOf(q)
+    for (let j = 0; j < s.length; j++) { h ^= s.charCodeAt(j); h = Math.imul(h, 16777619) }
+  }
+  return (h >>> 0).toString(36) + ":" + items.length
+}
+
 const subOf = (q, fallback) => (findItem(q.id) || {}).sub || fallback || "vr"
 
 /** The skill's own cat — the same one the Glimbook holds — at the brightness the
@@ -143,16 +164,40 @@ function SoftTimer({ since, budget }) {
  * promotion: a promotionsIn() snapshot taken before the set, for flows that can move a skill to Mastered
  * prior: an earlier result to reopen · record=false: nothing is written (corrections right after a mock).
  */
-export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, prior, record = true, onFinish, sub: subHint, backTo, promotion }) {
+export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exitLabel, prior, record = true, onFinish, sub: subHint, backTo, promotion }) {
   const kind = ctx || (custom ? "review" : "set")
   const store = useStore()
-  const [i, setI] = useState(0)
-  const [picks, setPicks] = useState(() => (prior ? picksFromResult(items, prior) : []))
-  const [done, setDone] = useState(() => (prior ? { right: prior.right, at: prior.at, attempts: prior.attempts || 1, reopened: true, times: prior.times || null } : null))
+  /* Where an unfinished run is kept. A real set is its own id; a generated run
+   * has to be given one by whoever generated it. `corr` is left out on purpose:
+   * going back over answers already given is not a set, and there is nothing
+   * there to lose. */
+  const draftKey = kind === "corr" ? null : resume || setId || null
+  const sig = React.useMemo(() => sigOf(items), [items])
+  /* Read once, before the first render's state exists, and never again: a draft
+   * is where she left off, not a thing that follows her while she works. */
+  const saved = useRef(undefined)
+  if (saved.current === undefined) {
+    const d = draftKey ? Store.draft(draftKey) : null
+    /* `picks` is sparse by construction — answering question five gives it a
+       length of five, not of twelve — so the count it must agree with is the
+       one carried in the signature, and all this can ask of the array is that
+       it does not run past the end of the set. Demanding an exact length here
+       is what made the first version of this restore nothing at all while
+       cheerfully writing a draft on every answer. */
+    saved.current = d && d.sig === sig && Array.isArray(d.picks) && d.picks.length <= items.length ? d : null
+  }
+  const back = saved.current
+  const [i, setI] = useState(() => (back ? Math.min(back.i || 0, items.length - 1) : 0))
+  const [picks, setPicks] = useState(() => (back ? back.picks.slice() : prior ? picksFromResult(items, prior) : []))
+  // A draft beats a finished result on purpose: it can only exist if she
+  // reopened the set and started answering again, so the half-done attempt is
+  // the more recent truth and the score screen is not where she was.
+  const [done, setDone] = useState(() => (back ? null : prior ? { right: prior.right, at: prior.at, attempts: prior.attempts || 1, reopened: true, times: prior.times || null } : null))
   const [won, setWon] = useState([])           // badges earned by finishing this set
-  const [shown, setShown] = useState({})       // question index -> revealed, instant mode only
-  const spent = useRef({})                    // question index -> ms
+  const [shown, setShown] = useState(() => (back ? { ...(back.shown || {}) } : {}))       // question index -> revealed, instant mode only
+  const spent = useRef(back ? { ...(back.spent || {}) } : {})                    // question index -> ms
   const entered = useRef(Date.now())
+  const finished = useRef(false)
   const it = items[i], total = items.length
   const pacing = !!store.s.pacing
   /* Careful mode: the choices stay out of reach until the question has been on
@@ -174,7 +219,7 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
   const counted = useCountUp(done ? done.right : 0)
 
   function leave() { spent.current[i] = (spent.current[i] || 0) + (Date.now() - entered.current); entered.current = Date.now() }
-  function retry() { setPicks([]); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
+  function retry() { Store.dropDraft(draftKey); finished.current = false; setPicks([]); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
 
   function choose(k) {
     if (instant && shown[i]) return          // an answered question stays answered
@@ -229,6 +274,8 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
     if (onFinish) onFinish({ right, n: items.length, at, wrong, bySub, times })
     const badges = record ? syncBadges() : []
     if (record) setWon(badges)
+    finished.current = true
+    Store.dropDraft(draftKey)              // the real record exists now, and it syncs
     setDone({ right, at, attempts: prior ? (prior.attempts || 1) + 1 : 1, times })
     sfx(badges.length ? "badge" : "finish")
     window.scrollTo(0, 0)
@@ -249,6 +296,36 @@ export function Runner({ items, title, setId, custom, ctx, exitPath, exitLabel, 
     addEventListener("keydown", on)
     return () => removeEventListener("keydown", on)
   })
+
+  /* Every answer, the moment it is given.
+   *
+   *  Written from an effect rather than from choose() so that it cannot miss a
+   *  path: going back and changing an answer, the keyboard shortcuts, a retry —
+   *  they all end in this state, and this is the only place that has to know
+   *  about saving. Nothing is written before the first answer, because an opened
+   *  set is not an unfinished one and a resume offer for a set she never started
+   *  would be noise on every page that asks. */
+  const answered = picks.filter((p) => p != null).length
+  React.useEffect(() => {
+    if (!draftKey || done || !answered) return
+    Store.saveDraft(draftKey, { sig, picks, i, shown, spent: spent.current, n: items.length, answered, title: title || null, path: exitPath || null })
+  }, [answered, picks, i, shown, done])
+
+  /* Leaving the page mid-set. The per-answer save above already has her
+   * answers; what it cannot have is the time spent on the question she was
+   * looking at when she left, because `leave()` only runs on a step. Without
+   * this that time is silently zero, and zero seconds on a question is not a
+   * gap in the pacing figures — it is a wrong number in them, and it is the
+   * kind that makes a median look better than the truth. */
+  const latest = useRef(null)
+  latest.current = { picks, i, shown, answered, done }
+  React.useEffect(() => () => {
+    const l = latest.current
+    if (!draftKey || !l || l.done || finished.current || !l.answered) return
+    const sp = { ...spent.current }
+    sp[l.i] = (sp[l.i] || 0) + (Date.now() - entered.current)
+    Store.saveDraft(draftKey, { sig, picks: l.picks, i: l.i, shown: l.shown, spent: sp, n: items.length, answered: l.answered, title: title || null, path: exitPath || null })
+  }, [])
 
   /* ABOVE the finished-state return on purpose. A hook after that `return` is a
    * conditional hook, and React throws the moment the last question is answered

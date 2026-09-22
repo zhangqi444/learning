@@ -149,6 +149,10 @@ export function Precision({ wk }) {
   const sum = precisionSummary(wk)
   const ws = wordSummary(wk)
   const ready = data.words.every((w) => { const r = state.words[w.word]; return r && r.text && r.conf })
+  /* The words on this page saved themselves as she typed; the quiz they lead to
+     did not save anything at all until its last question. Now it does, and the
+     button that starts it is the honest place to say so. */
+  const quizPart = Store.draftAnswered("vocab:" + wk)
 
   function submit() {
     Store.setSlice("precision", wk, (cur) => ({ ...cur, submittedAt: new Date().toISOString() }))
@@ -177,7 +181,9 @@ export function Precision({ wk }) {
         <CardContent className="flex flex-col gap-3">
           <Progress value={(sum.written / sum.total) * 100} className="h-1.5" />
           <div className="flex flex-wrap items-center gap-2">
-            <Button size="sm" variant="outline" onClick={() => go(`/precision/${wk}/quiz`)} data-testid="word-quiz"><ListChecks /> Word quiz · synonyms{ws.due + ws.brushup ? ` (${ws.due + ws.brushup} due)` : ""}</Button>
+            <Button size="sm" variant={quizPart ? "default" : "outline"} onClick={() => go(`/precision/${wk}/quiz`)} data-testid="word-quiz">
+              <ListChecks /> {quizPart ? `Carry on the word quiz · ${quizPart} answered` : `Word quiz · synonyms${ws.due + ws.brushup ? ` (${ws.due + ws.brushup} due)` : ""}`}
+            </Button>
             <Button size="sm" variant="outline" onClick={() => go(`/quest/${wk}`)} data-testid="week-wood"><Sparkles /> {W.woodTitle} · {wk}</Button>
             <span className="text-muted-foreground text-xs">The quiz is four choices per word, ISEE style, best done a day after writing these. {W.woodTitle} is the same words as a game — either one counts.</span>
           </div>

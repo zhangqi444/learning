@@ -20,6 +20,10 @@ export function Mixed() {
   useStore()
   const rows = mixedResults()
   const preview = React.useMemo(() => buildMixedSet(12), [rows.length])
+  // A mixed set she started and put down. The button says so rather than
+  // offering to start the one she is already halfway through.
+  const part = Store.draftAnswered("mixed")
+  const partOf = (Store.draft("mixed") || {}).n || 12
   const counts = {}
   for (const q of preview) { const s = q.id.split("-")[0].toLowerCase(); counts[s] = (counts[s] || 0) + 1 }
   return (
@@ -30,7 +34,9 @@ export function Mixed() {
           <CardTitle className="text-2xl font-semibold tracking-tight">Twelve questions, all four subjects, shuffled</CardTitle>
           <CardDescription>The real test never tells you which skill a question is testing. A mixed set pulls from the weeks already reached — skills sitting at Proficient first, then weak ones. This is where Proficient becomes Mastered, and the bar is two: a skill needs two of its questions right in a mixed set or a mock, each on a later day than the day she first met that question. One a week from Week 2.</CardDescription>
           <CardAction>
-            <Button onClick={() => go("/mixed/run")} disabled={preview.length < 4} data-testid="mixed-start"><Play /> Start a mixed set</Button>
+            <Button onClick={() => go("/mixed/run")} disabled={preview.length < 4} data-testid="mixed-start">
+              <Play /> {part ? `Carry on · ${part} of ${partOf} answered` : "Start a mixed set"}
+            </Button>
           </CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-2">
@@ -88,6 +94,10 @@ export function MixedRun() {
       items={items}
       custom
       ctx="mixed"
+      /* One key for "the mixed set in progress", not one per minute like the
+         record it writes: a set put down is picked up again, and a resume that
+         needed her to come back inside the same minute would be no resume. */
+      resume="mixed"
       title="Mixed set · all subjects"
       exitPath="/mixed"
       exitLabel="Back to mixed practice"

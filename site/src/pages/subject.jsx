@@ -3,7 +3,7 @@ import { ChevronRight, Play } from "lucide-react"
 
 import { D, SETSIZE, SUBJ, currentWeek, itemsFor, nextSet, setAddedAfter, setId, setsFor, subjProgress, weekLabel } from "@/lib/content"
 import { go } from "@/lib/router"
-import { useStore } from "@/lib/store"
+import { Store, useStore } from "@/lib/store"
 import { PLACE } from "@/lib/world"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
@@ -17,7 +17,11 @@ import { AopsHint } from "@/components/aops-hint"
 import { aopsFor } from "@/lib/aops"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 
-function ScoreBadge({ r }) {
+function ScoreBadge({ r, part, n }) {
+  /* "Not started" was said about a set with nine answers in it, because the only
+     thing this badge had ever been able to see was a finished result. She read
+     it, believed it, and had no reason not to. */
+  if (!r && part) return <Badge variant="secondary" className="tabular-nums" data-testid="set-part" data-answered={part}>{part}/{n} so far</Badge>
   if (!r) return <Badge variant="outline" className="text-muted-foreground">Not started</Badge>
   const pct = r.right / r.n
   return <Badge variant={pct >= 0.75 ? "success" : pct >= 0.5 ? "warning" : "destructive"} className="tabular-nums">{r.right}/{r.n}</Badge>
@@ -70,6 +74,7 @@ export function WeekCard({ sub, wk, highlight }) {
             /* Only asked about a set she has not done: a set she HAS done needs
                no account of where it came from. */
             const grew = r ? null : setAddedAfter(sub, wk, n)
+            const part = Store.draftAnswered(setId(sub, wk, n))
             return (
               <li key={n}>
                 <button
@@ -80,7 +85,7 @@ export function WeekCard({ sub, wk, highlight }) {
                   <span className="bg-muted text-muted-foreground flex size-8 shrink-0 items-center justify-center rounded-md text-xs font-semibold tabular-nums">{n + 1}</span>
                   <span className="flex min-w-0 flex-1 flex-col">
                     <span className="font-medium">Set {n + 1}</span>
-                    <span className="text-muted-foreground text-xs">{set.length} questions{r ? ` · done${r.at ? " " + new Date(r.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : ""} · tap to see your answers` : ""}</span>
+                    <span className="text-muted-foreground text-xs">{set.length} questions{r ? ` · done${r.at ? " " + new Date(r.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : ""} · tap to see your answers` : part ? " · started · tap to carry on where you left off" : ""}</span>
                     {/* Said plainly, because the alternative is her doing the
                         arithmetic herself and getting "the site lost my work". */}
                     {grew ? (
@@ -89,7 +94,7 @@ export function WeekCard({ sub, wk, highlight }) {
                       </span>
                     ) : null}
                   </span>
-                  <ScoreBadge r={r} />
+                  <ScoreBadge r={r} part={part} n={set.length} />
                   <ChevronRight className="text-muted-foreground size-4" />
                 </button>
               </li>

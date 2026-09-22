@@ -35,12 +35,12 @@ function ReviewRun({ sub, mode }) {
     return rows.map((x) => x.it)
   }, [sub, mode])
   if (!items.length) return <Review />
-  return <Runner items={items} custom ctx="review" sub={sub} title={`${SUBJ[sub].name} · ${mode === "checkin" ? "Check-in" : "Review"}`} exitPath="/review" exitLabel="Back to review" />
+  return <Runner items={items} custom ctx="review" resume={`review:${sub}:${mode || "due"}`} sub={sub} title={`${SUBJ[sub].name} · ${mode === "checkin" ? "Check-in" : "Review"}`} exitPath="/review" exitLabel="Back to review" />
 }
 function VocabRun({ wk }) {
   const items = React.useMemo(() => wordQuizItems(wk), [wk])
   if (!items.length) return <Precision key={wk} wk={wk} />
-  return <Runner items={items} custom ctx="vocab" sub="vr" title={`Precision words · ${wk} · quiz`} exitPath={`/precision/${wk}`} exitLabel="Back to the words" />
+  return <Runner items={items} custom ctx="vocab" resume={"vocab:" + wk} sub="vr" title={`Precision words · ${wk} · quiz`} exitPath={`/precision/${wk}`} exitLabel="Back to the words" />
 }
 
 /** One more question on the skill she just missed.

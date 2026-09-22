@@ -33,7 +33,16 @@ export const Store = {
   init() {
     this.s = lsLoad()
     this.s.results = this.s.results || {}
-    for (const k of ["precision", "essays", "mocks", "checklists", "items", "mixed", "badges", "rewards", "books", "reviews", "reviewsSeen", "base"]) if (!this.s[k] || typeof this.s[k] !== "object") this.s[k] = {}
+    for (const k of ["precision", "essays", "mocks", "checklists", "items", "mixed", "badges", "rewards", "books", "reviews", "reviewsSeen", "base", "drafts"]) if (!this.s[k] || typeof this.s[k] !== "object") this.s[k] = {}
+    /* A draft is an offer to carry on, and after a fortnight it is not one any
+     * more — the questions have moved on, the mixed set it belonged to was built
+     * for a day three weeks ago. Dropped here rather than left to accumulate,
+     * because an unfinished set she has forgotten is clutter and a resume button
+     * for it is a lie about where she is. */
+    for (const k of Object.keys(this.s.drafts)) {
+      const d = this.s.drafts[k]
+      if (!d || typeof d !== "object" || !Array.isArray(d.picks) || Date.now() - ts(d.at) > 14 * 864e5) delete this.s.drafts[k]
+    }
     // The first (vanilla) site stored `at` as Date.now(); everything since uses ISO strings.
     for (const k of Object.keys(this.s.results)) {
       const r = this.s.results[k]
@@ -125,6 +134,37 @@ export const Store = {
   recordSet(setId, res) {
     this.s.results[setId] = res
     lsSave(this.s); emit(); this.schedulePush()
+  },
+  /* ---------- an unfinished set ----------
+   *
+   *  Every run kept its answers in React state and wrote nothing until the last
+   *  question, so a set put down halfway — a tab closed, a Back tap, a phone
+   *  locking itself — came back empty. Nine answers and twenty minutes, gone,
+   *  with no error and nothing in the record to say it had ever been started.
+   *  That is the one thing this codebase is not allowed to do: her answers are
+   *  the input, and the input is sacred.
+   *
+   *  Drafts are deliberately NOT in `body()`, so they never reach Drive. A
+   *  finished set is a fact and syncs; a half-finished one is a device holding a
+   *  pen, and an additive merge has no way to express "this draft was finished
+   *  elsewhere, throw it away" — the old copy would come back and offer to
+   *  resume a set she had already handed in. So the phone resumes what the phone
+   *  started, and the moment a set is finished the real record syncs as it
+   *  always has. */
+  saveDraft(key, d) {
+    if (!key) return
+    if (!this.s.drafts) this.s.drafts = {}
+    this.s.drafts[key] = { ...d, at: new Date().toISOString() }
+    lsSave(this.s); emit()
+  },
+  draft(key) { return (key && this.s.drafts && this.s.drafts[key]) || null },
+  /** How many answers are waiting in an unfinished run, for the pages that offer
+   *  to carry it on. 0 when there is no draft, so callers can just ask. */
+  draftAnswered(key) { const d = this.draft(key); return (d && d.answered) || 0 },
+  dropDraft(key) {
+    if (!key || !this.s.drafts || !(key in this.s.drafts)) return
+    delete this.s.drafts[key]
+    lsSave(this.s); emit()
   },
   clearWrong(fn) {          // fn(setId, result) -> new wrong[]
     for (const k of Object.keys(this.s.results)) {
@@ -451,7 +491,8 @@ export const Store = {
       })
       .finally(() => { this.flushing = false })
   },
-  /** The Drive payload. Schema 5: bump it, and update init/merge/push, when a slice is added. */
+  /** The Drive payload. Schema 5: bump it, and update init/merge/push, when a slice is added.
+   *  `drafts` is the one slice that is left out on purpose — see saveDraft(). */
   body() {
     return JSON.stringify({ schema: 6, savedAt: new Date().toISOString(), results: this.s.results,
       precision: this.s.precision, essays: this.s.essays, mocks: this.s.mocks, checklists: this.s.checklists, items: this.s.items, mixed: this.s.mixed,
