@@ -2756,6 +2756,1332 @@
     "C": "60 is 10 × 6, the area of the pool itself. The walkway is the ring around it: the pool and walkway together are 14 m by 10 m, so 140 − 60 = 80 square metres."
    },
    "content_hash": "03193cb8d79eec29"
+  },
+  {
+   "id": "QR-W5-X01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Symmetry",
+   "difficulty": "Foundation",
+   "prompt": "A floor tile is shaped like a regular hexagon. How many lines of symmetry does it have?",
+   "choices": {
+    "A": "3",
+    "B": "12",
+    "C": "6",
+    "D": "4"
+   },
+   "correct": "C",
+   "explanation": "A regular hexagon matches along three folds that join opposite corners and three more that pass through the middles of opposite sides, making 6 lines in all. With a regular shape, count the folds through the corners and the folds through the sides separately, then add them.",
+   "why": {
+    "A": "3 counts only the folds that run from one corner across to the opposite corner. A regular hexagon also folds through the middles of opposite sides, which gives 3 more, so there are 6 lines.",
+    "B": "12 is 6 × 2, counting every fold twice — once from each end of it. A fold is one line whichever end you start from, so a regular hexagon has 6.",
+    "D": "4 is the number a square has. A hexagon folds three ways through opposite corners and three more ways through the middles of opposite sides — six different lines, none of them shared."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "ab28f3f394a7eeb3"
+  },
+  {
+   "id": "QR-W5-X02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Volume reasoning",
+   "difficulty": "Challenge",
+   "prompt": "Every edge of a cube is made half as long. The new cube's volume is:",
+   "choices": {
+    "A": "1/2 of the old",
+    "B": "1/8 of the old",
+    "C": "1/4 of the old",
+    "D": "1/6 of the old"
+   },
+   "correct": "B",
+   "explanation": "A cube has three edges pulling on its volume, so halving all of them gives 1/2 × 1/2 × 1/2 = 1/8 of the old volume. When every measurement changes by the same amount, apply that change once for each direction the shape has.",
+   "why": {
+    "A": "1/2 of the old is what halving one edge alone would give. A cube has all three edges halved, so the volume becomes 1/2 × 1/2 × 1/2 = 1/8.",
+    "C": "1/4 of the old is what halving two of the edges would give. The third edge is halved as well, so the volume becomes 1/2 × 1/2 × 1/2 = 1/8.",
+    "D": "1/6 of the old comes from adding the three halvings as 2 + 2 + 2 = 6. They multiply instead: 1/2 × 1/2 × 1/2 = 1/8."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "3fc036b06ce407c5"
+  },
+  {
+   "id": "QR-W5-X03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Average",
+   "difficulty": "Foundation",
+   "prompt": "Three packets of seeds cost $1.10, $1.40, and $2.00. What is the average cost of a packet?",
+   "choices": {
+    "A": "$1.40",
+    "B": "$1.25",
+    "C": "$1.50",
+    "D": "$2.25"
+   },
+   "correct": "C",
+   "explanation": "The three packets cost 1.10 + 1.40 + 2.00 = $4.50 altogether, and $4.50 ÷ 3 = $1.50 each. An average of money works exactly like an average of anything else: find the total, then share it out between every one of the things you added.",
+   "why": {
+    "A": "$1.40 is the middle price of the three, read off the list rather than worked out. Add them first: 1.10 + 1.40 + 2.00 = 4.50, and 4.50 ÷ 3 = $1.50.",
+    "B": "$1.25 is 2.50 ÷ 2, the $2.00 packet missed off the end of the list. All three packets count: 4.50 ÷ 3 = $1.50.",
+    "D": "$2.25 is 4.50 ÷ 2, the total halved instead of shared out between the packets. There are three of them: 4.50 ÷ 3 = $1.50."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "e5467bcc28b393ce"
+  },
+  {
+   "id": "QR-W5-X04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Consecutive integers",
+   "difficulty": "Standard",
+   "prompt": "Five consecutive whole numbers are written in order, and the smallest is 18. What is the sum of all five?",
+   "choices": {
+    "A": "90",
+    "B": "100",
+    "C": "110",
+    "D": "78"
+   },
+   "correct": "B",
+   "explanation": "The five numbers are 18, 19, 20, 21 and 22, and they balance around the middle one, so their total is five lots of 20, which is 100. Adding a run of consecutive numbers is quicker as the middle number times how many there are.",
+   "why": {
+    "A": "90 is 18 × 5, the smallest number counted five times, but the other four are larger than 18. The middle of the five is 20, so the total is 20 × 5 = 100.",
+    "C": "110 is 22 × 5, the largest number counted five times. The five balance around their middle number, 20, so the total is 20 × 5 = 100.",
+    "D": "78 is 18 + 19 + 20 + 21, with the fifth number left off the end. The five numbers are 18, 19, 20, 21 and 22, and they total 100."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "a2cf31c347a0e8de"
+  },
+  {
+   "id": "QR-W5-X05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Exponents",
+   "difficulty": "Standard",
+   "prompt": "In a puzzle, each of 5 boxes holds 5 bags, and each bag holds 5 marbles. Written as 5³, how many marbles is that?",
+   "choices": {
+    "A": "125",
+    "B": "15",
+    "C": "75",
+    "D": "243"
+   },
+   "correct": "A",
+   "explanation": "5³ means three fives multiplied: each box holds 5 bags of 5 marbles, so 5 × 5 = 25 marbles in a box, and the 5 boxes hold 25 × 5 = 125. Build a power up one step at a time — the little number tells you how many fives to use, not what to multiply the five by.",
+   "why": {
+    "B": "15 is 5 × 3, the base multiplied by the little number. The little 3 says how many fives to multiply: 5 × 5 × 5 = 125.",
+    "C": "75 is 25 × 3, the square multiplied by the little 3 rather than by another 5. There are five lots of 25: 25 × 5 = 125.",
+    "D": "243 is 3⁵, five threes multiplied instead of three fives. It is the 5 that repeats: 5 × 5 × 5 = 125."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "dcd55b1e8218205c"
+  },
+  {
+   "id": "QR-W5-X06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Expression",
+   "difficulty": "Foundation",
+   "prompt": "Mia has n stickers and gives 4 of them to a friend. Which expression shows how many stickers she has left?",
+   "choices": {
+    "A": "4-n",
+    "B": "n-4",
+    "C": "n+4",
+    "D": "4n"
+   },
+   "correct": "B",
+   "explanation": "She begins with n stickers and 4 leave her hands, so what is left is n-4. When something is given away the expression subtracts, and the amount she started with stays at the front, where it started — read the sentence in order and write it down in the same order.",
+   "why": {
+    "A": "4-n takes the stickers away from the four she gave, the subtraction the wrong way round. She starts with n and loses 4: n-4.",
+    "C": "n+4 adds the four she gave away instead of taking them off. Giving stickers away leaves fewer: n-4.",
+    "D": "4n is four lots of all her stickers, not four taken off them. One lot of 4 leaves her with n-4."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "99452c0fdf756fa1"
+  },
+  {
+   "id": "QR-W5-X07",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Geometry",
+   "difficulty": "Standard",
+   "prompt": "One square tile has sides of 8 cm and another square tile has sides of 6 cm. How much greater is the area of the bigger tile than the area of the smaller one?",
+   "choices": {
+    "A": "2 cm²",
+    "B": "100 cm²",
+    "C": "28 cm²",
+    "D": "48 cm²"
+   },
+   "correct": "C",
+   "explanation": "A square's area is its own side times itself: 8 × 8 = 64 and 6 × 6 = 36, so the bigger tile has 64 − 36 = 28 cm² more. Work each area out in full before comparing — the gap between two sides is never the gap between the areas they make.",
+   "why": {
+    "A": "2 is 8 − 6, the difference between the sides rather than between the areas. The areas are 8 × 8 = 64 and 6 × 6 = 36, and 64 − 36 = 28 cm².",
+    "B": "100 is 64 + 36, the two areas added instead of subtracted. How much greater means take one from the other: 64 − 36 = 28 cm².",
+    "D": "48 is 6 × 8, the two different sides multiplied together. Each square's area uses its own side twice, so the gap is 64 − 36 = 28 cm²."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "fec27a50d0aa70cf"
+  },
+  {
+   "id": "QR-W5-X08",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Measurement",
+   "difficulty": "Foundation",
+   "prompt": "A classroom wall is 320 centimeters long. How many meters long is the wall? (100 centimeters = 1 meter)",
+   "choices": {
+    "A": "32 meters",
+    "B": "3.02 meters",
+    "C": "3.2 meters",
+    "D": "0.32 meters"
+   },
+   "correct": "C",
+   "explanation": "There are 100 centimeters in a meter, so 320 centimeters is 320 ÷ 100 = 3.2 meters — three whole meters and 20 centimeters over. Going to a bigger unit makes the number smaller, and dividing by 100 moves every digit two places, not one.",
+   "why": {
+    "A": "32 meters is 320 ÷ 10, the point moved one place instead of two. A meter is 100 centimeters: 320 ÷ 100 = 3.2 meters.",
+    "B": "3.02 meters is 3 meters and 2 centimeters, with the 20 spare centimeters read as 2. It is 3 whole meters and 20 more: 320 ÷ 100 = 3.2 meters.",
+    "D": "0.32 meters is 320 ÷ 1,000, divided by a thousand rather than a hundred. 320 ÷ 100 = 3.2 meters, a little over three."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "5b7205381ec85f9b"
+  },
+  {
+   "id": "QR-W5-X09",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Mixed reasoning",
+   "difficulty": "Foundation",
+   "prompt": "A school bus has 8 rows with 6 seats in each row. On one trip 30 of the seats are empty. How many students are on the bus?",
+   "choices": {
+    "A": "48",
+    "B": "78",
+    "C": "5",
+    "D": "18"
+   },
+   "correct": "D",
+   "explanation": "The bus has 8 × 6 = 48 seats, and 30 of them are empty, so 48 − 30 = 18 students are on board. Build the whole first, then take away the part you were told about — and check the answer is counting the thing the question asked for.",
+   "why": {
+    "A": "48 is 8 × 6, every seat on the bus. The 30 empty ones carry nobody, so 48 − 30 = 18 students are on board.",
+    "B": "78 is 48 + 30, the empty seats added to the total instead of taken away. The bus has only 48 seats altogether, so 48 − 30 = 18.",
+    "C": "5 is 30 ÷ 6, the number of empty rows rather than the number of students. Each empty seat is one seat, so 48 − 30 = 18 students are on board."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "a32f49d318bfceb0"
+  },
+  {
+   "id": "QR-W5-X10",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Mode",
+   "difficulty": "Standard",
+   "prompt": "A school survey asks each child how many pets they have. 4 children have 0 pets, 18 children have 1 pet, 8 children have 2 pets and 5 children have 3 pets. Which number of pets is the mode?",
+   "choices": {
+    "A": "1",
+    "B": "18",
+    "C": "35",
+    "D": "2"
+   },
+   "correct": "A",
+   "explanation": "The mode is the value that comes up most often, and here the values are numbers of pets, not numbers of children. More children have 1 pet than any other number, so the mode is 1. In a table like this, read down the counts to find the biggest group, then answer with what that group was counting.",
+   "why": {
+    "B": "18 is the number of children in the biggest group, not the number of pets they own. The mode is the number of pets that comes up most often, and 1 pet does — 18 children have one.",
+    "C": "35 is 4 + 18 + 8 + 5, every child in the survey added together. That is how many children were asked, not the most common number of pets, which is 1.",
+    "D": "2 is the number of pets in the next biggest group, the one with 8 children. The biggest group is the 18 children with 1 pet, so the mode is 1."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "540253c6f62df683"
+  },
+  {
+   "id": "QR-W5-X11",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Multiples",
+   "difficulty": "Foundation",
+   "prompt": "Which of these numbers is a multiple of both 6 and 7?",
+   "choices": {
+    "A": "35",
+    "B": "36",
+    "C": "42",
+    "D": "13"
+   },
+   "correct": "C",
+   "explanation": "A number that both 6 and 7 divide must contain both as factors, and the smallest such number is 6 × 7 = 42. Test a candidate against both conditions before accepting it — passing one of them is not enough.",
+   "why": {
+    "A": "35 is 5 × 7, a multiple of 7 but not of 6, because 6 does not divide 35. Of these, the one both 6 and 7 divide is 42 = 6 × 7.",
+    "B": "36 is 6 × 6, a multiple of 6 but not of 7, because 7 does not divide 36. The one both 6 and 7 divide is 42 = 6 × 7.",
+    "D": "13 is 6 + 7, the two numbers added rather than a number they both divide. Both 6 and 7 divide 6 × 7 = 42."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "7c36358db31ae5e6"
+  },
+  {
+   "id": "QR-W5-X12",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Prime factors",
+   "difficulty": "Standard",
+   "prompt": "Which of these numbers is a product of three different prime numbers?",
+   "choices": {
+    "A": "45",
+    "B": "30",
+    "C": "25",
+    "D": "20"
+   },
+   "correct": "B",
+   "explanation": "Split each number into primes and count how many different ones appear: 30 = 2 × 3 × 5, so three different primes build it. A prime that shows up twice in the list still counts as one, which is why 45 = 3 × 3 × 5 is built from only two.",
+   "why": {
+    "A": "45 is 3 × 3 × 5, three primes written down but the 3 used twice, so only two of them are different. 30 is 2 × 3 × 5, which is three different primes.",
+    "C": "25 is 5 × 5, and although its whole-number factors 1, 5 and 25 come to three, its only prime is 5. 30 splits into 2 × 3 × 5, which is three different primes.",
+    "D": "20 is 2 × 2 × 5, three primes in the list but the 2 counted twice. Its different primes are just 2 and 5, while 30 has 2, 3 and 5."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "dc04b58170a95422"
+  },
+  {
+   "id": "QR-W5-X13",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Range",
+   "difficulty": "Standard",
+   "prompt": "A set of numbers has a range of 24, and its largest value is 56. What is its smallest value?",
+   "choices": {
+    "A": "32",
+    "B": "80",
+    "C": "56",
+    "D": "24"
+   },
+   "correct": "A",
+   "explanation": "The range is the distance between the two ends, so the smallest value sits exactly one range below the largest: 56 − 24 = 32. Whenever a question gives you a range and one end, the other end is one subtraction or one addition away — decide which by asking whether you are moving down from the top or up from the bottom.",
+   "why": {
+    "B": "80 is 56 + 24, the range added to the largest value instead of taken off it. The smallest sits a range below the largest: 56 − 24 = 32.",
+    "C": "56 is the largest value, which the question already gives. The smallest sits one range below it: 56 − 24 = 32.",
+    "D": "24 is the range itself, the gap between the two ends rather than an end. Taking that gap off the largest gives 56 − 24 = 32."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W5",
+   "content_hash": "2b2e7937092e042f"
+  },
+  {
+   "id": "QR-W6-X01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Remainders",
+   "difficulty": "Standard",
+   "prompt": "A shop packs 58 apples into trays that hold 6 apples each. What do you get if you add the number of full trays to the number of apples left over?",
+   "choices": {
+    "A": "13",
+    "B": "9",
+    "C": "4",
+    "D": "15"
+   },
+   "correct": "A",
+   "explanation": "Nine full trays hold 6 × 9 = 54 apples, and 58 − 54 = 4 apples are left over, so 9 + 4 = 13. Write the division out as a whole number of trays plus a leftover before you answer, then read off whichever part the question actually asked for.",
+   "why": {
+    "B": "9 is 54 ÷ 6, the number of full trays on its own. The question asks for the trays and the leftovers together: 9 + 4 = 13.",
+    "C": "4 is 58 − 54, the apples left after nine full trays, and only half of what was asked. Add the nine trays as well: 9 + 4 = 13.",
+    "D": "15 is 9 + 6, the nine trays added to how many fit in a tray rather than to what was left over. Only 4 apples are loose, so the total is 9 + 4 = 13."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "56b7fa68152029b6"
+  },
+  {
+   "id": "QR-W6-X02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Scale reasoning",
+   "difficulty": "Foundation",
+   "prompt": "Every side of a square tile is made half as long. The distance all the way round the tile is now:",
+   "choices": {
+    "A": "a quarter as long",
+    "B": "twice as long",
+    "C": "the same length",
+    "D": "half as long"
+   },
+   "correct": "D",
+   "explanation": "The distance round a square is 4 × side, so when every side is half as long the whole trip round is half as long as well. Lengths shrink by exactly the amount the sides shrink; it is areas that shrink twice over.",
+   "why": {
+    "A": "A quarter as long is the area's change wearing a length's words: halving both sides does leave a quarter of the space inside the tile. The distance round is 4 × side, so halving the side halves that too.",
+    "B": "Twice as long is the result of doubling each side rather than halving it. Halving every side halves the whole way round.",
+    "C": "The same length would mean nothing had changed, but every side is now half what it was, so the trip round the tile is half as long too."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "bb78b00b6fb210c9"
+  },
+  {
+   "id": "QR-W6-X03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Symmetry",
+   "difficulty": "Foundation",
+   "prompt": "A pennant is a triangle with two equal sides and a third side of a different length. How many lines of symmetry does it have?",
+   "choices": {
+    "A": "1",
+    "B": "3",
+    "C": "2",
+    "D": "0"
+   },
+   "correct": "A",
+   "explanation": "Folding the pennant so that its two equal sides lie on top of each other is the only fold that makes the halves match, so it has 1 line of symmetry. A fold counts only when both halves land exactly on each other, so test each one in your head before you count it.",
+   "why": {
+    "B": "3 is one line for each side, which is right only when all three sides are equal. This pennant has two equal sides and one that is different, so just one fold matches.",
+    "C": "2 is the number of equal sides, not the number of folds. Only one fold makes the halves match: the one running from the corner between the two equal sides to the middle of the third side.",
+    "D": "0 would mean no fold matches anywhere. Folding the pennant so that its two equal sides land on each other does make the halves match, so it has 1 line."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "f906aa6e1569fda9"
+  },
+  {
+   "id": "QR-W6-X04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Volume reasoning",
+   "difficulty": "Challenge",
+   "prompt": "A box is made half as long and half as wide, with its height unchanged. Its volume becomes:",
+   "choices": {
+    "A": "a quarter as much",
+    "B": "half as much",
+    "C": "one eighth as much",
+    "D": "the same"
+   },
+   "correct": "A",
+   "explanation": "Halving the length multiplies the volume by 1/2 and halving the width does it again, so what is left is 1/2 of 1/2, a quarter. Count how many measurements changed — that is how many times the change gets multiplied in.",
+   "why": {
+    "B": "Half as much counts only one of the two halvings. Both the length and the width are halved, so what is left is 1/2 of 1/2, which is a quarter.",
+    "C": "One eighth as much is what halving all three measurements would give. The height is unchanged here, so only two halvings apply and a quarter is left.",
+    "D": "The same comes from adding the two halvings as 1/2 + 1/2 = 1 and deciding nothing happened. Changes multiply instead: 1/2 × 1/2 leaves a quarter."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "fdb65d727906bf23"
+  },
+  {
+   "id": "QR-W6-X05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Average",
+   "difficulty": "Standard",
+   "prompt": "A school stall was open on five days and sold 20, 0, 15, 18, and 12 badges. What is the average number of badges sold per day?",
+   "choices": {
+    "A": "16 1/4 badges",
+    "B": "15 badges",
+    "C": "13 badges",
+    "D": "65 badges"
+   },
+   "correct": "C",
+   "explanation": "The five days total 20 + 0 + 15 + 18 + 12 = 65 badges, and 65 ÷ 5 = 13. A day with nothing sold is still one of the days, so it counts in the total and it counts in the dividing — that is the whole of what makes this one harder than it looks.",
+   "why": {
+    "A": "16 1/4 badges is 65 ÷ 4, the day with none sold left out of the count. It was still one of the five days: 65 ÷ 5 = 13 badges.",
+    "B": "15 badges is the middle day once the five are put in order, not the average of them. The five days total 65, and 65 ÷ 5 = 13.",
+    "D": "65 badges is the five days added together, before they are shared out. Divide by the five days: 65 ÷ 5 = 13."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "8d6aa77084a9f868"
+  },
+  {
+   "id": "QR-W6-X06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Consecutive integers",
+   "difficulty": "Standard",
+   "prompt": "Three consecutive even numbers add up to 84. What is the smallest of the three?",
+   "choices": {
+    "A": "28",
+    "B": "30",
+    "C": "27",
+    "D": "26"
+   },
+   "correct": "D",
+   "explanation": "Three evenly spaced numbers balance around the middle one, so the middle is 84 ÷ 3 = 28, and even numbers in a row are 2 apart, making them 26, 28 and 30. For any odd-sized run of evenly spaced numbers, divide the total by how many there are to land on the middle first.",
+   "why": {
+    "A": "28 is 84 ÷ 3, which is the middle of the three numbers, not the smallest. Even numbers in a row are 2 apart, so the three are 26, 28 and 30.",
+    "B": "30 is 28 + 2, the largest of the three numbers. They are 26, 28 and 30, and the question asks for the smallest.",
+    "C": "27 is 28 − 1, a step back of one from the middle number. Consecutive even numbers are 2 apart, so the one below 28 is 26."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "d65cd4c15dcf6d04"
+  },
+  {
+   "id": "QR-W6-X07",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Exponents",
+   "difficulty": "Standard",
+   "prompt": "A garden has 5 square plots, and each plot holds 3 rows of 3 plants. The number of plants is 3² × 5. How many plants is that?",
+   "choices": {
+    "A": "45",
+    "B": "225",
+    "C": "30",
+    "D": "40"
+   },
+   "correct": "A",
+   "explanation": "3² is 3 × 3 = 9 plants in each plot, and there are 5 plots, so 3² × 5 = 9 × 5 = 45 plants. The little number belongs only to the number it sits on, so finish the power first and then do the rest of the multiplying.",
+   "why": {
+    "B": "225 is 15 × 15, the five plots multiplied in before the squaring. Only the 3 is squared: 3 × 3 = 9, and 9 × 5 = 45.",
+    "C": "30 is 3 × 2 × 5, the little 2 used as a multiply as well. Squaring means 3 × 3 = 9, so 9 × 5 = 45.",
+    "D": "40 is 2³ × 5, the 3 and the 2 swapped round. The 3 is the one that is squared: 9 × 5 = 45."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "0dd790985eb35e64"
+  },
+  {
+   "id": "QR-W6-X08",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Expression",
+   "difficulty": "Standard",
+   "prompt": "A stall packs 3 boxes, each holding 5 red apples and 4 green apples, and then sells 6 apples. The number of apples left is 3 × (5 + 4) − 6. What is the value of this expression?",
+   "choices": {
+    "A": "13",
+    "B": "27",
+    "C": "21",
+    "D": "26"
+   },
+   "correct": "C",
+   "explanation": "Parentheses first: 5 + 4 = 9 apples in each box, then 3 × 9 = 27, and the 6 sold leave 27 − 6 = 21. Nothing outside a pair of parentheses happens until everything inside has become a single number.",
+   "why": {
+    "A": "13 is 3 × 5 + 4 − 6, the bracket ignored so only the red apples were tripled. The bracket goes first: 5 + 4 = 9, then 3 × 9 = 27, and 27 − 6 = 21.",
+    "B": "27 is 3 × 9, the apples in the three boxes with the six sold never taken off. Finish the expression: 27 − 6 = 21.",
+    "D": "26 is 8 × 4 − 6, the 3 added to the 5 instead of multiplying the bracket. The bracket is worked out first: 3 × 9 − 6 = 21."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "bb9046e1b9f49112"
+  },
+  {
+   "id": "QR-W6-X09",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Geometry",
+   "difficulty": "Challenge",
+   "prompt": "Six square tiles, each 3 cm on a side, are laid in a single row to make one long rectangle. What is the perimeter of that rectangle?",
+   "choices": {
+    "A": "42 cm",
+    "B": "72 cm",
+    "C": "21 cm",
+    "D": "54 cm"
+   },
+   "correct": "A",
+   "explanation": "Six 3 cm tiles in a row make a rectangle 6 × 3 = 18 cm long and 3 cm tall, so the perimeter is 2 × (18 + 3) = 42 cm. Sketch the joined shape first and read its two measurements off the sketch: the edges where tiles touch are inside the new shape and are never part of the way round.",
+   "why": {
+    "B": "72 is 6 × 12, the six tiles' own perimeters added as though they were still apart. Joined in a row they make one rectangle 18 cm by 3 cm: 2 × (18 + 3) = 42 cm.",
+    "C": "21 is 18 + 3, one long side and one short side. A rectangle has two of each, so the perimeter is 2 × 21 = 42 cm.",
+    "D": "54 is 18 × 3, the space inside the rectangle rather than the distance round it. That distance is 2 × (18 + 3) = 42 cm."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "1f96ed015a434485"
+  },
+  {
+   "id": "QR-W6-X10",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Measurement",
+   "difficulty": "Standard",
+   "prompt": "A window is 2 meters wide. A curtain track above it is 250 centimeters long. How much longer than the window is the track? (1 meter = 100 centimeters)",
+   "choices": {
+    "A": "248 centimeters",
+    "B": "230 centimeters",
+    "C": "50 centimeters",
+    "D": "450 centimeters"
+   },
+   "correct": "C",
+   "explanation": "The window is 2 × 100 = 200 centimeters wide and the track is 250 centimeters, so the track is 250 − 200 = 50 centimeters longer. Two lengths can only be compared once they are written in the same unit — change one of them first, and the subtraction is the easy part.",
+   "why": {
+    "A": "248 centimeters is 250 − 2, the 2 meters taken off as though they were 2 centimeters. Two meters is 200 centimeters: 250 − 200 = 50.",
+    "B": "230 centimeters is 250 − 20, with the 2 meters counted as 20 centimeters. A meter is 100 centimeters, so the window is 200 wide: 250 − 200 = 50.",
+    "D": "450 centimeters is 250 + 200, the two lengths added instead of compared. The question asks how much longer the track is: 250 − 200 = 50."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "b025f4c07c9915a4"
+  },
+  {
+   "id": "QR-W6-X11",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Mixed reasoning",
+   "difficulty": "Foundation",
+   "prompt": "A school garden has 5 rows of 8 lettuce plants. One quarter of the plants are picked for the kitchen. How many plants are still growing?",
+   "choices": {
+    "A": "10",
+    "B": "30",
+    "C": "20",
+    "D": "32"
+   },
+   "correct": "B",
+   "explanation": "The garden holds 5 × 8 = 40 plants, and a quarter of them is 40 ÷ 4 = 10, so 40 − 10 = 30 are still growing. The question asks for what is left, so take the picked plants away once you have found how many they are.",
+   "why": {
+    "A": "10 is 40 ÷ 4, the quarter that was picked rather than the part still growing. The garden has 5 × 8 = 40 plants, so 40 − 10 = 30 are still there.",
+    "C": "20 is 40 ÷ 2, half the plants. A quarter of 40 is 40 ÷ 4 = 10, so 40 − 10 = 30 are still growing.",
+    "D": "32 is 40 − 8, one whole row taken off instead of a quarter of the plants. A quarter of 40 is 10, so 40 − 10 = 30 are left growing."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "4eaab5c90a66d483"
+  },
+  {
+   "id": "QR-W6-X12",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Mode",
+   "difficulty": "Standard",
+   "prompt": "A reading log shows the pages read on six days: 6, 19, 6, 25, 6 and 10. What is the mode of these numbers?",
+   "choices": {
+    "A": "25",
+    "B": "12",
+    "C": "8",
+    "D": "6"
+   },
+   "correct": "D",
+   "explanation": "Mode means the value that turns up most often, and 6 pages turns up on three of the six days while each of the other numbers turns up once. Mean, median and mode answer three different questions — mode is the only one that simply counts repeats.",
+   "why": {
+    "A": "25 is the largest number in the log, not the one that comes up most often. 6 appears on three of the six days, so the mode is 6.",
+    "B": "12 is 72 ÷ 6, the mean of the six numbers rather than the mode. The value that repeats is 6, which appears on three days.",
+    "C": "8 is the middle of the ordered list 6, 6, 6, 10, 19, 25, sitting halfway between 6 and 10, which makes it the median rather than the mode. The number that appears most often is 6."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "9b21e2a5195deae9"
+  },
+  {
+   "id": "QR-W6-X13",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Multiples",
+   "difficulty": "Standard",
+   "prompt": "How many multiples of 3 are there from 1 to 100?",
+   "choices": {
+    "A": "34",
+    "B": "32",
+    "C": "99",
+    "D": "33"
+   },
+   "correct": "D",
+   "explanation": "The multiples of 3 run 3, 6, 9 up to 99, and 99 ÷ 3 = 33, so there are 33 of them. To count multiples up to a limit, find the largest multiple that fits and divide that by the step, rather than dividing the limit itself.",
+   "why": {
+    "A": "34 is 33 and the leftover counted as one more three. 100 ÷ 3 is 33 with 1 left over, and a leftover of 1 is not a multiple of 3, so the last one is 99 and 99 ÷ 3 = 33.",
+    "B": "32 is 96 ÷ 3, stopping at 96 and losing 99. 99 is still 100 or less, so the list runs on: 99 ÷ 3 = 33.",
+    "C": "99 is the largest multiple of 3 that is 100 or less, the last number in the list rather than how many numbers are in it. Counting them means 99 ÷ 3 = 33."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W6",
+   "content_hash": "049f0db2d7f2f24d"
+  },
+  {
+   "id": "QR-W7-X01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Prime factors",
+   "difficulty": "Challenge",
+   "prompt": "A mystery number is made by multiplying 2 × 3 × 3 × 5. Which of these numbers is a factor of the mystery number?",
+   "choices": {
+    "A": "4",
+    "B": "7",
+    "C": "25",
+    "D": "15"
+   },
+   "correct": "D",
+   "explanation": "The mystery number is 2 × 3 × 3 × 5 = 90, and a factor of it can only be built from those primes, using each one no more often than it appears on the card: 3 × 5 = 15 works, and 90 ÷ 15 = 6. Break each choice into primes first and check every one of them is on the card before you agree it divides.",
+   "why": {
+    "A": "4 is 2 × 2, and the card has only one 2 to give, so 4 cannot be built from it. 15 is 3 × 5, and both of those are on the card.",
+    "B": "7 is a prime that does not appear on the card at all, so it cannot divide the number. The primes there to build a factor from are 2, 3, 3 and 5, and 3 × 5 = 15.",
+    "C": "25 is 5 × 5, but the card holds only one 5, so 25 cannot be made from it. 15 uses the 3 once and the 5 once: 3 × 5 = 15."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "4ad0e3dfccb36db2"
+  },
+  {
+   "id": "QR-W7-X02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Range",
+   "difficulty": "Challenge",
+   "prompt": "In a quiz game, five rounds have a range of 26 points, and the lowest round score is 58. In a sixth round the score is 95. What is the range of all six scores?",
+   "choices": {
+    "A": "26",
+    "B": "37",
+    "C": "11",
+    "D": "153"
+   },
+   "correct": "B",
+   "explanation": "The first five rounds run from 58 up to 58 + 26 = 84. The 95 is above 84, so it becomes the highest while 58 stays the lowest, and the range is 95 − 58 = 37. When a value joins a set, only the two ends matter — check whether the new value lands outside them.",
+   "why": {
+    "A": "26 is the range of the first five rounds, left exactly as it was. The 95 is higher than the old highest score of 84, so the range stretches to 95 − 58 = 37.",
+    "C": "11 is 95 − 84, the new score measured from the old highest score instead of from the lowest. Range always runs from lowest to highest: 95 − 58 = 37.",
+    "D": "153 is 95 + 58, the two scores added instead of one taken from the other. The range is the gap between the ends: 95 − 58 = 37."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "dbac6e30fe8c774f"
+  },
+  {
+   "id": "QR-W7-X03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Remainders",
+   "difficulty": "Challenge",
+   "prompt": "What is the smallest whole number greater than 50 that leaves a remainder of 4 when it is divided by 7?",
+   "choices": {
+    "A": "53",
+    "B": "54",
+    "C": "56",
+    "D": "46"
+   },
+   "correct": "A",
+   "explanation": "Every number that leaves 4 when divided by 7 is a multiple of 7 with 4 added on, and the multiple just below the target is 7 × 7 = 49, so the number is 49 + 4 = 53. Find the nearest multiple of the divisor first, add the remainder on, then check the answer really is above the limit the question set.",
+   "why": {
+    "B": "54 is 50 + 4, the remainder added to the 50 instead of to a multiple of 7. The multiple of 7 just below is 49, and 49 + 4 = 53.",
+    "C": "56 is 7 × 8, the first multiple of 7 past 50, and a multiple of 7 leaves a remainder of 0. Adding 4 to the multiple below gives 49 + 4 = 53.",
+    "D": "46 is 42 + 4, so it does leave a remainder of 4 — but it is smaller than 50. The next number that leaves 4 is 49 + 4 = 53."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "6f02d0b11f1ce89e"
+  },
+  {
+   "id": "QR-W7-X04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Scale reasoning",
+   "difficulty": "Challenge",
+   "prompt": "On a plan of a playground, 1 cm stands for 5 m. The playground is drawn as a rectangle 6 cm by 4 cm. What is the real area of the playground?",
+   "choices": {
+    "A": "24 m²",
+    "B": "120 m²",
+    "C": "600 m²",
+    "D": "50 m²"
+   },
+   "correct": "C",
+   "explanation": "Each centimetre stands for 5 m, so the real playground is 6 × 5 = 30 m by 4 × 5 = 20 m, and its area is 30 × 20 = 600 m². Turn both sides into real lengths first, then multiply — never scale an area straight off the plan.",
+   "why": {
+    "A": "24 is 6 × 4, the area of the rectangle on the plan rather than the real playground. Each centimetre stands for 5 m, so the real sides are 30 m and 20 m, and 30 × 20 = 600 m².",
+    "B": "120 is 24 × 5, the plan's area multiplied by 5 just once. Both sides have to grow: 6 × 5 = 30 m and 4 × 5 = 20 m, so 30 × 20 = 600 m².",
+    "D": "50 is 30 + 20, the two real sides added instead of multiplied. Area comes from multiplying them: 30 × 20 = 600 m²."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "09b1bde30f46c8f7"
+  },
+  {
+   "id": "QR-W7-X05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Symmetry",
+   "difficulty": "Standard",
+   "prompt": "A pattern on a wall is symmetrical about a vertical mirror line. One dot in the pattern sits 5 cm to the left of that line. Where is its matching dot?",
+   "choices": {
+    "A": "10 cm to the right of the line",
+    "B": "5 cm above the first dot",
+    "C": "5 cm to the right of the line",
+    "D": "on the line itself"
+   },
+   "correct": "C",
+   "explanation": "A mirror line puts every point the same distance out on the other side, so a dot 5 cm to the left has its partner 5 cm to the right. Measure to the mirror line, never across to the other dot.",
+   "why": {
+    "A": "10 is 5 × 2, the whole gap from one dot across to the other rather than the distance from the mirror. The mirror puts the matching dot the same 5 cm out on the other side.",
+    "B": "5 cm above the first dot keeps the right distance but moves in the wrong direction. A vertical mirror swaps left for right, so the matching dot sits 5 cm to the right of the line.",
+    "D": "On the line itself is where a dot sits when it is its own reflection, 0 cm from the mirror. This dot is 5 cm out, so its partner is 5 cm out on the other side."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "d3854a6c99378da1"
+  },
+  {
+   "id": "QR-W7-X06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Volume reasoning",
+   "difficulty": "Standard",
+   "prompt": "A box is made twice as long and half as tall. Its width does not change. Its volume is now:",
+   "choices": {
+    "A": "twice as much",
+    "B": "half as much",
+    "C": "four times as much",
+    "D": "the same"
+   },
+   "correct": "D",
+   "explanation": "Doubling the length multiplies the volume by 2 and halving the height multiplies it by 1/2, and 2 × 1/2 = 1, so the box holds what it always did. When two measurements change, multiply the changes together instead of looking at only one of them.",
+   "why": {
+    "A": "Twice as much counts the doubled length and forgets that the height was halved. Doubling and halving undo each other, so the box holds exactly what it held before.",
+    "B": "Half as much counts the halved height and forgets that the length was doubled. One change undoes the other: 2 × 1/2 = 1, so the volume is unchanged.",
+    "C": "Four times as much is what doubling two of the measurements would do. Here one measurement was doubled and another was halved, so the volume stays exactly where it was."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "e0f7a774f6b6648e"
+  },
+  {
+   "id": "QR-W7-X07",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Average",
+   "difficulty": "Standard",
+   "prompt": "Seven boxes at a market stall hold an average of 9 lemons each. How many lemons are there altogether?",
+   "choices": {
+    "A": "63 lemons",
+    "B": "16 lemons",
+    "C": "54 lemons",
+    "D": "56 lemons"
+   },
+   "correct": "A",
+   "explanation": "An average of 9 lemons in each of 7 boxes means the boxes hold 9 × 7 = 63 lemons in all. Going from an average back to a total is a multiplication — the average times how many things there are.",
+   "why": {
+    "B": "16 lemons is 9 + 7, the two numbers added instead of multiplied. Each of the seven boxes holds 9 on average: 9 × 7 = 63.",
+    "C": "54 lemons is 9 × 6, one of the seven boxes left out. All seven count: 9 × 7 = 63.",
+    "D": "56 lemons is 7 × 8, seven eights recited instead of seven nines. Each of the seven boxes holds 9: 9 × 7 = 63."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "ac336275b5168884"
+  },
+  {
+   "id": "QR-W7-X08",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Consecutive integers",
+   "difficulty": "Challenge",
+   "prompt": "The largest of three consecutive whole numbers is 16. What is the sum of the next three consecutive whole numbers?",
+   "choices": {
+    "A": "45",
+    "B": "54",
+    "C": "48",
+    "D": "51"
+   },
+   "correct": "B",
+   "explanation": "Counting back from 16 gives 14, 15 and 16, so the next three are 17, 18 and 19, and 17 + 18 + 19 = 54. Every number in the second run is 3 more than its partner in the first, so a quicker route is the first total plus three lots of 3: 45 + 9 = 54.",
+   "why": {
+    "A": "45 is 14 + 15 + 16, the first three numbers added instead of the three that come after them. Those three are 17, 18 and 19, which total 54.",
+    "C": "48 is 45 + 3, the step of 3 added a single time. Each of the next three numbers is 3 more than the number three places back, so the total rises by three lots of 3: 45 + 9 = 54.",
+    "D": "51 is 16 + 17 + 18, the next run started at 16 — but 16 is already one of the first three. The next three are 17, 18 and 19, which total 54."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "f3f9d9c83954fd89"
+  },
+  {
+   "id": "QR-W7-X09",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Exponents",
+   "difficulty": "Challenge",
+   "prompt": "A wall display has 3⁴ blue tiles and 4³ red tiles. How many more blue tiles are there than red?",
+   "choices": {
+    "A": "17",
+    "B": "145",
+    "C": "33",
+    "D": "37"
+   },
+   "correct": "A",
+   "explanation": "3⁴ is four threes multiplied — 3 × 3 = 9, 9 × 3 = 27, 27 × 3 = 81 — and 4³ is three fours, 4 × 4 × 4 = 64, so there are 81 − 64 = 17 more blue tiles. When the same two digits turn up swapped like this, work each power out on its own before comparing them; they are not the same number.",
+   "why": {
+    "B": "145 is 81 + 64, the two lots of tiles added instead of compared. 3⁴ = 81 and 4³ = 64, so 81 − 64 = 17.",
+    "C": "33 is 81 − 48, with the red tiles worked out as 4 × 4 × 3. Three fours multiplied is 64, so 81 − 64 = 17.",
+    "D": "37 is 64 − 27, with the blue tiles worked out as 3 × 3 × 3, one three short. Four threes multiplied is 81, so 81 − 64 = 17."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "b249f92511eb4002"
+  },
+  {
+   "id": "QR-W7-X10",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Expression",
+   "difficulty": "Challenge",
+   "prompt": "At the school fair a ride ticket costs $3 and a raffle strip costs $4. The cost in dollars of t ride tickets and 2 raffle strips is 3t + 8. What is the cost when t = 9?",
+   "choices": {
+    "A": "$99",
+    "B": "$35",
+    "C": "$72",
+    "D": "$20"
+   },
+   "correct": "B",
+   "explanation": "The letter t counts the ride tickets, so 9 tickets cost 3 × 9 = 27 dollars, and the two raffle strips are the 8 that has already been worked out: 27 + 8 = $35. Finish the part carrying the letter before adding the part that stands on its own — that part is added once, however many tickets there are.",
+   "why": {
+    "A": "$99 is 11 × 9, the 3 and the 8 added together before the multiplying. Only the tickets multiply: 3 × 9 = 27, and 27 + 8 = 35.",
+    "C": "$72 is 8 × 9, the 8 multiplied by the tickets instead of the 3. The 3 is the number beside the letter: 3 × 9 = 27, and 27 + 8 = 35.",
+    "D": "$20 is 3 + 9 + 8, every number added and none of them multiplied. A number written beside a letter means multiply: 3 × 9 = 27, and 27 + 8 = 35."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "d0429cb9cec1bac5"
+  },
+  {
+   "id": "QR-W7-X11",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Measurement",
+   "difficulty": "Standard",
+   "prompt": "A bag of apples weighs 38 ounces. What is that weight in pounds and ounces? (1 pound = 16 ounces)",
+   "choices": {
+    "A": "3 pounds 8 ounces",
+    "B": "3 pounds 2 ounces",
+    "C": "6 pounds 2 ounces",
+    "D": "2 pounds 6 ounces"
+   },
+   "correct": "D",
+   "explanation": "Sixteen ounces make a pound, so 38 ounces holds two whole pounds — 2 × 16 = 32 — with 38 − 32 = 6 ounces left over: 2 pounds 6 ounces. Coming back from one unit to two, take out as many whole big units as will fit and whatever cannot make another one is what is left over.",
+   "why": {
+    "A": "3 pounds 8 ounces is the 38 read as though ten ounces made a pound. A pound is 16 ounces, and 16 + 16 = 32 with 6 over, so it is 2 pounds 6 ounces.",
+    "B": "3 pounds 2 ounces is 38 split up twelve at a time, which is feet and inches, not pounds and ounces. Sixteen ounces make a pound: 2 × 16 = 32, and 38 − 32 = 6, so 2 pounds 6 ounces.",
+    "C": "6 pounds 2 ounces is the answer back to front, with the 6 spare ounces written as the pounds. 38 ounces makes 2 whole pounds and 6 ounces over: 2 pounds 6 ounces."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "b95310fce9b42671"
+  },
+  {
+   "id": "QR-W7-X12",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Mixed reasoning",
+   "difficulty": "Standard",
+   "prompt": "Tickets to a school concert cost $6 each. One family buys 4 tickets. Another family buys 3 tickets and a $10 programme. Which family pays more, and by how much?",
+   "choices": {
+    "A": "The first family, by $6",
+    "B": "The second family, by $10",
+    "C": "The second family, by $4",
+    "D": "The first family, by $4"
+   },
+   "correct": "C",
+   "explanation": "The first family pays 4 × 6 = 24 dollars and the second pays 3 × 6 + 10 = 28 dollars, so the second family pays 28 − 24 = 4 dollars more. Work each side out in full before comparing them — a missing item is far easier to spot in a total than in a sentence.",
+   "why": {
+    "A": "The first family, by $6, is 24 − 18, the programme left out of the second family's bill. With it, that family pays 18 + 10 = 28, which is 4 more than 24.",
+    "B": "The second family, by $10, names the programme's price as the whole gap. The first family's extra ticket covers 6 of that, so the gap is 28 − 24 = 4.",
+    "D": "The first family, by $4, has the right gap but the wrong family. The first family pays 4 × 6 = 24 and the second pays 3 × 6 + 10 = 28, so it is the second family that pays 4 more."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "2831285438688f94"
+  },
+  {
+   "id": "QR-W7-X13",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Mode",
+   "difficulty": "Challenge",
+   "prompt": "Five cards show 14, 20, 14, 17 and 20. One more card is added so that the list has a single mode, and that mode is 20. What number is on the card that is added?",
+   "choices": {
+    "A": "14",
+    "B": "17",
+    "C": "34",
+    "D": "20"
+   },
+   "correct": "D",
+   "explanation": "20 and 14 each appear twice, so one extra 20 makes 20 appear three times and leaves 14 on two, giving a single mode of 20. When a question asks you to create a mode, count the tallies as they stand and see which value needs only one more.",
+   "why": {
+    "A": "14 would give three 14s against two 20s, making 14 the mode instead of 20. Another 20 gives three 20s to two 14s, so 20 becomes the single mode.",
+    "B": "17 gives 14, 20 and 17 two cards each, so nothing leads and the list has no single mode. Another 20 puts it ahead on three, making 20 the only mode.",
+    "C": "34 is 14 + 20, the two repeated numbers added together. What the list needs is one more of the number that should lead, which is 20."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W7",
+   "content_hash": "84fa6bbafa4b4db4"
+  },
+  {
+   "id": "QR-W8-X01",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Multiples",
+   "difficulty": "Challenge",
+   "prompt": "What is the smallest number greater than 100 that is a multiple of both 4 and 15?",
+   "choices": {
+    "A": "120",
+    "B": "60",
+    "C": "105",
+    "D": "104"
+   },
+   "correct": "A",
+   "explanation": "A number both 4 and 15 divide is a multiple of 4 × 15 = 60, because 4 and 15 share no factor bigger than 1. The multiples of 60 are 60, 120, 180, and the first one past 100 is 120. With two conditions, list the common multiples first and then check which one clears the extra condition.",
+   "why": {
+    "B": "60 is 4 × 15, the smallest number both 4 and 15 divide — but the question wants one greater than 100. The next common multiple is 60 × 2 = 120.",
+    "C": "105 is 15 × 7, the first multiple of 15 past 100, but 4 does not divide it. The number has to be a multiple of both, and that is 120.",
+    "D": "104 is 4 × 26, the first multiple of 4 past 100, but 15 does not divide it. The first number past 100 that both divide is 120."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "eba2409a79e4761d"
+  },
+  {
+   "id": "QR-W8-X02",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Range",
+   "difficulty": "Challenge",
+   "prompt": "A list of four numbers is 18, 25, 31 and 22. One more number is added and the range does not change. Which of these numbers could the new one be?",
+   "choices": {
+    "A": "10",
+    "B": "27",
+    "C": "33",
+    "D": "13"
+   },
+   "correct": "B",
+   "explanation": "The range is 31 − 18 = 13, and it only changes if the new number falls outside 18 and 31. Of these four, only 27 lands between them, so both ends stay where they are and the range is still 13. When a value joins a list, ask one question only: does it beat either end?",
+   "why": {
+    "A": "10 is below 18, the lowest number already in the list, so it would become the new lowest and stretch the range to 31 − 10 = 21. Only a number between the two ends leaves the range alone.",
+    "C": "33 is above 31, the highest number already in the list, so the top end moves and the range grows to 33 − 18 = 15. Only a number from 18 up to 31 keeps the range unchanged.",
+    "D": "13 is the range itself, not one of the numbers. It is below 18, so adding it would stretch the range to 31 − 13 = 18. A number between the two ends, such as 27, leaves it alone."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "66f95f948f51f08b"
+  },
+  {
+   "id": "QR-W8-X03",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Scale reasoning",
+   "difficulty": "Standard",
+   "prompt": "A photograph is 4 inches wide and 6 inches tall. It is enlarged to 12 inches wide, keeping the same shape. How tall is the enlarged photograph?",
+   "choices": {
+    "A": "14 inches",
+    "B": "18 inches",
+    "C": "24 inches",
+    "D": "9 inches"
+   },
+   "correct": "B",
+   "explanation": "The width goes from 4 inches to 12 inches, which is 12 ÷ 4 = 3 times as wide, so the height is 6 × 3 = 18 inches. Find the number the sides are multiplied by first, then use it on the side you want.",
+   "why": {
+    "A": "14 is 6 + 8, the same 8 inches added to the height as were added to the width. An enlargement multiplies instead: the width grew 12 ÷ 4 = 3 times, so the height is 6 × 3 = 18 inches.",
+    "C": "24 is 6 × 4, the height multiplied by the old width. The number to multiply by is 12 ÷ 4 = 3, so the height becomes 6 × 3 = 18 inches.",
+    "D": "9 is 6 + 3, the 3 added to the height instead of multiplied by it. Three times as wide means three times as tall: 6 × 3 = 18 inches."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "fe4b746ac1d8b932"
+  },
+  {
+   "id": "QR-W8-X04",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Symmetry",
+   "difficulty": "Foundation",
+   "prompt": "A door mat is a rectangle 90 cm long and 60 cm wide. How many lines of symmetry does it have?",
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "1",
+    "D": "0"
+   },
+   "correct": "A",
+   "explanation": "A rectangle whose sides are not all equal matches along the fold down its middle and the fold across its middle, so it has 2 lines of symmetry. The diagonals only work when all four sides are the same length, which is what makes a square's answer 4 and a rectangle's 2.",
+   "why": {
+    "B": "4 is the number a square has, counting both diagonals as folds. Fold this mat along a diagonal and a long side lands on a short one, so only 2 folds match.",
+    "C": "1 counts the fold down the middle and stops there. The mat also folds across the middle the other way, so there are 2 lines.",
+    "D": "0 would mean no fold matches. Folding the mat end to end brings the two halves exactly together, so it has 2 lines."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "adb2850a7d3ef5bd"
+  },
+  {
+   "id": "QR-W8-X05",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Volume reasoning",
+   "difficulty": "Standard",
+   "prompt": "A box holds exactly 36 one-centimetre cubes. A second box is twice as long, twice as wide and twice as tall. How many of the same cubes does it hold?",
+   "choices": {
+    "A": "72",
+    "B": "288",
+    "C": "144",
+    "D": "108"
+   },
+   "correct": "B",
+   "explanation": "Doubling the length, the width and the height each multiplies the number of cubes by 2, so the second box holds 36 × 2 × 2 × 2 = 288 cubes. A box grows in three directions at once, so one doubling counts three times over.",
+   "why": {
+    "A": "72 is 36 × 2, one doubling counted and the other two forgotten. All three measurements double, so the box holds 36 × 2 × 2 × 2 = 288 cubes.",
+    "C": "144 is 36 × 4, two of the three doublings counted. The third one counts as well: 36 × 2 × 2 × 2 = 288 cubes.",
+    "D": "108 is 36 × 3, the three doublings turned into a single multiplication by 3. Each doubling multiplies on its own: 36 × 2 × 2 × 2 = 288 cubes."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "d5fde3f7fe752c1a"
+  },
+  {
+   "id": "QR-W8-X06",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Average",
+   "difficulty": "Challenge",
+   "prompt": "A bus route ran 6 trips on Monday carrying an average of 24 riders on each trip, and 4 trips on Tuesday carrying an average of 34 riders on each trip. What was the average number of riders per trip over the two days?",
+   "choices": {
+    "A": "28 riders",
+    "B": "29 riders",
+    "C": "58 riders",
+    "D": "280 riders"
+   },
+   "correct": "A",
+   "explanation": "Monday's 6 trips carried 6 × 24 = 144 riders and Tuesday's 4 trips carried 4 × 34 = 136, which is 280 riders across 10 trips, so 280 ÷ 10 = 28 riders per trip. Two averages cannot simply be averaged when the groups are different sizes — turn each one back into a total, add the totals, and divide once at the end.",
+   "why": {
+    "B": "29 riders is 58 ÷ 2, the two averages averaged as though each day had the same number of trips. Monday carried 6 × 24 = 144 riders and Tuesday 4 × 34 = 136, so 280 ÷ 10 = 28.",
+    "C": "58 riders is 24 + 34, the two averages added instead of the riders counted. Each day's riders come first: 144 + 136 = 280, and 280 ÷ 10 = 28.",
+    "D": "280 riders is everyone who rode over the two days, before they are shared among the trips. There were 10 trips in all: 280 ÷ 10 = 28."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "c8f4b0187b474dee"
+  },
+  {
+   "id": "QR-W8-X07",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Exponents",
+   "difficulty": "Challenge",
+   "prompt": "A hall is set out with 2⁴ rows of chairs and 5² chairs in each row. How many chairs are there altogether?",
+   "choices": {
+    "A": "400",
+    "B": "200",
+    "C": "160",
+    "D": "41"
+   },
+   "correct": "A",
+   "explanation": "2⁴ = 2 × 2 × 2 × 2 = 16 rows and 5² = 5 × 5 = 25 chairs in each row, so the hall holds 16 × 25 = 400 chairs. Turn each power into an ordinary number first, and what is left is a plain multiplication.",
+   "why": {
+    "B": "200 is 8 × 25, with the rows worked out as 2 × 4 instead of four twos multiplied. 2⁴ = 16, so 16 × 25 = 400.",
+    "C": "160 is 16 × 10, with the chairs in a row worked out as 5 × 2. Squaring gives 5 × 5 = 25, so 16 × 25 = 400.",
+    "D": "41 is 16 + 25, the rows added to the chairs in a row instead of multiplied. Every row holds 25 chairs: 16 × 25 = 400."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "79551005ff0569bb"
+  },
+  {
+   "id": "QR-W8-X08",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Expression",
+   "difficulty": "Standard",
+   "prompt": "A tray holds 14 tomatoes. A market stall has t full trays and 5 loose tomatoes. Which expression gives the total number of tomatoes?",
+   "choices": {
+    "A": "14+5t",
+    "B": "14t-5",
+    "C": "19t",
+    "D": "14t+5"
+   },
+   "correct": "D",
+   "explanation": "Each tray brings 14 tomatoes, so t trays bring 14t, and the 5 loose ones are added once: 14t+5. Ask which part repeats and which part happens only once — the repeating part is the one that gets the letter.",
+   "why": {
+    "A": "14+5t is one tray plus five tomatoes for every tray, the two numbers swapped round. It is the trays that repeat: 14t+5.",
+    "B": "14t-5 takes the five loose tomatoes away instead of adding them on. They are extra tomatoes: 14t+5.",
+    "C": "19t is 14 + 5 multiplied by every tray, which puts five loose tomatoes into each one. There are only five altogether: 14t+5."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "cf09b94131d18018"
+  },
+  {
+   "id": "QR-W8-X09",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Measurement",
+   "difficulty": "Challenge",
+   "prompt": "A garden path is made from 6 stone slabs laid end to end, each 80 centimeters long. How long is the path in meters?",
+   "choices": {
+    "A": "480 meters",
+    "B": "48 meters",
+    "C": "4.8 meters",
+    "D": "0.48 meters"
+   },
+   "correct": "C",
+   "explanation": "The six slabs come to 6 × 80 = 480 centimeters, and 480 ÷ 100 = 4.8 meters. Two-step measuring is safest done in the small unit all the way through and changed to the big unit at the very end — and a quick check helps: six slabs a little under a meter each should come out near five meters.",
+   "why": {
+    "A": "480 meters is the path measured in centimeters with the word meters put after it. 480 centimeters is 480 ÷ 100 = 4.8 meters.",
+    "B": "48 meters is 6 × 8, the zero dropped from the 80. Six slabs of 80 come to 480 centimeters, which is 4.8 meters.",
+    "D": "0.48 meters is 480 ÷ 1,000, shorter than a single slab. There are 100 centimeters in a meter: 480 ÷ 100 = 4.8 meters."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "14481ef4160ecc25"
+  },
+  {
+   "id": "QR-W8-X10",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Mixed reasoning",
+   "difficulty": "Standard",
+   "prompt": "A garden show charges $3 for an adult and $2 for a child. A group of 4 adults and 7 children go in together. What does the group pay altogether?",
+   "choices": {
+    "A": "$22",
+    "B": "$26",
+    "C": "$33",
+    "D": "$29"
+   },
+   "correct": "B",
+   "explanation": "The adults pay 4 × 3 = 12 dollars and the children pay 7 × 2 = 14 dollars, so the group pays 12 + 14 = 26 dollars. Price each group on its own first — a single multiplication can never cover two different prices.",
+   "why": {
+    "A": "22 is 11 × 2, all eleven visitors charged the child's price. The adults pay 4 × 3 = 12 and the children pay 7 × 2 = 14, so the total is 12 + 14 = 26.",
+    "C": "33 is 11 × 3, everyone charged the adult's price. Only the 4 adults pay 3 each: 4 × 3 = 12, and 7 × 2 = 14 for the children, giving 12 + 14 = 26.",
+    "D": "29 is 4 × 2 + 7 × 3, the two prices swapped round. Adults pay the larger one, so it is 4 × 3 = 12 and 7 × 2 = 14, and 12 + 14 = 26."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "f8c63cceaa3c6c54"
+  },
+  {
+   "id": "QR-W8-X11",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Scale reasoning",
+   "difficulty": "Standard",
+   "prompt": "A garden flag is made three times as long and three times as wide. How much cloth does the new flag need?",
+   "choices": {
+    "A": "3 times as much",
+    "B": "9 times as much",
+    "C": "6 times as much",
+    "D": "27 times as much"
+   },
+   "correct": "B",
+   "explanation": "Tripling the length multiplies the cloth by 3 and tripling the width multiplies it by 3 again, so the new flag needs 3 × 3 = 9 times as much. Count how many measurements changed, then multiply the changes together.",
+   "why": {
+    "A": "3 times as much counts only one of the two triplings. The length is tripled and so is the width, so the cloth grows 3 × 3 = 9 times.",
+    "C": "6 times as much comes from adding the two triplings as 3 + 3 = 6. They multiply instead: 3 × 3 = 9 times as much cloth.",
+    "D": "27 times as much is 3 × 3 × 3, a tripling counted three times over. A flat piece of cloth has only a length and a width: 3 × 3 = 9."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "c5d634288d69f1bf"
+  },
+  {
+   "id": "QR-W8-X12",
+   "schema_version": "1.0",
+   "content_version": "2026.09.01",
+   "subject": "QR",
+   "skill": "Symmetry",
+   "difficulty": "Challenge",
+   "prompt": "A sign painter cuts capital letters from card and folds each one to test it. Which letter matches both when it is folded down the middle and when it is folded straight across?",
+   "choices": {
+    "A": "the letter T",
+    "B": "the letter E",
+    "C": "the letter H",
+    "D": "the letter M"
+   },
+   "correct": "C",
+   "explanation": "The letter H matches when it is folded down the middle and again when it is folded straight across, so it has both lines of symmetry. Test the two folds one at a time and keep only the letter that survives both.",
+   "why": {
+    "A": "The letter T matches when it is folded down the middle, but folded straight across the crossbar at the top has nothing to meet at the bottom. The letter H matches both ways.",
+    "B": "The letter E matches when it is folded across, the top arm landing on the bottom arm, but its upright spine sits on the left only, so the fold down the middle fails. The letter H matches both ways.",
+    "D": "The letter M matches when it is folded down the middle, but folded straight across the points along the bottom have nothing to meet above them. Only the letter H matches both ways."
+   },
+   "misconceptions": "",
+   "source": "Original content authored for Sheila ISEE",
+   "form": "W8",
+   "content_hash": "c4122cf1387c2ce8"
   }
  ]
 }
