@@ -22,7 +22,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "dc5d140753b9c84f"
+      "why": {
+        "B": "4,050 is a hundred short. The 400 and the 750 make 1,150, and it is easy to carry the thousand and leave the extra hundred behind: put it back and 2,400 + 1,750 = 4,150.",
+        "D": "4,250 is a hundred too many, one carry counted twice. The 400 and the 750 make 1,150, so 2,400 + 1,750 = 4,150."
+      },
+      "content_hash": "471aaa1604e56c79"
     },
     {
       "id": "MA-SEP-002",
@@ -43,7 +47,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "b3de38fbd26fe9b7"
+      "why": {
+        "C": "47 keeps the 7 you were dividing by in the ones place. Seven fives make 35, so the last digit is a 5: 315 ÷ 7 = 45."
+      },
+      "content_hash": "43b8705933c494e5"
     },
     {
       "id": "MA-SEP-003",
@@ -88,7 +95,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "b7f3bc60924453ff"
+      "why": {
+        "A": "4 is the 4 from \"three quarters\" — the number of parts a gallon splits into, not a number of jars. Three quarters is the same as 6/8, so it fills 6 jars.",
+        "C": "8 is how many eighth-gallon jars a whole gallon fills. Only three quarters of a gallon is being poured, and 3/4 is 6/8, so it fills 6 jars.",
+        "D": "3 is the 3 from \"three quarters\", the number of quarter-gallons. Each quarter fills two of the eighth-gallon jars, so 3 × 2 = 6 jars."
+      },
+      "content_hash": "955821d7d75eee00"
     },
     {
       "id": "MA-SEP-005",
@@ -133,7 +145,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "c3a275869a66d459"
+      "why": {
+        "A": "4.75 is 8.75 − 4, the coupon rounded up to a whole $4. That takes off 10 cents too much, so add them back: 4.75 + 0.10 = 4.85.",
+        "B": "5.15 takes the cents the other way round, 90 − 75 = 15, because 75 looked too small to take 90 from. Borrow a whole dollar from the 8 instead: 8.75 − 3.90 = 4.85.",
+        "C": "5.85 keeps all 8 dollars after a dollar has been borrowed from them. After the borrow there are 7 dollars: 7 − 3 = 4, so the fare is $4.85."
+      },
+      "content_hash": "4a691b2ce16ff593"
     },
     {
       "id": "MA-SEP-007",
@@ -154,7 +171,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "5b95043829228a04"
+      "why": {
+        "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty per cent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
+      },
+      "content_hash": "3b181238219af4ee"
     },
     {
       "id": "MA-SEP-008",
@@ -199,7 +219,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "02b2e07cfddf75e0"
+      "why": {
+        "A": "37 is 34 + 3, with the 3 counted once on its own and again in the 3 × 9. The 3 is only there to multiply: 3 × 9 = 27, then 27 + 7 = 34.",
+        "C": "90 is 10 × 9, from adding the 7 and the 3 first. Multiplying comes first: 3 × 9 = 27, then 27 + 7 = 34.",
+        "D": "25 is 34 − 9, one nine short — only two of the three nines added on. There are three: 3 × 9 = 27, then 27 + 7 = 34."
+      },
+      "content_hash": "bdc63005ba581a82"
     },
     {
       "id": "MA-SEP-010",
@@ -220,7 +245,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "50a0533147ea1584"
+      "why": {
+        "B": "2/3 is 4/6, from taking 5 − 1 on the tops while the bottoms were still different. Make them match first: 1/3 is 2/6, so 5/6 − 2/6 = 3/6, which is 1/2.",
+        "C": "1/3 is what is left when 1/3 is changed to 3/6 instead of 2/6 — the 3 is the bottom you are changing, not the new top. Two sixths make a third, so 5/6 − 2/6 = 3/6, which is 1/2.",
+        "D": "4/3 comes from working the tops and the bottoms separately, 5 − 1 = 4 and 6 − 3 = 3. Only the tops get subtracted, once the bottoms match: 5/6 − 2/6 = 3/6, or 1/2."
+      },
+      "content_hash": "49f2dcf9bdff845f"
     },
     {
       "id": "MA-SEP-011",
@@ -241,7 +271,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S1",
-      "content_hash": "7dbd9dfb314ca82b"
+      "why": {
+        "B": "6,450 puts a 4 in the hundreds, but that column is 7 + 5 + 1 = 13, so a 3 goes there and the total is 6,350.",
+        "C": "6,250 leaves out the hundred carried over from the tens, where 7 + 8 = 15, so the hundreds come to 12 instead of 13. With the carry, 3,770 + 2,580 = 6,350.",
+        "D": "6,360 puts a 6 in the tens, but 7 + 8 = 15, so a 5 goes in the tens and a hundred carries over: 3,770 + 2,580 = 6,350."
+      },
+      "content_hash": "b9b273df4d31f63e"
     },
     {
       "id": "MA-SEP-012",
@@ -283,7 +318,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "04131e6fce131b69"
+      "why": {
+        "A": "4/12 comes from adding the tops and the bottoms, 3 + 1 = 4 and 8 + 4 = 12. The bottoms are made to match instead: 1/4 is 2/8, so 3/8 + 2/8 = 5/8.",
+        "B": "1/2 is 4/8, from adding 3 + 1 on the tops and keeping the 8 underneath. Once 1/4 becomes 2/8 it is 3/8 + 2/8 = 5/8.",
+        "C": "7/8 is 3/8 + 4/8, with the 4 from 1/4 copied up as the new top. Two eighths make a quarter, so 1/4 is 2/8: 3/8 + 2/8 = 5/8."
+      },
+      "content_hash": "5d5e80a0a8fd4c36"
     },
     {
       "id": "MA-SEP-014",
@@ -304,7 +344,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "0c3e323264f59430"
+      "why": {
+        "B": "4.75 is 8.75 − 4, the trim rounded up to a whole 4 m. That takes off 10 cm too much, so add them back: 4.75 + 0.10 = 4.85.",
+        "C": "5.15 takes the hundredths the other way round, 90 − 75 = 15, because 75 looked too small to take 90 from. Borrow from the 8 instead: 8.75 − 3.90 = 4.85.",
+        "D": "5.85 keeps all 8 whole metres after one of them has been borrowed. After the borrow there are 7: 7 − 3 = 4, so 4.85 m remains."
+      },
+      "content_hash": "537a6550f4b43d03"
     },
     {
       "id": "MA-SEP-015",
@@ -325,7 +370,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "1761c6183cad7efc"
+      "why": {
+        "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty per cent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
+      },
+      "content_hash": "5e440d0965133dd3"
     },
     {
       "id": "MA-SEP-016",
@@ -346,7 +394,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "eb84e8052a227ed2"
+      "why": {
+        "A": "7,350 leaves out the hundred carried over from the tens, where 5 + 9 + 1 = 15, so the hundreds come to 13 instead of 14. With the carry, 4,455 + 2,995 = 7,450.",
+        "C": "7,460 rounds 2,995 up to 3,000 and then adds the extra five on instead of taking it back off. 4,455 + 3,000 = 7,455, and 7,455 − 5 = 7,450.",
+        "D": "7,550 puts a 5 in the hundreds, but that column is 4 + 9 + 1 = 14, so a 4 goes there and the total is 7,450."
+      },
+      "content_hash": "9afbcf2f51c79bc0"
     },
     {
       "id": "MA-SEP-017",
@@ -388,7 +441,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "38089c2031734f7b"
+      "why": {
+        "A": "80 is 10 × 8, from adding the 6 and the 4 first. Multiplying comes first: 4 × 8 = 32, then 32 + 6 = 38.",
+        "B": "42 is 38 + 4, with the 4 counted once on its own and again in the 4 × 8. The 4 is only there to multiply: 4 × 8 = 32, then 32 + 6 = 38.",
+        "D": "30 is 38 − 8, one eight short — only three of the four eights added on. There are four: 4 × 8 = 32, then 32 + 6 = 38."
+      },
+      "content_hash": "ec54d2d7f4494f43"
     },
     {
       "id": "MA-SEP-019",
@@ -502,7 +560,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "525d0ee80b17e39e"
+      "why": {
+        "A": "9,000 is 5,400 + 3,600, both numbers rounded to the nearest hundred. Added exactly, 5,414 + 3,576 = 8,990.",
+        "D": "8,890 puts an 8 in the hundreds, but that column is 4 + 5 = 9, so the total is 8,990."
+      },
+      "content_hash": "0c16fbcde1db142c"
     },
     {
       "id": "MA-SEP-024",
@@ -523,7 +585,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W1-S2",
-      "content_hash": "87c6d306735ff3a3"
+      "why": {
+        "B": "3 is the 3 from \"three quarters\", the number of quarter-yards. Each quarter makes two eighth-yard strips, so 3 × 2 = 6.",
+        "C": "4 is the 4 from \"three quarters\" — the number of parts a yard splits into, not a number of strips. Three quarters is the same as 6/8, so it makes 6 strips.",
+        "D": "8 is how many eighth-yard strips a whole yard makes. Only three quarters of a yard is used, and 3/4 is 6/8, so it makes 6 strips."
+      },
+      "content_hash": "a225341bab30688c"
     },
     {
       "id": "MA-SEP-025",
@@ -595,7 +662,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "686841b5d3e50644"
+      "why": {
+        "D": "135 is 180 − 45, with the 60° angle never taken off. Both known angles come off the 180: 180 − 45 − 60 = 75."
+      },
+      "content_hash": "bb7d129256f790f4"
     },
     {
       "id": "MA-SEP-028",
@@ -694,7 +764,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "f33e1a278f9da26c"
+      "why": {
+        "A": "115 is 180 − 65, with the 55° angle never taken off. Both known angles come off the 180: 180 − 65 − 55 = 60."
+      },
+      "content_hash": "45f81c8fbe2c3888"
     },
     {
       "id": "MA-SEP-032",
@@ -792,7 +865,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S1",
-      "content_hash": "c44dc26d3aded6c4"
+      "why": {
+        "C": "135 is 180 − 45, with the 75° angle never taken off. Both known angles come off the 180: 180 − 45 − 75 = 60."
+      },
+      "content_hash": "cafca878c932e5bf"
     },
     {
       "id": "MA-SEP-036",
@@ -902,7 +978,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "810df10fa3376cf7"
+      "why": {
+        "B": "56 is four fifths of 70, from halving the bottom of 4/10 and leaving the top alone. Four tenths means 70 ÷ 10 = 7, then 7 × 4 = 28."
+      },
+      "content_hash": "6244cdad4dc54a29"
     },
     {
       "id": "MA-SEP-041",
@@ -970,7 +1049,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "faf0221e1a4c59a7"
+      "why": {
+        "A": "11 is 88 ÷ 8, one eighth of the 88 rather than one quarter — one halving too many. A quarter is two halvings: 88 ÷ 2 = 44, then 44 ÷ 2 = 22."
+      },
+      "content_hash": "de80099a78c34780"
     },
     {
       "id": "MA-SEP-044",
@@ -991,7 +1073,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "5877f95b3eae6f44"
+      "why": {
+        "C": "84 is 7 × 12, twelve sevens rather than six — the six doubled. Halve it back: 84 ÷ 2 = 42."
+      },
+      "content_hash": "879f0753ab3ac434"
     },
     {
       "id": "MA-SEP-045",
@@ -1037,7 +1122,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "04f1397f2b59115a"
+      "why": {
+        "A": "55 is 50 + 5, one five added on to the ten fives instead of three. Ten fives make 50 and three more make 15, so 50 + 15 = 65.",
+        "C": "75 is 50 + 25 — after 5 × 10 = 50, the next step multiplied by 5 again instead of by 3. Three fives make 15, so 50 + 15 = 65."
+      },
+      "content_hash": "44a234e4f09cdc71"
     },
     {
       "id": "MA-SEP-047",
@@ -1058,7 +1147,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W2-S2",
-      "content_hash": "e41959e0ee8cde22"
+      "why": {
+        "D": "25 is 2.5 × 10, counted as if a foot were ten inches. A foot is twelve inches: 2.5 × 12 = 30."
+      },
+      "content_hash": "f2f4ffd4b244ac95"
     },
     {
       "id": "MA-SEP-048",
@@ -1103,7 +1195,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "752c67309e3cf6ad"
+      "why": {
+        "A": "56 is the area of the six outside faces added together — the paper to wrap the box, not the space inside it. The space inside is 6 × 2 × 2 = 24.",
+        "C": "14 is 6 × 2 + 2, two sides multiplied and the third one added on. All three multiply: 6 × 2 = 12, then 12 × 2 = 24.",
+        "D": "10 is 6 + 2 + 2, the three sides added instead of multiplied. Volume multiplies them: 6 × 2 × 2 = 24."
+      },
+      "content_hash": "5e21cfdf3769962b"
     },
     {
       "id": "MA-SEP-050",
@@ -1148,7 +1245,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "a88da635c7ac6875"
+      "why": {
+        "A": "56 is the middle of 54 and 58 on their own, with the 62 left out. All three readings count: 54 + 58 + 62 = 174, and 174 ÷ 3 = 58.",
+        "B": "60 is the middle of 58 and 62, with the 54 left out. Add all three, then share: 174 ÷ 3 = 58.",
+        "D": "174 is the three readings added up — the total, not the mean. Share it between the three days: 174 ÷ 3 = 58."
+      },
+      "content_hash": "03c3609e9c196d3d"
     },
     {
       "id": "MA-SEP-052",
@@ -1169,7 +1271,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "d777c3de131c0993"
+      "why": {
+        "B": "13 is 66 − 53, the biggest take away the smallest — the spread of the numbers, not the middle one. With five numbers in order, the middle is the third: 59.",
+        "C": "62 is the fourth number in order, one step past the middle. With five numbers, the middle is the third one: 59.",
+        "D": "56 is the second number in order, one step short of the middle. With five numbers, the middle is the third one: 59."
+      },
+      "content_hash": "0527586913999886"
     },
     {
       "id": "MA-SEP-053",
@@ -1190,7 +1297,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "23ae5acedf9aa36f"
+      "why": {
+        "B": "56 is the smallest number in the list, and it appears only once. The mode is the one that turns up most often: 59 is there twice.",
+        "C": "61 appears just once, the same as 56 and 64. Only 59 is repeated, so 59 is the mode.",
+        "D": "64 is the biggest number here, not the most common one. 59 is the one written twice."
+      },
+      "content_hash": "021615df257ee60b"
     },
     {
       "id": "MA-SEP-054",
@@ -1211,7 +1323,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "74864c8a3d57dcc4"
+      "why": {
+        "A": "22 is 6 × 3 + 4, two sides multiplied and the third one added on. All three multiply: 6 × 3 = 18, then 18 × 4 = 72.",
+        "C": "13 is 6 + 3 + 4, the three sides added instead of multiplied. Volume multiplies them: 6 × 3 × 4 = 72.",
+        "D": "108 is the six outside faces added together — the skin of the box, not what fits inside it. Inside is 6 × 3 × 4 = 72."
+      },
+      "content_hash": "dc104b752b7597fa"
     },
     {
       "id": "MA-SEP-055",
@@ -1232,7 +1349,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "50cac1ce0d78e9be"
+      "why": {
+        "A": "80 is 8 × 10, as if a foot held ten inches. A foot holds 12, so 8 × 12 = 96.",
+        "B": "20 is 8 + 12, the two numbers added instead of multiplied. Each of the 8 feet is 12 inches long: 8 × 12 = 96.",
+        "C": "24 is 8 × 3, three counted for each foot — but 3 is the feet in a yard. Inches go 12 to a foot: 8 × 12 = 96."
+      },
+      "content_hash": "7a7bb8c1aca7e44b"
     },
     {
       "id": "MA-SEP-056",
@@ -1253,7 +1375,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "23c38bf5f60662b9"
+      "why": {
+        "A": "61 is the middle of 59 and 63 on their own, with the 67 left out. All three readings go in: 59 + 63 + 67 = 189, and 189 ÷ 3 = 63.",
+        "B": "189 is the three readings added up — the total, not the mean. Share it between the three: 189 ÷ 3 = 63.",
+        "D": "65 is the middle of 63 and 67, with the 59 left out. Add all three first: 189 ÷ 3 = 63."
+      },
+      "content_hash": "0aad0583d743957d"
     },
     {
       "id": "MA-SEP-057",
@@ -1274,7 +1401,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "9789ac445d005e60"
+      "why": {
+        "A": "13 is 71 − 58, the biggest take away the smallest — the spread of the numbers, not the middle one. In order, the middle of five is the third: 64.",
+        "B": "67 is the fourth number in order, one step past the middle. With five numbers, the middle is the third one: 64.",
+        "D": "61 is the second number in order, one step short of the middle. With five numbers, the middle is the third one: 64."
+      },
+      "content_hash": "7dfdaf08cef56696"
     },
     {
       "id": "MA-SEP-058",
@@ -1295,7 +1427,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "0eb92cb1c8263417"
+      "why": {
+        "A": "66 appears just once, the same as 61 and 69. The mode is the repeated one, and 64 is there twice.",
+        "B": "69 is the biggest number in the list, not the most common one. 64 is the one written twice.",
+        "C": "61 is the smallest number here, and it appears only once. 64 appears twice, so 64 is the mode."
+      },
+      "content_hash": "eb77916d72fd019f"
     },
     {
       "id": "MA-SEP-059",
@@ -1316,7 +1453,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S1",
-      "content_hash": "9e37f0cb05cc4e6f"
+      "why": {
+        "A": "4/6 sets the reds against the blues. A chance is out of every marble in the bag, and there are 10 of them: 4/10.",
+        "B": "1/10 is the chance of one particular marble out of the ten. Any of the 4 reds would do, so it is 4/10.",
+        "C": "6/10 is the blue share — 6 blue out of 10 marbles. The reds are the other 4: 4/10."
+      },
+      "content_hash": "03844834c12cee23"
     },
     {
       "id": "MA-SEP-060",
@@ -1361,7 +1503,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "cfbe78c69f0a1036"
+      "why": {
+        "A": "7 is 3 + 2 + 2, the three sides added instead of multiplied. Volume multiplies them: 3 × 2 × 2 = 12.",
+        "B": "8 is 3 × 2 + 2, two sides multiplied and the third one added on. All three multiply: 3 × 2 = 6, then 6 × 2 = 12.",
+        "C": "32 is the six outside faces added together — the skin of the block, not the space inside it. Inside is 3 × 2 × 2 = 12."
+      },
+      "content_hash": "20b52261b791f482"
     },
     {
       "id": "MA-SEP-062",
@@ -1382,7 +1529,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "48378311ec5b673d"
+      "why": {
+        "A": "24 is 8 × 3, three counted for each foot — but 3 is the feet in a yard. Inches go 12 to a foot: 8 × 12 = 96.",
+        "C": "80 is 8 × 10, as if a foot held ten inches. It holds 12, so 8 × 12 = 96.",
+        "D": "20 is 8 + 12, the two numbers added instead of multiplied. Each of the 8 feet is 12 inches long: 8 × 12 = 96."
+      },
+      "content_hash": "4ce248a3d89ce618"
     },
     {
       "id": "MA-SEP-063",
@@ -1403,7 +1555,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "942de79ed6e7af41"
+      "why": {
+        "A": "66 is the smallest number in the list, and it turns up only once. 69 turns up twice, so 69 is the mode.",
+        "B": "71 appears just once, the same as 66 and 74. Only 69 is repeated.",
+        "C": "74 is the biggest number here, not the most common one. 69 is the one written twice."
+      },
+      "content_hash": "aa961b5fb1107e88"
     },
     {
       "id": "MA-SEP-064",
@@ -1424,7 +1581,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "80be2c007f6e995d"
+      "why": {
+        "A": "69 is the middle of 67 and 71 on their own, with the 75 left out. All three count: 67 + 71 + 75 = 213, and 213 ÷ 3 = 71.",
+        "B": "213 is the three numbers added up — the total, not the mean. Share it between the three: 213 ÷ 3 = 71.",
+        "C": "73 is the middle of 71 and 75, with the 67 left out. Add all three first: 213 ÷ 3 = 71."
+      },
+      "content_hash": "2d8daecfb32efee6"
     },
     {
       "id": "MA-SEP-065",
@@ -1445,7 +1607,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "6a8e03679a5c99a0"
+      "why": {
+        "A": "69 is the second number in order, one step short of the middle. With five numbers, the middle is the third one: 72.",
+        "B": "75 is the fourth number in order, one step past the middle. With five numbers, the middle is the third one: 72.",
+        "D": "13 is 79 − 66, the biggest take away the smallest — the spread of the numbers, not the middle one. In order, the middle of five is the third: 72."
+      },
+      "content_hash": "7a015b9a8b9bd217"
     },
     {
       "id": "MA-SEP-066",
@@ -1466,7 +1633,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "ed4c49fc318cc824"
+      "why": {
+        "B": "1/6 is the chance of one particular marble out of the six. Any of the 3 reds counts, so it is 3/6.",
+        "D": "3/3 sets the reds against the blues, and it would mean red every time. A chance is out of all 6 marbles: 3/6."
+      },
+      "content_hash": "930ffcfb3f768bd3"
     },
     {
       "id": "MA-SEP-067",
@@ -1487,7 +1658,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "64e4d2784a1706e2"
+      "why": {
+        "A": "18 is 4 × 4 + 2, two sides multiplied and the third one added on. All three multiply: 4 × 4 = 16, then 16 × 2 = 32.",
+        "C": "10 is 4 + 4 + 2, the three sides added instead of multiplied. Volume multiplies them: 4 × 4 × 2 = 32.",
+        "D": "64 is 4 × 4 × 4, the third side counted as 4 when it is only 2. Use the sides as they are: 4 × 4 × 2 = 32."
+      },
+      "content_hash": "393f740e6f577ae7"
     },
     {
       "id": "MA-SEP-068",
@@ -1508,7 +1684,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "ea467f77e936ae3b"
+      "why": {
+        "B": "70 is 7 × 10, as if a foot held ten inches. It holds 12, so 7 × 12 = 84.",
+        "C": "19 is 7 + 12, the two numbers added instead of multiplied. Each of the 7 feet is 12 inches long: 7 × 12 = 84.",
+        "D": "21 is 7 × 3, three counted for each foot — but 3 is the feet in a yard. Inches go 12 to a foot: 7 × 12 = 84."
+      },
+      "content_hash": "ab0841835db5d3de"
     },
     {
       "id": "MA-SEP-069",
@@ -1529,7 +1710,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "e992616789a5a0e9"
+      "why": {
+        "A": "72 is the smallest number in the list, and it shows up only once. 75 shows up twice, so 75 is the mode.",
+        "B": "80 is the biggest number here, not the most common one. 75 is the one written twice.",
+        "D": "77 appears just once, the same as 72 and 80. Only 75 is repeated."
+      },
+      "content_hash": "836d77ea7b24f321"
     },
     {
       "id": "MA-SEP-070",
@@ -1550,7 +1736,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "9ea159fe6a7b8cc3"
+      "why": {
+        "B": "75 is the middle of 73 and 77 on their own, with the 81 left out. All three count: 73 + 77 + 81 = 231, and 231 ÷ 3 = 77.",
+        "C": "79 is the middle of 77 and 81, with the 73 left out. Add all three first: 231 ÷ 3 = 77.",
+        "D": "231 is the three numbers added up — the total, not the mean. Share it between the three: 231 ÷ 3 = 77."
+      },
+      "content_hash": "9481b9048baf6577"
     },
     {
       "id": "MA-SEP-071",
@@ -1571,7 +1762,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "003a0e0245115937"
+      "why": {
+        "A": "81 is the fourth number in order, one step past the middle. With five numbers, the middle is the third one: 78.",
+        "C": "13 is 85 − 72, the biggest take away the smallest — that is the spread, not the middle. The middle of five in order is the third: 78.",
+        "D": "75 is the second number in order, one step short of the middle. With five numbers, the middle is the third one: 78."
+      },
+      "content_hash": "86e04fbd21df0eae"
     },
     {
       "id": "MA-SEP-072",
@@ -1592,7 +1788,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W3-S2",
-      "content_hash": "400a6517a5f50d31"
+      "why": {
+        "B": "4/9 is the blue share — 4 blue out of the 9 marbles. The reds are the other 5: 5/9.",
+        "C": "1/9 is the chance of one particular marble out of the nine. Any of the 5 reds counts, so it is 5/9.",
+        "D": "5/4 sets the reds against the blues. A chance is out of every marble, and there are 9 altogether: 5/9."
+      },
+      "content_hash": "53535015d0e6172e"
     },
     {
       "id": "MA-SEP-073",
@@ -1637,7 +1838,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "4ec680f2ad66475d"
+      "why": {
+        "A": "164 is even, but its digits add to 1 + 6 + 4 = 11, which is not in the 3 times table. The digits of 24 add to 6, and 6 is a multiple of 3.",
+        "B": "166 is even, but its digits add to 1 + 6 + 6 = 13, so 3 will not divide it. The digits of 24 add to 6, and 6 is a multiple of 3.",
+        "C": "170 is even, but its digits add to 1 + 7 + 0 = 8, so it is not a multiple of 3. The digits of 24 add to 6, and 6 is a multiple of 3."
+      },
+      "content_hash": "df58a07fd73610a7"
     },
     {
       "id": "MA-SEP-075",
@@ -1683,7 +1889,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "14b6007885125041"
+      "why": {
+        "A": "3 is the 3 from three quarters, the top number read straight off. Turn 3/4 into eighths first: 3/4 = 6/8, which is six samples.",
+        "C": "4 is the 4 from three quarters, the bottom number read straight off. It is the size of the pieces, not how many: 3/4 = 6/8, so six samples.",
+        "D": "8 is how many eighths fit in a whole cup. Only three quarters of a cup is being shared out, and 3/4 = 6/8, so six."
+      },
+      "content_hash": "62f7d7576411d88d"
     },
     {
       "id": "MA-SEP-077",
@@ -1802,7 +2013,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "fce40e9912c55205"
+      "why": {
+        "A": "264 is 84 + 88 + 92, the total before it is shared out. Divide by the three numbers: 264 ÷ 3 = 88.",
+        "C": "86 is the average of just 84 and 88, with the 92 left out. All three numbers count: 84 + 88 + 92 = 264, and 264 ÷ 3 = 88.",
+        "D": "90 is the average of just 88 and 92, with the 84 left out. All three numbers count: 84 + 88 + 92 = 264, and 264 ÷ 3 = 88."
+      },
+      "content_hash": "2d70d1db88c72f0b"
     },
     {
       "id": "MA-SEP-082",
@@ -1847,7 +2063,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S1",
-      "content_hash": "3f7794a06bd777be"
+      "why": {
+        "A": "184 is even, but that is only half of what the code needs: its digits add to 1 + 8 + 4 = 13, not 6. Only 24 does both — even, with 2 + 4 = 6.",
+        "C": "182 is even, but its digits add to 1 + 8 + 2 = 11. The code has to pass both tests, and 24 is even with 2 + 4 = 6.",
+        "D": "188 is even, but its digits add to 1 + 8 + 8 = 17, well past 6. Only 24 is even and has digits adding to 6."
+      },
+      "content_hash": "5afb8221925845a4"
     },
     {
       "id": "MA-SEP-084",
@@ -1917,7 +2138,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "55e58002d501b399"
+      "why": {
+        "B": "2/3 is 4/6, which comes from taking the 1 off the 5 and keeping the sixths. One third is really 2/6, so 5/6 − 2/6 = 3/6, which is 1/2.",
+        "C": "1/3 is the closed part of the path, not the part that is paved and open. Take it off the paved part: 5/6 − 2/6 = 3/6, which is 1/2.",
+        "D": "4/3 takes the tops away from each other, 5 − 1 = 4, and the bottoms too, 6 − 3 = 3. Bottoms never subtract: match them first and 5/6 − 2/6 = 3/6, which is 1/2."
+      },
+      "content_hash": "888905911f67b4ee"
     },
     {
       "id": "MA-SEP-087",
@@ -1962,7 +2188,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "9eee2351a1d10b75"
+      "why": {
+        "A": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28."
+      },
+      "content_hash": "59826a451a3e10c1"
     },
     {
       "id": "MA-SEP-089",
@@ -2009,7 +2238,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "a12baecd9437c914"
+      "why": {
+        "A": "25 is 7 × 3 + 4, two of the sides multiplied and the third one added on. Volume multiplies all three: 7 × 3 = 21, then 21 × 4 = 84.",
+        "B": "122 is how much paper would cover all six faces, not the space inside the box. Volume multiplies the three sides: 7 × 3 = 21, then 21 × 4 = 84.",
+        "D": "14 is 7 + 3 + 4, the three sides added rather than multiplied. Volume multiplies them: 7 × 3 = 21, then 21 × 4 = 84."
+      },
+      "content_hash": "3303ae294c913107"
     },
     {
       "id": "MA-SEP-091",
@@ -2030,7 +2264,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "9ceaec7393307f80"
+      "why": {
+        "A": "27 is 9 × 3, as if a foot were 3 inches — 3 is the number of feet in a yard. A foot is 12 inches, so 9 × 12 = 108.",
+        "B": "90 is 9 × 10, as if a foot were ten inches. A foot is twelve, so 9 × 12 = 108.",
+        "C": "21 is 9 + 12, the feet and the twelve added rather than multiplied. Each of the 9 feet holds 12 inches: 9 × 12 = 108."
+      },
+      "content_hash": "250e2563ddbb4227"
     },
     {
       "id": "MA-SEP-092",
@@ -2051,7 +2290,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "d4abadf9ea686824"
+      "why": {
+        "B": "95 is the lowest number on the list. The mode is the one that turns up most often, and 98 is there twice.",
+        "C": "103 is the highest number on the list. The mode is the one that turns up most often, and only 98 appears twice."
+      },
+      "content_hash": "29e622288164e6cc"
     },
     {
       "id": "MA-SEP-093",
@@ -2072,7 +2315,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "174de0a7e0c55bb7"
+      "why": {
+        "B": "1/7 is one marble out of the seven, but 2 of them are red. Two out of seven is 2/7.",
+        "C": "5/7 is the chance of a blue marble, the other colour in the bag. Two of the 7 marbles are red, so 2/7.",
+        "D": "2/5 sets the 2 red marbles against the 5 blue ones. A chance counts them against every marble in the bag: 2 + 5 = 7, so 2/7."
+      },
+      "content_hash": "d3e8732e7cfecf3a"
     },
     {
       "id": "MA-SEP-094",
@@ -2093,7 +2341,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "22323b390a5eedb3"
+      "why": {
+        "A": "215 is odd, and every multiple of 6 is even. The 6s land on 210 and then 216, stepping straight over 215.",
+        "C": "211 is odd, so no number of 6s can land on it. They go 204, 210, 216 — and 211 is not among them.",
+        "D": "206 is even, but a multiple of 6 also has to be in the 3 times table, and its digits add to 8, which is not. 6 × 34 = 204, two short of 206."
+      },
+      "content_hash": "74e7c6dc8558b679"
     },
     {
       "id": "MA-SEP-095",
@@ -2139,7 +2392,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W4-S2",
-      "content_hash": "f00696e26a6bfd4e"
+      "why": {
+        "A": "101 is the average of just 99 and 103, with the 107 left out. All three numbers count: 99 + 103 + 107 = 309, and 309 ÷ 3 = 103.",
+        "C": "105 is the average of just 103 and 107, with the 99 left out. All three numbers count: 99 + 103 + 107 = 309, and 309 ÷ 3 = 103.",
+        "D": "309 is 99 + 103 + 107, the total before it is shared out. Divide by the three numbers: 309 ÷ 3 = 103."
+      },
+      "content_hash": "5b85bcbd17ed32b6"
     },
     {
       "id": "MA-SEP-097",

@@ -22,7 +22,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "a02a2d0b654b5fd0"
+      "why": {
+        "A": "32/5 writes the 3 and the 2 side by side on the top. The 3 wholes are 3 × 5 = 15 fifths, and 15 + 2 = 17, so 17/5.",
+        "C": "11/5 gets its 11 from 3 × 2 = 6 and then + 5, the right steps done on the wrong two numbers. The whole multiplies the bottom: 3 × 5 = 15, and 15 + 2 = 17, so 17/5.",
+        "D": "13/5 is 2 3/5, the 3 and the 2 swapped round. The 3 is the whole part here: 3 × 5 = 15, and 15 + 2 = 17, so 17/5."
+      },
+      "content_hash": "8ba61e8a59b47f2d"
     },
     {
       "id": "MA-W5-S1-Q02",
@@ -43,7 +48,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "7790c3f85fc26083"
+      "why": {
+        "A": "5/12 is 2/12 + 3/12, with 2/3 turned into 2/12 by multiplying only the bottom. Both numbers multiply by 4, so 2/3 is 8/12 and 8/12 + 3/12 = 11/12.",
+        "C": "7/12 is 4/12 + 3/12, and 2/3 is not 4/12 — the 4 is what you multiply by, not the new top number. Multiply both parts by 4: 2/3 is 8/12, so 8/12 + 3/12 = 11/12.",
+        "D": "3/7 adds the tops, 2 + 1 = 3, and the bottoms, 3 + 4 = 7. Bottoms never add: put both fractions in twelfths first, then 8/12 + 3/12 = 11/12."
+      },
+      "content_hash": "74ce1b2d7aa2cbd3"
     },
     {
       "id": "MA-W5-S1-Q03",
@@ -64,7 +74,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "20c3afa63317a8a4"
+      "why": {
+        "A": "5/11 takes 7 − 2 = 5 on the top, then adds the bottoms out of habit, 8 + 3 = 11. The bottoms are made to match, not added: 21/24 − 16/24 = 5/24.",
+        "B": "13/24 is what adding gives: 21/24 + 16/24 = 37/24, which is 1 and 13/24. This one takes away: 21/24 − 16/24 = 5/24."
+      },
+      "content_hash": "1773dae67f6ec785"
     },
     {
       "id": "MA-W5-S1-Q04",
@@ -85,7 +99,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "acccc58443492704"
+      "why": {
+        "A": "6/9 multiplies the tops, 3 × 2 = 6, but adds the bottoms, 4 + 5 = 9. The bottoms multiply too: 4 × 5 = 20, and 6/20 is 3/10.",
+        "B": "1 7/8 is 3/4 ÷ 2/5, the second fraction flipped over — that is how you divide, not how you multiply. Multiplying needs no flip: 6 over 20, which is 3/10.",
+        "C": "5/9 adds where it should multiply: 3 + 2 = 5 on the top and 4 + 5 = 9 underneath. Multiply straight across instead: 6 over 20, which is 3/10."
+      },
+      "content_hash": "a746ee8f99b95228"
     },
     {
       "id": "MA-W5-S1-Q05",
@@ -106,7 +125,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "653ca606b76d5d8d"
+      "why": {
+        "D": "5/32 is 5/8 × 1/4, the two fractions multiplied instead of divided. Dividing by 1/4 asks how many quarters fit inside 5/8: 5/8 × 4 = 20/8, which is 2 1/2."
+      },
+      "content_hash": "6bba31442f1a95b1"
     },
     {
       "id": "MA-W5-S1-Q06",
@@ -127,7 +149,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "64f7313f2ac48275"
+      "why": {
+        "A": "2 3/10 multiplies the wholes on their own, 2 × 1 = 2, and the fractions on their own, 1/2 × 3/5 = 3/10. Turn both into improper fractions instead: 5/2 × 8/5 = 40/10 = 4."
+      },
+      "content_hash": "4a94e8aa5bf87e2b"
     },
     {
       "id": "MA-W5-S1-Q07",
@@ -148,7 +173,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "c764b81e6868f03f"
+      "why": {
+        "A": "4.2 is 0.6 × 7, with the 0.07 read as a whole 7. Count the places: 0.6 has one and 0.07 has two, so 6 × 7 = 42 becomes 0.042.",
+        "B": "0.42 is 0.6 × 0.7, one decimal place short, because 0.07 is much smaller than 0.7. There are three places in all, so the answer is 0.042.",
+        "C": "0.0042 counts four decimal places instead of three. There are three, one in the 0.6 and two in the 0.07, so 6 × 7 = 42 becomes 0.042."
+      },
+      "content_hash": "d3a39392d7e04300"
     },
     {
       "id": "MA-W5-S1-Q08",
@@ -169,7 +199,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "a0c7a575d788121e"
+      "why": {
+        "B": "45 is 40.5 ÷ 0.9, the point moved in the 4.05 but not in the 0.9. Move it in both: 40.5 ÷ 9 = 4.5.",
+        "C": "0.45 is 4.05 ÷ 9, the point moved in the 0.9 but not in the 4.05. Move it in both: 40.5 ÷ 9 = 4.5."
+      },
+      "content_hash": "a6ffe176680a847d"
     },
     {
       "id": "MA-W5-S1-Q09",
@@ -190,7 +224,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "4776efcca4345d5f"
+      "why": {
+        "A": "4.5 is 7.3 − 2.8, with the last digit of the 2.85 dropped. Write 7.3 as 7.30 and take all of it: 7.30 − 2.85 = 4.45.",
+        "B": "5.45 borrows a ten for the tenths but leaves the 7 untouched. Borrowing turns that 7 into a 6, so 7.30 − 2.85 = 4.45.",
+        "D": "4.55 reads the last column backwards, doing 5 − 0 instead of taking 5 from 0. Borrow for that column instead: 7.30 − 2.85 = 4.45."
+      },
+      "content_hash": "1bed92512140a1f1"
     },
     {
       "id": "MA-W5-S1-Q10",
@@ -211,7 +250,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "9434a37b6aaec3d8"
+      "why": {
+        "B": "0.625 is 5/8, the five eighths left over rather than the three you were asked for. Divide the 3 by the 8: 3 ÷ 8 = 0.375."
+      },
+      "content_hash": "8431cecfd1b5345c"
     },
     {
       "id": "MA-W5-S1-Q11",
@@ -232,7 +274,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "5bb5a5a686545092"
+      "why": {
+        "A": "450% is the point moved four places instead of two, which is × 100 done twice. Per cent is exactly two places: 0.045 becomes 4.5%.",
+        "C": "0.45% moves the point one place, not two. Two places from 0.045 gives 4.5%.",
+        "D": "45% is what 0.45 would be as a percent, and 0.045 is ten times smaller than that. Two places from 0.045 gives 4.5%."
+      },
+      "content_hash": "f3ca69196b0de048"
     },
     {
       "id": "MA-W5-S1-Q12",
@@ -277,7 +324,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "a62b2caa2a659800"
+      "why": {
+        "A": "4 3/4 comes from adding the 2 batches on rather than doubling: 2 3/4 + 2 = 4 3/4. Two batches means twice as much: 2 3/4 + 2 3/4 = 5 1/2 cups.",
+        "B": "5 3/4 turns the 6/4 into 1 3/4 by keeping the 3 you started with. Six quarters is one whole and 2/4, so 4 + 1 1/2 = 5 1/2 cups.",
+        "C": "6 is 3 × 2, the 2 3/4 rounded up to 3 whole cups first. Keep the quarters: 2 3/4 + 2 3/4 = 5 1/2 cups."
+      },
+      "content_hash": "ccd68ce1bad3df9f"
     },
     {
       "id": "MA-W5-S2-Q02",
@@ -298,7 +350,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "1d116352fc0a1aed"
+      "why": {
+        "A": "1/6 halves the 2 on top and doubles the 3 underneath, which halves it twice over. Either one on its own is enough: half of 2/3 is 1/3 cup.",
+        "B": "1/2 is the half from the question, not half of the milk. Half of the 2/3 cup is 1/3 cup.",
+        "D": "1 1/3 is 2/3 × 2, the recipe doubled rather than halved. Half of 2/3 is 2/6, which is 1/3 cup."
+      },
+      "content_hash": "140b5f47e3da909d"
     },
     {
       "id": "MA-W5-S2-Q03",
@@ -319,7 +376,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "8bcce6b6d6127e97"
+      "why": {
+        "B": "2 1/3 is 3 1/3 − 1, the 5/6 rounded up to a whole cup. Five sixths is a little less than one: 20/6 − 5/6 = 15/6, which is 2 1/2 cups.",
+        "C": "3 1/6 is 3 1/3 − 1/6, the sixth left in the cup taken off rather than the 5/6 poured out. Take all five sixths: 20/6 − 5/6 = 15/6, which is 2 1/2 cups."
+      },
+      "content_hash": "ab7b6266682a14f9"
     },
     {
       "id": "MA-W5-S2-Q04",
@@ -340,7 +401,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "f3d1403828e7d8c2"
+      "why": {
+        "A": "3 3/8 comes from multiplying by 3/4 instead of dividing by it: 4 1/2 × 3/4 = 3 3/8. Asking how many 3/4-foot pieces fit is a division: 9/2 ÷ 3/4 = 9/2 × 4/3 = 6.",
+        "C": "5 is the number of cuts you make, and that is always one fewer than the number of pieces. The pieces come to 9/2 ÷ 3/4 = 6."
+      },
+      "content_hash": "318514f136444537"
     },
     {
       "id": "MA-W5-S2-Q05",
@@ -361,7 +426,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "6d3531652bae7305"
+      "why": {
+        "C": "$32.40 is the right digits with the point one place too far over. 1.35 and 2.4 have three decimal places between them, so 135 × 24 = 3240 becomes 3.240, which is $3.24.",
+        "D": "$3.42 is the answer with its last two digits swapped round. 1.35 × 2 = 2.70 and 1.35 × 0.4 = 0.54, and 2.70 + 0.54 = 3.24."
+      },
+      "content_hash": "fc83e81c17fd6ef1"
     },
     {
       "id": "MA-W5-S2-Q06",
@@ -454,7 +523,11 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "707799210bc6e25e"
+      "why": {
+        "A": "15% is the 15 who play read straight off as a percent, as if the choir had 100 people in it. Out of 40 it is 15/40 = 0.375, which is 37.5%.",
+        "C": "62.5% is the share who do not play an instrument — the other 25 of the 40. The 15 who do play are 15 out of 40, and 15/40 = 0.375, or 37.5%."
+      },
+      "content_hash": "be59bf9dc32b77ae"
     },
     {
       "id": "MA-W5-S2-Q10",
@@ -499,7 +572,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W5",
-      "content_hash": "02a74fda365b964f"
+      "why": {
+        "A": "3/5 works out at 0.6, a hundredth under 0.61 and less than 5/8. Dividing 5 by 8 gives 0.625, the biggest of the four.",
+        "C": "58% looks like the biggest number here, but a percent counts hundredths: 58% is 0.58, the smallest of the four. 5/8 is 0.625.",
+        "D": "0.61 beats 0.6 and 0.58, so it wins if 5/8 is left as a fraction. As a decimal, 5 ÷ 8 = 0.625, which is bigger still."
+      },
+      "content_hash": "61cf06400c2e6565"
     },
     {
       "id": "MA-W5-S2-Q12",
@@ -569,7 +647,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "3d26938557043ba2"
+      "why": {
+        "A": "100° is one of the angles you were already given, copied down again. The four angles make 360°, so the missing one is 360 − 100 − 85 − 65 = 110.",
+        "B": "120° comes from the three angles you have adding to 240, which happens when the carry goes missing in 85 + 65. That pair makes 150, so the three make 250 and 360 − 250 = 110.",
+        "D": "70° is 250 − 180, the three angles measured against 180° — and 180° is a triangle's total. Four angles make 360°, so 360 − 250 = 110."
+      },
+      "content_hash": "8a6cf1758ef427b4"
     },
     {
       "id": "MA-W6-S1-Q03",
@@ -590,7 +673,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "e15b9b7397acbb8c"
+      "why": {
+        "B": "73° is 100 − 27, the 27 taken off a hundred rather than off the right angle. The two acute angles share 90°, so 90 − 27 = 63.",
+        "C": "27° is the angle you were given, handed back. The other acute angle is what is left of the 90°: 90 − 27 = 63.",
+        "D": "153° is 180 − 27, the 27 taken off all 180° with the right angle forgotten. The right angle uses up 90, leaving 90 − 27 = 63."
+      },
+      "content_hash": "9d8bbceda1be9907"
     },
     {
       "id": "MA-W6-S1-Q04",
@@ -763,7 +851,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "d52975e87578af65"
+      "why": {
+        "A": "(3, 7) goes 4 left but 2 up instead of 2 down. Down makes the second number smaller: 5 − 2 = 3, so the point lands on (3, 3).",
+        "B": "(11, 3) adds the 4 instead of taking it off, which is 4 units right. Left makes the first number smaller: 7 − 4 = 3, giving (3, 3).",
+        "D": "(11, 7) goes right and up — both moves the opposite way round. Left and down both take away: 7 − 4 = 3 and 5 − 2 = 3."
+      },
+      "content_hash": "dd862f608ce7ffe0"
     },
     {
       "id": "MA-W6-S1-Q11",
@@ -810,7 +903,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "eca8cb7b1c2a0555"
+      "why": {
+        "A": "(8, 5) is 6 + 2, using the point's own 2 as its distance from the mirror line. It is really 6 − 2 = 4 away, so its image is at 6 + 4 = 10.",
+        "B": "(2, 7) mirrors the up-and-down number instead: 5 sits 1 below 6, so it moves to 6 + 1 = 7. A mirror on the vertical line x = 6 moves the across number, so the 5 stays put and the 2 travels to 10.",
+        "D": "(6, 5) stops on the mirror line itself. A reflection carries the point the same distance out the far side: 4 units past 6 is 10, so (10, 5)."
+      },
+      "content_hash": "3c3c22d177509bad"
     },
     {
       "id": "MA-W6-S2-Q01",
@@ -855,7 +953,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "490dc4a1f4b9e715"
+      "why": {
+        "A": "100 is 60 + 40, with the triangle counted as a whole 10-by-4 rectangle. A triangle covers half of that: 1/2 × 10 × 4 = 20, so 60 + 20 = 80.",
+        "B": "64 is 60 + 4, the rectangle plus the triangle's height instead of its area. The triangle's area is 1/2 × 10 × 4 = 20, so the figure is 60 + 20 = 80.",
+        "C": "70 is 60 + 10, the rectangle plus the triangle's base instead of its area. For the triangle, multiply then halve: 10 × 4 = 40 and 40 ÷ 2 = 20, so 60 + 20 = 80."
+      },
+      "content_hash": "acdf8250f13c23db"
     },
     {
       "id": "MA-W6-S2-Q03",
@@ -1076,7 +1179,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W6",
-      "content_hash": "1dafbc9e0698dee4"
+      "why": {
+        "B": "(7, 4) slides across but not up — the 4 never got its 3. Up adds to the second number: 4 + 3 = 7, so point C lands on (7, 7).",
+        "C": "(5, 3) is the size of the slide, not where point C ends up. Start at point C and add the slide on: 2 + 5 = 7 and 4 + 3 = 7.",
+        "D": "(2, 7) slides up but not across, leaving the 2 where it was. Right adds to the first number: 2 + 5 = 7, so (7, 7)."
+      },
+      "content_hash": "f74afd6a15dd729b"
     },
     {
       "id": "MA-W6-S2-Q12",
@@ -1218,7 +1326,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "be5efed899239751"
+      "why": {
+        "A": "1/4 is 2 out of 8, one section short of the count. Greater than 5 leaves 6, 7 and 8, so three of the eight sections win: 3/8.",
+        "B": "5/8 is the chance of landing on 5 or less — the other way round. Above 5 there are only 6, 7 and 8, which is 3/8.",
+        "C": "1/2 is 4 out of 8, which counts the 5 itself. Greater than 5 starts at 6, leaving 6, 7 and 8: 3/8."
+      },
+      "content_hash": "9609111b549d9806"
     },
     {
       "id": "MA-W7-S1-Q06",
@@ -1265,7 +1378,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "77df76e85f255327"
+      "why": {
+        "A": "26 is the mean itself rather than the missing number. The five must total 5 × 26 = 130, and the four given come to 103, so the fifth is 130 − 103 = 27.",
+        "B": "25 is 26 − 1, a step below the mean where it needs to be a step above. The four given come to 103, one short of 4 × 26 = 104, so the fifth makes it up: 27.",
+        "D": "33 comes from taking off the 100 and then putting the 3 back on. The 3 comes off too: 130 − 100 = 30, and 30 − 3 = 27."
+      },
+      "content_hash": "858cdf11bd6c648c"
     },
     {
       "id": "MA-W7-S1-Q08",
@@ -1362,7 +1480,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "f8b5dbc17be5abe1"
+      "why": {
+        "B": "3:25 counts only 1 hour of the 2 hours 40 minutes. The full two hours carry 1:45 to 3:45, and 40 minutes more makes 4:25 p.m."
+      },
+      "content_hash": "17ac54b76ce163fb"
     },
     {
       "id": "MA-W7-S1-Q12",
@@ -1383,7 +1504,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "c7f3d9f18759c9bd"
+      "why": {
+        "A": "2/3 is 8 out of 12, the 4 purple counters taken away instead of the 3 yellow ones. Take the yellow out and 9 are left: 9/12 = 3/4.",
+        "B": "1/4 is 3 out of 12, the chance of drawing a yellow one — the opposite of what was asked. The other 9 counters are not yellow: 9/12 = 3/4.",
+        "C": "9/4 comes from 9/12 with only the bottom number divided by 3. Both numbers take the same step: 9 ÷ 3 = 3 and 12 ÷ 3 = 4, so 3/4."
+      },
+      "content_hash": "9477da789aacc737"
     },
     {
       "id": "MA-W7-S2-Q01",
@@ -1404,7 +1530,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "f4531c880b2ad2a0"
+      "why": {
+        "A": "90 is 88 + 2, from counting the 87 as 1 above the 88 instead of 1 below. The three are 6 below, 3 above and 1 below, so 4 has to be made up: 88 + 4 = 92.",
+        "C": "88 is the mean he is aiming for, not the score that gets him there. Four tests averaging 88 must total 4 × 88 = 352, and his three come to 260, so he needs 92.",
+        "D": "94 is 88 + 6, making up the 6 points the 82 fell short by and stopping there. The 91 is 3 above and the 87 is 1 below, so only 4 need making up: 88 + 4 = 92."
+      },
+      "content_hash": "19058f0450a92380"
     },
     {
       "id": "MA-W7-S2-Q02",
@@ -1451,7 +1582,10 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "3ed0128648829944"
+      "why": {
+        "D": "5:15 p.m. takes off the 50 minutes but never the hour. Go back one hour to 5:05, then 50 minutes further back to 4:15 p.m."
+      },
+      "content_hash": "6593ca1bb920662f"
     },
     {
       "id": "MA-W7-S2-Q04",
@@ -1472,7 +1606,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "40a371554d4d252d"
+      "why": {
+        "A": "8/15 is the chance on the very first draw, before a red marble was taken out. Once it has gone, 7 reds are left among 14 marbles: 7/14 = 1/2.",
+        "B": "1/3 counts the three colours instead of the marbles, and the colours are not shared out evenly. Once the red has gone, 7 of the 14 left are red: 7/14 = 1/2.",
+        "D": "7/15 takes the red marble off the top of the fraction but not off the bottom. The jar lost a marble too, so it is 7 out of 14, which is 1/2."
+      },
+      "content_hash": "abf065b2d129de43"
     },
     {
       "id": "MA-W7-S2-Q05",
@@ -1671,7 +1810,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W7",
-      "content_hash": "22676d8954265c8b"
+      "why": {
+        "A": "3 hours 25 minutes counts the three hours up to 12:40 and then takes the minutes the wrong way round, 40 − 15 = 25. From 12:40 to 1:15 is 35 minutes forwards, so 3 hours 35 minutes.",
+        "B": "2 hours 35 minutes is an hour short. From 9:40 a.m. to 12:40 p.m. is three whole hours on its own, and then 35 minutes more reaches 1:15.",
+        "D": "4 hours 35 minutes is an hour too many: 9:40 plus 4 hours would already be 1:40, past the arrival. Three hours reach 12:40, then 35 minutes more."
+      },
+      "content_hash": "14c2d5b93f610026"
     },
     {
       "id": "MA-W8-S1-Q01",
@@ -1817,7 +1961,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "0c922f0ccf702fdb"
+      "why": {
+        "A": "20 is a multiple of 4, but 48 does not divide by it evenly, so it is not a factor of 48. Both tests have to pass, and 12 passes: 4 × 3 = 12 and 48 ÷ 12 = 4.",
+        "B": "32 is a multiple of 4, but it goes into 48 once with 16 left over, so it is not a factor. 12 goes in exactly: 48 ÷ 12 = 4.",
+        "C": "18 is even, and being even is not the same as being a multiple of 4 — the fours run 4, 8, 12, 16, 20 and skip 18. 12 is a multiple of 4 and a factor of 48."
+      },
+      "content_hash": "50218bc8762ee5ce"
     },
     {
       "id": "MA-W8-S1-Q07",
@@ -1888,7 +2037,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "f60830cc4cfa2862"
+      "why": {
+        "A": "n + 7 = 23 adds the seven on instead of taking it off, which would be seven MORE than n. Seven less means the 7 comes off the number: n − 7 = 23.",
+        "B": "7n = 23 says seven times the number. “Seven less than n” takes 7 away from n rather than multiplying it, so it is n − 7 = 23.",
+        "C": "7 − n = 23 takes the number away from seven, the other way round. “Seven less than n” starts at n and takes the 7 off it: n − 7 = 23."
+      },
+      "content_hash": "529d6c71fc9bad31"
     },
     {
       "id": "MA-W8-S1-Q10",
@@ -1909,7 +2063,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "ec921b2f668f401d"
+      "why": {
+        "A": "2, 0, −3, −8 is the right order backwards — that is greatest to least. Least first means starting at the far left of the number line: −8, −3, 0, 2.",
+        "C": "−3, −8, 0, 2 sorts the two negatives by their digits, as if −3 came first because 3 is less than 8. With a minus in front the bigger digit sits further left, so −8 is the least.",
+        "D": "0, 2, −3, −8 puts the negatives after the positives. Anything with a minus in front is less than 0, so −8 and −3 belong at the start."
+      },
+      "content_hash": "2c10e7aaac3017ab"
     },
     {
       "id": "MA-W8-S1-Q11",
@@ -2055,7 +2214,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "d15663d3d7f32776"
+      "why": {
+        "B": "(7, 10) adds the two heights together, 5 + 5 = 10, instead of keeping the one height the path runs along. Every point of the path has y = 5, so the bench is (7, 5).",
+        "C": "(14, 10) adds the ends together, 2 + 12 = 14 and 5 + 5 = 10, but never halves them. Halfway means the middle: 14 ÷ 2 = 7, and the height stays 5.",
+        "D": "(6, 5) is 12 ÷ 2, half of the gate's number rather than the middle of the path. The path runs from 2 to 12, so the middle is 5 past the fountain: 2 + 5 = 7."
+      },
+      "content_hash": "c95a72e2c7b3b29e"
     },
     {
       "id": "MA-W8-S2-Q05",
@@ -2249,7 +2413,12 @@
       "misconceptions": "",
       "source": "Original content authored for Sheila ISEE",
       "form": "W8",
-      "content_hash": "761b243a8d70478a"
+      "why": {
+        "B": "2/3 comes from 2/6 with only the bottom number halved. Both numbers take the same step: 2 ÷ 2 = 1 and 6 ÷ 2 = 3, so 2/6 is 1/3.",
+        "C": "1/2 is 2 out of 4, the two vowels set against the four consonants. A chance counts them against every card there is: 2 out of 6, which is 1/3.",
+        "D": "1/6 is one card out of the six, but PENCIL has two vowels, E and I. Two cards out of six is 1/3."
+      },
+      "content_hash": "6b8e04f4fe2fe26b"
     }
   ]
 }
