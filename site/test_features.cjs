@@ -26,6 +26,31 @@ async function runThrough(pg, pick, max = 60) {
   }
 }
 
+/* Editing localStorage underneath a live page.
+ *
+ * The page holds the whole store in memory and writes it back on its own
+ * schedule — a Drive pull, a merge, a debounced push — and every one of those
+ * saves the WHOLE of localStorage from that in-memory copy. So an edit made the
+ * moment the page happened to look idle is undone a second later, and the
+ * reload that follows reads back the value the test thought it had replaced.
+ *
+ * That is not a flaky check. It is a check racing a writer it never waited for,
+ * and this repo has now been bitten by it three times: the clobbered remote in
+ * test_drive.cjs, the stale-draft check next door, and "a book she took off the
+ * shelf stays off", which failed about one full run in three while passing
+ * every time the suite was run on its own. Write, read back, and only carry on
+ * once it has held. */
+async function setLs(pg, mutate, read, ms = 12000) {
+  let last = null;
+  for (let waited = 0; waited < ms; waited += 400) {
+    await pg.evaluate(mutate);
+    await pg.waitForTimeout(400);
+    last = await pg.evaluate(read);
+    if (last === true) return true;
+  }
+  return last === true;
+}
+
 (async () => {
   await new Promise((r) => srv.listen(8143, r));
   const b = await chromium.launch({ executablePath: exe });
@@ -1171,12 +1196,20 @@ async function runThrough(pg, pick, max = 60) {
   check('her three books are on the shelf', /Little Women/.test(bk) && /Charlie and the Chocolate Factory/.test(bk) && /Harry Potter and the Sorcerer's Stone/.test(bk));
   check('Harry Potter starts where she is, page 77, chapter 5', (await pg.$eval('[data-testid=book][data-id=harry-potter-1]', (e) => e.dataset.status)) === 'reading' && /page 77/.test(bk) && /chapter 5/.test(bk));
   // a starter book added to the content later still lands on a shelf that was seeded before it existed
-  await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); delete s.books['harry-potter-1']; s.books['little-women'].removed = false; localStorage.setItem('isee.v1', JSON.stringify(s)); });
+  const dropped = await setLs(pg,
+    () => { const s = JSON.parse(localStorage.getItem('isee.v1')); delete s.books['harry-potter-1']; s.books['little-women'].removed = false; localStorage.setItem('isee.v1', JSON.stringify(s)); },
+    () => { const s = JSON.parse(localStorage.getItem('isee.v1')); return !s.books['harry-potter-1'] && s.books['little-women'].removed === false; });
+  check('a book can be taken out of the record to see it seeded again', dropped);
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=book][data-id=harry-potter-1]');
   check('seeding is additive after the first time', true);
-  await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.books['harry-potter-1'].removed = true; localStorage.setItem('isee.v1', JSON.stringify(s)); });
+  const off = await setLs(pg,
+    () => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.books['harry-potter-1'].removed = true; localStorage.setItem('isee.v1', JSON.stringify(s)); },
+    () => JSON.parse(localStorage.getItem('isee.v1')).books['harry-potter-1'].removed === true);
+  check('the shelf remembers a book being taken off it', off);
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=book]');
-  check('but a book she took off the shelf stays off', (await pg.$('[data-testid=book][data-id=harry-potter-1]')) === null);
+  check('but a book she took off the shelf stays off', (await pg.$('[data-testid=book][data-id=harry-potter-1]')) === null,
+    // said out loud, because the last time this went red it said nothing at all
+    JSON.stringify(await pg.evaluate(() => ((JSON.parse(localStorage.getItem('isee.v1')).books || {})['harry-potter-1'] || {}))));
   await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); delete s.books['harry-potter-1'].removed; localStorage.setItem('isee.v1', JSON.stringify(s)); });
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=book][data-id=harry-potter-1]');
   check('Little Women is the one she is reading', (await pg.$eval('[data-testid=book][data-id=little-women]', (e) => e.dataset.status)) === 'reading');
