@@ -292,7 +292,7 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
         shouldList.every((m) => openMock.txt.includes(m.name)), shouldList.map((m) => m.name).join(', ') || 'none open');
       // a paper finished on this date has to file its follow-ups on the week the
       // checklist opens by itself, whichever week that turns out to be
-      await pg.evaluate(async () => {
+      const seedPaper = async () => await pg.evaluate(async () => {
         const bd = await (await fetch('content/bundle.json')).json();
         const m = bd.mocks[0];
         const s = JSON.parse(localStorage.getItem('isee.v1'));
@@ -307,6 +307,7 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
         s.mocks = { ...(s.mocks || {}), [m.id]: { sections: secs, finishedAt: new Date().toISOString(), essay: { submittedAt: new Date().toISOString(), text: 'x '.repeat(220) }, at: new Date().toISOString() } };
         localStorage.setItem('isee.v1', JSON.stringify(s));
       });
+      await seedPaper();
       /* Hand the stub Drive the state that was just seeded, rather than emptying
          it and hoping. Emptying it races the app's own debounced push: if that
          push lands first the remote holds the pre-seed document, the reload
@@ -315,8 +316,31 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
          five greens out of six for reasons that had nothing to do with the
          thing being tested. Settle, then make the remote agree with the page, so
          the merge has nothing to say either way. */
-      await pg.waitForTimeout(1200);
-      drive.body = await pg.evaluate(() => localStorage.getItem('isee.v1'));
+      /* Wait for the page to stop writing, rather than for a number that was
+         long enough on the machine it was written on.
+         
+         The 1200 ms here was the debounce, guessed at, and under a full gate
+         with a vite build competing it is not always enough: the seed is copied
+         to the remote before the app's own push has landed, that push then
+         overwrites it, and the reload pulls back a document with no mock in it.
+         Same family as the two other checks this repo has had to stop guessing
+         at. Two identical reads in a row is the condition that actually matters
+         — nothing is in flight — and it returns as soon as it holds. */
+      let snap = null;
+      for (let i = 0; i < 60; i++) {
+        const cur = await pg.evaluate(() => localStorage.getItem('isee.v1'));
+        if (cur === snap && /finishedAt/.test(cur || '')) break;
+        /* The seed goes in underneath a live page, and the page holds the whole
+           store in memory and writes it back whole — so a save that was already
+           on its way simply erases the paper we just filed. Re-seed until it is
+           still there on the next look; the premise check below is what turned
+           this from "the follow-ups are missing sometimes" into a reason. */
+        if (!/finishedAt/.test(cur || '')) await seedPaper();
+        snap = cur;
+        await pg.waitForTimeout(250);
+      }
+      check(`the paper finished on ${when} is on the device before the remote is told`, /finishedAt/.test(snap || ''));
+      drive.body = snap;
       await pg.reload({ waitUntil: 'networkidle' });
       await pg.evaluate(() => { location.hash = '#/checklist'; });
       await pg.waitForSelector('[data-testid=ck-item]');
@@ -347,6 +371,33 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
       // and the badge is the same fact, so it can never say This week about a week she is not in
       check(`and the "This week" badge on ${when} agrees with the dates`, !!sp && sp.now === inside,
         sp ? `badge=${sp.now} inside=${inside}` : 'no span');
+      /* On the span's OWN url, which is where the id can still get out.
+       *
+       * The check above loaded "#/checklist" with no parameter, so the trail
+       * drew two crumbs and there was no third one to be wrong — and the id went
+       * on reaching her in the breadcrumb of every url that names a span, which
+       * is every url reached by the arrows, by "Back to this week", or by a
+       * bookmark. Green, and wrong, because the test walked in through the one
+       * door that does not have the bug behind it. */
+      await pg.evaluate((id) => { location.hash = '#/checklist/' + id; }, sp.id);
+      await pg.waitForSelector('[data-testid=ck-item]');
+      await pg.waitForTimeout(300);
+      const deep = await pg.evaluate(() => (document.body.textContent || '').replace(/\s+/g, ' '));
+      check(`and the span's own url on ${when} names it rather than keying it`, !/B:\d{4}-\d{2}-\d{2}/.test(deep),
+        (deep.match(/.{0,40}B:\d{4}-\d{2}-\d{2}.{0,20}/) || [''])[0]);
+      const crumb = await pg.evaluate(() => Array.from(document.querySelectorAll('[data-slot=breadcrumb] li')).map((e) => e.textContent.trim()).join(' > '));
+      check(`and the trail on ${when} says where she is`, crumb.includes(sp.kind === 'week' ? sp.id : 'mock') || /[A-Za-z]/.test(crumb.split('>').pop()), crumb);
+      /* Forward goes forward IN TIME, whichever kind of span comes next. The
+         arrows used to walk D.weeks, so from a between-week they had no index to
+         start from; now they walk the plan's real sequence and the week after
+         the baseline mock is W4, the way the plan reads. */
+      const fwd = await pg.$('[aria-label="Next week"]');
+      if (fwd && !(await fwd.isDisabled())) {
+        await fwd.click();
+        await pg.waitForTimeout(250);
+        const nx = await pg.evaluate(() => { const e = document.querySelector('[data-testid=week-recap]'); return e ? { id: e.dataset.span, a: e.dataset.a } : null });
+        check(`and forward from ${sp.id} on ${when} goes to the next span in time`, !!nx && nx.a > sp.a, nx ? `${sp.id} -> ${nx.id}` : 'no span');
+      }
       await ctx.close();
     }
   }

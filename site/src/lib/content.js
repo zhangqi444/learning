@@ -73,6 +73,72 @@ export function currentWeek() {
   for (const w of D.weeks) if (new Date(D.starts[w.w] + "T00:00:00") <= today) best = w.w
   return best
 }
+
+/* ---------- date helpers for the plan's own spans ----------
+ * Local, never UTC. `toISOString()` is UTC, and west of Greenwich that is
+ * already tomorrow from late afternoon — the mistake this repo has now found
+ * four separate times. Same arithmetic as engine's dayKey, kept here so this
+ * module stays free of the engine that imports it. */
+const pad2 = (n) => String(n).padStart(2, "0")
+const localDay = (d = new Date()) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`
+function addDays(s, n) { const d = new Date(s + "T00:00:00"); d.setDate(d.getDate() + n); return localDay(d) }
+const shortDay = (s) => new Date(s + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })
+const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 }
+/** "Oct 26 – Nov 1" (with the plan's year) -> ISO start date. */
+export function parseLabelStart(label, year = 2026) {
+  const m = String(label || "").match(/^([A-Z][a-z]{2})\s+(\d{1,2})/)
+  if (!m) return null
+  const mo = MONTHS[m[1]]
+  if (mo == null) return null
+  return `${mo === 0 ? year + 1 : year}-${pad2(mo + 1)}-${pad2(+m[2])}`
+}
+
+/* ---------- what week it is ----------
+ *
+ *  The plan is not eight consecutive weeks. Between W3 and W4, and three more
+ *  times after that, it names a week of its own: "Sep 21 – 27 · Split baseline
+ *  mock", "Oct 26 – Nov 1 · Correction and retest". They are in the content, in
+ *  `D.breaks`, and the calendar has always drawn them.
+ *
+ *  The checklist had no idea they existed. It asked `currentWeek()`, which
+ *  answers "the last plan week that has BEGUN" — the right answer for gating
+ *  content, and the wrong one for a page whose whole job is to say what to do
+ *  today. So from the 21st to the 27th of September it opened on W3, a week that
+ *  ended on the 20th, and put a "This week" badge on it. Seven days a time, four
+ *  times over the plan, the page told her she was somewhere she was not, and the
+ *  one week it was hiding was the week she sits the baseline mock in.
+ *
+ *  So the sequence the checklist walks is every span the plan actually has, in
+ *  date order, whatever kind it is. A break with no dates in it, or one that
+ *  overlaps a plan week, is skipped rather than guessed at. */
+export function spans() {
+  /* `heading` is the only thing any page may put in front of a reader. The id is
+     "W3" for a plan week and "B:2026-09-21" for a between-week, and the second
+     of those is a key, not a name — it reached the dashboard once, in the line
+     that is supposed to say where she is. */
+  const out = D.weeks.map((w) => ({ id: w.w, kind: "week", a: D.starts[w.w], b: addDays(D.starts[w.w], 6), title: `${w.w} · ${weekLabel(w.w)}`, heading: `${w.w} · ${weekLabel(w.w)}`, name: w.w }))
+  for (const brk of D.breaks || []) {
+    const a = parseLabelStart(brk.label)
+    if (!a || out.some((s) => a >= s.a && a <= s.b)) continue
+    const b = addDays(a, 6)
+    out.push({ id: "B:" + a, kind: "break", a, b, title: brk.what, heading: `${brk.what} · ${shortDay(a)} – ${shortDay(b)}`, name: brk.what })
+  }
+  return out.sort((x, y) => x.a.localeCompare(y.a))
+}
+/** The span today is actually inside, or null on a day the plan does not cover
+ *  at all (before it starts, or after the last week ends). */
+export function spanNow(today = localDay()) { return spans().find((s) => today >= s.a && today <= s.b) || null }
+/** The span the checklist should open on: where she is, or failing that the last
+ *  thing that has begun — never nothing. */
+export function spanOpen() {
+  const now = spanNow()
+  if (now) return now
+  const all = spans(), today = localDay()
+  const begun = all.filter((s) => s.a <= today)
+  return begun.length ? begun[begun.length - 1] : all[0]
+}
+export function spanById(id) { return spans().find((s) => s.id === id) || null }
+
 export function subjProgress(sub) {
   let done = 0, total = 0, right = 0, answered = 0
   for (const w of D.weeks) {

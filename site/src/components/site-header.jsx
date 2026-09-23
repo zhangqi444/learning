@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Cloud, CloudOff, Home as HomeIcon, Loader2, Moon, Sun, Volume2, VolumeX } from "lucide-react"
 
-import { D, SUBJ } from "@/lib/content"
+import { D, SUBJ, spanById } from "@/lib/content"
 import { W } from "@/lib/world"
 import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
@@ -68,7 +68,12 @@ function crumbs(route) {
   } else if (top === "checklist") {
     out.push({ label: "Checklist", path: "/checklist" })
     if (a === "month" && b) out.push({ label: b, path: `/checklist/month/${b}` })
-    else if (a) out.push({ label: a, path: `/checklist/${a}` })
+    /* The route segment is the span's id, and for a plan week the id happens to
+       read as a name — "W3" — so printing it raw was right for eight weeks out
+       of twelve and never questioned. The plan's own between-weeks are keyed
+       "B:2026-09-21", and that is what the trail then said she was looking at.
+       Ask the plan what the span is called instead of assuming the key is it. */
+    else if (a) out.push({ label: (spanById(a) || {}).name || a, path: `/checklist/${a}` })
   } else if (top === "drive") {
     out.push({ label: "Drive settings", path: "/drive" })
   } else if (top === "import") {
