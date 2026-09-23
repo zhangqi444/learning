@@ -27,7 +27,7 @@ const KIND = {
 const FORMATS = ["Prometric test center (Mountlake Terrace)", "ISEE at Home (online)", "School test site", "Not decided yet"]
 
 /** "Oct 26 – Nov 1" (with the plan's year) -> ISO start date. */
-function parseLabelStart(label, year = 2026) {
+export function parseLabelStart(label, year = 2026) {
   const m = label.match(/^([A-Z][a-z]{2})\s+(\d{1,2})/)
   if (!m) return null
   const mo = MONTHS[m[1]]

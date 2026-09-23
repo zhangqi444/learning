@@ -19,7 +19,7 @@ import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { upcoming } from "@/pages/calendar"
 import { essayStatus } from "@/pages/essay"
-import { WeekChecklistCard, followUpsLeft, nextUp, weekLeft } from "@/pages/checklist"
+import { WeekChecklistCard, followUpsLeft, nextUp, spanOpen, weekLeft } from "@/pages/checklist"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -43,7 +43,9 @@ function ScoreBadge({ pct }) {
 export function TodayCard() {
   useStore()
   const o = overall()
-  const cur = currentWeek()
+  // the span she is in, which for four weeks of this plan is not a plan week at all
+  const span = spanOpen()
+  const cur = span.id
   const st = streakInfo()
   const pts = effortPoints(thisWeekRange())
   const book = currentBook()
@@ -71,7 +73,7 @@ export function TodayCard() {
         <CardDescription className="flex items-center gap-2"><Play className="size-4" /> Today</CardDescription>
         <CardTitle className="text-xl">{next ? next.label : "Everything in the plan is done"}</CardTitle>
         <CardDescription>
-          {cur} · {weekLabel(cur)} · {week.left ? `${week.left} of ${week.total} left this week` : "this week is clear"}
+          {span.heading} · {week.left ? `${week.left} of ${week.total} left this week` : "this week is clear"}
           {next && next.note ? ` · ${next.note}` : ""}
         </CardDescription>
         <CardAction>

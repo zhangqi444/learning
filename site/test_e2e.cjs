@@ -279,6 +279,14 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
         const k = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`;
         return { k, txt: (document.body.textContent || '').replace(/\s+/g, ' ') };
       });
+      /* The id of a between-week is "B:2026-09-21", which is a key and not a
+         name. It reached the dashboard — in the line whose whole job is to say
+         where she is — and every suite stayed green, because nothing had ever
+         had to distinguish a label from a lookup before there were two kinds of
+         span to look up. A screenshot caught it. This is so the next one does
+         not have to. */
+      check(`on ${when} (${why}) no internal span id is shown to her`, !/B:\d{4}-\d{2}-\d{2}/.test(openMock.txt),
+        (openMock.txt.match(/.{0,40}B:\d{4}-\d{2}-\d{2}.{0,20}/) || [''])[0]);
       const shouldList = D.mocks.filter((m) => m.start <= openMock.k && openMock.k <= day(m.start, 6));
       check(`on ${when} (${why}) a mock in its own week is still on the dashboard`,
         shouldList.every((m) => openMock.txt.includes(m.name)), shouldList.map((m) => m.name).join(', ') || 'none open');
@@ -316,6 +324,29 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
       const ck = await pg.evaluate(() => (document.body.textContent || '').replace(/\s+/g, ' '));
       check(`and a paper finished on ${when} leaves its follow-ups on the week that opens`,
         /Mock follow-up/.test(ck), why);
+      /* And the week it opens on has to be the week she is IN.
+       *
+       * This is the bug the two checks above were built on top of without ever
+       * naming: the checklist asked `currentWeek()`, which answers "the last
+       * plan week that has BEGUN", so on all twenty-eight days the plan sets
+       * aside between its weeks — the baseline mock, Mock 1, the correction
+       * week, Mock 2 — it opened on a week that had already ended and put a
+       * "This week" badge on it. The plan names those weeks itself; the page
+       * simply did not know they existed.
+       *
+       * Past the last plan week there is genuinely nothing left to be inside, so
+       * the rule there is only that it falls back to something that has begun
+       * rather than to nothing at all. */
+      check(`and the checklist on ${when} shows her no span ids either`, !/B:\d{4}-\d{2}-\d{2}/.test(ck),
+        (ck.match(/.{0,40}B:\d{4}-\d{2}-\d{2}.{0,20}/) || [''])[0]);
+      const sp = await pg.evaluate(() => { const e = document.querySelector('[data-testid=week-recap]'); return e ? { id: e.dataset.span, a: e.dataset.a, b: e.dataset.b, kind: e.dataset.kind, now: !!e.querySelector('[data-testid=span-now]') } : null });
+      const inside = !!sp && openMock.k >= sp.a && openMock.k <= sp.b;
+      check(`on ${when} (${why}) the checklist opens on the span she is actually in`,
+        why === 'after the last plan week' ? !!sp && sp.a <= openMock.k : inside,
+        sp ? `${sp.id} ${sp.a}–${sp.b}` : 'no span');
+      // and the badge is the same fact, so it can never say This week about a week she is not in
+      check(`and the "This week" badge on ${when} agrees with the dates`, !!sp && sp.now === inside,
+        sp ? `badge=${sp.now} inside=${inside}` : 'no span');
       await ctx.close();
     }
   }

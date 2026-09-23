@@ -20,7 +20,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { precisionSummary } from "@/pages/precision"
 import { essayStatus, essayTime } from "@/pages/essay"
 import { mockSummary } from "@/pages/mock"
-import { allEvents } from "@/pages/calendar"
+import { allEvents, parseLabelStart } from "@/pages/calendar"
 
 /* ---------- date helpers ---------- */
 /* Local, not UTC — see dayKey. Here it only feeds `addDays`, which starts from a
@@ -29,6 +29,52 @@ import { allEvents } from "@/pages/calendar"
 const iso = (d) => dayKey(d.getTime())
 function addDays(s, n) { const d = new Date(s + "T00:00:00"); d.setDate(d.getDate() + n); return iso(d) }
 function weekRange(wk) { const a = D.starts[wk]; return [a, addDays(a, 6)] }
+
+/* ---------- what week it is ----------
+ *
+ *  The plan is not eight consecutive weeks. Between W3 and W4, and three more
+ *  times after that, it names a week of its own: "Sep 21 – 27 · Split baseline
+ *  mock", "Oct 26 – Nov 1 · Correction and retest". They are in the content, in
+ *  `D.breaks`, and the calendar has always drawn them.
+ *
+ *  The checklist had no idea they existed. It asked `currentWeek()`, which
+ *  answers "the last plan week that has BEGUN" — the right answer for gating
+ *  content, and the wrong one for a page whose whole job is to say what to do
+ *  today. So from the 21st to the 27th of September it opened on W3, a week that
+ *  ended on the 20th, and put a "This week" badge on it. Seven days a time, four
+ *  times over the plan, the page told her she was somewhere she was not, and the
+ *  one week it was hiding was the week she sits the baseline mock in.
+ *
+ *  So the sequence the checklist walks is every span the plan actually has, in
+ *  date order, whatever kind it is. A break with no dates in it, or one that
+ *  overlaps a plan week, is skipped rather than guessed at. */
+export function spans() {
+  /* `heading` is the only thing any page may put in front of a reader. The id is
+     "W3" for a plan week and "B:2026-09-21" for a between-week, and the second
+     of those is a key, not a name — it reached the dashboard once, in the line
+     that is supposed to say where she is. */
+  const out = D.weeks.map((w) => ({ id: w.w, kind: "week", a: D.starts[w.w], b: addDays(D.starts[w.w], 6), title: `${w.w} · ${weekLabel(w.w)}`, heading: `${w.w} · ${weekLabel(w.w)}`, name: w.w }))
+  for (const brk of D.breaks || []) {
+    const a = parseLabelStart(brk.label)
+    if (!a || out.some((s) => a >= s.a && a <= s.b)) continue
+    const b = addDays(a, 6)
+    out.push({ id: "B:" + a, kind: "break", a, b, title: brk.what, heading: `${brk.what} · ${fmt(a)} – ${fmt(b)}`, name: brk.what })
+  }
+  return out.sort((x, y) => x.a.localeCompare(y.a))
+}
+/** The span today is actually inside, or null on a day the plan does not cover
+ *  at all (before it starts, or after the last week ends). */
+export function spanNow(today = iso(new Date())) { return spans().find((s) => today >= s.a && today <= s.b) || null }
+/** The span the checklist should open on: where she is, or failing that the last
+ *  thing that has begun — never nothing. */
+export function spanOpen() {
+  const now = spanNow()
+  if (now) return now
+  const all = spans(), today = iso(new Date())
+  const begun = all.filter((s) => s.a <= today)
+  return begun.length ? begun[begun.length - 1] : all[0]
+}
+export function spanById(id) { return spans().find((s) => s.id === id) || null }
 function monthKey(s) { return s.slice(0, 7) }
 function monthLabel(key) { return new Date(key + "-01T00:00:00").toLocaleDateString(undefined, { month: "long", year: "numeric" }) }
 function shiftMonth(key, n) { const [y, m] = key.split("-").map(Number); const d = new Date(y, m - 1 + n, 1); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}` }
@@ -83,6 +129,38 @@ export function weekItems(wk) {
   const q = reviewQueue(), due = q.due.length
   items.push({ id: `review:${wk}`, group: "Review", tag: "Review", short: due ? `Review ${due} due` : "Review pile", label: due ? `Clear the review pile — ${due} due now` : q.scheduled.length ? `Review pile clear — ${q.scheduled.length} scheduled for later` : "Review pile is empty", sub: "due review comes before new work", done: due === 0, path: "/review", auto: true })
   if (wk !== "W1") items.push({ id: `mixed:${wk}`, group: "Mixed practice", tag: "Mixed", short: "Mixed set", label: "One mixed set — 12 questions across all four subjects", sub: "promotes Proficient skills to Mastered", done: mixedThisWeek([a, b]), path: "/mixed", auto: true })
+  items.push(...mockRows(a, b, wk))
+  // Follow-ups a weekly or monthly digest asked for. Not `auto`, so they never move the
+  // plan's own progress — they are extra work someone chose, ticked by hand.
+  for (const x of actionsForWeek(wk)) items.push({ id: x.id, group: "Follow-up", tag: "Follow-up", label: x.text, sub: `from ${x.from}`, done: null, path: x.path, auto: false })
+  items.push(...eventRows(a, b))
+  return items
+}
+
+/** Everything a span expects of her, whichever kind of span it is.
+ *
+ *  A between-week has no sets, no precision session and no essay — it is a week
+ *  for sitting a paper and working through what it found. So it carries what it
+ *  actually has: the mock, the mock's follow-ups, the review pile, and whatever
+ *  the calendar says falls in it. Nothing is invented to pad it out, and the
+ *  plan's own percentage counts only what is really there. */
+export function spanItems(span) {
+  if (!span) return []
+  if (span.kind === "week") return weekItems(span.id)
+  const items = []
+  const q = reviewQueue(), due = q.due.length
+  items.push({ id: `review:${span.id}`, group: "Review", tag: "Review", short: due ? `Review ${due} due` : "Review pile", label: due ? `Clear the review pile — ${due} due now` : q.scheduled.length ? `Review pile clear — ${q.scheduled.length} scheduled for later` : "Review pile is empty", sub: "due review comes before new work", done: due === 0, path: "/review", auto: true })
+  items.push(...mockRows(span.a, span.b, span.id))
+  items.push(...eventRows(span.a, span.b))
+  return items
+}
+
+/* The rows a span has because of its DATES, not its place in the plan: the mock
+ * that starts inside it, that mock's follow-ups, and anything on the calendar.
+ * Lifted out of weekItems whole so the plan's own between-weeks can show the
+ * same rows without a second copy of the rules to drift away from it. */
+function mockRows(a, b, wk) {
+  const items = []
   for (const m of D.mocks) {
     if (m.start >= a && m.start <= b) {
       const sm = mockSummary(m.id)
@@ -96,24 +174,30 @@ export function weekItems(wk) {
     // coast is already tomorrow: a mock finished on a Sunday evening landed on
     // "Monday", fell outside the week she had just sat it in, and took its
     // follow-up rows with it. Same mistake as the reading day, same fix.
-    /* The upper edge is this week's last day, except on the week the plan is
-       actually on, where it is today. The plan has a hole in it on purpose:
-       W3 ends Sep 20 and W4 begins Sep 28, because the week between them is the
-       one she sits the diagnostic in. `currentWeek()` answers "the last week
-       that has begun", so through all seven of those days the checklist opens on
-       W3 — a week that has ended — while a mock finished on any of them is dated
-       after W3's last day and before W4's first. It fell through the gap and its
-       follow-ups appeared on no week at all until the 28th, which is a week
-       after the paper they came from and no use to anybody.
+    /* The upper edge is the span's last day, except on the span the checklist
+       actually opens on, where it is today.
 
-       Only the current week absorbs days past its own end, and only as far as
-       today, so a finished week stays a record of itself. */
-    const hi = wk === currentWeek() ? (dayKey(new Date()) > b ? dayKey(new Date()) : b) : b
+       This used to say `currentWeek()`, and it was covering two different holes
+       with one patch. One of them is now filled properly: the week between W3
+       and W4 is a span of its own, the plan names it, and a mock finished in it
+       is inside its own dates and needs no help. Keeping the old test there
+       would have listed those follow-ups twice — once on the span she is in, and
+       again on the W3 she is not.
+
+       The other hole is still open and still needs this. Mock 3 starts the day
+       after W8 ends, and the plan names no week for it, so once the last week is
+       over there is no span left to put anything in. `spanOpen()` falls back to
+       the last thing that began, and that span absorbs the days past its own end
+       as far as today — which is how a paper sat on the 25th of November has its
+       follow-ups somewhere a person can find them, rather than nowhere at all.
+       Only that span absorbs, so a finished week stays a record of itself. */
+    const hi = wk === spanOpen().id ? (dayKey(new Date()) > b ? dayKey(new Date()) : b) : b
     if (fin) { const f = dayKey(fin); if (f >= addDays(a, -7) && f <= hi) mockNextSteps(m.id).filter((x) => x.kind !== "tag").forEach((x, i) => items.push({ id: `next:${m.id}:${i}`, group: "Mock follow-up", tag: "Mock", label: x.text, sub: `from ${m.name}`, done: null, path: x.path, auto: false })) }
   }
-  // Follow-ups a weekly or monthly digest asked for. Not `auto`, so they never move the
-  // plan's own progress — they are extra work someone chose, ticked by hand.
-  for (const x of actionsForWeek(wk)) items.push({ id: x.id, group: "Follow-up", tag: "Follow-up", label: x.text, sub: `from ${x.from}`, done: null, path: x.path, auto: false })
+  return items
+}
+function eventRows(a, b) {
+  const items = []
   for (const e of allEvents()) {
     if (e.kind === "week" || e.kind === "mock" || e.kind === "season") continue
     if (e.date >= a && e.date <= b) items.push({ id: `ev:${e.id}`, group: "Calendar", tag: "Date", label: `${fmt(e.date)} · ${e.title}`, sub: e.detail || "", done: null, path: e.path || "/calendar", auto: false })
@@ -127,8 +211,8 @@ export function followUpsLeft(wk) {
 }
 
 /** How much of this week is still outstanding. */
-export function weekLeft(wk = currentWeek()) {
-  const auto = weekItems(wk).filter((x) => x.auto)
+export function weekLeft(wk = spanOpen().id) {
+  const auto = spanItems(spanById(wk) || { id: wk, kind: "week" }).filter((x) => x.auto)
   const left = auto.filter((x) => !x.done)
   return { left: left.length, total: auto.length, done: auto.length - left.length, items: left }
 }
@@ -136,12 +220,14 @@ export function weekLeft(wk = currentWeek()) {
  *  new work; after that it is this week's own list, top to bottom; when the week is
  *  clear it points at the first set of the next week. */
 export function nextUp() {
-  const cur = currentWeek()
+  /* The span she is in, which in a between-week is the mock and what comes out
+     of it — not the last plan week, whose list she finished days ago. */
+  const cur = spanOpen().id
   const q = reviewQueue()
   if (q.due.length) return { label: `Review ${q.due.length} due`, note: "due work comes before new work", path: "/review", kind: "review" }
   const left = weekLeft(cur).items.filter((x) => x.path)
   if (left.length) { const it = left[0]; return { label: `${it.tag} · ${it.short || it.label}`, note: it.sub || "", path: it.path, kind: "week", wk: cur } }
-  const i = D.weeks.findIndex((w) => w.w === cur)
+  const i = D.weeks.findIndex((w) => w.w === cur)   // -1 in a between-week, so "ahead" starts at W1 and finds the first unfinished week
   for (const w of D.weeks.slice(i + 1)) {
     const nx = weekLeft(w.w).items.filter((x) => x.path)[0]
     if (nx) return { label: `${nx.tag} · ${nx.short || nx.label}`, note: `${w.w} — ahead of the plan`, path: nx.path, kind: "ahead", wk: w.w }
@@ -197,24 +283,27 @@ function Stat({ label, value, sub }) {
     </div>
   )
 }
-export function WeekRecap({ wk, cur, idx }) {
+export function WeekRecap({ span, here, all, idx }) {
   useStore()
-  const r = weekRecap(wk)
-  const [a, b] = weekRange(wk)
-  const auto = weekItems(wk).filter((x) => x.auto)
+  const wk = span.id
+  const isWeek = span.kind === "week"
+  const r = isWeek ? weekRecap(wk) : null
+  const [a, b] = [span.a, span.b]
+  const auto = spanItems(span).filter((x) => x.auto)
   const planDone = auto.filter((x) => x.done).length
   const planPct = auto.length ? Math.round((planDone / auto.length) * 100) : 0
-  const started = r && r.start <= iso(new Date())
-  const nothing = started && !r.sets.done && !r.reviewed && !r.vocab && !r.words.written && !r.essay.started && !r.reading
+  const started = isWeek ? r && r.start <= iso(new Date()) : span.a <= iso(new Date())
+  const nothing = isWeek && started && !r.sets.done && !r.reviewed && !r.vocab && !r.words.written && !r.essay.started && !r.reading
+  const weekIdx = isWeek ? D.weeks.findIndex((w) => w.w === wk) : -1
   return (
-    <Card className="gap-4" data-testid="week-recap">
+    <Card className="gap-4" data-testid="week-recap" data-span={wk} data-kind={span.kind} data-a={span.a} data-b={span.b}>
       <CardHeader>
         <div className="flex items-center gap-2 print:hidden">
-          <Button size="icon-sm" variant="ghost" disabled={idx <= 0} onClick={() => go(`/checklist/${D.weeks[idx - 1].w}`)} aria-label="Previous week"><ChevronLeft /></Button>
-          <Button size="icon-sm" variant="ghost" disabled={idx >= D.weeks.length - 1} onClick={() => go(`/checklist/${D.weeks[idx + 1].w}`)} aria-label="Next week"><ChevronRight /></Button>
-          {wk !== cur && <Button size="sm" variant="ghost" onClick={() => go(`/checklist/${cur}`)}>Back to this week</Button>}
+          <Button size="icon-sm" variant="ghost" disabled={idx <= 0} onClick={() => go(`/checklist/${all[idx - 1].id}`)} aria-label="Previous week"><ChevronLeft /></Button>
+          <Button size="icon-sm" variant="ghost" disabled={idx >= all.length - 1} onClick={() => go(`/checklist/${all[idx + 1].id}`)} aria-label="Next week"><ChevronRight /></Button>
+          {here && wk !== here.id && <Button size="sm" variant="ghost" onClick={() => go(`/checklist/${here.id}`)} data-testid="back-to-this-week">Back to this week</Button>}
         </div>
-        <CardTitle className="text-xl">{wk} · {weekLabel(wk)} {wk === cur && <Badge>This week</Badge>}</CardTitle>
+        <CardTitle className="text-xl">{isWeek ? `${wk} · ${weekLabel(wk)}` : span.title} {here && wk === here.id && <Badge data-testid="span-now">This week</Badge>}</CardTitle>
         {/* What the world calls a plan week. world.md §5: the eight weeks are
             eight Reaches, each quiet until she works in it, and none locked
             behind the last. The number is the same number — Reach 3 is W3 — so
@@ -224,13 +313,23 @@ export function WeekRecap({ wk, cur, idx }) {
             here: this header is a two-column grid with the percentage pinned to
             the right of it, and one more child of its own does not go under the
             title, it goes into the empty column beside it. */}
-        <CardDescription>{W.reach} {idx + 1} of {D.weeks.length} · {fmt(a)} – {fmt(b)} · {planDone} of {auto.length} plan tasks done</CardDescription>
+        {/* A between-week is not Reach N of 8 — it is not one of the eight, and
+            numbering it as one would push every week after it along by one. It
+            says what it is and when it is, which is all it has to say. */}
+        <CardDescription>{isWeek ? `${W.reach} ${weekIdx + 1} of ${D.weeks.length} · ` : "The plan's own week between the Reaches · "}{fmt(a)} – {fmt(b)} · {planDone} of {auto.length} plan tasks done</CardDescription>
         <CardAction><span className="text-2xl font-semibold tabular-nums">{planPct}%</span></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-5">
         <Progress value={planPct} className="h-1.5" />
         {!started ? (
           <p className="text-muted-foreground text-sm">This week has not started yet.</p>
+        ) : !isWeek ? (
+          /* No sets, no precision session, no essay — so no grid of figures
+             about them. A week for sitting a paper is reported as what it is,
+             and the rows below are the whole of it. */
+          <p className="text-muted-foreground text-sm">
+            No new sets this week — it is the week the plan sets aside for {span.title}. The paper, what it turns up and the review pile are below.
+          </p>
         ) : nothing ? (
           <p className="text-muted-foreground text-sm">Nothing recorded in this week yet.</p>
         ) : (
@@ -266,7 +365,10 @@ export function WeekRecap({ wk, cur, idx }) {
           </>
         )}
       </CardContent>
-      {started && (r.slipped.length || r.rushed) ? (
+      {/* `weekRecap` is a plan-week summary and answers null for a between-week,
+          which has no sets to have slipped on. Guarded on the recap itself, not
+          on `started`, because the crash that taught this was a null read. */}
+      {isWeek && started && r && (r.slipped.length || r.rushed) ? (
         <CardFooter className="flex-col items-start gap-2">
           {/* One rushed answer is an accident; a week of them is a habit, and
               only a count in one place makes that visible. */}
@@ -353,8 +455,9 @@ function Row({ item, listKey, compact, testId = "ck-item" }) {
  *  a quick-add box and a pointer to the month's parent to-dos. */
 export function WeekChecklistCard() {
   useStore()
-  const cur = currentWeek()
-  const items = weekItems(cur)
+  const span = spanOpen()
+  const cur = span.id
+  const items = spanItems(span)
   const auto = items.filter((x) => x.auto), done = auto.filter((x) => x.done).length
   const open = items.filter((it) => !isDone(it, cur)), finished = items.filter((it) => isDone(it, cur))
   const st = listState(cur)
@@ -373,7 +476,7 @@ export function WeekChecklistCard() {
     <Card className="gap-4" data-testid="home-checklist">
       <CardHeader>
         <CardDescription className="flex items-center gap-2"><ListChecks className="size-4" /> This week's checklist</CardDescription>
-        <CardTitle className="text-xl">{cur} · {weekLabel(cur)}</CardTitle>
+        <CardTitle className="text-xl" data-testid="home-ck-heading">{span.heading}</CardTitle>
         <CardDescription className="tabular-nums">{done} of {auto.length} plan tasks done{open.length ? ` · ${open.length} left` : ""}</CardDescription>
         <CardAction><Button size="sm" variant="ghost" onClick={() => go(`/checklist/${cur}`)}>Full checklist <ChevronRight /></Button></CardAction>
       </CardHeader>
@@ -481,15 +584,20 @@ function Grouped({ items, listKey }) {
 
 export function Checklist({ wk: wkParam, month: monthParam }) {
   useStore()
-  const cur = currentWeek()
-  const wk = wkParam && D.starts[wkParam] ? wkParam : cur
-  const idx = D.weeks.findIndex((w) => w.w === wk)
+  /* Where she is, not the last plan week that happens to have started. For six
+     days out of every seven in a between-week those were the same answer; on the
+     seventh — the one she sits the baseline mock in — they were not, and it was
+     the page that is supposed to say what to do today that got it wrong. */
+  const all = spans()
+  const here = spanNow()
+  const span = (wkParam && spanById(wkParam)) || spanOpen()
+  const wk = span.id
+  const idx = all.findIndex((x) => x.id === wk)
   const month = monthParam && /^\d{4}-\d{2}$/.test(monthParam) ? monthParam : monthKey(iso(new Date()))
   const tab = monthParam ? "month" : "week"
 
-  const wItems = weekItems(wk), wAuto = wItems.filter((x) => x.auto), wDone = wAuto.filter((x) => x.done).length
+  const wItems = spanItems(span)
   const mItems = monthItems(month)
-  const [a, b] = weekRange(wk)
 
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:gap-6">
@@ -512,7 +620,7 @@ export function Checklist({ wk: wkParam, month: monthParam }) {
           {/* One card, not two. The plan's percentage and the week's own numbers
               were separate cards that both opened "W2 · Sep 7 – 13", which read
               as the page saying the same thing twice. */}
-          <WeekRecap wk={wk} cur={cur} idx={idx} />
+          <WeekRecap span={span} here={here} all={all} idx={idx} />
           {reviewsFor({ kind: "week", wk }).map((r) => <ReviewCard key={r.id} r={r} />)}
           <Grouped items={wItems} listKey={wk} />
           <CustomItems listKey={wk} />

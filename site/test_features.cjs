@@ -825,7 +825,15 @@ async function setLs(pg, mutate, read, ms = 12000) {
   check('dashboard shows days until the ISEE', /days until Sheila's ISEE/.test(await body(pg)));
 
   console.log('== checklist');
-  await pg.evaluate(() => { location.hash = '#/checklist'; });
+  /* A named plan week, not "whatever today is".
+     This asked for `#/checklist` and then required the rows a PLAN WEEK has —
+     the precision session, the sets, the essay. That held only while today
+     happened to fall inside one of the eight, and the plan sets four weeks aside
+     between them for the mocks and the correction work. On any of those
+     twenty-eight days the page is right to show none of those rows and the check
+     failed for being asked the wrong question. What it means to test is that a
+     week's checklist lists that week's work, so it now says which week. */
+  await pg.evaluate(() => { location.hash = '#/checklist/W2'; });
   await pg.waitForSelector('[data-testid=ck-item]');
   const wkText = await body(pg);
   check('week checklist lists VR precision, sets, essay, review', /Precision review/.test(wkText) && /Set 1/.test(wkText) && /Weekly essay/.test(wkText) && /review pile/i.test(wkText));
