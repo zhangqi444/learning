@@ -1329,6 +1329,26 @@ async function setLs(pg, mutate, read, ms = 12000) {
   check('badges earned from the work already done', earned.length >= 5, earned.length + ' earned');
   check('finishing a book earned a reading badge', /Cover to cover/.test(rw) && (await pg.$('[data-testid=badge][data-id=book-1][data-done="1"]')) !== null);
   check('locked badges show progress toward them', (await pg.$$('[data-testid=badge][data-done="0"]')).length >= 10);
+  // The gathering: cats come to the warm. docs/cats.md §8 gives this page one
+  // line — "Hum is warmth, and the cats gather where it is" — and the whole of
+  // the design is in which number it counts. It counts the LEVEL, which
+  // lib/rewards.js derives from lifetime earning and not from the balance, so
+  // that claiming a reward can never empty the page. The obvious build, one cat
+  // per so-many Hum to spend, would do exactly that, and "no cat leaves" is the
+  // third of the four guardrails.
+  const gathered = await pg.$eval('[data-testid=gathering]', (e) => +e.dataset.n).catch(() => null);
+  const lvl = +(/Level (\d+)/.exec(await body(pg)) || [0, 0])[1];
+  check('cats have come to the warm, one for each level she has reached',
+    gathered !== null && gathered === lvl, `${gathered} cats at level ${lvl}`);
+  // Every one is a cat she has actually met, drawn at the brightness her own
+  // record says — the same two rules the Den draws by. A cat here that she had
+  // never met, or one lit brighter than her mastery, would be the page
+  // flattering her, which is rule 3.
+  const warmStages = await pg.$$eval('[data-testid=gathering] [data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
+  check('and each is drawn at the brightness her own record gives it',
+    warmStages.length === gathered && warmStages.every((x) => ['Unseen', 'Glimpsed', 'Flickering', 'Steady', 'Bright', 'Radiant'].includes(x)),
+    warmStages.join(','));
+
   const before = +(await pg.textContent('[data-testid=wallet-balance]'));
   await pg.click('text=Pick Friday\'s movie · 150');
   await pg.waitForSelector('[data-testid=reward-item]');
@@ -1337,6 +1357,13 @@ async function setLs(pg, mutate, read, ms = 12000) {
   await pg.waitForSelector('[data-testid=claim-row]');
   const after = +(await pg.textContent('[data-testid=wallet-balance]'));
   check('claiming spends points but never the level', after === before - 150 && /Level \d/.test(await body(pg)), `${before} -> ${after}`);
+  // The guardrail, asserted rather than trusted: she has just spent 150 Hum, and
+  // not one cat has gone. If this ever fails it will be because somebody keyed
+  // the gathering to the balance, which reads as the animals leaving when she
+  // buys something — a cat taken away as the price of a reward.
+  const stillHere = await pg.$eval('[data-testid=gathering]', (e) => +e.dataset.n).catch(() => null);
+  check('and spending sends no cat away — no cat leaves, ever',
+    stillHere === gathered, `${gathered} before, ${stillHere} after spending 150`);
   await pg.click('[data-testid=mark-given]');
   await pg.waitForSelector('[data-testid=claim-row][data-status=given]');
   check('parent can mark a reward as given', /Given/.test(await body(pg)));

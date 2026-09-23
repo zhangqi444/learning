@@ -6,7 +6,10 @@ import {
 } from "lucide-react"
 
 import { fmtDate } from "@/lib/content"
-import { W } from "@/lib/world"
+import { wordCards } from "@/lib/base"
+import { Glim, hearProps } from "@/components/glim"
+import { WORD_GLOW } from "@/lib/glim"
+import { W, GLOW_ORDER } from "@/lib/world"
 import { effortPoints, thisWeekRange } from "@/lib/engine"
 import {
   BADGES, BADGE_GROUPS, LEVELS, SUGGESTED, addReward, badgeCounts, badgeState, cancelClaim,
@@ -117,6 +120,51 @@ export function RewardsCard() {
   )
 }
 
+/* The gathering.
+ *
+ * docs/cats.md §8 gives the rewards page one line: "Hum is warmth, so the page
+ * should look warm, and the cats gather where it is." This is that, and the
+ * whole of the design is in which number it counts.
+ *
+ * It counts her LEVEL, which lib/rewards.js derives from lifetime Hum and says
+ * so in its own comment: "Spending never costs a level — the level is lifetime
+ * earning, not savings." The obvious build is one cat per so-many Hum in the
+ * balance, and it is wrong: claiming a reward would empty the page of cats, and
+ * "no cat leaves" is the third of the four guardrails. Keyed to lifetime, a cat
+ * that has come never goes, and buying something never costs her one.
+ *
+ * They are her own cats — the words she has actually met, brightest first, each
+ * drawn at the brightness her real mastery says, exactly as the Den draws them.
+ * Nothing here is decoration pretending to be a score: it is Signal, honest
+ * about a real number, and it would still be Signal if the questions were
+ * swapped for flashcards, which is why it is not a Mechanic and is not claimed
+ * as one.
+ *
+ * Before she has met anything, there is nobody to draw and the block says
+ * nothing rather than showing an empty room. */
+function Gathering() {
+  const w = wallet()
+  const met = wordCards()
+    .filter((c) => c.status !== "new")
+    .flatMap((c) => String(c.word).split("/").map((x) => x.trim()).filter(Boolean).map((name) => ({ ...c, name })))
+    .sort((a, b) => GLOW_ORDER.indexOf(WORD_GLOW[b.status]) - GLOW_ORDER.indexOf(WORD_GLOW[a.status]) || a.name.localeCompare(b.name))
+  if (!met.length) return null
+  const here = met.slice(0, w.level.n)
+  return (
+    <div className="border-warning/25 bg-warning/5 flex flex-wrap items-center gap-x-1 gap-y-2 rounded-xl border px-3 py-2.5" data-testid="gathering" data-n={here.length}>
+      {here.map((c) => (
+        <button key={c.name} {...hearProps(c.name, { className: "-m-0.5 p-0.5" })}>
+          <Glim word={c.name} stage={WORD_GLOW[c.status]} className="size-9" title={c.name} knead />
+        </button>
+      ))}
+      <span className="text-muted-foreground ml-1.5 text-xs">
+        {here.length === 1 ? "one has come to the warm" : `${here.length} have come to the warm`}
+        {w.level.next ? " · another at the next level" : ""}
+      </span>
+    </div>
+  )
+}
+
 function Shelf() {
   const w = wallet()
   const list = shelf()
@@ -133,6 +181,7 @@ function Shelf() {
           <CardAction><Badge variant={w.balance ? "success" : "outline"} className="tabular-nums" data-testid="balance">{w.balance} to spend</Badge></CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-3 px-5">
+          <Gathering />
           {list.length ? (
             <ul className="divide-y rounded-md border">
               {list.map((r) => {
