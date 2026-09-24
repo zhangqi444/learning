@@ -20,7 +20,7 @@ lost (see **Hard rules**).
 
 ```
 content/                 the source of truth for everything the site teaches
-  question-banks/          per-subject question JSON (842 items)
+  question-banks/          per-subject question JSON (1,002 practice items)
   passages/                reading passages
   precision.json           8 weeks × 20 vocabulary words with meanings
   essay.json               8 weekly prompts, the guide, the rubric
@@ -270,31 +270,46 @@ This is why the game is where it is and nowhere else:
 | **The review pile** (`/review`) | the page always *said* they were sitting at the door; the due words are now drawn there. Only words — a Quantitative item is not a cat. |
 | **QR, MA, RC** | the *question* is deliberately plain — no cat on the stem, no cat on the choices — but the reveal is not: the skill's own cat turns up beside the answer once she has committed, which is the commitment boundary below. See **Why the numbers are not a game yet** before trying to give the question itself a mechanic. Do not wrap them in a game to make the coverage look even. |
 
-**Why the numbers are not a game yet.** This has been looked at properly, so the
-next person does not have to guess. Two mechanics were considered and both are
-blocked by the *content*, not by the UI:
+**Why the numbers are not a game yet — and the half of it that no longer is.**
+This has been looked at properly, so the next person does not have to guess. Two
+mechanics were considered. One is still blocked by the *content*, not by the UI;
+the other is built, and the paragraph that said it could not be finished is kept
+below with the reason it was wrong.
 
 - **A balance** — "which side is heavier" is a real weighing, and quantitative
   comparison items are natively that shape. But the bank has **8 comparison-shaped
-  items out of 416**. There is nothing to build it on.
+  items out of 480**, and reading those eight, most are a probability or a
+  largest-of-five rather than a true two-quantity comparison. There is still
+  nothing to build it on. Adding items in that shape would be the way in, and
+  nobody has been asked for them.
 - **The wrong number doing the wrong thing** — the vocabulary equivalent, and the
   only version that would pass the rule above: pick 24 instead of 21 and see that
-  24 is what you get if you divide instead of multiply. This is the one that is
-  actually being built, and it is further along than this paragraph used to say.
+  24 is what you get if you divide instead of multiply. **This one is built.**
   The `why` field carries it per wrong choice, the runner shows it above the
-  explanation, and **209 of 326 numeric QR/MA items have one**. Everything that
-  can be said truthfully has been said; what is left is not writing that nobody
-  has got to yet.
+  explanation, and **all 480 numeric QR/MA items have one** — 351 of them on all
+  three wrong choices.
 
-  `tools/why_candidates.py` is what decides that, by looking for an exact
-  arithmetic identity between a wrong choice and the numbers already in the
-  question. **96 items have none**, and that is the number to understand rather
-  than to reduce: their distractors are plausible neighbours — 10, 8 and 7
-  against a correct 9 — with no mistake behind them, so they keep no `why`. The
-  only way to give them one is to invent the misconception, and a confident wrong
-  reason is worse for her than no reason, because she cannot tell the difference
-  and has every cause to believe us. A further 21 have a stray derivable choice
-  apiece, all of them refused for the reason below.
+  How the ceiling came down is the part worth keeping, because the reasoning that
+  set it was right. This paragraph used to say 209 of 326, with **96 items that
+  could never have one**: their distractors were plausible neighbours — 10, 8 and
+  7 against a correct 9 — with no mistake behind them, so the only way to give
+  them a `why` was to invent the misconception, and a confident wrong reason is
+  worse for her than no reason, because she cannot tell the difference and has
+  every cause to believe us. That is still true and still the rule.
+
+  So the fix was not to write reasons for those distractors. It was to **replace
+  the distractors**, so that a real mistake stands behind each one: sixty of them
+  across QR, MA and RC, plus seven Maths items where all three were arbitrary. A
+  percent question keyed 12 now offers 36 — the three quarters that are *not*
+  reserved, which is the commonest way to get a percent wrong and was not on the
+  paper at all. The worst of the seven asked for the sale price of a $100 item at
+  75% off and did not offer 75. An item whose wrong answers nobody could reach is
+  easier than the paper it prepares her for *and* teaches nothing on a miss, so
+  this was one repair rather than two.
+
+  `tools/why_candidates.py` still decides what is writable, by looking for an
+  exact arithmetic identity between a wrong choice and the numbers already in the
+  question, and the rule below still refuses the useless ones.
 
   **An identity that adds to or subtracts from the correct answer explains
   nothing**, and the tool used to count those as writable. "37 is 34 + 3" is
@@ -306,14 +321,25 @@ blocked by the *content*, not by the UI:
   119 items separately carry a `misconceptions` tag naming the trap, which is a
   head start on the sentence but is not itself shown to her anywhere.
 
-Two facts worth keeping, and the rule for re-deriving them so the next reader is
-not counting a different thing: over `content/question-banks/*.json` minus
-`mock.json`, **70% of QR (152 of 216) and 92% of MA (183 of 200) items have
-choices with no letter in them, and only 148 of the 416 explanations contain two
-or more `=`**. So the
-unlocking change is **content, not code** — a `why` field per distractor across
-~400 items. That would also improve the plain runner on its own, because a wrong
-answer could then say what the mistake was instead of "The answer is C".
+Re-derive these over `content/question-banks/*.json` minus `mock.json`, and count
+"names a letter" with the pattern in `tools/audit.py` so the next reader is not
+measuring a different thing. **Every QR and MA explanation — 480 of 480 — now
+names no choice by letter**, which matters because the choices are reordered when
+the bank is built, so a letter in prose is meaningless at best. The figures this
+paragraph used to quote (70% of QR, 92% of MA) were taken under a rule that is no
+longer written down anywhere and could not be reproduced; they are replaced
+rather than adjusted.
+
+**181 of the 480 explanations contain two or more `=`.** The unlocking change was
+always **content, not code** — a `why` per distractor across the numeric bank —
+and it is done. It improved the plain runner on its own, exactly as this
+paragraph predicted: a wrong answer now says what the mistake was instead of
+"The answer is C".
+
+**The one place that defect survives is Reading.** 52 RC explanations still name
+a choice by letter — "B and C", "A, C, and D are unsupported" — and nine of them
+were rewritten only because their distractors changed underneath and the sentence
+became false as well as fragile. The rest are the next piece of this work.
 
 **The furniture.** `src/lib/world.js` holds every world noun, so renaming
 anything is a one-file edit and no component writes one as a literal.
@@ -439,10 +465,17 @@ belongs at the level of the collection, pointing at pages the charities keep
 current themselves, which is what is there.
 
 **The questions themselves stay as they are.** Cats are the theme and the game;
-they are not a reskin of the content. 244 of the 416 QR/MA items have a story
-whose objects are arbitrary and could carry a cat, and the owner's decision is
-that they should not: the practice has to look like the test. Reading
+they are not a reskin of the content. 244 of the QR/MA items were measured as
+having a story whose objects are arbitrary and could carry a cat, and the owner's
+decision is that they should not: the practice has to look like the test. Reading
 Comprehension likewise keeps its own passages.
+
+(That 244 was counted against a bank of 416 numeric items and there are now 480,
+so the *ratio* is stale. The count is deliberately not adjusted here: "a story
+whose objects are arbitrary" is a judgement about each question, not something a
+script can recount, and a denominator updated without re-deriving the numerator
+would read as measured when it was guessed. The decision it supports does not
+depend on the number — the answer is no at any ratio.)
 
 **Brightness is not part of the cat.** It is how well she knows the word, read
 live from the engine and never stored: Unseen → Glimpsed → Flickering → Steady →
