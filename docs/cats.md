@@ -322,11 +322,11 @@ lying about its own state.
 | `runner` | 6 | unchanged before commitment; reveal cat gets the voice | M |
 | `score` | 2 | unchanged. The number stays plain — a cat must never decorate an honest readiness figure | — |
 | `mock` | 0 | nothing, start to finish — §6, and rule 5 | — |
-| `essay` | **0 world nouns** | **the Telling** — the biggest single gap: a named world event with no world in it. A place is only hers once she has written it down | S |
+| `essay` | the Telling, and the Reach it tells | **built.** The index already said the name; the page she actually writes on said "Essay · W3 · Sep 14 – 20" and joined the essay to nothing. It now heads "the Telling · Reach 3 · essay", so the week is the thing being written down | S |
 | `books` | one cat per opened book | **built.** The Beacon is said, and a cat settles on every book she opens. Brightness is that book's own reading days; the blink is the day being written | S/Signal |
 | `rewards` | the gathering | **built.** The shelf is warm and the cats gather on it — one for each level she has reached, each a word she has met, at the brightness her record gives it. Keyed to the LEVEL, which is lifetime earning: claiming a reward never sends one away | Signal |
 | `checklist` | 0 | the eight weeks are **Reaches** (`W.reach`, unused) | S |
-| `calendar` | 0 | Long Nights and Reaches on the timeline, by name | S |
+| `calendar` | both, by name | **built.** Reaches and Long Nights on the timeline. Both names, never one instead of the other — her father reads this page to know when an exam is sat | S |
 | `subject` | 0 | **the four places**: Wordwood, Deep Shelf, Weighbridge, Workyard — three of which do not yet exist in `world.js` | S |
 | `mixed` | 0 | as subject | S |
 | `signin` | one cat, Unseen | **built.** A cat waits at the door and does not know her yet — §5's own first line, read literally at the one place it is plainly true. No count, no shelf, no line about meeting them: a checked rule, not a good intention | S |
