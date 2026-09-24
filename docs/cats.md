@@ -325,10 +325,10 @@ lying about its own state.
 | `essay` | the Telling, and the Reach it tells | **built.** The index already said the name; the page she actually writes on said "Essay · W3 · Sep 14 – 20" and joined the essay to nothing. It now heads "the Telling · Reach 3 · essay", so the week is the thing being written down | S |
 | `books` | one cat per opened book | **built.** The Beacon is said, and a cat settles on every book she opens. Brightness is that book's own reading days; the blink is the day being written | S/Signal |
 | `rewards` | the gathering | **built.** The shelf is warm and the cats gather on it — one for each level she has reached, each a word she has met, at the brightness her record gives it. Keyed to the LEVEL, which is lifetime earning: claiming a reward never sends one away | Signal |
-| `checklist` | 0 | the eight weeks are **Reaches** (`W.reach`, unused) | S |
+| `checklist` | Reaches, counted | **built.** "Reach 3 of 8", and the plan's own week between them named as that | S |
 | `calendar` | both, by name | **built.** Reaches and Long Nights on the timeline. Both names, never one instead of the other — her father reads this page to know when an exam is sat | S |
-| `subject` | 0 | **the four places**: Wordwood, Deep Shelf, Weighbridge, Workyard — three of which do not yet exist in `world.js` | S |
-| `mixed` | 0 | as subject | S |
+| `subject` | the four places | **built.** Each subject sits in its own place — the Wordwood, the Deep Shelf, the Weighbridge, the Workyard | S |
+| `mixed` | 0 | **the one page still with nothing.** Not "as subject": a mixed set is drawn from all four places at once, so it cannot sit in one of them, and naming all four on a card is a list rather than a world. What it is *for* — crossing the places in one sitting — is the thing to name, and it has not been | S |
 | `signin` | one cat, Unseen | **built.** A cat waits at the door and does not know her yet — §5's own first line, read literally at the one place it is plainly true. No count, no shelf, no line about meeting them: a checked rule, not a good intention | S |
 | `import` | 0 | plumbing. Stays plain | — |
 
