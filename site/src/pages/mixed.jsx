@@ -2,6 +2,7 @@ import * as React from "react"
 import { Play, Shuffle } from "lucide-react"
 
 import { ORDER, SUBJ, fmtDate } from "@/lib/content"
+import { PLACE } from "@/lib/world"
 import { buildMixedSet, dayKey, mixedResults, promotionsIn } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
@@ -26,6 +27,9 @@ export function Mixed() {
   const partOf = (Store.draft("mixed") || {}).n || 12
   const counts = {}
   for (const q of preview) { const s = q.id.split("-")[0].toLowerCase(); counts[s] = (counts[s] || 0) + 1 }
+  // the places behind those counts, in the plan's own subject order, and only
+  // the ones with a question in today's set
+  const crossed = ORDER.filter((s) => counts[s]).map((s) => PLACE[s]).filter(Boolean)
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:gap-6">
       <Card className="from-primary/5 to-card bg-gradient-to-t gap-4">
@@ -43,6 +47,33 @@ export function Mixed() {
           <div className="flex flex-wrap gap-1.5">
             {ORDER.map((s) => <Badge key={s} variant="outline" className="font-normal"><span className="mr-1 inline-block size-2 rounded-full" style={{ background: SUBJ[s].color }} />{SUBJ[s].short} · {counts[s] || 0}</Badge>)}
             {preview.length < 12 ? <span className="text-muted-foreground text-xs">Only {preview.length} questions are eligible today — more open up as weeks are finished.</span> : null}
+          </div>
+          {/* Which places today's set actually crosses.
+            *
+            * This was the last page in docs/cats.md §8 with nothing on it, and
+            * its instruction there was wrong: "as subject", meaning give it one
+            * of the four places. It cannot have one. A mixed set is drawn from
+            * all four at once, which is the entire point of it — the thing the
+            * real paper does and a single subject's page never can.
+            *
+            * So it names what it is FOR rather than where it is. And it is built
+            * from the counts already worked out above, so it says what TODAY'S
+            * set really crosses and not a standing list of four: on a day when
+            * only two places have eligible questions, it says two. A line that
+            * always reads the same whatever is behind it is decoration; this one
+            * cannot be written without knowing what she is about to sit.
+            *
+            * Only the world's existing names are used. world.md owns the nouns
+            * and has none for mixed practice; inventing one here would be taking
+            * a decision that is Sheila's and the owner's, and the page does not
+            * need it — the four places are already named, and crossing them is
+            * something that can be said with the words that exist. */}
+          <div className="text-muted-foreground flex flex-wrap items-center gap-1.5 text-xs" data-testid="mixed-places" data-n={crossed.length}>
+            {crossed.length > 1
+              ? <span>Today this crosses {crossed.slice(0, -1).join(", ")} and {crossed[crossed.length - 1]}, in one sitting.</span>
+              : crossed.length === 1
+                ? <span>Today there is only enough for {crossed[0]}.</span>
+                : null}
           </div>
           {/* The terms, before she starts, naming the skills today's set can
               actually lift. The paragraph above has always said what the rule

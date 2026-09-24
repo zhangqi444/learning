@@ -951,6 +951,25 @@ async function setLs(pg, mutate, read, ms = 12000) {
   // mixed set
   await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=mixed-start]');
   check('mixed set previews all four subjects', /Verbal · \d/.test(await body(pg)) && /Reading · \d/.test(await body(pg)));
+  // And it names the places it crosses, which is what this page is FOR. The
+  // design doc's instruction for it was "as subject" — give it one of the four
+  // places — and a mixed set cannot have one, because being drawn from all four
+  // at once is the whole point and the thing the real paper does.
+  //
+  // Built from the same counts the badges use, so it says what TODAY'S set
+  // really crosses rather than reciting four names: the check reads the number
+  // of places off the element and requires it to match the number of subjects
+  // that actually have a question in the preview. A line that says the same
+  // thing whatever is behind it would pass a looser check and be decoration.
+  const places = await pg.$eval('[data-testid=mixed-places]', (e) => ({ n: +e.dataset.n, text: e.textContent })).catch(() => null);
+  const withQs = (await pg.$$eval('[data-testid=mixed-start]', () => 0), await pg.evaluate(() => {
+    const badges = [...document.querySelectorAll('[data-slot=badge]')].map((b) => b.textContent);
+    return badges.filter((t) => /· [1-9]/.test(t)).length;
+  }));
+  check('the mixed page names the places today\'s set crosses',
+    !!places && places.n === withQs && places.n > 0, places ? `${places.n} places, ${withQs} subjects with questions` : 'none');
+  check('and it says them by the world\'s own names',
+    !!places && /Wordwood|Deep Shelf|Weighbridge|Workyard/.test(places.text), places ? places.text.slice(0, 80) : '');
   /* The promotion contract. The number the page quotes and the number the engine
      enforces have to be one number — they were not, once: the page promised
      Mastered on a single right answer when skillLevel had never accepted fewer

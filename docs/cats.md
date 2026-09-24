@@ -328,7 +328,7 @@ lying about its own state.
 | `checklist` | Reaches, counted | **built.** "Reach 3 of 8", and the plan's own week between them named as that | S |
 | `calendar` | both, by name | **built.** Reaches and Long Nights on the timeline. Both names, never one instead of the other — her father reads this page to know when an exam is sat | S |
 | `subject` | the four places | **built.** Each subject sits in its own place — the Wordwood, the Deep Shelf, the Weighbridge, the Workyard | S |
-| `mixed` | 0 | **the one page still with nothing.** Not "as subject": a mixed set is drawn from all four places at once, so it cannot sit in one of them, and naming all four on a card is a list rather than a world. What it is *for* — crossing the places in one sitting — is the thing to name, and it has not been | S |
+| `mixed` | the crossing, named | **built**, and not "as subject". A mixed set is drawn from all four places at once — that is the point of it, and what the real paper does — so it names what it is FOR: "today this crosses the Wordwood, the Weighbridge, the Workyard and the Deep Shelf, in one sitting". Built from the counts already on the card, so on a day with only two places eligible it says two. world.md has no noun for mixed practice and none was invented here: naming a thing in this world is Sheila's and the owner's, and the four places were enough | S |
 | `signin` | one cat, Unseen | **built.** A cat waits at the door and does not know her yet — §5's own first line, read literally at the one place it is plainly true. No count, no shelf, no line about meeting them: a checked rule, not a good intention | S |
 | `import` | 0 | plumbing. Stays plain | — |
 
