@@ -8,7 +8,7 @@ import { RewardsCard } from "@/pages/rewards"
 import { ReadingCard } from "@/pages/books"
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts"
 
-import { D, ORDER, SUBJ, accuracyByWeek, currentWeek, fmtDate, nextSet, overall, recentSets, subjProgress, weekLabel } from "@/lib/content"
+import { D, ORDER, SUBJ, accuracyByWeek, currentWeek, fmtDate, nextSet, overall, recentSets, spanOpen, subjProgress, weekLabel } from "@/lib/content"
 import { W, atLeast } from "@/lib/world"
 import { firstGlim } from "@/lib/quest"
 import { Glim } from "@/components/glim"
@@ -43,7 +43,9 @@ function ScoreBadge({ pct }) {
 export function TodayCard() {
   useStore()
   const o = overall()
-  const cur = currentWeek()
+  // the span she is in, which for four weeks of this plan is not a plan week at all
+  const span = spanOpen()
+  const cur = span.id
   const st = streakInfo()
   const pts = effortPoints(thisWeekRange())
   const book = currentBook()
@@ -71,7 +73,7 @@ export function TodayCard() {
         <CardDescription className="flex items-center gap-2"><Play className="size-4" /> Today</CardDescription>
         <CardTitle className="text-xl">{next ? next.label : "Everything in the plan is done"}</CardTitle>
         <CardDescription>
-          {cur} · {weekLabel(cur)} · {week.left ? `${week.left} of ${week.total} left this week` : "this week is clear"}
+          {span.heading} · {week.left ? `${week.left} of ${week.total} left this week` : "this week is clear"}
           {next && next.note ? ` · ${next.note}` : ""}
         </CardDescription>
         <CardAction>

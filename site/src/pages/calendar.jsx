@@ -2,7 +2,7 @@ import * as React from "react"
 import { CalendarDays, ExternalLink, MapPin, Save, Timer } from "lucide-react"
 
 import { dayKey, mockBand } from "@/lib/engine"
-import { D, fmtDate } from "@/lib/content"
+import { D, fmtDate, parseLabelStart } from "@/lib/content"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
@@ -26,13 +26,6 @@ const KIND = {
 }
 const FORMATS = ["Prometric test center (Mountlake Terrace)", "ISEE at Home (online)", "School test site", "Not decided yet"]
 
-/** "Oct 26 – Nov 1" (with the plan's year) -> ISO start date. */
-function parseLabelStart(label, year = 2026) {
-  const m = label.match(/^([A-Z][a-z]{2})\s+(\d{1,2})/)
-  if (!m) return null
-  const mo = MONTHS[m[1]]
-  return `${mo === 0 ? year + 1 : year}-${String(mo + 1).padStart(2, "0")}-${String(+m[2]).padStart(2, "0")}`
-}
 /* The LOCAL calendar day, through the engine's one implementation of it.
  * `toISOString()` is UTC, and from about five in the afternoon on the west coast
  * that is already tomorrow — so every evening this page marked the wrong day as
