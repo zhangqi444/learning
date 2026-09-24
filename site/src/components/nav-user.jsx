@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Cloud, CloudOff, FolderOpen, HardDrive, LogOut, MonitorSmartphone, Moon, MoreVertical, RefreshCw, Settings2, Sun } from "lucide-react"
+import { Cloud, CloudOff, HardDrive, MonitorSmartphone, Moon, MoreVertical, Settings2, Sun } from "lucide-react"
 
 import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
@@ -36,7 +36,6 @@ export function NavUser() {
   const sub = live && store.email && store.name ? store.email : STATUS_LABEL[status]
   const initial = name.slice(0, 1).toUpperCase()
   const theme = store.s.theme || "system"
-  const driveUrl = live ? store.driveUrl() : null
 
   return (
     <SidebarMenu>
@@ -77,27 +76,18 @@ export function NavUser() {
             <DropdownMenuGroup>
               {DRIVE_ENABLED ? (
                 live ? (
-                  <>
-                    <DropdownMenuItem onSelect={() => { store.setStatus("syncing"); store.pull().then(() => { store.lastSync = new Date(); store.setStatus("live") }).catch(() => store.setStatus("error")) }}>
-                      <RefreshCw /> Sync now
-                    </DropdownMenuItem>
-                    {driveUrl ? (
-                      <DropdownMenuItem asChild>
-                        <a href={driveUrl} target="_blank" rel="noreferrer" data-testid="drive-folder-link">
-                          <FolderOpen /> Open the Drive folder
-                        </a>
-                      </DropdownMenuItem>
-                    ) : null}
-                    {/* One link out of a menu was the whole of it: the folder id
-                        was resolved on every sync and offered nowhere else, and
-                        the file id was known only to the code that wrote it. */}
-                    <DropdownMenuItem onSelect={() => go("/drive")} data-testid="drive-settings-link">
-                      <Settings2 /> Drive settings
-                    </DropdownMenuItem>
-                    <DropdownMenuItem onSelect={() => store.signOut()}>
-                      <LogOut /> Disconnect Drive
-                    </DropdownMenuItem>
-                  </>
+                  /* One way in, not four.
+                   *
+                   * This menu grew a link at a time — sync, the folder, sign
+                   * out — because there was nowhere else to put them. There is
+                   * now: the settings page holds all three, plus the file
+                   * itself and the folder's name, and says what the permission
+                   * does and does not allow. Four entries that each did a
+                   * fraction of one page is a menu asking her to know which
+                   * fraction she wants before she has seen any of them. */
+                  <DropdownMenuItem onSelect={() => go("/drive")} data-testid="drive-settings-link">
+                    <Settings2 /> Drive settings
+                  </DropdownMenuItem>
                 ) : (
                   <DropdownMenuItem onSelect={() => store.signIn().catch(() => {})} disabled={status === "connecting" || status === "syncing"}>
                     {status === "error" ? <CloudOff /> : <Cloud />}

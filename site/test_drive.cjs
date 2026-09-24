@@ -56,10 +56,17 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   check('signing in opens the app', true);
   check('folder + progress.json created', drive.folder === 'folder1' && drive.file === 'file1' && /"results"/.test(drive.body));
   check('email shown in sidebar', /qi@example\.com/.test(await pg.textContent('[data-slot=sidebar-footer]')));
-  // the profile menu links straight to the folder the app made, so her progress is findable
+  /* Her progress has to be findable from the profile menu — that is what this
+     has always checked, and it still is. What changed is the route: the menu
+     used to carry a bare link to the folder beside three other Drive entries,
+     and all four of them are now one page that holds the folder, the file, the
+     folder's name and the disconnect. So the menu is asserted to offer exactly
+     one way in, and the folder link is checked on the page it leads to (see the
+     Drive settings block further down). */
   await pg.click('[data-slot=sidebar-footer] [data-slot=dropdown-menu-trigger]');
-  await pg.waitForSelector('[data-testid=drive-folder-link]');
-  check('profile menu links to the Drive folder', (await pg.$eval('[data-testid=drive-folder-link]', (a) => a.href)) === 'https://drive.google.com/drive/folders/folder1');
+  await pg.waitForSelector('[data-testid=drive-settings-link]');
+  const driveEntries = await pg.$$eval('[data-slot=dropdown-menu-content] [data-slot=dropdown-menu-item]', (ns) => ns.map((n) => n.textContent.trim()).filter((t) => /drive/i.test(t)));
+  check('the profile menu offers one way to her Drive, not four', driveEntries.length === 1 && /Drive settings/.test(driveEntries[0]), driveEntries.join(' | '));
   check('the folder id is kept with the session, so the link survives a reload', (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).drive.folderId)) === 'folder1');
   await pg.keyboard.press('Escape');
 
@@ -336,8 +343,21 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   // and a control that looks like browsing and is not would be worse than none.
   check('the page is honest about why there is no folder picker', /narrowest Drive permission/.test(await pg.textContent('[data-testid=drive-settings]')));
 
-  // disconnect clears everything
+  /* Disconnecting, from where it now lives.
+   *
+   * The "Saved to Drive" chip in the header used to do this on a single click.
+   * It reads as a status light, it is the most conspicuous thing in the bar, and
+   * tapping it stopped the mirroring with nothing asked and nothing said. A
+   * child uses this. It opens the settings page now, where disconnect is a
+   * button under its own heading next to the sentence saying it deletes
+   * nothing — so that is the path this check takes. */
+  await pg.evaluate(() => { location.hash = '#/'; });
+  await pg.waitForSelector('[data-testid=today]', { timeout: 8000 });
   await pg.click('button:has-text("Saved to Drive")');
+  await pg.waitForSelector('[data-testid=drive-settings]', { timeout: 8000 });
+  check('the status chip opens Drive settings rather than silently signing her out',
+    (await pg.evaluate(() => location.hash)) === '#/drive' && (await pg.$('[data-testid=signin-page]')) === null);
+  await pg.click('[data-testid=drive-signout]');
   await pg.waitForSelector('[data-testid=signin-page]', { timeout: 8000 });
   check('disconnect forgets the session and locks the door again',
     (await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return !s.drive && !s.driveGranted && !s.driveOptIn })));

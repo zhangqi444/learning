@@ -133,7 +133,15 @@ export function SiteHeader({ route }) {
                   size="sm"
                   className="hidden gap-2 sm:inline-flex"
                   disabled={status === "connecting" || status === "syncing"}
-                  onClick={() => (status === "live" ? store.signOut() : store.signIn().catch(() => {}))}
+                  /* Connected, this opens the settings page; it used to sign
+                     her out. A chip that reads "Saved to Drive" is a status
+                     light, and one tap on it silently stopped the mirroring
+                     with nothing asked and nothing said — a child uses this.
+                     Disconnecting is still one page away, under its own
+                     heading, next to the sentence explaining that it deletes
+                     nothing. Not connected, one tap to connect is the right
+                     thing and stays. */
+                  onClick={() => (status === "live" ? go("/drive") : store.signIn().catch(() => {}))}
                 >
                   {status === "connecting" || status === "syncing" ? (
                     <Loader2 className="animate-spin" />
@@ -147,7 +155,7 @@ export function SiteHeader({ route }) {
               </TooltipTrigger>
               <TooltipContent>
                 {status === "live"
-                  ? `Progress is mirrored to progress.json in your Google Drive${store.email ? " (" + store.email + ")" : ""}. Click to disconnect.`
+                  ? `Progress is mirrored to progress.json in your Google Drive${store.email ? " (" + store.email + ")" : ""}. Click for Drive settings.`
                   : status === "error"
                     ? store.lastError || "Google Drive could not be reached."
                     : status === "expired"
@@ -163,7 +171,7 @@ export function SiteHeader({ route }) {
               className="size-8 sm:hidden"
               aria-label={STATUS_LABEL[status]}
               disabled={status === "connecting" || status === "syncing"}
-              onClick={() => (status === "live" ? store.signOut() : store.signIn().catch(() => {}))}
+              onClick={() => (status === "live" ? go("/drive") : store.signIn().catch(() => {}))}
             >
               {status === "connecting" || status === "syncing" ? <Loader2 className="animate-spin" /> : status === "error" ? <CloudOff className="text-destructive" /> : <Cloud className={cn(status === "live" && "text-success", status === "expired" && "text-warning")} />}
             </Button>
