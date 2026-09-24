@@ -47,6 +47,25 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
     (await pg.$('[data-testid=today]')) === null && (await pg.$('[data-slot=sidebar]')) === null
     && (await pg.evaluate(() => window.__gisCalls.length)) === 0);
   check('the gate says where the data goes', /your own Google Drive/.test(await pg.textContent('[data-testid=signin-page]')));
+  // A cat waits at the door, and promises nothing. docs/cats.md §8 allows the
+  // sign-in page one cat and forbids the obvious use of it, because this is the
+  // page seen before a single thing has been earned: a count, a shelf, or a line
+  // about meeting them would make the animals a reason to sign in.
+  const door = await pg.$eval('[data-testid=signin-page] [data-testid=glim]',
+    (e) => ({ stage: e.dataset.stage, near: +e.dataset.near })).catch(() => null);
+  check('a cat is waiting at the door', !!door, door ? `${door.stage}` : 'none');
+  // Unseen, which is not decoration of an empty page but the world bible's own
+  // first line about cats read literally — one that does not know you keeps its
+  // distance. Standing outside, it does not know her yet, and the stage draws
+  // the distance by itself.
+  check('and it does not know her yet — it keeps its distance',
+    !!door && door.stage === 'Unseen' && door.near < 1, door ? `${door.stage}, near ${door.near}` : 'none');
+  // The half that is a rule rather than a picture: nothing on this page may
+  // promise her anything for signing in.
+  const doorText = (await pg.textContent('[data-testid=signin-page]')).toLowerCase();
+  const promises = ['collect', 'unlock', 'earn a', 'your cats', 'meet them', 'waiting for you', 'glims are'];
+  check('and the door promises nothing', !promises.some((w) => doorText.includes(w)),
+    promises.filter((w) => doorText.includes(w)).join(',') || 'no promise made');
 
   await pg.click('[data-testid=signin-google]');
   try { await pg.waitForSelector('button:has-text("Saved to Drive")', { timeout: 8000 }); }

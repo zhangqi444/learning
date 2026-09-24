@@ -233,6 +233,16 @@ async function setLs(pg, mutate, read, ms = 12000) {
   check('8 essay weeks listed with prompts', (await pg.$$('[data-testid^=essay-open-]')).length === 8 && /small responsibility/.test(await body(pg)));
   await pg.click('[data-testid=essay-open-W2]');
   await pg.waitForSelector('[data-testid=essay-prompt]');
+  // The page she writes on names the Reach it is telling. world.md gives the
+  // weekly essay its reason rather than a name — meaning drains out of a place
+  // when nobody tells its story, so a Reach is only truly hers once she has
+  // written it down — and the index page said that while this one, the page she
+  // is actually on, connected the essay to nothing at all.
+  const told = await body(pg);
+  check('the essay page names the Telling and the Reach it tells',
+    /the Telling/.test(told) && /Reach 2/.test(told));
+  // And keeps the plain word, because her father reads this page too.
+  check('and still says plainly that it is an essay', /essay/i.test(told));
   check('W2 prompt shown', /changed your mind/.test(await pg.textContent('[data-testid=essay-prompt]')));
   await pg.fill('#W2-plan-focus', 'I will show that listening changed my mind about the science fair.');
   await pg.click('text=Draft · 20');
@@ -810,7 +820,18 @@ async function setLs(pg, mutate, read, ms = 12000) {
   await pg.waitForSelector('[data-testid=test-date]');
   const cal = await body(pg);
   check('ISEE seasons, school sittings and deadlines present', /Fall testing season/.test(cal) && /Bush School/.test(cal) && /Application deadline/.test(cal));
-  check('plan weeks and mocks on the timeline', /W1 · plan week/.test(cal) && /Mock 1/.test(cal));
+  // The timeline says the world's own names for the two things on it, which the
+  // rest of the app already used: a mock is a Long Night on mock.jsx, a plan week
+  // is a Reach on the checklist. This page was the last calling them only "plan
+  // week" and "mock exam", so a week was a Reach on one screen and something else
+  // on the next — world.md §7's own recorded mistake, two names for one idea.
+  check('plan weeks and mocks on the timeline, by the world\'s names',
+    /W1 · Reach 1/.test(cal) && /Mock 1/.test(cal) && /Long Night/.test(cal) && /Reach · plan week/.test(cal));
+  // Both names, never one instead of the other. This is the page her father
+  // reads to know what is happening when, and a Long Night with no "mock exam"
+  // beside it does not tell him an exam is being sat that week.
+  check('and the plain words are still there for a grown-up reading the plan',
+    /mock exam/i.test(cal) && /plan week/i.test(cal));
   check('today marker placed', (await pg.$('[data-testid=today-marker]')) !== null);
   check('known sittings offered as one-tap picks', (await pg.$$('[data-testid^=pick-]')).length >= 2);
   await pg.click('[data-testid=pick-bush-isee]');

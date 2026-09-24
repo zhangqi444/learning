@@ -263,11 +263,26 @@ export function EssayWeek({ wk }) {
     ["details", "Details to include", "Person / place / action / words / thought"],
   ]
 
+  const reachNo = D.weeks.findIndex((x) => x.w === wk) + 1
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
       <Card className="from-primary/5 to-card bg-gradient-to-t gap-3">
         <CardHeader>
-          <CardDescription className="flex items-center gap-2"><PenLine className="size-4" /> Essay · {wk} · {weekLabel(wk)}</CardDescription>
+          {/* The Telling, and the Reach it tells.
+            *
+            * world.md gives the weekly essay its reason rather than a name:
+            * "meaning drains out of a place when nobody tells its story, so a
+            * Reach is only truly hers once she has written it down." The index
+            * page said that sentence; this one, the page she is actually on
+            * while writing, said "Essay · W3 · Sep 14 – 20" and connected the
+            * essay to nothing. Naming the Reach here is the whole of the idea:
+            * this is not a weekly writing exercise that happens to sit beside
+            * eight weeks of practice, it is the week being written down.
+            *
+            * "Essay" stays in the line. Her father reads this page too, and a
+            * Telling with no essay beside it does not tell him what she is
+            * doing for thirty minutes. */}
+          <CardDescription className="flex items-center gap-2"><PenLine className="size-4" /> {W.telling} · {W.reach} {reachNo} · essay · {weekLabel(wk)}</CardDescription>
           <CardTitle className="text-xl leading-snug font-semibold" data-testid="essay-prompt">{e.prompt}</CardTitle>
           <CardDescription>Week focus: {e.focus}</CardDescription>
           <CardAction className="flex flex-col items-end gap-1">

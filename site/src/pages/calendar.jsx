@@ -2,6 +2,7 @@ import * as React from "react"
 import { CalendarDays, ExternalLink, MapPin, Save, Timer } from "lucide-react"
 
 import { dayKey, mockBand } from "@/lib/engine"
+import { W } from "@/lib/world"
 import { D, fmtDate, parseLabelStart } from "@/lib/content"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
@@ -13,9 +14,23 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 const MONTHS = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 }
+/* The world's own two names for the two things that fill this calendar.
+ *
+ * docs/cats.md §8 asks the calendar for "Long Nights and Reaches on the
+ * timeline, by name", and the rest of the app already says them: mock.jsx heads
+ * a mock with W.longNight, checklist.jsx counts "Reach 3 of 8". This page was
+ * the last one still calling them only a Mock exam and a Plan week, so a week
+ * was a Reach on one screen and a plan week on the next — which is world.md §7's
+ * own recorded mistake, two names for one idea.
+ *
+ * Both names, not one instead of the other. This is the page her father reads
+ * to know what is happening when, and "Long Night" alone would not tell him a
+ * mock exam is being sat that week. §6's rehearsal rule is not in play: it
+ * forbids world nouns INSIDE a mock section, where the screen must look like the
+ * exam, and this is the plan rather than the paper. */
 const KIND = {
-  week: { label: "Plan week", cls: "bg-secondary text-secondary-foreground" },
-  mock: { label: "Mock exam", cls: "bg-primary text-primary-foreground" },
+  week: { label: `${W.reach} · plan week`, cls: "bg-secondary text-secondary-foreground" },
+  mock: { label: `${W.longNight} · mock exam`, cls: "bg-primary text-primary-foreground" },
   correction: { label: "Correction week", cls: "bg-warning-soft text-warning" },
   season: { label: "ISEE season", cls: "border-primary/50 text-primary" },
   "school-test": { label: "ISEE sitting", cls: "bg-chart-2/15 text-chart-2" },
@@ -42,7 +57,7 @@ export function allEvents() {
   for (const w of D.weeks) {
     const e = D.essay && D.essay.weeks[w.w]
     const end = new Date(D.starts[w.w] + "T00:00:00"); end.setDate(end.getDate() + 6)
-    ev.push({ id: "wk-" + w.w, kind: "week", date: D.starts[w.w], end: iso(end), title: `${w.w} · plan week`, detail: e ? `Essay focus: ${e.focus}` : "", path: "/s/vr/" + w.w })
+    ev.push({ id: "wk-" + w.w, kind: "week", date: D.starts[w.w], end: iso(end), title: `${w.w} · ${W.reach} ${D.weeks.indexOf(w) + 1}`, detail: e ? `Essay focus: ${e.focus}` : "", path: "/s/vr/" + w.w })
   }
   const band = mockBand()
   for (const m of D.mocks) {
