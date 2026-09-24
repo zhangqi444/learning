@@ -324,13 +324,28 @@ lying about its own state.
 | `mock` | 0 | nothing, start to finish — §6, and rule 5 | — |
 | `essay` | **0 world nouns** | **the Telling** — the biggest single gap: a named world event with no world in it. A place is only hers once she has written it down | S |
 | `books` | one cat per opened book | **built.** The Beacon is said, and a cat settles on every book she opens. Brightness is that book's own reading days; the blink is the day being written | S/Signal |
-| `rewards` | 0 cats | already speaks `W.currency`; Hum is warmth, so the page should look warm, and the cats gather where it is | S |
+| `rewards` | the gathering | **built.** The shelf is warm and the cats gather on it — one for each level she has reached, each a word she has met, at the brightness her record gives it. Keyed to the LEVEL, which is lifetime earning: claiming a reward never sends one away | Signal |
 | `checklist` | 0 | the eight weeks are **Reaches** (`W.reach`, unused) | S |
 | `calendar` | 0 | Long Nights and Reaches on the timeline, by name | S |
 | `subject` | 0 | **the four places**: Wordwood, Deep Shelf, Weighbridge, Workyard — three of which do not yet exist in `world.js` | S |
 | `mixed` | 0 | as subject | S |
 | `signin` | 0 | the way into the world, and the one page seen before anything is earned. A cat may wait at the door; nothing may be promised | S |
 | `import` | 0 | plumbing. Stays plain | — |
+
+**The gathering, and the number it counts.** The rewards page is worth a note
+because the obvious build of it breaks a guardrail. "Cats gather where it is
+warm" invites one cat per so-many Hum *to spend* — and then claiming a reward
+empties the page, which is *no cat leaves* (guardrail 3) broken in the most
+literal way there is: an animal taken away as the price of a treat. It is keyed
+to her LEVEL instead, which `lib/rewards.js` already derives from lifetime
+earning and says so in its own comment — *spending never costs a level*. A cat
+that has come never goes.
+
+It is **Signal, not Mechanic**, and is not claimed as one: it tells the truth
+about a real number and cannot be faked, but it would still work if the
+questions were swapped for flashcards. Three checks hold it — that the count is
+the level, that every cat is one she has actually met and drawn at her own
+mastery, and that spending 150 Hum sends none of them away.
 
 **First move, if only one thing is done:** add `deepShelf`, `weighbridge` and
 `workyard` to `world.js` and use `W.role`, `W.telling`, `W.beacon` and `W.reach`.
