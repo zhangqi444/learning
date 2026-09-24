@@ -2,7 +2,7 @@ import * as React from "react"
 import { BookOpenCheck, Check, CloudOff, GraduationCap, Loader2, ShieldCheck, Smartphone } from "lucide-react"
 
 import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Glim } from "@/components/glim"
 import { W } from "@/lib/world"
 

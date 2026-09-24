@@ -1,6 +1,13 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* The shared primitives live in node_modules, which Tailwind does not scan by
+   default. Without this line every class name inside @zhangqi444/ui has no CSS
+   generated for it and the app renders as unstyled HTML — the failure is total
+   and silent, which is why it sits directly under the import rather than in a
+   config file someone has to know to look in. */
+@source "../node_modules/@zhangqi444/ui/src";
+
 @custom-variant dark (&:is(.dark *));
 
 /* shadcn/ui theme tokens — "Arcade" indigo palette.

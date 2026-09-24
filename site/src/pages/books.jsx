@@ -13,10 +13,10 @@ import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Glim } from "@/components/glim"
-import { Input } from "@/components/ui/input"
+import { Input } from "@zhangqi444/ui/ui/input"
 import { Progress } from "@/components/ui/progress"
 
 const today = () => dayOf()

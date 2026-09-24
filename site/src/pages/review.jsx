@@ -10,7 +10,7 @@ import { sfx } from "@/lib/sfx"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { LearnCard } from "@/components/learn-card"
 

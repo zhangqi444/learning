@@ -12,7 +12,7 @@ import { W, atLeast } from "@/lib/world"
  *  so add one here rather than printing "demanding..". */
 const sentence = (t) => String(t || "").trim().replace(/\.*$/, "") + "."
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { Burst } from "@/components/burst"

@@ -9,12 +9,12 @@ import { W } from "@/lib/world"
 import { cn } from "@/lib/utils"
 import { ReviewCard } from "@/components/review-card"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Textarea } from "@/components/ui/textarea"
+import { Input } from "@zhangqi444/ui/ui/input"
+import { Label } from "@zhangqi444/ui/ui/label"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@zhangqi444/ui/ui/tabs"
+import { Textarea } from "@zhangqi444/ui/ui/textarea"
 
 /* ---------- state helpers ---------- */
 export function essayState(wk) { return Store.s.essays[wk] || {} }

@@ -13,11 +13,11 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Button } from "@/components/ui/button"
-import { Separator } from "@/components/ui/separator"
-import { SidebarTrigger } from "@/components/ui/sidebar"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+} from "@zhangqi444/ui/ui/breadcrumb"
+import { Button } from "@zhangqi444/ui/ui/button"
+import { Separator } from "@zhangqi444/ui/ui/separator"
+import { SidebarTrigger } from "@zhangqi444/ui/ui/sidebar"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@zhangqi444/ui/ui/tooltip"
 import { STATUS_LABEL } from "@/components/nav-user"
 
 /** Breadcrumb trail for the current hash route. Every crumb is a real link, so

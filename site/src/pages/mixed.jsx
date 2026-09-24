@@ -6,10 +6,10 @@ import { buildMixedSet, dayKey, mixedResults, promotionsIn } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { PromotionPlan } from "@/components/promotion"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
 import { Runner } from "@/pages/runner"
 
 export function mixedThisWeek(range) {

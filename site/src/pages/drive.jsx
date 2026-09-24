@@ -3,9 +3,9 @@ import { Check, CloudOff, ExternalLink, FileJson, FolderOpen, LogOut, RefreshCw 
 
 import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
+import { Input } from "@zhangqi444/ui/ui/input"
 
 /** Where her work is kept, said out loud and openable.
  *
