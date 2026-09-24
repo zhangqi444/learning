@@ -387,6 +387,55 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
         (deep.match(/.{0,40}B:\d{4}-\d{2}-\d{2}.{0,20}/) || [''])[0]);
       const crumb = await pg.evaluate(() => Array.from(document.querySelectorAll('[data-slot=breadcrumb] li')).map((e) => e.textContent.trim()).join(' > '));
       check(`and the trail on ${when} says where she is`, crumb.includes(sp.kind === 'week' ? sp.id : 'mock') || /[A-Za-z]/.test(crumb.split('>').pop()), crumb);
+      /* A week she has finished, that she is still inside.
+       *
+       * The plan's weeks are seven days whether or not the work takes seven
+       * days — a paper sat on the Sunday can leave six days of a page reading
+       * 100% with every row struck through and no sign of what happens next.
+       * The banner says so and hands her the next span. Asserted as the
+       * invariant rather than against a fixed date, because whether a span is
+       * clear depends on the review pile, which moves on its own: it is shown
+       * exactly when every plan row on the page is ticked, and never otherwise. */
+      const clear = await pg.evaluate(() => {
+        const rows = Array.from(document.querySelectorAll('[data-testid=ck-item][data-auto="1"]'));
+        return { banner: !!document.querySelector('[data-testid=span-clear]'), rows: rows.length, done: rows.filter((r) => r.dataset.done === '1').length };
+      });
+      check(`on ${when} the done-with-this-week banner matches the rows`,
+        clear.banner === (clear.rows > 0 && clear.done === clear.rows),
+        `banner=${clear.banner} ${clear.done}/${clear.rows} ticked`);
+
+      /* And the positive case, forced once, because a check that only ever sees
+         one answer is not checking anything. Every probe above happens to have
+         something outstanding — the review pile moves on its own schedule — so
+         the pile is pushed into next year and the week is then genuinely
+         finished, which is the state the banner exists for. */
+      // only where the review pile is the ONE thing left: a span whose mock is
+      // still unsat is not finished by emptying the pile, and asking it to say
+      // so would be asking the page to lie
+      if (clear.rows > 0 && clear.done === clear.rows - 1) {
+        for (let i = 0; i < 10; i++) {
+          await pg.evaluate(() => {
+            const s = JSON.parse(localStorage.getItem('isee.v1'));
+            for (const k of Object.keys(s.items || {})) if (s.items[k].due) s.items[k].due = '2027-01-01T00:00:00.000Z';
+            localStorage.setItem('isee.v1', JSON.stringify(s));
+          });
+          await pg.waitForTimeout(250);
+          const held = await pg.evaluate(() => Object.values(JSON.parse(localStorage.getItem('isee.v1')).items || {}).every((r) => !r.due || r.due > '2026-12'));
+          if (held) { drive.body = await pg.evaluate(() => localStorage.getItem('isee.v1')); break; }
+        }
+        await pg.reload({ waitUntil: 'networkidle' });
+        await pg.evaluate(() => { location.hash = '#/checklist'; });
+        await pg.waitForSelector('[data-testid=week-recap]');
+        await pg.waitForTimeout(400);
+        const done = await pg.evaluate(() => {
+          const rows = Array.from(document.querySelectorAll('[data-testid=ck-item][data-auto="1"]'));
+          const n = document.querySelector('[data-testid=span-next]');
+          return { banner: !!document.querySelector('[data-testid=span-clear]'), next: n ? n.textContent.replace(/\s+/g, ' ').trim() : null, ticked: rows.filter((r) => r.dataset.done === '1').length, rows: rows.length };
+        });
+        check(`with nothing outstanding on ${when}, the week says it is done and offers the next one`,
+          done.banner && !!done.next && done.ticked === done.rows, `banner=${done.banner} next=${done.next} ${done.ticked}/${done.rows}`);
+      }
+
       /* Forward goes forward IN TIME, whichever kind of span comes next. The
          arrows used to walk D.weeks, so from a between-week they had no index to
          start from; now they walk the plan's real sequence and the week after

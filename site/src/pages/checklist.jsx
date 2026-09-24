@@ -250,6 +250,14 @@ export function WeekRecap({ span, here, all, idx }) {
   const started = isWeek ? r && r.start <= iso(new Date()) : span.a <= iso(new Date())
   const nothing = isWeek && started && !r.sets.done && !r.reviewed && !r.vocab && !r.words.written && !r.essay.started && !r.reading
   const weekIdx = isWeek ? D.weeks.findIndex((w) => w.w === wk) : -1
+  /* A week she has finished, that she is still in. The plan's weeks are seven
+     days whether or not the work takes seven days, so a paper sat on the Sunday
+     leaves six days of a page that says 100% and nothing else — every task
+     struck through, no sign of what happens next, and the arrow to find it is a
+     chevron the size of a full stop. Saying it is done is not enough on its own;
+     the page has to hand her the next thing. */
+  const nextSpan = idx >= 0 && idx < all.length - 1 ? all[idx + 1] : null
+  const clear = auto.length > 0 && planDone === auto.length && here && wk === here.id
   return (
     <Card className="gap-4" data-testid="week-recap" data-span={wk} data-kind={span.kind} data-a={span.a} data-b={span.b}>
       <CardHeader>
@@ -276,6 +284,19 @@ export function WeekRecap({ span, here, all, idx }) {
       </CardHeader>
       <CardContent className="flex flex-col gap-5">
         <Progress value={planPct} className="h-1.5" />
+        {clear ? (
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-md border px-3 py-3" data-testid="span-clear">
+            <span className="text-success flex items-center gap-2 text-sm font-medium"><CheckCircle2 className="size-4" /> Everything this week asked for is done.</span>
+            {nextSpan ? (
+              <Button size="sm" variant="outline" onClick={() => go(`/checklist/${nextSpan.id}`)} data-testid="span-next">
+                {/* Named and dated, because "next" on its own is a door with no
+                    label — and the date is the answer to "so what do I do now",
+                    which on a finished week is usually "nothing until Monday". */}
+                {nextSpan.name} starts {fmt(nextSpan.a)} <ChevronRight />
+              </Button>
+            ) : null}
+          </div>
+        ) : null}
         {!started ? (
           <p className="text-muted-foreground text-sm">This week has not started yet.</p>
         ) : !isWeek ? (
