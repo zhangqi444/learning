@@ -3,6 +3,8 @@ import { BookOpenCheck, Check, CloudOff, GraduationCap, Loader2, ShieldCheck, Sm
 
 import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
 import { Button } from "@/components/ui/button"
+import { Glim } from "@/components/glim"
+import { W } from "@/lib/world"
 
 function GoogleMark({ className }) {
   return (
@@ -51,6 +53,34 @@ export function SignIn() {
             <GraduationCap className="size-5" />
           </span>
           <span className="text-lg font-semibold tracking-tight">Sheila · ISEE</span>
+          {/* A cat waiting at the door.
+           *
+           * docs/cats.md §8 allows the sign-in page exactly one thing and forbids
+           * the obvious use of it: "a cat may wait at the door; nothing may be
+           * promised." So there is no count, no "sign in to meet them", no
+           * silhouette of a shelf — anything that makes the animals a reason to
+           * sign in would be promising, and this is the one page seen before a
+           * single thing has been earned.
+           *
+           * It is drawn Unseen, which is not a decoration of the emptiness but
+           * the literal reading of the world bible's own first line about cats:
+           * one that does not know you keeps its distance and watches from
+           * somewhere high. Standing outside the door, it does not know her yet.
+           * The stage does the rest by itself — glim.jsx draws an Unseen cat
+           * small, high in its box and nearly all eyes — so this says the true
+           * thing without a word of copy to promise anything with.
+           *
+           * The word is the world's own name, so it is the same cat on every
+           * device and every visit, and it is nobody's: not one of hers, which
+           * she has not earned yet, and not one she will later be given.
+           *
+           * Drawn at size-16 and not the size-10 it was first given. An Unseen
+           * cat is two eyes and a shadow, and at forty pixels there is not enough
+           * of it for that to read as an animal at all — on the dark page it came
+           * out as two faint dots beside the wordmark. The suite was perfectly
+           * happy, because the stage and the distance were exactly right; it was
+           * only wrong in the screenshot, which is what that habit is for. */}
+          <Glim word={W.world} stage="Unseen" className="ml-auto size-16" title={`A ${W.cat} at the door`} />
         </div>
 
         <div className="flex flex-col gap-2">

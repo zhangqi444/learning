@@ -329,7 +329,7 @@ lying about its own state.
 | `calendar` | 0 | Long Nights and Reaches on the timeline, by name | S |
 | `subject` | 0 | **the four places**: Wordwood, Deep Shelf, Weighbridge, Workyard — three of which do not yet exist in `world.js` | S |
 | `mixed` | 0 | as subject | S |
-| `signin` | 0 | the way into the world, and the one page seen before anything is earned. A cat may wait at the door; nothing may be promised | S |
+| `signin` | one cat, Unseen | **built.** A cat waits at the door and does not know her yet — §5's own first line, read literally at the one place it is plainly true. No count, no shelf, no line about meeting them: a checked rule, not a good intention | S |
 | `import` | 0 | plumbing. Stays plain | — |
 
 **The gathering, and the number it counts.** The rewards page is worth a note
