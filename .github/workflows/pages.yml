@@ -40,6 +40,16 @@ jobs:
           cache: npm
           cache-dependency-path: site/package-lock.json
 
+      # The shared primitives come from zhangqi444/ui as a git dependency, and
+      # npm canonicalises every GitHub URL to git+ssh:// in the lockfile whatever
+      # form package.json used. A runner has no SSH key, so `npm ci` would have
+      # to fall back to https on its own — which it appears to do, but "appears
+      # to" is not a thing to hang the site's deploys on. One rewrite makes it
+      # https deterministically, and the repo is public so no credential is
+      # involved.
+      - name: Fetch git dependencies over https, not ssh
+        run: git config --global url."https://github.com/".insteadOf ssh://git@github.com/
+
       - name: Install and build (Vite + React + Tailwind + shadcn/ui)
         working-directory: site
         run: |
