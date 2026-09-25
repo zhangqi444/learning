@@ -318,7 +318,7 @@ lying about its own state.
 | `quest` | 6 | the full grammar; meow voice, arrive, distance | M |
 | `precision` | 5 | meeting a cat: shadow → near, on writing it in her own words. Distance does the work here | M |
 | `review` | 3 | cats at the door, sitting at the distance their real status says | M |
-| `base` | 5 | the Den: **knead, built** on both shelves; the high shelf **used** as the unseen shelf. `settle` struck — §4 | S |
+| `base` | knead on both shelves | **knead built**; `settle` struck (§4); **the unseen shelf refused** — see below. The Glimbook draws every cat she has met and none that she has not | S |
 | `runner` | 6 | unchanged before commitment; reveal cat gets the voice | M |
 | `score` | 2 | unchanged. The number stays plain — a cat must never decorate an honest readiness figure | — |
 | `mock` | 0 | nothing, start to finish — §6, and rule 5 | — |
@@ -331,6 +331,27 @@ lying about its own state.
 | `mixed` | the crossing, named | **built**, and not "as subject". A mixed set is drawn from all four places at once — that is the point of it, and what the real paper does — so it names what it is FOR: "today this crosses the Wordwood, the Weighbridge, the Workyard and the Deep Shelf, in one sitting". Built from the counts already on the card, so on a day with only two places eligible it says two. world.md has no noun for mixed practice and none was invented here: naming a thing in this world is Sheila's and the owner's, and the four places were enough | S |
 | `signin` | one cat, Unseen | **built.** A cat waits at the door and does not know her yet — §5's own first line, read literally at the one place it is plainly true. No count, no shelf, no line about meeting them: a checked rule, not a good intention | S |
 | `import` | 0 | plumbing. Stays plain | — |
+
+**The unseen shelf is refused, and this is the reasoning so it is not proposed
+again.** The row above used to ask for "the high shelf *used* as the unseen
+shelf" — the cats she has not met yet, drawn small and high, on §5's own logic
+that one which does not know you watches from somewhere high. It is a good
+sentence and it would make a bad page.
+
+There are about 160 precision words across the eight weeks. So the shelf is 160
+un-lit animals that are not hers, and the Glimbook already says that same fact
+in the one form that carries no weather: a fraction, `known / total`, in a badge.
+Turning a neutral count into a field of dim cats is **§9's "bar inching toward
+115" with animals drawn on it** — and worse than the bar, because a number she
+has not reached is just a number, while a cat she has not reached is a cat
+waiting. That is a debt with a face, on the page whose whole job is to show her
+what she has.
+
+The honest version of "they keep their distance" is the one already built: a cat
+appears the moment she meets it and is drawn faint and far, and it comes nearer
+and brighter as she learns it. The distance is real because she can close it.
+Distance from a cat she has never been offered is not a relationship at all, and
+drawing it only tells her how much she has not done.
 
 **The gathering, and the number it counts.** The rewards page is worth a note
 because the obvious build of it breaks a guardrail. "Cats gather where it is

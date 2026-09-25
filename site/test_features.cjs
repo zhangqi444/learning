@@ -745,6 +745,19 @@ async function setLs(pg, mutate, read, ms = 12000) {
   // Counts the property, not the shelf: how many cats she has met by this point
   // is a fact about the suite, and pinning it here would make this fail the day
   // someone adds a word. Ears exist, and they do not all move together.
+  // The Glimbook draws cats she has MET and none that she has not. The unseen
+  // shelf — the unmet words drawn small and high, on the logic that a cat which
+  // does not know you keeps its distance — is refused in docs/cats.md §8, and
+  // this is the refusal made mechanical rather than remembered. There are about
+  // 160 precision words, so that shelf is 160 un-lit animals that are not hers,
+  // and the badge above already says the same thing as a fraction. A number she
+  // has not reached is a number; a cat she has not reached is a cat waiting,
+  // which is §9's bar inching toward 115 with a face drawn on it.
+  const bookCats = await pg.$$eval('[data-testid=word-cards] [data-testid=glim]', (n) => n.map((e) => e.dataset.stage));
+  check('the Glimbook draws no cat she has never met',
+    bookCats.length > 0 && !bookCats.includes('Unseen'),
+    `${bookCats.length} cats, none Unseen`);
+
   check('a shelf of cats is not perfectly still, and does not twitch in unison',
     earDelays.length >= 2 && new Set(earDelays).size > 1, `${earDelays.length} ears, ${new Set(earDelays).size} different delays`);
   // Making biscuits. docs/cats.md §8 asked the Den for "settle, knead" and §4
