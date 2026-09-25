@@ -5,9 +5,9 @@ import { fmtDate } from "@/lib/content"
 import { addReviews, parseImport, reviewPath, reviewTargetLabel } from "@/lib/reviews"
 import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Textarea } from "@/components/ui/textarea"
+import { Textarea } from "@zhangqi444/ui/ui/textarea"
 
 /** #/import/<payload> — a review link made outside the app (docs/review.md).
  *  With no payload it is a paste box, for a phone that cannot open the long link. */

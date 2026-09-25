@@ -21,11 +21,11 @@ import { upcoming } from "@/pages/calendar"
 import { essayStatus } from "@/pages/essay"
 import { WeekChecklistCard, followUpsLeft, nextUp, weekLeft } from "@/pages/checklist"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@zhangqi444/ui/ui/chart"
 import { Progress } from "@/components/ui/progress"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
 
 const chartConfig = {
   vr: { label: "Verbal", color: "var(--chart-1)" },

@@ -5,7 +5,7 @@ import { ALCUMUS_URL, aopsFor, learnCard, learnLinkUrl, learnName, learnQuery, l
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
 import { Glim } from "@/components/glim"
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@zhangqi444/ui/ui/tooltip"
 
 /** Teach it here, now, for free.
  *

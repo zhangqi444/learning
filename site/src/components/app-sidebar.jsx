@@ -25,7 +25,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from "@zhangqi444/ui/ui/sidebar"
 import { NavUser } from "@/components/nav-user"
 
 const ICON = { vr: BookA, qr: Sigma, ma: Calculator, rc: BookOpen }

@@ -7,7 +7,7 @@ import { Store, useStore } from "@/lib/store"
 import { PLACE } from "@/lib/world"
 import { cn } from "@/lib/utils"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Progress } from "@/components/ui/progress"
 import { precisionSummary } from "@/pages/precision"
@@ -15,7 +15,7 @@ import { masteryOf, pacingFor, skillsFor } from "@/lib/engine"
 import { LevelBadge } from "@/pages/score"
 import { AopsHint } from "@/components/aops-hint"
 import { aopsFor } from "@/lib/aops"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
 
 function ScoreBadge({ r, part, n }) {
   /* "Not started" was said about a set with nine answers in it, because the only
