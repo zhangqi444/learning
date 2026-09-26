@@ -336,10 +336,38 @@ and it is done. It improved the plain runner on its own, exactly as this
 paragraph predicted: a wrong answer now says what the mistake was instead of
 "The answer is C".
 
-**The one place that defect survives is Reading.** 52 RC explanations still name
-a choice by letter — "B and C", "A, C, and D are unsupported" — and nine of them
-were rewritten only because their distractors changed underneath and the sentence
-became false as well as fragile. The rest are the next piece of this work.
+**That defect is now zero everywhere, and the rule is a check.** The 52 that were
+left named a choice by letter — "B and C", "A, C, and D are unsupported" — and
+this paragraph had them all down as Reading, which they were not: 16 were RC in
+`rc-september.json` and the other 36 were in `mock.json`, spanning RC, QR and MA.
+Both numbers in the paragraph above were counted over different sets, because
+"480 of 480" excludes `mock.json` the way this file tells you to and the 52 did
+not. Mock QR and MA explanations were naming letters the whole time that sentence
+claimed none did.
+
+The two halves wanted opposite fixes. The 16 RC items already carried a full `why`
+map covering every letter the prose named, per choice, in richer words, shown
+above the explanation on the reveal — so the clause was pure duplication in the
+one form that can go stale, and it was deleted. The 36 mock items carry no `why`
+at all, so there the letters were the only thing telling her what the distractors
+were, and each was rewritten to name the value: "13 and 14 are the individual
+rates", not "C and D".
+
+It was never merely fragile. `tools/build_weeks.py` re-randomises every item's
+options before a bank ships, so a letter written in prose was already pointing at
+whatever landed in that slot — which is how nine of them had gone from fragile to
+outright false. `tools/validate_content.py` now errors on a letter in
+`explanation`, `misconceptions` or any `why` text, proven by reintroducing one.
+`why` stays keyed by letter, because the runner looks that key up against the
+choice she actually picked and a reshuffle carries it along.
+
+**The real gap `mock.json` leaves is bigger: all 508 of its items carry no `why`.**
+Every other bank is complete — 1,002 of 1,002 items have at least one, 868 have
+one for every wrong choice — and the mock is the one surface where a wrong answer
+is never told what it was, which is the argument for `why` in the first place
+("told 'perimeter = 2(10+3) = 26' after picking 30, she still does not learn that
+30 was the area"). That is 508 items of authoring on the highest-stakes screen in
+the site, and it is the next piece of this work.
 
 **The furniture.** `src/lib/world.js` holds every world noun, so renaming
 anything is a one-file edit and no component writes one as a literal.

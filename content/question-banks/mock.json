@@ -4398,12 +4398,12 @@
     "D": "Decorations always ruin a project, so avoid them."
    },
    "correct": "C",
-   "explanation": "The plain kite outflies the decorated one in the same wind; A is too absolute, and B and D are contradicted.",
+   "explanation": "The plain kite outflies the decorated one in the same wind. Putting it all down to the wind is too absolute, and the passage contradicts both the idea that watching another flier wastes practice time and the claim that decorations always ruin a project.",
    "misconceptions": "reverses lesson; overgeneralizes",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P02",
    "form": "M01",
-   "content_hash": "a1fed56934b9bfb8"
+   "content_hash": "4fbafe158c352b63"
   },
   {
    "id": "M01-RC-010",
@@ -4706,12 +4706,12 @@
     "D": "Each drop adds only a tiny speck of mineral."
    },
    "correct": "D",
-   "explanation": "Growth by single specks over thousands of years is too slow to see; A and C contradict the passage, and B is invented.",
+   "explanation": "Growth by single specks over thousands of years is too slow to see. The passage contradicts both the idea that stalactites stop growing and the idea that water no longer reaches the ceiling, and it never mentions the cave lights being too dim.",
    "misconceptions": "equates short with empty; invents volume",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P05",
    "form": "M01",
-   "content_hash": "f99c740fb0e4d965"
+   "content_hash": "0a18e5647e2efeb3"
   },
   {
    "id": "M01-RC-024",
@@ -6116,11 +6116,11 @@
     "D": "14 miles per gallon"
    },
    "correct": "B",
-   "explanation": "The rates are 14 and 13 miles per gallon, so the scooter travels 1 more; C and D are individual rates, while A subtracts the gallons rather than the rates.",
+   "explanation": "The rates are 14 and 13 miles per gallon, so the scooter travels 1 more; 13 and 14 are the individual rates, and 2 comes from subtracting the gallons rather than the rates.",
    "misconceptions": "compares total miles; reports one rate",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "872dd418422dc267"
+   "content_hash": "29a2a8c0c58a24fc"
   },
   {
    "id": "M02-QR-002",
@@ -6221,11 +6221,11 @@
     "D": "7/10"
    },
    "correct": "B",
-   "explanation": "Six of ten sections are not blue, and 6/10 = 3/5; A is the blue probability, while C and D miscount nonblue sections.",
+   "explanation": "Six of ten sections are not blue, and 6/10 = 3/5; 2/5 is the blue probability, and 4/5 and 7/10 miscount the nonblue sections.",
    "misconceptions": "gives target-color probability; forgets to simplify",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "9f7f3efe70d92ab9"
+   "content_hash": "c7823d7a3346f8cd"
   },
   {
    "id": "M02-QR-007",
@@ -6242,11 +6242,11 @@
     "D": "11"
    },
    "correct": "C",
-   "explanation": "Subtract the $6 fee to get $32, then divide by $4 for 8 badges; A and B mishandle the fee, and D adds instead of undoing.",
+   "explanation": "Subtract the $6 fee to get $32, then divide by $4 for 8 badges; 6 and 7 mishandle the fee, and 11 adds it instead of undoing it.",
    "misconceptions": "divides total before removing fixed fee; adds quantities",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "66e3f34deb6df785"
+   "content_hash": "78579717a7636c67"
   },
   {
    "id": "M02-QR-008",
@@ -6389,11 +6389,11 @@
     "D": "35 km"
    },
    "correct": "A",
-   "explanation": "The scale is 4 km per cm, so 7 cm represents 28 km; B multiplies by 2.5, while C and D use incorrect scales.",
+   "explanation": "The scale is 4 km per cm, so 7 cm represents 28 km; 17.5 km comes from multiplying by 2.5, and 25 km and 35 km use incorrect scales.",
    "misconceptions": "adds scale values; reverses ratio",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "92627bf737e23d54"
+   "content_hash": "c4a46f8dfd23773c"
   },
   {
    "id": "M02-QR-015",
@@ -6431,11 +6431,11 @@
     "D": "24"
    },
    "correct": "B",
-   "explanation": "Each of 3 times pairs with 4 routes, so 3 × 4 = 12; A adds categories, while C and D overcount.",
+   "explanation": "Each of 3 times pairs with 4 routes, so 3 × 4 = 12; 7 adds the categories, and 16 and 24 overcount.",
    "misconceptions": "adds choices; counts route order",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "a2cdc0a09aa051e7"
+   "content_hash": "cf2d02aa3d52096a"
   },
   {
    "id": "M02-QR-017",
@@ -6473,11 +6473,11 @@
     "D": "96"
    },
    "correct": "C",
-   "explanation": "The least common multiple of 8 and 12 is 24; A adds intervals, while B and D use larger common multiples rather than the next one.",
+   "explanation": "The least common multiple of 8 and 12 is 24; 20 adds the intervals, and 48 and 96 are larger common multiples rather than the next one.",
    "misconceptions": "adds periods; finds product instead of LCM",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "95737d39d05e0ae3"
+   "content_hash": "664f5edc4f4b41f9"
   },
   {
    "id": "M02-QR-019",
@@ -6515,11 +6515,11 @@
     "D": "40"
    },
    "correct": "B",
-   "explanation": "With six values, average the third and fourth: (36 + 39)/2 = 37.5; A and C keep a middle value, and D averages the wrong pair.",
+   "explanation": "With six values, average the third and fourth: (36 + 39)/2 = 37.5; 36 and 39 keep a single middle value, and 40 averages the wrong pair.",
    "misconceptions": "keeps old median; chooses upper middle only",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "4ff23a91f5d20313"
+   "content_hash": "9002b03e18fd89a1"
   },
   {
    "id": "M02-QR-021",
@@ -6683,11 +6683,11 @@
     "D": "192"
    },
    "correct": "C",
-   "explanation": "The rule alternates ×3, +3; after 48, multiply by 3 to get 144. A repeats +3, and B or D use wrong multipliers.",
+   "explanation": "The rule alternates ×3, +3; after 48, multiply by 3 to get 144. 51 repeats the +3, and 96 and 192 use wrong multipliers.",
    "misconceptions": "continues last operation; assumes constant difference",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "f382e599bce0ee81"
+   "content_hash": "2373e4d1977d8bb9"
   },
   {
    "id": "M02-QR-029",
@@ -6851,11 +6851,11 @@
     "D": "36 miles"
    },
    "correct": "C",
-   "explanation": "1 hour 40 minutes = 5/3 hours; 18 × 5/3 = 30. A treats 40 minutes as 1/3 hour, while B and D misconvert time.",
+   "explanation": "1 hour 40 minutes = 5/3 hours; 18 × 5/3 = 30. 24 miles treats 40 minutes as 1/3 hour, and 27 and 36 miles misconvert the time.",
    "misconceptions": "decimal-time error; ignores extra minutes",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "10aefc56736908a1"
+   "content_hash": "dd7fc6a38e10e861"
   },
   {
    "id": "M02-QR-037",
@@ -6936,12 +6936,12 @@
     "D": "The pond station began counting an hour after the others."
    },
    "correct": "B",
-   "explanation": "[¶2] explicitly says Lena's brighter lamp could attract moths from farther away. A and D are never stated, and C contradicts [¶1], where the students recorded the time before releasing each moth.",
+   "explanation": "[¶2] explicitly says Lena's brighter lamp could attract moths from farther away. Lost notebooks and a late start at the pond station are never stated, and releasing the moths before the time was recorded contradicts [¶1], where the students recorded the time before releasing each moth.",
    "misconceptions": "invents missing information; confuses procedure with flaw",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P01",
    "form": "M02",
-   "content_hash": "c5cd8f68ac145df9"
+   "content_hash": "dc9e8e2fab230f20"
   },
   {
    "id": "M02-RC-003",
@@ -6958,12 +6958,12 @@
     "D": "They made it unnecessary to photograph any of the visiting moths."
    },
    "correct": "A",
-   "explanation": "Controlling brightness lets location be compared more fairly, as [¶3–¶4] imply. B and C claim guarantees the passage does not support, and D is contradicted by the survey method.",
+   "explanation": "Controlling brightness lets location be compared more fairly, as [¶3–¶4] imply. Seeing every moth in the whole meadow and drawing exactly the same kinds of moths at every station are guarantees the passage does not support, and making photographs unnecessary is contradicted by the survey method.",
    "misconceptions": "treats control as guarantee; misses variable isolation",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P01",
    "form": "M02",
-   "content_hash": "d75b45b1324f7562"
+   "content_hash": "32c5a75211005eae"
   },
   {
    "id": "M02-RC-004",
@@ -7046,12 +7046,12 @@
     "D": "To warn people about tunnels running under the town"
    },
    "correct": "A",
-   "explanation": "[¶2] directly states that later mapmakers could begin from fixed points. B and D are not given purposes—and [¶4] denies any tunnel—while C repeats the residents' mistaken assumption in [¶1].",
+   "explanation": "[¶2] directly states that later mapmakers could begin from fixed points. Siting public buildings and warning about tunnels are not given as purposes—and [¶4] denies any tunnel—while decorating the open spaces repeats the residents' mistaken assumption in [¶1].",
    "misconceptions": "confuses later building with original purpose; uses decorative assumption",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P02",
    "form": "M02",
-   "content_hash": "a430dcc9fa62bd1b"
+   "content_hash": "f3c6ab11ebb168ad"
   },
   {
    "id": "M02-RC-008",
@@ -7112,12 +7112,12 @@
     "D": "approving"
    },
    "correct": "D",
-   "explanation": "[¶3–¶4] presents the glass panel as preserving both practical and historical value. A and C conflict with that praise, while B is not supported by humor.",
+   "explanation": "[¶3–¶4] presents the glass panel as preserving both practical and historical value. Doubtful and impatient conflict with that praise, and no humor supports amused.",
    "misconceptions": "neutral-reporting assumption; tone-word mismatch",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P02",
    "form": "M02",
-   "content_hash": "500a83c060c719ce"
+   "content_hash": "689f29140c63c23d"
   },
   {
    "id": "M02-RC-011",
@@ -7178,12 +7178,12 @@
     "D": "Reading aloud is easier outdoors than on a train."
    },
    "correct": "B",
-   "explanation": "The changing views “held together,” paralleling how selected moments can make a drawing or story. A is incidental, and C and D are unsupported.",
+   "explanation": "The changing views “held together,” paralleling how selected moments can make a drawing or story. The open farmland is incidental, and neither the claim that train travel is too fast for careful observation nor the one about reading aloud outdoors is supported.",
    "misconceptions": "stays literal; selects setting detail",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P03",
    "form": "M02",
-   "content_hash": "13b44ac26da07bbf"
+   "content_hash": "891259ef7bb28b02"
   },
   {
    "id": "M02-RC-014",
@@ -7200,12 +7200,12 @@
     "D": "tightly"
    },
    "correct": "D",
-   "explanation": "If the envelope looked as though it might escape, Mara must have been gripping it tightly. A and B are opposite, while C concerns visibility rather than grip.",
+   "explanation": "If the envelope looked as though it might escape, Mara must have been gripping it tightly. Loosely and carelessly are the opposite, and secretly concerns visibility rather than grip.",
    "misconceptions": "literalizes escape; confuses secrecy with tension",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P03",
    "form": "M02",
-   "content_hash": "f268ea2f80c11230"
+   "content_hash": "bbdd824a3e6f27fa"
   },
   {
    "id": "M02-RC-015",
@@ -7244,12 +7244,12 @@
     "D": "The dancers invented a new game using colored chalk arrows."
    },
    "correct": "B",
-   "explanation": "B covers Suri's planning method and result in [¶1–¶4]. A overstates the method, and C and D contradict the events.",
+   "explanation": "The chalk diagram covers Suri's planning method and its result in [¶1–¶4]. Saying outdoor courts are better for every rehearsal overstates the method, and the cancelled performance and the invented chalk game contradict the events.",
    "misconceptions": "overgeneralizes solution; mistakes diagram for final activity",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P04",
    "form": "M02",
-   "content_hash": "d6bca48564f9a34e"
+   "content_hash": "cd9f9b46e3b8184d"
   },
   {
    "id": "M02-RC-017",
@@ -7310,12 +7310,12 @@
     "D": "recorded a finished performance"
    },
    "correct": "C",
-   "explanation": "The circles and arrows represented motion before it happened. A and B interpret invisible literally, while D confuses planning with recording.",
+   "explanation": "The circles and arrows represented motion before it happened. Moving without being seen and glowing in the dark interpret “invisible” literally, and recording a finished performance confuses planning with recording.",
    "misconceptions": "literal interpretation; sequence confusion",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P04",
    "form": "M02",
-   "content_hash": "e7b335e634d83959"
+   "content_hash": "1c189389e1444fca"
   },
   {
    "id": "M02-RC-020",
@@ -7354,12 +7354,12 @@
     "D": "The environmental club replaces the school's bus shelter after three storms."
    },
    "correct": "C",
-   "explanation": "C combines the roof's function [¶2] with the students' learning [¶3–¶4]. A and D are unsupported—the club measured rather than rebuilt—and B mistakes delayed release for a leak.",
+   "explanation": "The planted-roof summary combines the roof's function [¶2] with the students' learning [¶3–¶4]. Building every shelter of wood and replacing the shelter are unsupported—the club measured rather than rebuilt—and the leaking roof mistakes delayed release for a leak.",
    "misconceptions": "accepts first assumption; focuses on one material",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P05",
    "form": "M02",
-   "content_hash": "544821053079b5a6"
+   "content_hash": "3389202cadd679f7"
   },
   {
    "id": "M02-RC-022",
@@ -7398,12 +7398,12 @@
     "D": "To isolate whether the planted roof is related to temperature"
    },
    "correct": "D",
-   "explanation": "Comparing planted and unplanted shelters provides a reference for the temperature question in [¶4]. A and B ask different questions; C claims proof before evidence.",
+   "explanation": "Comparing planted and unplanted shelters provides a reference for the temperature question in [¶4]. Counting students and testing whether bare metal collects any rain ask different questions, and proving the planted shelter never becomes warm claims proof before evidence.",
    "misconceptions": "confuses prediction with proof; misses comparison purpose",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P05",
    "form": "M02",
-   "content_hash": "fdfa3e19bbdc23f1"
+   "content_hash": "941d9059bba67001"
   },
   {
    "id": "M02-RC-024",
@@ -7464,11 +7464,11 @@
     "D": "7,503"
    },
    "correct": "A",
-   "explanation": "4,608 + 2,795 = 7,403; B and D reflect carrying errors, and C drops one thousand.",
+   "explanation": "4,608 + 2,795 = 7,403; 7,393 and 7,503 reflect carrying errors, and 6,403 drops one thousand.",
    "misconceptions": "regrouping error; place-value omission",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "7a40bc532de30670"
+   "content_hash": "b7a8ad9ac812b0ce"
   },
   {
    "id": "M02-MA-002",
@@ -7569,11 +7569,11 @@
     "D": "108"
    },
    "correct": "A",
-   "explanation": "Common factors include 1, 2, 3, 6, 9, and 18; 18 is greatest. B and C are common but not greatest, while D is a multiple.",
+   "explanation": "Common factors include 1, 2, 3, 6, 9, and 18; 18 is greatest. 9 and 6 are common but not greatest, and 108 is a multiple.",
    "misconceptions": "stops at smaller factor; confuses factor and multiple",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "953d0d275745f777"
+   "content_hash": "a48f0a613477dc99"
   },
   {
    "id": "M02-MA-007",
@@ -7611,11 +7611,11 @@
     "D": "625/10"
    },
    "correct": "B",
-   "explanation": "0.625 = 625/1000 = 5/8; A and C are nearby values, while D places the decimal incorrectly.",
+   "explanation": "0.625 = 625/1000 = 5/8; 3/5 and 5/6 are nearby values, and 625/10 places the decimal incorrectly.",
    "misconceptions": "denominator place-value error; chooses nearby familiar fraction",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "3336cb255b5f96fa"
+   "content_hash": "61427c305bb1e1b1"
   },
   {
    "id": "M02-MA-009",
@@ -7653,11 +7653,11 @@
     "D": "43"
    },
    "correct": "D",
-   "explanation": "4² = 16, then 3 × 16 − 5 = 43. A squares after multiplying incorrectly, and B or C reflect arithmetic errors.",
+   "explanation": "4² = 16, then 3 × 16 − 5 = 43. 19 squares after multiplying incorrectly, and 31 and 37 reflect arithmetic errors.",
    "misconceptions": "ignores exponent; performs subtraction too early",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "4501183266406a99"
+   "content_hash": "ddefe194540ff5ba"
   },
   {
    "id": "M02-MA-011",
@@ -7674,11 +7674,11 @@
     "D": "18y"
    },
    "correct": "A",
-   "explanation": "Multiply both terms by 6: 6y + 18. B fails to distribute to 3, while C and D combine unlike terms.",
+   "explanation": "Multiply both terms by 6: 6y + 18. 6y + 3 fails to distribute to the 3, and 9y and 18y combine unlike terms.",
    "misconceptions": "partial distribution; combines variable and constant",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "cfaf1f53d741e8bf"
+   "content_hash": "f977f8244889342f"
   },
   {
    "id": "M02-MA-012",
@@ -7695,11 +7695,11 @@
     "D": "n > 10"
    },
    "correct": "C",
-   "explanation": "Multiplying both sides by positive 4 gives n < 24; B reverses the sign, and A or D use wrong operations.",
+   "explanation": "Multiplying both sides by positive 4 gives n < 24; n > 24 reverses the sign, and n < 2 and n > 10 use wrong operations.",
    "misconceptions": "reverses inequality unnecessarily; divides instead of multiplies",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "e4677db6abd088af"
+   "content_hash": "6115beb7596724a8"
   },
   {
    "id": "M02-MA-013",
@@ -7779,11 +7779,11 @@
     "D": "98 ft³"
    },
    "correct": "A",
-   "explanation": "Volume = 7 × 4 × 3 = 84 cubic feet. B multiplies only length and width (7 × 4 = 28), while C and D first add all three dimensions (7 + 4 + 3 = 14) and then multiply by the height (14 × 3 = 42) or the length (14 × 7 = 98) instead of multiplying all three dimensions.",
+   "explanation": "Volume = 7 × 4 × 3 = 84 cubic feet. 28 ft³ multiplies only length and width (7 × 4), while 42 ft³ and 98 ft³ first add all three dimensions (7 + 4 + 3 = 14) and then multiply by the height (14 × 3 = 42) or the length (14 × 7 = 98) instead of multiplying all three dimensions.",
    "misconceptions": "computes base area only; omits a dimension",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "31da075c8a523a2c"
+   "content_hash": "f32326bfd7537ba5"
   },
   {
    "id": "M02-MA-017",
@@ -7947,11 +7947,11 @@
     "D": "80 m²"
    },
    "correct": "C",
-   "explanation": "Full area is 80 m² and removed area is 6 m², leaving 74 m². D ignores the removal, while A and B subtract dimensions or the wrong area.",
+   "explanation": "Full area is 80 m² and removed area is 6 m², leaving 74 m². 80 m² ignores the removal, and 68 m² and 70 m² subtract dimensions or the wrong area.",
    "misconceptions": "subtracts lengths instead of areas; omits cutout",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "64845967bd4db60a"
+   "content_hash": "bab8ed2cf450bbe7"
   },
   {
    "id": "M02-MA-025",
@@ -7968,11 +7968,11 @@
     "D": "64"
    },
    "correct": "A",
-   "explanation": "Multiply and divide first: 18 − 12 + 4 = 10. B or C change operation order, and D combines numbers without precedence.",
+   "explanation": "Multiply and divide first: 18 − 12 + 4 = 10. 13 and 19 change the operation order, and 64 combines the numbers without precedence.",
    "misconceptions": "works strictly left to right; ignores implied multiplication",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "4e6490e504d6d4b8"
+   "content_hash": "68603f7cd23cfbc4"
   },
   {
    "id": "M02-MA-026",
@@ -8010,11 +8010,11 @@
     "D": "27"
    },
    "correct": "C",
-   "explanation": "3/5 of 45 is 27, and 2/3 of 27 is 18. D stops after the first fraction; A and B apply the fractions incorrectly.",
+   "explanation": "3/5 of 45 is 27, and 2/3 of 27 is 18. 27 stops after the first fraction, and 12 and 15 apply the fractions incorrectly.",
    "misconceptions": "stops after first step; adds fractions",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "80dfb74c216605aa"
+   "content_hash": "b6abec99877df046"
   },
   {
    "id": "M02-MA-028",
@@ -9628,12 +9628,12 @@
     "D": "Freight needed space."
    },
    "correct": "D",
-   "explanation": "S3 directly assigns white to freight; C is the red signal, while A and B are not flag meanings.",
+   "explanation": "S3 directly assigns white to freight; waiting passengers are the red signal, and fog on the river and the bridge opening are not flag meanings.",
    "misconceptions": "swaps paired details; invents later event",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M03-RC-P01",
    "form": "M03",
-   "content_hash": "df1cd0dff61996c2"
+   "content_hash": "769fd5f4a9a0d3fc"
   },
   {
    "id": "M03-RC-003",
@@ -9716,12 +9716,12 @@
     "D": "Strong winds always improve the water collected."
    },
    "correct": "B",
-   "explanation": "B includes both the method and its conditions; A and D ignore limitations, while C reverses the process.",
+   "explanation": "The mesh-panel summary includes both the method and its conditions; working everywhere without maintenance and strong winds always improving collection ignore the limitations, and covered tanks creating the fog reverses the process.",
    "misconceptions": "ignores qualification; cause-effect reversal",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M03-RC-P02",
    "form": "M03",
-   "content_hash": "a501162ea564a496"
+   "content_hash": "4c545337113e1e38"
   },
   {
    "id": "M03-RC-007",
@@ -9958,12 +9958,12 @@
     "D": "Repainted every missing shape in new color"
    },
    "correct": "C",
-   "explanation": "S3-S5 give photography and test cleaning before repair; A and D reverse the work, while B is never done.",
+   "explanation": "S3-S5 give photography and test cleaning before repair; fresh plaster over the whole mural and repainting every missing shape reverse the work, and no one is ever asked to guess the missing scene.",
    "misconceptions": "sequence reversal; selects rejected method",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M03-RC-P04",
    "form": "M03",
-   "content_hash": "f2e1e555169d8779"
+   "content_hash": "b7363efc0b9e3fc8"
   },
   {
    "id": "M03-RC-018",
@@ -10597,11 +10597,11 @@
     "D": "113°"
    },
    "correct": "B",
-   "explanation": "Triangle angles total 180°, so 180 − (52 + 61) = 180 − 113 = 67°. D stops at the sum of the two given angles (113°), while A and C come from misadding 52 + 61 (as 123 or 103) before subtracting from 180°.",
+   "explanation": "Triangle angles total 180°, so 180 − (52 + 61) = 180 − 113 = 67°. 113° stops at the sum of the two given angles, while 57° and 77° come from misadding 52 + 61 (as 123 or 103) before subtracting from 180°.",
    "misconceptions": "reports the two-angle sum; addition slips before subtracting",
    "source": "Original content authored for Sheila ISEE",
    "form": "M03",
-   "content_hash": "3893499618d50bb4"
+   "content_hash": "f7c4cc66b730eaf9"
   },
   {
    "id": "M03-MA-023",
@@ -10639,11 +10639,11 @@
     "D": "240 cm³"
    },
    "correct": "D",
-   "explanation": "Volume = 8 × 6 × 5 = 240 cm³. A finds only the top and bottom faces (2 × 48 = 96), and B and C are slips in the final step 48 × 5: misreading 48 as 38 gives 190, and taking 200 + 4 × 5 instead of 200 + 8 × 5 gives 220.",
+   "explanation": "Volume = 8 × 6 × 5 = 240 cm³. 96 cm³ finds only the top and bottom faces (2 × 48), and 190 cm³ and 220 cm³ are slips in the final step 48 × 5: misreading 48 as 38 gives 190, and taking 200 + 4 × 5 instead of 200 + 8 × 5 gives 220.",
    "misconceptions": "computes partial surface area; multiplication slips",
    "source": "Original content authored for Sheila ISEE",
    "form": "M03",
-   "content_hash": "78fcc3b2df4ff3c5"
+   "content_hash": "b753031f4afcaf31"
   },
   {
    "id": "M03-MA-025",

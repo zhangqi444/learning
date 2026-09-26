@@ -122,13 +122,18 @@ evidence asks for, and it was already made.
 **The streak already refuses to punish.** Two forgiven days a week, built in.
 That is rule 3 taken seriously in code, and it is the model for everything else.
 
-**There is one real farming hole.** `eachTimestamp` (`engine.js:498`) awards
-`review:1` per entry in an item's `hist`. Sets are safe — redoing one replaces
-its timestamp, so a set is worth at most 20 points ever — but the review pile is
-not: `/review/<sub>/all` serves scheduled items, and each pass adds history and
-points. Today it is harmless because a point is a point. The moment points buy
-something, it becomes the exact Duolingo failure mode. **Fix it before Stage 3:**
-count review and vocab points once per item per day.
+**There was one real farming hole, and it is closed.** `eachTimestamp` awarded
+`review:1` per entry in an item's `hist`. Sets were safe — redoing one replaces
+its timestamp, so a set is worth at most 20 points ever — but the review pile was
+not: `/review/<sub>/all` serves scheduled items, and each pass added history and
+points. It was harmless only while a point bought nothing; the moment points buy
+something it is the exact Duolingo failure mode. The cap asked for here is in
+`eachTimestamp` now — review and vocab answers pay once per item per day, deduped
+by day rather than outright so `activityDays` stays honest and a day with work on
+it still emits a timestamp. Every other source in that function was already
+self-limiting, which was checked rather than assumed: a set and a mock section
+replace their own timestamp, a precision word is keyed by the word, and
+`logSession` filters out the day it is writing, so a book pays once per day too.
 
 ---
 

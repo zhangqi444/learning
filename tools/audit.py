@@ -108,5 +108,7 @@ hits = [(i['id'], PAT.search(i['explanation']).group(0)) for i in items
 print(f'4. explanations that name a choice by letter or position: {len(hits)}')
 for i, m in hits[:6]:
     print(f'      {i}: "{m}"')
-print('   Harmless while the choices render in a fixed order, and the first thing\n'
-      '   to break if they are ever shuffled. Naming the value reads better anyway.')
+print('   Zero, and held there by tools/validate_content.py rather than by this\n'
+      '   count. It was never "harmless while the order is fixed": build_weeks.py\n'
+      '   re-randomises every option before a bank ships, so a letter in prose was\n'
+      '   already pointing at whatever landed in that slot.')
