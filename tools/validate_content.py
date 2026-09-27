@@ -70,28 +70,30 @@ def why_errors(it):
             if rhs is not None and abs(lhs-rhs)>1e-9:
                 out.append(f'{i}: why on {k} says "{m.group(1)} is {m.group(2).strip()}", which is {rhs:g}')
     return out
-# ---- a mock question gets no second chance, so every wrong choice is answered -
-# Every other bank is practice: she meets those questions again in the review
-# pile, and a `why` can be added later. A mock is timed and sat once, and the only
-# place it teaches is the missed-questions list on the score card a day or two
-# afterwards. That card knows which wrong choice she made and, until this was
-# built, showed everyone who missed a question the same paragraph.
+# ---- every wrong choice gets answered, in every bank ---------------------------
+# 1,510 of 1,510 now, so this is an error rather than a count. It was a mock-only
+# rule for one commit, while the mock was at 508 of 508 and the practice banks
+# still had 134 items short; both are done, and a rule that applies everywhere is
+# the one worth holding.
 #
-# All 508 carry one for every wrong choice now, so this is an error rather than a
-# count. It is here because the number was 0 for months while a document
-# described the gap, and a figure at zero-remaining is only worth having if
-# something stops it drifting back.
-def mock_why_errors(it, bank):
-    if bank != 'mock.json': return []
+# Why it is worth holding at all: the explanation can only ever describe the
+# correct route. Told "perimeter = 2(10+3) = 26" after picking 30, she still does
+# not learn that 30 was the area. The `why` is the only thing on the page that
+# speaks to the answer she actually gave, and it is shown on the runner's reveal,
+# again on the score card, and in the mock's missed-questions list. A question
+# that arrives without one is a miss that teaches her nothing, and the moment to
+# write it is while the question is being written.
+def why_gap_errors(it):
     w = it.get('why') or {}
     gaps = [l for l in it.get('choices', {}) if l != it.get('correct') and not str(w.get(l) or '').strip()]
     if not gaps: return []
-    return [f'{it["id"]}: no why for {", ".join(sorted(gaps))} — a mock miss is only explained on the score card']
+    return [f'{it["id"]}: no why for {", ".join(sorted(gaps))} — that choice is never told what it was']
 
 # ---- prose may not name a choice by its letter -------------------------------
 # See tools/letters.py for the forms and why each one is there.
-from letters import letter_errors
+from letters import letter_errors, self_test
 
+errs += self_test()          # the detector is checked before the content is
 BANKS='content/question-banks'
 pass_ids=set()
 for f in os.listdir('content/passages'):
@@ -127,7 +129,7 @@ for f in sorted(os.listdir(BANKS)):
         errs += why_errors(it)
         errs += gloss_errors(it)
         errs += letter_errors(it)
-        errs += mock_why_errors(it, f)
+        errs += why_gap_errors(it)
 
 # answer-position sanity per bank/form
 for f in sorted(os.listdir(BANKS)):

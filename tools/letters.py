@@ -44,10 +44,32 @@ LETTER_FORMS = [
                r'have|has|picks?|reports?|changes?|confuses?|wrongly|preserves?|runs?|lands?|'
                r'ends?|helps?|permits?|reduces?)(?![a-z])'),
 ]
-NAMED = re.compile(r'(?:[A-Z][a-z]+|point|vertex|angle|line|segment|side|figure|shape|column|row|'
-                   r'graph|label|range|section|part|team|group|city|town|station|route|path|plan|'
-                   r'box|bag|jar|tank|store|shop|car|train|bus|machine|pump|school|class|farm|'
-                   r'garden|brand|set)\s+$')
+# The plural matters: "In triangle ABC ... angles A and B" is the question's own
+# labelling, and the first version of this list had only the singular, so it
+# refused a correct explanation about a triangle's vertices. A label list that
+# rejects good content teaches people to work around the check.
+NAMED = re.compile(r'(?:[A-Z][a-z]+|point|vertex|vertice|angle|line|segment|side|figure|shape|'
+                   r'column|row|graph|label|range|section|part|team|group|city|town|station|'
+                   r'route|path|plan|box|bag|jar|tank|store|shop|car|train|bus|machine|pump|'
+                   r'school|class|farm|garden|brand|set|crew|boat|store)s?\s+$')
+
+def _labelled(text):
+    """Letters the text has already established as the question's own labels.
+
+    "In triangle ABC, angles A and B total 102" excuses "angles A and B" by the
+    word in front of it — and then leaves "B total" looking like a bare letter
+    doing something. Once a letter has been introduced as a label it stays one
+    for the rest of the field. The cost of this is narrow and worth saying: a
+    field that legitimately labels "point C" and ALSO means choice C when it says
+    "C subtracts 4" would slip through. Between the two readings the label is far
+    likelier, and refusing correct content is the worse failure.
+    """
+    out=set()
+    for pat in LETTER_FORMS:
+        for m in pat.finditer(text):
+            if NAMED.search(text[:m.start()]):
+                out.update(re.findall(r'[ABCD]', m.group(0)))
+    return out
 
 def letter_errors(it):
     out=[]
@@ -55,11 +77,49 @@ def letter_errors(it):
     fields += [(f'why.{k}', v) for k, v in (it.get('why') or {}).items()]
     for name, text in fields:
         t=str(text or '')
+        labels=_labelled(t)
         for pat in LETTER_FORMS:
             for m in pat.finditer(t):
-                if NAMED.search(t[:m.start()]): continue      # a name the question gave
+                if NAMED.search(t[:m.start()]): continue          # a name the question gave
+                seen=set(re.findall(r'[ABCD]', m.group(0)))
+                if seen and seen <= labels: continue              # already established as labels
                 out.append(f'{it["id"]}: {name} names a choice by letter ("{m.group(0)}") — name the value')
                 break
             else: continue
             break
+    return out
+
+
+# ---- what the detector must and must not flag ---------------------------------
+# The forms below are the ones that were actually found in this bank, and the
+# labels are the ones that actually appear in its questions. Both halves matter
+# equally: this check was rewritten twice, once because it missed 129 real
+# references and once because it refused a correct explanation about a triangle's
+# vertices, and neither mistake was visible from reading the patterns. The
+# validator runs this before it looks at any content, so a change to the regexes
+# fails here rather than somewhere in the middle of 1,510 items.
+CASES = [
+    # (text, should_be_flagged)
+    ('choice B is the area.', True),
+    ('the last choice repeats it.', True),
+    ('B is wrong because the area is 30.', True),
+    ('A, B, and D have no evidence.', True),
+    ('A\u2013C misread the function.', True),
+    ('C subtracts 4 instead of dividing.', True),
+    ('A divides by 2 as if two sides counted.', True),
+    ('In triangle ABC, angles A and B total 102\u00b0.', False),
+    ('Store A is $1.50 each and Car B gives 30.', False),
+    ('point C lands on (7, 7).', False),
+    ("Set A's range is 12 and Set B's is 19.", False),
+    ('Boat A travels 16 mph and Boat B 14 mph.', False),
+    ('Crew A packs 12 an hour and Crew B packs 11.', False),
+]
+
+def self_test():
+    out=[]
+    for text, want in CASES:
+        got = bool(letter_errors({'id': 'self-test', 'explanation': text}))
+        if got != want:
+            verb = 'flagged' if got else 'passed'
+            out.append(f'letters.py self-test: {verb} {text!r}, which it should not have')
     return out

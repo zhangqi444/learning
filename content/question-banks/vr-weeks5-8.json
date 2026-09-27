@@ -2676,9 +2676,10 @@
    "form": "W7",
    "why": {
     "A": "Timid means shy and easily frightened, but Maya insists out loud that her teacher deserves the credit, and insisting takes nerve rather than shyness.",
-    "C": "Indifferent means not caring one way or the other, and Maya plainly cares a great deal — she insists her teacher be given credit."
+    "C": "Indifferent means not caring one way or the other, and Maya plainly cares a great deal — she insists her teacher be given credit.",
+    "B": "Smug means pleased with yourself and showing it, and Maya does the reverse — she hands the credit to her teacher."
    },
-   "content_hash": "953125d2a0605834"
+   "content_hash": "b0e0e88368d939b1"
   },
   {
    "id": "VR-W7-S3-Q10",
@@ -2701,9 +2702,10 @@
    "form": "W7",
    "why": {
     "A": "Gracious means being kind and generous about other people, especially when you have won, and Trent does the opposite by reminding everyone of his own cleverness.",
-    "D": "Apologetic means looking sorry, as though you wished you had not done something, and Trent is enjoying himself far too much for that."
+    "D": "Apologetic means looking sorry, as though you wished you had not done something, and Trent is enjoying himself far too much for that.",
+    "C": "Anxious means worried, and Trent has just won and is reminding everyone that he called the score."
    },
-   "content_hash": "9a515c65bf41cdc2"
+   "content_hash": "82f4967a273b1672"
   },
   {
    "id": "VR-W7-S3-Q11",
@@ -3350,9 +3352,10 @@
    "form": "W8",
    "why": {
     "A": "Retaliate means to strike back at someone who has hurt you first, but ticket numbers are not paying anybody back — they are simply falling.",
-    "B": "Cultivate means to tend something so that it grows, the way a gardener tends a row of beans; sales going from four hundred to fifty are shrinking, not growing."
+    "B": "Cultivate means to tend something so that it grows, the way a gardener tends a row of beans; sales going from four hundred to fifty are shrinking, not growing.",
+    "C": "Strive means to try hard at something, which says nothing about numbers falling from four hundred to fifty."
    },
-   "content_hash": "8c8a1e0d874f2eba"
+   "content_hash": "755c99473c8c002e"
   },
   {
    "id": "VR-W8-S2-Q19",

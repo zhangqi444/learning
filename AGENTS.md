@@ -414,11 +414,31 @@ match the spelling the question uses. And it must not read as a **false
 identity**: "27 is 3/5 of 45" parses as 27 = 0.6 and is refused, correctly.
 Several drafts were rejected by both rules and rewritten.
 
-**What remains is the practice banks: 134 of the other 1,002 items have a `why`
-for some wrong choices but not all** — 67 of them in Mathematics, 62 in
-Quantitative, 5 in Verbal, none in Reading. That is a smaller and much less urgent
-gap than the mock one was, because every practice question comes back round in the
-review pile and can be answered then.
+**That is now every question in the repository: 1,510 of 1,510 carry a `why` for
+each of their wrong choices**, and `tools/validate_content.py` errors on a gap in
+any bank rather than only in `mock.json`. The last 134 were the practice banks —
+67 in Mathematics, 62 in Quantitative, 5 in Verbal, none in Reading — and they
+were the leftovers of an earlier pass that had done the harder items and skipped
+the ones whose distractor had no obvious story. Where there still was none, the
+sentence says what the number is not and gives the check: "38 is not 7 × 5 × 4,
+which comes to 140."
+
+**The identity guard earned its place four more times on this pass, and one of the
+catches is worth keeping in mind.** "112 is 7 × 8 doubled" reads naturally and
+literally asserts 112 = 56 — the check refused it and it is now "112 doubles the
+product; 7 × 8 is 56." Same for "27 is 3/4 of 36" and "28 is 10 + 4 doubled".
+Anything of the form "<number> is <arithmetic>" is read as a claim and evaluated,
+so say "comes from" or "doubles" when you do not mean equals.
+
+**The letter detector also had a false positive, and refusing correct content is
+the worse failure**, so it was fixed rather than worked around. "In triangle ABC,
+angles A and B total 102°" is the question's own labelling; the list of label
+words only had singulars, so "angles A" was not excused. It now takes a plural,
+and a letter once established as a label stays one for the rest of that field —
+otherwise "angles A and B" is excused and the trailing "B total" is flagged
+instead. The narrow cost is recorded in `tools/letters.py`: a field that labels
+"point C" and elsewhere means choice C would slip through, which is the better way
+round to be wrong.
 
 **The furniture.** `src/lib/world.js` holds every world noun, so renaming
 anything is a one-file edit and no component writes one as a literal.
