@@ -22,7 +22,12 @@
    "misconceptions": "sound-alike guess; ignores part of speech",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "3948966b094d886c"
+   "content_hash": "040beaf6c63b7618",
+   "why": {
+    "A": "Costly means expensive. A thing can be plentiful and cheap — a glut usually is.",
+    "B": "Narrow means small from side to side, a matter of width rather than of how much there is.",
+    "C": "Hidden means out of sight. Something abundant is in large supply whether or not you can see it."
+   }
   },
   {
    "id": "DGN-VR-002",
@@ -43,7 +48,12 @@
    "misconceptions": "chooses positive tone; confuses confidence with care",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "298d5d953c1ba054"
+   "content_hash": "ce943f276863431d",
+   "why": {
+    "A": "Cheerful means in good spirits; you can be cheerful and reckless at the same time.",
+    "B": "Noisy means loud. A cautious person is often quiet, but quietness is not what the word means.",
+    "C": "Certain means sure. Being cautious is nearer the opposite — you take care because you are not sure."
+   }
   },
   {
    "id": "DGN-VR-003",
@@ -64,7 +74,12 @@
    "misconceptions": "related-feature guess; prefix ignored",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "79c3a45de9e9f796"
+   "content_hash": "2defef847af9d45b",
+   "why": {
+    "A": "Flexible means it bends without breaking. That can help a thing last, but plenty of durable things are rigid.",
+    "C": "Colorful means full of colour, which says nothing about how long something survives.",
+    "D": "Unfinished means not completed. Durable is about standing up to wear, not about being done."
+   }
   },
   {
    "id": "DGN-VR-004",
@@ -85,7 +100,12 @@
    "misconceptions": "tone-only guess; near-context substitution",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "c7d0a3271abd5efd"
+   "content_hash": "438965faf0536a2f",
+   "why": {
+    "B": "Polite means well-mannered; a person can be eager and rude at once.",
+    "C": "Patient means willing to wait — nearly the opposite, since an eager person can hardly wait.",
+    "D": "Confused means unable to understand, which has nothing to do with keenness to act."
+   }
   },
   {
    "id": "DGN-VR-005",
@@ -106,7 +126,12 @@
    "misconceptions": "cause-effect reversal; size assumption",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "3d1709e3810264c2"
+   "content_hash": "8b85385293ffdd53",
+   "why": {
+    "A": "Unusually small is about size. Large things break easily too: a pane of glass is fragile and wide.",
+    "B": "Recently made is about age. A new thing can be tough and an old thing sturdy.",
+    "C": "Carefully packed is what you do because something is fragile, not what the word means."
+   }
   },
   {
    "id": "DGN-VR-006",
@@ -127,7 +152,12 @@
    "misconceptions": "context association; mood-weather confusion",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "056a57fa24780283"
+   "content_hash": "5683bd7391dbd713",
+   "why": {
+    "A": "Stormy describes the weather. Storms can make a day gloomy, but the word names the mood, not the rain.",
+    "B": "Crowded means full of people, which says nothing about mood.",
+    "D": "Silent means without sound. A gloomy room may be quiet, but quiet rooms are often cheerful."
+   }
   },
   {
    "id": "DGN-VR-007",
@@ -148,7 +178,12 @@
    "misconceptions": "unfamiliar-word guess; part-of-speech drift",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "2dc9d0db467514c2"
+   "content_hash": "0b559b4d1a105130",
+   "why": {
+    "A": "Repair means to mend. Hindering is the opposite sort of act — it gets in the way.",
+    "C": "Request means to ask for something.",
+    "D": "Observe means to watch, and watching someone work does not slow them down."
+   }
   },
   {
    "id": "DGN-VR-008",
@@ -169,7 +204,12 @@
    "misconceptions": "related-action guess; reverses create/copy",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "6a625373a1f4cb18"
+   "content_hash": "c9583a311b23cf7f",
+   "why": {
+    "B": "Explain means to make something clear in words, not to reproduce it.",
+    "C": "Admire means to think well of. You can admire someone without copying anything they do.",
+    "D": "Invent means to make something new — the opposite of copying what already exists."
+   }
   },
   {
    "id": "DGN-VR-009",
@@ -190,7 +230,12 @@
    "misconceptions": "broad positive-word guess; sound cue",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "cbbd3d86cb5235aa"
+   "content_hash": "0b6af42f52b4ab66",
+   "why": {
+    "A": "Wise means having good judgment, which has nothing to do with cheerfulness.",
+    "B": "Tidy means neat and in order.",
+    "D": "Tired means in need of rest. A jolly person is lively, closer to the opposite."
+   }
   },
   {
    "id": "DGN-VR-010",
@@ -211,7 +256,12 @@
    "misconceptions": "misses multiple meaning; connotation guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "164932786e5c9ca2"
+   "content_hash": "e23219f8cb6f6b03",
+   "why": {
+    "A": "Ordinary means usual or unremarkable — nearly the opposite of a keen mind.",
+    "C": "Distant means far off.",
+    "D": "Gentle means mild or soft in manner, whereas keen is sharp."
+   }
   },
   {
    "id": "DGN-VR-011",
@@ -232,7 +282,12 @@
    "misconceptions": "confuses modest price sense; tone-only guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "e0178d60378cb70a"
+   "content_hash": "59111f0e3f11dc8f",
+   "why": {
+    "A": "Awkward means clumsy or uncomfortable. A modest person may be perfectly at ease.",
+    "B": "Expensive means costing a lot; modest can describe a small amount but never a large one.",
+    "C": "Exact means precise, which is about accuracy rather than about how a person speaks of themselves."
+   }
   },
   {
    "id": "DGN-VR-012",
@@ -253,7 +308,12 @@
    "misconceptions": "unfamiliar-word guess; chooses personality trait",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "3df1f7ea69b74cb7"
+   "content_hash": "701c6d177b6c3a30",
+   "why": {
+    "A": "Peaceful means calm and free of conflict, not quick on your feet.",
+    "C": "Enormous means very large. Size is not what nimble measures, and large things are rarely nimble.",
+    "D": "Honest means truthful."
+   }
   },
   {
    "id": "DGN-VR-013",
@@ -274,7 +334,12 @@
    "misconceptions": "neutral-tone confusion; context-free guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "0e60ddc9d6439d64"
+   "content_hash": "406b8ad18514470f",
+   "why": {
+    "B": "Complete means whole, with nothing missing.",
+    "C": "Quiet means making little sound.",
+    "D": "Valuable means worth a lot — often the opposite of ordinary, since it is rare things that command a price."
+   }
   },
   {
    "id": "DGN-VR-014",
@@ -295,7 +360,12 @@
    "misconceptions": "confuses particular/peculiar; sound association",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "be32097d982640e4"
+   "content_hash": "20d487f79500109d",
+   "why": {
+    "A": "Ancient means very old, and old things can be perfectly unremarkable.",
+    "B": "Helpful means giving useful assistance.",
+    "C": "Smooth means even to the touch."
+   }
   },
   {
    "id": "DGN-VR-015",
@@ -316,7 +386,12 @@
    "misconceptions": "time-word substitution; related but not equivalent",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "58b7d423a742aeef"
+   "content_hash": "1e7f68e6d89182da",
+   "why": {
+    "B": "Steady means even and unchanging in pace, which can be slow.",
+    "C": "Early is about when something happens, not how fast it goes.",
+    "D": "Brief means lasting a short time. A rapid thing is often brief, but a slow thing can be brief too."
+   }
   },
   {
    "id": "DGN-VR-016",
@@ -337,7 +412,12 @@
    "misconceptions": "cause-effect reversal; negative-tone guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "0828ec8af6792621"
+   "content_hash": "f7f2999c30392195",
+   "why": {
+    "A": "Desired means wanted. Scarcity often makes a thing wanted, but the word describes how little of it there is.",
+    "B": "Damaged means harmed or broken.",
+    "D": "Divided means split into parts."
+   }
   },
   {
    "id": "DGN-VR-017",
@@ -358,7 +438,12 @@
    "misconceptions": "visual-context guess; weak synonym",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "4853490ea4029c4d"
+   "content_hash": "bc30f58eafb50792",
+   "why": {
+    "A": "Empty means containing nothing.",
+    "B": "Distant means far away. A vivid memory can be of something long ago, which is nearly the reverse.",
+    "C": "Calm means quiet and untroubled, whereas vivid is about intensity."
+   }
   },
   {
    "id": "DGN-VR-018",
@@ -379,7 +464,12 @@
    "misconceptions": "ignores because; chooses attitude word",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "202d7daddde626ac"
+   "content_hash": "00f20922b6f902e9",
+   "why": {
+    "B": "Blindly means without looking. Ice calls for care, not for shutting your eyes, and nothing here says she could not see.",
+    "C": "Proudly describes how she felt about herself, which the ice has no bearing on.",
+    "D": "Gracefully describes how the walking looked. The sentence contrasts with rushing, so it wants a word about speed."
+   }
   },
   {
    "id": "DGN-VR-019",
@@ -400,7 +490,12 @@
    "misconceptions": "pet stereotype; ignores behavioral evidence",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "9a297851e4efe389"
+   "content_hash": "1b66fd8cb64a7159",
+   "why": {
+    "A": "Sleepy would not have the puppy greeting anyone; the wagging tail is evidence of the opposite.",
+    "B": "Timid means shy of strangers, which is the reverse of greeting every visitor.",
+    "D": "Hungry might explain interest in someone carrying food, not a welcome for everyone."
+   }
   },
   {
    "id": "DGN-VR-020",
@@ -421,7 +516,12 @@
    "misconceptions": "assumes secrecy means falsehood; ignores clue secret",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "4520254278b2dba0"
+   "content_hash": "b43c402da6bd7a72",
+   "why": {
+    "A": "Musical describes sound, not how much an answer gives away.",
+    "B": "Truthful answers can give a secret away; the sentence needs a word for saying little.",
+    "C": "Lengthy means long, and a long answer risks letting more slip out."
+   }
   },
   {
    "id": "DGN-VR-021",
@@ -442,7 +542,12 @@
    "misconceptions": "preposition guess; definition clue missed",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "cb43a9a9fcd65222"
+   "content_hash": "d0fbbd5c1686de91",
+   "why": {
+    "B": "Beside means next to it, which any object allows whether or not it is see-through.",
+    "C": "Above means over it.",
+    "D": "Around means past its edges — what you do with something you cannot see through."
+   }
   },
   {
    "id": "DGN-VR-022",
@@ -463,7 +568,12 @@
    "misconceptions": "ignores contrast marker; chooses plausible setting detail",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "321e2266b5a179a6"
+   "content_hash": "e30722fcb8d5f817",
+   "why": {
+    "B": "Private means not open to others. A market can be private and a courtyard public; the contrast here is with bustle.",
+    "C": "Bright is about light, not about noise or movement.",
+    "D": "Narrow is about width. The sentence pairs the word with still, so it wants calm."
+   }
   },
   {
    "id": "DGN-VR-023",
@@ -484,7 +594,12 @@
    "misconceptions": "purpose relationship missed; negative-word attraction",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "0575a929eff52357"
+   "content_hash": "069eeefa99ddd598",
+   "why": {
+    "A": "Pretend means to act as if something were true, which is not why anyone repeats directions.",
+    "C": "Wonder means to be curious. Repeating is how you remove the wondering, not how you create it.",
+    "D": "Doubt is what the coach is trying to get rid of."
+   }
   },
   {
    "id": "DGN-VR-024",
@@ -505,7 +620,12 @@
    "misconceptions": "focuses on loss; ignores helped",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "3039e87204334661"
+   "content_hash": "052518449778409d",
+   "why": {
+    "A": "Bitter means resentful, which would work against going back to practice.",
+    "B": "Careless means not taking care, and careless practice would not have helped her either.",
+    "C": "Puzzled means confused, and confusion does not explain why she kept working."
+   }
   },
   {
    "id": "DGN-VR-025",
@@ -526,7 +646,12 @@
    "misconceptions": "ignores without touching; museum-context guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "61e9f3e314078aba"
+   "content_hash": "0df0d8351e2cebbb",
+   "why": {
+    "A": "Polishing means rubbing it, which is touching.",
+    "C": "Replace means putting it back or swapping it, and both need hands.",
+    "D": "Borrow means taking it away."
+   }
   },
   {
    "id": "DGN-VR-026",
@@ -547,7 +672,12 @@
    "misconceptions": "weather association; reverses effect",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "3c50f19851272080"
+   "content_hash": "5b771c484990cac6",
+   "why": {
+    "B": "Freeze needs cold, which the sentence never mentions.",
+    "C": "Vanish would mean losing water, and rain adds it.",
+    "D": "Sparkle describes how the creek looks, not what hours of rain do to it."
+   }
   },
   {
    "id": "DGN-VR-027",
@@ -568,7 +698,12 @@
    "misconceptions": "ignores contrast; chooses visual feature",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "18a4485524292f3e"
+   "content_hash": "76b6e17c00f09ebd",
+   "why": {
+    "A": "Distant means far away, which is not something a map gets improved into.",
+    "C": "Ornate means heavily decorated, and decoration can make a map harder to read rather than clearer.",
+    "D": "Fragile means easily damaged, which is about the paper rather than the map's clarity."
+   }
   },
   {
    "id": "DGN-VR-028",
@@ -589,7 +724,12 @@
    "misconceptions": "decision-process gap; familiar-verb guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "762a9420d24264d8"
+   "content_hash": "9dd0e2e160554992",
+   "why": {
+    "A": "Dividing the proposals splits them up; it does not help the committee judge between them.",
+    "B": "Hiding them would make a choice impossible.",
+    "D": "Repeating them adds nothing new to judge by."
+   }
   },
   {
    "id": "DGN-VR-029",
@@ -610,7 +750,12 @@
    "misconceptions": "chooses imagery; degree clue missed",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "106b7a2d5350d6fb"
+   "content_hash": "8f98a8cde089fa21",
+   "why": {
+    "A": "Steady is about whether the glow flickers, not about how weak it is.",
+    "B": "Golden is a colour, and a golden glow can be blazing.",
+    "D": "Sudden is about when it began."
+   }
   },
   {
    "id": "DGN-VR-030",
@@ -631,7 +776,12 @@
    "misconceptions": "positive-trait guessing; ignores moral evidence",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "12b4e431405e1313"
+   "content_hash": "3f869d13b89407e4",
+   "why": {
+    "A": "Shy means uneasy with people, which does not explain returning money.",
+    "C": "Curious means wanting to know things.",
+    "D": "Clever means quick-witted, and keeping the change would have been no less clever."
+   }
   },
   {
    "id": "DGN-VR-031",
@@ -652,7 +802,12 @@
    "misconceptions": "formality-clarity confusion; length-clarity confusion",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "4515a47eb2830030"
+   "content_hash": "2e078b41b2790598",
+   "why": {
+    "A": "Lengthy means long, and long instructions can still be read two ways.",
+    "B": "Formal is about the style of the language, not about how exact it is.",
+    "D": "Familiar means already known, which does not make a step unambiguous."
+   }
   },
   {
    "id": "DGN-VR-032",
@@ -673,7 +828,12 @@
    "misconceptions": "assumes surprising means valuable; ignores until",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "9a91b80d9223c6ac"
+   "content_hash": "f720695133b82adc",
+   "why": {
+    "A": "Final would mean the matter is settled, and then no second experiment would be needed.",
+    "B": "Accurate claims the result is right, which is exactly what has not been checked yet.",
+    "D": "Valuable says the result matters, not whether it can be trusted."
+   }
   },
   {
    "id": "DGN-VR-033",
@@ -694,7 +854,12 @@
    "misconceptions": "ignores yet; surface-detail attraction",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "1c2f631bfba878f0"
+   "content_hash": "9f0859f1da2d8615",
+   "why": {
+    "A": "Faded repeats the wear rather than contrasting with it, and yet asks for a contrast.",
+    "C": "Dusty also goes with looking worn.",
+    "D": "Narrow is about width, which the sentence never raises."
+   }
   },
   {
    "id": "DGN-VR-034",
@@ -715,7 +880,12 @@
    "misconceptions": "confuses learn with explain; ignores purpose clue",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "553f584b32fe47c1"
+   "content_hash": "e63bcd9a26c2eae2",
+   "why": {
+    "B": "Postpone means to put off until later, which an example does not do to an idea.",
+    "C": "Challenge means to dispute. The example is there to help, not to argue.",
+    "D": "Memorize is something the listener might do afterwards, not what the example does to the idea."
+   }
   },
   {
    "id": "DGN-QR-001",
@@ -736,7 +906,12 @@
    "misconceptions": "repeats last difference; assumes constant ratio",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "23ee9e3ac69c8928"
+   "content_hash": "a4bf784b94bbacce",
+   "why": {
+    "B": "47 is 35 + 12, repeating the last increase; each increase grows by 3, so the next is 15.",
+    "C": "53 is 35 + 18, growing the increase by 6; the increases go up by 3 each time.",
+    "D": "44 is 35 + 9, an increase from two steps back."
+   }
   },
   {
    "id": "DGN-QR-002",
@@ -757,7 +932,12 @@
    "misconceptions": "subtracts two ticket dollars; divides by five first",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "3d847df48d2bb018"
+   "content_hash": "0aabbcb8a940e6c3",
+   "why": {
+    "A": "20.50 is not five tickets at any price; one ticket is $31.50 ÷ 7 = $4.50, so five come to $22.50.",
+    "B": "21.00 would make one ticket $4.20; $31.50 ÷ 7 is $4.50.",
+    "C": "18.00 is 4 × $4.50, the price of four tickets rather than five."
+   }
   },
   {
    "id": "DGN-QR-003",
@@ -778,7 +958,12 @@
    "misconceptions": "subtracts unlike denominators; reports completed fraction",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "153768b6df60f515"
+   "content_hash": "14ff3789082d2325",
+   "why": {
+    "A": "5/8 is the part already walked, not the part left.",
+    "B": "1/8 comes from 3/8 − 1/4; the two walked parts are added, and only then taken from the whole.",
+    "D": "1/2 is what would remain if 1/4 were 1/8; 1/4 is 2/8, so 5/8 is done and 3/8 is left."
+   }
   },
   {
    "id": "DGN-QR-004",
@@ -799,7 +984,12 @@
    "misconceptions": "uses 3/5 of total; selects green count",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "1623d34f4cfe947f"
+   "content_hash": "b8bccfabe9265cb2",
+   "why": {
+    "A": "15 is 5 × 3, multiplying the two ratio numbers together; each part is 48 ÷ 8 = 6.",
+    "B": "32 is neither share; the eight parts make 48, so each is 6 — 30 green and 18 gold.",
+    "C": "30 is 5 × 6, the green beads; gold is the 3 parts."
+   }
   },
   {
    "id": "DGN-QR-005",
@@ -820,7 +1010,12 @@
    "misconceptions": "compares denominators only; chooses familiar equivalent",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "0a2f73f0df0ca5c7"
+   "content_hash": "f47e8d241d7716cb",
+   "why": {
+    "B": "7/8 is 0.875, about 0.375 away from 0.5.",
+    "C": "2/3 is about 0.667, roughly 0.167 away; 5/11 is about 0.045 away.",
+    "D": "3/10 is 0.3, two tenths below 0.5."
+   }
   },
   {
    "id": "DGN-QR-006",
@@ -841,7 +1036,12 @@
    "misconceptions": "adds three boxes; multiplies 84 by 9",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "9b3e6fec0ea60361"
+   "content_hash": "ff4ea3d9baf894a7",
+   "why": {
+    "A": "119 is not 9 × 14; the rate is 84 ÷ 6 = 14 boxes a minute, so nine minutes give 126.",
+    "C": "120 falls six short of 14 × 9.",
+    "D": "112 is 14 × 8, eight minutes rather than nine."
+   }
   },
   {
    "id": "DGN-QR-007",
@@ -862,7 +1062,12 @@
    "misconceptions": "checks only one divisor; confuses factor with multiple",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "d70355b721ce5f6c"
+   "content_hash": "402c4bca72749a75",
+   "why": {
+    "A": "84 divides by 4 but not by 9 — its digits add to 12, which is not a multiple of 9.",
+    "C": "63 divides by 9 but not by 4; it is odd.",
+    "D": "54 divides by 9 but not by 4 — half of 54 is 27, which is odd."
+   }
   },
   {
    "id": "DGN-QR-008",
@@ -883,7 +1088,12 @@
    "misconceptions": "performs operations forward on 35; subtracts 4 and 7",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "74ad56a3c8f421a5"
+   "content_hash": "7c614901ac1f5ddf",
+   "why": {
+    "B": "5 does not check: 4 × 5 + 7 = 27, not 35.",
+    "C": "8 does not check either: 4 × 8 + 7 = 39.",
+    "D": "11 gives 4 × 11 + 7 = 51, far past 35; undo the + 7 first, then the × 4."
+   }
   },
   {
    "id": "DGN-QR-009",
@@ -904,7 +1114,12 @@
    "misconceptions": "divides 49 by three; subtracts mean from subtotal",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "9f94790edc2808f9"
+   "content_hash": "3d1613e1507df615",
+   "why": {
+    "A": "19 leaves the four scores totalling 68; a mean of 18 needs 4 × 18 = 72.",
+    "B": "21 leaves a total of 70, two short of the 72 four scores averaging 18 must reach.",
+    "C": "25 leaves a total of 74, two over; 72 − 49 = 23."
+   }
   },
   {
    "id": "DGN-QR-010",
@@ -925,7 +1140,12 @@
    "misconceptions": "subtracts length once; confuses perimeter with area",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "9f1a2fb83bf2c564"
+   "content_hash": "6758ad19b51f5c8f",
+   "why": {
+    "B": "5 leaves a perimeter of 2 × (11 + 5) = 32, not 34.",
+    "C": "7 gives 2 × (11 + 7) = 36, two too many.",
+    "D": "11 repeats the length; half the perimeter is 17, and 17 − 11 = 6."
+   }
   },
   {
    "id": "DGN-QR-011",
@@ -946,7 +1166,12 @@
    "misconceptions": "selects white probability; ignores one nonwhite color",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "45e34d7679bbeb4f"
+   "content_hash": "56039364c8e05a73",
+   "why": {
+    "A": "2/3 is 8/12, one counter too many; the orange and purple together are 7.",
+    "B": "3/4 is 9/12, which counts nine; only 7 of the 12 are not white.",
+    "D": "5/12 is the probability of white — the one colour to avoid."
+   }
   },
   {
    "id": "DGN-QR-012",
@@ -967,7 +1192,12 @@
    "misconceptions": "reverses signs; swaps x and y",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "6a6e1f724ef99ef9"
+   "content_hash": "5f8609bc11e9af03",
+   "why": {
+    "A": "(3, 9) adds the 4 to y instead of subtracting it; moving down takes 5 to 1.",
+    "B": "(−7, 11) uses the 4 on x and the 6 on y, and both in the wrong direction.",
+    "C": "(−9, 1) subtracts 6 from x; moving right adds, taking −3 to 3."
+   }
   },
   {
    "id": "DGN-QR-013",
@@ -988,7 +1218,12 @@
    "misconceptions": "finds 20% of 14; adds 20 to 14",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "a3d7c030e9264be0"
+   "content_hash": "05662181974ad4a0",
+   "why": {
+    "A": "60 would make 20% equal 12, not 14.",
+    "B": "84 would make 20% equal 16.8.",
+    "C": "56 is 14 × 4; one fifth means multiplying by 5."
+   }
   },
   {
    "id": "DGN-QR-014",
@@ -1009,7 +1244,12 @@
    "misconceptions": "adds scale numbers; uses 12/8",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "e8bf958f29d02d01"
+   "content_hash": "d8f91941ab4644af",
+   "why": {
+    "A": "24 is 8 × 3, multiplying by the centimetres on the plan instead of by the 4 metres each one stands for.",
+    "C": "30 falls two short of 8 × 4.",
+    "D": "28 is 8 × 3.5; the scale is 12 ÷ 3 = 4 metres per centimetre."
+   }
   },
   {
    "id": "DGN-QR-015",
@@ -1030,7 +1270,12 @@
    "misconceptions": "divides denominators; ignores mixed-number conversion",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "d451335d7d85f95b"
+   "content_hash": "b0b588f46d5be994",
+   "why": {
+    "A": "9 portions would need 2.7 litres; there are 2.1.",
+    "B": "6 portions use 1.8 litres, leaving 0.3 — enough for one more.",
+    "D": "8 portions would need 2.4 litres, more than the 2.1 available."
+   }
   },
   {
    "id": "DGN-QR-016",
@@ -1051,7 +1296,12 @@
    "misconceptions": "reverses order; treats before as adjacent only",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "adc32be60e6d4430"
+   "content_hash": "50bc45291398facc",
+   "why": {
+    "A": "Bo finished before Cy, so Bo is not last.",
+    "C": "The chain runs Ana, then Bo, then Cy, which puts Cy last rather than first.",
+    "D": "Nothing in the chain allows a tie: Ana is ahead of Bo, who is ahead of Cy."
+   }
   },
   {
    "id": "DGN-QR-017",
@@ -1072,7 +1322,12 @@
    "misconceptions": "adds consecutive even numbers; doubles without adding one",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "b6dee98910ef6630"
+   "content_hash": "f3ffae65f7bb69fc",
+   "why": {
+    "B": "47 is 31 + 16, continuing the differences 4, 8, 16; the rule is twice the term plus 1, which gives 63.",
+    "C": "64 is 31 × 2 + 2; the rule adds 1, not 2.",
+    "D": "55 is neither twice 31 plus 1 nor a continuation of the differences."
+   }
   },
   {
    "id": "DGN-QR-018",
@@ -1093,7 +1348,12 @@
    "misconceptions": "compares totals only; compares times only",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "3ea6ed2714adbaae"
+   "content_hash": "66bc908e85306bd7",
+   "why": {
+    "A": "The rates are not equal: 15 ÷ 6 = 2.5 panels an hour and 18 ÷ 9 = 2.",
+    "C": "1 panel an hour is too big a gap and points the wrong way; X paints 2.5 and Y paints 2.",
+    "D": "1/2 a panel is the right gap the wrong way round: X paints 2.5 an hour and Y paints 2."
+   }
   },
   {
    "id": "DGN-QR-019",
@@ -1114,7 +1374,12 @@
    "misconceptions": "denominator-only comparison; benchmark error",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "7fae099e1ad6edf6"
+   "content_hash": "4b1a32cc0e2f5dfc",
+   "why": {
+    "A": "5/8 is 0.625, just below 2/3's 0.667.",
+    "B": "9/16 is 0.5625, the smallest of the four.",
+    "D": "7/12 is about 0.583, below both 5/8 and 2/3."
+   }
   },
   {
    "id": "DGN-QR-020",
@@ -1135,7 +1400,12 @@
    "misconceptions": "fails to regroup minutes; adds digits independently",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "b9d38c2388fec130"
+   "content_hash": "b27b4b8b65d876f7",
+   "why": {
+    "A": "3:85 is not a time; 85 minutes is an hour and 25, so it rolls over to 4:25.",
+    "B": "4:35 adds 48 minutes to 3:47 rather than 38.",
+    "D": "4:15 adds only 28 minutes past 3:47."
+   }
   },
   {
    "id": "DGN-QR-021",
@@ -1156,7 +1426,12 @@
    "misconceptions": "averages 9 and 17; ignores ordered-list condition",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "c7ef07e98ab84d22"
+   "content_hash": "aa020e99368d31f3",
+   "why": {
+    "A": "12 would put the median at 12; x sits in the middle of the five, so it is the median itself.",
+    "C": "14 would make the median 14; the middle of five ordered values is the third one.",
+    "D": "11 would make the median 11, not 13."
+   }
   },
   {
    "id": "DGN-QR-022",
@@ -1177,7 +1452,12 @@
    "misconceptions": "applies linear scale to area; assumes fixed increase",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "90bc52d5052ff835"
+   "content_hash": "c729fa3dcd7d2375",
+   "why": {
+    "A": "Area does not change by adding a fixed amount; tripling the side multiplies it.",
+    "B": "Tripling the side triples each direction, and area uses both: (3s)² = 9s².",
+    "C": "6 times comes from 3 + 3; the two tripled directions multiply, which gives 9."
+   }
   },
   {
    "id": "DGN-QR-023",
@@ -1198,7 +1478,12 @@
    "misconceptions": "subtracts absolute values; ignores zero crossing",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "10e49c83be988956"
+   "content_hash": "803f5eb8cf674343",
+   "why": {
+    "A": "1 is 6 − 5, taking the two numbers the wrong way round; the rise crosses zero, so the two distances add.",
+    "B": "12 is 6 + 6, as if the rise went from −6 up to 6.",
+    "D": "6 is only the climb up to zero; there are 5 more degrees after that."
+   }
   },
   {
    "id": "DGN-QR-024",
@@ -1219,7 +1504,12 @@
    "misconceptions": "adds options; double-counts order",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "574c7c0036bb7374"
+   "content_hash": "21734d1ed49488fe",
+   "why": {
+    "A": "16 is 4 × 4; there are 3 soups, not 4.",
+    "C": "24 is 3 × 4 × 2, doubling pairs that have already been counted once.",
+    "D": "7 is 3 + 4, adding the two lists; pairing multiplies them."
+   }
   },
   {
    "id": "DGN-QR-025",
@@ -1240,7 +1530,12 @@
    "misconceptions": "uses 2/7 of total; chooses white amount",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "c5a5f633c9126dd0"
+   "content_hash": "8774d8af6f9430b4",
+   "why": {
+    "A": "28 is 7 × 4, the white share.",
+    "B": "6 would make each part 3 and the whole mix 27 cups; 36 ÷ 9 = 4, so red is 2 × 4 = 8.",
+    "D": "7 is one of the ratio numbers, not a count of cups."
+   }
   },
   {
    "id": "DGN-QR-026",
@@ -1261,7 +1556,12 @@
    "misconceptions": "scales only printers; scales only time",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "551b5d9776f8cc55"
+   "content_hash": "5ccf6b937be495d4",
+   "why": {
+    "B": "160 is not 2 × 6 × 15; each printer makes 180 ÷ 3 ÷ 4 = 15 pages a minute.",
+    "C": "150 is 10 × 15, ten printer-minutes; two printers for six minutes is twelve.",
+    "D": "120 is 8 × 15, eight printer-minutes rather than twelve."
+   }
   },
   {
    "id": "DGN-QR-027",
@@ -1282,7 +1582,12 @@
    "misconceptions": "uses quotient; subtracts from next multiple",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "7bccb03bbb4702f0"
+   "content_hash": "bcfbbb75d2f930c1",
+   "why": {
+    "A": "3 is not what is left over: 8 × 24 = 192, and 197 − 192 = 5.",
+    "C": "7 is more than the remainder; 197 − 192 = 5.",
+    "D": "4 is one short of the remainder, which is 5."
+   }
   },
   {
    "id": "DGN-QR-028",
@@ -1303,7 +1608,12 @@
    "misconceptions": "subtracts before doubling; treats fewer as addition",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "57ade4f81e30cdfd"
+   "content_hash": "4f4808cbd1b60c58",
+   "why": {
+    "B": "28 is twice 14 and stops there; 5 fewer makes 23.",
+    "C": "33 is 28 + 5, adding the 5 instead of taking it away.",
+    "D": "18 is not 2 × 14 − 5; doubling 14 gives 28, and 28 − 5 = 23."
+   }
   },
   {
    "id": "DGN-QR-029",
@@ -1324,7 +1634,12 @@
    "misconceptions": "adds rounded values; place-value error",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "c7420a11b029f5a5"
+   "content_hash": "0bf3bb2b44f0d696",
+   "why": {
+    "A": "10,000 rounds 398 up to 500; it is far closer to 400.",
+    "B": "4,000 is 400 × 10; 21 rounds to 20, not 10.",
+    "C": "6,000 would need 398 to be near 300; 400 × 20 is 8,000."
+   }
   },
   {
    "id": "DGN-QR-030",
@@ -1345,7 +1660,12 @@
    "misconceptions": "double-counts overlap; subtracts overlap twice",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "20e06a02c54b6900"
+   "content_hash": "19cf03e451149c30",
+   "why": {
+    "A": "20 subtracts the overlap twice, 18 + 12 − 5 − 5; it comes off once.",
+    "B": "30 is 18 + 12, counting the 5 who play both twice.",
+    "D": "35 is 18 + 12 + 5, adding the overlap instead of removing it."
+   }
   },
   {
    "id": "DGN-QR-031",
@@ -1366,7 +1686,12 @@
    "misconceptions": "treats 18 as remaining amount; adds denominators",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "b654eaeca74d6794"
+   "content_hash": "2a495f8c78937870",
+   "why": {
+    "A": "36 would make 3/10 of the tank 10.8 litres, not 18.",
+    "C": "90 would make 3/10 equal 27 litres.",
+    "D": "45 would make 3/10 equal 13.5 litres."
+   }
   },
   {
    "id": "DGN-QR-032",
@@ -1387,7 +1712,12 @@
    "misconceptions": "selects example satisfying both; confuses factor and multiple",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "1e356bf872b58d00"
+   "content_hash": "a98a434fc00b3bfd",
+   "why": {
+    "A": "16 is a multiple of both 4 and 8, so it agrees with the claim rather than breaking it.",
+    "C": "8 is a multiple of both as well, so it cannot be the counterexample.",
+    "D": "24 is a multiple of 4 and of 8, so it fits the claim too."
+   }
   },
   {
    "id": "DGN-QR-033",
@@ -1408,7 +1738,12 @@
    "misconceptions": "averages 2 and 5 only; divides by two bag types",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "94cff79544465369"
+   "content_hash": "4000e401c1b8e06b",
+   "why": {
+    "A": "3.5 is the mean of 2 and 5, not of the five bags; three weigh 2 pounds and two weigh 5.",
+    "B": "2.8 would need the bags to total 14 pounds; they total 3 × 2 + 2 × 5 = 16.",
+    "C": "3.0 would need a total of 15 pounds; it is 16, and 16 ÷ 5 = 3.2."
+   }
   },
   {
    "id": "DGN-QR-034",
@@ -1429,7 +1764,12 @@
    "misconceptions": "divides by one dimension; adds dimensions",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "f3ad2e4b402a4302"
+   "content_hash": "8882980f3e14328c",
+   "why": {
+    "B": "4 gives 7 × 4 × 4 = 112, not 168.",
+    "C": "7 repeats the length; 168 ÷ 28 = 6.",
+    "D": "5 gives 7 × 4 × 5 = 140."
+   }
   },
   {
    "id": "DGN-QR-035",
@@ -1450,7 +1790,12 @@
    "misconceptions": "reports discount; subtracts 20 dollars",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "f27ef3b447089825"
+   "content_hash": "80419f61568d4633",
+   "why": {
+    "A": "40 takes off 5 rather than 20% of 45, which is 9.",
+    "B": "25 is not 45 less a fifth of itself; 20% of 45 is 9, leaving 36.",
+    "C": "9 is the discount itself, not the price after it."
+   }
   },
   {
    "id": "DGN-QR-036",
@@ -1471,7 +1816,12 @@
    "misconceptions": "distributes to first term only; combines unlike terms",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "d2be822732e95ae3"
+   "content_hash": "70c2af00806327d2",
+   "why": {
+    "A": "18n multiplies the n by 18; only the 3 gets multiplied by 6.",
+    "B": "9n adds the 6 and the 3 and hangs an n on the result; the two terms stay apart.",
+    "D": "6n + 3 distributes the 6 to the n but not to the 3, and 6 × 3 = 18."
+   }
   },
   {
    "id": "DGN-QR-037",
@@ -1492,7 +1842,12 @@
    "misconceptions": "subtracts from 90; arithmetic error",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "915b6f6ddd7a4837"
+   "content_hash": "9b01f53ddf417b09",
+   "why": {
+    "B": "122 subtracts 58 from 180; the angle given is 68.",
+    "C": "108 subtracts 72; 180 − 68 = 112.",
+    "D": "102 falls ten short of 180 − 68."
+   }
   },
   {
    "id": "DGN-QR-038",
@@ -1513,7 +1868,12 @@
    "misconceptions": "multiplies distances directly; ignores half-hour rate",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "45880bd4900facea"
+   "content_hash": "90b9ce267ce99f72",
+   "why": {
+    "B": "12 is not 15 × 1.2; the rate is 7.5 ÷ 0.5 = 15 miles an hour.",
+    "C": "16 falls two short of 15 × 1.2.",
+    "D": "15 is one hour's distance; the ride lasts 1 1/5 hours."
+   }
   },
   {
    "id": "DGN-RC-001",
@@ -1535,7 +1895,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P01",
    "form": "DGN",
-   "content_hash": "6b198a49f082c9be"
+   "content_hash": "5840c7f5640d921c",
+   "why": {
+    "A": "The team designed a new material copying what barnacle proteins do; it did not collect barnacle cement, and nothing here is sold in shops.",
+    "B": "Barnacles fasten to ship hulls, which is how engineers came to study them. Damage is never mentioned.",
+    "D": "A future version might help doctors use fewer stitches. That is a possibility ahead, not something happening now."
+   }
   },
   {
    "id": "DGN-RC-002",
@@ -1557,7 +1922,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P01",
    "form": "DGN",
-   "content_hash": "26ea566dde198cc5"
+   "content_hash": "bd9f920a093d10b2",
+   "why": {
+    "B": "Ordinary glue is the thing barnacle cement outperforms: household adhesives do poorly on wet surfaces.",
+    "C": "The proteins push water away from a surface. Nothing turns salt water into fresh water.",
+    "D": "Sunlight never appears. The bond forms underwater, where light is not the point."
+   }
   },
   {
    "id": "DGN-RC-003",
@@ -1579,7 +1949,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P01",
    "form": "DGN",
-   "content_hash": "87fb469dccfdcd70"
+   "content_hash": "3d172ae75e6b1f9d",
+   "why": {
+    "A": "How a room looks has nothing to do with an adhesive that works while wet.",
+    "C": "The whole value is bonding without drying the surface first; drying it would remove the advantage.",
+    "D": "An adhesive closes a wound that already exists. Preventing injury is a different job."
+   }
   },
   {
    "id": "DGN-RC-004",
@@ -1601,7 +1976,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P01",
    "form": "DGN",
-   "content_hash": "5bad8b9b7a1f2af6"
+   "content_hash": "21fc59cd104c93a0",
+   "why": {
+    "A": "Nothing in the sentence is about measurement being difficult.",
+    "C": "This is the literal sense. The principle lies beneath the visible feature as the idea behind it, not under the ground.",
+    "D": "The principle has just been described, but the word says where it sits in the explanation, not when it was found."
+   }
   },
   {
    "id": "DGN-RC-005",
@@ -1623,7 +2003,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P01",
    "form": "DGN",
-   "content_hash": "236a4d31f4eca3ed"
+   "content_hash": "5f7cdb3b7519839f",
+   "why": {
+    "B": "Only one animal appears, the barnacle, and nothing is ordered by size.",
+    "C": "The passage adapts one useful feature. It never claims nature beats human technology in general.",
+    "D": "No instructions are given; the tests are described, not taught."
+   }
   },
   {
    "id": "DGN-RC-006",
@@ -1645,7 +2030,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P02",
    "form": "DGN",
-   "content_hash": "282ec0cd34e538e9"
+   "content_hash": "f10019e63f5c9faa",
+   "why": {
+    "B": "The customer is not in the room when Nia hesitates, and no scolding is mentioned anywhere.",
+    "C": "She points out the scratch, which is the opposite of wanting the clock left broken.",
+    "D": "She had already noticed the lever brushing the wheel. Noticing is exactly what she does."
+   }
   },
   {
    "id": "DGN-RC-007",
@@ -1667,7 +2057,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P02",
    "form": "DGN",
-   "content_hash": "0adfa610bdd10f2d"
+   "content_hash": "39d6f4406be0c0c2",
+   "why": {
+    "A": "No crack appears. What Nia sees is a mark on the lever inside the case.",
+    "C": "The clock chimes thirteen times rather than sounding wrong, and no bell is described as loose.",
+    "D": "Nia is allowed to sort screws, but no screw is missing."
+   }
   },
   {
    "id": "DGN-RC-008",
@@ -1689,7 +2084,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P02",
    "form": "DGN",
-   "content_hash": "5cca18715d313cde"
+   "content_hash": "fbdccb3aa150a85b",
+   "why": {
+    "A": "Nothing she does needs strength; she watches and points.",
+    "C": "The last sentence says the opposite — guessing quickly would not keep her the new task.",
+    "D": "She almost stays silent rather than rushing in, and her reward is a task that asks her to describe before touching."
+   }
   },
   {
    "id": "DGN-RC-009",
@@ -1711,7 +2111,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P02",
    "form": "DGN",
-   "content_hash": "c7cc2b7f972044ea"
+   "content_hash": "8b6c34e76a2a0b8d",
+   "why": {
+    "A": "Her uncle takes her help and then gives her more responsibility for it.",
+    "B": "Speed is what the ending warns against: guessing quickly would not keep the task.",
+    "C": "Nia had been sorting screws and polishing cases, and the passage treats that patience as what earned her the next step."
+   }
   },
   {
    "id": "DGN-RC-010",
@@ -1733,7 +2138,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P02",
    "form": "DGN",
-   "content_hash": "1db3f6a65a33aaf6"
+   "content_hash": "a4f73da1f868657b",
+   "why": {
+    "A": "The alarm clock is broken so that she has something to study; the sentence is about her, not about it.",
+    "C": "Her uncle asks her to describe what each part might do, which invites questions rather than refusing them.",
+    "D": "Nothing suggests she is leaving; she has just been given more to do."
+   }
   },
   {
    "id": "DGN-RC-011",
@@ -1755,7 +2165,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P03",
    "form": "DGN",
-   "content_hash": "0b6a8b11e53aa4fb"
+   "content_hash": "e502450e87003adf",
+   "why": {
+    "A": "A reader correcting a copying error is one example among several, not what the passage is about.",
+    "B": "A stain is treated as evidence of frequent use. Repairing it is never discussed.",
+    "D": "The passage explains what old notes tell historians. It gives no advice to readers now."
+   }
   },
   {
    "id": "DGN-RC-012",
@@ -1777,7 +2192,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P03",
    "form": "DGN",
-   "content_hash": "1a7375edce471e89"
+   "content_hash": "d368be15c870a143",
+   "why": {
+    "A": "Prices never appear. The examples are corrections, definitions and arguments with the author.",
+    "B": "Paper-making is not mentioned; copying by hand is.",
+    "D": "Books that were never written could not be read or annotated."
+   }
   },
   {
    "id": "DGN-RC-013",
@@ -1799,7 +2219,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P03",
    "form": "DGN",
-   "content_hash": "24d11eb720a85e7d"
+   "content_hash": "1f08832dde851aaf",
+   "why": {
+    "A": "Arguing with an author is one kind of note, but the word covers all the reactions described, the calm ones included.",
+    "B": "Nothing about these meetings is sudden; the conversation is called slow.",
+    "C": "It means a reader meeting the words, not something unlucky happening."
+   }
   },
   {
    "id": "DGN-RC-014",
@@ -1821,7 +2246,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P03",
    "form": "DGN",
-   "content_hash": "3247a7412fb70d67"
+   "content_hash": "11f0b6bf7ef4591f",
+   "why": {
+    "A": "The passage says a note's writer may be unknown, which is the opposite of always knowing it was the author.",
+    "B": "Historians are described as valuing and interpreting these notes, so they clearly reach them.",
+    "C": "The caution is about reading the marks, not about the books being untrue."
+   }
   },
   {
    "id": "DGN-RC-015",
@@ -1843,7 +2273,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P03",
    "form": "DGN",
-   "content_hash": "13090425e38b4faa"
+   "content_hash": "63c17d145dfe2999",
+   "why": {
+    "B": "The conversation is between readers in the margins, not between the people copying the text.",
+    "C": "Historians interpret the notes later; they are not the ones talking.",
+    "D": "The exchange happens on the page across years, which is why it is called slow."
+   }
   },
   {
    "id": "DGN-RC-016",
@@ -1865,7 +2300,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P04",
    "form": "DGN",
-   "content_hash": "b8f4a1a46015a06b"
+   "content_hash": "db927d59e15c39e9",
+   "why": {
+    "A": "No electricity appears. The roof absorbs sunlight and later gives that energy off as heat.",
+    "B": "Ventilation is one of the other methods mentioned, but a dark roof is never described as blocking air.",
+    "D": "Pavement is named separately, as something parks could replace."
+   }
   },
   {
    "id": "DGN-RC-017",
@@ -1887,7 +2327,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P04",
    "form": "DGN",
-   "content_hash": "0644c2c174715f21"
+   "content_hash": "1a3380bd8c4fe30c",
+   "why": {
+    "A": "Maintenance is listed among the things that affect whether a coating is useful, not something the trial removed.",
+    "B": "Pale coatings reflect more sunlight, so the coated buildings were cooler rather than warmer.",
+    "C": "Winter heating needs are raised as a reason a coating may not suit a place; they do not vanish."
+   }
   },
   {
    "id": "DGN-RC-018",
@@ -1909,7 +2354,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P04",
    "form": "DGN",
-   "content_hash": "df672e980af89a81"
+   "content_hash": "bd4a3f531e880ea0",
+   "why": {
+    "A": "One trial found coated buildings needed less air-conditioning, so the author grants a real benefit.",
+    "B": "The passage says plainly that cool roofs are not a complete solution.",
+    "D": "Trees and parks are offered alongside coatings, as part of the mix."
+   }
   },
   {
    "id": "DGN-RC-019",
@@ -1931,7 +2381,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P04",
    "form": "DGN",
-   "content_hash": "66a6389eae6d47f0"
+   "content_hash": "9205cf6071a4abb6",
+   "why": {
+    "A": "Cost is never discussed.",
+    "B": "The author is in favour of local measurement, so being based on science is not what is being warned against.",
+    "D": "How long a coating lasts is a maintenance question; the word here is about where it works."
+   }
   },
   {
    "id": "DGN-RC-020",
@@ -1953,7 +2408,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P04",
    "form": "DGN",
-   "content_hash": "9671563956ddac7f"
+   "content_hash": "5b303a13b10835f0",
+   "why": {
+    "B": "Nothing here tells you how to paint anything.",
+    "C": "Only dark and pale roofs come up, and not in any order of popularity.",
+    "D": "Some cities are mentioned together, but no two are compared and no winner is named."
+   }
   },
   {
    "id": "DGN-RC-021",
@@ -1975,7 +2435,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P05",
    "form": "DGN",
-   "content_hash": "8dfba778992869be"
+   "content_hash": "b62725df52868d6f",
+   "why": {
+    "A": "The passage argues a rest does real work — building expectation, separating ideas, giving a melody room.",
+    "B": "Tapping is a rehearsal method; the audience would hear no tapping.",
+    "C": "The loudest section was not the problem. Three beats of silence were."
+   }
   },
   {
    "id": "DGN-RC-022",
@@ -1997,7 +2462,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P05",
    "form": "DGN",
-   "content_hash": "366a09bc7193ccdf"
+   "content_hash": "8f03de56ab75cb37",
+   "why": {
+    "B": "The pitch of the melody is never raised as a difficulty.",
+    "C": "The tempo does not change; the players stop counting through a rest.",
+    "D": "The students tap in rehearsal, where there is no audience."
+   }
   },
   {
    "id": "DGN-RC-023",
@@ -2019,7 +2489,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P05",
    "form": "DGN",
-   "content_hash": "150c0a93e6d46f6f"
+   "content_hash": "ecccede978095bb5",
+   "why": {
+    "A": "Loudness is not the reason. The tapping simply is not part of the performance.",
+    "B": "The silent measure is the part they practise most carefully; it stays.",
+    "C": "Nothing is said about when the audience arrives."
+   }
   },
   {
    "id": "DGN-RC-024",
@@ -2041,7 +2516,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P05",
    "form": "DGN",
-   "content_hash": "2498e6310c00c3b9"
+   "content_hash": "409bda17dfd52658",
+   "why": {
+    "A": "This reads the phrase literally; it is a figure of speech about space between ideas.",
+    "C": "Wind players breathe throughout. The phrase is about the music, not the players' lungs.",
+    "D": "The air in the hall is not the subject."
+   }
   },
   {
    "id": "DGN-RC-025",
@@ -2063,7 +2543,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "DGN-RC-P05",
    "form": "DGN",
-   "content_hash": "090a2aac18373f0c"
+   "content_hash": "97e403f5e5141b9a",
+   "why": {
+    "B": "The conductor is the one who asks them to tap, and that guidance is what fixes it.",
+    "C": "The fast passages were already fine. What needed work was getting the quiet measure exactly right.",
+    "D": "The counting is unheard and unseen, and it is what makes the entrance work — the passage says the reverse."
+   }
   },
   {
    "id": "DGN-MA-001",
@@ -2084,7 +2569,12 @@
    "misconceptions": "regrouping error; place-value slip",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "c1fab6c3a734c8a6"
+   "content_hash": "48ffd8a3b2daa479",
+   "why": {
+    "A": "6,741 is 100 more than the sum; the tens column makes 8 + 5 + 1 = 14, which carries one hundred, not two.",
+    "B": "6,631 is 10 short; the units make 4 + 7 = 11, so a ten carries into the tens column and its digit is 4, not 3.",
+    "D": "6,531 loses both carries — the ten out of 4 + 7 and the hundred out of 8 + 5 + 1 — which costs 110."
+   }
   },
   {
    "id": "DGN-MA-002",
@@ -2105,7 +2595,12 @@
    "misconceptions": "zero-regrouping error; subtracts smaller digits from larger",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "88253f8ac6775cd8"
+   "content_hash": "3b9fb8b5bbc0eeab",
+   "why": {
+    "B": "5,476 takes the smaller digit from the larger in each column — 6, 7, 4 — instead of regrouping across the three zeros.",
+    "C": "5,524 has the last three digits right but keeps 8 − 3 in the thousands; the regrouping already spent one thousand, so it is 7 − 3.",
+    "D": "4,624 is 100 too many; after the regrouping the hundreds column is 9 − 4 = 5, not 10 − 4."
+   }
   },
   {
    "id": "DGN-MA-003",
@@ -2126,7 +2621,12 @@
    "misconceptions": "partial-product error; adds factors",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "921dcb4c838a3ea8"
+   "content_hash": "59c5b0e018ec9316",
+   "why": {
+    "A": "1,272 is 50 more than 47 × 26; work the partial products separately, 47 × 20 = 940 and 47 × 6 = 282.",
+    "C": "1,122 adds 47 × 20 = 940 to 7 × 26 = 182, taking one partial product from splitting 26 and the other from splitting 47.",
+    "D": "1,302 is 80 more than 47 × 26; the other split checks it — 40 × 26 = 1,040 plus 7 × 26 = 182."
+   }
   },
   {
    "id": "DGN-MA-004",
@@ -2147,7 +2647,12 @@
    "misconceptions": "quotient estimation error; multiplication fact error",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "17b7e86a57192869"
+   "content_hash": "50e3b4fba44fb673",
+   "why": {
+    "B": "78 is too small: 21 × 78 = 1,638, which is 126 under 1,764.",
+    "C": "74 is smaller still: 21 × 74 = 1,554. Multiplying your answer back by 21 catches this.",
+    "D": "86 overshoots: 21 × 86 = 1,806, which is 42 over 1,764."
+   }
   },
   {
    "id": "DGN-MA-005",
@@ -2168,7 +2673,12 @@
    "misconceptions": "adds numerators and denominators; adds numerators without converting",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "d752cef7e7801d35"
+   "content_hash": "dd564c38e13d5b2f",
+   "why": {
+    "A": "7/12 is two twelfths short; 1/3 is 4/12, so 5/12 + 4/12 = 9/12.",
+    "B": "2/5 adds tops and bottoms separately, 6/15; the denominators have to match before anything is added.",
+    "C": "1/2 is 6/12, which treats 1/3 as 1/12; it is 4/12."
+   }
   },
   {
    "id": "DGN-MA-006",
@@ -2189,7 +2699,12 @@
    "misconceptions": "subtracts denominators; uses noncommon denominator",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "b57391c6e8f590fc"
+   "content_hash": "f5b9c4ef8b4fb2b7",
+   "why": {
+    "A": "13/24 is two twenty-fourths too big; 7/8 is 21/24 and 5/12 is 10/24, leaving 11/24.",
+    "B": "2/5 is not a twenty-fourth at all; put both fractions over 24 first, where 7/8 is 21/24 and 5/12 is 10/24.",
+    "D": "1/3 is 8/24, three twenty-fourths under the difference."
+   }
   },
   {
    "id": "DGN-MA-007",
@@ -2210,7 +2725,12 @@
    "misconceptions": "adds fractions; cross-multiplies",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "2efbd37ecca7f0fa"
+   "content_hash": "11ceea5f608bff7c",
+   "why": {
+    "B": "1/3 is double the product; 4/9 × 3/8 is 12/72, which simplifies to 1/6.",
+    "C": "7/17 adds instead of multiplying, 4 + 3 over 9 + 8.",
+    "D": "3/8 is one of the two fractions left untouched; 4/9 of 3/8 is smaller than either of them."
+   }
   },
   {
    "id": "DGN-MA-008",
@@ -2231,7 +2751,12 @@
    "misconceptions": "multiplies without reciprocal; mishandles mixed number",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "064b3b8441320e50"
+   "content_hash": "c73644a3aec951f5",
+   "why": {
+    "A": "3 1/5 overshoots. 1 1/2 is 3/2, and 3/2 ÷ 3/5 means 3/2 × 5/3 = 15/6 = 5/2.",
+    "B": "9/10 multiplies instead of dividing, 3/2 × 3/5; dividing by 3/5 means multiplying by 5/3.",
+    "C": "1 9/10 is 19/10, short of the 5/2 the division gives; turn 1 1/2 into 3/2 first."
+   }
   },
   {
    "id": "DGN-MA-009",
@@ -2252,7 +2777,12 @@
    "misconceptions": "misaligns decimal places; regrouping error",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "12b5f6db969a9fb8"
+   "content_hash": "7ce0b56e9dbb62f4",
+   "why": {
+    "A": "17.577 falls 0.01 short; lined up as 12.680 + 4.907, the hundredths are 8 + 0 = 8.",
+    "C": "16.587 keeps 12 + 4 = 16 and misses the carry out of the tenths: 6 + 9 = 15, so one whole carries and the answer starts 17.",
+    "D": "17.487 falls 0.1 short; the tenths are 6 + 9 = 15, leaving 5 once the whole has carried."
+   }
   },
   {
    "id": "DGN-MA-010",
@@ -2273,7 +2803,12 @@
    "misconceptions": "decimal-placement error; adds factors",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "1c79f1bbaba1aa67"
+   "content_hash": "e2b51f3daa01f161",
+   "why": {
+    "A": "4.05 falls 0.45 short; 1.25 × 36 = 45, and 3.6 carries one decimal place, so 4.5.",
+    "C": "45 is 1.25 × 36 with the decimal point never put back; 3.6 is a tenth of 36, so the product is a tenth of 45.",
+    "D": "3.75 is 3 × 1.25, which drops the 0.6; all of 3.6 has to be multiplied."
+   }
   },
   {
    "id": "DGN-MA-011",
@@ -2294,7 +2829,12 @@
    "misconceptions": "moves one decimal only; divides by seven without scaling",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "5be84a10807d120f"
+   "content_hash": "fc248ccc2cc6eb97",
+   "why": {
+    "B": "1.32 is a tenth of the quotient; multiplying both numbers by 10 gives 92.4 ÷ 7 = 13.2.",
+    "C": "13.02 has a stray zero in the tenths: 7 goes into 92.4 thirteen times with 1.4 left, and 1.4 ÷ 7 = 0.2.",
+    "D": "132 is ten times too big — 0.7 × 13 is already 9.1, nearly the whole 9.24."
+   }
   },
   {
    "id": "DGN-MA-012",
@@ -2315,7 +2855,12 @@
    "misconceptions": "finds 35% of 24; adds 35 to 240",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "32489d7e3eef1be8"
+   "content_hash": "1712301bcc61656e",
+   "why": {
+    "A": "72 is 30% of 240 and stops there; the remaining 5% is 12 more.",
+    "C": "96 is 40% of 240, one step too far.",
+    "D": "80 is a third of 240, and 35% is a little more than a third."
+   }
   },
   {
    "id": "DGN-MA-013",
@@ -2336,7 +2881,12 @@
    "misconceptions": "subtracts before multiplying; ignores parentheses",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "a36f3296286ba32a"
+   "content_hash": "801f47095ba2861e",
+   "why": {
+    "A": "8 is 18 − 2 × 5, which leaves the + 1 inside the brackets out; 5 + 1 = 6 happens first.",
+    "B": "10 is 18 − 2 − 6, subtracting the 2 and the bracket separately instead of multiplying them together.",
+    "C": "4 is 16 − 12: the 2 comes off the 18 first and is then used again in 2 × 6, so it counts twice."
+   }
   },
   {
    "id": "DGN-MA-014",
@@ -2357,7 +2907,12 @@
    "misconceptions": "multiplies base by exponent; uses 4 cubed",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "8ceb2a0cde561276"
+   "content_hash": "90b438adb7d2689d",
+   "why": {
+    "A": "27 is 3 × 3 × 3, only three threes; 3^4 uses four of them.",
+    "B": "12 is 3 × 4, multiplying the base by the exponent instead of using 3 as a factor four times.",
+    "D": "64 is 4 × 4 × 4 — the base and the exponent swapped. Here 3 is the factor and 4 is how many times."
+   }
   },
   {
    "id": "DGN-MA-015",
@@ -2378,7 +2933,12 @@
    "misconceptions": "chooses least common multiple; stops at 7",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "901a3396943ebb82"
+   "content_hash": "2fd8710d60e6265d",
+   "why": {
+    "A": "2 is a common factor but not the greatest; 7 divides both as well, and 2 × 7 = 14.",
+    "B": "21 divides 42 but not 70, so it is not a common factor at all.",
+    "C": "28 divides neither 42 nor 70; the factors the two share are 1, 2, 7 and 14."
+   }
   },
   {
    "id": "DGN-MA-016",
@@ -2399,7 +2959,12 @@
    "misconceptions": "multiplies automatically; chooses greatest common factor",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "c683ddbaeee6879c"
+   "content_hash": "046f844d1a09c812",
+   "why": {
+    "A": "18 is a multiple of 9 but not of 12, which goes 12, 24, 36.",
+    "B": "108 is 9 × 12, a common multiple but not the least; 36 comes first.",
+    "C": "24 is a multiple of 12 but not of 9, which goes 9, 18, 27, 36."
+   }
   },
   {
    "id": "DGN-MA-017",
@@ -2420,7 +2985,12 @@
    "misconceptions": "adds six; divides eleven by six",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "8bb0cf58e34a2948"
+   "content_hash": "f17f819d3839f46a",
+   "why": {
+    "A": "77 is 11 × 7, not 11 × 6; the 6 under the y is what has to be undone.",
+    "B": "17 is 11 + 6, adding the 6 instead of multiplying by it.",
+    "D": "55 is 11 × 5. Multiplying both sides by 6 gives 66."
+   }
   },
   {
    "id": "DGN-MA-018",
@@ -2441,7 +3011,12 @@
    "misconceptions": "divides before undoing subtraction; subtracts eight",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "5c67e432651077eb"
+   "content_hash": "31176a4f03ab1b23",
+   "why": {
+    "A": "11 does not check: 5 × 11 − 8 = 47, not 37.",
+    "C": "7 does not check either: 5 × 7 − 8 = 27, ten short of 37.",
+    "D": "5.8 comes from subtracting the 8 instead of adding it, 29 ÷ 5; moving the − 8 across makes 5x = 45."
+   }
   },
   {
    "id": "DGN-MA-019",
@@ -2462,7 +3037,12 @@
    "misconceptions": "squares 2a; evaluates 2×4 then squares",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "c140be54b241c55b"
+   "content_hash": "2565927eb86ef12f",
+   "why": {
+    "A": "11 is 2 × 4 + 3, multiplying before squaring; the exponent belongs to the a alone.",
+    "B": "67 squares the 2a together, (2 × 4)² + 3 = 64 + 3; only the a is squared.",
+    "C": "19 comes from taking 4² as 8 — doubling instead of squaring. 4² is 16, so 2 × 16 + 3 = 35."
+   }
   },
   {
    "id": "DGN-MA-020",
@@ -2483,7 +3063,12 @@
    "misconceptions": "reflects across y-axis; swaps coordinates",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "2044e7e1ff16ef0d"
+   "content_hash": "2456dfd652e0cb53",
+   "why": {
+    "B": "(5, −2) flips both signs; reflecting across the x-axis leaves x at −5 and changes only the y.",
+    "C": "(−2, 5) swaps the two coordinates; a reflection across the x-axis keeps x where it is.",
+    "D": "(5, 2) changes the sign of x and leaves y alone, which is a reflection across the y-axis."
+   }
   },
   {
    "id": "DGN-MA-021",
@@ -2504,7 +3089,12 @@
    "misconceptions": "finds perimeter; doubles product",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "6c1428b306fe35a0"
+   "content_hash": "d1b3facedbb6189c",
+   "why": {
+    "A": "40 is 2 × (13 + 7), the perimeter; area multiplies the two sides together.",
+    "C": "182 is 13 × 7 × 2, the area counted twice.",
+    "D": "78 is 13 × 6; the width is 7 metres, so it is 13 × 7."
+   }
   },
   {
    "id": "DGN-MA-022",
@@ -2525,7 +3115,12 @@
    "misconceptions": "omits one-half; adds dimensions",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "1d8715afb7371e99"
+   "content_hash": "0bce7e45b895e529",
+   "why": {
+    "B": "120 is 15 × 8, the whole rectangle around the triangle; a triangle is half of it.",
+    "C": "23 is 15 + 8, adding the base and height instead of multiplying and halving.",
+    "D": "46 is 2 × (15 + 8), a perimeter; area needs 1/2 × 15 × 8."
+   }
   },
   {
    "id": "DGN-MA-023",
@@ -2572,7 +3167,12 @@
    "misconceptions": "adds dimensions; omits one dimension",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "f55f73eb00457a47"
+   "content_hash": "b3b105e43e592024",
+   "why": {
+    "B": "200 is not 9 × 5 × 4; multiplying the three out gives 180.",
+    "C": "160 is 8 × 5 × 4, with the 9 taken as 8.",
+    "D": "90 is half the volume — 9 × 5 = 45 and then 45 × 2 rather than 45 × 4."
+   }
   },
   {
    "id": "DGN-MA-025",
@@ -2593,7 +3193,12 @@
    "misconceptions": "subtracts from 90; arithmetic slip",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "99d2837a756c55b7"
+   "content_hash": "889101a5df03fe2a",
+   "why": {
+    "A": "65 is ten short: 37 + 68 = 105, and 180 − 105 = 75.",
+    "B": "85 is ten over; the two known angles add to 105, not 95.",
+    "C": "70 subtracts 110 from 180; 37 + 68 is 105, which leaves 75."
+   }
   },
   {
    "id": "DGN-MA-026",
@@ -2614,7 +3219,12 @@
    "misconceptions": "divides by 100; wrong decimal direction",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "8db124e2ada31c63"
+   "content_hash": "cf62446bfe3b5d3f",
+   "why": {
+    "A": "23.5 multiplies by 10; a metre holds 100 centimetres.",
+    "B": "2,350 multiplies by 1,000, which turns metres into millimetres.",
+    "D": "0.0235 divides by 100 instead of multiplying; centimetres are smaller than metres, so the number gets bigger."
+   }
   },
   {
    "id": "DGN-MA-027",
@@ -2635,7 +3245,12 @@
    "misconceptions": "subtracts minute digits directly; counts endpoints",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "72793c7404d1ac72"
+   "content_hash": "166ff84e7139ecf9",
+   "why": {
+    "B": "1 hour 33 minutes subtracts the minutes the wrong way round, 38 − 5; borrowing an hour gives 65 − 38 = 27.",
+    "C": "1 hour 17 minutes falls ten short; 10:38 to 11:05 is 27 minutes.",
+    "D": "2 hours 27 minutes counts an extra hour; 9:38 to 11:05 passes 10:38 only once."
+   }
   },
   {
    "id": "DGN-MA-028",
@@ -2656,7 +3271,12 @@
    "misconceptions": "chooses median; divides by wrong count",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "6ae5f761a804b79a"
+   "content_hash": "ab55d49bc15e2417",
+   "why": {
+    "A": "19 is one of the four numbers, not their average; they total 80, and 80 ÷ 4 = 20.",
+    "C": "18 would need a total of 72; 14 + 19 + 21 + 26 is 80.",
+    "D": "21 is one of the four numbers again, and 21 × 4 = 84, more than the 80 they total."
+   }
   },
   {
    "id": "DGN-MA-029",
@@ -2677,7 +3297,12 @@
    "misconceptions": "counts 10 as multiple; uses denominator three",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "694456d195b77916"
+   "content_hash": "fba016cf03daca25",
+   "why": {
+    "A": "1/2 is 5/10, which counts five favourable numbers; the multiples of 3 up to 10 are 3, 6 and 9.",
+    "B": "1/5 is 2/10, counting only two multiples of 3; there are three.",
+    "D": "2/5 is 4/10, which counts a fourth multiple of 3; the next one after 9 is 12, past the spinner."
+   }
   },
   {
    "id": "DGN-MA-030",
@@ -2698,7 +3323,12 @@
    "misconceptions": "adds extremes; chooses number of values",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "a77206c313a76bde"
+   "content_hash": "8a729b81b6bb51e3",
+   "why": {
+    "A": "53 is 35 + 18, adding the greatest and least instead of subtracting.",
+    "B": "12 is not the spread from 18 to 35; the range is 35 − 18 = 17.",
+    "D": "13 is 31 − 18, using 31 rather than the greatest value, 35."
+   }
   },
   {
    "id": "M01-VR-001",
