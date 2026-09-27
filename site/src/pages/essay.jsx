@@ -254,13 +254,27 @@ export function EssayWeek({ wk }) {
   function complete() { Store.setSlice("essays", wk, (cur) => ({ ...cur, completedAt: new Date().toISOString() })); window.scrollTo(0, 0) }
   function reopen() { Store.setSlice("essays", wk, (cur) => ({ ...cur, completedAt: null })) }
 
+  /* Questions she can answer, not the names a teacher gives them.
+   *
+   * The Revise tab already learned this: its four "rate your own focus 1–4"
+   * checks moved behind For a grown-up because her Week-1 answers to them were
+   * "wdym?" and "um what?". The Plan tab was left as it was, and her Week-2 plan
+   * records what that costs — she typed "wdym" into "Prompt type / action word"
+   * and "idk" into "Three-part map", then wrote the essay anyway with no plan
+   * behind it. A field a child cannot answer is not a field, it is a wall.
+   *
+   * The keys are untouched on purpose. `feedback` elsewhere in this file is
+   * stored under the label string itself, so renaming one there would orphan
+   * what she has already written; these have always had a short id beside the
+   * label, so every word here can change and her answers still find their way
+   * home. Worth knowing before anyone reaches for the same edit on the checks. */
   const planFields = [
-    ["type", "Prompt type / action word", "e.g. describe · explain · persuade"],
-    ["restate", "Plain-language restatement", "The prompt is asking me to …"],
-    ["ideas", "Three possible ideas or claims", "1. …  2. …  3. …"],
-    ["focus", "Chosen focus", "I will show / explain / argue that …"],
-    ["map", "Three-part map", "Opening/setup → evidence/event/reason → insight/result"],
-    ["details", "Details to include", "Person / place / action / words / thought"],
+    ["type", "What kind of writing is this?", "tell a story · explain something · talk someone round"],
+    ["restate", "Say the question back in your own words", "They want me to …"],
+    ["ideas", "Three things you could write about", "1. …  2. …  3. …"],
+    ["focus", "Which one are you picking?", "I am going to write about …"],
+    ["map", "What happens first, next, and at the end?", "First … then … at the end …"],
+    ["details", "Real details you want to put in", "Someone's name, where you were, something that was said"],
   ]
 
   const reachNo = D.weeks.findIndex((x) => x.w === wk) + 1
@@ -310,7 +324,7 @@ export function EssayWeek({ wk }) {
           <Card className="gap-4">
             <CardHeader>
               <CardTitle className={PHASE_SPAN}>Phase 1 — Plan</CardTitle>
-              <CardDescription className={PHASE_SPAN}>Target: 5 minutes. Read the prompt precisely, generate options, choose one focus.</CardDescription>
+              <CardDescription className={PHASE_SPAN}>Target: 5 minutes. Work out what the question is really asking, think of a few things you could write, then pick one.</CardDescription>
               <CardAction className={PHASE_ACTION}><PhaseTimer wk={wk} phase="plan" label="Plan" minutes={5} /></CardAction>
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
@@ -330,13 +344,15 @@ export function EssayWeek({ wk }) {
           <Card className="gap-4">
             <CardHeader>
               <CardTitle className={PHASE_SPAN}>Phase 2 — First draft</CardTitle>
-              <CardDescription className={PHASE_SPAN}>Target: 20 minutes. Keep this draft as it is when time ends; revise separately.</CardDescription>
+              <CardDescription className={PHASE_SPAN}>Target: 20 minutes. When the time is up, leave the draft as it is — you fix things in Revise, not here.</CardDescription>
               <CardAction className={PHASE_ACTION}><PhaseTimer wk={wk} phase="draft" label="Draft" minutes={20} /></CardAction>
             </CardHeader>
             <CardContent className="flex flex-col gap-4">
-              <Field wk={wk} group="draft" name="opening" label="Opening and focus" placeholder="Answer the prompt and set up the experience or claim…" rows={5} />
-              <Field wk={wk} group="draft" name="middle" label="Middle — evidence, event, or reasons" placeholder="What happened, what you thought, what you did — with specific details…" rows={8} />
-              <Field wk={wk} group="draft" name="ending" label="Ending — reflection or final implication" placeholder="Explain the lesson and connect it back to the prompt…" rows={4} />
+              {/* Same reason as the plan fields above: "final implication" is
+                  not a sentence anyone says to a ten-year-old. */}
+              <Field wk={wk} group="draft" name="opening" label="Opening — answer the question and set the scene" placeholder="Say straight away what this is about…" rows={5} />
+              <Field wk={wk} group="draft" name="middle" label="Middle — what happened, or why you think it" placeholder="What happened, what you thought, what you did — with details only you would know…" rows={8} />
+              <Field wk={wk} group="draft" name="ending" label="Ending — what you learned" placeholder="What changed, and how it answers the question…" rows={4} />
               <div className="text-muted-foreground text-sm tabular-nums">{draftWords} words</div>
               <div><Button onClick={() => setTab("feedback")}>Go to revise <ChevronRight /></Button></div>
             </CardContent>
