@@ -70,6 +70,24 @@ def why_errors(it):
             if rhs is not None and abs(lhs-rhs)>1e-9:
                 out.append(f'{i}: why on {k} says "{m.group(1)} is {m.group(2).strip()}", which is {rhs:g}')
     return out
+# ---- a mock question gets no second chance, so every wrong choice is answered -
+# Every other bank is practice: she meets those questions again in the review
+# pile, and a `why` can be added later. A mock is timed and sat once, and the only
+# place it teaches is the missed-questions list on the score card a day or two
+# afterwards. That card knows which wrong choice she made and, until this was
+# built, showed everyone who missed a question the same paragraph.
+#
+# All 508 carry one for every wrong choice now, so this is an error rather than a
+# count. It is here because the number was 0 for months while a document
+# described the gap, and a figure at zero-remaining is only worth having if
+# something stops it drifting back.
+def mock_why_errors(it, bank):
+    if bank != 'mock.json': return []
+    w = it.get('why') or {}
+    gaps = [l for l in it.get('choices', {}) if l != it.get('correct') and not str(w.get(l) or '').strip()]
+    if not gaps: return []
+    return [f'{it["id"]}: no why for {", ".join(sorted(gaps))} — a mock miss is only explained on the score card']
+
 # ---- prose may not name a choice by its letter -------------------------------
 # See tools/letters.py for the forms and why each one is there.
 from letters import letter_errors
@@ -109,6 +127,7 @@ for f in sorted(os.listdir(BANKS)):
         errs += why_errors(it)
         errs += gloss_errors(it)
         errs += letter_errors(it)
+        errs += mock_why_errors(it, f)
 
 # answer-position sanity per bank/form
 for f in sorted(os.listdir(BANKS)):

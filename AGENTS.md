@@ -385,16 +385,40 @@ above the explanation now, in the same order as the runner, and the check proves
 both halves: that the sentence shown is the one for her pick, and that no row
 shows a sentence belonging to a choice she did not pick.
 
-**The gap that remains is the big one: 477 of the 508 mock items still carry no
-`why`.** Every other bank is effectively complete — 1,002 of 1,002 items have at
-least one and 868 have one for every wrong choice — while the mock is the one
-surface where a wrong answer is never told what it was, which is the whole
-argument for `why` ("told 'perimeter = 2(10+3) = 26' after picking 30, she still
-does not learn that 30 was the area"). 31 are done, all of them where a prose
-clause already held the reasoning and only needed moving. The other 477 are
-authoring, on the highest-stakes screen in the site, and they are the next piece
-of this work. Reading items there need the passage in front of you: do not write
-one from the explanation alone.
+**Every one of the 508 mock questions now answers each of its wrong choices.**
+1,524 sentences, and the mock is no longer the one surface where a wrong answer
+is never told what it was. `tools/validate_content.py` errors on a mock item with
+a gap, proven by removing one: a mock is timed and sat once, so the missed-
+questions list on the score card is the only place it ever teaches, and a figure
+at zero-remaining is worth having only if something stops it drifting back.
+
+Each subject wanted a different sentence, which is the argument against one sweep
+over the whole bank. **Quantitative and Mathematics name what the number is** —
+"28 is 56 ÷ 2, which counts only two sides", "64 is 4 × 4 × 4, the volume of the
+box" when the question asked for the paper round it, "47 is 35 + 12, repeating the
+last increase" in a sequence whose increases grow by 3. **Verbal defines the wrong
+word**, because a synonym question she misses teaches nothing unless the
+distractor is glossed too: "costly means expensive, and a thing can be plentiful
+and cheap." **Reading was written with the passage open**, never from the
+explanation — an explanation states the conclusion and cannot tell you whether a
+distractor is absent from the text or contradicted by it, and those are different
+sentences. Do the same. Where a distractor's origin could not be established it
+says so and gives the check instead — "119 is not 9 × 14; the rate is 84 ÷ 6 = 14
+boxes a minute" — rather than inventing a mistake nobody made.
+
+Two rules of the harness that wrote these are worth knowing before adding more.
+A `why` must **open with its own choice's number**, which is how the validator can
+tell it is attached to the right choice at all — and that bites on coordinates,
+because `(−4,7)` and `(−4, 7)` are different numbers once the commas come out, so
+match the spelling the question uses. And it must not read as a **false
+identity**: "27 is 3/5 of 45" parses as 27 = 0.6 and is refused, correctly.
+Several drafts were rejected by both rules and rewritten.
+
+**What remains is the practice banks: 134 of the other 1,002 items have a `why`
+for some wrong choices but not all** — 67 of them in Mathematics, 62 in
+Quantitative, 5 in Verbal, none in Reading. That is a smaller and much less urgent
+gap than the mock one was, because every practice question comes back round in the
+review pile and can be answered then.
 
 **The furniture.** `src/lib/world.js` holds every world noun, so renaming
 anything is a one-file edit and no component writes one as a literal.
