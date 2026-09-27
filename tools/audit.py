@@ -99,16 +99,16 @@ print('   The rest are one word tested twice with different choices, which is\n'
       '   deliberate rather than a fault — "most nearly" depends on what is offered.\n')
 
 # --- 4. explanations that name a letter ---------------------------------------
-PAT = re.compile(r'\b(?:choice|option|answer)s?\s+[ABCD]\b'
-                 r'|\b[ABCD]\s+(?:and|or|,)\s+[ABCD]\b'
-                 r'|\b[ABCD]\s+is\s+(?:wrong|incorrect|true|correct)'
-                 r'|\bthe (?:last|first|second|third|fourth) choice\b')
-hits = [(i['id'], PAT.search(i['explanation']).group(0)) for i in items
-        if i.get('explanation') and PAT.search(i['explanation'])]
+# One definition, in tools/letters.py, because this check used to have its own
+# narrower pattern here: it printed 52 while the real number was 82 items, and a
+# second weaker count of the same thing is what made that look like progress.
+from letters import letter_errors
+hits = [e for i in items for e in letter_errors(i)]
 print(f'4. explanations that name a choice by letter or position: {len(hits)}')
-for i, m in hits[:6]:
-    print(f'      {i}: "{m}"')
+for e in hits[:6]:
+    print(f'      {e}')
 print('   Zero, and held there by tools/validate_content.py rather than by this\n'
       '   count. It was never "harmless while the order is fixed": build_weeks.py\n'
-      '   re-randomises every option before a bank ships, so a letter in prose was\n'
-      '   already pointing at whatever landed in that slot.')
+      '   re-randomises every option before a bank ships, and three items were\n'
+      '   found with their reasons on the wrong choices outright — one of them\n'
+      '   explaining the correct answer as a mistake.')

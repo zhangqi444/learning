@@ -2542,11 +2542,16 @@
     "D": "52 cm"
    },
    "correct": "B",
-   "explanation": "A square has four equal sides, so each side is 56 ÷ 4 = 14 cm. A divides by 2 as if only two sides counted, C divides the 40 but then appends the leftover 6 (10 + 6 = 16), and D subtracts 4 instead of dividing by 4.",
+   "explanation": "A square has four equal sides, so each side is 56 ÷ 4 = 14 cm.",
    "misconceptions": "divides perimeter by 2; subtracts instead of dividing",
    "source": "Original content authored for Sheila ISEE",
    "form": "DGN",
-   "content_hash": "cdf003a798217626"
+   "content_hash": "114309b03ac8c395",
+   "why": {
+    "A": "28 is 56 ÷ 2, which counts only two sides; a square has four.",
+    "C": "16 divides the 40 and then appends the leftover 6 (10 + 6); the whole 56 goes into the division, giving 14.",
+    "D": "52 subtracts 4 instead of dividing by 4."
+   }
   },
   {
    "id": "DGN-MA-024",
@@ -3697,11 +3702,11 @@
     "D": "2 mph"
    },
    "correct": "D",
-   "explanation": "Boat A travels 16 mph and Boat B 14 mph, so A is 2 mph faster.",
+   "explanation": "Boat A travels 16 mph and Boat B 14 mph, so Boat A is 2 mph faster.",
    "misconceptions": "compares distances; subtracts times",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "33a247e60d61bfdc"
+   "content_hash": "79ab680414967eb4"
   },
   {
    "id": "M01-QR-015",
@@ -4138,11 +4143,16 @@
     "D": "13"
    },
    "correct": "C",
-   "explanation": "11 × 11 = 121 is only 9 away from 130, while 12 × 12 = 144 is 14 away. A rounds 130 down to the benchmark 100 = 10 × 10, C picks the first square past 130 without comparing distances, and D comes from 130 ÷ 10.",
+   "explanation": "11 × 11 = 121 is only 9 away from 130, while 12 × 12 = 144 is 14 away.",
    "misconceptions": "uses 100 as benchmark; picks square above without comparing distances",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "47ec96f2cf00ffff"
+   "content_hash": "32c30170aec329fb",
+   "why": {
+    "A": "12 picks the first square past 130 — 12 × 12 = 144 — without comparing distances: 144 is 14 away and 121 only 9.",
+    "B": "10 rounds 130 down to the friendly 100 = 10 × 10, but 121 is far closer to 130 than 100 is.",
+    "D": "13 comes from 130 ÷ 10; the question wants a number times itself, and 13 × 13 = 169 overshoots."
+   }
   },
   {
    "id": "M01-QR-036",
@@ -4332,12 +4342,12 @@
     "D": "He begins judging a kite by how it flies, not how it looks."
    },
    "correct": "D",
-   "explanation": "Theo stops blaming the wind and plans to test before decorating; A, B, and C contradict his actions.",
+   "explanation": "Theo stops blaming the wind and plans to test before decorating.",
    "misconceptions": "focuses on first action; misses later evidence",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P02",
    "form": "M01",
-   "content_hash": "28567d0231079783"
+   "content_hash": "8a1f18271c21af42"
   },
   {
    "id": "M01-RC-007",
@@ -4662,12 +4672,12 @@
     "D": "Acidic water slowly dissolves limestone and builds formations."
    },
    "correct": "D",
-   "explanation": "The passage traces acidic rainwater from dissolving cracks to building stalactites; A, B, and C contradict or misread details.",
+   "explanation": "The passage traces acidic rainwater from dissolving cracks to building stalactites.",
    "misconceptions": "accepts Amir's initial fear; focuses on facts",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P05",
    "form": "M01",
-   "content_hash": "3710be64f9cbc9a7"
+   "content_hash": "cfc568c1034550fd"
   },
   {
    "id": "M01-RC-022",
@@ -4750,12 +4760,12 @@
     "D": "Only sudden and violent forces can reshape solid stone."
    },
    "correct": "C",
-   "explanation": "Specks of mineral and slow widening build whole caves; A, B, and D use absolutes the passage contradicts.",
+   "explanation": "Specks of mineral and slow widening build whole caves; the other three use absolutes the passage contradicts.",
    "misconceptions": "reverses outcome; focuses on length",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P05",
    "form": "M01",
-   "content_hash": "992452aeb47e0567"
+   "content_hash": "0455807d3af8d00d"
   },
   {
    "id": "M01-MA-001",
@@ -5192,11 +5202,16 @@
     "D": "36 m²"
    },
    "correct": "A",
-   "explanation": "Add the two rectangle areas: 9 × 4 = 36 and 5 × 3 = 15, so 36 + 15 = 51 m². A adds the four dimensions instead of multiplying, B counts only the first rectangle, and C multiplies the combined lengths by the combined widths (14 × 7 = 98).",
+   "explanation": "Add the two rectangle areas: 9 × 4 = 36 and 5 × 3 = 15, so 36 + 15 = 51 m².",
    "misconceptions": "adds dimensions; ignores one rectangle",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "789063bb62a21d11"
+   "content_hash": "3dd49ab85016fc9f",
+   "why": {
+    "B": "21 adds the four dimensions, 9 + 4 + 5 + 3, instead of multiplying each rectangle out.",
+    "C": "98 multiplies the combined lengths by the combined widths, 14 × 7, which counts floor that is not there.",
+    "D": "36 is 9 × 4, the first rectangle only; the 5 by 3 piece adds another 15."
+   }
   },
   {
    "id": "M01-MA-022",
@@ -5234,11 +5249,16 @@
     "D": "63°"
    },
    "correct": "D",
-   "explanation": "Complementary angles total 90°, and 90−27=63°; C subtracts from 100, D subtracts from 180, and A slips by ten.",
+   "explanation": "Complementary angles total 90°, and 90 − 27 = 63°.",
    "misconceptions": "subtracts from 180; arithmetic",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "6bd2a844efaaeed4"
+   "content_hash": "1d8828cf64b1da65",
+   "why": {
+    "A": "53 is ten short: 90 − 27 is 63.",
+    "B": "153 is 180 − 27, which is the supplementary angle; complementary angles total 90°.",
+    "C": "73 is 100 − 27. Angles are complementary at 90°, not 100°."
+   }
   },
   {
    "id": "M01-MA-024",
@@ -6179,11 +6199,15 @@
     "D": "40"
    },
    "correct": "C",
-   "explanation": "Nine parts equal 72, so each part is 8; seeds are 4 × 8 = 32. B halves the total, D uses the raisin parts, and A mis-scales.",
+   "explanation": "Nine parts equal 72, so each part is 8; seeds are 4 × 8 = 32.",
    "misconceptions": "uses 4/5 of total; selects other ratio part",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "2157e73ce0fe9466"
+   "content_hash": "0a85512de2be4ea6",
+   "why": {
+    "B": "36 halves the total; the 72 ounces split into nine parts, not two.",
+    "D": "40 is 5 × 8, the raisin share; the question asks for the seeds, which are 4 parts."
+   }
   },
   {
    "id": "M02-QR-005",
@@ -6326,11 +6350,16 @@
     "D": "15 m"
    },
    "correct": "D",
-   "explanation": "2(L + 8) = 46, so L + 8 = 23 and L = 15; A subtracts width twice, B subtracts width from the full perimeter, and C confuses length with a two-side total.",
+   "explanation": "2(L + 8) = 46, so L + 8 = 23 and L = 15.",
    "misconceptions": "subtracts width once; confuses half-perimeter",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "4c7229aa3746346c"
+   "content_hash": "fc6dc587bb26c997",
+   "why": {
+    "A": "7 is 15 − 8, how much longer the length is than the width, not the length itself.",
+    "B": "19 takes the width off the whole perimeter and halves what is left, (46 − 8) ÷ 2; half the perimeter is 23, and the width comes off that.",
+    "C": "30 subtracts the width twice, 46 − 8 − 8; halving leaves one length and one width, so only one 8 comes off."
+   }
   },
   {
    "id": "M02-QR-012",
@@ -6410,11 +6439,16 @@
     "D": "11/20"
    },
    "correct": "D",
-   "explanation": "There are 4 + 7 + 9 = 20 coins, and 4 + 7 = 11 of them are silver or gold, so the probability is 11/20. A uses only the silver coins (4/20 = 1/5), B uses only the gold coins, and C gives the probability of copper—the very coins the draw must avoid.",
+   "explanation": "There are 4 + 7 + 9 = 20 coins, and 4 + 7 = 11 of them are silver or gold, so the probability is 11/20.",
    "misconceptions": "uses one category only; picks the excluded category",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "347f73616db6c847"
+   "content_hash": "9444aebee59ac234",
+   "why": {
+    "A": "1/5 is 4/20, the silver coins alone; the draw counts silver or gold.",
+    "B": "7/20 is the gold coins alone; adding the 4 silver ones makes 11.",
+    "C": "9/20 is the copper coins — the one colour the draw has to avoid."
+   }
   },
   {
    "id": "M02-QR-016",
@@ -6557,11 +6591,16 @@
     "D": "17°C"
    },
    "correct": "A",
-   "explanation": "−6 + 11 = 5; B subtracts instead, C changes only the sign, and D ignores the starting value.",
+   "explanation": "−6 + 11 = 5.",
    "misconceptions": "sign reversal; adds absolute values incorrectly",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "e4375e87131bd342"
+   "content_hash": "9aea79f80de18bbf",
+   "why": {
+    "B": "−17 subtracts the 11 instead of adding it; the temperature rose, so it moves up from −6.",
+    "C": "−5 is the right size with the wrong sign: rising 11 degrees from −6 passes zero and lands above it.",
+    "D": "17 is 6 + 11, which drops the minus on the dawn temperature."
+   }
   },
   {
    "id": "M02-QR-023",
@@ -6578,11 +6617,16 @@
     "D": "11"
    },
    "correct": "C",
-   "explanation": "At least one activity = 18 + 15 − 7 = 26, so neither = 32 − 26 = 6. A follows an addition slip in totaling 18 + 15 (35 − 7 = 28, then 32 − 28 = 4), B repeats the 7 who do both, and D counts the instrument-only students (18 − 7 = 11) instead of those doing neither.",
+   "explanation": "At least one activity = 18 + 15 − 7 = 26, so neither = 32 − 26 = 6.",
    "misconceptions": "double-counts overlap; reports both count",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "da786db3b90192d2"
+   "content_hash": "9b67906776f9f7a9",
+   "why": {
+    "A": "4 follows a slip in the total: 18 + 15 is 33, not 35, so 33 − 7 = 26 and 32 − 26 = 6.",
+    "B": "7 is the number doing both, which gets subtracted once; it is not the answer.",
+    "D": "11 is 18 − 7, the instrument-only group, not those doing neither."
+   }
   },
   {
    "id": "M02-QR-024",
@@ -6662,11 +6706,16 @@
     "D": "128"
    },
    "correct": "B",
-   "explanation": "Each face is 4 × 4 = 16 square inches; six faces total 96. A uses edge totals, C is volume, and D miscounts faces.",
+   "explanation": "Each face is 4 × 4 = 16 square inches; six faces total 96.",
    "misconceptions": "computes volume; forgets six faces",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "dd51def8f4bdd6a9"
+   "content_hash": "78e93412a83e08c0",
+   "why": {
+    "A": "24 is 6 × 4, six edges rather than six faces; each face is 4 × 4 = 16.",
+    "C": "64 is 4 × 4 × 4, the volume of the box; paper covers the surface.",
+    "D": "128 is 16 × 8, counting eight faces; a cube has six."
+   }
   },
   {
    "id": "M02-QR-028",
@@ -6746,11 +6795,16 @@
     "D": "12"
    },
    "correct": "C",
-   "explanation": "Red's range is 8 and Blue's is 12, a difference of 4; A compares minima, B gives Red's range, and D gives Blue's range.",
+   "explanation": "Red's range is 8 and Blue's is 12, a difference of 4.",
    "misconceptions": "compares means; reports one range",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "5550e6acd7ee878e"
+   "content_hash": "dfb364744452efbc",
+   "why": {
+    "A": "2 compares the two fastest times, 12 and 10, rather than the ranges.",
+    "B": "8 is Red's range on its own; the question asks how much greater Blue's is.",
+    "D": "12 is Blue's range on its own, 22 − 10; Red's is 8, so the gap is 4."
+   }
   },
   {
    "id": "M02-QR-032",
@@ -6767,11 +6821,16 @@
     "D": "112°"
    },
    "correct": "D",
-   "explanation": "Adjacent angles on a straight line total 180°, so 180 − 68 = 112°; A uses 90°, B assumes equality, and C subtracts incorrectly.",
+   "explanation": "Adjacent angles on a straight line total 180°, so 180 − 68 = 112°.",
    "misconceptions": "uses complementary angles; assumes adjacent means equal",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "73e8a21fcf92432c"
+   "content_hash": "95d3a286110064a9",
+   "why": {
+    "A": "22 is 90 − 68, which treats the two angles as a right angle; a straight line is 180°.",
+    "B": "68 assumes the two angles are equal, which happens only when both are 90°.",
+    "C": "102 falls ten short: 180 − 68 = 112."
+   }
   },
   {
    "id": "M02-QR-033",
@@ -6788,11 +6847,16 @@
     "D": "The second box holds 12 more per shelf."
    },
    "correct": "B",
-   "explanation": "Both rates equal 6 books per shelf (30 ÷ 5 = 6 and 42 ÷ 7 = 6). A assumes fewer shelves means more on each shelf, C reports the difference in shelf counts (7 − 5 = 2) as a per-shelf difference, and D does the same with the totals (42 − 30 = 12).",
+   "explanation": "Both rates equal 6 books per shelf (30 ÷ 5 = 6 and 42 ÷ 7 = 6).",
    "misconceptions": "compares totals only; subtracts books without normalizing",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "1635bf8871bf1947"
+   "content_hash": "a150ff0d1ccca12b",
+   "why": {
+    "A": "Fewer shelves does not mean more on each: 30 ÷ 5 and 42 ÷ 7 both come to 6.",
+    "C": "2 is the difference in the number of shelves, 7 − 5, not a difference per shelf.",
+    "D": "12 is the difference in the totals, 42 − 30, which is not a per-shelf figure either."
+   }
   },
   {
    "id": "M02-QR-034",
@@ -6809,11 +6873,16 @@
     "D": "80%"
    },
    "correct": "A",
-   "explanation": "The increase is 30, and 30/120 = 25%; B divides by the new amount, C reports the increase as a percent, and D reverses the ratio.",
+   "explanation": "The increase is 30, and 30/120 = 25%.",
    "misconceptions": "divides by final value; confuses absolute and percent change",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "dd0b950b505ffe45"
+   "content_hash": "990f21442530fc29",
+   "why": {
+    "B": "20% divides the 30 rise by the new 150; percent increase is measured against the starting 120.",
+    "C": "30% is the rise in centimetres read as a percent; 30 out of 120 is 25%.",
+    "D": "80% is 120 ÷ 150, the ratio the other way up."
+   }
   },
   {
    "id": "M02-QR-035",
@@ -6830,11 +6899,16 @@
     "D": "13 and 14"
    },
    "correct": "D",
-   "explanation": "13 × 13 = 169 and 14 × 14 = 196, and 169 < 190 < 196, so the side is between 13 and 14. A halves 190 instead (9² = 81 and 10² = 100 surround 95), B stops after seeing 12² = 144 fall below 190, and C treats 14 as the lower bound once 14² passes 190.",
+   "explanation": "13 × 13 = 169 and 14 × 14 = 196, and 169 < 190 < 196, so the side is between 13 and 14.",
    "misconceptions": "halves instead of using squares; brackets off by one",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "508962087c3c7478"
+   "content_hash": "c4eca92b96ea0f64",
+   "why": {
+    "A": "9 and 10 surround the square root of 95; halving the area is not the same as taking its root.",
+    "B": "12 and 13 stops at 12 × 12 = 144, which is below 190 — and so is 13 × 13 = 169, so the pair starts at 13.",
+    "C": "14 and 15 makes 14 the lower end, but 14 × 14 = 196 is already past 190, so 14 is the upper end."
+   }
   },
   {
    "id": "M02-QR-036",
@@ -6893,11 +6967,16 @@
     "D": "60 m"
    },
    "correct": "B",
-   "explanation": "One lap is 2(18 + 12) = 60 meters; three laps total 180. A misses a side, C uses area, and D gives one lap.",
+   "explanation": "One lap is 2(18 + 12) = 60 meters; three laps total 180.",
    "misconceptions": "uses area; forgets number of laps",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "cdbc4c934c2ea1f3"
+   "content_hash": "4fd690cfc58ba2a3",
+   "why": {
+    "A": "90 is 3 × 30, going round with only one long and one short side counted; a lap has two of each.",
+    "C": "648 is 18 × 12 × 3, the area three times over; a lap follows the edges.",
+    "D": "60 is one lap; the walker does three."
+   }
   },
   {
    "id": "M02-RC-001",
@@ -6914,12 +6993,12 @@
     "D": "Discovering an unfair condition helped students improve a survey."
    },
    "correct": "D",
-   "explanation": "D captures the problem, revision, and lesson in [¶2–¶4]. A overgeneralizes one detail, B contradicts the successful night survey, and C repeats the condition that made the first comparison unfair.",
+   "explanation": "The problem, the revision and the lesson are all in [¶2–¶4]. Saying pond insects are always harder to photograph makes a rule out of one detail; moving to daylight contradicts the night survey, which worked once the lamps matched; and the brightest lamp is the very condition that made the first comparison unfair.",
    "misconceptions": "selects vivid detail; overgeneralizes",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P01",
    "form": "M02",
-   "content_hash": "4dcbd4eee623726d"
+   "content_hash": "088aaae592c3d36a"
   },
   {
    "id": "M02-RC-002",
@@ -6980,12 +7059,12 @@
     "D": "became calm"
    },
    "correct": "C",
-   "explanation": "The moths became visible when they landed on the sheet. A, B, and D are other meanings of settled that do not fit the physical context.",
+   "explanation": "The moths became visible when they landed on the sheet. Paying a debt, making a choice and becoming calm are all real meanings of settled, but none of them fits a moth arriving on a surface.",
    "misconceptions": "chooses common alternate meaning; ignores subject",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P01",
    "form": "M02",
-   "content_hash": "a603cf0e0e45d03e"
+   "content_hash": "003eb4f858638279"
   },
   {
    "id": "M02-RC-005",
@@ -7024,12 +7103,12 @@
     "D": "Why Bellweather replaced its town hall with a history museum"
    },
    "correct": "C",
-   "explanation": "C reflects the identification in [¶1–¶2] and preservation in [¶3–¶4]. A is unsupported, B is denied by [¶4], which says the stone revealed no buried treasure, and D never occurs.",
+   "explanation": "The identification in [¶1–¶2] and the preservation in [¶3–¶4] are what the passage covers. Weak stone foundations never come up, [¶4] says the stone revealed no buried treasure, and the town hall is never replaced.",
    "misconceptions": "focuses on setting; invents dramatic purpose",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P02",
    "form": "M02",
-   "content_hash": "26ec626073e7f43c"
+   "content_hash": "57ef58b820d94f10"
   },
   {
    "id": "M02-RC-007",
@@ -7068,12 +7147,12 @@
     "D": "Its exact position was the information it preserved."
    },
    "correct": "D",
-   "explanation": "[¶2–¶3] show that the marker's carefully measured location made it useful; moving it would destroy that evidence. A, B, and C concern appearance or construction, not surveying.",
+   "explanation": "[¶2–¶3] show that the marker's carefully measured location made it useful; moving it would destroy that evidence. The carved date, the glass panel and the front steps are all about appearance or construction, not surveying.",
    "misconceptions": "treats artifact as text only; misses spatial evidence",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P02",
    "form": "M02",
-   "content_hash": "4439bc36cadc941b"
+   "content_hash": "1cb294f7380d1d73"
   },
   {
    "id": "M02-RC-009",
@@ -7090,12 +7169,12 @@
     "D": "less useful than the workers believed"
    },
    "correct": "B",
-   "explanation": "[¶4] contrasts the marker with treasure and tunnels, so “quieter” means less dramatic but still meaningful. A, C, and D read the word too literally or reverse the passage's judgment.",
+   "explanation": "[¶4] contrasts the marker with treasure and tunnels, so “quieter” means less dramatic but still meaningful.",
    "misconceptions": "literal interpretation; assumes quiet means unimportant",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P02",
    "form": "M02",
-   "content_hash": "8d40337207ba5678"
+   "content_hash": "76c5be0b0cd6fa28"
   },
   {
    "id": "M02-RC-010",
@@ -7134,12 +7213,12 @@
     "D": "A stranger on the train persuades Mara to give away her story."
    },
    "correct": "A",
-   "explanation": "[¶2–¶4] shows the sketcher's comment helping Mara shift from avoidance to rehearsal. B, C, and D do not happen.",
+   "explanation": "[¶2–¶4] shows the sketcher's comment helping Mara shift from avoidance to rehearsal. Nothing else on the list happens: she does not choose drawing over writing, the train is not delayed, and no stranger takes her story.",
    "misconceptions": "substitutes another art form; invents plot event",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P03",
    "form": "M02",
-   "content_hash": "1b6bc7340fd1566d"
+   "content_hash": "836546a6fc737c96"
   },
   {
    "id": "M02-RC-012",
@@ -7156,12 +7235,12 @@
     "D": "She kept her story inside an envelope in her pocket."
    },
    "correct": "C",
-   "explanation": "[¶1] lists pencil organizing among distractions from the view and story. A, B, and D may occur while nervous but do not as clearly replace practice.",
+   "explanation": "[¶1] lists pencil organizing among distractions from the view and story. The window seat, the watching and the envelope in her pocket may all go with being nervous, but none of them replaces practice as clearly.",
    "misconceptions": "picks any nervous detail; misses contrast with intended task",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P03",
    "form": "M02",
-   "content_hash": "a6010198c906c62d"
+   "content_hash": "95993334234d100d"
   },
   {
    "id": "M02-RC-013",
@@ -7266,12 +7345,12 @@
     "D": "Does a lift feel safe to the dancers?"
    },
    "correct": "D",
-   "explanation": "[¶4] explicitly says the drawing could not show whether a lift felt safe. A–C are exactly the spatial facts represented by circles, intersecting arrows, and dotted lines.",
+   "explanation": "[¶4] explicitly says the drawing could not show whether a lift felt safe. Where each dancer begins, whether two paths cross on the same count, and which routes run backward are exactly the spatial facts the circles, intersecting arrows and dotted lines represent.",
    "misconceptions": "ignores stated limitation; assumes diagram replaces rehearsal",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P04",
    "form": "M02",
-   "content_hash": "69d35b58e67509ea"
+   "content_hash": "d505caa25b0c655a"
   },
   {
    "id": "M02-RC-018",
@@ -7288,12 +7367,12 @@
     "D": "The final performance had already taken place."
    },
    "correct": "A",
-   "explanation": "[¶1] says the hall was available only on Saturdays, so solving spatial problems beforehand protected limited rehearsal time. B–D are not supported; the performance is still ahead of the dancers.",
+   "explanation": "[¶1] says the hall was available only on Saturdays, so solving spatial problems beforehand protected limited rehearsal time. Nothing is said about the chalk being expensive or the dancers disliking the hall, and the performance is still ahead of them.",
    "misconceptions": "invents preference; misses scheduling constraint",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P04",
    "form": "M02",
-   "content_hash": "d9a0a61c5b5ee43e"
+   "content_hash": "4af3c37de095c163"
   },
   {
    "id": "M02-RC-019",
@@ -7376,12 +7455,12 @@
     "D": "Strong wind blew the barrel onto its side."
    },
    "correct": "A",
-   "explanation": "[¶3] states that dry conditions let the soil absorb much of the largest storm. B–D are not mentioned.",
+   "explanation": "[¶3] states that dry conditions let the soil absorb much of the largest storm. Nobody empties the barrel, no drainage channel is blocked, and the barrel never falls over.",
    "misconceptions": "invents events; ignores antecedent condition",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P05",
    "form": "M02",
-   "content_hash": "c3dcab259309257e"
+   "content_hash": "b643aa8eefebdbcd"
   },
   {
    "id": "M02-RC-023",
@@ -7420,12 +7499,12 @@
     "D": "a test that ends too early"
    },
    "correct": "B",
-   "explanation": "The passage discusses rain leaving the roof through channels, so runoff is water flowing from a surface. A, C, and D do not fit the water-management context.",
+   "explanation": "The passage discusses rain leaving the roof through channels, so runoff is water flowing from a surface. Wind-blown soil, spreading plants and a test that ends early all miss the water-management context.",
    "misconceptions": "uses everyday meaning of run off; confuses erosion with water flow",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P05",
    "form": "M02",
-   "content_hash": "9f1548e3a3a1687a"
+   "content_hash": "4ad3c0ef0a389066"
   },
   {
    "id": "M02-RC-025",
@@ -7442,12 +7521,12 @@
     "D": "To explain why spring storms are heavier than winter storms"
    },
    "correct": "A",
-   "explanation": "[¶4] transfers the students' lesson about starting conditions to a new test. B–D are neither stated nor supported.",
+   "explanation": "[¶4] transfers the students' lesson about starting conditions to a new test.",
    "misconceptions": "sees paragraph as unrelated; invents conflict",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M02-RC-P05",
    "form": "M02",
-   "content_hash": "7fb3213ba7658391"
+   "content_hash": "484cf34ad4576e1d"
   },
   {
    "id": "M02-MA-001",
@@ -7485,11 +7564,16 @@
     "D": "4/5"
    },
    "correct": "C",
-   "explanation": "With denominator 24, 21/24 − 8/24 = 13/24. A subtracts denominators, B changes only the numerator, and D uses an incorrect common denominator.",
+   "explanation": "With denominator 24, 21/24 − 8/24 = 13/24.",
    "misconceptions": "subtracts denominators; fails to find common denominator",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "1caef3bc94862b1f"
+   "content_hash": "97133ce5f9e85d0f",
+   "why": {
+    "A": "6/5 subtracts the denominators as well as the numerators, (7 − 1)/(8 − 3); once the denominators match, only the numerators are subtracted.",
+    "B": "5/8 keeps eighths and takes something other than 1/3 away from them; over 24, 1/3 is 8/24, not 2/24.",
+    "D": "4/5 uses a denominator that 8 and 3 do not share; the smallest they do share is 24."
+   }
   },
   {
    "id": "M02-MA-003",
@@ -7506,11 +7590,16 @@
     "D": "$30.75"
    },
    "correct": "B",
-   "explanation": "4.75 × 6 = 28.50. A multiplies only the dollars (4 × 6 = 24) and appends the 75 cents, C swaps the cents digits of 28.50, and D rounds to $5 × 6 = $30 and then adds the 75 cents back.",
+   "explanation": "4.75 × 6 = 28.50.",
    "misconceptions": "decimal placement; repeated-addition error",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "faf91ff5f12fa3dc"
+   "content_hash": "911763a3acb026c1",
+   "why": {
+    "A": "24.75 multiplies only the dollars, 4 × 6 = 24, and then puts the 75 cents back once instead of six times.",
+    "C": "28.05 has the dollars right and the cents digits swapped; 0.75 × 6 = 4.50, so the cents end in .50.",
+    "D": "30.75 rounds $4.75 up to $5 for $30 and then adds the 75 cents back — but rounding up had already added 25 cents six times."
+   }
   },
   {
    "id": "M02-MA-004",
@@ -7548,11 +7637,16 @@
     "D": "96"
    },
    "correct": "C",
-   "explanation": "0.35 × 240 = 84; A finds 30%, B finds one third approximately, and D finds 40%.",
+   "explanation": "0.35 × 240 = 84.",
    "misconceptions": "uses nearby benchmark percent; percent-to-decimal error",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "321641749c9307a5"
+   "content_hash": "5b4c0240b14c3f99",
+   "why": {
+    "A": "72 is 30% of 240 and stops there; the other 5% is 12 more.",
+    "B": "80 is a third of 240, and 35% is a little more than a third.",
+    "D": "96 is 40% of 240, one step too far."
+   }
   },
   {
    "id": "M02-MA-006",
@@ -7632,11 +7726,16 @@
     "D": "49/5"
    },
    "correct": "B",
-   "explanation": "Subtract 7 from both sides to get 5x = 35, then divide by 5 for x = 7. A divides 35 by the constant 7 instead of by 5, C follows a subtraction slip (42 − 7 taken as 45, giving 45 ÷ 5 = 9), and D adds 7 to 42 before dividing (49 ÷ 5).",
+   "explanation": "Subtract 7 from both sides to get 5x = 35, then divide by 5 for x = 7.",
    "misconceptions": "wrong inverse-operation order; treats constant as factor",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "b3d64eeb6dc993b9"
+   "content_hash": "ced5306da965e72e",
+   "why": {
+    "A": "5 divides 35 by the 7 rather than by the 5; the 5 is what multiplies x.",
+    "C": "9 follows from taking 42 − 7 as 45; it is 35, and 35 ÷ 5 = 7.",
+    "D": "49/5 adds the 7 to 42 instead of subtracting it; a + 7 moves across as − 7."
+   }
   },
   {
    "id": "M02-MA-010",
@@ -7737,11 +7836,16 @@
     "D": "208 cm²"
    },
    "correct": "B",
-   "explanation": "Area = base × perpendicular height = 13 × 8 = 104 cm². A uses perimeter-like addition, C multiplies incorrectly, and D doubles the area.",
+   "explanation": "Area = base × perpendicular height = 13 × 8 = 104 cm².",
    "misconceptions": "uses slanted side; confuses area and perimeter",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "7436d35ee4a0efa7"
+   "content_hash": "ef5efa18ae59c5a7",
+   "why": {
+    "A": "42 is 2 × (13 + 8), a perimeter; area multiplies the base by the height.",
+    "C": "84 is not 13 × 8; multiplying those out gives 104.",
+    "D": "208 is 13 × 8 × 2, the area counted twice; a parallelogram needs no doubling or halving."
+   }
   },
   {
    "id": "M02-MA-015",
@@ -7758,11 +7862,16 @@
     "D": "6 ft"
    },
    "correct": "C",
-   "explanation": "Radius is half the diameter, so 18 ÷ 2 = 9 feet. A doubles, B repeats the diameter, and D divides by three.",
+   "explanation": "Radius is half the diameter, so 18 ÷ 2 = 9 feet.",
    "misconceptions": "swaps radius and diameter; applies wrong factor",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "c8ecc2c4d19a5a30"
+   "content_hash": "5d24f48a055a0bd5",
+   "why": {
+    "A": "36 is 18 × 2, doubling the diameter instead of halving it.",
+    "B": "18 is the diameter itself; a radius reaches only from the centre to the edge.",
+    "D": "6 is 18 ÷ 3; a radius is half the diameter, not a third."
+   }
   },
   {
    "id": "M02-MA-016",
@@ -7800,11 +7909,16 @@
     "D": "23,500 cm"
    },
    "correct": "C",
-   "explanation": "One meter is 100 centimeters, so 2.35 × 100 = 235 cm. A multiplies by 10, B makes no unit-size adjustment, and D multiplies by 10,000.",
+   "explanation": "One meter is 100 centimeters, so 2.35 × 100 = 235 cm.",
    "misconceptions": "wrong metric place shift; unit-size confusion",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "95a44a37c7848278"
+   "content_hash": "4ccb510a8254569e",
+   "why": {
+    "A": "23.5 multiplies by 10; a metre holds 100 centimetres.",
+    "B": "2.35 leaves the number alone; centimetres are smaller than metres, so the count goes up.",
+    "D": "23,500 multiplies by 10,000; 2.35 × 100 = 235."
+   }
   },
   {
    "id": "M02-MA-018",
@@ -7884,11 +7998,11 @@
     "D": "18"
    },
    "correct": "D",
-   "explanation": "Eighteen appears three times, more than any other value. A–C appear once and may be chosen from order or size rather than frequency.",
+   "explanation": "Eighteen appears three times, more than any other value. 21, 24 and 30 each appear once — the mode is the value that turns up most often, not the largest or the last.",
    "misconceptions": "confuses mode with median or maximum; ignores frequency",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "b42b25b77a8b0c31"
+   "content_hash": "43cf640c677a61b0"
   },
   {
    "id": "M02-MA-022",
@@ -7926,11 +8040,16 @@
     "D": "0"
    },
    "correct": "B",
-   "explanation": "Each vertex-to-opposite-side-midpoint axis gives one line, for 5 total. A understates, C doubles, and D ignores regularity.",
+   "explanation": "Each vertex-to-opposite-side-midpoint axis gives one line, for 5 total.",
    "misconceptions": "confuses sides with pairs; assumes odd-sided shapes lack symmetry",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "5e91d5b225d12279"
+   "content_hash": "22092ac66b27c58b",
+   "why": {
+    "A": "1 counts a single axis; a regular pentagon has one through each of its five vertices.",
+    "C": "10 counts every axis twice, once from the vertex and once from the midpoint, but it is the same line both ways.",
+    "D": "0 would be right for an irregular pentagon; a regular one has five equal sides and five axes."
+   }
   },
   {
    "id": "M02-MA-024",
@@ -7989,11 +8108,11 @@
     "D": "3² × 20"
    },
    "correct": "B",
-   "explanation": "180 = 4 × 45 = 2² × 3² × 5, and all factors are prime. A, C, and D still contain composite factors.",
+   "explanation": "180 = 4 × 45 = 2² × 3² × 5, and all factors are prime. 2 × 3 × 30, 2² × 45 and 3² × 20 each still leave a composite factor — 30, 45 and 20 — so none of them is a full prime factorization.",
    "misconceptions": "stops factor tree early; omits repeated prime",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "a971fd00f81b0ab8"
+   "content_hash": "66be44b1bf48a910"
   },
   {
    "id": "M02-MA-027",
@@ -8031,11 +8150,15 @@
     "D": "15 m"
    },
    "correct": "D",
-   "explanation": "6 × 250 = 1,500 cm = 15 m. A misses a factor of ten, B adds scale values, and C converts centimeters incorrectly.",
+   "explanation": "6 × 250 = 1,500 cm = 15 m.",
    "misconceptions": "scale multiplication error; cm-to-m conversion error",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "155e1bfe665337cb"
+   "content_hash": "3b778cb0fe61be0e",
+   "why": {
+    "A": "1.5 is out by a factor of ten; 1,500 centimetres is 15 metres.",
+    "C": "150 divides 1,500 by 10; a metre is 100 centimetres."
+   }
   },
   {
    "id": "M02-MA-029",
@@ -8052,11 +8175,15 @@
     "D": "75%"
    },
    "correct": "B",
-   "explanation": "12/30 = 2/5 = 40%. A uses the total as a percent, C reverses part and remainder, and D is unrelated.",
+   "explanation": "12/30 = 2/5 = 40%.",
    "misconceptions": "denominator-as-percent; reverses selected and unselected",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "5e9c1321865c993c"
+   "content_hash": "e78d06ff03cbcb04",
+   "why": {
+    "A": "30% is the number of responses, not a percentage of them; 12 out of 30 is 40%.",
+    "C": "60% is the 18 who chose something else; the question asks about the 12."
+   }
   },
   {
    "id": "M02-MA-030",
@@ -8073,11 +8200,16 @@
     "D": "468 mph"
    },
    "correct": "A",
-   "explanation": "Speed = 156 ÷ 3 = 52 mph. B is a division error, C divides by two, and D multiplies instead of divides.",
+   "explanation": "Speed = 156 ÷ 3 = 52 mph.",
    "misconceptions": "wrong operation; arithmetic division error",
    "source": "Original content authored for Sheila ISEE",
    "form": "M02",
-   "content_hash": "ef94bf6b16c805c1"
+   "content_hash": "91181d989efd140f",
+   "why": {
+    "B": "53 is one too many — 53 × 3 = 159, not 156.",
+    "C": "78 is 156 ÷ 2; the journey took 3 hours.",
+    "D": "468 is 156 × 3, multiplying the hours in instead of dividing them out."
+   }
   },
   {
    "id": "M03-VR-001",
@@ -8850,11 +8982,16 @@
     "D": "9/10"
    },
    "correct": "A",
-   "explanation": "2/5 of the tank = 4/10, so 7/10 − 4/10 = 3/10 remains. B subtracts the denominator 5 from the numerator 7 (2/10 = 1/5), C subtracts the numerator 2 without converting (7/10 − 2/10 = 5/10 = 1/2), and D adds 2/10 instead of subtracting (9/10).",
+   "explanation": "2/5 of the tank = 4/10, so 7/10 − 4/10 = 3/10 remains.",
    "misconceptions": "denominator subtraction; operation reversal",
    "source": "Original content authored for Sheila ISEE",
    "form": "M03",
-   "content_hash": "2a32d26565e1e163"
+   "content_hash": "cbd330bb73173b9d",
+   "why": {
+    "B": "1/5 is 2/10, from taking the 5 in 2/5 away from the 7 in 7/10; 2/5 has to become 4/10 first.",
+    "C": "1/2 is 5/10, from subtracting 2/10 rather than 4/10.",
+    "D": "9/10 adds the water instead of taking it away; it was used, so less is left."
+   }
   },
   {
    "id": "M03-QR-004",
@@ -8934,11 +9071,16 @@
     "D": "11 m"
    },
    "correct": "D",
-   "explanation": "Half the perimeter is 54 ÷ 2 = 27, so the width is 27 − 16 = 11. A reports only how much longer the length is than the width (16 − 11 = 5), B subtracts one length from the whole perimeter and halves what is left (54 − 16 = 38, then 19), and C subtracts both lengths but forgets to halve (54 − 32 = 22).",
+   "explanation": "Half the perimeter is 54 ÷ 2 = 27, so the width is 27 − 16 = 11.",
    "misconceptions": "subtracts length once; area-perimeter confusion",
    "source": "Original content authored for Sheila ISEE",
    "form": "M03",
-   "content_hash": "579e7319570a52b5"
+   "content_hash": "cb11ffc47dc822b0",
+   "why": {
+    "A": "5 is how much longer the length is than the width, 16 − 11, not the width.",
+    "B": "19 takes one length off the whole perimeter and halves the rest, (54 − 16) ÷ 2; halve first, then subtract the length.",
+    "C": "22 subtracts both lengths, 54 − 32, and forgets that what is left is two widths."
+   }
   },
   {
    "id": "M03-QR-008",
@@ -9270,11 +9412,16 @@
     "D": "24"
    },
    "correct": "D",
-   "explanation": "Multiply the independent choices: 3 × 4 × 2 = 24. A adds the three numbers (3 + 4 + 2 = 9), B multiplies shirts by pants but then only adds the hats (12 + 2 = 14), and C multiplies the shirts by the sum of pants and hats (3 × 6 = 18).",
+   "explanation": "Multiply the independent choices: 3 × 4 × 2 = 24.",
    "misconceptions": "adds choices; mixes multiplying and adding",
    "source": "Original content authored for Sheila ISEE",
    "form": "M03",
-   "content_hash": "741b772c4b11b176"
+   "content_hash": "2d121802573a284f",
+   "why": {
+    "A": "9 is 3 + 4 + 2. Choices that combine multiply rather than add.",
+    "B": "14 is 12 + 2, multiplying shirts by pants and then adding the hats; the hats multiply too.",
+    "C": "18 is 3 × 6, shirts times pants-and-hats added together; each stage multiplies."
+   }
   },
   {
    "id": "M03-QR-024",
@@ -9438,11 +9585,16 @@
     "D": "144°"
    },
    "correct": "D",
-   "explanation": "The two angles total 180° and make 5 equal parts, so the smaller is 180 ÷ 5 = 36° and the larger is 4 × 36 = 144°. A stops at the smaller angle, B divides 180 by 4 instead of 5, and C uses 90° as the total (4 × 18 = 72).",
+   "explanation": "The two angles total 180° and make 5 equal parts, so the smaller is 180 ÷ 5 = 36° and the larger is 4 × 36 = 144°.",
    "misconceptions": "reports smaller angle; divides by 4; uses 90 as total",
    "source": "Original content authored for Sheila ISEE",
    "form": "M03",
-   "content_hash": "0ccd946c8ca7d9be"
+   "content_hash": "c9dd532fa5e980f2",
+   "why": {
+    "A": "36 is the smaller angle; the larger is 4 × 36.",
+    "B": "45 is 180 ÷ 4; the two angles make five parts together, not four.",
+    "C": "72 is 4 × 18, taking 90° as the total; two angles on a straight line total 180°."
+   }
   },
   {
    "id": "M03-QR-032",
@@ -9480,11 +9632,16 @@
     "D": "7"
    },
    "correct": "D",
-   "explanation": "Range A is 18−6=12 and range B is 23−4=19, so the difference is 7; distractors report a range or mis-subtract.",
+   "explanation": "Set A's range is 18 − 6 = 12 and Set B's is 23 − 4 = 19, so the difference is 7.",
    "misconceptions": "reports one range; compares means",
    "source": "Original content authored for Sheila ISEE",
    "form": "M03",
-   "content_hash": "97881bec0547dc7c"
+   "content_hash": "47457f5fdc56b670",
+   "why": {
+    "A": "5 is neither range nor their difference; Set A's range is 12 and Set B's is 19.",
+    "B": "6 is Set A's smallest value, not a range.",
+    "C": "12 is Set A's own range, 18 − 6; the question asks how much greater Set B's is."
+   }
   },
   {
    "id": "M03-QR-034",
@@ -9522,11 +9679,16 @@
     "D": "168 m"
    },
    "correct": "D",
-   "explanation": "One lap is 2 × (30 + 18) = 96 m, and 1 3/4 × 96 = 168 m. A stops after one lap, B adds only one more 30 m side for the extra three-quarters of a lap (96 + 30 = 126), and C runs 1 1/2 laps instead of 1 3/4 (1.5 × 96 = 144).",
+   "explanation": "One lap is 2 × (30 + 18) = 96 m, and 1 3/4 × 96 = 168 m.",
    "misconceptions": "stops after one lap; mishandles the fractional lap",
    "source": "Original content authored for Sheila ISEE",
    "form": "M03",
-   "content_hash": "e1fa0b051057c78b"
+   "content_hash": "b2697e873d6c4403",
+   "why": {
+    "A": "96 is one lap; the runner does one and three-quarters.",
+    "B": "126 is 96 + 30, adding a single long side for the extra part of a lap; three-quarters of a lap is 72 m.",
+    "C": "144 is 1.5 × 96, one and a half laps rather than one and three-quarters."
+   }
   },
   {
    "id": "M03-QR-036",
@@ -9543,11 +9705,16 @@
     "D": "1/3"
    },
    "correct": "C",
-   "explanation": "The favorable cards are 10 through 15—six of the 15—so the probability is 6/15 = 2/5. A counts the nine cards that are 9 or less (9/15 = 3/5), B wrongly includes the 9 itself (7/15), and D drops one favorable card (5/15 = 1/3).",
+   "explanation": "The favorable cards are 10 through 15 — six of the 15 — so the probability is 6/15 = 2/5.",
    "misconceptions": "counts the complement; boundary error with greater than",
    "source": "Original content authored for Sheila ISEE",
    "form": "M03",
-   "content_hash": "0d5164f7c152df04"
+   "content_hash": "d1bfc50113e83c30",
+   "why": {
+    "A": "3/5 is 9/15, the cards that are 9 or less; the question asks for greater than 9.",
+    "B": "7/15 includes the 9 itself; greater than 9 starts at 10.",
+    "D": "1/3 is 5/15, one favourable card short; 10 through 15 is six cards."
+   }
   },
   {
    "id": "M03-QR-037",
@@ -9826,12 +9993,12 @@
     "D": "Feeding birds matters more than any other goal."
    },
    "correct": "C",
-   "explanation": "S9 states the flexible-plan insight; A, B, and D turn a balanced lesson into an extreme claim.",
+   "explanation": "S9 states the flexible-plan insight. Perfectly neat window boxes, clubs that avoid planning altogether, and birds above every other goal each turn a balanced lesson into an extreme claim.",
    "misconceptions": "selects surface comparison; overgeneralizes one goal",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M03-RC-P03",
    "form": "M03",
-   "content_hash": "1ee1ade4d9599ea5"
+   "content_hash": "e5cb947ef352f074"
   },
   {
    "id": "M03-RC-012",
@@ -10046,12 +10213,12 @@
     "D": "A library adapted its rules so objects could be shared safely."
    },
    "correct": "D",
-   "explanation": "D captures the expansion and safeguards; the other choices contradict the passage or make absolute claims.",
+   "explanation": "Adapting the rules so objects could be shared safely carries both the expansion and the safeguards; the other three contradict the passage or make absolute claims.",
    "misconceptions": "replaces rather than expands; ignores maintenance",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M03-RC-P05",
    "form": "M03",
-   "content_hash": "fe36f840263564a1"
+   "content_hash": "8a9e2446d2f80b39"
   },
   {
    "id": "M03-RC-022",

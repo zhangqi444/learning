@@ -71,29 +71,9 @@ def why_errors(it):
                 out.append(f'{i}: why on {k} says "{m.group(1)} is {m.group(2).strip()}", which is {rhs:g}')
     return out
 # ---- prose may not name a choice by its letter -------------------------------
-# `why` is keyed by letter and that is fine: the runner looks the key up against
-# the choice she actually picked, so a reshuffle carries it along. Prose cannot
-# be looked up. `tools/build_weeks.py` re-randomises every item's options before
-# a bank ships, so "B and C are unsupported" was written against an order that no
-# longer exists — nine explanations had already gone from fragile to false that
-# way when their distractors changed underneath them. The letters are not even
-# doing work: name the value and the sentence is true under any order, and for
-# the 16 Reading items where `why` already said the same thing per choice, the
-# clause was deleted rather than translated. Checked here rather than left in a
-# document, because the document had described the defect for weeks while it grew.
-LETTER=re.compile(r'\b(?:choice|option|answer)s?\s+[ABCD]\b'
-                  r'|\b[ABCD]\s+(?:and|or|,)\s+[ABCD]\b'
-                  r'|\b[ABCD]\s+(?:is|are)\s+(?:wrong|incorrect|true|correct)'
-                  r'|\bthe (?:last|first|second|third|fourth) choice\b')
+# See tools/letters.py for the forms and why each one is there.
+from letters import letter_errors
 
-def letter_errors(it):
-    out=[]
-    fields=[('explanation', it.get('explanation')), ('misconceptions', it.get('misconceptions'))]
-    fields += [(f'why.{k}', v) for k, v in (it.get('why') or {}).items()]
-    for name, text in fields:
-        m=LETTER.search(str(text or ''))
-        if m: out.append(f'{it["id"]}: {name} names a choice by letter ("{m.group(0)}") — name the value')
-    return out
 BANKS='content/question-banks'
 pass_ids=set()
 for f in os.listdir('content/passages'):

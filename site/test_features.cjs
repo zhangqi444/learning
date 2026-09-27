@@ -330,7 +330,11 @@ async function setLs(pg, mutate, read, ms = 12000) {
   // finish the rest quickly through the store, then the essay
   await pg.evaluate(() => {
     const s = JSON.parse(localStorage.getItem('isee.v1'));
-    for (const id of ['QR', 'RC', 'MA']) s.mocks.DGN.sections[id] = { started: Date.now() - 60000, endsAt: Date.now() + 60000, picks: { 0: 'A' }, submittedAt: new Date().toISOString(), right: 1, n: id === 'QR' ? 38 : id === 'RC' ? 25 : 30, timeUsed: 60000 };
+    // MA index 22 is DGN-MA-023 (the bank is served sorted by id), and 'A' there
+    // is 28 cm — halving the perimeter instead of quartering it. Seeded so the
+    // score card has one miss with a `why` written for the exact choice made;
+    // it was already a miss as a blank, so no count on this page moves.
+    for (const id of ['QR', 'RC', 'MA']) s.mocks.DGN.sections[id] = { started: Date.now() - 60000, endsAt: Date.now() + 60000, picks: id === 'MA' ? { 0: 'A', 22: 'A' } : { 0: 'A' }, submittedAt: new Date().toISOString(), right: 1, n: id === 'QR' ? 38 : id === 'RC' ? 25 : 30, timeUsed: 60000 };
     localStorage.setItem('isee.v1', JSON.stringify(s)); location.hash = '#/mock/DGN/ESSAY';
   });
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=mock-essay-start]');
@@ -535,6 +539,50 @@ async function setLs(pg, mutate, read, ms = 12000) {
 
   await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
   check('mock list shows the estimated band card', /Estimated score band/.test(await body(pg)) && /stanine/i.test(await body(pg)));
+  await pg.evaluate(() => { location.hash = '#/mock/DGN'; }); await pg.waitForSelector('[data-testid=mock-corrections]');
+  /* The score card is the one surface that knows WHICH wrong choice she made —
+     it is sitting in `pick` — and for the whole life of the page it showed
+     everyone who missed a question the same paragraph. The explanation can only
+     describe the correct route, so a girl who picked 28 cm was told that 56 ÷ 4
+     is 14 and never that 28 is what halving gets you. Read from the bundle
+     rather than typed in here, because the sentence belongs to the content. */
+  const wantWhy = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const q = b.mockItems.DGN.MA.find((x) => x.id === 'DGN-MA-023');
+    return q && q.y ? q.y.A : null;
+  });
+  check('a mock item carries a per-choice why through to the bundle', !!wantWhy && /56/.test(wantWhy), wantWhy || 'no `y` on DGN-MA-023');
+  /* Which skill group holds it is the app's decision, not this test's, so the
+     groups are opened in turn until the row appears rather than guessing a
+     lesson name that a mapping change would quietly invalidate. */
+  let whyRow = null;
+  const groupBtns = await pg.$$('[data-testid=miss-group-open]');
+  for (let k = 0; k < groupBtns.length && !whyRow; k++) {
+    await groupBtns[k].click();
+    await pg.waitForTimeout(60);
+    whyRow = await pg.$('[data-testid=miss-row][data-qid="DGN-MA-023"]');
+  }
+  const rowWhy = whyRow ? await whyRow.$eval('[data-testid=why]', (e) => e.textContent.trim()).catch(() => '') : '';
+  check('and the score card says it against the choice she actually made',
+    !!wantWhy && rowWhy === wantWhy.trim(), rowWhy.slice(0, 90) || 'no why block in the miss row');
+  /* Every rendered why must be the one belonging to that row's pick. A block
+     keyed to the wrong choice would still look right on the page. */
+  const whyAudit = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const by = {};
+    for (const f of Object.keys(b.mockItems)) for (const sec of Object.keys(b.mockItems[f])) for (const q of b.mockItems[f][sec]) by[q.id] = q;
+    const bad = [];
+    for (const row of document.querySelectorAll('[data-testid=miss-row]')) {
+      const q = by[row.dataset.qid]; if (!q) continue;
+      const m = row.textContent.match(/Your answer:\s*([ABCD])\./);
+      const want = m && q.y && q.y[m[1]] ? q.y[m[1]].trim() : null;
+      const el = row.querySelector('[data-testid=why]');
+      const got = el ? el.textContent.trim() : null;
+      if (want !== got) bad.push(`${q.id}: wanted ${want ? 'the why for ' + m[1] : 'none'}, got ${got ? 'other text' : 'none'}`);
+    }
+    return bad;
+  });
+  check('and never one belonging to a choice she did not pick', whyAudit.length === 0, whyAudit.slice(0, 2).join(' | ') || 'every row matches its own pick');
   await pg.evaluate(() => { location.hash = '#/mock/DGN'; }); await pg.waitForSelector('[data-testid=mock-corrections]');
   await pg.click('[data-testid=mock-corrections]');
   await pg.waitForSelector('[data-testid=choice]');

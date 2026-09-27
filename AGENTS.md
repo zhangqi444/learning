@@ -336,38 +336,65 @@ and it is done. It improved the plain runner on its own, exactly as this
 paragraph predicted: a wrong answer now says what the mistake was instead of
 "The answer is C".
 
-**That defect is now zero everywhere, and the rule is a check.** The 52 that were
-left named a choice by letter — "B and C", "A, C, and D are unsupported" — and
-this paragraph had them all down as Reading, which they were not: 16 were RC in
-`rc-september.json` and the other 36 were in `mock.json`, spanning RC, QR and MA.
-Both numbers in the paragraph above were counted over different sets, because
-"480 of 480" excludes `mock.json` the way this file tells you to and the 52 did
-not. Mock QR and MA explanations were naming letters the whole time that sentence
-claimed none did.
+**The defect was never 52, and the first fix said it was zero when it was not.**
+Counting "names a choice by letter" with three patterns — "choice B", "B and C",
+"B is wrong" — gave 52, and after those 52 were dealt with the count read zero
+while **129 references across 82 items** sat untouched: "A divides by 2 as if
+only two sides counted", "C subtracts 4 instead of dividing by 4", "A, B, and D
+have no evidence", "A–C misread the function". None of those forms was in the
+pattern. A check that reports clean over most of what it is checking is worse
+than no check at all, which is the same lesson as the leaking `cd` in CLAUDE.md
+and it was learned twice.
 
-The two halves wanted opposite fixes. The 16 RC items already carried a full `why`
-map covering every letter the prose named, per choice, in richer words, shown
-above the explanation on the reveal — so the clause was pure duplication in the
-one form that can go stale, and it was deleted. The 36 mock items carry no `why`
-at all, so there the letters were the only thing telling her what the distractors
-were, and each was rewritten to name the value: "13 and 14 are the individual
-rates", not "C and D".
+The forms are enumerated properly in **`tools/letters.py`** now, imported by both
+`tools/validate_content.py` (which errors) and `tools/audit.py` (which counts), so
+there is one definition rather than two at different strengths — the weaker of the
+two printing a reassuring number is exactly what made the first pass look
+finished. Two cases need care and are handled: `A` is also an article, so it needs
+a following verb, while a bare B, C or D in front of a lowercase word is already a
+giveaway; and the word *before* rescues a real label, since "Store A is $1.50
+each", "Car B gives 210 ÷ 7" and "point C lands on (7, 7)" are names the question
+gave. Every form is proven by reintroducing it and watching the validator name it.
 
-It was never merely fragile. `tools/build_weeks.py` re-randomises every item's
-options before a bank ships, so a letter written in prose was already pointing at
-whatever landed in that slot — which is how nine of them had gone from fragile to
-outright false. `tools/validate_content.py` now errors on a letter in
-`explanation`, `misconceptions` or any `why` text, proven by reintroducing one.
-`why` stays keyed by letter, because the runner looks that key up against the
-choice she actually picked and a reshuffle carries it along.
+**It was never merely fragile — three items had the reasons on the wrong choices
+outright.** `tools/build_weeks.py` re-randomises every item's options before a
+bank ships. On `M01-QR-035` the sentence for "A" described 10 and the sentence for
+"C" described 12, while A was 12 and C was 11 — and C is the **correct answer**,
+so the page explained the right answer as a mistake. `M01-MA-021` had two of three
+wrong, `M01-MA-023` one. Every one of the 54 mock items was re-checked by the
+*value* described rather than by the letter written, because the letters could not
+be trusted to say which choice they meant.
 
-**The real gap `mock.json` leaves is bigger: all 508 of its items carry no `why`.**
-Every other bank is complete — 1,002 of 1,002 items have at least one, 868 have
-one for every wrong choice — and the mock is the one surface where a wrong answer
-is never told what it was, which is the argument for `why` in the first place
-("told 'perimeter = 2(10+3) = 26' after picking 30, she still does not learn that
-30 was the area"). That is 508 items of authoring on the highest-stakes screen in
-the site, and it is the next piece of this work.
+The fixes split three ways by what the prose was actually carrying. **41 Reading
+items** (16 in the first pass, 25 in the second) already had a full `why` map
+covering every letter named — per choice, in better words, shown above the
+explanation — so the clause was duplication in the one form that goes stale, and
+it was deleted. **Items whose clause named a per-distractor reason** had it moved
+into `why`, where it is keyed to the choice and survives any reshuffle: 99
+sentences over 31 mock items. **The rest** were rewritten to name the value or the
+choice's content: "13 and 14 are the individual rates", not "C and D".
+
+`why` keeps its letter keys throughout, because the runner and the score card look
+that key up against the choice she actually picked.
+
+**The score card had been throwing that pick away.** `why` rendered on the
+runner's reveal but not in the mock's missed-questions list, which is the surface
+that knows exactly which wrong choice she made and reviews it 24–48 hours later.
+It showed everyone who missed a question the same paragraph. It renders `why`
+above the explanation now, in the same order as the runner, and the check proves
+both halves: that the sentence shown is the one for her pick, and that no row
+shows a sentence belonging to a choice she did not pick.
+
+**The gap that remains is the big one: 477 of the 508 mock items still carry no
+`why`.** Every other bank is effectively complete — 1,002 of 1,002 items have at
+least one and 868 have one for every wrong choice — while the mock is the one
+surface where a wrong answer is never told what it was, which is the whole
+argument for `why` ("told 'perimeter = 2(10+3) = 26' after picking 30, she still
+does not learn that 30 was the area"). 31 are done, all of them where a prose
+clause already held the reasoning and only needed moving. The other 477 are
+authoring, on the highest-stakes screen in the site, and they are the next piece
+of this work. Reading items there need the passage in front of you: do not write
+one from the explanation alone.
 
 **The furniture.** `src/lib/world.js` holds every world noun, so renaming
 anything is a one-file edit and no component writes one as a literal.
