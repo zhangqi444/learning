@@ -3349,7 +3349,12 @@
    "misconceptions": "positive-tone guess; confuses old with expensive",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "1b0b19baa583d0f1"
+   "content_hash": "26a47709aaac2855",
+   "why": {
+    "B": "Valuable means worth a lot. Age can raise a price, but plenty of ancient things are worthless.",
+    "C": "Partly hidden is about being out of sight, which has nothing to do with age.",
+    "D": "Carefully built is about workmanship, not about how long ago something was made."
+   }
   },
   {
    "id": "M01-VR-002",
@@ -3370,7 +3375,12 @@
    "misconceptions": "chooses weather sense; sound association",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "f73e3c3816c32420"
+   "content_hash": "0c3793430c9e1931",
+   "why": {
+    "A": "Uneven means not regular or level, whereas a brisk walk is usually steady.",
+    "C": "Noisy means loud.",
+    "D": "Damp means slightly wet, and a brisk wind can be perfectly dry."
+   }
   },
   {
    "id": "M01-VR-003",
@@ -3391,7 +3401,12 @@
    "misconceptions": "cause-purpose confusion; prefix ignored",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "30c8546fb2a132cd"
+   "content_hash": "65975ccfbafc9c5c",
+   "why": {
+    "A": "Protect means to keep from harm. You might hide a thing in order to protect it, but hiding is the act itself.",
+    "C": "Carry means to move something from place to place.",
+    "D": "Discover means to find — the opposite of concealing."
+   }
   },
   {
    "id": "M01-VR-004",
@@ -3412,7 +3427,12 @@
    "misconceptions": "related-state guess; negative-tone guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "edea2f58f6e27954"
+   "content_hash": "004c8a2f50e83352",
+   "why": {
+    "A": "Worried means anxious, which usually keeps a person awake.",
+    "B": "Weak means lacking strength; you can be wide awake and weak.",
+    "D": "Lonely means without company."
+   }
   },
   {
    "id": "M01-VR-005",
@@ -3433,7 +3453,12 @@
    "misconceptions": "size-weight confusion; broad magnitude guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "86f31f77656360b0"
+   "content_hash": "bb403bade902c696",
+   "why": {
+    "A": "Distant means far away, which is about position rather than size.",
+    "B": "Heavy means weighing a lot, and a huge balloon is light.",
+    "C": "Empty means containing nothing; an enormous room can be empty or full."
+   }
   },
   {
    "id": "M01-VR-006",
@@ -3454,7 +3479,12 @@
    "misconceptions": "outcome-cause confusion; positive-word guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "9f3e510ca7e2b69e"
+   "content_hash": "978871c1e9d5ebbc",
+   "why": {
+    "B": "Prepared means ready in advance — nearly the opposite, since luck is what arrives without planning.",
+    "C": "Wealthy means having a lot of money. A person can be fortunate in health and have none.",
+    "D": "Grateful means thankful, which is how a fortunate person might feel rather than what the word means."
+   }
   },
   {
    "id": "M01-VR-007",
@@ -3475,7 +3505,12 @@
    "misconceptions": "generic positive trait; context association",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "54c6c551ce1cb7d5"
+   "content_hash": "7064a9e2569eda7f",
+   "why": {
+    "A": "Famous means widely known.",
+    "B": "Patient means willing to wait.",
+    "C": "Successful means having achieved something, which says nothing about sharing it."
+   }
   },
   {
    "id": "M01-VR-008",
@@ -3496,7 +3531,12 @@
    "misconceptions": "confuses humility with shame; tone-only guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "1fcc9ebfafc3e1a7"
+   "content_hash": "971c84b31cfe3a72",
+   "why": {
+    "A": "Foolish means unwise. Courage weighs the danger; foolishness ignores it.",
+    "B": "Wild means uncontrolled.",
+    "C": "Strong means physically powerful, but courage is about facing fear and a weak person can have plenty."
+   }
   },
   {
    "id": "M01-VR-009",
@@ -3517,7 +3557,12 @@
    "misconceptions": "confuses idle with ideal; part-of-speech drift",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "24a972e6da036d30"
+   "content_hash": "191ab6ae556bd772",
+   "why": {
+    "A": "Complete means finished, with nothing missing.",
+    "C": "Cheerful means in good spirits; a person can be busy and cheerful at once.",
+    "D": "Balanced means evenly arranged."
+   }
   },
   {
    "id": "M01-VR-010",
@@ -3538,7 +3583,12 @@
    "misconceptions": "related-behavior guess; generic virtue",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "6f752562d9570fc2"
+   "content_hash": "908bd15b04b57ef1",
+   "why": {
+    "A": "Truthful means honest in what you say. A loyal friend can still tell you an uncomfortable truth.",
+    "C": "Brave means facing danger.",
+    "D": "Obedient means doing as you are told; loyalty is about standing by someone, not about following orders."
+   }
   },
   {
    "id": "M01-VR-011",
@@ -3559,7 +3609,12 @@
    "misconceptions": "water-context guess; misses figurative sense",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "53084c8eb426859c"
+   "content_hash": "bf1aa631fdabe95d",
+   "why": {
+    "B": "Cold is about temperature, and murky water can be warm.",
+    "C": "Shallow means not deep, and shallow water is often the clearest there is.",
+    "D": "Still means not moving, and still water usually settles clear."
+   }
   },
   {
    "id": "M01-VR-012",
@@ -3580,7 +3635,12 @@
    "misconceptions": "cause-effect reversal; chooses emotion",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "6678fab45d24457e"
+   "content_hash": "d7a6230170ef1946",
+   "why": {
+    "A": "Dislike is a feeling; you can neglect something you love.",
+    "B": "Misplace means to lose track of where a thing is, which is an accident rather than a failure to attend to it.",
+    "D": "Damage means to harm. Neglect can lead to damage, but the word names the not-caring, not the harm."
+   }
   },
   {
    "id": "M01-VR-013",
@@ -3601,7 +3661,12 @@
    "misconceptions": "confuses clarity with truth; importance substitution",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "33293f354fedc622"
+   "content_hash": "7bf510d43ce9994f",
+   "why": {
+    "A": "Unusual means rare, and something obvious is often perfectly ordinary.",
+    "B": "Important means mattering a lot, which is separate from being easy to see.",
+    "D": "Correct means right, and an obvious answer can be wrong."
+   }
   },
   {
    "id": "M01-VR-014",
@@ -3622,7 +3687,12 @@
    "misconceptions": "confuses noun sense; slow-patient association",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "bcc2a7b659d7f051"
+   "content_hash": "a0ae09fd20787248",
+   "why": {
+    "A": "Healthy means well. The other sense of the word, someone under a doctor's care, is a noun and not what this question asks for.",
+    "C": "Slow is about speed; a patient person can work quickly and still wait well.",
+    "D": "Quiet means making little sound."
+   }
   },
   {
    "id": "M01-VR-015",
@@ -3643,7 +3713,12 @@
    "misconceptions": "setting association; chooses figurative secrecy",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "3913c198755e5b5a"
+   "content_hash": "3d1140858245e44d",
+   "why": {
+    "B": "Empty means containing nothing. An empty room is often quiet, but the two words are not the same.",
+    "C": "Secret means kept hidden, and you can keep a secret out loud.",
+    "D": "Careful means taking care."
+   }
   },
   {
    "id": "M01-VR-016",
@@ -3664,7 +3739,12 @@
    "misconceptions": "related-feature guess; overstatement",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "5c9408efca267b60"
+   "content_hash": "8937d38cf068a525",
+   "why": {
+    "B": "Elegant means graceful or stylish. Slender things often look elegant, but the word describes the shape.",
+    "C": "Pale is about colour.",
+    "D": "Tall is about height, and something can be slender and short."
+   }
   },
   {
    "id": "M01-VR-017",
@@ -3685,7 +3765,12 @@
    "misconceptions": "cause-state confusion; negative-tone guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "5c87426b13fc1ef2"
+   "content_hash": "f37276d8e22c2f08",
+   "why": {
+    "A": "Injured means hurt; you can be worn out without being harmed.",
+    "B": "Cautious means careful of danger.",
+    "C": "Disappointed means let down, which is a feeling about an outcome rather than a lack of energy."
+   }
   },
   {
    "id": "M01-VR-018",
@@ -3706,7 +3791,12 @@
    "misconceptions": "setting stereotype; ignores purpose clause",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "421a89cb501c1db2"
+   "content_hash": "2ff48f2e043c066f",
+   "why": {
+    "B": "Firmly is about how decided she sounded, not about how much noise reached the nearby tables.",
+    "C": "Rapidly is about speed, and fast speech can still be loud.",
+    "D": "Proudly describes her feelings, which the readers at the next table would not notice."
+   }
   },
   {
    "id": "M01-VR-019",
@@ -3727,7 +3817,12 @@
    "misconceptions": "ignores contrast word; chooses neutral descriptor",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "b8a8a03560a60a09"
+   "content_hash": "88ae65fa9ec05e30",
+   "why": {
+    "A": "Familiar would not be surprising, and the sentence turns on a surprise.",
+    "B": "Brief means short, and shortness is not the opposite of simple.",
+    "D": "Colorful describes appearance, not difficulty."
+   }
   },
   {
    "id": "M01-VR-020",
@@ -3748,7 +3843,12 @@
    "misconceptions": "object association; definition clue missed",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "f6358a0635b04acf"
+   "content_hash": "f749f00c81361c98",
+   "why": {
+    "A": "Purchased means bought, which any radio can be.",
+    "B": "Repaired means mended.",
+    "C": "Heard is what a radio is for whether it travels or not; this sentence is about moving it."
+   }
   },
   {
    "id": "M01-VR-021",
@@ -3769,7 +3869,12 @@
    "misconceptions": "moral-context attraction; ignores since",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "1f01b2605139342e"
+   "content_hash": "49ac771bb7047aa0",
+   "why": {
+    "A": "A judge would not refuse to be fair; what incomplete evidence prevents is being sure.",
+    "C": "Lengthy means long, and length is not what evidence settles.",
+    "D": "Public means open to everyone, which is about where a conclusion is announced."
+   }
   },
   {
    "id": "M01-VR-022",
@@ -3790,7 +3895,12 @@
    "misconceptions": "assumes repeated checking means anxiety; generic positive trait",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "2fc9b8929c48d596"
+   "content_hash": "df55569f91d24e4b",
+   "why": {
+    "B": "Curious means wanting to know things; measuring the same thing twice is about care, not curiosity.",
+    "C": "Skillful means good at something, which checking twice neither shows nor needs.",
+    "D": "Nervous is possible, but the sentence says the double-checking shows how he works."
+   }
   },
   {
    "id": "M01-VR-023",
@@ -3811,7 +3921,12 @@
    "misconceptions": "chooses social quality; degree clue missed",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "beceb60f372b3390"
+   "content_hash": "1a67b602dc2d7dbc",
+   "why": {
+    "B": "Brief is about how long the applause lasted, not how loud it was.",
+    "C": "Sudden is about when it started.",
+    "D": "Polite applause is quiet, which is the opposite of carrying outside the theatre."
+   }
   },
   {
    "id": "M01-VR-024",
@@ -3832,7 +3947,12 @@
    "misconceptions": "data-context guess; confuses collect with predict",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "45cfbaabd0d31e5b"
+   "content_hash": "3326a127e43f9e67",
+   "why": {
+    "A": "Predict means to say what will happen, and the survey has already been done.",
+    "B": "Question means to ask about, and the asking is finished.",
+    "C": "Erase means to rub out, which is not what a chart does to results."
+   }
   },
   {
    "id": "M01-VR-025",
@@ -3853,7 +3973,12 @@
    "misconceptions": "cure-relieve confusion; chooses medical-sounding verb",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "a9674900940c7b63"
+   "content_hash": "1e4741fa5d80dae6",
+   "why": {
+    "A": "Replace means to put something else in its place.",
+    "C": "Measure means to find the size of, and measuring a sore throat would not help it.",
+    "D": "Explain means to make clear; the sentence contrasts curing with something done to the soreness."
+   }
   },
   {
    "id": "M01-VR-026",
@@ -3874,7 +3999,12 @@
    "misconceptions": "courtroom association; confuses exact with dramatic",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "a1d9c3ac586db45c"
+   "content_hash": "56031ad9bdd4066a",
+   "why": {
+    "A": "Doubtful means uncertain, and this account is full of specifics.",
+    "B": "Private means not shared, but the account was given.",
+    "D": "Dramatic is about how exciting it was, not about how much it included."
+   }
   },
   {
    "id": "M01-VR-027",
@@ -3895,7 +4025,12 @@
    "misconceptions": "keeps initial mood; event stereotype",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "e8e8675655730ab9"
+   "content_hash": "2a67fc73dafe3c81",
+   "why": {
+    "A": "Thirsty would be met by drinking, not by eating every sandwich in the basket.",
+    "B": "Lost does not explain the eating.",
+    "D": "Muddy describes how they looked after the hike."
+   }
   },
   {
    "id": "M01-VR-028",
@@ -3916,7 +4051,12 @@
    "misconceptions": "printing-context guess; confuses oral and written work",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "dba08b3ffa717b70"
+   "content_hash": "54f9f3a733f544c5",
+   "why": {
+    "B": "Fold is something done to paper, not to what an article says.",
+    "C": "Announce means to make public, which the printing already does.",
+    "D": "Recite means to say aloud from memory."
+   }
   },
   {
    "id": "M01-VR-029",
@@ -3937,7 +4077,12 @@
    "misconceptions": "negative-tone attraction; ignores rather than",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "04f0564d808f241d"
+   "content_hash": "75c231bec3789238",
+   "why": {
+    "A": "Careless would not go with thanking her for the advice.",
+    "B": "Stern means severe, which is how the coach spoke rather than how Ellis answered.",
+    "D": "Boastful means bragging, and a list of one's own mistakes gives nothing to brag about."
+   }
   },
   {
    "id": "M01-VR-030",
@@ -3958,7 +4103,12 @@
    "misconceptions": "assumes equal time means same path; setting-detail guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "4a5abd9a189cc6b1"
+   "content_hash": "aa1595698b6083da",
+   "why": {
+    "A": "Nearby means close to here, not equal to one another.",
+    "B": "Direct means without detours, and two routes can both take forty minutes with one of them winding.",
+    "D": "Crowded is about traffic, which the sentence never raises."
+   }
   },
   {
    "id": "M01-VR-031",
@@ -3979,7 +4129,12 @@
    "misconceptions": "chooses presentation trait; contrast marker missed",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "f4db26dfd6f9519d"
+   "content_hash": "6cd56e8699541efc",
+   "why": {
+    "A": "Louder is about volume, and the contrast is with wandering from topic to topic.",
+    "B": "Amusing is about being funny.",
+    "C": "Confident is about manner, and the first speaker may have wandered confidently."
+   }
   },
   {
    "id": "M01-VR-032",
@@ -4000,7 +4155,12 @@
    "misconceptions": "chooses vague remind; reverses prohibition",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "224d27ce78fbe31a"
+   "content_hash": "bf900b1e91c71bdb",
+   "why": {
+    "A": "You remind someone of something, not from it; the from here needs a verb that stops an action.",
+    "C": "Permit would allow the feeding that the signs exist to stop, and it does not take from either.",
+    "D": "Protect does take from, but it would mean shielding the visitors themselves; the feeding is what the signs are about."
+   }
   },
   {
    "id": "M01-VR-033",
@@ -4021,7 +4181,12 @@
    "misconceptions": "ignores not enough; duration-detail attraction",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "7f1e53c977ea6bd0"
+   "content_hash": "cbc2a493a95545b1",
+   "why": {
+    "A": "Repeating a month-long study is not something a single night does.",
+    "B": "Describe means to put into words, which a cloudy night cannot do.",
+    "C": "Begin would make the night helpful, and the sentence says it was not enough to do harm."
+   }
   },
   {
    "id": "M01-VR-034",
@@ -4042,7 +4207,12 @@
    "misconceptions": "literal location sense; government-context guess",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "19904e7ce5003d35"
+   "content_hash": "3408db032b3379b4",
+   "why": {
+    "A": "Repeat means to say again, which is not the opposite of dismissing a complaint.",
+    "C": "Announce means to make public, and the complaint has already been made.",
+    "D": "Collect means to gather, and the mayor already has it."
+   }
   },
   {
    "id": "M01-QR-001",
@@ -4063,7 +4233,12 @@
    "misconceptions": "keeps adding three; assumes constant difference",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "c01a7f91f9791c1a"
+   "content_hash": "92fa18354fed9615",
+   "why": {
+    "A": "56 is not 29 × 2; the sequence alternates + 3 and × 2, and doubling 29 gives 58.",
+    "C": "55 is 26 + 29, adding two terms together; the rule doubles the last one.",
+    "D": "32 is 29 + 3, repeating the + 3; the two rules take turns, and × 2 is next."
+   }
   },
   {
    "id": "M01-QR-002",
@@ -4084,7 +4259,12 @@
    "misconceptions": "adds five dollars; divides by fourteen",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "6290f33ccd4a9bcf"
+   "content_hash": "dd6f8e582bf539e8",
+   "why": {
+    "B": "31.50 would make one notebook $2.25; $22.50 ÷ 9 is $2.50.",
+    "C": "36.50 is $1.50 over; fourteen at $2.50 each come to $35.00.",
+    "D": "32.00 is $3.00 short of 14 × $2.50."
+   }
   },
   {
    "id": "M01-QR-003",
@@ -4105,7 +4285,12 @@
    "misconceptions": "uses 4/7 of total; chooses pine count",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "e730277a07c8e3ae"
+   "content_hash": "e0b2dc645e50f56e",
+   "why": {
+    "A": "48 is 8 × 6, twice the maple share; maple is 4 parts.",
+    "B": "18 would make each part 4.5 and the wood 49.5 trees; 66 ÷ 11 = 6, so maple is 4 × 6 = 24.",
+    "C": "42 is 7 × 6, the pine share."
+   }
   },
   {
    "id": "M01-QR-004",
@@ -4126,7 +4311,12 @@
    "misconceptions": "subtracts one third from three fifths; reports poured amount",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "4a03828af24d1960"
+   "content_hash": "de7e6996dbf2033b",
+   "why": {
+    "A": "4/5 is more than the jar held to begin with, and pouring cannot raise the level.",
+    "C": "1/5 is the amount poured out, not the amount left.",
+    "D": "3/10 halves the 3/5 instead of taking a third of it; a third of 3/5 is 1/5."
+   }
   },
   {
    "id": "M01-QR-005",
@@ -4147,7 +4337,12 @@
    "misconceptions": "divides by new value; reports centimeter increase as percent",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "79a05aedbe39d403"
+   "content_hash": "29675b2187af34fd",
+   "why": {
+    "A": "10% is the rise in centimetres read as a percent; 10 out of 40 is 25%.",
+    "B": "40% is the starting height, not a percentage of it.",
+    "C": "20% divides the 10 rise by the new 50; percent increase measures against the starting 40."
+   }
   },
   {
    "id": "M01-QR-006",
@@ -4168,7 +4363,12 @@
    "misconceptions": "assumes replacement; adds probabilities",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "e0b43a8d1aafc9f1"
+   "content_hash": "80046a05f4ca2ae6",
+   "why": {
+    "A": "1/5 is double the answer; once a red is taken only 1 of the 4 left is red, so 2/5 × 1/4 = 1/10.",
+    "B": "2/5 is the chance of the first marble being red, before the second draw happens at all.",
+    "D": "1/4 is the chance of the second being red given the first was; both draws have to happen."
+   }
   },
   {
    "id": "M01-QR-007",
@@ -4189,7 +4389,12 @@
    "misconceptions": "subtracts four again; divides 29 before adding",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "8d2fac340c86c97b"
+   "content_hash": "30d8beb112d85dd2",
+   "why": {
+    "A": "9 does not check: 3 × 9 − 4 = 23, not 29.",
+    "B": "25/3 comes from subtracting the 4 instead of adding it; moving the − 4 across makes 3n = 33.",
+    "D": "13 gives 3 × 13 − 4 = 35."
+   }
   },
   {
    "id": "M01-QR-008",
@@ -4210,7 +4415,12 @@
    "misconceptions": "averages known values; treats mean as total",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "0e9b4e813f7454db"
+   "content_hash": "d04db971a8126933",
+   "why": {
+    "B": "20 leaves the five totalling 79; a mean of 16 needs 5 × 16 = 80.",
+    "C": "19 leaves a total of 78, two short of 80.",
+    "D": "80 is the total the five numbers must reach, not the missing one."
+   }
   },
   {
    "id": "M01-QR-009",
@@ -4231,7 +4441,12 @@
    "misconceptions": "uses linear scale; confuses area and volume",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "da201d5bee0068f5"
+   "content_hash": "f5b8cb5ce6cf6f90",
+   "why": {
+    "A": "4 times is what happens to the area of each face; volume uses all three edges.",
+    "B": "Doubling the edge doubles each of three directions, and they multiply: 2 × 2 × 2 = 8.",
+    "C": "6 times comes from 2 + 2 + 2; the three doubled directions multiply rather than add."
+   }
   },
   {
    "id": "M01-QR-010",
@@ -4252,7 +4467,12 @@
    "misconceptions": "place-value error; rounds divisor to six",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "acae000c78b43a5c"
+   "content_hash": "bacd88773497afa3",
+   "why": {
+    "A": "500 is ten times too big; 60 × 50 = 3,000, which is about 2,987.",
+    "B": "5 is ten times too small — 61 × 5 is only about 300.",
+    "D": "40 would make the product about 2,440; 60 × 50 = 3,000 is far closer to 2,987."
+   }
   },
   {
    "id": "M01-QR-011",
@@ -4273,7 +4493,12 @@
    "misconceptions": "subtracts absolute values; adds y-coordinate",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "ae5305bdbf3bf9d0"
+   "content_hash": "36a365d419718e52",
+   "why": {
+    "A": "9 is more than the gap; from −2 up to 0 is 2 units and on to 5 is 5 more.",
+    "B": "3 is 5 − 2, dropping the minus sign on the −2.",
+    "C": "11 is wider than the whole gap; both points share a y of 4, so the distance is 5 − (−2) = 7."
+   }
   },
   {
    "id": "M01-QR-012",
@@ -4294,7 +4519,12 @@
    "misconceptions": "reverses left/right; treats statements independently",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "cf7eb7cb5d5fd34c"
+   "content_hash": "3f0f4f4b0ea6be30",
+   "why": {
+    "A": "This puts blue to the left of red, and red has to be left of blue.",
+    "C": "This reverses the whole chain: green belongs to blue's right, not its left.",
+    "D": "Green sits left of blue here, but green has to be on blue's right."
+   }
   },
   {
    "id": "M01-QR-013",
@@ -4315,7 +4545,12 @@
    "misconceptions": "compares numerators; chooses familiar denominator",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "61a52934d1f39c2f"
+   "content_hash": "1f8f8612b145ac7e",
+   "why": {
+    "B": "7/10 is 0.7, about 0.05 from 0.75; 11/15 is about 0.017 away.",
+    "C": "5/8 is 0.625, an eighth below 3/4.",
+    "D": "9/14 is about 0.643, further from 0.75 than 11/15 is."
+   }
   },
   {
    "id": "M01-QR-014",
@@ -4336,7 +4571,12 @@
    "misconceptions": "compares distances; subtracts times",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "79ab680414967eb4"
+   "content_hash": "c52e25ba15abacf5",
+   "why": {
+    "A": "4 is not the gap between the rates; Boat A does 48 ÷ 3 = 16 and Boat B 70 ÷ 5 = 14.",
+    "B": "16 is Boat A's own rate, not how much faster it is.",
+    "C": "14 is Boat B's rate."
+   }
   },
   {
    "id": "M01-QR-015",
@@ -4357,7 +4597,12 @@
    "misconceptions": "adds consecutive odd numbers; repeats 25",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "421298585c73e6c7"
+   "content_hash": "1df28a4596a3a101",
+   "why": {
+    "A": "91 is 60 + 31; the increases are the squares 4, 9, 16, 25, so the next one is 36.",
+    "C": "85 is 60 + 25, repeating the last increase instead of moving on to 6².",
+    "D": "90 is 60 + 30; the increases are square numbers, and after 5² comes 6² = 36."
+   }
   },
   {
    "id": "M01-QR-016",
@@ -4378,7 +4623,12 @@
    "misconceptions": "adds option counts; allows two-letter codes",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "b9af6620c2f6926f"
+   "content_hash": "74ef419b5a029b52",
+   "why": {
+    "A": "9 is 4 + 5, adding the two lists; pairing multiplies them.",
+    "B": "16 is 4 × 4; there are 5 digits, not 4.",
+    "D": "25 is 5 × 5; there are 4 letters."
+   }
   },
   {
    "id": "M01-QR-017",
@@ -4399,7 +4649,12 @@
    "misconceptions": "scales only workers; scales only hours",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "9a925561e3cc1c9e"
+   "content_hash": "472be77dd3c02042",
+   "why": {
+    "B": "720 is 6 × 5 × 24; each worker packs 240 ÷ 4 ÷ 3 = 20 kits an hour, not 24.",
+    "C": "900 is more than 6 × 5 × 20, which comes to 600.",
+    "D": "480 is 240 × 2, doubling the original batch; the workers and the hours both change."
+   }
   },
   {
    "id": "M01-QR-018",
@@ -4420,7 +4675,12 @@
    "misconceptions": "counts factor pairs; selects prime number",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "02154b02fd59a34c"
+   "content_hash": "7010573cd89e0253",
+   "why": {
+    "B": "27 has four factors — 1, 3, 9 and 27.",
+    "C": "18 has six factors: 1, 2, 3, 6, 9 and 18.",
+    "D": "30 has eight factors: 1, 2, 3, 5, 6, 10, 15 and 30."
+   }
   },
   {
    "id": "M01-QR-019",
@@ -4441,7 +4701,12 @@
    "misconceptions": "counts four outcomes; reports probability denominator",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "52d58644419f9f01"
+   "content_hash": "c48c94603f02deb3",
+   "why": {
+    "A": "20 counts one face out of six; 5 and 6 are both greater than 4, which makes 2 of 6.",
+    "C": "60 is half the rolls, but only two of the six faces are above 4.",
+    "D": "80 is two thirds of the rolls — the share that comes out 4 or less."
+   }
   },
   {
    "id": "M01-QR-020",
@@ -4462,7 +4727,12 @@
    "misconceptions": "computes volume; counts two dimensions only",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "a907b141c50e7954"
+   "content_hash": "6e9eecb7ae4462f2",
+   "why": {
+    "A": "27 is 3 × 3 × 3, the volume of the cube rather than its surface.",
+    "B": "18 is 2 × 9, two faces; a cube has six.",
+    "D": "81 is 9 × 9; each face is 9 square centimetres and there are six of them."
+   }
   },
   {
    "id": "M01-QR-021",
@@ -4483,7 +4753,12 @@
    "misconceptions": "uses total-part method; reverses ratio",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "b96ced118c7dd2ed"
+   "content_hash": "6c30483af2e2c7c0",
+   "why": {
+    "A": "12 is half of 24; the ratio is 3 to 8, not 1 to 2.",
+    "B": "6 would make one part 2 and the water 16 cups, not 24.",
+    "D": "8 is one of the ratio numbers, not a count of cups."
+   }
   },
   {
    "id": "M01-QR-022",
@@ -4504,7 +4779,12 @@
    "misconceptions": "subtracts absolute values; multiplies signs",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "d82d36735c67689c"
+   "content_hash": "06c660330f041e8d",
+   "why": {
+    "B": "8 counts only the floors above ground; the lift starts three below it.",
+    "C": "24 is 3 × 8, multiplying the two floor numbers instead of adding the distances.",
+    "D": "5 is 8 − 3, taking the two numbers the wrong way round; the trip crosses zero, so the distances add."
+   }
   },
   {
    "id": "M01-QR-023",
@@ -4525,7 +4805,12 @@
    "misconceptions": "double-counts overlap; stops at at-least-one count",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "ad9e516244e3bd3c"
+   "content_hash": "1eb704ab4423455a",
+   "why": {
+    "A": "9 subtracts the overlap twice, 17 + 14 − 6 − 6, before taking the result from 28.",
+    "B": "11 is 17 − 6, the French-only group, not those studying neither.",
+    "C": "0 would need all 28 to study a language, and 17 + 14 − 6 = 25."
+   }
   },
   {
    "id": "M01-QR-024",
@@ -4546,7 +4831,12 @@
    "misconceptions": "reverses all statement; assumes class does not exist",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "a2331fa139fafa1e"
+   "content_hash": "bba2589cdea1d24e",
+   "why": {
+    "A": "The chain runs from glips to tors and says nothing about what mips are.",
+    "C": "Nothing rules mips out of existence; they are only kept apart from tors.",
+    "D": "Every glip is a tor and no tor is a mip, so no glip can be a mip."
+   }
   },
   {
    "id": "M01-QR-025",
@@ -4567,7 +4857,12 @@
    "misconceptions": "adds discounts to 30%; takes second discount from original",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "3719128bb200b21e"
+   "content_hash": "9acafe7f5d3b681c",
+   "why": {
+    "A": "70 takes 30% off in one go; the second 10% comes off $80, not off $100.",
+    "B": "90 applies only the 10%; the 20% comes first.",
+    "D": "80 is the price after the first discount, with the second still to come."
+   }
   },
   {
    "id": "M01-QR-026",
@@ -4588,7 +4883,12 @@
    "misconceptions": "fails to distribute negative; combines coefficient with constant",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "1bdabcc5eef4bfbc"
+   "content_hash": "865f93070ed19980",
+   "why": {
+    "A": "6x + 2 comes from adding the 4 and the 2 rather than multiplying them; 4 × 2x is 8x.",
+    "C": "8x + 2 distributes correctly but adds the 3 instead of subtracting it; −12 + 5 = −7.",
+    "D": "8x − 12 distributes and then forgets the + 5; −12 + 5 = −7."
+   }
   },
   {
    "id": "M01-QR-027",
@@ -4609,7 +4909,12 @@
    "misconceptions": "keeps old median; averages extremes",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "ba3925d334d0cc8f"
+   "content_hash": "ae87b91a5e195b51",
+   "why": {
+    "A": "7 is the third of six values; with an even count the middle two are averaged.",
+    "B": "12 is the fourth value; it pairs with 7, and their average is 9.5.",
+    "C": "14 is neither middle value; (7 + 12) ÷ 2 = 9.5."
+   }
   },
   {
    "id": "M01-QR-028",
@@ -4630,7 +4935,12 @@
    "misconceptions": "adds scale; divides by four",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "6ad039089be6abc9"
+   "content_hash": "8316b88df88def1b",
+   "why": {
+    "B": "90 is 18 × 5; the scale is 4 metres to the centimetre.",
+    "C": "54 is 18 × 3, a metre short on every centimetre.",
+    "D": "22 is 18 + 4, adding the scale instead of multiplying by it."
+   }
   },
   {
    "id": "M01-QR-029",
@@ -4651,7 +4961,12 @@
    "misconceptions": "treats 45 as two sevenths; adds two sevenths of 45",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "03d93fac11e5defa"
+   "content_hash": "f422a703dfe9e07f",
+   "why": {
+    "A": "60 would leave five sevenths as about $42.86, not $45.",
+    "C": "56 would leave five sevenths as exactly $40.",
+    "D": "54 would leave five sevenths as about $38.57."
+   }
   },
   {
    "id": "M01-QR-030",
@@ -4672,7 +4987,12 @@
    "misconceptions": "uses last digit only; subtracts from next multiple",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "59c00d99ec81dbdc"
+   "content_hash": "98c6181c4d11e137",
+   "why": {
+    "A": "11 is more than the remainder; 12 × 195 = 2,340, and 2,345 − 2,340 = 5.",
+    "C": "1 is four short of the remainder, which is 5.",
+    "D": "7 is two over the remainder."
+   }
   },
   {
    "id": "M01-QR-031",
@@ -4693,7 +5013,12 @@
    "misconceptions": "compares means; reports one range",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "f66b04b85ff8aa54"
+   "content_hash": "72884a78ccfe3aaa",
+   "why": {
+    "B": "12 is Set B's own range, 14 − 2; the question asks how much greater it is than Set A's.",
+    "C": "3 is not the difference between the ranges; Set A's is 7 and Set B's is 12.",
+    "D": "7 is Set A's range, 11 − 4."
+   }
   },
   {
    "id": "M01-QR-032",
@@ -4714,7 +5039,12 @@
    "misconceptions": "uses triangle sum; arithmetic error",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "0d59831e9eea2259"
+   "content_hash": "99543650a294a8cb",
+   "why": {
+    "A": "80 is five short; 92 + 105 + 78 = 275, and 360 − 275 = 85.",
+    "B": "95 is ten over; the three known angles total 275.",
+    "C": "75 subtracts 285 from 360 rather than 275."
+   }
   },
   {
    "id": "M01-QR-033",
@@ -4735,7 +5065,12 @@
    "misconceptions": "adds denominators; reports completed portion",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "eb5ccd466b444e2f"
+   "content_hash": "70d9ba5923d1e441",
+   "why": {
+    "A": "2/15 is two fifteenths short; 1/3 is 5/15 and 2/5 is 6/15, so 11/15 is done.",
+    "C": "7/15 treats 2/5 as 3/15; over fifteenths it is 6/15.",
+    "D": "8/15 treats 2/5 as 2/15; it is 6/15."
+   }
   },
   {
    "id": "M01-QR-034",
@@ -4756,7 +5091,12 @@
    "misconceptions": "adds 25% of sale price; subtracts discount",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "2d030abb0d8f36d3"
+   "content_hash": "062c864e592fd74e",
+   "why": {
+    "B": "67.50 adds 25% to the $54; the sale price is 75% of the original, so it is $54 ÷ 0.75.",
+    "C": "79 is not $54 ÷ 0.75, which comes to $72.",
+    "D": "81 would leave a sale price of $60.75 after 25% off."
+   }
   },
   {
    "id": "M01-QR-035",
@@ -4803,7 +5143,12 @@
    "misconceptions": "treats 20 minutes as 0.20 hour; ignores extra minutes",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "2f7ffb2ca385ea21"
+   "content_hash": "cb589d421b5109d8",
+   "why": {
+    "A": "118 is not 54 × 2 1/3; two hours give 108 miles and the extra third gives 18 more.",
+    "B": "108 is two hours' travel; the extra 20 minutes add 18 miles.",
+    "D": "144 comes from reading 20 minutes as two thirds of an hour; it is one third, so 54 × 7/3 = 126."
+   }
   },
   {
    "id": "M01-QR-037",
@@ -4824,7 +5169,12 @@
    "misconceptions": "subtracts an entire side; adds categories",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "ab60e73fbce18942"
+   "content_hash": "1246591ea14b2cfc",
+   "why": {
+    "B": "7 is 3 + 4, adding the two lists; pairing multiplies them.",
+    "C": "8 removes four pairs; only one combination is unavailable.",
+    "D": "10 removes two pairs, and just one is ruled out, leaving 11."
+   }
   },
   {
    "id": "M01-QR-038",
@@ -4845,7 +5195,12 @@
    "misconceptions": "uses area; multiplies one lap by two only",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "9e47535c58c8dc01"
+   "content_hash": "0ed526533cf31c46",
+   "why": {
+    "A": "156 is two laps; the runner does two and a half.",
+    "B": "390 is 5 × 78, five laps rather than two and a half.",
+    "C": "97.5 is 2.5 × 39, using 24 + 15 as a lap; a lap goes round all four sides, 2 × 39 = 78."
+   }
   },
   {
    "id": "M01-RC-001",
@@ -4867,7 +5222,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P01",
    "form": "M01",
-   "content_hash": "87526879ee57013b"
+   "content_hash": "e9dcf325d8724057",
+   "why": {
+    "A": "No farmer chooses a field here; the vault stores duplicate samples of seed.",
+    "C": "Cold and dry storage keeps seeds alive, but germination falls over time and fresh seed has to be grown. Freezing does not make them sprout better.",
+    "D": "The passage says in its second sentence that the vault does not replace ordinary seed collections."
+   }
   },
   {
    "id": "M01-RC-002",
@@ -4889,7 +5249,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P01",
    "form": "M01",
-   "content_hash": "200b804ba44b3b73"
+   "content_hash": "b478c5f70083431f",
+   "why": {
+    "A": "Nothing is sold. The samples are duplicates held in case a regional collection is lost.",
+    "C": "Sorting is never mentioned; the test is whether the seed still sprouts.",
+    "D": "The vault is kept cold and dry, which is the opposite of warm."
+   }
   },
   {
    "id": "M01-RC-003",
@@ -4911,7 +5276,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P01",
    "form": "M01",
-   "content_hash": "8f6a836a34d22063"
+   "content_hash": "a6e398cdae7fa3f3",
+   "why": {
+    "B": "A duplicate is insurance, not speed, and nothing suggests two seeds sprout faster than one.",
+    "C": "The vault stores copies alongside ordinary collections rather than instead of them.",
+    "D": "How full the vault looks to visitors is never raised."
+   }
   },
   {
    "id": "M01-RC-004",
@@ -4933,7 +5303,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P01",
    "form": "M01",
-   "content_hash": "6d464d735f07f239"
+   "content_hash": "4b911c867351cc91",
+   "why": {
+    "A": "The passage calls these books living, which is the point of the comparison: they are seeds, not paper.",
+    "C": "A mountain vault is described, but the likeness is about preserving, not about where either one sits.",
+    "D": "Nothing is lent out; the seeds are held in case they are ever needed."
+   }
   },
   {
    "id": "M01-RC-005",
@@ -4955,7 +5330,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P01",
    "form": "M01",
-   "content_hash": "c4d6b6dd7406d59c"
+   "content_hash": "1c95a8a48ba6116d",
+   "why": {
+    "A": "Seasons are times of year, and what could be lost here is kinds of crop.",
+    "B": "The containers are the packets; it is what is inside them that might be restored.",
+    "D": "Disease, war and disaster are the accidents. This word names what they might destroy."
+   }
   },
   {
    "id": "M01-RC-006",
@@ -4977,7 +5357,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P02",
    "form": "M01",
-   "content_hash": "8a1f18271c21af42"
+   "content_hash": "b17dd31935161533",
+   "why": {
+    "A": "He keeps one small ribbon and plans to decorate his next kite — after testing it.",
+    "B": "He flies the same kite again as soon as the tail is on.",
+    "C": "The wind was the same for both, and Ada's kite climbed; that is why he stopped blaming it."
+   }
   },
   {
    "id": "M01-RC-007",
@@ -4999,7 +5384,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P02",
    "form": "M01",
-   "content_hash": "22dc8bccce381c7b"
+   "content_hash": "3f26ff85e7a909a8",
+   "why": {
+    "B": "No frame is mentioned, and what he adds is light rather than heavy.",
+    "C": "String never comes up. A tail is what keeps the nose up.",
+    "D": "He pulls the stars off rather than adding more."
+   }
   },
   {
    "id": "M01-RC-008",
@@ -5021,7 +5411,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P02",
    "form": "M01",
-   "content_hash": "f80cc8a235a344e7"
+   "content_hash": "ca4fe1029931f111",
+   "why": {
+    "B": "The tail keeps the nose up. The ribbon on the handle is not on the kite at all.",
+    "C": "Ada asks him nothing; he watches her kite and works it out himself.",
+    "D": "The passage says he kept it, which is a choice rather than an oversight."
+   }
   },
   {
    "id": "M01-RC-009",
@@ -5043,7 +5438,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P02",
    "form": "M01",
-   "content_hash": "4fbafe158c352b63"
+   "content_hash": "f472eaa74e911609",
+   "why": {
+    "A": "The wind was identical for both kites, which is exactly what ruled it out as the cause.",
+    "B": "Watching Ada is how he found the answer.",
+    "D": "He keeps a ribbon where its weight does not matter and plans to decorate his next kite after testing it."
+   }
   },
   {
    "id": "M01-RC-010",
@@ -5065,7 +5465,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P02",
    "form": "M01",
-   "content_hash": "3cc0920a0373fe25"
+   "content_hash": "500fee4b40a53272",
+   "why": {
+    "B": "Wobbling and diving is what Theo's kite did; Ada's did the opposite.",
+    "C": "Noise is never described, and the word here is about how the kite moved.",
+    "D": "Sudden movement is the reverse of steady; the climb was even."
+   }
   },
   {
    "id": "M01-RC-011",
@@ -5087,7 +5492,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P03",
    "form": "M01",
-   "content_hash": "1af9dafdabab275a"
+   "content_hash": "6e473bb5c69e0f06",
+   "why": {
+    "A": "The cameras are one step in the work, used to find the routes animals already took.",
+    "C": "The shrubs and logs are there to make the bridge feel like habitat, not as food to choose between.",
+    "D": "The highway stays. What the passage describes is a way to let animals cross it."
+   }
   },
   {
    "id": "M01-RC-012",
@@ -5109,7 +5519,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P03",
    "form": "M01",
-   "content_hash": "aaf026ff95c6b4ac"
+   "content_hash": "37af3b0e2d646e5c",
+   "why": {
+    "A": "Weather is never mentioned.",
+    "C": "No vote appears; biologists studied what the animals were already doing.",
+    "D": "The colour of the road has nothing to do with where animals crossed."
+   }
   },
   {
    "id": "M01-RC-013",
@@ -5131,7 +5546,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P03",
    "form": "M01",
-   "content_hash": "6216672be6a37d7c"
+   "content_hash": "d9d6aed532196cf3",
+   "why": {
+    "B": "The bridge did not change size. The plants on it grew and the human scent faded.",
+    "C": "No food is ever put on the bridge.",
+    "D": "Nothing closes the road; fences guide the animals toward the crossing."
+   }
   },
   {
    "id": "M01-RC-014",
@@ -5153,7 +5573,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P03",
    "form": "M01",
-   "content_hash": "a817759d6f405ada"
+   "content_hash": "71cacfe35b9ffa2c",
+   "why": {
+    "B": "The early photographs show few crossings, and the reasons given are young plants and human scent, not the cameras.",
+    "C": "No deer are compared with one another.",
+    "D": "The passage says the project succeeded."
+   }
   },
   {
    "id": "M01-RC-015",
@@ -5175,7 +5600,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P03",
    "form": "M01",
-   "content_hash": "f90a4a5403f7fa5c"
+   "content_hash": "150b518ab227d9f4",
+   "why": {
+    "A": "Observing is what the cameras did; the fences did something to where the animals went.",
+    "B": "Fences do protect, but these ones steer animals toward the crossing.",
+    "C": "Measuring is not what a fence does."
+   }
   },
   {
    "id": "M01-RC-016",
@@ -5197,7 +5627,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P04",
    "form": "M01",
-   "content_hash": "844405ad741882fa"
+   "content_hash": "d79bc8a537870869",
+   "why": {
+    "A": "45 is not what the example gives: a one-metre stick with a two-metre shadow means each shadow is twice its object, so 30 ÷ 2 = 15.",
+    "B": "60 doubles the tower's shadow; the shadow is the longer of the two, so the height is half of 30.",
+    "D": "30 is the length of the tower's shadow, not its height."
+   }
   },
   {
    "id": "M01-RC-017",
@@ -5219,7 +5654,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P04",
    "form": "M01",
-   "content_hash": "3f8bb30f39a56361"
+   "content_hash": "58ff7f55316ca530",
+   "why": {
+    "A": "Level ground is a requirement throughout, not something that changes over ten minutes.",
+    "B": "Towers do not grow. What the passage warns about is a shadow measured ten minutes later.",
+    "D": "The stick stays the same length; its shadow is what moves."
+   }
   },
   {
    "id": "M01-RC-018",
@@ -5241,7 +5681,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P04",
    "form": "M01",
-   "content_hash": "fb93d58292fd7178"
+   "content_hash": "5b8fe92619979ff3",
+   "why": {
+    "B": "A leaning stick is named as a problem, but nothing says sunlight causes the lean.",
+    "C": "The method measures a tower that already stands.",
+    "D": "The passage gives the conditions under which it does work: level ground, upright objects, the same moment."
+   }
   },
   {
    "id": "M01-RC-019",
@@ -5263,7 +5708,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P04",
    "form": "M01",
-   "content_hash": "e2e26b3c19573d51"
+   "content_hash": "ccab4fdabf1f5464",
+   "why": {
+    "A": "Nearby objects are what make the method work, since sunlight strikes them at the same angle.",
+    "B": "The weight of the wood is never mentioned; being upright is what matters.",
+    "C": "The method works at any height, and thirty metres is only the example."
+   }
   },
   {
    "id": "M01-RC-020",
@@ -5285,7 +5735,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P04",
    "form": "M01",
-   "content_hash": "4eb9e4ec7256d8b0"
+   "content_hash": "e192a3fd69ffd4db",
+   "why": {
+    "A": "There is no debate and no vote, only a method and the conditions it needs.",
+    "C": "No observer is named and nobody is quoted.",
+    "D": "The passage explains why the method works and where it fails, which is more than an opinion."
+   }
   },
   {
    "id": "M01-RC-021",
@@ -5307,7 +5762,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P05",
    "form": "M01",
-   "content_hash": "cfc568c1034550fd"
+   "content_hash": "baf20fd7b26c4e70",
+   "why": {
+    "A": "The passage says the opposite: even then, the water keeps working.",
+    "B": "The first sentence rules that out — a cave is not carved by one storm or earthquake.",
+    "C": "They are called stone icicles, built from specks of mineral, not frozen water."
+   }
   },
   {
    "id": "M01-RC-022",
@@ -5329,7 +5789,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P05",
    "form": "M01",
-   "content_hash": "a5331b9688001be6"
+   "content_hash": "b0866ec65b2cd071",
+   "why": {
+    "A": "The specks are what the water leaves behind afterwards, not what makes it acidic.",
+    "B": "One heavy storm is what the passage says a cave is not made by.",
+    "D": "The cracks are where the water goes; the acid comes from carbon dioxide picked up in the soil."
+   }
   },
   {
    "id": "M01-RC-023",
@@ -5351,7 +5816,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P05",
    "form": "M01",
-   "content_hash": "0a18e5647e2efeb3"
+   "content_hash": "400e2a95b8f5e1d1",
+   "why": {
+    "A": "The water keeps working even after the tunnels and rooms are cut.",
+    "B": "Cave lighting is never mentioned.",
+    "C": "Each drop falls from the ceiling, so water is still reaching it."
+   }
   },
   {
    "id": "M01-RC-024",
@@ -5373,7 +5843,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P05",
    "form": "M01",
-   "content_hash": "bc87d2f314fb3f3b"
+   "content_hash": "7381b56b0d587b6a",
+   "why": {
+    "A": "Tunnels and rooms are both mentioned, but they are not set against each other.",
+    "B": "Storms and earthquakes are grouped together as the sudden events the passage rules out, not contrasted with each other.",
+    "C": "Water passes through soil on its way to the limestone, so the two are a sequence rather than a contrast."
+   }
   },
   {
    "id": "M01-RC-025",
@@ -5395,7 +5870,12 @@
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P05",
    "form": "M01",
-   "content_hash": "0455807d3af8d00d"
+   "content_hash": "b5500af8fc3aeb43",
+   "why": {
+    "A": "Visitors see rock that looks finished, and the passage says every tunnel is still the sum of tiny changes.",
+    "B": "The same water also builds: each drop leaves a speck that becomes a stalactite.",
+    "D": "Sudden force is exactly what the first sentence rules out."
+   }
   },
   {
    "id": "M01-MA-001",
@@ -5416,7 +5896,12 @@
    "misconceptions": "regrouping; place value",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "04db847b4267e889"
+   "content_hash": "297d187729bb44fa",
+   "why": {
+    "B": "9,205 is 10 short: the units make 9 + 6 = 15, so a ten carries into 2 + 8 and the tens digit is 1, not 0.",
+    "C": "9,225 is 10 too many. The tens column makes 2 + 8 + 1 = 11 — a 1, with one hundred carried.",
+    "D": "9,105 loses 110: a ten out of the units column and a hundred out of the tens."
+   }
   },
   {
    "id": "M01-MA-002",
@@ -5437,7 +5922,12 @@
    "misconceptions": "zero regrouping; reversal",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "9d8e0e0079ec7e17"
+   "content_hash": "1851cefcfd49a54a",
+   "why": {
+    "A": "4,562 is 1,000 too many; after the regrouping the thousands column is 9 − 6 = 3, not 10 − 6.",
+    "B": "3,672 is 110 over. After regrouping the tens are 9 − 3 = 6 and the hundreds 9 − 4 = 5, which gives 562.",
+    "D": "4,438 puts 10 − 6 in the thousands and then copies 438 straight down instead of subtracting it."
+   }
   },
   {
    "id": "M01-MA-003",
@@ -5458,7 +5948,12 @@
    "misconceptions": "partial products; addition",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "2b368e275300e9e9"
+   "content_hash": "7b5bf312b693e5e1",
+   "why": {
+    "A": "1,204 is 70 more than 63 × 18; check it as 1,260 − 126.",
+    "C": "1,034 falls 100 short; 63 × 20 = 1,260 and 63 × 2 = 126, leaving 1,134.",
+    "D": "1,144 is 10 over. 1,260 − 126 = 1,134."
+   }
   },
   {
    "id": "M01-MA-004",
@@ -5479,7 +5974,12 @@
    "misconceptions": "estimate error; fact error",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "56ba12bd55e083a0"
+   "content_hash": "688e8051f94b9927",
+   "why": {
+    "A": "62 is one too few: 32 × 62 = 1,984, a whole 32 short of 2,016.",
+    "C": "68 overshoots: 32 × 68 = 2,176.",
+    "D": "58 gives 32 × 58 = 1,856, well under 2,016."
+   }
   },
   {
    "id": "M01-MA-005",
@@ -5500,7 +6000,12 @@
    "misconceptions": "adds denominators; conversion",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "b1f2560625ec5bcc"
+   "content_hash": "1157702a3ac8654f",
+   "why": {
+    "A": "11/20 is not a fifteenth at all; 2/5 becomes 6/15, so the sum is 7/15 + 6/15.",
+    "B": "3/5 is 9/15, which treats 2/5 as 2/15; it is 6/15.",
+    "C": "1 would need the two to make 15/15; they make 13/15, two fifteenths short."
+   }
   },
   {
    "id": "M01-MA-006",
@@ -5521,7 +6026,12 @@
    "misconceptions": "denominator subtraction; common denominator",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "c603fadfc15ae6c3"
+   "content_hash": "5c476e19443f2beb",
+   "why": {
+    "A": "8/20 subtracts the numerators and adds the denominators; both fractions go over 24 first.",
+    "C": "2/4 is 12/24, which is not the difference: 11/12 is 22/24 and 3/8 is 9/24, leaving 13/24.",
+    "D": "7/12 keeps twelfths and takes 4/12 away, but 3/8 is 9/24, which is more than 4/12."
+   }
   },
   {
    "id": "M01-MA-007",
@@ -5542,7 +6052,12 @@
    "misconceptions": "adds fractions; misses simplification",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "091f03312c5103a9"
+   "content_hash": "8a9369ee365464a6",
+   "why": {
+    "A": "5/6 leaves the 5 on top after cancelling; 5 divides into 15 three times, so it cancels away too.",
+    "B": "1/3 is double the product: 5/14 × 7/15 is 35/210, which reduces to 1/6.",
+    "D": "12/29 adds instead of multiplying, 5 + 7 over 14 + 15."
+   }
   },
   {
    "id": "M01-MA-008",
@@ -5563,7 +6078,12 @@
    "misconceptions": "no reciprocal; mixed conversion",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "e56fa7c9e708a166"
+   "content_hash": "30a836477dc001ae",
+   "why": {
+    "A": "3 1/4 keeps the quarter from 2 1/4; the whole becomes 9/4 first, and 9/4 × 4/3 = 3.",
+    "C": "1 1/2 falls short of what the division gives; 2 1/4 is 9/4, and dividing by 3/4 means multiplying by 4/3.",
+    "D": "2 falls short: three quarters go into 2 1/4 exactly three times, because 3 × 3/4 = 9/4."
+   }
   },
   {
    "id": "M01-MA-009",
@@ -5584,7 +6104,12 @@
    "misconceptions": "alignment; borrowing",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "d96564c624df564f"
+   "content_hash": "13725183f384d656",
+   "why": {
+    "B": "12.444 is 0.1 short; written as 20.030 − 7.486, the tenths come to 5 after the regrouping.",
+    "C": "13.544 is a whole 1 too many; the units column is 19 − 7 = 12 once a one has been borrowed.",
+    "D": "12.534 is 0.01 short; the hundredths after regrouping give 4, not 3."
+   }
   },
   {
    "id": "M01-MA-010",
@@ -5605,7 +6130,12 @@
    "misconceptions": "decimal placement; addition",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "eb3dcb18c0f607c4"
+   "content_hash": "dd99ceb7b24769dd",
+   "why": {
+    "A": "3.4 is a full 1 under; 275 × 16 = 4,400, and three decimal places make that 4.4.",
+    "B": "44 is the right digits with the point one place out; 4,400 with three decimals is 4.400.",
+    "C": "4.04 puts the digits in the wrong places; 275 × 16 = 4,400, so the answer is 4.4."
+   }
   },
   {
    "id": "M01-MA-011",
@@ -5626,7 +6156,12 @@
    "misconceptions": "scaling; decimal direction",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "e494e8fa6d314ea1"
+   "content_hash": "c402bfb5b4161bef",
+   "why": {
+    "A": "0.63 is a tenth of the quotient; 157.5 ÷ 25 = 6.3.",
+    "B": "7.3 is a whole 1 over: 2.5 × 6.3 = 15.75.",
+    "C": "63 is ten times too big — 2.5 × 63 would be 157.5, not 15.75."
+   }
   },
   {
    "id": "M01-MA-012",
@@ -5647,7 +6182,12 @@
    "misconceptions": "18% of 35; adds percent",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "50f73f41f2f8bf0d"
+   "content_hash": "651a209fef19acd8",
+   "why": {
+    "B": "53 is ten under; 10% of 350 is 35 and 8% is 28, so 18% is 63.",
+    "C": "68 is five over; 0.18 × 350 = 63.",
+    "D": "58 is five under; 35 for the 10% and 28 for the 8% give 63."
+   }
   },
   {
    "id": "M01-MA-013",
@@ -5668,7 +6208,12 @@
    "misconceptions": "left-to-right; ignores parentheses",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "cd5deba01200016e"
+   "content_hash": "22fa40803aecb9dd",
+   "why": {
+    "A": "5 is (6 + 24) ÷ 6, adding before dividing; the division happens first.",
+    "B": "8 is not 6 + 4. The brackets make 6, then 24 ÷ 6 = 4, and 6 + 4 = 10.",
+    "D": "14 is 6 + 24 ÷ 3, which uses only the 3 inside the brackets; 3 × 2 = 6 comes first."
+   }
   },
   {
    "id": "M01-MA-014",
@@ -5689,7 +6234,12 @@
    "misconceptions": "base times exponent; square",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "6a8ff7fe814a04be"
+   "content_hash": "0335face73324fcc",
+   "why": {
+    "B": "64 is 2^6, one factor of 2 too many.",
+    "C": "25 writes the base and the exponent side by side; 2^5 means five 2s multiplied together.",
+    "D": "10 is 2 × 5, multiplying the base by the exponent."
+   }
   },
   {
    "id": "M01-MA-015",
@@ -5710,7 +6260,12 @@
    "misconceptions": "leaves composite; misses repeated factor",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "35641b34f78181f4"
+   "content_hash": "6b86248a4c056f24",
+   "why": {
+    "A": "9 × 10 does make 90, but neither 9 nor 10 is prime.",
+    "C": "2 × 45 stops early — 45 is 3 × 3 × 5.",
+    "D": "3 × 30 leaves 30 unbroken, and 30 is 2 × 3 × 5."
+   }
   },
   {
    "id": "M01-MA-016",
@@ -5731,7 +6286,12 @@
    "misconceptions": "divide first; subtract four",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "b0e358f95ee22fba"
+   "content_hash": "bd1f2ebab7687efb",
+   "why": {
+    "B": "11 does not check: 4 × 11 + 9 = 53, not 61.",
+    "C": "12 gives 4 × 12 + 9 = 57.",
+    "D": "17.5 comes from adding the 9 instead of subtracting it, 70 ÷ 4; taking it off first gives 4x = 52."
+   }
   },
   {
    "id": "M01-MA-017",
@@ -5752,7 +6312,12 @@
    "misconceptions": "squares 3b; subtract before multiply",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "0a5a11490cf659bd"
+   "content_hash": "d08d555373b4d25a",
+   "why": {
+    "A": "77 adds the 2 instead of subtracting it; 3 × 25 = 75, and 75 − 2 = 73.",
+    "C": "13 is 3 × 5 − 2, multiplying before squaring; the exponent belongs to the b alone.",
+    "D": "23 is 25 − 2, leaving the 3 out; b² is multiplied by 3 first."
+   }
   },
   {
    "id": "M01-MA-018",
@@ -5773,7 +6338,12 @@
    "misconceptions": "treats < as ≤; substitution error",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "75f60a244b345215"
+   "content_hash": "67650ed1361103b6",
+   "why": {
+    "A": "8 gives 2 × 8 + 3 = 19, well above 13.",
+    "B": "5 gives exactly 13, and the sign asks for less than 13 rather than equal to it.",
+    "C": "6 gives 2 × 6 + 3 = 15, above 13."
+   }
   },
   {
    "id": "M01-MA-019",
@@ -5794,7 +6364,12 @@
    "misconceptions": "area; one length plus width",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "d541586f242283c5"
+   "content_hash": "ca724940161e0575",
+   "why": {
+    "A": "23 is 14 + 9, one length and one width; a rectangle has two of each.",
+    "C": "36 is not the sum of the four sides, which is 14 + 9 + 14 + 9 = 46.",
+    "D": "126 is 14 × 9, the area; perimeter adds the sides rather than multiplying them."
+   }
   },
   {
    "id": "M01-MA-020",
@@ -5815,7 +6390,12 @@
    "misconceptions": "omits half; multiplies bases",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "3dd8616f75c89085"
+   "content_hash": "526ddde4a66bf468",
+   "why": {
+    "A": "50 is not half of 22 × 5; the average base is (8 + 14) ÷ 2 = 11, and 11 × 5 = 55.",
+    "B": "110 is (8 + 14) × 5, the whole rectangle on the average base; a trapezoid is half of it.",
+    "D": "44 falls 11 short; the average base is 11 and the height 5, giving 55."
+   }
   },
   {
    "id": "M01-MA-021",
@@ -5862,7 +6442,12 @@
    "misconceptions": "adds dimensions; omits dimension",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "1fee056b38b1624d"
+   "content_hash": "c64c3b2ee8443165",
+   "why": {
+    "A": "96 is 2 × 12 × 4, the top and bottom faces rather than the space between them.",
+    "C": "192 is 16 × 12; the three edges multiply together, 12 × 4 × 3.",
+    "D": "48 is 12 × 4, one face only; the height of 3 multiplies it."
+   }
   },
   {
    "id": "M01-MA-023",
@@ -5909,7 +6494,12 @@
    "misconceptions": "wrong direction; factor 100",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "fa3b0f757b8174bb"
+   "content_hash": "f4fbad83a9eaf4d2",
+   "why": {
+    "A": "360 multiplies by 100; a kilogram holds 1,000 grams.",
+    "B": "36,000 multiplies by 10,000.",
+    "D": "36 multiplies by 10 only."
+   }
   },
   {
    "id": "M01-MA-025",
@@ -5930,7 +6520,12 @@
    "misconceptions": "adds; divides",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "aad75a7bf5e6b684"
+   "content_hash": "4e6d5ce98c5096a8",
+   "why": {
+    "A": "42 is 6 × 7, one inch too many.",
+    "B": "28 is 4 × 7, one inch short.",
+    "C": "12 is 5 + 7, adding the inches to the scale instead of multiplying by it."
+   }
   },
   {
    "id": "M01-MA-026",
@@ -5951,7 +6546,12 @@
    "misconceptions": "median; no division",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "b8f722593907f739"
+   "content_hash": "bb26af04f5d0a63a",
+   "why": {
+    "B": "70 is the total of the four numbers; the mean divides that by 4.",
+    "C": "20 would need a total of 80, and 11 + 16 + 18 + 25 is 70.",
+    "D": "18 is one of the four numbers, and it would need a total of 72."
+   }
   },
   {
    "id": "M01-MA-027",
@@ -5972,7 +6572,12 @@
    "misconceptions": "picks lower middle; mean of all",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "d1d3df1d244294fc"
+   "content_hash": "660fc97ae7dbebfd",
+   "why": {
+    "A": "11 is not the average of the two middle values; (9 + 15) ÷ 2 = 12.",
+    "B": "9 is the third of six values; with an even count the two middle ones are averaged.",
+    "C": "15 is the fourth value; it pairs with 9, and their average is 12."
+   }
   },
   {
    "id": "M01-MA-028",
@@ -5993,7 +6598,12 @@
    "misconceptions": "omits one; counts multiples",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "94963323c88c2cab"
+   "content_hash": "c6cdd000c4441a61",
+   "why": {
+    "A": "1/3 is 4/12, which misses two factors; 12 has six — 1, 2, 3, 4, 6 and 12.",
+    "B": "5/12 counts five factors; 12 is a factor of itself, which makes six.",
+    "D": "2/3 is 8/12, two more than there are."
+   }
   },
   {
    "id": "M01-MA-029",
@@ -6014,7 +6624,12 @@
    "misconceptions": "adjacent difference; count",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "e17e9e42f98297a7"
+   "content_hash": "1ee03c764536c1fd",
+   "why": {
+    "A": "12 is not the spread; the greatest is 51 and the least 37, so the range is 14.",
+    "B": "13 is one short; the least of the five is 37, not 38.",
+    "D": "9 is 51 − 42, using 42 rather than the least value, 37."
+   }
   },
   {
    "id": "M01-MA-030",
@@ -6035,7 +6650,12 @@
    "misconceptions": "x-axis reflection; swaps coordinates",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "618f50c75e6afbfd"
+   "content_hash": "3cfab566c9e03be6",
+   "why": {
+    "B": "(−4,7) changes both signs; a reflection across the y-axis leaves y at −7.",
+    "C": "(−7,4) swaps the two coordinates as well as changing a sign.",
+    "D": "(4,7) changes the sign of y and leaves x alone, which is a reflection across the x-axis."
+   }
   },
   {
    "id": "M02-VR-001",
