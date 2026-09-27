@@ -8,12 +8,28 @@ import { aopsFor, learnName } from "./aops"
 import { W, atLeast } from "./world"
 
 /* ---------- constants ---------- */
+/* The four reasons a question went wrong, and the one colour each of them wears.
+ *
+ * `dot` and `chip` live here beside the label because the reasons are shown in
+ * three places now and they have to mean the same colour in all of them: the
+ * stacked bar on the Review page, its legend, and the chips under a set's score
+ * on the checklist. The bar had these hues written into it as a private literal;
+ * a second copy in another file is how two pages come to disagree about what
+ * blue means.
+ *
+ * They are the chart palette, which is four distinct hues and no red. That is
+ * deliberate: these are KINDS of miss, not a ladder from bad to worse, and the
+ * one that would attract red — "Didn't know it" — is the most blameless of the
+ * four. Nobody has taught it to her yet. It wears the same indigo as the
+ * lessons, because a lesson is exactly what it asks for. */
 export const CAUSES = [
-  { id: "know", label: "Didn't know it", hint: "The word or the method was new or forgotten" },
-  { id: "misread", label: "Misread it", hint: "Skipped a word like NOT or EXCEPT, or a unit" },
-  { id: "careless", label: "Careless slip", hint: "Knew it, made a small error" },
-  { id: "rushed", label: "Ran out of time", hint: "Hurried or guessed to keep moving" },
+  { id: "know", label: "Didn't know it", hint: "The word or the method was new or forgotten", dot: "bg-chart-1", chip: "border-chart-1/30 bg-chart-1/12 text-chart-1" },
+  { id: "misread", label: "Misread it", hint: "Skipped a word like NOT or EXCEPT, or a unit", dot: "bg-chart-2", chip: "border-chart-2/30 bg-chart-2/12 text-chart-2" },
+  { id: "careless", label: "Careless slip", hint: "Knew it, made a small error", dot: "bg-chart-3", chip: "border-chart-3/35 bg-chart-3/15 text-chart-3" },
+  { id: "rushed", label: "Ran out of time", hint: "Hurried or guessed to keep moving", dot: "bg-chart-4", chip: "border-chart-4/30 bg-chart-4/12 text-chart-4" },
 ]
+export const CAUSE_TONE = Object.fromEntries(CAUSES.map((c) => [c.id, c.dot]))
+export const CAUSE_CHIP = Object.fromEntries(CAUSES.map((c) => [c.id, c.chip]))
 export const CAUSE_LABEL = Object.fromEntries(CAUSES.map((c) => [c.id, c.label]))
 /** Seconds per question on the real Lower Level: 20 min/34, 35/38, 25/25, 30/30. */
 export const BUDGET = { vr: 35, qr: 55, rc: 60, ma: 60 }

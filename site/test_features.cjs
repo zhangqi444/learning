@@ -1179,6 +1179,29 @@ async function setLs(pg, mutate, read, ms = 12000) {
     tally.length >= 2 && tally.some((t) => t.causes.includes('misread')), JSON.stringify(tally.slice(0, 3)));
   check('and the reasons account for every miss on that row, with none invented',
     tally.length > 0 && tally.every((t) => t.named + t.untagged === t.n), JSON.stringify(tally.slice(0, 4)));
+  /* Each reason has to LOOK like a different reason.
+   *
+   * These were four outline chips in a row, which is four identical grey ovals:
+   * the counts were right and the shape of the week was invisible until you read
+   * every word. The colours come from CAUSES now, one hue each, shared with the
+   * Review page's bar — and a purely visual rule is exactly the kind a refactor
+   * flattens without anything going red, so the distinctness is asserted rather
+   * than left to the next screenshot. Computed colour, not class names, because
+   * the class names are what a refactor changes. */
+  const hues = await pg.$$eval('[data-testid=set-tags]', (rows) => rows
+    .map((e) => [...e.querySelectorAll('[data-testid=set-tag]')].map((b) => ({ cause: b.dataset.cause, fg: getComputedStyle(b).color })))
+    .filter((r) => r.length > 1));
+  const muddled = hues.filter((r) => new Set(r.map((c) => c.fg)).size !== r.length);
+  check('two reasons on one row never wear the same colour',
+    hues.length > 0 && muddled.length === 0,
+    hues.length ? JSON.stringify(hues[0]) : 'no row had two reasons to compare');
+  // and the slot for a miss nobody has explained is legible rather than a whisper
+  const untag = await pg.$eval('[data-testid=set-untagged]', (e) => ({
+    style: getComputedStyle(e).borderStyle, fg: getComputedStyle(e).color, muted: getComputedStyle(document.body).getPropertyValue('--muted-foreground'),
+  })).catch(() => null);
+  check('a miss with no reason yet reads as an empty slot, not a whisper',
+    !!untag && untag.style === 'dashed', JSON.stringify(untag));
+
   /* A set with nothing wrong has nothing to explain, and must not draw an empty
      row saying so. */
   const clean = await pg.evaluate(() => [...document.querySelectorAll('[data-testid=ck-item]')]

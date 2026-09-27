@@ -2,7 +2,7 @@ import * as React from "react"
 import { CalendarDays, CheckCircle2, ChevronLeft, ChevronRight, Circle, ListChecks, Plus, Printer, Trash2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, currentWeek, setId, setsFor, spanById, spanNow, spanOpen, spans, weekLabel } from "@/lib/content"
-import { dayKey, mockNextSteps, rec, reviewQueue, tagTally, weekRecap } from "@/lib/engine"
+import { CAUSE_CHIP, dayKey, mockNextSteps, rec, reviewQueue, tagTally, weekRecap } from "@/lib/engine"
 import { actionsForWeek, reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { mixedThisWeek } from "@/pages/mixed"
@@ -403,17 +403,25 @@ function Row({ item, listKey, compact, testId = "ck-item" }) {
             {item.sub ? <span>{item.sub}</span> : null}
             {item.tags ? (
               <span className="flex flex-wrap items-center gap-1" data-testid="set-tags" data-n={item.tags.n}>
+                {/* One hue per reason, from CAUSES, so a colour means the same
+                    thing here as on the Review page's bar. Four outline chips in
+                    a row were four identical grey ovals: the counts were right
+                    and the shape of the week was invisible until you read every
+                    word of them. */}
                 {item.tags.rows.map((t) => (
-                  <Badge key={t.id} variant="outline" className="font-normal" data-testid="set-tag" data-cause={t.id} data-count={t.n}>
+                  <Badge key={t.id} variant="outline" className={cn("font-medium", CAUSE_CHIP[t.id])} data-testid="set-tag" data-cause={t.id} data-count={t.n}>
                     <span className="tabular-nums">{t.n}</span> {t.label.toLowerCase()}
                   </Badge>
                 ))}
-                {/* Last, and quieter than the reasons, because not having said
-                    yet is not a kind of mistake. */}
+                {/* Still last, and still not a kind of mistake — but it was
+                    muted-foreground/70, which on a light card is most of the way
+                    to invisible, and "three misses nobody has said why about" is
+                    the one of these five numbers that asks for something. A
+                    dashed outline says empty slot rather than verdict. */}
                 {item.tags.untagged ? (
-                  <span className="text-muted-foreground/70 tabular-nums" data-testid="set-untagged" data-n={item.tags.untagged}>
-                    {item.tags.untagged} not said yet
-                  </span>
+                  <Badge variant="outline" className="text-muted-foreground border-dashed font-normal" data-testid="set-untagged" data-n={item.tags.untagged}>
+                    <span className="tabular-nums">{item.tags.untagged}</span> not said yet
+                  </Badge>
                 ) : null}
               </span>
             ) : null}

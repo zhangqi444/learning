@@ -3,7 +3,7 @@ import { CalendarClock, Play, ShieldCheck, Sparkles } from "lucide-react"
 
 import { ORDER, SUBJ, fmtDate } from "@/lib/content"
 import { W } from "@/lib/world"
-import { CAUSES, INTERVALS, causeBreakdown, missProfile, reviewQueue, skillCat, skillOf, wordStatus } from "@/lib/engine"
+import { CAUSES, CAUSE_TONE, INTERVALS, causeBreakdown, missProfile, reviewQueue, skillCat, skillOf, wordStatus } from "@/lib/engine"
 import { Glim } from "@/components/glim"
 import { WORD_GLOW } from "@/lib/glim"
 import { sfx } from "@/lib/sfx"
@@ -18,7 +18,8 @@ import { LearnCard } from "@/components/learn-card"
 export function CauseBar({ profile, className }) {
   const total = CAUSES.reduce((n, c) => n + (profile[c.id] || 0), 0) + (profile.untagged || 0)
   if (!total) return null
-  const tone = { know: "bg-chart-1", misread: "bg-chart-2", careless: "bg-chart-3", rushed: "bg-chart-4", untagged: "bg-muted-foreground/30" }
+  // from CAUSES, so the bar, its legend and the checklist chips cannot drift apart
+  const tone = { ...CAUSE_TONE, untagged: "bg-muted-foreground/30" }
   return (
     <div className={className} data-testid="cause-bar">
       <div className="flex h-2 w-full overflow-hidden rounded-full">
