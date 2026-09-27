@@ -75,6 +75,24 @@ Claude-Session: <session url>
 
 ## Things that have bitten before
 
+- **`npm test` needs `playwright`, and nothing declares it.** It is not in
+  `site/package.json`, so it survives only as an un-tracked install in
+  `node_modules`. Run `npm ci` — which installs exactly what the lockfile says —
+  and all four browser suites die at once with "Cannot find module 'playwright'",
+  in zero seconds, which reads like a catastrophe and is a missing package.
+  Reinstall it with `npm i --no-save playwright`.
+- **Installing anything can strip the native binaries**, through the npm
+  optional-dependency bug (npm/cli#4828). The build then stops with "Cannot find
+  native binding" naming one module; install it and the next one appears. On this
+  Mac the three are `@rolldown/binding-darwin-arm64`,
+  `lightningcss-darwin-arm64` and `@tailwindcss/oxide-darwin-arm64`, at the
+  versions of `rolldown`, `lightningcss` and `@tailwindcss/oxide` in
+  `node_modules`. **Install them in one command, with playwright.** Each
+  `npm i --no-save` prunes the extraneous packages the last one added, so doing
+  them one at a time has them deleting each other and the loop never ends.
+  Do **not** take npm's advice to delete `package-lock.json`: it is pinned
+  deliberately — see "Fetch the git dependency over https, and lock it to the
+  real repo" — and regenerating it would undo that silently.
 - Building into `site/dist` on the owner's Mac fails when file deletion is not
   granted. Build to a scratch dir instead: `npx vite build --outDir "$HOME/distcheck" --emptyOutDir`.
 - The Google popup cannot be opened without a user gesture, and cannot be reached
