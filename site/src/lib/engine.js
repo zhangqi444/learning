@@ -589,15 +589,43 @@ export function pacingFor(sub, asOf) {
  *  deliberately high so it under-reports — telling her she did not read
  *  something she did read would be worse than missing a few. */
 const WORDS_PER_SEC = 3.5
-export function readFloor(it) {
+export function words(t) { return String(t || "").trim().split(/\s+/).filter(Boolean).length }
+
+/** How many words a Reading Comprehension passage is, or 0 for an item without one. */
+export function passageWords(it) {
+  const p = it && it.p && D.passages[it.p]
+  return p ? words(p.x) : 0
+}
+
+/**
+ * The least time this question could honestly have taken, in milliseconds.
+ *
+ * `withPassage` is the whole of the Reading Comprehension story. This counted
+ * the stem and the choices and nothing else, which is right for the three
+ * subjects where that *is* the question — and blind on the fourth, where the
+ * question is a 142-word passage and then eight words asking about it. The
+ * floor came out at a median of 14 seconds on items whose passage alone takes
+ * about 41 to read, so there was no answer fast enough to trip it: on 27
+ * September two Reading sets went by at medians of 14 and 21 seconds a
+ * question with the check silent throughout, and every miss in them was tagged
+ * "careless" by the one person the check exists to tell otherwise.
+ *
+ * The passage is charged once, not six times. Every passage in the bundle
+ * carries exactly six questions, and she reads it at the first of them; adding
+ * 41 seconds to all six would call her rushed for answering the second one in
+ * twenty, which is not rushing, and a check that cries wolf on five questions
+ * out of six is one she will learn to ignore on the sixth. The caller says
+ * which question is the first.
+ */
+export function readFloor(it, withPassage = false) {
   if (!it) return 0
-  const words = (t) => String(t || "").trim().split(/\s+/).filter(Boolean).length
   let n = words(it.q)
   for (const c of it.c || []) n += Math.max(1, words(c))
+  if (withPassage) n += passageWords(it)
   return Math.max(2000, Math.round((n / WORDS_PER_SEC) * 1000))
 }
 /** Answered faster than the question can be read. */
-export function tooFast(it, ms) { return !!ms && !!it && ms < readFloor(it) }
+export function tooFast(it, ms, withPassage = false) { return !!ms && !!it && ms < readFloor(it, withPassage) }
 
 export function paceFlag(sub, ms, ok) {
   if (!ms) return null

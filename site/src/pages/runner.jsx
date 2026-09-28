@@ -2,7 +2,7 @@ import * as React from "react"
 import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
-import { BUDGET, CAUSES, findItem, paceFlag, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast } from "@/lib/engine"
+import { BUDGET, CAUSES, findItem, paceFlag, passageWords, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast, words } from "@/lib/engine"
 import { LearnCard } from "@/components/learn-card"
 import { syncBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
@@ -25,11 +25,50 @@ import { sfx } from "@/lib/sfx"
 
 const { useState, useEffect, useRef } = React
 
+/* Her own two numbers, for the one message that names them.
+ *
+ * docs/cats.md is why this says a count rather than a verdict: naming the
+ * arithmetic lets her check it herself, where "you rushed" is something she
+ * can only agree or disagree with. On a Reading question that arithmetic was
+ * wrong — it quoted the eight words of the stem and said nothing about the
+ * hundred and forty-two she had to read first, which is most of what there was
+ * to get through. */
+export function rushedPhrase(items, idx, it) {
+  const q = words(it.q)
+  const p = firstOfPassage(items, idx) ? passageWords(it) : 0
+  const stem = `a ${q}-word question`
+  return p ? `a ${p}-word passage and ${stem}` : stem
+}
+
+/** The same two numbers as a sentence, for the reveal that has room for one. */
+export function rushedSentence(items, idx, it) {
+  const q = words(it.q)
+  const p = firstOfPassage(items, idx) ? passageWords(it) : 0
+  return p
+    ? `The passage above it is ${p} words and the question ${q} more, before the choices even start.`
+    : `There are ${q} words in the question before the choices even start.`
+}
+
+/* Is this the question she meets the passage at?
+ *
+ * The passage is on screen for all six of its questions, but it is only *read*
+ * at the first of them, so that is the only one whose honest floor includes
+ * it. Derived from the list and the index rather than remembered as she goes,
+ * which matters on a resumed set: coming back to question four means the
+ * passage was read in the previous sitting, and an index says so where a
+ * counter reset to zero would not. */
+export function firstOfPassage(items, i) {
+  const it = items && items[i]
+  if (!it || !it.p) return false
+  for (let j = 0; j < i; j++) if (items[j] && items[j].p === it.p) return false
+  return true
+}
+
 export function Passage({ id }) {
   const p = D.passages[id]
   if (!p) return null
   return (
-    <ScrollArea className="bg-muted/40 max-h-64 rounded-lg border [&>[data-radix-scroll-area-viewport]]:max-h-64">
+    <ScrollArea className="bg-muted/40 max-h-64 rounded-lg border [&>[data-radix-scroll-area-viewport]]:max-h-64" data-testid="passage">
       <div className="flex flex-col gap-3 p-4 text-[15px] leading-7">
         {p.t ? <h3 className="text-base font-semibold">{p.t}</h3> : null}
         {p.x.split(/\n+/).map((para, k) => <p key={k}>{para}</p>)}
@@ -331,7 +370,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
    * conditional hook, and React throws the moment the last question is answered
    * — which is exactly how this file broke once already this month. */
   const floorItem = items[i]
-  const floor = careful && floorItem ? readFloor(floorItem) : 0
+  const floor = careful && floorItem ? readFloor(floorItem, firstOfPassage(items, i)) : 0
   React.useEffect(() => {
     if (!floor) { setHeld(0); return }
     const t0 = Date.now()
@@ -465,9 +504,9 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                   {!ok && picks[j] != null && q.y && q.y[LTR[picks[j]]] ? (
                     <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{q.y[LTR[picks[j]]]}</div>
                   ) : null}
-                  {!ok && tooFast(q, ms) ? (
+                  {!ok && tooFast(q, ms, firstOfPassage(items, j)) ? (
                     <div className="border-warning/50 bg-warning-soft rounded-md border p-3 leading-relaxed" data-testid="rushed">
-                      {fmtSec(ms)} on a {String(q.q || "").trim().split(/\s+/).filter(Boolean).length}-word question — answered before it was read.
+                      {fmtSec(ms)} on {rushedPhrase(items, j, q)} — answered before it was read.
                     </div>
                   ) : null}
                   {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
@@ -606,9 +645,14 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id}>{it.q}</p>
           )}
           {gameMode ? <p className="text-muted-foreground -mb-2 text-xs font-semibold tracking-wide uppercase">Your spells</p> : null}
+          {/* Name what the wait is for. On the question where she meets a
+              passage the floor includes it, so the hold is the length of the
+              reading rather than of a stem — long enough that "read the whole
+              question first" beside a ninety-second countdown reads as a
+              broken page instead of an instruction. */}
           {holding ? (
             <p className="text-muted-foreground flex items-center gap-2 text-xs" data-testid="holding">
-              <Eye className="size-3.5" /> Read the whole question first — the choices unlock in {Math.ceil(held / 1000)}s
+              <Eye className="size-3.5" /> Read the {firstOfPassage(items, i) ? "passage and the question" : "whole question"} first — the choices unlock in {Math.ceil(held / 1000)}s
             </p>
           ) : null}
           <div className={cn(holding && "pointer-events-none opacity-40 transition-opacity")} aria-hidden={holding ? "true" : undefined}>
@@ -676,9 +720,9 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                   and a different one from not knowing the answer. Naming it with
                   her own two numbers is the only version of this that is not
                   nagging: she can check the arithmetic herself. */}
-              {!gotIt && tooFast(it, Date.now() - entered.current) ? (
+              {!gotIt && tooFast(it, Date.now() - entered.current, firstOfPassage(items, i)) ? (
                 <p className="border-warning/50 bg-warning-soft mt-2 rounded-lg border p-3 text-sm leading-relaxed" data-testid="rushed">
-                  {(() => { const sec = Math.max(1, Math.round((Date.now() - entered.current) / 1000)); return `That took about ${sec} second${sec === 1 ? "" : "s"}.` })()} There are {String(it.q || "").trim().split(/\s+/).filter(Boolean).length} words in the question before the choices even start — this one was answered before it was read.
+                  {(() => { const sec = Math.max(1, Math.round((Date.now() - entered.current) / 1000)); return `That took about ${sec} second${sec === 1 ? "" : "s"}.` })()} {rushedSentence(items, i, it)} This one was answered before it was read.
                 </p>
               ) : null}
               {it.e ? <p className="bg-muted/60 text-muted-foreground mt-2 rounded-lg p-3 text-sm leading-relaxed">{it.e}</p> : null}

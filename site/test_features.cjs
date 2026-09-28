@@ -2003,6 +2003,7 @@ async function setLs(pg, mutate, read, ms = 12000) {
   }
   check('answering faster than the question can be read says so', rushedSeen,
     rushedSeen ? await pg.textContent('[data-testid=rushed]') : 'never flagged');
+
   /* AoPS is a subscription: Beast Academy and the Prealgebra book both cost
    * money. A child whose family does not buy them had no way back into a
    * question she got wrong, so the first thing on a miss is ours — bundled,
@@ -2182,6 +2183,36 @@ async function setLs(pg, mutate, read, ms = 12000) {
     !!learn && !decodeURIComponent(learn.split('q=')[1] || '').includes(stem.slice(0, 25)),
     decodeURIComponent((learn || '').split('q=')[1] || ''));
 
+  /* Reading Comprehension is where this check was blind, and blind in the one
+     place it was most needed. The floor counted the stem and the choices, so a
+     Reading question scored a median floor of about fourteen seconds while the
+     passage above it takes about forty-one to read — there was no answer fast
+     enough to trip it. Two Reading sets went by on 27 September at medians of
+     14 and 21 seconds a question with the check silent throughout, and every
+     miss in them was tagged "careless" by the one person it exists to tell
+     otherwise.
+     The second half of this is the part a naive fix gets wrong. Every passage
+     carries six questions and she reads it at the first of them, so charging
+     all six would call her rushed for answering the second in twenty seconds,
+     which is not rushing. The passage is named on the question she meets it
+     at, and not on the next one. */
+  await pg.goto('http://localhost:8143/learning/#/run/rc/W2/0', { waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=question]');
+  const passage1 = await pg.textContent('[data-testid=passage]');
+  await pg.click('[data-testid=choice] >> nth=0');
+  await pg.waitForSelector('[data-testid=reveal]');
+  const rcFirst = (await pg.$('[data-testid=rushed]')) ? await pg.textContent('[data-testid=rushed]') : '';
+  check('a Reading question answered before the passage could be read says so', /passage/.test(rcFirst), rcFirst || 'never flagged');
+  await pg.click('[data-testid=next]');
+  await pg.waitForSelector('[data-testid=question]');
+  const passage2 = await pg.textContent('[data-testid=passage]');
+  check('the next question is on the same passage, so this proves something', passage1 === passage2 && !!passage1);
+  await pg.click('[data-testid=choice] >> nth=0');
+  await pg.waitForSelector('[data-testid=reveal]');
+  const rcSecond = (await pg.$('[data-testid=rushed]')) ? await pg.textContent('[data-testid=rushed]') : '';
+  check('and the passage is not charged against it a second time', !/passage/.test(rcSecond),
+    rcSecond ? `flagged on the stem alone: ${rcSecond.slice(0, 60)}…` : 'answered above the stem floor, so not flagged at all');
+
   await pg.goto('http://localhost:8143/learning/#/run/ma/W3/0', { waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=question]');
   // Careful mode is opt-in: a timer she did not ask for that stops her
@@ -2192,6 +2223,35 @@ async function setLs(pg, mutate, read, ms = 12000) {
   const heldNow = await pg.$('[data-testid=holding]');
   check('with it on, the choices wait until the question has been readable', !!heldNow,
     heldNow ? (await pg.textContent('[data-testid=holding]')).replace(/\s+/g, ' ') : 'not holding');
+  await pg.click('[data-testid=careful-toggle]');
+
+  /* And the hold is as long as the reading actually is. Careful mode waits out
+     the same floor the rushed flag measures against, so on the question where
+     she meets a passage it holds for the passage too — about three times a
+     maths stem. That is the point of the mode rather than a side effect of it,
+     but it is a big enough number to be worth pinning: if this ever reads the
+     same on both, the floor has gone blind on Reading again. */
+  const holdOf = async (route) => {
+    await pg.goto(`http://localhost:8143/learning/#${route}`, { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=question]');
+    // Careful is a stored preference, so turn it on by reading the button
+    // rather than by clicking and hoping — a blind toggle turns it back off
+    // on the second route and reports a hold of zero.
+    if (/off/.test(await pg.textContent('[data-testid=careful-toggle]'))) {
+      await pg.click('[data-testid=careful-toggle]');
+      await pg.waitForSelector('[data-testid=careful-toggle]:has-text("Careful on")', { timeout: 5000 });
+    }
+    await pg.waitForSelector('[data-testid=holding]', { timeout: 5000 }).catch(() => {});
+    const t = await pg.textContent('[data-testid=holding]').catch(() => '');
+    return +((t.match(/(\d+)s/) || [])[1] || 0);
+  };
+  /* Sets nothing earlier in this file has answered: the hold only shows on a
+     question still unanswered, and a set this suite already worked through
+     comes back with its picks restored and never holds at all. */
+  const mathsHold = await holdOf('/run/ma/W3/0');
+  const readingHold = await holdOf('/run/rc/W6/0');
+  check('careful mode waits out the passage too, not just the question',
+    readingHold > mathsHold * 2, `maths ${mathsHold}s vs reading ${readingHold}s`);
   await pg.click('[data-testid=careful-toggle]');
 
   /* ---- a set put down halfway ----
