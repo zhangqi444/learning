@@ -283,11 +283,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
    "why": {
-    "A": "450% is the point moved four places instead of two, which is × 100 done twice. Per cent is exactly two places: 0.045 becomes 4.5%.",
+    "A": "450% is the point moved four places instead of two, which is × 100 done twice. Percent is exactly two places: 0.045 becomes 4.5%.",
     "C": "0.45% moves the point one place, not two. Two places from 0.045 gives 4.5%.",
     "D": "45% is what 0.45 would be as a percent, and 0.045 is ten times smaller than that. Two places from 0.045 gives 4.5%."
    },
-   "content_hash": "f3ca69196b0de048"
+   "content_hash": "16289c22aee1b775"
   },
   {
    "id": "MA-W5-S1-Q12",
@@ -309,11 +309,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
    "why": {
-    "A": "8 is 96 ÷ 12, the 96 split into twelve parts instead. Twelve and a half per cent means an eighth of it: 96 ÷ 8 = 12.",
+    "A": "8 is 96 ÷ 12, the 96 split into twelve parts instead. Twelve and a half percent means an eighth of it: 96 ÷ 8 = 12.",
     "B": "16 is 96 ÷ 6; 12.5% is an eighth, so it is 96 ÷ 8.",
     "C": "10.5 is not 96 ÷ 8, which comes to 12."
    },
-   "content_hash": "4226c5fb05d5de90"
+   "content_hash": "b153f217451408a2"
   },
   {
    "id": "MA-W5-S2-Q01",
@@ -491,11 +491,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
    "why": {
-    "D": "72 is 42 + 30, the sale price with the 30 added on as dollars rather than counted as a per cent. Taking 30 per cent off leaves seven tenths of the price, so 42 ÷ 7 = 6 and 6 × 10 = 60.",
+    "D": "72 is 42 + 30, the sale price with the 30 added on as dollars rather than counted as a percent. Taking 30 percent off leaves seven tenths of the price, so 42 ÷ 7 = 6 and 6 × 10 = 60.",
     "B": "140 divides $42 by 0.3 instead of 0.7; the $42 is the 70% Rosa actually paid.",
     "C": "54.60 adds 30% to the $42, but the discount came off a larger price, so it is $42 ÷ 0.7."
    },
-   "content_hash": "3653cc26907381ee"
+   "content_hash": "f206d62b5287318b"
   },
   {
    "id": "MA-W5-S2-Q08",
@@ -517,11 +517,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
    "why": {
-    "B": "53 is 28 + 25, the 25 added on as dollars rather than counted as a per cent. A quarter of the 28 goes on top: 28 ÷ 4 = 7, then 28 + 7 = 35.",
+    "B": "53 is 28 + 25, the 25 added on as dollars rather than counted as a percent. A quarter of the 28 goes on top: 28 ÷ 4 = 7, then 28 + 7 = 35.",
     "A": "21 takes 25% off instead of adding it on.",
     "D": "32 adds about 14%; 25% of $28 is $7, which gives $35."
    },
-   "content_hash": "2d99c1dee69ea9f8"
+   "content_hash": "4da2d59df47e45cd"
   },
   {
    "id": "MA-W5-S2-Q09",
@@ -569,11 +569,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
    "why": {
-    "C": "50 is 200 − 150, the dollars the price fell by, not the per cent it fell by. The drop is measured against the starting price: 50 ÷ 200 gives a quarter, or 25 per cent.",
+    "C": "50 is 200 − 150, the dollars the price fell by, not the percent it fell by. The drop is measured against the starting price: 50 ÷ 200 gives a quarter, or 25 percent.",
     "B": "75% is what remains of the price, not how far it fell.",
     "D": "33 1/3% compares the $50 drop with the new $150; percent decrease measures against the original $200."
    },
-   "content_hash": "ab21c8860700932d"
+   "content_hash": "57a72ddea1c684af"
   },
   {
    "id": "MA-W5-S2-Q11",
@@ -622,10 +622,10 @@
    "form": "W5",
    "why": {
     "A": "6.25 is 12.5 ÷ 2, half of the tank. Two fifths of it is what remains: 12.5 ÷ 5 = 2.5, then 2 × 2.5 = 5.",
-    "B": "7.5 is 12.5 − 5, the water that was used. The question asks for what is left in the tank: 12.5 − 7.5 = 5 litres.",
+    "B": "7.5 is 12.5 − 5, the water that was used. The question asks for what is left in the tank: 12.5 − 7.5 = 5 liters.",
     "C": "4.5 is not two fifths of 12.5; a fifth of 12.5 is 2.5, so two fifths is 5."
    },
-   "content_hash": "c1e727ea4013c8d7"
+   "content_hash": "a45d4c3733c3bc2c"
   },
   {
    "id": "MA-W6-S1-Q01",
@@ -1194,10 +1194,10 @@
    "form": "W6",
    "why": {
     "C": "130 m is 260 ÷ 2, half of the way round — one long side and one short side, not all four. All the way round is 2 × (8 + 5) = 26 units, and 26 × 10 = 260 m.",
-    "D": "26 m is 260 ÷ 10, the way round counted in grid squares rather than in metres. Each square stands for 10 metres: 26 × 10 = 260 m.",
+    "D": "26 m is 260 ÷ 10, the way round counted in grid squares rather than in meters. Each square stands for 10 meters: 26 × 10 = 260 m.",
     "A": "400 is 40 × 10, using the area of 8 by 5 rather than the distance around it."
    },
-   "content_hash": "aeb74476154caded"
+   "content_hash": "9670d79fa69048c1"
   },
   {
    "id": "MA-W6-S2-Q11",
@@ -1662,10 +1662,10 @@
    "form": "W7",
    "why": {
     "A": "8/15 is the chance on the very first draw, before a red marble was taken out. Once it has gone, 7 reds are left among 14 marbles: 7/14 = 1/2.",
-    "B": "1/3 counts the three colours instead of the marbles, and the colours are not shared out evenly. Once the red has gone, 7 of the 14 left are red: 7/14 = 1/2.",
+    "B": "1/3 counts the three colors instead of the marbles, and the colors are not shared out evenly. Once the red has gone, 7 of the 14 left are red: 7/14 = 1/2.",
     "D": "7/15 takes the red marble off the top of the fraction but not off the bottom. The jar lost a marble too, so it is 7 out of 14, which is 1/2."
    },
-   "content_hash": "abf065b2d129de43"
+   "content_hash": "1f47109b6478552f"
   },
   {
    "id": "MA-W7-S2-Q05",
@@ -1792,10 +1792,10 @@
    "form": "W7",
    "why": {
     "B": "80 is 160 ÷ 2, half of the way round — one short side and one long side, 30 and 50. All four sides count: 30 + 50 + 30 + 50 = 160.",
-    "C": "130 is 160 − 30, the way round with one of the 30-centimetre sides missed out — three sides instead of four. A rectangle has two of each: 30 + 50 + 30 + 50 = 160.",
-    "D": "1,500 is 30 × 50, the area in square centimetres rather than the distance around."
+    "C": "130 is 160 − 30, the way round with one of the 30-centimeter sides missed out — three sides instead of four. A rectangle has two of each: 30 + 50 + 30 + 50 = 160.",
+    "D": "1,500 is 30 × 50, the area in square centimeters rather than the distance around."
    },
-   "content_hash": "5c55cf4aa7b7cc66"
+   "content_hash": "ebf31d44a25b90c8"
   },
   {
    "id": "MA-W7-S2-Q10",
@@ -2233,11 +2233,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
    "why": {
-    "A": "5 is 10 ÷ 2. Sixty per cent of 25 is 15 who do ride, so 25 − 15 = 10 who do not.",
+    "A": "5 is 10 ÷ 2. Sixty percent of 25 is 15 who do ride, so 25 − 15 = 10 who do not.",
     "B": "15 is the number who DO ride the bus. The question asks for the rest: 25 − 15 = 10.",
     "D": "40 is 10 × 4. The class is 25, and 15 of them ride, so 10 do not."
    },
-   "content_hash": "6b118dfc307b769b"
+   "content_hash": "da7adc0b784e6d8c"
   },
   {
    "id": "MA-W8-S2-Q03",

@@ -51,9 +51,9 @@
    "why": {
     "A": "4 is 6 − 2. The 6 red beads make 3 groups of 2, and each group brings 3 white: 9.",
     "B": "12 is 6 × 2, the red beads doubled. Three groups of 3 white beads make 9.",
-    "C": "5 is 2 + 3, one group of each colour. There are three groups here: 3 × 3 = 9."
+    "C": "5 is 2 + 3, one group of each color. There are three groups here: 3 × 3 = 9."
    },
-   "content_hash": "de3e053c81a8c00b"
+   "content_hash": "b52a29d3514eead6"
   },
   {
    "id": "QR-W5-S1-Q03",
@@ -127,11 +127,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
    "why": {
-    "B": "50 is 2 × 25, the two numbers of the scale multiplied together — what 4 centimetres on the map would stand for, not 14. The path's 14 centimetres make 7 groups of 2, so 7 × 25 = 175 metres.",
-    "C": "350 is 25 × 14, the whole map length multiplied by 25 — but 25 metres goes with every 2 centimetres, not with every 1. The 14 centimetres make 7 groups of 2, so 7 × 25 = 175 metres.",
-    "D": "125 is 5 × 25, which counts five groups of 2 centimetres; 14 centimetres is seven of them."
+    "B": "50 is 2 × 25, the two numbers of the scale multiplied together — what 4 centimeters on the map would stand for, not 14. The path's 14 centimeters make 7 groups of 2, so 7 × 25 = 175 meters.",
+    "C": "350 is 25 × 14, the whole map length multiplied by 25 — but 25 meters goes with every 2 centimeters, not with every 1. The 14 centimeters make 7 groups of 2, so 7 × 25 = 175 meters.",
+    "D": "125 is 5 × 25, which counts five groups of 2 centimeters; 14 centimeters is seven of them."
    },
-   "content_hash": "b1e75313811eb5a8"
+   "content_hash": "50f2115cc8e042d7"
   },
   {
    "id": "QR-W5-S1-Q06",
@@ -623,9 +623,9 @@
    "why": {
     "A": "36 is 72 ÷ 2, half the cubes. Along the edges 6, 4 and 3 fit, so 6 × 4 × 3 = 72.",
     "B": "144 is 72 × 2, twice as many as fit. Halve each edge first, because the cubes are 2 cm.",
-    "C": "48 is 8 × 6, two of the box’s sides in centimetres. Count cubes along each edge instead."
+    "C": "48 is 8 × 6, two of the box’s sides in centimeters. Count cubes along each edge instead."
    },
-   "content_hash": "3425e37780f38c9e"
+   "content_hash": "2984b3be3a2a7f4f"
   },
   {
    "id": "QR-W5-S2-Q13",
@@ -699,11 +699,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W5",
    "why": {
-    "C": "23 is 8 + 15, the garden's two sides added together — a length, not an area. With the path the outer rectangle measures 10 by 17, so 170 − 120 = 50 square metres.",
-    "B": "46 is 2 × (8 + 15), the garden's perimeter in metres rather than an area.",
+    "C": "23 is 8 + 15, the garden's two sides added together — a length, not an area. With the path the outer rectangle measures 10 by 17, so 170 − 120 = 50 square meters.",
+    "B": "46 is 2 × (8 + 15), the garden's perimeter in meters rather than an area.",
     "D": "70 is not 170 − 120, which comes to 50."
    },
-   "content_hash": "dbc1a34371286d29"
+   "content_hash": "8a381070d421aa72"
   },
   {
    "id": "QR-W6-S1-Q01",
@@ -1063,11 +1063,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W6",
    "why": {
-    "A": "10 is the per cent itself, not a number of seats. A tenth of 80 seats is 8.",
-    "C": "18 is 10 + 8. Ten per cent means one tenth, so 80 ÷ 10 = 8 seats.",
-    "D": "40 is 80 ÷ 2, which would be fifty per cent. Ten per cent of 80 is 8."
+    "A": "10 is the percent itself, not a number of seats. A tenth of 80 seats is 8.",
+    "C": "18 is 10 + 8. Ten percent means one tenth, so 80 ÷ 10 = 8 seats.",
+    "D": "40 is 80 ÷ 2, which would be fifty percent. Ten percent of 80 is 8."
    },
-   "content_hash": "154e61b745f75c2a"
+   "content_hash": "1d31f4317f64adac"
   },
   {
    "id": "QR-W6-S2-Q03",
@@ -2285,11 +2285,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
    "why": {
-    "A": "9 is 3 × 3. One centimetre stands for 4 m, so 30 m needs 30 ÷ 4 = 7.5 cm.",
-    "B": "10 is 30 ÷ 3, dividing by the centimetres instead of the metres. Each centimetre is 4 m: 30 ÷ 4 = 7.5.",
-    "D": "2.5 is 30 ÷ 12, using the 12 on its own. Three centimetres stand for 12 m, so one stands for 4 m."
+    "A": "9 is 3 × 3. One centimeter stands for 4 m, so 30 m needs 30 ÷ 4 = 7.5 cm.",
+    "B": "10 is 30 ÷ 3, dividing by the centimeters instead of the meters. Each centimeter is 4 m: 30 ÷ 4 = 7.5.",
+    "D": "2.5 is 30 ÷ 12, using the 12 on its own. Three centimeters stand for 12 m, so one stands for 4 m."
    },
-   "content_hash": "70809765379edc08"
+   "content_hash": "7411fc864b27d072"
   },
   {
    "id": "QR-W8-S1-Q08",
@@ -2389,11 +2389,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
    "why": {
-    "B": "$59.00 is $66 − $7, with the 10% rounded up to a whole dollar. Ten per cent of $66 is $6.60, and $66 − $6.60 = $59.40.",
-    "C": "$66.00 is the price after the 10% rise, with the 10% drop that comes next never taken off. Ten per cent of $66 is $6.60, so the final price is $66 − $6.60 = $59.40.",
+    "B": "$59.00 is $66 − $7, with the 10% rounded up to a whole dollar. Ten percent of $66 is $6.60, and $66 − $6.60 = $59.40.",
+    "C": "$66.00 is the price after the 10% rise, with the 10% drop that comes next never taken off. Ten percent of $66 is $6.60, so the final price is $66 − $6.60 = $59.40.",
     "D": "$60.00 is what you get if the 10% up and the 10% down cancel out. They do not: the rise is $6.00 on $60, but the drop is $6.60 on $66, leaving $59.40."
    },
-   "content_hash": "29954e177fac9ddb"
+   "content_hash": "957a10c39584093e"
   },
   {
    "id": "QR-W8-S1-Q12",
@@ -2599,9 +2599,9 @@
    "why": {
     "B": "12 is 6 × 2. Count cubes along every edge: 4, 3 and 2, so 4 × 3 × 2 = 24.",
     "C": "96 is 24 × 4, four times as many as fit.",
-    "D": "48 is 8 × 6, two sides in centimetres. The cubes are 2 cm, so the edges hold 4, 3 and 2 of them."
+    "D": "48 is 8 × 6, two sides in centimeters. The cubes are 2 cm, so the edges hold 4, 3 and 2 of them."
    },
-   "content_hash": "07257975c3b5629e"
+   "content_hash": "0a72fc3e3613ad2f"
   },
   {
    "id": "QR-W8-S2-Q08",
@@ -2805,11 +2805,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W8",
    "why": {
-    "C": "60 is 10 × 6, the area of the pool itself. The walkway is the ring around it: the pool and walkway together are 14 m by 10 m, so 140 − 60 = 80 square metres.",
+    "C": "60 is 10 × 6, the area of the pool itself. The walkway is the ring around it: the pool and walkway together are 14 m by 10 m, so 140 − 60 = 80 square meters.",
     "B": "140 is the whole area including the pool, and the pool's 60 comes off.",
     "D": "32 is not 140 − 60, which comes to 80."
    },
-   "content_hash": "4b735418466fd6d0"
+   "content_hash": "8d9fb58298b165ba"
   },
   {
    "id": "QR-W5-X01",
@@ -3580,16 +3580,16 @@
     "D": "50 m²"
    },
    "correct": "C",
-   "explanation": "Each centimetre stands for 5 m, so the real playground is 6 × 5 = 30 m by 4 × 5 = 20 m, and its area is 30 × 20 = 600 m². Turn both sides into real lengths first, then multiply — never scale an area straight off the plan.",
+   "explanation": "Each centimeter stands for 5 m, so the real playground is 6 × 5 = 30 m by 4 × 5 = 20 m, and its area is 30 × 20 = 600 m². Turn both sides into real lengths first, then multiply — never scale an area straight off the plan.",
    "why": {
-    "A": "24 is 6 × 4, the area of the rectangle on the plan rather than the real playground. Each centimetre stands for 5 m, so the real sides are 30 m and 20 m, and 30 × 20 = 600 m².",
+    "A": "24 is 6 × 4, the area of the rectangle on the plan rather than the real playground. Each centimeter stands for 5 m, so the real sides are 30 m and 20 m, and 30 × 20 = 600 m².",
     "B": "120 is 24 × 5, the plan's area multiplied by 5 just once. Both sides have to grow: 6 × 5 = 30 m and 4 × 5 = 20 m, so 30 × 20 = 600 m².",
     "D": "50 is 30 + 20, the two real sides added instead of multiplied. Area comes from multiplying them: 30 × 20 = 600 m²."
    },
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W7",
-   "content_hash": "09b1bde30f46c8f7"
+   "content_hash": "681c8797a1f66f0a"
   },
   {
    "id": "QR-W7-X05",

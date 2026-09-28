@@ -99,6 +99,42 @@ def trap_errors(it, passages):
     if not absent: return []
     return [f'{it["id"]}: misconceptions names {", ".join(absent)}, who appears nowhere in this question']
 
+# ---- the teaching text is American, because the exam is ----------------------
+# 142 British spellings across 73 items reached the prose a ten-year-old reads,
+# almost all of them in `why` sentences written in one sitting: "litres",
+# "centimetres", "per cent", "colour". Several items contradicted themselves —
+# MA-W5-S2-Q12 said "liters" in its prompt and "litres" in the why underneath it.
+# The ISEE is an American test and the prompts were already American; only the
+# explanations drifted. Prompts and choices are NOT checked here: those are
+# authored content that may quote a source.
+BRITISH = [
+    ('centimetres', 'centimeters'), ('centimetre', 'centimeter'),
+    ('kilometres', 'kilometers'), ('kilometre', 'kilometer'),
+    ('millimetres', 'millimeters'), ('millimetre', 'millimeter'),
+    ('metres', 'meters'), ('metre', 'meter'),
+    ('litres', 'liters'), ('litre', 'liter'),
+    ('per cent', 'percent'), ('colours', 'colors'), ('coloured', 'colored'),
+    ('colour', 'color'), ('favourable', 'favorable'), ('favour', 'favor'),
+    ('neighbours', 'neighbors'), ('neighbour', 'neighbor'),
+    ('practise', 'practice'), ('organised', 'organized'),
+    ('recognised', 'recognized'), ('realised', 'realized'),
+    ('apologise', 'apologize'), ('behaviour', 'behavior'),
+    ('honour', 'honor'), ('labour', 'labor'), ('grey', 'gray'),
+]
+BRITISH_RE = [(re.compile(r'\b' + re.escape(b) + r'\b', re.I), b, a) for b, a in BRITISH]
+
+def spelling_errors(it):
+    out = []
+    fields = [('explanation', it.get('explanation')), ('misconceptions', it.get('misconceptions'))]
+    fields += [(f'why.{k}', v) for k, v in (it.get('why') or {}).items()]
+    for name, text in fields:
+        t = str(text or '')
+        for rx, b, a in BRITISH_RE:
+            if rx.search(t):
+                out.append(f'{it["id"]}: {name} spells "{b}" — this is an American exam, write "{a}"')
+                break
+    return out
+
 # ---- every wrong choice gets answered, in every bank ---------------------------
 # 1,510 of 1,510 now, so this is an error rather than a count. It was a mock-only
 # rule for one commit, while the mock was at 508 of 508 and the practice banks
@@ -169,6 +205,7 @@ for f in sorted(os.listdir(BANKS)):
         errs += letter_errors(it)
         errs += why_gap_errors(it)
         errs += trap_errors(it, passage_text)
+        errs += spelling_errors(it)
 
 # answer-position sanity per bank/form
 for f in sorted(os.listdir(BANKS)):

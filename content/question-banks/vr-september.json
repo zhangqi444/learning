@@ -1323,11 +1323,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W2",
    "why": {
-    "A": "Conspicuous is what a bright red coat in a grey crowd is; a report can be conspicuous and still be full of feeling, so that is not the opposite of emotional.",
+    "A": "Conspicuous is what a bright red coat in a gray crowd is; a report can be conspicuous and still be full of feeling, so that is not the opposite of emotional.",
     "C": "Rigid describes rules that allow no exceptions; sticking rigidly to rules does not stop a report being emotional, which is what the sentence rules out.",
     "D": "Literal means taking words at their exact meaning, with no metaphor or exaggeration; that is about how language is read, not about keeping feelings out of a report."
    },
-   "content_hash": "3742660cedf5b2f4"
+   "content_hash": "6791aff874b7d79e"
   },
   {
    "id": "VR-SEP-W2-044",
@@ -2540,7 +2540,7 @@
     "D": "mistake"
    },
    "correct": "A",
-   "explanation": "expanse: a wide stretch of something open — A grey expanse of sea filled the window.",
+   "explanation": "expanse: a wide stretch of something open — A gray expanse of sea filled the window.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "form": "W3",
@@ -2549,7 +2549,7 @@
     "C": "\"A formal complaint\" is an objection made officially; an expanse is a stretch of open space, not something you say or write.",
     "D": "A mistake is something done wrong; an expanse is simply a wide open space, which is a completely different idea."
    },
-   "content_hash": "437caaff2f1b00fd"
+   "content_hash": "5ed97d39af8e495f"
   },
   {
    "id": "VR-SEP-W3-058",
@@ -2572,10 +2572,10 @@
    "form": "W3",
    "why": {
     "A": "Gentle means mild and careful; that is the opposite of ferocious.",
-    "B": "Fair means just and even-handed (or light in colour); ferocious is about savage force, not about being fair.",
+    "B": "Fair means just and even-handed (or light in color); ferocious is about savage force, not about being fair.",
     "D": "Quiet means making little noise; a ferocious storm is usually loud, and in any case the word means fierce and violent rather than silent."
    },
-   "content_hash": "76a8448594e79346"
+   "content_hash": "450f14a6142c9304"
   },
   {
    "id": "VR-SEP-W3-059",

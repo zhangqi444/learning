@@ -179,11 +179,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W1-S1",
    "why": {
-    "A": "9 is 90 ÷ 10, one tenth of the campers with the other two tenths never added on. Thirty per cent means three tenths: 9 × 3 = 27.",
+    "A": "9 is 90 ÷ 10, one tenth of the campers with the other two tenths never added on. Thirty percent means three tenths: 9 × 3 = 27.",
     "B": "63 is 90 − 27, the campers who did not choose chess rather than the ones who did. Three tenths chose it: 90 ÷ 10 = 9, then 9 × 3 = 27.",
-    "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty per cent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
+    "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty percent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
    },
-   "content_hash": "6cdf71a3d655e276"
+   "content_hash": "10aa460affdf766d"
   },
   {
    "id": "MA-SEP-008",
@@ -205,11 +205,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W1-S1",
    "why": {
-    "B": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28.",
-    "C": "42 is 70 − 28, the part left behind rather than the part asked for. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28.",
+    "B": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty percent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28.",
+    "C": "42 is 70 − 28, the part left behind rather than the part asked for. Forty percent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28.",
     "D": "7 is 70 ÷ 10, one tenth found and the other three tenths never added on. Four tenths means 7 × 4 = 28."
    },
-   "content_hash": "3a41376a3b256109"
+   "content_hash": "4974752b751afe4d"
   },
   {
    "id": "MA-SEP-009",
@@ -363,9 +363,9 @@
    "why": {
     "B": "4.75 is 8.75 − 4, the trim rounded up to a whole 4 m. That takes off 10 cm too much, so add them back: 4.75 + 0.10 = 4.85.",
     "C": "5.15 takes the hundredths the other way round, 90 − 75 = 15, because 75 looked too small to take 90 from. Borrow from the 8 instead: 8.75 − 3.90 = 4.85.",
-    "D": "5.85 keeps all 8 whole metres after one of them has been borrowed. After the borrow there are 7: 7 − 3 = 4, so 4.85 m remains."
+    "D": "5.85 keeps all 8 whole meters after one of them has been borrowed. After the borrow there are 7: 7 − 3 = 4, so 4.85 m remains."
    },
-   "content_hash": "537a6550f4b43d03"
+   "content_hash": "cf5dad749e4fa598"
   },
   {
    "id": "MA-SEP-015",
@@ -388,10 +388,10 @@
    "form": "W1-S2",
    "why": {
     "A": "63 is 90 − 27, the badges that are not blue rather than the blue ones. Three tenths are blue: 90 ÷ 10 = 9, then 9 × 3 = 27.",
-    "C": "9 is 90 ÷ 10, one tenth of the badges with the other two tenths never added on. Thirty per cent means three tenths: 9 × 3 = 27.",
-    "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty per cent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
+    "C": "9 is 90 ÷ 10, one tenth of the badges with the other two tenths never added on. Thirty percent means three tenths: 9 × 3 = 27.",
+    "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty percent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
    },
-   "content_hash": "94eefcaa7937f77a"
+   "content_hash": "919f45abaf16d389"
   },
   {
    "id": "MA-SEP-016",
@@ -543,11 +543,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W1-S2",
    "why": {
-    "D": "60 is 80 − 20, the twenty taken off the eighty rather than used as a percentage. Twenty per cent means two tenths: 80 ÷ 10 = 8, then 8 × 2 = 16.",
+    "D": "60 is 80 − 20, the twenty taken off the eighty rather than used as a percentage. Twenty percent means two tenths: 80 ÷ 10 = 8, then 8 × 2 = 16.",
     "A": "12 is 15% of 80; 20% is a fifth, which is 16.",
     "C": "21 is over a quarter of 80, and a fifth is 16."
    },
-   "content_hash": "ccd5ff7151c6088e"
+   "content_hash": "94825b0cd708848e"
   },
   {
    "id": "MA-SEP-022",
@@ -1999,11 +1999,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W4-S1",
    "why": {
-    "D": "12.8 is 6.4 × 2, the ribbon doubled rather than halved. Cutting in half means 6.4 ÷ 2 = 3.2 metres for each piece.",
+    "D": "12.8 is 6.4 × 2, the ribbon doubled rather than halved. Cutting in half means 6.4 ÷ 2 = 3.2 meters for each piece.",
     "A": "0.32 is a tenth of half of 6.4, which is 3.2.",
-    "B": "32 is ten times too long; half of 6.4 metres is 3.2."
+    "B": "32 is ten times too long; half of 6.4 meters is 3.2."
    },
-   "content_hash": "0c452cec3b2046b7"
+   "content_hash": "b7662302adbd52a6"
   },
   {
    "id": "MA-SEP-078",
@@ -2025,11 +2025,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W4-S1",
    "why": {
-    "C": "39 is 64 − 25, the 25 taken away as a plain number rather than used as a per cent. Twenty-five per cent means a quarter: 64 ÷ 4 = 16.",
+    "C": "39 is 64 − 25, the 25 taken away as a plain number rather than used as a percent. Twenty-five percent means a quarter: 64 ÷ 4 = 16.",
     "B": "21 is about a third of 64, and a quarter is 16.",
     "D": "12 is under a fifth of 64; 64 ÷ 4 = 16."
    },
-   "content_hash": "f50c576d8db7b13e"
+   "content_hash": "2f66fc13c77f4291"
   },
   {
    "id": "MA-SEP-079",
@@ -2220,7 +2220,7 @@
    "subject": "MA",
    "skill": "Fractions",
    "difficulty": "M",
-   "prompt": "Five sixths of a path is paved, and one third of the whole path is closed. What fraction is paved and open?",
+   "prompt": "Five sixths of a path is paved. One third of the whole path is closed for repairs, and all of the closed stretch lies within the paved part. What fraction of the path is paved and open?",
    "choices": {
     "A": "1/2",
     "B": "2/3",
@@ -2237,7 +2237,7 @@
     "C": "1/3 is the closed part of the path, not the part that is paved and open. Take it off the paved part: 5/6 − 2/6 = 3/6, which is 1/2.",
     "D": "4/3 takes the tops away from each other, 5 − 1 = 4, and the bottoms too, 6 − 3 = 3. Bottoms never subtract: match them first and 5/6 − 2/6 = 3/6, which is 1/2."
    },
-   "content_hash": "888905911f67b4ee"
+   "content_hash": "036cec47620cbc90"
   },
   {
    "id": "MA-SEP-087",
@@ -2285,11 +2285,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W4-S2",
    "why": {
-    "A": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty per cent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28.",
-    "C": "7 is one tenth of 70, the first step done and then left there. Forty per cent is four of those tenths: 7 × 4 = 28.",
-    "D": "42 is 70 − 28, the seedlings that did not sprout rather than the ones that did. Forty per cent is four tenths: 70 ÷ 10 = 7, and 7 × 4 = 28."
+    "A": "30 is 70 − 40, the forty taken off the seventy rather than used as a percentage. Forty percent means four tenths: 70 ÷ 10 = 7, then 7 × 4 = 28.",
+    "C": "7 is one tenth of 70, the first step done and then left there. Forty percent is four of those tenths: 7 × 4 = 28.",
+    "D": "42 is 70 − 28, the seedlings that did not sprout rather than the ones that did. Forty percent is four tenths: 70 ÷ 10 = 7, and 7 × 4 = 28."
    },
-   "content_hash": "dca1cabf3a9b540c"
+   "content_hash": "69d72377b9b5a56c"
   },
   {
    "id": "MA-SEP-089",
@@ -2416,10 +2416,10 @@
    "form": "W4-S2",
    "why": {
     "B": "1/7 is one marble out of the seven, but 2 of them are red. Two out of seven is 2/7.",
-    "C": "5/7 is the chance of a blue marble, the other colour in the bag. Two of the 7 marbles are red, so 2/7.",
+    "C": "5/7 is the chance of a blue marble, the other color in the bag. Two of the 7 marbles are red, so 2/7.",
     "D": "2/5 sets the 2 red marbles against the 5 blue ones. A chance counts them against every marble in the bag: 2 + 5 = 7, so 2/7."
    },
-   "content_hash": "d3e8732e7cfecf3a"
+   "content_hash": "7775897be415d2a4"
   },
   {
    "id": "MA-SEP-094",

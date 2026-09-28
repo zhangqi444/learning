@@ -675,9 +675,9 @@
    "why": {
     "A": "3 1/4 counts the last quarter as left over, but nothing is left over — that quarter goes into the third bottle. 2 1/4 is 9/4, and 9/4 ÷ 3/4 = 3 exactly.",
     "C": "2 is the whole-number part of 2 1/4, not how many 3/4s fit inside it. Three fit: 3/4 + 3/4 + 3/4 = 2 1/4.",
-    "D": "9 counts the quarter-litres in the jug, not the bottles. 2 1/4 litres is 9 quarters, and each bottle takes three of them, so the jug fills 9 ÷ 3 = 3 bottles."
+    "D": "9 counts the quarter-liters in the jug, not the bottles. 2 1/4 liters is 9 quarters, and each bottle takes three of them, so the jug fills 9 ÷ 3 = 3 bottles."
    },
-   "content_hash": "e4232f4702d6023f"
+   "content_hash": "2632da05a48e7824"
   },
   {
    "id": "QR-W1-S2-15",
@@ -1921,11 +1921,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W3",
    "why": {
-    "A": "10 is 4 + 6, the red votes and the blue votes added together. No single colour got 10 — the question wants the biggest count on its own.",
+    "A": "10 is 4 + 6, the red votes and the blue votes added together. No single color got 10 — the question wants the biggest count on its own.",
     "B": "6 is the blue count, and green has more with 8.",
     "C": "7 is none of the four counts, which are 4, 6, 8 and 5."
    },
-   "content_hash": "150f17daa72f48db"
+   "content_hash": "03bf2d176388bb67"
   },
   {
    "id": "QR-W3-S2-09",
@@ -2363,11 +2363,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W4",
    "why": {
-    "A": "3/8 is the chance of landing on red, or on blue — one colour on its own. Not green means both together: 6 of the 8 sections, which is 3/4.",
+    "A": "3/8 is the chance of landing on red, or on blue — one color on its own. Not green means both together: 6 of the 8 sections, which is 3/4.",
     "C": "1/4 is 2 out of 8, the chance of landing ON green. The question asks for the rest: 6 out of 8, which is 3/4.",
     "D": "5/8 takes the 3 red sections away instead of the 2 green. Taking the green away leaves 8 − 2 = 6, so 6/8 = 3/4."
    },
-   "content_hash": "8e9cd8abd5c9089d"
+   "content_hash": "58e271448cd3a4a1"
   },
   {
    "id": "QR-W4-S1-11",
@@ -2649,11 +2649,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W4",
    "why": {
-    "B": "144 is 36 × 4, the whole perimeter multiplied by four rather than shared between the four sides. One side comes from 36 ÷ 4 = 9, and the area is 9 × 9 = 81 square centimetres.",
-    "C": "72 is 36 × 2, the perimeter doubled. One side comes from 36 ÷ 4 = 9, and the area is 9 × 9 = 81 square centimetres.",
+    "B": "144 is 36 × 4, the whole perimeter multiplied by four rather than shared between the four sides. One side comes from 36 ÷ 4 = 9, and the area is 9 × 9 = 81 square centimeters.",
+    "C": "72 is 36 × 2, the perimeter doubled. One side comes from 36 ÷ 4 = 9, and the area is 9 × 9 = 81 square centimeters.",
     "A": "36 is the perimeter, not the area; each side is 36 ÷ 4 = 9, and 9² = 81."
    },
-   "content_hash": "48e58ce33dd9fcb1"
+   "content_hash": "96508e6b082cfe53"
   },
   {
    "id": "QR-W4-S2-10",
