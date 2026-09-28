@@ -70,6 +70,35 @@ def why_errors(it):
             if rhs is not None and abs(lhs-rhs)>1e-9:
                 out.append(f'{i}: why on {k} says "{m.group(1)} is {m.group(2).strip()}", which is {rhs:g}')
     return out
+# ---- a trap note has to be about its own question ----------------------------
+# `misconceptions` never reaches the bundle — it is indexing for whoever is
+# writing, not text for her — so nothing on screen ever contradicted it, and one
+# note had drifted onto the wrong item unnoticed: M01-RC-021's read "accepts
+# Amir's initial fear", and there is no Amir in that question, its choices, its
+# explanation or its passage. It was describing some other question entirely.
+#
+# A note naming somebody who is not there is worse than a blank one, because the
+# next person to write a `why` from it would author a sentence about a character
+# the reader has never met. Proper nouns only: that is the part of a trap note
+# that can be wrong in a way a machine can see.
+PROPER = re.compile(r'\b[A-Z][a-z]{2,}\b')
+NOT_A_NAME = set(
+    'Stanine Strategy Which What Why How When Where The And But For From With Into Over Under '
+    'Area Volume Perimeter Median Mean Mode Range Quadrant Adding Adds Multiply Multiplies '
+    'Subtract Subtracts Divide Divides Counts Treats Reads Reverses Ignores Omits Confuses '
+    'Assumes Applies Uses Monday Tuesday Wednesday Thursday Friday Saturday Sunday'.split())
+
+def trap_errors(it, passages):
+    tag = str(it.get('misconceptions') or '').strip()
+    if not tag: return []
+    names = {w for w in PROPER.findall(tag)} - NOT_A_NAME
+    if not names: return []
+    hay = (str(it.get('prompt') or '') + ' ' + ' '.join((it.get('choices') or {}).values()) + ' '
+           + str(it.get('explanation') or '') + ' ' + passages.get(it.get('passage_id') or '', ''))
+    absent = sorted(n for n in names if n not in hay)
+    if not absent: return []
+    return [f'{it["id"]}: misconceptions names {", ".join(absent)}, who appears nowhere in this question']
+
 # ---- every wrong choice gets answered, in every bank ---------------------------
 # 1,510 of 1,510 now, so this is an error rather than a count. It was a mock-only
 # rule for one commit, while the mock was at 508 of 508 and the practice banks
@@ -95,10 +124,11 @@ from letters import letter_errors, self_test
 
 errs += self_test()          # the detector is checked before the content is
 BANKS='content/question-banks'
-pass_ids=set()
+pass_ids=set(); passage_text={}
 for f in os.listdir('content/passages'):
     for p in json.load(open(f'content/passages/{f}'))['items']:
         pass_ids.add(p['id'])
+        passage_text[p['id']]=str(p.get('text') or '')
         if not p.get('text') or len(str(p['text']))<100: errs.append(f'{p["id"]}: passage text missing/short')
 
 seen=set()
@@ -130,6 +160,7 @@ for f in sorted(os.listdir(BANKS)):
         errs += gloss_errors(it)
         errs += letter_errors(it)
         errs += why_gap_errors(it)
+        errs += trap_errors(it, passage_text)
 
 # answer-position sanity per bank/form
 for f in sorted(os.listdir(BANKS)):

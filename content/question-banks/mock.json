@@ -5758,11 +5758,11 @@
    },
    "correct": "D",
    "explanation": "The passage traces acidic rainwater from dissolving cracks to building stalactites.",
-   "misconceptions": "accepts Amir's initial fear; focuses on facts",
+   "misconceptions": "treats a cave as finished; credits sudden forces; reads stalactites as ice",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "M01-RC-P05",
    "form": "M01",
-   "content_hash": "baf20fd7b26c4e70",
+   "content_hash": "352d4051f307b1f6",
    "why": {
     "A": "The passage says the opposite: even then, the water keeps working.",
     "B": "The first sentence rules that out — a cave is not carved by one storm or earthquake.",
@@ -6182,9 +6182,9 @@
    "misconceptions": "18% of 35; adds percent",
    "source": "Original content authored for Sheila ISEE",
    "form": "M01",
-   "content_hash": "651a209fef19acd8",
+   "content_hash": "add37e30b4e98017",
    "why": {
-    "B": "53 is ten under; 10% of 350 is 35 and 8% is 28, so 18% is 63.",
+    "B": "53 is 35 + 18, adding the 18 from “18%” to the 35 that is 10% of 350; 10% is 35 and 8% is 28, so 18% is 63.",
     "C": "68 is five over; 0.18 × 350 = 63.",
     "D": "58 is five under; 35 for the 10% and 28 for the 8% give 63."
    }

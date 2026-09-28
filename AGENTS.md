@@ -318,8 +318,9 @@ below with the reason it was wrong.
   refused to write them before the tool knew to stop offering them. Doubling and
   halving survive the rule, because "you doubled it" is a mistake with a name.
 
-  119 items separately carry a `misconceptions` tag naming the trap, which is a
-  head start on the sentence but is not itself shown to her anywhere.
+  119 items in these banks separately carry a `misconceptions` tag naming the
+  trap, which is a head start on the sentence and is not itself shown to her
+  anywhere. All 508 mock items carry one too, in prose rather than as a tag.
 
 Re-derive these over `content/question-banks/*.json` minus `mock.json`, and count
 "names a letter" with the pattern in `tools/audit.py` so the next reader is not
@@ -639,14 +640,29 @@ came back. Which name she called belongs on the attempt (`pick`), not in the id.
 keyed by the letters of its *wrong* choices; the runner shows it above the
 explanation, on the reveal and again on the score card. The explanation can only
 ever describe the correct route — told "perimeter = 2(10+3) = 26" after picking
-30, she still does not learn that 30 was the area. Fifteen items carry one so
-far, all on area and perimeter, written against mistakes Sheila actually made on
-an IXL set. Author it in `content/question-banks/*.json`, never for the correct
-letter, and re-run `tools/validate_content.py` — every item is content-hashed.
+30, she still does not learn that 30 was the area. **All 1,510 items carry one for
+every wrong choice now**, and `tools/validate_content.py` errors on a gap. It began
+as fifteen, all on area and perimeter, written against mistakes Sheila actually
+made on an IXL set. Author it in `content/question-banks/*.json`, never for the
+correct letter, and re-run the validator — every item is content-hashed.
 
-The older `misconceptions` field on 616 items is a *tag* (`area-vs-perimeter`),
-not prose, and `make_bundle.py` has never carried it into the bundle. It is
-indexing for us, not text for her; `why` is the text.
+The `misconceptions` field on 627 items is the older idea and a different one:
+`make_bundle.py` has never carried it into the bundle, so it reaches her nowhere.
+It is indexing for whoever is writing; `why` is the text. The two halves are not
+the same shape — the 119 non-mock ones are kebab-case tags (`area-vs-perimeter`)
+while all 508 mock ones are short prose naming two traps apiece ("adds
+denominators; conversion"), which makes them a usable draft of a `why` and worth
+reading before authoring one.
+
+Worth reading, and worth checking. Because nothing on screen ever contradicts a
+trap note, one had drifted onto the wrong question and sat there: M01-RC-021's
+said "accepts Amir's initial fear", and that item is about limestone caves with no
+Amir anywhere in it. The validator now refuses a note naming somebody absent from
+the question, its choices, its explanation and its passage. Read against the notes
+the other 507 mock items carry, the `why` sentences agreed in substance
+throughout — with one place where the author had seen further than I had, on
+`M01-MA-012`, where 53 is 35 + 18: the 10% value plus the percent itself, which is
+a mistake with a name where I had only written "ten under".
 
 `tools/audit.py` asks the other question — not whether an item is well formed but
 whether it is a good question, which is the part no validator can gate on. It
