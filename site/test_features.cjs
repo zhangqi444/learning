@@ -886,14 +886,28 @@ async function setLs(pg, mutate, read, ms = 12000) {
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('text=plan tasks done');
   check('dashboard tile shows this week checklist progress', /\d+ of \d+ plan tasks done/.test(await body(pg)));
   await pg.waitForSelector('[data-testid=home-checklist]');
-  const homeOpen = await pg.$$eval('[data-testid=home-checklist] [data-testid=ck-item][data-done="0"]', (n) => n.length);
-  const homeDoneShown = await pg.$$eval('[data-testid=home-checklist] [data-testid=ck-item][data-done="1"]', (n) => n.length);
-  check('dashboard checklist lists only what is left', homeOpen >= 1 && homeDoneShown === 0, `${homeOpen} open, ${homeDoneShown} done shown`);
-  await pg.click('[data-testid=home-toggle-done]');
-  check('finished work folds open on request', (await pg.$$('[data-testid=home-done]')).length >= 1);
+  /* Make the finished item rather than hope for one. Every row this tile draws
+     is computed from her work, and none of them can be ticked by hand, so the
+     "Show N done" fold does not exist until something is genuinely finished.
+     On the first morning of a plan week nothing is: W4 opened on 28 September
+     with eighteen open rows and no fold, and the old version of this check —
+     which clicked the toggle the moment it arrived — timed out for a reason
+     that had nothing to do with the code. It had only ever passed because the
+     day it was written fell mid-week. A quick-added item is the one thing on
+     this card that can be finished on demand, which makes the check say the
+     same thing on every date. */
   await pg.fill('[data-testid=home-ck-add]', 'Read 20 pages'); await pg.press('[data-testid=home-ck-add]', 'Enter');
   await pg.waitForSelector('[data-testid=home-custom]');
   check('quick-add from the dashboard lands on the week list', /Read 20 pages/.test(await body(pg)));
+  const homeOpen = await pg.$$eval('[data-testid=home-checklist] [data-testid=ck-item][data-done="0"]', (n) => n.length);
+  await pg.click('[data-testid=home-custom] >> button >> nth=0');
+  await pg.waitForSelector('[data-testid=home-toggle-done]');
+  const homeDoneShown = await pg.$$eval('[data-testid=home-checklist] [data-testid=ck-item][data-done="1"]', (n) => n.length);
+  const folded = !/Read 20 pages/.test(await body(pg));
+  check('dashboard checklist lists only what is left', homeOpen >= 1 && homeDoneShown === 0 && folded, `${homeOpen} open, ${homeDoneShown} done shown, ticked one ${folded ? 'folded away' : 'STILL LISTED'}`);
+  await pg.click('[data-testid=home-toggle-done]');
+  const unfolded = await pg.$$eval('[data-testid=home-checklist] .line-through', (n) => n.map((e) => e.textContent.trim()));
+  check('finished work folds open on request', unfolded.includes('Read 20 pages'), unfolded.join(' | ') || 'nothing shown');
   check('dashboard points at the month parent to-dos', /parent to-do/.test(await body(pg)));
 
   /* Every noun the world defines has to be said somewhere. docs/cats.md opens

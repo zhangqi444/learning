@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:artifact": "LEARNING_TARGET=artifact vite build && node scripts/artifact.mjs",
+    "build": "vite build && node check_css.cjs dist",
+    "build:artifact": "LEARNING_TARGET=artifact vite build && node check_css.cjs dist-artifact && node scripts/artifact.mjs",
     "preview": "vite preview",
     "test": "node run_tests.cjs"
   },

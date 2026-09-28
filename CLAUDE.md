@@ -121,6 +121,30 @@ Claude-Session: <session url>
   the Vite plugin's `closeBundle` copies it to a hard-coded `dist/content/`, so a
   `--outDir` build followed by a copy leaves the app with no data to fetch and
   every suite times out at the sign-in gate for no stated reason.
+- **Tailwind v4 does not scan `node_modules`.** The shadcn primitives come from
+  `@zhangqi444/ui` now, so the whole of their styling hangs on one line —
+  `@source "../node_modules/@zhangqi444/ui/src";` in `src/index.css`. Remove it
+  and the build still succeeds, every import still resolves, and all four suites
+  still pass, because they assert on text, roles and behaviour and cannot see a
+  missing rule; the page just renders as unstyled HTML. `check_css.cjs` compares
+  the class names only the package uses against the stylesheet the build
+  produced, and runs at the end of both `npm run build` and `build:artifact` —
+  inside the command the deploy runs, for the same reason the content validator
+  had to move inside `npm test`. With the line, 74 of 185 such classes are in
+  the stylesheet; without it, 2, and the build stops. In the artifact target it
+  stops *before* `scripts/artifact.mjs`, so a stripped `artifact.html` is never
+  written.
+- **A check that reads the real calendar will fail on a date nobody chose.**
+  `test_features.cjs` clicked the dashboard's "Show N done" fold as soon as the
+  page loaded. That fold only exists once something on the open week is
+  finished, and every row the tile draws is computed from her work — none can be
+  ticked by hand. So on the first morning of a plan week there is nothing to
+  show and no toggle to click: on 28 September, the day W4 opened, the suite
+  died on a 30-second timeout naming a selector, with nothing in the diff to
+  explain it. The check had only ever passed because the day it was written fell
+  mid-week. The fix is to make the finished item — quick-add one and tick it —
+  rather than hope the date supplies one. Anything asserting on `spanOpen()`
+  wants the same treatment, or `pg.clock.install`.
 
 ## Verification habit
 
