@@ -13,6 +13,14 @@ working agreement for Claude Code sessions.
   rule that has already caught two attempts: the content must *be* the mechanic.
   If a feature would work just as well with the questions swapped for arithmetic
   flashcards, it is a veneer — the owner has rejected that twice.
+- Changing **what she practises, how much of it, or when** — a week's item count, the
+  chunking, the review intervals, the mastery thresholds, the readiness weights, a mock
+  date — means reading **AGENTS.md § How the learning system is designed** first, and
+  [README.md](README.md) for the shape of it. Those numbers are decisions with reasons
+  attached, not defaults. Two of them have already been mistaken for defects and
+  "fixed": Verbal's 33% share, which is deliberate, and the week loads, which are uneven
+  on purpose. A third is a trap — `SETSIZE` and `chunk()` are mirrored in
+  `build_seed.py`, so changing either invalidates every migrated Week-1 result.
 - Anything at the level of a button, a blink or a noise is
   **[docs/cats.md](docs/cats.md)** as well — it decides how the world sounds,
   moves and behaves. Say which of Skin, Signal or Mechanic the thing is before

@@ -215,6 +215,72 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
 - Question banks are fact-checked before they land. A wrong answer key is worse
   than a missing question.
 
+## How the learning system is designed
+
+[README.md](README.md) is the readable version of this — the exam, the week table, the calendar
+and the surfaces. What follows is the part an agent can break: the decisions, the reason each one
+is as it is, and which of them are load-bearing.
+
+**The unit of work is a sitting, not a question.** `chunk()` (`src/lib/content.js`) splits a
+week's questions for one subject into near-equal groups of at most `SETSIZE = 12`, so 37 Verbal
+questions become 10/9/9/9 and never 12/12/12/1 — a set of one is a demoralising way to finish a
+subject. The app says "each set is one sitting" on the page, so *sitting* is her word and ours.
+`build_seed.py` mirrors this split, so changing `SETSIZE` or the chunking rule silently invalidates
+every migrated result. Do not touch it without re-deriving the seed.
+
+**Every wrong choice is answered.** All 1,510 items carry a `why` per wrong choice, and the
+validator errors on a gap in any bank. This is the property the site is *for*: an explanation can
+only ever describe the correct route, so "perimeter = 2(10+3) = 26" never tells her that the 30 she
+picked was the area. If you add a question, you author three `why` sentences with it or the gate
+refuses the commit.
+
+**The 8 plan weeks are 112–142 questions each, in 11–13 sittings, plus 20 words and one essay.**
+The range is not flat: W3 and W4 are the heaviest at 137 and 142, because they carry the two
+54-item Verbal weeks, and they fall either side of the diagnostic (W3 ends Sep 20, the diagnostic
+runs Sep 21–27, W4 starts Sep 28). Whether that placement was chosen or fell out of the week sizes
+is not recorded anywhere, so do not invent a reason for it — ask. What *is* certain is the
+mechanism: any change to a week's item count changes its sitting count through `ceil(n/12)`, which
+is what she actually feels. 37 items is four sittings; 36 is three.
+
+**Verbal is over-weighted on purpose.** 33% of practice against 27% of the paper. 181 of its 330
+items are sentence completion, which is the mechanic the whole site is built on, and Verbal gates
+the rest. This has been mistaken for a defect and flagged as one; it is not. The mocks reproduce
+the exam's true proportions exactly, so shape exposure lives there and the practice weeks are free
+to be weighted for teaching. Do not "rebalance" the bank toward the paper without the owner asking.
+
+**Spaced review is 1, 3, 7, 21 days** (`INTERVALS`), retiring on two correct answers on
+*different* days with a check-in at three weeks. The rule that carries the weight is which answers
+count as evidence: `LEARN_CTX` admits `set`, `review`, `mixed`, `mock`, `vocab` and `again`, and
+excludes `corr`. A corrections pass re-asks the question whose answer she has just been shown, so
+it proves nothing; `again` asks a *different* question on the same skill, so it proves something.
+Adding a new context means deciding which of those two it is.
+
+**The mastery ladder refuses to brighten on thin evidence.** Fewer than three questions attempted
+caps a skill at Started. Mastered needs `PROMOTE_AT = 2` questions right in a **mixed** set or a
+**mock**, on a later day than the first attempt — twice in a context that did not announce which
+skill was coming. Anything overdue holds the skill at Familiar however good the accuracy.
+
+**Readiness is six weighted parts** — accuracy 30, mock 20, mastery 20, pacing 10, review 10,
+consistency 10 — and the page always names the largest weighted shortfall so there is something to
+do today. Two rules inside it are decisions, not arithmetic: an overdue pile jumps the queue once
+half of it is late, because it is the one lever that works the same afternoon; and **essays are
+counted beside the number and never inside it**, because the ISEE returns no score for the writing
+sample and a number there would measure that she wrote one rather than how well.
+
+**The four mocks are not four of the same thing.** The diagnostic is split across two sittings
+because it is a baseline and not an endurance test; the three later papers are single-sitting
+because by then stamina is part of what is being measured. Each is followed by a correction pass
+rather than a score, and the score card groups misses **by skill** rather than in paper order —
+a real diagnostic leaves ninety-odd misses, and one flat list of them ran to forty-six screens on a
+laptop and sixty-nine on a phone. Nobody reteaches anything from a page that long.
+
+**The mock dates hang off a real test date that is not yet fixed.** The plan assumes a December
+sitting; the calendar also records a Bush School group sitting on **Sat Oct 24** and an Eastside
+Catholic one on **Sat Dec 5**. Those are not interchangeable — an October date falls inside Mock 1's
+own week (Oct 19–25), and the Fall season closes Nov 30, which puts Mock 3 (Nov 23–29) on the wrong
+side of it. Before changing any mock date, read `calendar.events` and `calendar.monthly` and work
+out which sitting the schedule is actually serving.
+
 ## The game
 
 The site is not a quiz with a game bolted onto it. It is one world — **Wildlight**
