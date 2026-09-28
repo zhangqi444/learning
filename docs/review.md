@@ -29,10 +29,11 @@ straight into `reviews` there. The site reads the remote copy before every push
 (`Store.pull` runs inside `flush`), so a review it has never seen is merged in,
 never overwritten.
 
-**Checked on 2026-09-13, and it still cannot.** The Google Drive connector can
-*read* `progress.json` and can *create* new files, but its `update_file` takes
-only `title` and `parentId` — it writes metadata, never bytes. There is no way
-to add a key to an existing file. Creating a second `progress.json` is worse
+**Checked on 2026-09-13, re-checked 2026-09-28, and it still cannot.** The Google
+Drive connector can *read* `progress.json` and can *create* new files, but its
+`update_file` takes only `fileId`, `title` and `parentId` — it writes metadata,
+never bytes, and its own description says so: "currently only title and parent_id
+are supported". There is no way to add a key to an existing file. Creating a second `progress.json` is worse
 than useless: the site finds its file by name, so two would be ambiguous, and
 replacing the file would mean deleting her record, which hard rule 1 forbids
 outright. So the import link is a real bridge over a real gap, not a step
