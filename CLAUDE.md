@@ -13,6 +13,14 @@ working agreement for Claude Code sessions.
   rule that has already caught two attempts: the content must *be* the mechanic.
   If a feature would work just as well with the questions swapped for arithmetic
   flashcards, it is a veneer — the owner has rejected that twice.
+- Changing **what she practises, how much of it, or when** — a week's item count, the
+  chunking, the review intervals, the mastery thresholds, the readiness weights, a mock
+  date — means reading **AGENTS.md § How the learning system is designed** first, and
+  [README.md](README.md) for the shape of it. Those numbers are decisions with reasons
+  attached, not defaults. Two of them have already been mistaken for defects and
+  "fixed": Verbal's 33% share, which is deliberate, and the week loads, which are uneven
+  on purpose. A third is a trap — `SETSIZE` and `chunk()` are mirrored in
+  `build_seed.py`, so changing either invalidates every migrated Week-1 result.
 - Anything at the level of a button, a blink or a noise is
   **[docs/cats.md](docs/cats.md)** as well — it decides how the world sounds,
   moves and behaves. Say which of Skin, Signal or Mechanic the thing is before
@@ -81,6 +89,26 @@ Claude-Session: <session url>
   and all four browser suites die at once with "Cannot find module 'playwright'",
   in zero seconds, which reads like a catastrophe and is a missing package.
   Reinstall it with `npm i --no-save playwright`.
+- **A stale `node_modules` reads as a missing upstream module, and it is not.** After
+  `fbb7e6e` moved the chrome into `@zhangqi444/ui`, the build died with `"./app/app-shell"
+  is not exported under the conditions ["module","browser","production","import"]`. The
+  installed copy of that package had no `app/` directory and an `exports` map with three
+  entries, so the obvious reading — that the six `app/*` modules had never been published
+  and the owner was holding them locally — is the one I wrote down, and it was wrong.
+  **The pinned commit contains all of them.** `git ls-remote` only tells you the newest
+  commit, not what is inside the one you have; to see that, list the pinned tree:
+  `git clone --filter=blob:none --no-checkout https://github.com/zhangqi444/ui.git` then
+  `git ls-tree -r --name-only <sha>`. Reinstalling the pin fixed it, and the fix has to
+  name the four packages that get pruned in the same breath, per the entry below:
+
+```bash
+npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63.0 @rolldown/binding-darwin-arm64@1.2.7 lightningcss-darwin-arm64@1.32.0 @tailwindcss/oxide-darwin-arm64@4.3.3
+```
+
+  Use the **https** URL even though the lockfile resolves that dependency over
+  `git+ssh`, so the install does not depend on a loaded key. `--no-save` leaves both
+  `package.json` and `package-lock.json` untouched, which was verified by diff rather
+  than assumed.
 - **Installing anything can strip the native binaries**, through the npm
   optional-dependency bug (npm/cli#4828). The build then stops with "Cannot find
   native binding" naming one module; install it and the next one appears. On this

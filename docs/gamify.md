@@ -122,13 +122,18 @@ evidence asks for, and it was already made.
 **The streak already refuses to punish.** Two forgiven days a week, built in.
 That is rule 3 taken seriously in code, and it is the model for everything else.
 
-**There is one real farming hole.** `eachTimestamp` (`engine.js:498`) awards
-`review:1` per entry in an item's `hist`. Sets are safe — redoing one replaces
-its timestamp, so a set is worth at most 20 points ever — but the review pile is
-not: `/review/<sub>/all` serves scheduled items, and each pass adds history and
-points. Today it is harmless because a point is a point. The moment points buy
-something, it becomes the exact Duolingo failure mode. **Fix it before Stage 3:**
-count review and vocab points once per item per day.
+**There was one real farming hole, and it is closed.** `eachTimestamp` awarded
+`review:1` per entry in an item's `hist`. Sets were safe — redoing one replaces
+its timestamp, so a set is worth at most 20 points ever — but the review pile was
+not: `/review/<sub>/all` serves scheduled items, and each pass added history and
+points. It was harmless only while a point bought nothing; the moment points buy
+something it is the exact Duolingo failure mode. The cap asked for here is in
+`eachTimestamp` now — review and vocab answers pay once per item per day, deduped
+by day rather than outright so `activityDays` stays honest and a day with work on
+it still emits a timestamp. Every other source in that function was already
+self-limiting, which was checked rather than assumed: a set and a mock section
+replace their own timestamp, a precision word is keyed by the word, and
+`logSession` filters out the day it is writing, so a book pays once per day too.
 
 ---
 
@@ -381,30 +386,36 @@ most useful thing in this document. What replaced it:
 1. **Watch her use it.** Everything here is a considered guess about what a
    ten-year-old finds motivating. An hour of watching will say more than another
    stage would.
-2. ~~The two digest Routines have no Drive connector.~~ **Fixed by the owner on
-   8 September** — both now carry Google Drive and Google Calendar, and both have
-   fired. Whether they produce a digest end to end is a separate question from
-   whether they can read the file; see the note below.
+2. ~~The two digest Routines have no Drive connector.~~ ~~Whether they produce a
+   digest end to end is a separate question.~~ **Done.** Connectors added by the
+   owner on 8 September; confirmed producing an emailed digest on 28 September.
+   See the note below for what is left, which is one click and deliberate.
 3. ~~Two of Sheila's world questions are still open.~~ Answered and built — see
    world.md §9.
 
-**The digest Routines still do not work, and here is exactly why.** Both carry
-the right connectors, both fire, and the weekly one reports `last_run:
-SUCCEEDED` — but no digest has ever been produced. `SUCCEEDED` means the fired
-session finished cleanly, not that it made anything.
+**The digest Routines work.** The owner confirmed on 28 September 2026 that the
+scheduled digest arrives by email, carrying the summary and the import link.
 
-The cause is in the Routine's stored session request: **`config.sources` is
-empty**. The fired session gets no repository, so `/home/user` is not a checkout,
-`.claude/skills/progress-digest/SKILL.md` is not there, and step 1 of the prompt
-cannot run. The session correctly reported this and fabricated nothing.
+What this paragraph used to say — that no digest had ever been produced because the
+Routine's stored `config.sources` was empty, so the fired session got no checkout and
+`.claude/skills/progress-digest/SKILL.md` was not there — was true when it was written on
+10 September and is not true now. How it came to be fixed is not recorded here, because I
+do not know: the Routines live in the claude.ai UI, a session cannot read them, and I
+reported the stale diagnosis as current once already. If it breaks again, `SUCCEEDED` on a
+Routine means the fired session finished cleanly and not that it made anything, and an
+empty `sources` is the first thing to check. (The old note also named the source repo as
+`zhangqi444/isee`; the remote is `zhangqi444/learning`.)
 
-**This cannot be fixed from inside a session.** `create_trigger` has no `sources`
-parameter and does not inherit the calling session's repository — verified on
-10 September with a throwaway Routine created from this repo-bound session, whose
-stored config still came back `"sources":[]`. The fix is the owner editing each
-Routine in the claude.ai Routines UI and selecting `zhangqi444/isee` as its
-source repository. The connectors are already right; the repo is the missing
-half.
+**The last step is still a click, and that is by design rather than by omission.** The
+email ends with the import link because nothing outside the site can put a review into
+`progress.json`: the app holds only the `drive.file` scope, so it cannot see a file the
+digest job creates, and the Drive connector's `update_file` writes metadata and never
+bytes — re-checked 2026-09-28, see [review.md](review.md). The click also buys something
+worth keeping: the link shows a preview first, so a review is never added to her record
+without a person seeing it. If a future connector can write bytes into an existing file,
+`Store.pull` already runs inside every `flush`, so a review dropped straight into
+`progress.json` would be merged rather than overwritten — the site is ready for that day
+without a change.
 
 ---
 

@@ -359,6 +359,15 @@ function MissedBySkill({ misses, form }) {
                       <p className="text-[15px] leading-snug font-medium">{q.q}</p>
                       <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{pick ? `${pick}. ${q.c[LTR.indexOf(pick)]}` : "—"}</span></div>
                       <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
+                      {/* What the choice she actually made really was, above the
+                          general explanation and in that order because the
+                          explanation can only ever describe the correct route:
+                          "perimeter = 2(10+3) = 26" never tells her the 30 she
+                          picked was the area. This card is the one surface that
+                          knows which wrong choice she made — it is recorded right
+                          there in `pick` — and it was showing her the same
+                          paragraph as everyone who missed it differently. */}
+                      {pick && q.y && q.y[pick] ? <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{q.y[pick]}</div> : null}
                       {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
                       {/* Classifying stays per question: each miss has its own
                           reason, and "I misread it" about twelve questions at

@@ -18,7 +18,7 @@
     "D": "The garden's greatest value was the vegetables it grew through the summer."
    },
    "correct": "A",
-   "explanation": "The food, shared tools, recipes, and lessons support both practical and social benefits. B contradicts the successful garden; C is one detail; D is unsupported. Strategy: choose the choice that covers the whole passage, not one example.",
+   "explanation": "The food, shared tools, recipes, and lessons support both practical and social benefits. Strategy: choose the choice that covers the whole passage, not one example.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
@@ -28,7 +28,7 @@
     "C": "The barrels under the roof drains are really there, but they are one thing the volunteers set up, and the question asks what the whole passage is about.",
     "D": "The garden did produce food, but the passage says its larger success was social - people who had barely nodded to one another began trading recipes and sharing tools."
    },
-   "content_hash": "508fabafe95bddfc"
+   "content_hash": "9fbb863f7c779bdf"
   },
   {
    "id": "RC-SEP-W1-S1-Q02",
@@ -45,7 +45,7 @@
     "D": "Volunteers built raised beds."
    },
    "correct": "D",
-   "explanation": "The second sentence group directly says volunteers built raised beds. A, B, and C add facts not given. Strategy: point to the exact sentence before choosing.",
+   "explanation": "The second sentence group directly says volunteers built raised beds. Strategy: point to the exact sentence before choosing.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
@@ -55,7 +55,7 @@
     "B": "Children are in the passage, but as the ones the Saturday lessons were planned for, not as the people who did the planting.",
     "C": "The tall buildings are mentioned as what the garden grew beside, and nothing in the passage says they were taken down."
    },
-   "content_hash": "770fa16de586b92e"
+   "content_hash": "9bf4c18b4ffde1b0"
   },
   {
    "id": "RC-SEP-W1-S1-Q03",
@@ -72,7 +72,7 @@
     "D": "They no longer needed a garden."
    },
    "correct": "C",
-   "explanation": "Trading recipes, sharing tools, and planning lessons show closer relationships. A, B, and D have no evidence. Strategy: infer only the conclusion that the listed facts make likely.",
+   "explanation": "Trading recipes, sharing tools, and planning lessons show closer relationships. Strategy: infer only the conclusion that the listed facts make likely.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
@@ -82,7 +82,7 @@
     "B": "Nothing in the passage is about selling the lot - by midsummer the neighbors are sharing tools and planning Saturday lessons for children.",
     "D": "The passage ends with the lot as a place where neighbors had a reason to work together, which is the opposite of not needing it."
    },
-   "content_hash": "065cd544eb5e7369"
+   "content_hash": "4c1d8d6fdea62159"
   },
   {
    "id": "RC-SEP-W1-S1-Q04",
@@ -99,7 +99,7 @@
     "D": "empty and unused."
    },
    "correct": "D",
-   "explanation": "Litter had collected on a lot that later became a garden, so it was empty/unused. A is the opposite; B and C are not supported. Strategy: replace the word in its sentence with each choice.",
+   "explanation": "Litter had collected on a lot that later became a garden, so it was empty/unused. Strategy: replace the word in its sentence with each choice.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
@@ -109,7 +109,7 @@
     "B": "Testing the soil and building the beds came later, once the volunteers got to work; the word describes the lot as it was before any of that.",
     "C": "The passage calls it a city lot, beside tall buildings - so it is not somewhere far from town."
    },
-   "content_hash": "f08e41da358d3386"
+   "content_hash": "f900e70b38e3caa7"
   },
   {
    "id": "RC-SEP-W1-S1-Q05",
@@ -126,7 +126,7 @@
     "D": "To show that the residents who doubted the garden had been right all along."
    },
    "correct": "A",
-   "explanation": "The paragraph moves from physical success to community success. B and C invent purposes; D contradicts the passage. Strategy: track what each part adds to the author's developing point.",
+   "explanation": "The paragraph moves from physical success to community success. Strategy: track what each part adds to the author's developing point.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
@@ -136,7 +136,7 @@
     "C": "No large farm appears anywhere in the passage, so there is nothing for the garden's crops to be compared with.",
     "D": "The doubters are in the passage, but the climbing tomatoes and the visiting bees show they turned out to be wrong."
    },
-   "content_hash": "f763f2b0bc541dd9"
+   "content_hash": "8dd0edab2f57f6f1"
   },
   {
    "id": "RC-SEP-W1-S1-Q06",
@@ -153,7 +153,7 @@
     "D": "gained importance beyond its appearance."
    },
    "correct": "D",
-   "explanation": "The contrast introduces the garden's social value. A takes the phrase literally; B and C conflict with the passage. Strategy: notice contrasts such as “not simply” for an author's deeper point.",
+   "explanation": "The contrast introduces the garden's social value. Strategy: notice contrasts such as “not simply” for an author's deeper point.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S1-P",
@@ -163,7 +163,7 @@
     "B": "The passage never says anything about the lot's size, and the tomatoes did grow there.",
     "C": "The flowers are described as bright, with bees visiting them, so nothing was lost."
    },
-   "content_hash": "579cf011d263cd50"
+   "content_hash": "c086b28235c194d5"
   },
   {
    "id": "RC-SEP-W1-S2-Q01",
@@ -180,7 +180,7 @@
     "D": "Old and modern communication both depend on shared signal systems."
    },
    "correct": "D",
-   "explanation": "The final sentence connects older codes to modern communication. A and B are false; C is too broad and ignores limits. Strategy: use the conclusion to test the main idea.",
+   "explanation": "The final sentence connects older codes to modern communication. Strategy: use the conclusion to test the main idea.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
@@ -190,7 +190,7 @@
     "B": "Fog is named as a problem, but the passage says the crews learned codes to reduce confusion about what a signal meant.",
     "C": "The last sentence says satellite communication depends on the same basic rule, so the need for an agreed system did not go away."
    },
-   "content_hash": "5c48f2a5cb6d3719"
+   "content_hash": "1fe2512550af16c0"
   },
   {
    "id": "RC-SEP-W1-S2-Q02",
@@ -207,7 +207,7 @@
     "D": "A captain's observation."
    },
    "correct": "A",
-   "explanation": "Fog is named with rain and distance as an obstacle. B reduces confusion; C permits flags; D helps communication. Strategy: distinguish a stated obstacle from a stated solution.",
+   "explanation": "Fog is named with rain and distance as an obstacle. Strategy: distinguish a stated obstacle from a stated solution.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
@@ -217,7 +217,7 @@
     "C": "Daylight is when a flag could carry a message, so it helped rather than interrupted.",
     "D": "Careful observation is listed among the things ships relied on, which makes it a help and not an obstacle."
    },
-   "content_hash": "9f05d64799b5501e"
+   "content_hash": "3ed7171fd48eeb1a"
   },
   {
    "id": "RC-SEP-W1-S2-Q03",
@@ -234,7 +234,7 @@
     "D": "The pattern changed every day."
    },
    "correct": "B",
-   "explanation": "Agreement in advance removes the need to guess. A is contradicted by fog and rain; C and D are unsupported. Strategy: connect cause (shared code) to result (quick understanding).",
+   "explanation": "Agreement in advance removes the need to guess. Strategy: connect cause (shared code) to result (quick understanding).",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
@@ -244,7 +244,7 @@
     "C": "The passage says the captain did not need to guess what the pattern meant, which is not the same as having nothing to decide.",
     "D": "Both ships had agreed in advance what the pattern meant, so a pattern that changed daily would undo the whole point."
    },
-   "content_hash": "10b9ce6892a5d722"
+   "content_hash": "61f6190039b774eb"
   },
   {
    "id": "RC-SEP-W1-S2-Q04",
@@ -261,7 +261,7 @@
     "D": "stop or disturb."
    },
    "correct": "D",
-   "explanation": "Weather and distance can stop/disturb communication. A–C do not fit the sentence. Strategy: use the surrounding list of obstacles to define the word.",
+   "explanation": "Weather and distance can stop/disturb communication. Strategy: use the surrounding list of obstacles to define the word.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
@@ -271,7 +271,7 @@
     "B": "Nothing in the sentence is being copied; the weather and the distance are keeping the message from getting through.",
     "C": "This is the opposite: the sentence names fog, rain and distance as things that got in the way."
    },
-   "content_hash": "285716437ad6a577"
+   "content_hash": "7e2ed0c132389d35"
   },
   {
    "id": "RC-SEP-W1-S2-Q05",
@@ -288,7 +288,7 @@
     "D": "argue that ships today would be safer if they went back to flags."
    },
    "correct": "C",
-   "explanation": "It links ships' codes and satellites through the shared-system principle. A and B are unrelated; D is not argued. Strategy: ask how the ending changes or broadens the earlier information.",
+   "explanation": "It links ships' codes and satellites through the shared-system principle. Strategy: ask how the ending changes or broadens the earlier information.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
@@ -298,7 +298,7 @@
     "B": "Satellites are mentioned, but the sentence gives no steps for building one - it states a rule about a sender and a receiver.",
     "D": "The passage never says today's ships should change anything; it says the old way and the new one rest on the same rule."
    },
-   "content_hash": "2c0cc3746b47d29e"
+   "content_hash": "bb21c0f85948d246"
   },
   {
    "id": "RC-SEP-W1-S2-Q06",
@@ -315,7 +315,7 @@
     "D": "regretful that ships no longer use flags and lamps."
    },
    "correct": "C",
-   "explanation": "The explanation is calm and respects crews' efforts to reduce confusion. A, B, and D lack textual signals. Strategy: judge tone from word choice and purpose, not topic alone.",
+   "explanation": "The explanation is calm and respects crews' efforts to reduce confusion. Strategy: judge tone from word choice and purpose, not topic alone.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W1-S2-P",
@@ -325,7 +325,7 @@
     "B": "Satellite communication is called much faster, and the passage raises no worry about it at all.",
     "D": "The passage notices the change without wishing the old way back; what interests it is the rule that stayed the same."
    },
-   "content_hash": "c306a73ef7852240"
+   "content_hash": "3fb84fd127fd1b53"
   },
   {
    "id": "RC-SEP-W2-S1-Q01",
@@ -342,7 +342,7 @@
     "D": "The owl's soft fringes make it the swiftest hunting bird in the air."
    },
    "correct": "B",
-   "explanation": "Feather structure, quiet-flight benefits, and the speed tradeoff are the whole passage. A and C are absent; D contradicts it. Strategy: include both the central mechanism and the author's qualification.",
+   "explanation": "Feather structure, quiet-flight benefits, and the speed tradeoff are the whole passage. Strategy: include both the central mechanism and the author's qualification.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
@@ -352,7 +352,7 @@
     "C": "The velvety surface is described on the owl alone, and the passage says nothing about the wings of other hunting birds.",
     "D": "This turns the passage around: the very feathers that make the owl quiet are the ones not designed for high speed."
    },
-   "content_hash": "36f6f9389c16b9b4"
+   "content_hash": "13773eb6670b881c"
   },
   {
    "id": "RC-SEP-W2-S1-Q02",
@@ -369,7 +369,7 @@
     "D": "Increase the bird's top speed."
    },
    "correct": "A",
-   "explanation": "This is directly stated. B and C are invented; D reverses the tradeoff. Strategy: match the noun in the question to the sentence that describes it.",
+   "explanation": "This is directly stated. Strategy: match the noun in the question to the sentence that describes it.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
@@ -379,7 +379,7 @@
     "C": "Nests are not in the passage - the fringes are described as breaking moving air into smaller currents.",
     "D": "The passage says the opposite, that these specialized feathers are not designed for high-speed flight."
    },
-   "content_hash": "c1e6bc620b1a366c"
+   "content_hash": "653eedeea9000faf"
   },
   {
    "id": "RC-SEP-W2-S1-Q03",
@@ -423,7 +423,7 @@
     "D": "a balance in which gaining one benefit means giving up another."
    },
    "correct": "D",
-   "explanation": "Quiet flight helps, but the same feathers do not suit high speed. A denies the contrast; B and C misuse the word. Strategy: look after the word for the author's explanation of it.",
+   "explanation": "Quiet flight helps, but the same feathers do not suit high speed. Strategy: look after the word for the author's explanation of it.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
@@ -433,7 +433,7 @@
     "B": "No call appears in the passage, and the owl's whole advantage is that it makes remarkably little noise.",
     "C": "That is the everyday sense of trading with someone else; here the exchange happens inside one bird, silence gained and speed given up."
    },
-   "content_hash": "d0d842979aa8c223"
+   "content_hash": "7b2098a13075a361"
   },
   {
    "id": "RC-SEP-W2-S1-Q05",
@@ -450,7 +450,7 @@
     "D": "turning the owl example into a general lesson about adaptations."
    },
    "correct": "D",
-   "explanation": "“In nature” generalizes from one animal to a rule about features and limits. A–C misread the function. Strategy: notice when an example is followed by a general statement.",
+   "explanation": "“In nature” generalizes from one animal to a rule about features and limits. Strategy: notice when an example is followed by a general statement.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S1-P",
@@ -460,7 +460,7 @@
     "B": "The passage never ranks the two birds; its point is that a feature helpful in one situation may limit an animal in another.",
     "C": "The two advantages of quiet flight are listed earlier; the closing sentence widens out to features in nature generally."
    },
-   "content_hash": "d75f83931608fa6f"
+   "content_hash": "716e8df095ec5a89"
   },
   {
    "id": "RC-SEP-W2-S1-Q06",
@@ -504,7 +504,7 @@
     "D": "Subway maps are more accurate than navigation charts."
    },
    "correct": "C",
-   "explanation": "The examples show different maps serving different jobs. A and B are false; D makes an unsupported comparison. Strategy: select the claim supported by all examples.",
+   "explanation": "The examples show different maps serving different jobs. Strategy: select the claim supported by all examples.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
@@ -514,7 +514,7 @@
     "B": "What the passage says is that showing a curved Earth on a flat surface always changes something, not that it cannot be drawn.",
     "D": "The two maps are put side by side to show different purposes, and the passage never says one is more accurate than the other."
    },
-   "content_hash": "f50cc2ab1f74d25e"
+   "content_hash": "3c636ab03f3fcf64"
   },
   {
    "id": "RC-SEP-W2-S2-Q02",
@@ -558,7 +558,7 @@
     "D": "A navigation chart already shows those streets for anyone who needs them."
    },
    "correct": "B",
-   "explanation": "The passage says omissions can make stations easier to follow. A, C, and D are invented. Strategy: infer the practical reason from the stated purpose.",
+   "explanation": "The passage says omissions can make stations easier to follow. Strategy: infer the practical reason from the stated purpose.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
@@ -568,7 +568,7 @@
     "C": "The passage says every projection changes something, which is not the same as a street being impossible to place.",
     "D": "The navigation chart in the passage attends to position, water depth and hazards, and streets are not among them."
    },
-   "content_hash": "4b01cd4c7cbc33fd"
+   "content_hash": "cdb8c0b82708b8f1"
   },
   {
    "id": "RC-SEP-W2-S2-Q04",
@@ -585,7 +585,7 @@
     "D": "a beam of light that throws a picture on a screen."
    },
    "correct": "C",
-   "explanation": "The previous sentence defines the mapping sense. A, B, and D are other meanings. Strategy: choose the meaning that fits this subject, not the familiar meaning.",
+   "explanation": "The previous sentence defines the mapping sense. Strategy: choose the meaning that fits this subject, not the familiar meaning.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
@@ -595,7 +595,7 @@
     "B": "Water depth is in the passage, but it belongs to the navigation chart further down, not to this word.",
     "D": "This is the everyday meaning from films and slide shows; here the sentence just before explains showing a curved Earth on a flat surface, and that is the sense the word carries."
    },
-   "content_hash": "d22ef380e52aa1cd"
+   "content_hash": "e3df25bde60178df"
   },
   {
    "id": "RC-SEP-W2-S2-Q05",
@@ -612,7 +612,7 @@
     "D": "They contrast two purposes to support the author's claim."
    },
    "correct": "D",
-   "explanation": "One prioritizes easy routes; the other precise water information. A–C misstate the comparison. Strategy: label each example's job, then identify the relationship.",
+   "explanation": "One prioritizes easy routes; the other precise water information. Strategy: label each example's job, then identify the relationship.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
@@ -622,7 +622,7 @@
     "B": "Hazards are mentioned once, for the chart, but neither map is offered as a danger of travel.",
     "C": "The passage never says when either kind of map was invented."
    },
-   "content_hash": "5d488263b2611ba4"
+   "content_hash": "2f0236a8e1f5a02e"
   },
   {
    "id": "RC-SEP-W2-S2-Q06",
@@ -639,7 +639,7 @@
     "D": "grateful to cartographers for the choices they make."
    },
    "correct": "B",
-   "explanation": "It directs readers to match a map to its job. A is too negative; C and D are unsupported. Strategy: turn the author's advice into a brief attitude description.",
+   "explanation": "It directs readers to match a map to its job. Strategy: turn the author's advice into a brief attitude description.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W2-S2-P",
@@ -649,7 +649,7 @@
     "C": "The last sentence says readers should not ask whether a map is perfectly exact, so this is the question it steers away from.",
     "D": "The cartographers' choices are explained, but the passage asks readers to judge whether a map does its job, not to thank anyone."
    },
-   "content_hash": "b67ac9fde1deaa46"
+   "content_hash": "c598047b151c9f2d"
   },
   {
    "id": "RC-SEP-W3-S1-Q01",
@@ -666,7 +666,7 @@
     "D": "The library learned from storm damage and rebuilt with better preparation."
    },
    "correct": "D",
-   "explanation": "The rescue, inventory, higher shelves, bins, and final lesson all support it. A–C are false or too narrow. Strategy: make sure a summary includes problem, response, and result.",
+   "explanation": "The rescue, inventory, higher shelves, bins, and final lesson all support it. Strategy: make sure a summary includes problem, response, and result.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
@@ -676,7 +676,7 @@
     "B": "The gym is in the passage, but only as the dry place the books were carried to after the storm; the passage then describes the repaired building with its higher shelves and waterproof bins.",
     "C": "The passage says the opposite — the phrase meant the town had not forgotten the storm, and had used what it learned."
    },
-   "content_hash": "1b594a9b304e0aec"
+   "content_hash": "890969a15ba3be9b"
   },
   {
    "id": "RC-SEP-W3-S1-Q02",
@@ -693,7 +693,7 @@
     "D": "Move books to another town."
    },
    "correct": "C",
-   "explanation": "The passage states this directly. A, B, and D are not stated. Strategy: reread the sentence containing the questioned noun.",
+   "explanation": "The passage states this directly. Strategy: reread the sentence containing the questioned noun.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
@@ -703,7 +703,7 @@
     "B": "Volunteers are in the passage, but as the people doing the work; no training is mentioned anywhere.",
     "D": "The books were moved, but only as far as a dry school gym, and the question asks what the inventory itself helped with."
    },
-   "content_hash": "2372ff84a174aad9"
+   "content_hash": "e23937f5f0b2d2d3"
   },
   {
    "id": "RC-SEP-W3-S1-Q03",
@@ -720,7 +720,7 @@
     "D": "They show the library expected no more trouble from future storms."
    },
    "correct": "B",
-   "explanation": "They follow the storm and the lesson about future preparation. A, C, and D lack evidence. Strategy: use sequence plus purpose to make a modest inference.",
+   "explanation": "They follow the storm and the lesson about future preparation. Strategy: use sequence plus purpose to make a modest inference.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
@@ -730,7 +730,7 @@
     "C": "The passage lists the higher shelves and the bins side by side as two things the repaired building had, so one is not standing in for the other.",
     "D": "The passage says the town used what it learned to prepare for future trouble, and the bins are part of that — so they show the library expected more trouble, not less."
    },
-   "content_hash": "0fe9a6bbcc08a757"
+   "content_hash": "005574e5f2667f24"
   },
   {
    "id": "RC-SEP-W3-S1-Q04",
@@ -747,7 +747,7 @@
     "D": "added to the library recently."
    },
    "correct": "A",
-   "explanation": "The library needed to know which works mattered most to replace. B–D do not follow from the sentence. Strategy: identify what role the item plays in the situation.",
+   "explanation": "The library needed to know which works mattered most to replace. Strategy: identify what role the item plays in the situation.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
@@ -757,7 +757,7 @@
     "C": "Higher shelves do appear in the passage, but months later in the repaired building, and this word describes which books mattered rather than where they sat.",
     "D": "The passage never says when any of the books arrived, and essential works are the ones the library could not do without."
    },
-   "content_hash": "84f366e2a3a61e32"
+   "content_hash": "4926d95d026d285b"
   },
   {
    "id": "RC-SEP-W3-S1-Q05",
@@ -774,7 +774,7 @@
     "D": "To change from factual events to the lesson those events illustrate."
    },
    "correct": "D",
-   "explanation": "The quote interprets the repairs, then the ending states the broader idea. A–C are unrelated. Strategy: look for a quotation's role: evidence, voice, or interpretation.",
+   "explanation": "The quote interprets the repairs, then the ending states the broader idea. Strategy: look for a quotation's role: evidence, voice, or interpretation.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S1-P",
@@ -784,7 +784,7 @@
     "B": "The director does appear here, but only as the person who said the phrase; the passage gives the rescue work to the volunteers.",
     "C": "The passage never mentions what anything cost, so the phrase cannot be there to make that point."
    },
-   "content_hash": "256033d65ab61b11"
+   "content_hash": "e2fb83c6981f5199"
   },
   {
    "id": "RC-SEP-W3-S1-Q06",
@@ -828,7 +828,7 @@
     "D": "Glue is the only material engineers use."
    },
    "correct": "B",
-   "explanation": "The failure, measurement, correction, and stronger result form the central chain. A, C, and D are false or too narrow. Strategy: follow the problem-to-response-to-result pattern.",
+   "explanation": "The failure, measurement, correction, and stronger result form the central chain. Strategy: follow the problem-to-response-to-result pattern.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
@@ -838,7 +838,7 @@
     "C": "Her second bridge held eleven kilograms, so the passage shows this is not true.",
     "D": "Glue is mentioned once, for the joint that was set at a slight angle, and the passage says nothing about what materials engineers use in general."
    },
-   "content_hash": "29b90c91b873820b"
+   "content_hash": "dd32db0591cf4c6e"
   },
   {
    "id": "RC-SEP-W3-S2-Q02",
@@ -855,7 +855,7 @@
     "D": "Both sides were identical."
    },
    "correct": "A",
-   "explanation": "The passage identifies the angled joint. B–D are contradicted or unsupported. Strategy: choose the precisely stated cause, not a reasonable-sounding guess.",
+   "explanation": "The passage identifies the angled joint. Strategy: choose the precisely stated cause, not a reasonable-sounding guess.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
@@ -865,7 +865,7 @@
     "C": "The bridge bent under six kilograms when she had expected ten, so the weights were not too light — the angled joint was the trouble.",
     "D": "She compared the two sides and found they were not the same: one joint had been glued at a slight angle."
    },
-   "content_hash": "6cbcacfe00393d84"
+   "content_hash": "41a1b6697c1bffa9"
   },
   {
    "id": "RC-SEP-W3-S2-Q03",
@@ -882,7 +882,7 @@
     "D": "She wanted to make the second bridge much larger than the first."
    },
    "correct": "C",
-   "explanation": "Comparing sides helped locate the shifted support and angled joint. A and B are invented; D conflicts with her investigation. Strategy: infer a step's purpose from what it helped the person discover.",
+   "explanation": "Comparing sides helped locate the shifted support and angled joint. Strategy: infer a step's purpose from what it helped the person discover.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
@@ -892,7 +892,7 @@
     "B": "She changed the one angled joint rather than getting rid of joints, and the passage never mentions a bridge without them.",
     "D": "The passage never says the second bridge was any bigger, only that she changed the joint that had been glued at an angle."
    },
-   "content_hash": "dc370139ab03a4e2"
+   "content_hash": "f734efeb07006566"
   },
   {
    "id": "RC-SEP-W3-S2-Q04",
@@ -909,7 +909,7 @@
     "D": "repeated."
    },
    "correct": "B",
-   "explanation": "The first trial showed which part needed attention. A is opposite; C and D are different actions. Strategy: substitute the choice into the full sentence.",
+   "explanation": "The first trial showed which part needed attention. Strategy: substitute the choice into the full sentence.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
@@ -919,7 +919,7 @@
     "C": "The trial pointed at the part that needed attention; changing the joint was what Mara did next.",
     "D": "She did run a second test, but this word is about what the first trial told her, not about doing it again."
    },
-   "content_hash": "da60dfce82fab685"
+   "content_hash": "b867927876f228cb"
   },
   {
    "id": "RC-SEP-W3-S2-Q05",
@@ -936,7 +936,7 @@
     "D": "knew the answer before testing."
    },
    "correct": "C",
-   "explanation": "The contrast introduces the scientific response: measuring and comparing. A and D oppose it; B is irrelevant. Strategy: contrast words often signal the important choice an author wants you to notice.",
+   "explanation": "The contrast introduces the scientific response: measuring and comparing. Strategy: contrast words often signal the important choice an author wants you to notice.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W3-S2-P",
@@ -946,7 +946,7 @@
     "B": "Art never comes up; the sentence stays with the bridge and what she measured on it.",
     "D": "She expected ten kilograms and got six, so the test told her something she did not already know."
    },
-   "content_hash": "4285287844f6e050"
+   "content_hash": "71077e89de475f1d"
   },
   {
    "id": "RC-SEP-W3-S2-Q06",
@@ -990,7 +990,7 @@
     "D": "Heat from the desert sun is what finally wakes the sleeping seeds."
    },
    "correct": "B",
-   "explanation": "Dormancy, substantial rain, rapid growth, and survival are all central. A and C are false; D is unsupported. Strategy: select the choice that explains both the pattern and its purpose.",
+   "explanation": "Dormancy, substantial rain, rapid growth, and survival are all central. Strategy: select the choice that explains both the pattern and its purpose.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
@@ -1000,7 +1000,7 @@
     "C": "The tough coats do help, but they are only one part: the passage also gives the long wait beneath dry soil and the quick growth after a storm.",
     "D": "In this passage it is a storm soaking the ground that gets the seeds going; the sun's heat is never given that job."
    },
-   "content_hash": "b5a7cd281c014da5"
+   "content_hash": "e899c3904c289ca1"
   },
   {
    "id": "RC-SEP-W4-S1-Q02",
@@ -1017,7 +1017,7 @@
     "D": "Tall stems."
    },
    "correct": "A",
-   "explanation": "The passage directly names the coats and their function. B–D appear later or not at all. Strategy: separate the seed-stage feature from later plant features.",
+   "explanation": "The passage directly names the coats and their function. Strategy: separate the seed-stage feature from later plant features.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
@@ -1027,7 +1027,7 @@
     "C": "Leaves come later, once the plant is growing; the part that protects the waiting seed is its tough outer coat.",
     "D": "Stems are never mentioned in the passage, and the question asks what keeps a seed from sprouting too soon."
    },
-   "content_hash": "cfecd4a2932f1f7a"
+   "content_hash": "4df3278401e23f1c"
   },
   {
    "id": "RC-SEP-W4-S1-Q03",
@@ -1044,7 +1044,7 @@
     "D": "The soil would dry out more quickly once many seeds had begun to grow."
    },
    "correct": "C",
-   "explanation": "The last sentence states this cause and risk. A, B, and D are unsupported. Strategy: use an explicit warning to explain a cause-and-effect question.",
+   "explanation": "The last sentence states this cause and risk. Strategy: use an explicit warning to explain a cause-and-effect question.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
@@ -1054,7 +1054,7 @@
     "B": "The passage never has seeds sharing or competing for water; the risk it names belongs to the one seed that sprouts too early.",
     "D": "The soil does dry again in the passage, but nothing there says growing seeds are what dries it."
    },
-   "content_hash": "f0ff7cafbcb4de37"
+   "content_hash": "4394c72bd30a4683"
   },
   {
    "id": "RC-SEP-W4-S1-Q04",
@@ -1071,7 +1071,7 @@
     "D": "inactive but able to become active later."
    },
    "correct": "D",
-   "explanation": "The seeds wait beneath dry soil, then germinate after a storm. A–C do not fit. Strategy: use what happens before and after the word's condition.",
+   "explanation": "The seeds wait beneath dry soil, then germinate after a storm. Strategy: use what happens before and after the word's condition.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
@@ -1081,7 +1081,7 @@
     "B": "The seeds do lie beneath the soil, but they germinate once a storm soaks the ground, so they were alive the whole time they waited.",
     "C": "The passage says the tough coats stop the seeds sprouting after only a trace of moisture, so this is the opposite."
    },
-   "content_hash": "230777efed7be30b"
+   "content_hash": "7de318ff8ffcaf4c"
   },
   {
    "id": "RC-SEP-W4-S1-Q05",
@@ -1125,7 +1125,7 @@
     "D": "a sign that the seed is dead."
    },
    "correct": "B",
-   "explanation": "The phrase directly rejects the idea that waiting is mere inactivity. A, C, and D oppose the passage. Strategy: notice when the author redefines an everyday idea.",
+   "explanation": "The phrase directly rejects the idea that waiting is mere inactivity. Strategy: notice when the author redefines an everyday idea.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S1-P",
@@ -1135,7 +1135,7 @@
     "C": "The word strategy gives the waiting a purpose, and the last sentence says what a seed avoids by doing it.",
     "D": "The seeds go on to germinate, flower and make new seeds, so waiting is not a sign of a dead seed."
    },
-   "content_hash": "93f532f27cd2b5c6"
+   "content_hash": "327d47c91b178cb1"
   },
   {
    "id": "RC-SEP-W4-S2-Q01",
@@ -1152,7 +1152,7 @@
     "D": "Voting quickly is the fairest way for a council to settle a disagreement."
    },
    "correct": "C",
-   "explanation": "The passage follows disagreement, trial, evidence, adjustment, and compromise. A, B, and D are too narrow, absolute, or false. Strategy: choose the full decision-making process, not one group's opinion.",
+   "explanation": "The passage follows disagreement, trial, evidence, adjustment, and compromise. Strategy: choose the full decision-making process, not one group's opinion.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
@@ -1162,7 +1162,7 @@
     "B": "The council moved a rehearsal period on two days to deal with the music groups' lost setup time, so they were not ignored.",
     "D": "The passage credits the council for not voting immediately, and for gathering evidence first."
    },
-   "content_hash": "cf0eafdf90d09e24"
+   "content_hash": "20678f81a9ae270e"
   },
   {
    "id": "RC-SEP-W4-S2-Q02",
@@ -1206,7 +1206,7 @@
     "D": "To give teachers more time for the interviews the council held."
    },
    "correct": "A",
-   "explanation": "The adjustment follows the finding that groups lost setup time. B–D contradict the passage. Strategy: trace an action back to the result that prompted it.",
+   "explanation": "The adjustment follows the finding that groups lost setup time. Strategy: trace an action back to the result that prompted it.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
@@ -1216,7 +1216,7 @@
     "C": "The passage says the disagreement was not erased, and the question asks what the council was answering — the setup time the music groups lost during the trial.",
     "D": "The council did interview teachers, but that was part of gathering evidence, and the passage never links it to moving a rehearsal."
    },
-   "content_hash": "a093ce6be9177c0d"
+   "content_hash": "8e36def993624aa8"
   },
   {
    "id": "RC-SEP-W4-S2-Q04",
@@ -1233,7 +1233,7 @@
     "D": "able to be handled successfully."
    },
    "correct": "D",
-   "explanation": "Cafeteria lines remained workable during the trial. A is opposite; B and C do not fit. Strategy: use the situation's outcome to choose the word's practical meaning.",
+   "explanation": "Cafeteria lines remained workable during the trial. Strategy: use the situation's outcome to choose the word's practical meaning.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
@@ -1243,7 +1243,7 @@
     "B": "The word here is about the lines being workable, not about them being interesting to watch.",
     "C": "Saying the lines stayed manageable means they could be handled, not that anyone could look past them."
    },
-   "content_hash": "6567e42e3194432e"
+   "content_hash": "ed117db0532a50ce"
   },
   {
    "id": "RC-SEP-W4-S2-Q05",
@@ -1260,7 +1260,7 @@
     "D": "It shows that the disagreement had been completely settled."
    },
    "correct": "B",
-   "explanation": "The results reveal both a success and a problem, then the next sentence adjusts the plan. A, C, and D misread the sequence. Strategy: look for evidence → response links.",
+   "explanation": "The results reveal both a success and a problem, then the next sentence adjusts the plan. Strategy: look for evidence → response links.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
@@ -1270,7 +1270,7 @@
     "C": "No other school is mentioned anywhere in the passage.",
     "D": "This sentence reports a new problem with setup time, and the passage later says the disagreement was not erased."
    },
-   "content_hash": "73c93b30a99e7f00"
+   "content_hash": "90810fa3a31dfa19"
   },
   {
    "id": "RC-SEP-W4-S2-Q06",
@@ -1287,7 +1287,7 @@
     "D": "angry about lunch."
    },
    "correct": "C",
-   "explanation": "The phrase praises a process that tests claims before deciding. A, B, and D lack support. Strategy: identify whether the author's key phrase praises, criticizes, or neutrally describes.",
+   "explanation": "The phrase praises a process that tests claims before deciding. Strategy: identify whether the author's key phrase praises, criticizes, or neutrally describes.",
    "misconceptions": "",
    "source": "Original content authored for Sheila ISEE",
    "passage_id": "RC-SEP-W4-S2-P",
@@ -1297,7 +1297,7 @@
     "B": "The same sentence says the process led to a compromise that dealt with more than one group's concern, which is said with approval.",
     "D": "Nothing in the passage sounds cross; lunch is simply the thing the council was deciding about."
    },
-   "content_hash": "e05b5234e22bbde4"
+   "content_hash": "02d13e28641166cb"
   },
   {
    "id": "RC-SEP-W1-S3-Q01",

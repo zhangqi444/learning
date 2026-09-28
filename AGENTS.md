@@ -215,6 +215,72 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
 - Question banks are fact-checked before they land. A wrong answer key is worse
   than a missing question.
 
+## How the learning system is designed
+
+[README.md](README.md) is the readable version of this — the exam, the week table, the calendar
+and the surfaces. What follows is the part an agent can break: the decisions, the reason each one
+is as it is, and which of them are load-bearing.
+
+**The unit of work is a sitting, not a question.** `chunk()` (`src/lib/content.js`) splits a
+week's questions for one subject into near-equal groups of at most `SETSIZE = 12`, so 37 Verbal
+questions become 10/9/9/9 and never 12/12/12/1 — a set of one is a demoralising way to finish a
+subject. The app says "each set is one sitting" on the page, so *sitting* is her word and ours.
+`build_seed.py` mirrors this split, so changing `SETSIZE` or the chunking rule silently invalidates
+every migrated result. Do not touch it without re-deriving the seed.
+
+**Every wrong choice is answered.** All 1,510 items carry a `why` per wrong choice, and the
+validator errors on a gap in any bank. This is the property the site is *for*: an explanation can
+only ever describe the correct route, so "perimeter = 2(10+3) = 26" never tells her that the 30 she
+picked was the area. If you add a question, you author three `why` sentences with it or the gate
+refuses the commit.
+
+**The 8 plan weeks are 112–142 questions each, in 11–13 sittings, plus 20 words and one essay.**
+The range is not flat: W3 and W4 are the heaviest at 137 and 142, because they carry the two
+54-item Verbal weeks, and they fall either side of the diagnostic (W3 ends Sep 20, the diagnostic
+runs Sep 21–27, W4 starts Sep 28). Whether that placement was chosen or fell out of the week sizes
+is not recorded anywhere, so do not invent a reason for it — ask. What *is* certain is the
+mechanism: any change to a week's item count changes its sitting count through `ceil(n/12)`, which
+is what she actually feels. 37 items is four sittings; 36 is three.
+
+**Verbal is over-weighted on purpose.** 33% of practice against 27% of the paper. 181 of its 330
+items are sentence completion, which is the mechanic the whole site is built on, and Verbal gates
+the rest. This has been mistaken for a defect and flagged as one; it is not. The mocks reproduce
+the exam's true proportions exactly, so shape exposure lives there and the practice weeks are free
+to be weighted for teaching. Do not "rebalance" the bank toward the paper without the owner asking.
+
+**Spaced review is 1, 3, 7, 21 days** (`INTERVALS`), retiring on two correct answers on
+*different* days with a check-in at three weeks. The rule that carries the weight is which answers
+count as evidence: `LEARN_CTX` admits `set`, `review`, `mixed`, `mock`, `vocab` and `again`, and
+excludes `corr`. A corrections pass re-asks the question whose answer she has just been shown, so
+it proves nothing; `again` asks a *different* question on the same skill, so it proves something.
+Adding a new context means deciding which of those two it is.
+
+**The mastery ladder refuses to brighten on thin evidence.** Fewer than three questions attempted
+caps a skill at Started. Mastered needs `PROMOTE_AT = 2` questions right in a **mixed** set or a
+**mock**, on a later day than the first attempt — twice in a context that did not announce which
+skill was coming. Anything overdue holds the skill at Familiar however good the accuracy.
+
+**Readiness is six weighted parts** — accuracy 30, mock 20, mastery 20, pacing 10, review 10,
+consistency 10 — and the page always names the largest weighted shortfall so there is something to
+do today. Two rules inside it are decisions, not arithmetic: an overdue pile jumps the queue once
+half of it is late, because it is the one lever that works the same afternoon; and **essays are
+counted beside the number and never inside it**, because the ISEE returns no score for the writing
+sample and a number there would measure that she wrote one rather than how well.
+
+**The four mocks are not four of the same thing.** The diagnostic is split across two sittings
+because it is a baseline and not an endurance test; the three later papers are single-sitting
+because by then stamina is part of what is being measured. Each is followed by a correction pass
+rather than a score, and the score card groups misses **by skill** rather than in paper order —
+a real diagnostic leaves ninety-odd misses, and one flat list of them ran to forty-six screens on a
+laptop and sixty-nine on a phone. Nobody reteaches anything from a page that long.
+
+**The mock dates hang off a real test date that is not yet fixed.** The plan assumes a December
+sitting; the calendar also records a Bush School group sitting on **Sat Oct 24** and an Eastside
+Catholic one on **Sat Dec 5**. Those are not interchangeable — an October date falls inside Mock 1's
+own week (Oct 19–25), and the Fall season closes Nov 30, which puts Mock 3 (Nov 23–29) on the wrong
+side of it. Before changing any mock date, read `calendar.events` and `calendar.monthly` and work
+out which sitting the schedule is actually serving.
+
 ## The game
 
 The site is not a quiz with a game bolted onto it. It is one world — **Wildlight**
@@ -318,8 +384,9 @@ below with the reason it was wrong.
   refused to write them before the tool knew to stop offering them. Doubling and
   halving survive the rule, because "you doubled it" is a mistake with a name.
 
-  119 items separately carry a `misconceptions` tag naming the trap, which is a
-  head start on the sentence but is not itself shown to her anywhere.
+  119 items in these banks separately carry a `misconceptions` tag naming the
+  trap, which is a head start on the sentence and is not itself shown to her
+  anywhere. All 508 mock items carry one too, in prose rather than as a tag.
 
 Re-derive these over `content/question-banks/*.json` minus `mock.json`, and count
 "names a letter" with the pattern in `tools/audit.py` so the next reader is not
@@ -336,10 +403,109 @@ and it is done. It improved the plain runner on its own, exactly as this
 paragraph predicted: a wrong answer now says what the mistake was instead of
 "The answer is C".
 
-**The one place that defect survives is Reading.** 52 RC explanations still name
-a choice by letter — "B and C", "A, C, and D are unsupported" — and nine of them
-were rewritten only because their distractors changed underneath and the sentence
-became false as well as fragile. The rest are the next piece of this work.
+**The defect was never 52, and the first fix said it was zero when it was not.**
+Counting "names a choice by letter" with three patterns — "choice B", "B and C",
+"B is wrong" — gave 52, and after those 52 were dealt with the count read zero
+while **129 references across 82 items** sat untouched: "A divides by 2 as if
+only two sides counted", "C subtracts 4 instead of dividing by 4", "A, B, and D
+have no evidence", "A–C misread the function". None of those forms was in the
+pattern. A check that reports clean over most of what it is checking is worse
+than no check at all, which is the same lesson as the leaking `cd` in CLAUDE.md
+and it was learned twice.
+
+The forms are enumerated properly in **`tools/letters.py`** now, imported by both
+`tools/validate_content.py` (which errors) and `tools/audit.py` (which counts), so
+there is one definition rather than two at different strengths — the weaker of the
+two printing a reassuring number is exactly what made the first pass look
+finished. Two cases need care and are handled: `A` is also an article, so it needs
+a following verb, while a bare B, C or D in front of a lowercase word is already a
+giveaway; and the word *before* rescues a real label, since "Store A is $1.50
+each", "Car B gives 210 ÷ 7" and "point C lands on (7, 7)" are names the question
+gave. Every form is proven by reintroducing it and watching the validator name it.
+
+**It was never merely fragile — three items had the reasons on the wrong choices
+outright.** `tools/build_weeks.py` re-randomises every item's options before a
+bank ships. On `M01-QR-035` the sentence for "A" described 10 and the sentence for
+"C" described 12, while A was 12 and C was 11 — and C is the **correct answer**,
+so the page explained the right answer as a mistake. `M01-MA-021` had two of three
+wrong, `M01-MA-023` one. Every one of the 54 mock items was re-checked by the
+*value* described rather than by the letter written, because the letters could not
+be trusted to say which choice they meant.
+
+The fixes split three ways by what the prose was actually carrying. **41 Reading
+items** (16 in the first pass, 25 in the second) already had a full `why` map
+covering every letter named — per choice, in better words, shown above the
+explanation — so the clause was duplication in the one form that goes stale, and
+it was deleted. **Items whose clause named a per-distractor reason** had it moved
+into `why`, where it is keyed to the choice and survives any reshuffle: 99
+sentences over 31 mock items. **The rest** were rewritten to name the value or the
+choice's content: "13 and 14 are the individual rates", not "C and D".
+
+`why` keeps its letter keys throughout, because the runner and the score card look
+that key up against the choice she actually picked.
+
+**The score card had been throwing that pick away.** `why` rendered on the
+runner's reveal but not in the mock's missed-questions list, which is the surface
+that knows exactly which wrong choice she made and reviews it 24–48 hours later.
+It showed everyone who missed a question the same paragraph. It renders `why`
+above the explanation now, in the same order as the runner, and the check proves
+both halves: that the sentence shown is the one for her pick, and that no row
+shows a sentence belonging to a choice she did not pick.
+
+**Every one of the 508 mock questions now answers each of its wrong choices.**
+1,524 sentences, and the mock is no longer the one surface where a wrong answer
+is never told what it was. `tools/validate_content.py` errors on a mock item with
+a gap, proven by removing one: a mock is timed and sat once, so the missed-
+questions list on the score card is the only place it ever teaches, and a figure
+at zero-remaining is worth having only if something stops it drifting back.
+
+Each subject wanted a different sentence, which is the argument against one sweep
+over the whole bank. **Quantitative and Mathematics name what the number is** —
+"28 is 56 ÷ 2, which counts only two sides", "64 is 4 × 4 × 4, the volume of the
+box" when the question asked for the paper round it, "47 is 35 + 12, repeating the
+last increase" in a sequence whose increases grow by 3. **Verbal defines the wrong
+word**, because a synonym question she misses teaches nothing unless the
+distractor is glossed too: "costly means expensive, and a thing can be plentiful
+and cheap." **Reading was written with the passage open**, never from the
+explanation — an explanation states the conclusion and cannot tell you whether a
+distractor is absent from the text or contradicted by it, and those are different
+sentences. Do the same. Where a distractor's origin could not be established it
+says so and gives the check instead — "119 is not 9 × 14; the rate is 84 ÷ 6 = 14
+boxes a minute" — rather than inventing a mistake nobody made.
+
+Two rules of the harness that wrote these are worth knowing before adding more.
+A `why` must **open with its own choice's number**, which is how the validator can
+tell it is attached to the right choice at all — and that bites on coordinates,
+because `(−4,7)` and `(−4, 7)` are different numbers once the commas come out, so
+match the spelling the question uses. And it must not read as a **false
+identity**: "27 is 3/5 of 45" parses as 27 = 0.6 and is refused, correctly.
+Several drafts were rejected by both rules and rewritten.
+
+**That is now every question in the repository: 1,510 of 1,510 carry a `why` for
+each of their wrong choices**, and `tools/validate_content.py` errors on a gap in
+any bank rather than only in `mock.json`. The last 134 were the practice banks —
+67 in Mathematics, 62 in Quantitative, 5 in Verbal, none in Reading — and they
+were the leftovers of an earlier pass that had done the harder items and skipped
+the ones whose distractor had no obvious story. Where there still was none, the
+sentence says what the number is not and gives the check: "38 is not 7 × 5 × 4,
+which comes to 140."
+
+**The identity guard earned its place four more times on this pass, and one of the
+catches is worth keeping in mind.** "112 is 7 × 8 doubled" reads naturally and
+literally asserts 112 = 56 — the check refused it and it is now "112 doubles the
+product; 7 × 8 is 56." Same for "27 is 3/4 of 36" and "28 is 10 + 4 doubled".
+Anything of the form "<number> is <arithmetic>" is read as a claim and evaluated,
+so say "comes from" or "doubles" when you do not mean equals.
+
+**The letter detector also had a false positive, and refusing correct content is
+the worse failure**, so it was fixed rather than worked around. "In triangle ABC,
+angles A and B total 102°" is the question's own labelling; the list of label
+words only had singulars, so "angles A" was not excused. It now takes a plural,
+and a letter once established as a label stays one for the rest of that field —
+otherwise "angles A and B" is excused and the trailing "B total" is flagged
+instead. The narrow cost is recorded in `tools/letters.py`: a field that labels
+"point C" and elsewhere means choice C would slip through, which is the better way
+round to be wrong.
 
 **The furniture.** `src/lib/world.js` holds every world noun, so renaming
 anything is a one-file edit and no component writes one as a literal.
@@ -540,14 +706,29 @@ came back. Which name she called belongs on the attempt (`pick`), not in the id.
 keyed by the letters of its *wrong* choices; the runner shows it above the
 explanation, on the reveal and again on the score card. The explanation can only
 ever describe the correct route — told "perimeter = 2(10+3) = 26" after picking
-30, she still does not learn that 30 was the area. Fifteen items carry one so
-far, all on area and perimeter, written against mistakes Sheila actually made on
-an IXL set. Author it in `content/question-banks/*.json`, never for the correct
-letter, and re-run `tools/validate_content.py` — every item is content-hashed.
+30, she still does not learn that 30 was the area. **All 1,510 items carry one for
+every wrong choice now**, and `tools/validate_content.py` errors on a gap. It began
+as fifteen, all on area and perimeter, written against mistakes Sheila actually
+made on an IXL set. Author it in `content/question-banks/*.json`, never for the
+correct letter, and re-run the validator — every item is content-hashed.
 
-The older `misconceptions` field on 616 items is a *tag* (`area-vs-perimeter`),
-not prose, and `make_bundle.py` has never carried it into the bundle. It is
-indexing for us, not text for her; `why` is the text.
+The `misconceptions` field on 627 items is the older idea and a different one:
+`make_bundle.py` has never carried it into the bundle, so it reaches her nowhere.
+It is indexing for whoever is writing; `why` is the text. The two halves are not
+the same shape — the 119 non-mock ones are kebab-case tags (`area-vs-perimeter`)
+while all 508 mock ones are short prose naming two traps apiece ("adds
+denominators; conversion"), which makes them a usable draft of a `why` and worth
+reading before authoring one.
+
+Worth reading, and worth checking. Because nothing on screen ever contradicts a
+trap note, one had drifted onto the wrong question and sat there: M01-RC-021's
+said "accepts Amir's initial fear", and that item is about limestone caves with no
+Amir anywhere in it. The validator now refuses a note naming somebody absent from
+the question, its choices, its explanation and its passage. Read against the notes
+the other 507 mock items carry, the `why` sentences agreed in substance
+throughout — with one place where the author had seen further than I had, on
+`M01-MA-012`, where 53 is 35 + 18: the 10% value plus the percent itself, which is
+a mistake with a name where I had only written "ten under".
 
 `tools/audit.py` asks the other question — not whether an item is well formed but
 whether it is a good question, which is the part no validator can gate on. It
