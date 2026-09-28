@@ -89,6 +89,26 @@ Claude-Session: <session url>
   and all four browser suites die at once with "Cannot find module 'playwright'",
   in zero seconds, which reads like a catastrophe and is a missing package.
   Reinstall it with `npm i --no-save playwright`.
+- **A stale `node_modules` reads as a missing upstream module, and it is not.** After
+  `fbb7e6e` moved the chrome into `@zhangqi444/ui`, the build died with `"./app/app-shell"
+  is not exported under the conditions ["module","browser","production","import"]`. The
+  installed copy of that package had no `app/` directory and an `exports` map with three
+  entries, so the obvious reading — that the six `app/*` modules had never been published
+  and the owner was holding them locally — is the one I wrote down, and it was wrong.
+  **The pinned commit contains all of them.** `git ls-remote` only tells you the newest
+  commit, not what is inside the one you have; to see that, list the pinned tree:
+  `git clone --filter=blob:none --no-checkout https://github.com/zhangqi444/ui.git` then
+  `git ls-tree -r --name-only <sha>`. Reinstalling the pin fixed it, and the fix has to
+  name the four packages that get pruned in the same breath, per the entry below:
+
+```bash
+npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63.0 @rolldown/binding-darwin-arm64@1.2.7 lightningcss-darwin-arm64@1.32.0 @tailwindcss/oxide-darwin-arm64@4.3.3
+```
+
+  Use the **https** URL even though the lockfile resolves that dependency over
+  `git+ssh`, so the install does not depend on a loaded key. `--no-save` leaves both
+  `package.json` and `package-lock.json` untouched, which was verified by diff rather
+  than assumed.
 - **Installing anything can strip the native binaries**, through the npm
   optional-dependency bug (npm/cli#4828). The build then stops with "Cannot find
   native binding" naming one module; install it and the next one appears. On this
