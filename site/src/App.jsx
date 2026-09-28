@@ -5,7 +5,7 @@ import { anotherLike, reviewQueue, wordQuizItems } from "@/lib/engine"
 import { go, useRoute } from "@/lib/router"
 import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
 import { Button } from "@zhangqi444/ui/ui/button"
-import { SidebarInset, SidebarProvider } from "@zhangqi444/ui/ui/sidebar"
+import { AppShell } from "@zhangqi444/ui/app/app-shell"
 import { AppSidebar } from "@/components/app-sidebar"
 import { SiteHeader } from "@/components/site-header"
 import { SignIn, Splash } from "@/pages/signin"
@@ -161,18 +161,12 @@ export default function App() {
     if (!store.signedIn()) return <SignIn />
   }
   return (
-    <SidebarProvider style={{ "--sidebar-width": "calc(var(--spacing) * 68)", "--header-height": "calc(var(--spacing) * 12)" }}>
-      <AppSidebar variant="inset" route={route} />
-      <SidebarInset>
-        <SiteHeader route={route} />
-        <div className="flex flex-1 flex-col">
-          <div className="@container/main flex flex-1 flex-col gap-2">
-            <div className="flex flex-1 flex-col p-4 md:p-6">
-              <ErrorBoundary key={route.join("/")}><Screen route={route} /></ErrorBoundary>
-            </div>
-          </div>
-        </div>
-      </SidebarInset>
-    </SidebarProvider>
+    <AppShell
+      sidebar={<AppSidebar variant="inset" route={route} />}
+      header={<SiteHeader route={route} />}
+      sidebarWidth="calc(var(--spacing) * 68)"
+    >
+      <ErrorBoundary key={route.join("/")}><Screen route={route} /></ErrorBoundary>
+    </AppShell>
   )
 }

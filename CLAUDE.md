@@ -134,6 +134,21 @@ Claude-Session: <session url>
   the stylesheet; without it, 2, and the build stops. In the artifact target it
   stops *before* `scripts/artifact.mjs`, so a stripped `artifact.html` is never
   written.
+- **An svg handed to a `Button` is resized by it.** The button's base class
+  carries `[&_svg:not([class*='size-'])]:size-4`, and a CSS rule beats a
+  `width`/`height` attribute, so an icon whose className has no `size-` in it
+  renders at 16px whatever its attributes say. The shared `GoogleMark` said 18
+  and drew 16 for exactly this reason; the sign-in page's own
+  `className="size-[18px]"` was what had been holding it at 18, and dropping it
+  during the move changed eight pixels. It cost one screenshot diff to find and
+  would never have shown up in a test — `GoogleButton` takes `markClassName`
+  now, and the call site says what it means.
+- **A check that reads a Drive status without waiting is a race.** The chip
+  climbs local → connecting → syncing → live. A bare `textContent` read after
+  sign-in wins most of the time and fails when the upload is a few milliseconds
+  slower, which reads as "the header is broken" and is not. Wait for
+  `[data-testid=drive-button]:has-text("Saved to Drive")`, and report what the
+  chip actually said when it does not arrive.
 - **A check that reads the real calendar will fail on a date nobody chose.**
   `test_features.cjs` clicked the dashboard's "Show N done" fold as soon as the
   page loaded. That fold only exists once something on the open week is
