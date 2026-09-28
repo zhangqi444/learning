@@ -23,11 +23,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W1",
    "why": {
-    "A": "24 is 28 − 4, one quarter taken off instead of one kept. A quarter of 28 is 7, so three quarters is 7 × 3 = 21.",
+    "A": "24 is 28 − 4, taking off the 4 from the bottom of the fraction rather than a quarter of the bulbs. A quarter of 28 is 7, so three quarters is 7 × 3 = 21.",
     "B": "18 is three short of the answer. A quarter of 28 is 7, and three of those quarters is 7 × 3 = 21.",
     "D": "25 is 28 − 3, three bulbs taken off the total. Three quarters means 7 × 3 = 21."
    },
-   "content_hash": "3d426e6273f294f5"
+   "content_hash": "e96b403bc3ebeb84"
   },
   {
    "id": "QR-W1-S1-02",
@@ -64,9 +64,9 @@
    "difficulty": "H",
    "prompt": "A recipe uses 3 cups of flour for 8 muffins. At the same rate, how many cups are needed for 20 muffins?",
    "choices": {
-    "A": 7.0,
-    "B": 8.0,
-    "C": 6.0,
+    "A": "7",
+    "B": "8",
+    "C": "6",
     "D": "7 1/2"
    },
    "correct": "D",
@@ -79,7 +79,7 @@
     "B": "8 is the number of muffins in the recipe, not a number of cups. 20 muffins is 2 1/2 times as many, so it takes 3 × 2 1/2 = 7 1/2 cups.",
     "C": "6 is 3 × 2, enough flour for 16 muffins. Twenty muffins is 2 1/2 lots of 8, so 3 × 2 1/2 = 7 1/2 cups."
    },
-   "content_hash": "e9b6dc0d583eb60c"
+   "content_hash": "8a2f95ade7a6a057"
   },
   {
    "id": "QR-W1-S1-04",
@@ -90,10 +90,10 @@
    "difficulty": "E",
    "prompt": "Four notebooks cost $10. What is the cost per notebook?",
    "choices": {
-    "A": 2.25,
-    "B": 2.5,
-    "C": 4.0,
-    "D": 2.0
+    "A": "$2.25",
+    "B": "$2.50",
+    "C": "$4.00",
+    "D": "$2.00"
    },
    "correct": "B",
    "explanation": "$10 ÷ 4 = $2.50.",
@@ -105,7 +105,7 @@
     "A": "2.25 would make four notebooks $9.00; $10 ÷ 4 is $2.50.",
     "D": "2.0 would make four notebooks $8.00, leaving $2 unaccounted for."
    },
-   "content_hash": "3d1229a15484592f"
+   "content_hash": "78a7f21f2ca7cdd0"
   },
   {
    "id": "QR-W1-S1-05",
@@ -116,10 +116,10 @@
    "difficulty": "H",
    "prompt": "3/5 of a class is 18 students. How many students are in the whole class?",
    "choices": {
-    "A": 45.0,
-    "B": 24.0,
-    "C": 30.0,
-    "D": 36.0
+    "A": "45",
+    "B": "24",
+    "C": "30",
+    "D": "36"
    },
    "correct": "C",
    "explanation": "18 is 3 parts, so 1 part is 6; 5 parts = 30.",
@@ -131,7 +131,7 @@
     "A": "45 would make 3/5 of the class 27 students, not 18.",
     "B": "24 would make 3/5 of the class 14.4, which is not a whole number of students."
    },
-   "content_hash": "acc5f3ad0f8757ba"
+   "content_hash": "4d6880bd14a45520"
   },
   {
    "id": "QR-W1-S1-06",
@@ -142,10 +142,10 @@
    "difficulty": "M",
    "prompt": "The ratio of red to blue marbles is 2:3. If there are 25 marbles total, how many are red?",
    "choices": {
-    "A": 8.0,
-    "B": 12.0,
-    "C": 15.0,
-    "D": 10.0
+    "A": "8",
+    "B": "12",
+    "C": "15",
+    "D": "10"
    },
    "correct": "D",
    "explanation": "There are 5 equal parts; 25 ÷ 5 = 5, and 2 parts = 10.",
@@ -157,7 +157,7 @@
     "B": "12 is 3 × 4, using the blue number. Red is 2 parts of 5 marbles: 10.",
     "C": "15 is the blue share, 3 parts of 5. Red is the other 2 parts: 10."
    },
-   "content_hash": "2e51537a9a25b9b5"
+   "content_hash": "76dd384bacb133cc"
   },
   {
    "id": "QR-W1-S1-07",
@@ -168,10 +168,10 @@
    "difficulty": "H",
    "prompt": "Mia read 2/3 of a 60-page book, then read half of the pages that remained. How many pages are still unread?",
    "choices": {
-    "A": 20.0,
-    "B": 30.0,
-    "C": 10.0,
-    "D": 15.0
+    "A": "20",
+    "B": "30",
+    "C": "10",
+    "D": "15"
    },
    "correct": "C",
    "explanation": "She read 40 pages, then 10 more of the 20 remaining, leaving 10.",
@@ -183,7 +183,7 @@
     "B": "30 is 60 ÷ 2, half of the whole book. The halving only applies to the 20 pages left after the first two thirds: half of 20 leaves 10 unread.",
     "D": "15 is what half of 60, halved again, would leave. She read 2/3 first, which is 40 pages, and half of the 20 remaining is 10."
    },
-   "content_hash": "b48ac061d192442d"
+   "content_hash": "7de926973bef54fd"
   },
   {
    "id": "QR-W1-S1-08",
@@ -272,10 +272,10 @@
    "difficulty": "M",
    "prompt": "How many 1/8-cup servings are in 3/4 cup?",
    "choices": {
-    "A": 6.0,
-    "B": 8.0,
-    "C": 4.0,
-    "D": 5.0
+    "A": "6",
+    "B": "8",
+    "C": "4",
+    "D": "5"
    },
    "correct": "A",
    "explanation": "3/4 = 6/8, so there are six 1/8-cup servings.",
@@ -287,7 +287,7 @@
     "C": "4 is the 4 out of three-quarters. Rename it in eighths: 6/8, so six servings.",
     "D": "5 is 8 − 3, the two bottom numbers subtracted. Rename 3/4 as 6/8 and count: six."
    },
-   "content_hash": "ca5bccb0b119feb9"
+   "content_hash": "b21f613c90cd585f"
   },
   {
    "id": "QR-W1-S1-12",
@@ -376,10 +376,10 @@
    "difficulty": "M",
    "prompt": "Five pens cost $7.50. At the same rate, how much do 8 pens cost?",
    "choices": {
-    "A": "10.5",
-    "B": 12.0,
-    "C": "4.5",
-    "D": 10.0
+    "A": "$10.50",
+    "B": "$12.00",
+    "C": "$4.50",
+    "D": "$10.00"
    },
    "correct": "B",
    "explanation": "$7.50 ÷ 5 = $1.50 per pen; 8 × $1.50 = $12.",
@@ -391,7 +391,7 @@
     "C": "4.5 is what the three extra pens cost, not what all eight cost. A pen is $7.50 ÷ 5 = $1.50, so eight of them come to 8 × $1.50 = $12.",
     "D": "10 is 8 × 1.25, and $1.25 is $7.50 shared six ways rather than five. Share it five ways: 7.50 ÷ 5 = $1.50, so eight pens cost $12."
    },
-   "content_hash": "8b15f8134ee13b59"
+   "content_hash": "cc784c1dc196c30e"
   },
   {
    "id": "QR-W1-S2-04",
@@ -402,10 +402,10 @@
    "difficulty": "H",
    "prompt": "2/5 of the students are boys. If 18 students are girls, how many students are in the class?",
    "choices": {
-    "A": 45.0,
-    "B": 30.0,
-    "C": 36.0,
-    "D": 24.0
+    "A": "45",
+    "B": "30",
+    "C": "36",
+    "D": "24"
    },
    "correct": "B",
    "explanation": "Girls are 3/5 of the class. If 3/5 = 18, then the whole is 30.",
@@ -417,7 +417,7 @@
     "A": "45 would make the 18 girls 2/5 of the class, and the girls are the other 3/5.",
     "D": "24 would make 3/5 of the class 14.4, not 18."
    },
-   "content_hash": "f84f537d043eb626"
+   "content_hash": "17dfa60a87edbc15"
   },
   {
    "id": "QR-W1-S2-05",
@@ -506,10 +506,10 @@
    "difficulty": "H",
    "prompt": "A tank is 3/4 full and contains 18 gallons. How many gallons does it hold when full?",
    "choices": {
-    "A": 24.0,
-    "B": 21.0,
-    "C": 22.0,
-    "D": 27.0
+    "A": "24",
+    "B": "21",
+    "C": "22",
+    "D": "27"
    },
    "correct": "A",
    "explanation": "18 ÷ 3 × 4 = 24 gallons.",
@@ -521,7 +521,7 @@
     "C": "22 is 18 + 4. Three quarters is 18 gallons, so a quarter is 6 and the whole tank is 24.",
     "D": "27 is 24 + 3, the answer with three more added on. The tank holds 24."
    },
-   "content_hash": "189a0466b1abb615"
+   "content_hash": "de93fccb30edeef8"
   },
   {
    "id": "QR-W1-S2-09",
@@ -610,10 +610,10 @@
    "difficulty": "M",
    "prompt": "The ratio of cats to dogs is 7:3. If there are 50 animals total, how many are cats?",
    "choices": {
-    "A": 21.0,
-    "B": 30.0,
-    "C": 15.0,
-    "D": 35.0
+    "A": "21",
+    "B": "30",
+    "C": "15",
+    "D": "35"
    },
    "correct": "D",
    "explanation": "There are 10 equal parts; 50 ÷ 10 = 5, so cats = 7 × 5 = 35.",
@@ -625,7 +625,7 @@
     "C": "15 is 50 − 35, the animals left once the cats are counted — the dogs rather than the cats. The cats are 7 of the 10 parts: 7 × 5 = 35.",
     "B": "30 is not 7 parts of 5; 50 ÷ 10 = 5, so the cats are 7 × 5 = 35."
    },
-   "content_hash": "831ba14d82e27a63"
+   "content_hash": "39fb254a03cd5582"
   },
   {
    "id": "QR-W1-S2-13",
@@ -1091,9 +1091,9 @@
    "why": {
     "A": "16 is 8 + 8, two rows added. The mural is 8 rows of 8: 8 × 8 = 64.",
     "C": "128 is 64 × 2, the grid counted twice. Both cover 64.",
-    "D": "32 is 64 ÷ 2, half of it. 8 × 8 = 64, and doubling 2 six times also gives 64."
+    "D": "32 is 64 ÷ 2, half of it. The mural is 8 × 8 = 64, and 2⁶ is six 2s multiplied together, which is 64 as well."
    },
-   "content_hash": "67ac03556f368c54"
+   "content_hash": "81e642da1db26b04"
   },
   {
    "id": "QR-W2-S2-04",
@@ -1624,10 +1624,10 @@
    "difficulty": "H",
    "prompt": "A rectangle has vertices (1,1), (5,1), (5,4), and (1,4). What is its area?",
    "choices": {
-    "A": 7.0,
-    "B": 12.0,
-    "C": 20.0,
-    "D": 15.0
+    "A": "7",
+    "B": "12",
+    "C": "20",
+    "D": "15"
    },
    "correct": "B",
    "explanation": "Width = 4 and height = 3, so area = 12.",
@@ -1639,7 +1639,7 @@
     "C": "20 is not 4 × 3; the width runs from 1 to 5 and the height from 1 to 4.",
     "D": "15 is 5 × 3, using the x-coordinate 5 as the width; the width is 5 − 1 = 4."
    },
-   "content_hash": "5f24edc660622bae"
+   "content_hash": "db1581a7b14cb9de"
   },
   {
    "id": "QR-W3-S1-10",
@@ -1728,10 +1728,10 @@
    "difficulty": "E",
    "prompt": "What is the volume of a rectangular prism measuring 9 by 2 by 5?",
    "choices": {
-    "A": 45.0,
-    "B": 180.0,
-    "C": 90.0,
-    "D": 72.0
+    "A": "45",
+    "B": "180",
+    "C": "90",
+    "D": "72"
    },
    "correct": "C",
    "explanation": "9×2×5=90.",
@@ -1743,7 +1743,7 @@
     "B": "180 is 90 × 2, twice the volume of the prism. Each measurement is used once only: 9 × 2 × 5 = 90.",
     "D": "72 is not 9 × 2 × 5, which comes to 90."
    },
-   "content_hash": "8df03812c5179e38"
+   "content_hash": "b8eb63418215ee12"
   },
   {
    "id": "QR-W3-S2-02",
@@ -1754,10 +1754,10 @@
    "difficulty": "M",
    "prompt": "A cube has volume 125 cubic units. What is the length of one edge?",
    "choices": {
-    "A": 25.0,
-    "B": 5.0,
-    "C": 10.0,
-    "D": 4.0
+    "A": "25",
+    "B": "5",
+    "C": "10",
+    "D": "4"
    },
    "correct": "B",
    "explanation": "5³ = 125.",
@@ -1769,7 +1769,7 @@
     "C": "10 is 5 × 2, double the length of an edge. Multiplying it back gives 10 × 10 × 10 = 1,000, far past 125; the edge that works is 5.",
     "D": "4 cubed is 64, not 125; 5 × 5 × 5 = 125."
    },
-   "content_hash": "7638358a80dc1512"
+   "content_hash": "ea76fb9564811d8b"
   },
   {
    "id": "QR-W3-S2-03",
@@ -1806,10 +1806,10 @@
    "difficulty": "M",
    "prompt": "A rectangle has perimeter 30 units and length 9 units. What is its width?",
    "choices": {
-    "A": 6.0,
-    "B": 12.0,
-    "C": 5.0,
-    "D": 7.0
+    "A": "6",
+    "B": "12",
+    "C": "5",
+    "D": "7"
    },
    "correct": "A",
    "explanation": "2(9+w)=30, so 9+w=15 and w=6.",
@@ -1821,7 +1821,7 @@
     "C": "5 would make the perimeter 2(9 + 5) = 28.",
     "D": "7 would make the perimeter 2(9 + 7) = 32."
    },
-   "content_hash": "4ca4bdd4f0751dd9"
+   "content_hash": "6531b381fe62ca56"
   },
   {
    "id": "QR-W3-S2-05",
@@ -1858,10 +1858,10 @@
    "difficulty": "H",
    "prompt": "The mean of four numbers is 18. Three of the numbers total 50. What is the fourth number?",
    "choices": {
-    "A": 24.0,
-    "B": 22.0,
-    "C": 18.0,
-    "D": 20.0
+    "A": "24",
+    "B": "22",
+    "C": "18",
+    "D": "20"
    },
    "correct": "B",
    "explanation": "The total of all four is 72; 72−50=22.",
@@ -1873,7 +1873,7 @@
     "C": "18 is the mean itself, copied down as the missing number. Four numbers averaging 18 total 4 × 18 = 72, so the fourth is 72 − 50 = 22.",
     "D": "20 is 70 − 50, which is what you get if 4 × 18 slips to 70. It is really 72, so the fourth number is 72 − 50 = 22."
    },
-   "content_hash": "978c951471d34c2e"
+   "content_hash": "f25e0f9b0581b75e"
   },
   {
    "id": "QR-W3-S2-07",
@@ -2144,10 +2144,10 @@
    "difficulty": "M",
    "prompt": "The ratio of boys to girls is 3:5. If there are 32 students total, how many are girls?",
    "choices": {
-    "A": 24.0,
-    "B": 12.0,
-    "C": 18.0,
-    "D": 20.0
+    "A": "24",
+    "B": "12",
+    "C": "18",
+    "D": "20"
    },
    "correct": "D",
    "explanation": "There are 8 parts; 32÷8=4, and 5 parts = 20.",
@@ -2159,7 +2159,7 @@
     "A": "24 would leave only 8 boys, and 8 to 24 is 1 to 3 rather than 3 to 5.",
     "C": "18 would leave 14 boys, and 14 to 18 is not 3 to 5."
    },
-   "content_hash": "774e7c7ebe05a9b7"
+   "content_hash": "204fa98b59fc9a8e"
   },
   {
    "id": "QR-W4-S1-03",
@@ -2170,10 +2170,10 @@
    "difficulty": "E",
    "prompt": "A 12-ounce box costs $3.60. What is the cost per ounce?",
    "choices": {
-    "A": 0.25,
-    "B": 0.36,
-    "C": 0.3,
-    "D": "0.03"
+    "A": "$0.25",
+    "B": "$0.36",
+    "C": "$0.30",
+    "D": "$0.03"
    },
    "correct": "C",
    "explanation": "$3.60 ÷ 12 = $0.30.",
@@ -2185,7 +2185,7 @@
     "B": "0.36 is 3.60 ÷ 10, the price shared between ten ounces instead of twelve. There are 12: 3.60 ÷ 12 = $0.30.",
     "D": "0.03 puts the point one place too far to the left: three cents an ounce would leave the whole twelve-ounce box well under a dollar, and it costs $3.60. Sharing all of it out, 3.60 ÷ 12 = $0.30 an ounce."
    },
-   "content_hash": "4232e1c34e20b10e"
+   "content_hash": "44f9d55f9f18c161"
   },
   {
    "id": "QR-W4-S1-04",
@@ -2274,10 +2274,10 @@
    "difficulty": "H",
    "prompt": "A rectangle has area 54 square units and length 9. What is its perimeter?",
    "choices": {
-    "A": 36.0,
-    "B": 24.0,
-    "C": 30.0,
-    "D": 15.0
+    "A": "36",
+    "B": "24",
+    "C": "30",
+    "D": "15"
    },
    "correct": "C",
    "explanation": "Width=54÷9=6; perimeter=2(9+6)=30.",
@@ -2289,7 +2289,7 @@
     "B": "24 is 9 + 9 + 3 + 3, going round a rectangle 9 by 3. This one is 9 by 6, because 54 ÷ 9 = 6.",
     "D": "15 is 9 + 6, one length and one width. The perimeter is both pairs: 2 × 15 = 30."
    },
-   "content_hash": "ca044b739805f5c9"
+   "content_hash": "b25807936c86ec8e"
   },
   {
    "id": "QR-W4-S1-08",
@@ -2326,10 +2326,10 @@
    "difficulty": "H",
    "prompt": "The mean of 12, 14, 16, and x is 15. What is x?",
    "choices": {
-    "A": 22.0,
-    "B": 20.0,
-    "C": 16.0,
-    "D": 18.0
+    "A": "22",
+    "B": "20",
+    "C": "16",
+    "D": "18"
    },
    "correct": "D",
    "explanation": "A mean of 15 for 4 numbers means total 60; 60−42=18.",
@@ -2341,7 +2341,7 @@
     "B": "20 is 60 ÷ 3, the total shared out between the three numbers that are already there. All four must total 4 × 15 = 60, and 12 + 14 + 16 = 42, so x = 18.",
     "C": "16 is the last of the numbers you were given, written down as the answer. All four must total 4 × 15 = 60, and 12 + 14 + 16 = 42, so x = 18."
    },
-   "content_hash": "d7a0342240fe10de"
+   "content_hash": "ac9b15764533ef6f"
   },
   {
    "id": "QR-W4-S1-10",
@@ -2560,10 +2560,10 @@
    "difficulty": "M",
    "prompt": "A number is divisible by 2, 3, and 5. Which could be the number?",
    "choices": {
-    "A": 75.0,
-    "B": 30.0,
-    "C": 45.0,
-    "D": 50.0
+    "A": "75",
+    "B": "30",
+    "C": "45",
+    "D": "50"
    },
    "correct": "B",
    "explanation": "30 is divisible by 2, 3, and 5.",
@@ -2575,7 +2575,7 @@
     "C": "45 divides by 3 and by 5, but it is odd, so it fails the 2. The number has to pass all three tests, and 30 does.",
     "D": "50 divides by 2 and by 5, but 3 does not go into it — 3 × 16 is 48 and 3 × 17 is 51. 30 works for all three."
    },
-   "content_hash": "c5cf0a4ad4e900c1"
+   "content_hash": "e746195ec572c7b6"
   },
   {
    "id": "QR-W4-S2-07",
@@ -2612,10 +2612,10 @@
    "difficulty": "H",
    "prompt": "A rectangular prism is 6 by 5 by 4. If its height is cut in half, what is the new volume?",
    "choices": {
-    "A": 60.0,
-    "B": 120.0,
-    "C": 30.0,
-    "D": 90.0
+    "A": "60",
+    "B": "120",
+    "C": "30",
+    "D": "90"
    },
    "correct": "A",
    "explanation": "Original volume is 120; halving height halves volume to 60.",
@@ -2627,7 +2627,7 @@
     "C": "30 is 6 × 5, two of the three measurements — one face of the prism, not a volume. Halving the height halves the whole volume: 120 ÷ 2 = 60.",
     "D": "90 is three quarters of 120; halving the height halves the volume, to 60."
    },
-   "content_hash": "91fa64a7af7f1c29"
+   "content_hash": "bf7b2dedba287be4"
   },
   {
    "id": "QR-W4-S2-09",

@@ -143,6 +143,14 @@ for f in sorted(os.listdir(BANKS)):
         ch=it.get('choices',{})
         if sorted(ch)!=list(L): errs.append(f'{i}: choices not A-D')
         if any(v is None or str(v).strip()=='' for v in ch.values()): errs.append(f'{i}: blank choice')
+        # A choice stored as a JSON number is rendered by the app, not by the author:
+        # 2.5 reaches the page as "2.5" and 4.0 as "4". Twenty-one QR items shipped that
+        # way, and on the worst of them — cost per ounce of a $3.60 box — the key rendered
+        # "0.3" while a distractor rendered "0.03", so the answer was the only choice with
+        # one decimal place. A number that means money has to carry its own $ and its own
+        # two decimals, and the only way to guarantee that is to store the string the
+        # author intended.
+        if any(not isinstance(v, str) for v in ch.values()): errs.append(f'{i}: choice values must be strings, not JSON numbers — the app renders them verbatim')
         if len({str(v).strip() for v in ch.values()})!=4: errs.append(f'{i}: duplicate choice values')
         if it.get('correct') not in L: errs.append(f'{i}: correct={it.get("correct")!r}')
         if it.get('passage_id') and it['passage_id'] not in pass_ids: errs.append(f'{i}: unknown passage {it["passage_id"]}')

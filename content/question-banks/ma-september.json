@@ -166,7 +166,7 @@
    "subject": "MA",
    "skill": "Percent",
    "difficulty": "E",
-   "prompt": "Thirty percent of 90 campers choose chess. How many campers?",
+   "prompt": "Thirty percent of 90 campers choose chess. How many campers choose chess?",
    "choices": {
     "A": "9",
     "B": "63",
@@ -183,7 +183,7 @@
     "B": "63 is 90 − 27, the campers who did not choose chess rather than the ones who did. Three tenths chose it: 90 ÷ 10 = 9, then 9 × 3 = 27.",
     "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty per cent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
    },
-   "content_hash": "795ba8de3ba37a64"
+   "content_hash": "6cdf71a3d655e276"
   },
   {
    "id": "MA-SEP-008",
@@ -374,7 +374,7 @@
    "subject": "MA",
    "skill": "Percent",
    "difficulty": "H",
-   "prompt": "Thirty percent of 90 badges are blue. How many badges?",
+   "prompt": "Thirty percent of 90 badges are blue. How many badges are blue?",
    "choices": {
     "A": "63",
     "B": "27",
@@ -391,7 +391,7 @@
     "C": "9 is 90 ÷ 10, one tenth of the badges with the other two tenths never added on. Thirty per cent means three tenths: 9 × 3 = 27.",
     "D": "60 is 90 − 30, the thirty taken off the ninety rather than used as a percentage. Thirty per cent means three tenths: 90 ÷ 10 = 9, then 9 × 3 = 27."
    },
-   "content_hash": "1649b1f1dc5ac1cb"
+   "content_hash": "94eefcaa7937f77a"
   },
   {
    "id": "MA-SEP-016",
@@ -517,11 +517,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W1-S2",
    "why": {
-    "B": "1.2 is 0.6 × 2, the 0.6 doubled rather than divided into the 7.2. Make both numbers ten times bigger first: 72 ÷ 6 = 12.",
+    "B": "1.2 is 7.2 ÷ 6, dividing by 6 instead of by 0.6. Make both numbers ten times bigger first: 72 ÷ 6 = 12.",
     "C": "10 would mean 0.6 × 10 = 6, not 7.2.",
     "D": "120 is ten times too big; 72 ÷ 6 = 12."
    },
-   "content_hash": "52b3f1b86cedd9d8"
+   "content_hash": "0cad5e83faacabcd"
   },
   {
    "id": "MA-SEP-021",
@@ -1557,11 +1557,11 @@
    "source": "Original content authored for Sheila ISEE",
    "form": "W3-S1",
    "why": {
-    "D": "16 is 4 × 4, the 4 multiplied by itself rather than by the other two sides. Volume uses all three: 7 × 5 = 35, then 35 × 4 = 140.",
-    "B": "39 is not 7 × 5 × 4, which comes to 140.",
-    "C": "166 is not the product either; 7 × 5 = 35, and 35 × 4 = 140."
+    "B": "39 is 7 × 5 + 4, multiplying two edges and then adding the third instead of multiplying all three.",
+    "C": "166 is the surface area, 2 × (35 + 20 + 28) — the paper needed to cover the crate rather than the space inside it.",
+    "D": "16 is 7 + 5 + 4, the three edges added. Volume multiplies them: 7 × 5 = 35, then 35 × 4 = 140."
    },
-   "content_hash": "e65d792c0f327409"
+   "content_hash": "a60982d879e6818f"
   },
   {
    "id": "MA-SEP-061",
