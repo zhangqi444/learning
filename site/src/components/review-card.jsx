@@ -6,8 +6,8 @@ import { isSeen, markSeen, reviewTargetLabel } from "@/lib/reviews"
 import { go } from "@/lib/router"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { ts } from "@/lib/store"
-import { Badge } from "@/components/ui/badge"
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@zhangqi444/ui/ui/badge"
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 
 const TITLE = { essay: "What a reader noticed", mock: "What a reader noticed", week: "How the week went", month: "How the month went" }
 

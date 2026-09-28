@@ -6,7 +6,7 @@ import { addReviews, parseImport, reviewPath, reviewTargetLabel } from "@/lib/re
 import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { Button } from "@zhangqi444/ui/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Textarea } from "@zhangqi444/ui/ui/textarea"
 
 /** #/import/<payload> — a review link made outside the app (docs/review.md).

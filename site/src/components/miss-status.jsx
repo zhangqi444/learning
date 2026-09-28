@@ -4,7 +4,7 @@ import { Check, RotateCcw, Tag } from "lucide-react"
 import { missProgress, missStage } from "@/lib/engine"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 
 /* What happened to a miss after it happened.
  *

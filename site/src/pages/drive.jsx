@@ -2,9 +2,9 @@ import * as React from "react"
 import { Check, CloudOff, ExternalLink, FileJson, FolderOpen, LogOut, RefreshCw } from "lucide-react"
 
 import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Input } from "@zhangqi444/ui/ui/input"
 
 /** Where her work is kept, said out loud and openable.

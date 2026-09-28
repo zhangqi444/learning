@@ -34,6 +34,22 @@
   --outline-press: #c2c3da;
   --lift: 4px;
   --lift-press: 1px;
+  /* The surfaces this site draws, for the shared components in @zhangqi444/ui.
+     They are variables there rather than class names because the sibling site
+     draws the same three things differently, and a package that picked one
+     would restyle the other the day it adopted this. A site that sets none of
+     them gets plain shadcn back. */
+  --card-radius: var(--radius-2xl);
+  --card-border: 2px;
+  --card-shadow: 0 2px 0 0 var(--border);
+  --card-title-weight: 700;
+  --card-title-tracking: -0.025em;
+  --badge-radius: calc(infinity * 1px);
+  --badge-px: --spacing(2.5);
+  --badge-weight: 600;
+  --progress-radius: calc(infinity * 1px);
+  --progress-sheen: color-mix(in oklab, var(--color-white) 25%, transparent);
+  --progress-ease-ms: 300ms;
   --background: #f0f1f8;
   --foreground: #141327;
   --card: #ffffff;

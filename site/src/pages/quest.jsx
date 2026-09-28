@@ -11,10 +11,10 @@ import { W, atLeast } from "@/lib/world"
 /** Meanings in the content sometimes end in a full stop and sometimes do not,
  *  so add one here rather than printing "demanding..". */
 const sentence = (t) => String(t || "").trim().replace(/\.*$/, "") + "."
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
+import { Progress } from "@zhangqi444/ui/ui/progress"
 import { Burst } from "@/components/burst"
 import { Gate } from "@/components/gate"
 import { Glim, hearProps } from "@/components/glim"

@@ -3,7 +3,7 @@ import { BookOpen, ExternalLink } from "lucide-react"
 
 import { ALCUMUS_URL, VIDEO_URL, aopsFor } from "@/lib/aops"
 import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@zhangqi444/ui/ui/tooltip"
 
 /** "Where to relearn this": the AoPS material for a weak maths skill.

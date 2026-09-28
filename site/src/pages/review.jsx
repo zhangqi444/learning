@@ -9,9 +9,9 @@ import { WORD_GLOW } from "@/lib/glim"
 import { sfx } from "@/lib/sfx"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
-import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { LearnCard } from "@/components/learn-card"
 
 /** Small horizontal breakdown of misses by cause. */

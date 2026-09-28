@@ -3,7 +3,7 @@ import { ArrowUp, Check } from "lucide-react"
 
 import { PROMOTE_AT, promotionsIn, skillLevel } from "@/lib/engine"
 import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 
 /* The promotion contract, said before the set and answered after it.
  *

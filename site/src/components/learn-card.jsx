@@ -3,7 +3,7 @@ import { BookOpen, ExternalLink, Lightbulb, Search, TriangleAlert } from "lucide
 
 import { ALCUMUS_URL, aopsFor, learnCard, learnLinkUrl, learnName, learnQuery, learnUrl } from "@/lib/aops"
 import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Glim } from "@/components/glim"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@zhangqi444/ui/ui/tooltip"
 

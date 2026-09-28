@@ -12,12 +12,12 @@ import { syncBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
-import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Glim } from "@/components/glim"
 import { Input } from "@zhangqi444/ui/ui/input"
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@zhangqi444/ui/ui/progress"
 
 const today = () => dayOf()
 const fmtDay = (on) => new Date(on + "T00:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" })
