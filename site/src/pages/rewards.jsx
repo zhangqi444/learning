@@ -1,7 +1,7 @@
 import * as React from "react"
 import {
   Award, BookA, Brain, CalendarCheck, CalendarDays, Check, Crosshair, Crown, Feather, Flame,
-  Footprints, Gauge, Gift, ListChecks, Lock, Medal, PenLine, Plus, RotateCcw, Search, Shuffle,
+  Footprints, Gauge, Gift, ListChecks, Medal, PenLine, Plus, RotateCcw, Search, Shuffle,
   Sparkles, Star, Target, Timer, Trash2, Trophy,
 } from "lucide-react"
 
@@ -24,6 +24,8 @@ import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Input } from "@zhangqi444/ui/ui/input"
 import { Progress } from "@zhangqi444/ui/ui/progress"
+import { Medallion } from "@zhangqi444/ui/gamify/medallion"
+import { BadgeCard as SharedBadgeCard } from "@zhangqi444/ui/gamify/badge-card"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@zhangqi444/ui/ui/tooltip"
 import { Ring } from "@/pages/score"
 
@@ -39,34 +41,9 @@ export function useBadgeSync() {
   React.useEffect(() => { syncBadges() }, [store.snapshot()])
 }
 
-function Medallion({ b, size = 56 }) {
-  return (
-    <div
-      className={cn(
-        "flex shrink-0 items-center justify-center rounded-full border-2 transition-colors",
-        b.done ? "border-primary/40 bg-primary/10 text-primary" : "border-dashed border-muted-foreground/25 bg-muted/40 text-muted-foreground/50"
-      )}
-      style={{ width: size, height: size }}
-    >
-      {b.done ? <BadgeIcon name={b.icon} className="size-6" /> : <Lock className="size-4" />}
-    </div>
-  )
-}
-
+/** The shared row, told which icon this badge wears and how we write a date. */
 function BadgeCard({ b }) {
-  return (
-    <li className={cn("flex items-start gap-3 rounded-lg border p-3", b.done ? "bg-card" : "bg-muted/20")} data-testid="badge" data-done={b.done ? "1" : "0"} data-id={b.id}>
-      <Medallion b={b} size={48} />
-      <div className="flex min-w-0 flex-1 flex-col gap-1">
-        <div className="flex items-baseline justify-between gap-2">
-          <span className={cn("text-sm font-medium", !b.done && "text-muted-foreground")}>{b.name}</span>
-          {b.done ? <span className="text-muted-foreground shrink-0 text-xs">{b.at ? fmtDate(b.at) : "earned"}</span> : <span className="text-muted-foreground shrink-0 text-xs tabular-nums">{Math.min(b.have, b.need)}/{b.need}</span>}
-        </div>
-        <span className="text-muted-foreground text-xs">{b.desc}</span>
-        {!b.done ? <Progress value={b.pct} className="mt-0.5 h-1" /> : null}
-      </div>
-    </li>
-  )
+  return <SharedBadgeCard b={b} icon={<BadgeIcon name={b.icon} className="size-6" />} earnedLabel={b.at ? fmtDate(b.at) : "earned"} />
 }
 
 /** Compact dashboard card: level, balance, what is close, what was just earned. */
@@ -96,7 +73,7 @@ export function RewardsCard() {
             <div className="flex flex-wrap gap-2">
               {recent.map((b) => (
                 <Tooltip key={b.id}>
-                  <TooltipTrigger asChild><span><Medallion b={b} size={40} /></span></TooltipTrigger>
+                  <TooltipTrigger asChild><span><Medallion b={b} size={40} icon={<BadgeIcon name={b.icon} className="size-6" />} /></span></TooltipTrigger>
                   <TooltipContent>{b.name} — {b.desc}</TooltipContent>
                 </Tooltip>
               ))}

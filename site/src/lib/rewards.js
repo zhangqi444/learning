@@ -1,3 +1,5 @@
+import { levelOf as levelFromTable } from "@zhangqi444/ui/gamify/levels"
+import { badgeCounts as countBadges, nextBadge as pickNextBadge } from "@zhangqi444/ui/gamify/badges"
 /* Badges, levels and the reward shelf. Badges are worked out from the same
  * per-question records the rest of the engine reads, then PINNED the first
  * time they are earned (Store.s.badges) so a badge can never be taken away —
@@ -24,14 +26,8 @@ export const LEVELS = [
   { n: 9, title: "Standout", at: 1850 },
   { n: 10, title: "Star", at: 2300 },
 ]
-/** Level from lifetime effort points. Spending on rewards never costs a level. */
-export function levelOf(points) {
-  let i = 0
-  for (let k = 0; k < LEVELS.length; k++) if (points >= LEVELS[k].at) i = k
-  const cur = LEVELS[i], next = LEVELS[i + 1] || null
-  const span = next ? next.at - cur.at : 1
-  return { ...cur, next, into: points - cur.at, span, pct: next ? Math.min(100, Math.round(((points - cur.at) / span) * 100)) : 100 }
-}
+/** Our ladder, the package's arithmetic. Spending on rewards never costs a level. */
+export const levelOf = (points) => levelFromTable(points, LEVELS)
 
 /* ---------- helpers over the records ---------- */
 const results = () => Object.values(Store.s.results || {}).filter((r) => r && typeof r === "object")
@@ -205,9 +201,5 @@ export function markGiven(id) { Store.setSlice("rewards", "claim:" + id, (cur) =
 export function cancelClaim(id) { Store.setSlice("rewards", "claim:" + id, (cur) => ({ ...cur, status: "cancelled" })) }
 
 /** What is closest to being earned — for the dashboard nudge. */
-export function nextBadge() {
-  const open = badgeState().filter((b) => !b.done && b.have > 0)
-  open.sort((a, b) => b.pct - a.pct || a.need - b.need)
-  return open[0] || badgeState().find((b) => !b.done) || null
-}
-export function badgeCounts() { const all = badgeState(); return { earned: all.filter((b) => b.done).length, total: all.length } }
+export const nextBadge = () => pickNextBadge(badgeState())
+export const badgeCounts = () => countBadges(badgeState())
