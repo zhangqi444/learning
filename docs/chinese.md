@@ -28,12 +28,25 @@ Sources, because the content rules require them:
 - 新三版 in print: [第2册 ISBN 9787566825278](https://www.amazon.com/%E6%9A%A8%E5%8D%97%E5%A4%A7%E5%AD%A6%E4%B8%AD%E6%96%87%E6%95%99%E6%9D%90%E7%AC%AC2%E5%86%8C-Universitys-Zhongwen-textbook-exercise/dp/7566825275),
   [第3册 ISBN 9787566825285](https://www.amazon.com/%E6%9A%A8%E5%8D%97%E5%A4%A7%E5%AD%A6%E4%B8%AD%E6%96%87%E6%95%99%E6%9D%90%E7%AC%AC3%E5%86%8C-Universitys-Zhongwen-textbook-exercise/dp/7566825283), 暨南大学出版社.
 
+**The target is the HSK** (汉语水平考试), which the owner named after the first draft of
+this document was written — and it invalidates two of that draft's decisions; see
+§ 3. The level and the sitting date are open, and both have to be fixed before any
+readiness number or mock paper can honestly exist, because each is calibrated
+against one specific paper.
+
+**The volume is 第四册.** 小马过河 is its 第五课 — the official per-lesson PDF sits at
+`old.hwjyw.com/fj/jcxz/zhongwen/4/5.pdf`, and its text is that story. One caveat
+that governs every page number in a homework note: the free copies on that site are
+an **earlier edition**, so "课本 52 页" in her homework is a page in 新三版 and may not
+be page 52 there. Page numbers come from her book, never from the download.
+
 **Two facts are not yet established and nothing may be authored on top of them.**
 One secondary source describes a volume as four 单元 of twelve 课 in total; that is a
 single uncorroborated claim about a series that has just been revised, so the lesson
-count comes from **the book in her hand**, not from here. And the volume itself is
-unknown: *which 册 is she in, and which 课 has her class reached?* That one answer
-decides the whole first slice, and it is the only thing blocking authoring.
+count comes from **the book in her hand**, not from here. And the pages are not in
+hand: a homework note names 课本 52 and 55–56 and the exercise book's 星期一–四, and
+what is printed on them cannot be guessed at — least of all a 听写 list, which is
+the one thing in a week's homework that has to be exact.
 
 ## 2. Two categories, two URLs, one record
 
@@ -92,27 +105,35 @@ on every wrong choice; the Den and Hum; the badges.
 
 **Not shared, each for a reason:**
 
-- **The eight dated plan weeks.** The ISEE spine is a calendar hung off an exam
-  date. Chinese has no exam and no deadline; what it has is an ordered book and a
-  class that moves at its own pace. So the Chinese spine is **the lesson, `L01…Ln`,
-  not the week** — and `currentWeek()`, `spans()`, `spanOpen()`, `D.breaks` are
+- **The eight dated plan weeks.** The ISEE spine is a curriculum *we* wrote: eight
+  weeks, each with its item count, laid out between here and the exam. Chinese has
+  an exam date too (§ 1), but it does not have that — what sets the pace is an
+  ordered book and a teacher who assigns from it weekly, neither of which is ours
+  to plan. So the Chinese spine is **the lesson, `L01…Ln`, not the week** — and `currentWeek()`, `spans()`, `spanOpen()`, `D.breaks` are
   never asked a question about Chinese. This is the single most important line in
   this document. Folding Chinese into the eight weeks would change a week's item
   count and therefore its sitting count through `ceil(n/12)`, which AGENTS.md names
   as load-bearing and which is the thing she actually feels.
-- **The mocks.** There is no paper to rehearse.
-- **The readiness score.** Six weighted parts, one of which is mock performance and
-  another a per-question time budget, calibrated against a timed test. There is no
-  Chinese test, so a number there would measure nothing, and hard rule 4 says an
-  honest "—" beats a number with no data behind it. Chinese reports what it can
-  actually count: 生字 known of met, lessons finished, review pile, days active.
+- **The mocks and the readiness score — struck out, and the correction is worth
+  recording.** The first draft of this document gave Chinese neither, because
+  there was no paper to rehearse and a number calibrated against a timed test
+  would measure nothing. The reasoning was sound and the premise was wrong: the
+  goal is the **HSK**, so there is a paper, and the mock machinery and the
+  readiness score are precisely what a dated exam wants. What survives is the
+  condition — neither can be built until the **level and the sitting date** are
+  fixed, because the section counts, the timings and the pacing budget come from
+  one level's published specification, and those are facts to be sourced rather
+  than assumed. Until then Chinese reports only what it can count: 生字 known of
+  met, lessons finished, review pile, days active.
 - **Pacing, and this one is a trap rather than a decision.** `engine.words()` is
   `split(/\s+/)`, and written Chinese has no spaces — a whole 课文 returns **1**.
   Every length-derived number downstream (`readFloor`, `tooFast`, `paceFlag`,
   the passage-word budget) would therefore not fail but quietly produce nonsense,
   which is worse. Chinese practice is untimed, pacing is excluded at the category
   boundary, and if a reading budget is ever wanted it is counted in characters by
-  a function that says so in its name.
+  a function that says so in its name. The HSK goal does not rescue the whitespace
+  split — it sharpens it, because an HSK pacing budget is something we will
+  actually want, computed from a word count that is always 1.
 
 ## 4. Content layout
 
@@ -229,13 +250,64 @@ A fifth suite also means the places that say "all four suites" (CLAUDE.md,
 AGENTS.md § Testing, docs/architecture.md § 11, `run_tests.cjs`) are updated in the
 same commit, or the documents start lying about the gate.
 
-## 8. Open, and blocking
+## 8. The weekly homework loop
 
-1. **Which 册, and which 课 has her class reached?** The only thing stopping Phase 1.
-2. Does she have 练习本 A and B? They decide whether 词语 practice can follow the
-   book's own exercises or has to be authored from the 课文 alone.
-3. The lesson count per volume, confirmed from the book rather than from a search
-   result.
-4. Does Chinese want a weekly cadence at all — a "this week" for the class's pace —
-   or does the lesson she is on carry the whole of it? The checklist is built on
-   dated spans, and a lesson has no dates.
+ISEE content was authored up front: 1,510 items against a published syllabus, all
+of it in the repository before she sat down. **Chinese does not work that way.** Her
+teacher sets homework weekly, most of it out of the textbook and the exercise book,
+and the parent relays it. The content pipeline is therefore an *intake*, not an
+authoring project, and the thing being digitalized is a homework note.
+
+A real one, set 30 September 2026, verbatim:
+
+> 课本55到56页，读熟练。
+> 完成五课一练习册星期一到星期四的练习题。
+> 听写：课本52页的词语。
+
+Three lines, and **three different kinds of task** — only one of which is a question
+bank. Getting this wrong would mean turning all three into four-choice questions,
+which is how a dictation becomes a multiple-choice quiz about spelling and stops
+being dictation.
+
+| The line | What it is | How the site holds it |
+|---|---|---|
+| 课本 55–56 页，读熟练 | a **doing** task — read it aloud until fluent | the 课文 to read from, and a time log. Recorded as done, never scored: there is no honest way to mark fluency from a tap, and a number here would be invented. |
+| 练习册 第五课，星期一–星期四 | the exercise book's **own items** | the question banks, with `why` on each wrong choice like everything else. The book is already divided by weekday, so 星期一–四 are four sittings and `chunk()` is not even needed. |
+| 听写：课本 52 页的词语 | **dictation** | a word list, practised the way `precision` already works — shown, then self- or parent-rated. Dictation means writing characters from hearing them, which the site cannot auto-mark without a canvas and stroke data, and must not pretend to. |
+
+Two consequences worth writing down:
+
+**This answers the open question the first draft could not.** It asked whether
+Chinese wanted a weekly cadence or only a lesson pointer. It has one already: the
+homework note carries its own date and its own lesson, so a Chinese "week" is a
+homework note, not a span we invent. The lesson stays the spine; the note is what
+makes a week of it.
+
+**Every item records the page it came from.** Lesson, edition, and page — because
+the only way to check a key that looks wrong is to go back to the page it was read
+off, and because the free downloads are an earlier edition whose page numbers do
+not line up with hers (§ 1).
+
+**One thing for the owner to decide, not me.** The repository is public, and
+`content/README.md` already notes what that means for answer keys. A 课文 is
+copyrighted text from a textbook in print, which is a different matter from her own
+answers or from items we author. The 生字 and 词语 lists are facts about what she is
+being taught and sit comfortably in the repo; reproducing whole lesson texts there
+does not obviously. The options are to reference the 课文 by page and keep the text
+out, to hold it in the private Drive folder beside `progress.json`, or to decide the
+reproduction is fine. Until that is settled, no lesson text is committed.
+
+## 9. Open, and blocking
+
+1. **The pages themselves.** 第四册 第五课 is established and the homework is in hand,
+   but 课本 52 (the 听写 list) and 练习册 第五课 星期一–四 are not. The series is
+   published free, lesson by lesson, at `old.hwjyw.com/fj/jcxz/zhongwen/4/` — but
+   that host is not in this environment's network allowlist, so a session cannot
+   fetch it, and it is an earlier edition in any case. Photographs of her own pages
+   settle both problems at once.
+2. **Which HSK level, and when?** Nothing about mocks, pacing or readiness can be
+   built until this is fixed, and all three are wanted (§ 3).
+3. Whether 练习册（一） in the homework note means the A book. The reading is almost
+   certain and it is still a reading.
+4. The lesson count per volume, confirmed from the book rather than a search result.
+5. Whether a 课文 may be committed to a public repository (§ 8).
