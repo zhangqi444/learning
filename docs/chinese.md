@@ -48,6 +48,51 @@ hand: a homework note names 课本 52 and 55–56 and the exercise book's 星期
 what is printed on them cannot be guessed at — least of all a 听写 list, which is
 the one thing in a week's homework that has to be exact.
 
+## 1a. The exam — and why the level is not ours to pick yet
+
+The HSK is one exam with levels, not a family of exams, and **the levels changed in
+2026**, which makes "HSK 3" mean something different from what it meant last year.
+Secondary sources agree on the shape; the official specification has not been read
+yet and must be before a single mock is built (§ 3).
+
+- The old standard ran **six levels**, with vocabulary targets of roughly
+  150 / 300 / 600 / 1,200 / 2,500 / 5,000 words.
+- **HSK 3.0**, announced by the Ministry of Education in March 2021, runs **nine
+  levels in three bands** — Elementary 1–3, Intermediate 4–6, Advanced 7–9 — with
+  about 11,000 words and 3,000 characters across the whole range. Band 1 is around
+  **300 characters and 500 words**, Band 3 around **900 characters and 2,245
+  words**: roughly double the old exam at the same number.
+- It **replaced the old exam on 1 July 2026**, with the first official sitting of
+  the new papers reported for **13 December 2026**.
+- The **YCT** (Youth Chinese Test) is the separate younger-learner exam — four
+  levels at about 80 / 150 / 300 / 600 words, with 拼音 printed at every level,
+  where HSK drops 拼音 from level 3 onward. YCT 4 is usually put level with the old
+  HSK 3.
+
+Two things follow, and the second is the one that matters.
+
+**HSK 3.0 formally separates the characters you must read from the characters you
+must write by hand, and the handwriting list starts at Band 1.** Her teacher's
+听写 homework is therefore not a traditional extra beside the exam — it is
+practice for something the new standard explicitly tests. That is a point in favour
+of building the 听写 slice properly rather than approximating it with
+multiple choice (§ 8).
+
+**The level should fall out of what she already knows, not be chosen first.** Asking
+which level to aim at before counting the characters the textbook has actually
+taught her is backwards: 第四册 has a cumulative 生字 list, the official level specs
+have theirs, and comparing the two gives an answer with a reason attached instead of
+a guess. So the order is: get the 生字 lists for 第一–四册, count them, read the
+official Band 1–3 specifications, and *then* recommend a level and a sitting.
+
+Sources (all secondary — the official spec at the exam's own site is still to be
+read): [Hanyu Shuiping Kaoshi — Wikipedia](https://en.wikipedia.org/wiki/Hanyu_Shuiping_Kaoshi),
+[GoEast — new HSK levels (2026)](https://goeastmandarin.com/new-hsk-levels/),
+[Is HSK 3.0 already in effect? (2026 status)](https://moyuchinese.com/en/blog/is-hsk-3-0-in-effect),
+[HSK 3.0 vs 2.0 changes](https://www.echineselearning.com/blog/hsk-3-vs-hsk-2-changes-explained),
+[YCT vs HSK for children](https://www.lingoace.com/blog/hsk-vs-yct-how-to-choose/),
+[YCT guide](https://www.digmandarin.com/yct-guide).
+
 ## 2. Two categories, two URLs, one record
 
 The asked-for shape is `learning.sheilazhang.org/isee` and
@@ -306,7 +351,9 @@ reproduction is fine. Until that is settled, no lesson text is committed.
    fetch it, and it is an earlier edition in any case. Photographs of her own pages
    settle both problems at once.
 2. **Which HSK level, and when?** Nothing about mocks, pacing or readiness can be
-   built until this is fixed, and all three are wanted (§ 3).
+   built until this is fixed, and all three are wanted (§ 3). It is not a question
+   to answer by preference: § 1a sets out the order — count her 生字, read the
+   official band specifications, then recommend.
 3. Whether 练习册（一） in the homework note means the A book. The reading is almost
    certain and it is still a reading.
 4. The lesson count per volume, confirmed from the book rather than a search result.
