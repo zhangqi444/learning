@@ -131,6 +131,32 @@
   color-scheme: dark;
 }
 
+/* The card header on a phone. 0677d39 moved Card into @zhangqi444/ui and the
+   package's CardHeader is plain shadcn: two columns whenever there is a
+   CardAction, and the action beside the title at every width. The local one it
+   replaced only went two-column at @md/main and stacked the action under the
+   title below that, with a note saying why — the second track was max-content,
+   so a wide button took what it asked for and left the title the rest, and on a
+   390px phone "Split diagnostic" broke over two lines with its blurb poured down
+   a column four words wide. The move kept the package's variables and dropped
+   that behaviour, and test_e2e.cjs measured it the same afternoon: titles on the
+   dashboard, score and essay pages getting 35–73% of their header.
+
+   This is the dropped half, put back as unlayered CSS so it outranks the
+   package's utilities without a local copy of the component. Keyed on the
+   `main` container rather than the viewport, for the reason the old comment
+   gave: what has run out is the card's room, not the window's — the same card
+   is narrow beside an open sidebar and wide without one. 28rem is Tailwind's
+   `md` container width, which is what `@md/main:` compiled to. The better home
+   for this is the package itself, so a sibling site does not meet the same
+   phone; until then it lives here, where the test that caught it lives. */
+[data-slot="card-header"]:has([data-slot="card-action"]) { grid-template-columns: 1fr; }
+[data-slot="card-action"] { grid-column-start: 1; grid-row: auto; justify-self: start; }
+@container main (width >= 28rem) {
+  [data-slot="card-header"]:has([data-slot="card-action"]) { grid-template-columns: 1fr auto; }
+  [data-slot="card-action"] { grid-column-start: 2; grid-row: 1 / span 2; justify-self: end; }
+}
+
 @theme inline {
   /* The device's own UI font: San Francisco on Mac and iPad, Segoe on Windows.
      Nothing to download, nothing to wait for, and it looks native everywhere. */
