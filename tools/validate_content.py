@@ -46,7 +46,9 @@ def gloss_errors(it):
     # means". Sentence completions are the ones with the gap, and they are a
     # different thing — what teaches those is the clue in the sentence, not a
     # definition, so they are not covered here.
-    if it.get('subject') != 'VR' or BLANK.search(str(it.get('prompt') or '')): return []
+    # The same holds for a 汉字 question — 拼音, strokes, radical, meaning — which is why
+    # docs/chinese.md § 4 extends this rule to zh-char and to nothing else in that half.
+    if it.get('subject') not in ('VR', 'zh-char') or BLANK.search(str(it.get('prompt') or '')): return []
     if not str(it.get('explanation') or '').strip():
         return [f'{it["id"]}: a word question with no explanation — a miss here teaches nothing']
     return []
@@ -159,7 +161,11 @@ def why_gap_errors(it):
 from letters import letter_errors, self_test
 
 errs += self_test()          # the detector is checked before the content is
-BANKS='content/question-banks'
+# ISEE's banks and, beside them rather than inside them, the Chinese ones
+# (docs/chinese.md § 4). One list, so a bank cannot land somewhere this never looks.
+BANK_DIRS=['content/question-banks','content/chinese/question-banks']
+def bank_files():
+    return [f'{d}/{f}' for d in BANK_DIRS if os.path.isdir(d) for f in sorted(os.listdir(d)) if f.endswith('.json')]
 pass_ids=set(); passage_text={}
 for f in os.listdir('content/passages'):
     for p in json.load(open(f'content/passages/{f}'))['items']:
@@ -168,8 +174,8 @@ for f in os.listdir('content/passages'):
         if not p.get('text') or len(str(p['text']))<100: errs.append(f'{p["id"]}: passage text missing/short')
 
 seen=set()
-for f in sorted(os.listdir(BANKS)):
-    d=json.load(open(f'{BANKS}/{f}'))
+for f in bank_files():
+    d=json.load(open(f))
     for it in d['items']:
         total+=1; i=it['id']
         if i in seen: errs.append(f'{i}: duplicate id')
@@ -208,8 +214,8 @@ for f in sorted(os.listdir(BANKS)):
         errs += spelling_errors(it)
 
 # answer-position sanity per bank/form
-for f in sorted(os.listdir(BANKS)):
-    d=json.load(open(f'{BANKS}/{f}'))
+for f in bank_files():
+    d=json.load(open(f))
     g=collections.defaultdict(list)
     for it in d['items']: g[(it.get('form') or '-', it['subject'])].append(it['correct'])
     for k,v in g.items():

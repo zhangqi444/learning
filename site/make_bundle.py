@@ -65,6 +65,25 @@ out['books']=json.load(open('content/books.json'))
 out['aops']=json.load(open('content/aops.json'))
 out['catcare']=json.load(open('content/catcare.json'))
 out['learn']=json.load(open('content/learn.json'))
+# ---- Chinese: a sibling key, and ISEE's keys do not move (docs/chinese.md § 4) ----
+# `zh` sits next to `subjects` rather than inside it. readiness() walks ORDER and
+# ORDER indexes `subjects`, so a fifth subject there would score Chinese homework
+# into a number that means ISEE preparedness; a sibling key cannot. Items keep the
+# bank's full shape, `why` included, so whatever reads them can tell a wrong choice
+# what it actually was.
+_ZH='content/chinese'
+if os.path.isdir(_ZH):
+    zh={'manifest':json.load(open(f'{_ZH}/manifest.json')),'lessons':{},'homework':{},'banks':{}}
+    for _f in sorted(os.listdir(f'{_ZH}/lessons')):
+        _l=json.load(open(f'{_ZH}/lessons/{_f}')); zh['lessons'][_l['id']]=_l
+    for _f in sorted(os.listdir(f'{_ZH}/homework')):
+        _hw=json.load(open(f'{_ZH}/homework/{_f}')); zh['homework'][_hw['set']]=_hw
+    for _f in sorted(os.listdir(f'{_ZH}/question-banks')):
+        _b=json.load(open(f'{_ZH}/question-banks/{_f}'))
+        zh['banks'][_b['bank']]=[{'id':i['id'],'l':i.get('lesson',''),'sk':i.get('skill',''),'d':i.get('difficulty',''),
+            'q':i['prompt'],'c':[i['choices'][k] for k in 'ABCD'],'k':i['correct'],'e':i.get('explanation',''),
+            'src':i.get('source',''),**({'y':i['why']} if i.get('why') else {})} for i in _b['items']]
+    out['zh']=zh
 import os as _os, datetime as _dt
 if _os.path.exists('site/content/seed.json'):
     out['seed']=json.load(open('site/content/seed.json'))

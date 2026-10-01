@@ -1,0 +1,61 @@
+{
+ "bank": "zh-char",
+ "schema_version": "1.0",
+ "content_version": "2026.10.01",
+ "items": [
+  {
+   "id": "z:L05-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.01",
+   "subject": "zh-char",
+   "skill": "tone-sandhi",
+   "difficulty": "M",
+   "prompt": "How is 一定 pronounced in 「你一定要照顾好自己。」?",
+   "choices": {
+    "A": "yīdìng",
+    "B": "yīdīng",
+    "C": "yídìng",
+    "D": "yìdīng"
+   },
+   "correct": "C",
+   "explanation": "一 changes tone depending on what comes after it. In front of a fourth-tone syllable like 定 (dìng), 一 is said in the second tone, so 一定 is yídìng.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第五课《小马过河》 星期一，练习4（printed p.32）",
+   "form": "L05",
+   "lesson": "L05",
+   "why": {
+    "A": "yīdìng keeps 一 in the first tone, which is how it sounds when you count — 一, 二, 三 — but not when it sits in front of a fourth-tone syllable.",
+    "B": "yīdīng puts 定 in the first tone, but 定 is always a fourth tone, dìng, falling at the end of the word.",
+    "D": "yìdīng has both tones the wrong way round: 一 is not a fourth tone here, and 定 is not a first tone."
+   },
+   "content_hash": "aefd8d4e9088b48b"
+  },
+  {
+   "id": "z:L05-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.01",
+   "subject": "zh-char",
+   "skill": "radical-strokes",
+   "difficulty": "M",
+   "prompt": "「突」共有几画？部首是什么？",
+   "choices": {
+    "A": "九；穴",
+    "B": "十；穴",
+    "C": "九；犬",
+    "D": "十；犬"
+   },
+   "correct": "A",
+   "explanation": "突 is built from 穴 on top and 犬 underneath. 穴 takes five strokes and 犬 takes four, so 突 has nine in all, and the radical is the part on top, 穴 — the textbook prints 穴 → 突 beside the character list.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第五课《小马过河》 星期一，练习4（printed p.32）",
+   "form": "L05",
+   "lesson": "L05",
+   "why": {
+    "B": "十；穴 picks the radical correctly but adds a stroke that is not there — 穴 is five strokes and 犬 is four, which comes to nine.",
+    "C": "九；犬 counts the strokes correctly, but 犬 is the part underneath; the radical of 突 is the 穴 above it.",
+    "D": "十；犬 misses twice over: the stroke count is nine, and the radical is 穴 rather than 犬."
+   },
+   "content_hash": "86a0559e8aa166b3"
+  }
+ ]
+}

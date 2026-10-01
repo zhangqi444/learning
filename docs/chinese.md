@@ -317,7 +317,7 @@ being dictation.
 | The line | What it is | How the site holds it |
 |---|---|---|
 | 课本 55–56 页，读熟练 | a **doing** task — read it aloud until fluent | the 课文 to read from, and a time log. Recorded as done, never scored: there is no honest way to mark fluency from a tap, and a number here would be invented. |
-| 练习册 第五课，星期一–星期四 | the exercise book's **own items** | the question banks, with `why` on each wrong choice like everything else. The book is already divided by weekday, so 星期一–四 are four sittings and `chunk()` is not even needed. |
+| 练习册 第五课，星期一–星期四 | the exercise book's **own items** | the question banks, with `why` on each wrong choice like everything else. The first draft of this row said the weekday division made 星期一–四 four sittings; the pages say otherwise. Each day carries one four-choice block, and the rest of the day — handwriting, radical assembly, 组词, 连词成句, an open 造句, the retell — cannot honestly become four choices. 第五课 yields fifteen items, two sittings, and fifteen exercises that stay on paper and are listed as such in `content/chinese/homework/`. |
 | 听写：课本 52 页的词语 | **dictation** | a word list, practised the way `precision` already works — shown, then self- or parent-rated. Dictation means writing characters from hearing them, which the site cannot auto-mark without a canvas and stroke data, and must not pretend to. |
 
 Two consequences worth writing down:
@@ -344,12 +344,19 @@ reproduction is fine. Until that is settled, no lesson text is committed.
 
 ## 9. Open, and blocking
 
-1. **The pages themselves.** 第四册 第五课 is established and the homework is in hand,
-   but 课本 52 (the 听写 list) and 练习册 第五课 星期一–四 are not. The series is
-   published free, lesson by lesson, at `old.hwjyw.com/fj/jcxz/zhongwen/4/` — but
-   that host is not in this environment's network allowlist, so a session cannot
-   fetch it, and it is an earlier edition in any case. Photographs of her own pages
-   settle both problems at once.
+1. **The pages themselves — now in hand, and the right edition.** The 教材,
+   练习册A and 练习册B PDFs are on the owner's Mac and in the Drive folder. Their
+   edition pages read 「2023 年第三版」, and the homework note's 课本 55–56 lands
+   exactly on 阅读《谦虚过度》 in them, which is the first concrete evidence that her
+   book and these files paginate alike. They are scans with no text layer; pages
+   are rendered locally and read as images, never OCRed, and the offsets (教材
+   printed + 15, 练习册A printed + 5) are in `content/chinese/manifest.json`.
+   What the note calls 课本 52 页的词语 is settled too, and not the way the first
+   reading went: the section headed 词语 is on p.50, and p.52 carries the last two
+   rows of 读一读 and the whole of 用一用 — the owner read the note literally, so
+   the dictation is the words on p.52, listed by section in the homework file.
+   The remaining caveat is the one § 8 already states: `old.hwjyw.com` is still
+   an earlier edition, so nothing is read from there.
 2. **Which HSK level, and when?** Nothing about mocks, pacing or readiness can be
    built until this is fixed, and all three are wanted (§ 3). It is not a question
    to answer by preference: § 1a sets out the order — count her 生字, read the

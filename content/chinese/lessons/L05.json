@@ -1,0 +1,222 @@
+{
+ "id": "L05",
+ "no": 5,
+ "title": "小马过河",
+ "title_en": "A Pony Crosses the River",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "48–49",
+  "生字·词语·句子": "50",
+  "课堂练习": "51–52",
+  "阅读": "55–56"
+ },
+ "课文": {
+  "where": "教材 printed 48–49",
+  "text": null,
+  "note": "Fully pinyin-annotated in the book. The text is deliberately not reproduced: docs/chinese.md § 8 holds that a 课文 is copyrighted text from a textbook in print and that no lesson text is committed until the owner decides where it may live."
+ },
+ "生字": {
+  "where": "教材 printed p.50",
+  "gloss_note": "character and 拼音 are the book's; the meaning is a one-word gloss authored here, not printed in the book",
+  "items": [
+   {
+    "zi": "喝",
+    "py": "hē",
+    "gloss": "drink"
+   },
+   {
+    "zi": "伯",
+    "py": "bó",
+    "gloss": "uncle (father's elder brother)"
+   },
+   {
+    "zi": "深",
+    "py": "shēn",
+    "gloss": "deep"
+   },
+   {
+    "zi": "浅",
+    "py": "qiǎn",
+    "gloss": "shallow"
+   },
+   {
+    "zi": "正",
+    "py": "zhèng",
+    "gloss": "just about to; straight"
+   },
+   {
+    "zi": "突",
+    "py": "tū",
+    "gloss": "sudden"
+   },
+   {
+    "zi": "松",
+    "py": "sōng",
+    "gloss": "pine"
+   },
+   {
+    "zi": "鼠",
+    "py": "shǔ",
+    "gloss": "mouse, rat"
+   },
+   {
+    "zi": "淹",
+    "py": "yān",
+    "gloss": "drown, flood"
+   },
+   {
+    "zi": "定",
+    "py": "dìng",
+    "gloss": "certain, fixed"
+   }
+  ],
+  "部首": [
+   {
+    "bu": "穴",
+    "zi": "突"
+   },
+   {
+    "bu": "鼠",
+    "zi": "鼠"
+   }
+  ]
+ },
+ "词语": {
+  "where": "教材 printed p.50",
+  "items": [
+   {
+    "w": "伯伯",
+    "py": "bóbo"
+   },
+   {
+    "w": "突然",
+    "py": "tūrán"
+   },
+   {
+    "w": "只好",
+    "py": "zhǐhǎo"
+   },
+   {
+    "w": "那么",
+    "py": "nàme"
+   },
+   {
+    "w": "一定",
+    "py": "yídìng"
+   },
+   {
+    "w": "最好",
+    "py": "zuìhǎo"
+   },
+   {
+    "w": "那样",
+    "py": "nàyàng"
+   }
+  ]
+ },
+ "句子": {
+  "where": "教材 printed p.50",
+  "zh": "河水是深还是浅，最好你自己去试试。",
+  "py": "hé shuǐ shì shēn hái shi qiǎn, zuì hǎo nǐ zì jǐ qù shì shi."
+ },
+ "句型": {
+  "where": "教材 printed p.52 扩展与替换",
+  "pattern": "是……还是……",
+  "ladder": [
+   "是深还是浅",
+   "河水是深还是浅",
+   "河水是深还是浅，最好你自己去试试。"
+  ]
+ },
+ "读一读": {
+  "where": "教材 printed 51–52",
+  "rows": [
+   [
+    "喝水",
+    "喝茶",
+    "喝汤",
+    "喝牛奶"
+   ],
+   [
+    "伯伯",
+    "王伯伯",
+    "老伯伯",
+    "大伯",
+    "伯父"
+   ],
+   [
+    "深浅",
+    "很深",
+    "很浅"
+   ],
+   [
+    "正在",
+    "正当",
+    "正好"
+   ],
+   [
+    "突然",
+    "突发",
+    "突变"
+   ],
+   [
+    "松树",
+    "松鼠",
+    "老鼠",
+    "田鼠"
+   ],
+   [
+    "淹死了",
+    "一定",
+    "肯定",
+    "必定"
+   ]
+  ],
+  "page_break": "the first five rows are on p.51, the last two on p.52"
+ },
+ "用一用": {
+  "where": "教材 printed p.52",
+  "rows": [
+   [
+    "很突然",
+    "突然停电了",
+    "突然站了起来"
+   ],
+   [
+    "只好去",
+    "只好请别人帮忙"
+   ],
+   [
+    "那么多",
+    "那么好",
+    "那么大"
+   ],
+   [
+    "一定要来",
+    "一定会去的"
+   ],
+   [
+    "最好不要迟到",
+    "最好别去"
+   ],
+   [
+    "那样大",
+    "那样红",
+    "那样深"
+   ]
+  ]
+ },
+ "阅读": {
+  "where": "教材 printed 55–56",
+  "title": "谦虚过度",
+  "title_en": "Excessive Modesty",
+  "sidebar": [
+   "过度：超过适当的限度。",
+   "尊重",
+   "口气",
+   "谣言：没有事实根据的消息。"
+  ],
+  "text": null,
+  "note": "same copyright hold as the 课文"
+ }
+}

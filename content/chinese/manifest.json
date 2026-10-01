@@ -1,0 +1,29 @@
+{
+ "series": "《中文》（小学）",
+ "compiler": "暨南大学华文学院 编",
+ "press": "暨南大学出版社",
+ "edition": "2023年第三版",
+ "volume": "第四册",
+ "volume_editor": "常芳清",
+ "isbn": null,
+ "isbn_note": "Not printed on the title pages that were read (cover, title, edition page). The back cover has not been rendered. Leave null rather than guess.",
+ "edition_evidence": "Read off the edition page of both PDFs: 「2023 年第三版」 above the 教材编写工作委员会, with 2007 年第二版 and 1997 年第一版 listed as earlier editions. docs/chinese.md § 1 warns that the free downloads at old.hwjyw.com are an earlier edition; these files are not those — they are the third edition, and the homework note's 课本 55–56 lands exactly on 阅读《谦虚过度》 here, which is the first concrete evidence that her book and these files paginate alike.",
+ "books": {
+  "教材": {
+   "pages": 170,
+   "pdf_offset": 15,
+   "note": "printed page + 15 = PDF page; verified on four pages"
+  },
+  "练习册A": {
+   "pages": 90,
+   "pdf_offset": 5,
+   "note": "printed page + 5 = PDF page; verified on four pages. Assumed to be the 练习册（一） of the homework note; the file is titled 练习册A and the reading is near-certain (docs/chinese.md § 9.3)."
+  },
+  "练习册B": {
+   "pages": 90,
+   "pdf_offset": null,
+   "note": "in hand, not yet read"
+  }
+ },
+ "source_files": "The three PDFs are on the owner's Mac (~/Downloads) and in the Drive folder beside progress.json. They are scans with no text layer; pages are rendered with ImageMagick + Ghostscript and read as images. Nothing is OCRed."
+}

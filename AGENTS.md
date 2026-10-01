@@ -48,7 +48,8 @@ docs/                     architecture.md (how it is built), design.md (why it l
                           behaves — read before drawing, animating or voicing a cat),
                           gamify.md (the research, and what shipped),
                           chinese.md (the design for the second category,
-                          暨南大学《中文》 — proposed, nothing built yet),
+                          暨南大学《中文》 — the content for 第五课 is in under
+                          content/chinese/; the layer itself is not built yet),
                           review.md, review notes; the living record is the
                           claude.ai "ISEE" project
 ```

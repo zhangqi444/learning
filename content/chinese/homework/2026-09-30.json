@@ -1,0 +1,164 @@
+{
+ "set": "2026-09-30",
+ "lesson": "L05",
+ "edition": "2023年第三版",
+ "note_verbatim": [
+  "课本55到56页，读熟练。",
+  "完成五课一练习册星期一到星期四的练习题。",
+  "听写：课本52页的词语。"
+ ],
+ "tasks": [
+  {
+   "line": "课本55到56页，读熟练。",
+   "kind": "read_aloud",
+   "what": "阅读《谦虚过度》, 教材 printed 55–56",
+   "rule": "Recorded as done with a time log, never scored. There is no honest way to mark fluency from a tap."
+  },
+  {
+   "line": "完成五课一练习册星期一到星期四的练习题。",
+   "kind": "workbook",
+   "what": "练习册A 第五课, printed 30–39, 星期一 to 星期四",
+   "banks": [
+    "zh-char",
+    "zh-word"
+   ],
+   "finding": "docs/chinese.md § 8 expected four sittings, one per weekday. The pages do not support that: of the lesson's nineteen exercises, four blocks (one per day) are four-choice and become fifteen items; the other fifteen exercises are handwriting, radical assembly, 组词, 连词成句, an open 造句, a 判断正误, a sequencing task, open comprehension questions, a dialogue completion from three given lines, and a retell with a parent's signature. Those stay on paper and are listed under on_paper.",
+   "on_paper": [
+    {
+     "day": "星期一",
+     "page": 30,
+     "ex": 1,
+     "what": "按照汉字结构写一写"
+    },
+    {
+     "day": "星期一",
+     "page": 31,
+     "ex": 2,
+     "what": "找朋友，连成字写下来并组词"
+    },
+    {
+     "day": "星期一",
+     "page": 31,
+     "ex": 3,
+     "what": "组一组，填一填"
+    },
+    {
+     "day": "星期一",
+     "page": 32,
+     "ex": 5,
+     "what": "根据拼音写汉字"
+    },
+    {
+     "day": "星期二",
+     "page": 33,
+     "ex": 1,
+     "what": "火车赛跑，组词语"
+    },
+    {
+     "day": "星期二",
+     "page": 33,
+     "ex": 2,
+     "what": "比一比，再组词（伯/白，所/听，浅/前，机/几）"
+    },
+    {
+     "day": "星期二",
+     "page": 34,
+     "ex": 3,
+     "what": "词语连线，并填入句子里面"
+    },
+    {
+     "day": "星期二",
+     "page": 34,
+     "ex": 5,
+     "what": "仿照例子造句（……是……还是……）"
+    },
+    {
+     "day": "星期三",
+     "page": 35,
+     "ex": 1,
+     "what": "读一读（read aloud, not scored）"
+    },
+    {
+     "day": "星期三",
+     "page": 36,
+     "ex": 3,
+     "what": "连词成句"
+    },
+    {
+     "day": "星期三",
+     "page": 36,
+     "ex": 4,
+     "what": "根据课文判断正误"
+    },
+    {
+     "day": "星期三",
+     "page": 37,
+     "ex": 5,
+     "what": "根据课文和图片给句子排序"
+    },
+    {
+     "day": "星期四",
+     "page": 38,
+     "ex": 2,
+     "what": "根据课文回答问题"
+    },
+    {
+     "day": "星期四",
+     "page": 39,
+     "ex": 3,
+     "what": "选择相应的句子补全对话"
+    },
+    {
+     "day": "星期四",
+     "page": 39,
+     "ex": 4,
+     "what": "把故事讲给爸爸妈妈听（家长签名）"
+    }
+   ],
+   "known_gaps": [
+    {
+     "where": "练习册A 星期一 练习4（2），printed p.32",
+     "question": "「正」共有＿＿画，部首是＿＿。",
+     "offered": "A. 六；一   B. 五；正   C. 六；正   D. 五；一",
+     "why_omitted": "Five strokes is certain; the radical is not. The PRC 《汉字部首表》 files 正 under 止, which the workbook does not offer, and textbooks split between 一 and 正. A wrong answer key is worse than a missing question. Ask her teacher, then add it. The parallel question about 突 is in zh-char and is safe: the textbook prints 穴 → 突 on p.50."
+    }
+   ]
+  },
+  {
+   "line": "听写：课本52页的词语。",
+   "kind": "dictation",
+   "what": "the words printed on 教材 p.52",
+   "scope_note": "The note says 词语 and names p.52. The section headed 词语 is on p.50; p.52 carries the last two rows of 读一读 and the whole of 用一用. The owner read the note literally — the words on p.52 — so both sections are listed here, labelled, and the parent may trim to the 读一读 rows if that is what the teacher dictates. The first draft of this file recorded the ten 生字 from p.50 instead; that matched neither the note's word nor its page and was withdrawn.",
+   "rule": "Shown, then self- or parent-rated, the way precision already works. Dictation means writing characters from hearing them; the site cannot mark that and must not pretend to.",
+   "words": {
+    "读一读（p.52 rows）": [
+     "松树",
+     "松鼠",
+     "老鼠",
+     "田鼠",
+     "淹死了",
+     "一定",
+     "肯定",
+     "必定"
+    ],
+    "用一用（p.52）": [
+     "很突然",
+     "突然停电了",
+     "突然站了起来",
+     "只好去",
+     "只好请别人帮忙",
+     "那么多",
+     "那么好",
+     "那么大",
+     "一定要来",
+     "一定会去的",
+     "最好不要迟到",
+     "最好别去",
+     "那样大",
+     "那样红",
+     "那样深"
+    ]
+   }
+  }
+ ]
+}
