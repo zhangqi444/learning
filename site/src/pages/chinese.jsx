@@ -40,16 +40,20 @@ function ReadAloudTask({ note, task }) {
   useStore()
   const st = hwState(note.set).read || {}
   const last = (st.attempts || []).slice(-1)[0]
+  const passage = ((Store.s.zh || {})[textKey(note.lesson, task.what)] || {}).text
   return (
     <Card data-testid="zh-read">
       <CardHeader>
-        <CardTitle>{task.line}</CardTitle>
-        <CardDescription><Badge variant="outline" className="mr-1">Reading</Badge>{task.what}</CardDescription>
+        <CardTitle>Reading</CardTitle>
+        <CardDescription>{task.what}</CardDescription>
         <CardAction>{st.done ? <Badge variant="success"><Check /> Read</Badge> : <Badge variant="outline">To do</Badge>}</CardAction>
       </CardHeader>
-      <CardContent className="flex flex-wrap items-center gap-3">
-        <Button size="sm" onClick={() => go(`/chinese/read/${note.set}`)} data-testid="zh-read-open"><Mic /> Read it aloud</Button>
-        {last ? <span className="text-muted-foreground text-xs tabular-nums">last: {Math.round(last.ms / 1000)} s{pace(last.total, last.ms) ? ` · ${pace(last.total, last.ms)} 字/分钟` : ""} · {st.attempts.length} reading{st.attempts.length === 1 ? "" : "s"}</span> : null}
+      <CardContent className="flex flex-col gap-3">
+        {passage ? <p className="text-xl leading-9 tracking-wide" data-testid="zh-home-passage">{passage}</p> : <PassageSetup bare lesson={note.lesson} what={task.what} where={task.pages} />}
+        <div className="flex flex-wrap items-center gap-3">
+          <Button size="sm" disabled={!passage} onClick={() => go(`/chinese/read/${note.set}`)} data-testid="zh-read-open"><Mic /> Read it aloud</Button>
+          {last ? <span className="text-muted-foreground text-xs tabular-nums">last: {Math.round(last.ms / 1000)} s{pace(last.total, last.ms) ? ` · ${pace(last.total, last.ms)} 字/分钟` : ""} · {st.attempts.length} reading{st.attempts.length === 1 ? "" : "s"}</span> : null}
+        </div>
       </CardContent>
     </Card>
   )
@@ -63,8 +67,8 @@ function WorkbookTask({ note, task, lesson }) {
   return (
     <Card data-testid="zh-workbook">
       <CardHeader>
-        <CardTitle>{task.line}</CardTitle>
-        <CardDescription><Badge variant="outline" className="mr-1">Workbook</Badge>{task.what}</CardDescription>
+        <CardTitle>Workbook</CardTitle>
+        <CardDescription>{task.what}</CardDescription>
         <CardAction><Badge variant={done === rows.length ? "success" : "outline"}>{done}/{rows.length} sittings</Badge></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
@@ -98,8 +102,8 @@ function DictationTask({ note, task }) {
   return (
     <Card data-testid="zh-dictation-card">
       <CardHeader>
-        <CardTitle>{task.line}</CardTitle>
-        <CardDescription><Badge variant="outline" className="mr-1">Dictation</Badge>{task.what}</CardDescription>
+        <CardTitle>Dictation</CardTitle>
+        <CardDescription>{task.what}</CardDescription>
         <CardAction><Button size="sm" onClick={() => go(`/chinese/dictation/${note.set}`)}><Volume2 /> Practise</Button></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
@@ -133,15 +137,8 @@ export function ChineseHome() {
       </Card>
       {note ? (
         <>
-          <Card>
-            <CardHeader>
-              <CardTitle>Homework · {note.set}</CardTitle>
-              <CardDescription>The teacher's note, as written</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <blockquote className="border-l-2 pl-3 text-sm leading-6" data-testid="zh-note">{note.note_verbatim.map((l, i) => <div key={i}>{l}</div>)}</blockquote>
-            </CardContent>
-          </Card>
+          {/* The note itself is not repeated here: each task card below carries its
+              own line of it as the title, which is the note shown as written. */}
           {note.tasks.map((t) => t.kind === "read_aloud" ? <ReadAloudTask key={t.kind} note={note} task={t} /> : t.kind === "workbook" ? <WorkbookTask key={t.kind} note={note} task={t} lesson={lesson} /> : <DictationTask key={t.kind} note={note} task={t} />)}
         </>
       ) : null}
@@ -269,20 +266,17 @@ const textKey = (lesson, what) => `text:${lesson}:${what}`
 /** The passage text lives in her Drive record, pasted once by a parent; never in
  *  the repo (docs/chinese.md § 8). `drive.file` scope means a file dropped into
  *  the folder by hand is invisible to the app, so the app writes it itself. */
-function PassageSetup({ lesson, what, where }) {
+function PassageSetup({ lesson, what, where, bare }) {
   const [text, setText] = useState("")
-  return (
-    <Card data-testid="zh-passage-setup">
-      <CardHeader>
-        <CardTitle>The passage is not here yet</CardTitle>
-        <CardDescription>{what} · {where}. Paste the text from the book once; it is kept in her Drive record, not on the site.</CardDescription>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-2">
-        <Textarea rows={8} value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste the passage here…" data-testid="zh-passage-text" />
-        <div><Button size="sm" disabled={!text.trim()} onClick={() => Store.setSlice("zh", textKey(lesson, what), (cur) => ({ ...cur, text: text.trim(), what, where }))} data-testid="zh-passage-save"><Check /> Keep it</Button></div>
-      </CardContent>
-    </Card>
+  const body = (
+    <>
+      <p className="text-muted-foreground text-sm">The passage is not here yet. Paste the text of {what} from {where} once — it is kept in her Drive record, not on the site.</p>
+      <Textarea rows={6} value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste the passage here…" data-testid="zh-passage-text" />
+      <div><Button size="sm" disabled={!text.trim()} onClick={() => Store.setSlice("zh", textKey(lesson, what), (cur) => ({ ...cur, text: text.trim(), what, where }))} data-testid="zh-passage-save"><Check /> Keep it</Button></div>
+    </>
   )
+  if (bare) return <div className="flex flex-col gap-2" data-testid="zh-passage-setup">{body}</div>
+  return <Card data-testid="zh-passage-setup"><CardContent className="flex flex-col gap-2 pt-6">{body}</CardContent></Card>
 }
 function Marked({ marks }) {
   // A character the recogniser did not hear is marked, never reddened: it is as
@@ -309,7 +303,7 @@ export function ReadAloud({ set }) {
   const live = React.useRef(null)
   React.useEffect(() => { if (mode !== "recording") return; const t = setInterval(() => setNow(Date.now()), 500); return () => clearInterval(t) }, [mode])
   if (!task || !lesson) return <ChineseHome />
-  if (!passage) return <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page"><PassageSetup lesson={note.lesson} what={what} where={task.what} /></div>
+  if (!passage) return <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page"><PassageSetup lesson={note.lesson} what={what} where={task.pages} /></div>
   const st = hwState(set).read || {}
   const attempts = st.attempts || []
   const start = async () => {
@@ -337,8 +331,8 @@ export function ReadAloud({ set }) {
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page">
       <Card>
         <CardHeader>
-          <CardTitle>{task.line}</CardTitle>
-          <CardDescription><Badge variant="outline" className="mr-1">Reading</Badge>{task.what}</CardDescription>
+          <CardTitle>Reading</CardTitle>
+          <CardDescription>{task.what}</CardDescription>
           <CardAction>
             {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-rec-stop"><Square /> Stop · {sec} s</Button>
               : mode === "saving" ? <Button size="sm" disabled>Saving…</Button>
@@ -351,7 +345,7 @@ export function ReadAloud({ set }) {
       </Card>
       <div className="grid gap-4 @md/main:grid-cols-2">
         <Card>
-          <CardHeader><CardTitle>{what}</CardTitle><CardDescription>{task.what}</CardDescription></CardHeader>
+          <CardHeader><CardTitle>{what}</CardTitle></CardHeader>
           <CardContent>{result ? <Marked marks={result.marks} /> : <p className="text-xl leading-9 tracking-wide" data-testid="zh-passage">{passage}</p>}</CardContent>
         </Card>
         <Card>
@@ -413,7 +407,7 @@ export function zhCrumbs(rest) {
   if (top === "l" && l(a)) out.push({ label: `第${l(a).no}课 ${l(a).title}`, path: `/chinese/l/${a}` })
   else if (top === "run" && ZH[a] && l(b)) { out.push({ label: `第${l(b).no}课 ${l(b).title}`, path: `/chinese/l/${b}` }); out.push({ label: `${ZH[a].name} · Set ${(+c || 0) + 1}`, path: `/chinese/run/${a}/${b}/${c || 0}` }) }
   else if (top === "dictation" && a) out.push({ label: `听写 · ${a}`, path: `/chinese/dictation/${a}` })
-  else if (top === "read" && a) out.push({ label: `读熟练 · ${a}`, path: `/chinese/read/${a}` })
+  else if (top === "read" && a) out.push({ label: `Reading · ${a}`, path: `/chinese/read/${a}` })
   else if (top === "review") out.push({ label: "Review", path: "/chinese/review" })
   return out
 }

@@ -67,8 +67,9 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.click('[data-testid=cat-chinese]'); await pg.waitForSelector('[data-testid=zh-home]');
   check('中文 opens the Chinese home', !!(await pg.$('[data-testid=zh-home]')));
   check('and its url is the chinese category', (await pg.evaluate(() => location.hash)) === '#/chinese');
-  const note = await pg.textContent('[data-testid=zh-note]');
-  check('the homework note is shown as written', /听写：课本52页的词语。/.test(note) && /课本55到56页/.test(note));
+  const home = await pg.textContent('[data-testid=zh-home]');
+  check('the task cards are titled by kind, not by the note\'s lines', /Reading/.test(home) && /Workbook/.test(home) && /Dictation/.test(home) && !/课本55到56页，读熟练。/.test(home) && !(await pg.$('[data-testid=zh-note]')));
+  check('with no passage kept, the reading card asks a parent for it in place', !!(await pg.$('[data-testid=zh-read] [data-testid=zh-passage-setup]')));
   check('the lesson is named', /小马过河/.test(await pg.textContent('[data-testid=zh-home]')));
   check('the trail starts at 中文', /中文/.test(await pg.textContent('header')));
   // Opening the site fresh — the manifest's start_url, no hash — while 中文 was the
@@ -130,12 +131,12 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // -- reading aloud: the passage pasted once, her reading recorded, transcribed, aligned
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
   check('each task card says what kind it is', /Reading/.test(await pg.textContent('[data-testid=zh-read]')) && /Workbook/.test(await pg.textContent('[data-testid=zh-workbook]')) && /Dictation/.test(await pg.textContent('[data-testid=zh-dictation-card]')));
-  await pg.click('[data-testid=zh-read-open]'); await pg.waitForSelector('[data-testid=zh-read-page]');
-  check('with no passage kept, the page asks a parent for it', !!(await pg.$('[data-testid=zh-passage-setup]')));
-  // The 句子 and two 用一用 phrases, which the repo already holds — not the 课文.
+  // The 句子 and two 用一用 phrases, which the repo already holds — not the 课文. Pasted on the home card.
   const passage = '河水是深还是浅，最好你自己去试试。突然停电了，只好请别人帮忙。';
-  await pg.fill('[data-testid=zh-passage-text]', passage); await pg.click('[data-testid=zh-passage-save]');
-  await pg.waitForSelector('[data-testid=zh-passage]');
+  await pg.fill('[data-testid=zh-read] [data-testid=zh-passage-text]', passage); await pg.click('[data-testid=zh-read] [data-testid=zh-passage-save]');
+  await pg.waitForSelector('[data-testid=zh-home-passage]');
+  check('the passage then shows on the card itself', (await pg.textContent('[data-testid=zh-home-passage]')) === passage);
+  await pg.click('[data-testid=zh-read-open]'); await pg.waitForSelector('[data-testid=zh-passage]');
   check('the passage is kept in the zh slice, not the bundle', ((await ls(pg)).zh['text:L05:阅读《谦虚过度》'] || {}).text === passage, Object.keys((await ls(pg)).zh).join(','));
   await pg.evaluate(() => { window.__asr = '河水是深还是浅最好你自己去试试突然只好请别人帮忙'; });   // 停电了 unheard: three characters
   await pg.click('[data-testid=zh-rec-start]'); await pg.waitForSelector('[data-testid=zh-rec-stop]'); await pg.waitForTimeout(250);
@@ -152,7 +153,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   const att = ((st.zh['hw:2026-09-30'] || {}).read || {}).attempts || [];
   check('the reading is kept: transcript, counts, file id, done', att.length === 1 && att[0].matched === 24 && att[0].total === 27 && att[0].fileId === 'media1' && st.zh['hw:2026-09-30'].read.done === true, JSON.stringify(att[0] || null));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
-  check('the week card shows it read, with the last reading', /Read/.test(await pg.textContent('[data-testid=zh-read]')) && /last: \d+ s/.test(await pg.textContent('[data-testid=zh-read]')));
+  check('the week card shows it read, with the last reading and the passage', /Read/.test(await pg.textContent('[data-testid=zh-read]')) && /last: \d+ s/.test(await pg.textContent('[data-testid=zh-read]')) && /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-read]')));
   check('the dictation card counts the rating', (await pg.textContent('[data-testid=zh-rated-count]')) === '1');
   check('no page errors', errs.length === 0, errs.join(' | '));
 

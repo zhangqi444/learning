@@ -11,13 +11,14 @@
   {
    "line": "课本55到56页，读熟练。",
    "kind": "read_aloud",
-   "what": "阅读《谦虚过度》, 教材 printed 55–56",
-   "rule": "Recorded as done with a time log, never scored. There is no honest way to mark fluency from a tap."
+   "what": "阅读《谦虚过度》",
+   "rule": "Recorded as done with a time log, never scored. There is no honest way to mark fluency from a tap.",
+   "pages": "教材 p.55–56"
   },
   {
    "line": "完成五课一练习册星期一到星期四的练习题。",
    "kind": "workbook",
-   "what": "练习册A 第五课, printed 30–39, 星期一 to 星期四",
+   "what": "练习册A 第五课，星期一到星期四",
    "banks": [
     "zh-char",
     "zh-word"
@@ -122,12 +123,13 @@
      "offered": "A. 六；一   B. 五；正   C. 六；正   D. 五；一",
      "why_omitted": "Five strokes is certain; the radical is not. The PRC 《汉字部首表》 files 正 under 止, which the workbook does not offer, and textbooks split between 一 and 正. A wrong answer key is worse than a missing question. Ask her teacher, then add it. The parallel question about 突 is in zh-char and is safe: the textbook prints 穴 → 突 on p.50."
     }
-   ]
+   ],
+   "pages": "练习册A printed 30–39"
   },
   {
    "line": "听写：课本52页的词语。",
    "kind": "dictation",
-   "what": "the words printed on 教材 p.52",
+   "what": "课本 p.52 的词语",
    "scope_note": "The note says 词语 and names p.52. The section headed 词语 is on p.50; p.52 carries the last two rows of 读一读 and the whole of 用一用. The owner read the note literally — the words on p.52 — so both sections are listed here, labelled, and the parent may trim to the 读一读 rows if that is what the teacher dictates. The first draft of this file recorded the ten 生字 from p.50 instead; that matched neither the note's word nor its page and was withdrawn.",
    "rule": "Shown, then self- or parent-rated, the way precision already works. Dictation means writing characters from hearing them; the site cannot mark that and must not pretend to.",
    "words": {
@@ -158,7 +160,8 @@
      "那样红",
      "那样深"
     ]
-   }
+   },
+   "pages": "教材 p.52"
   }
  ]
 }
