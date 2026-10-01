@@ -184,6 +184,16 @@ export function CauseTags({ id, compact }) {
   )
 }
 
+/** The prompt in English, behind a tap. */
+function EnglishLine({ text }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="mt-1 flex flex-col items-start gap-1">
+      <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs text-muted-foreground" onClick={() => setOpen((o) => !o)} data-testid="english-toggle">{open ? "中文" : "English"}</Button>
+      {open ? <p className="text-muted-foreground text-sm" data-testid="english">{text}</p> : null}
+    </div>
+  )
+}
 /** Seconds on the current question against the section budget; goes amber past it. Pacing mode only. */
 function SoftTimer({ since, budget }) {
   const [now, setNow] = useState(Date.now())
@@ -642,7 +652,12 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
               {rune.tail ? <p className="text-muted-foreground text-xs">{rune.tail}</p> : null}
             </div>
           ) : (
-            <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id}>{it.q}</p>
+            <>
+              <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id}>{it.q}</p>
+              {/* A Chinese prompt is the book's own wording; the English is a translation she
+                  can ask for, the way the book glosses its headings — never the default. */}
+              {it.qe ? <EnglishLine text={it.qe} /> : null}
+            </>
           )}
           {gameMode ? <p className="text-muted-foreground -mb-2 text-xs font-semibold tracking-wide uppercase">Your spells</p> : null}
           {/* Name what the wait is for. On the question where she meets a

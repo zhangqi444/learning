@@ -205,10 +205,11 @@ Three subjects, not four. 汉字, 词语 and 阅读 are each a real section of t
 each already has machinery waiting for it: the 课文 is a passage and reuses the `p`
 field and the passage renderer exactly; 词语 in a sentence with a gap **is the
 sentence-completion mechanic the whole site is built on**, arriving in a second
-language. Dictation and handwriting are deliberately out of this design — both need
-an input the site does not have (a microphone, or a canvas and stroke-order data),
-and neither can be faked with four choices. They are a later question, not a gap
-here.
+language. Handwriting is deliberately out of this design — it needs a canvas and
+stroke-order data the site does not have, and cannot be faked with four choices.
+It is a later question, not a gap here. The microphone arrived with the reading
+task (§ 8); dictation still does not use it, because dictation is her writing
+from hearing, and the site reads the word to her rather than listening.
 
 Item ids are namespaced from the first commit, because retrofitting a prefix means
 rewriting learning records and hard rule 1 forbids losing them: `z:` for a 汉字,
@@ -288,8 +289,13 @@ service worker and manifest, schema 7 with the `zh` slice, the `zh` bundle key,
 note (the sittings through the shared runner, the dictation list read aloud by the
 device's own voice and rated by hand, the read-aloud time log), and
 `test_chinese.cjs` as the fifth suite. One deviation from § 2, recorded there.
-Not in: the Wordwood (Phase 3), the skills (Phase 4), and the Chinese review and
-again runs beyond the plain due pile.
+Later the same day: the prompts became the book's own Chinese wording, with the
+English kept as a translation behind a tap; and the read-aloud task grew its
+input — her reading recorded to her Drive as its own file, transcribed live by
+the browser's recogniser, aligned to the passage, the misses marked for her and
+the number for a parent (§ 8). Not in: the Wordwood (Phase 3), the skills
+(Phase 4), the Chinese review and again runs beyond the plain due pile, and the
+Pencil canvas for dictation.
 
 Phase 1 is the layer and **one real lesson, end to end** — routes, category nav,
 schema 7, the `zh` bundle key, the two stubs, the service worker and the manifest,
@@ -332,7 +338,7 @@ being dictation.
 
 | The line | What it is | How the site holds it |
 |---|---|---|
-| 课本 55–56 页，读熟练 | a **doing** task — read it aloud until fluent | the 课文 to read from, and a time log. Recorded as done, never scored: there is no honest way to mark fluency from a tap, and a number here would be invented. |
+| 课本 55–56 页，读熟练 | a **doing** task — read it aloud until fluent | her reading, recorded and kept in her Drive, with the browser's recogniser transcribing as she reads and the transcript aligned to the passage character by character. The first version of this row held a time log and no score, because a fluency number from a tap would be invented; a number from an alignment is measured, and it is shown as what it is — what the recogniser heard, an estimate. She sees the passage with the characters it did not hear marked, and her pace; the percentage and the transcript are the parent's view. The passage text is pasted once into her Drive record and never committed here (copyright, below). Owner's decisions, 1 October 2026, including the one exception to hard rule 2 that the recogniser is. |
 | 练习册 第五课，星期一–星期四 | the exercise book's **own items** | the question banks, with `why` on each wrong choice like everything else. The first draft of this row said the weekday division made 星期一–四 four sittings; the pages say otherwise. Each day carries one four-choice block, and the rest of the day — handwriting, radical assembly, 组词, 连词成句, an open 造句, the retell — cannot honestly become four choices. 第五课 yields fifteen items, two sittings, and fifteen exercises that stay on paper and are listed as such in `content/chinese/homework/`. |
 | 听写：课本 52 页的词语 | **dictation** | a word list, practised the way `precision` already works — shown, then self- or parent-rated. Dictation means writing characters from hearing them, which the site cannot auto-mark without a canvas and stroke data, and must not pretend to. |
 

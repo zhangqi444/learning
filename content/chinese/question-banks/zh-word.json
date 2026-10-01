@@ -10,7 +10,7 @@
    "subject": "zh-word",
    "skill": "word-choice",
    "difficulty": "E",
-   "prompt": "Fill the blank: 明天开会，你______不要迟到。",
+   "prompt": "选词填空：明天开会，你______不要迟到。",
    "choices": {
     "A": "只好",
     "B": "最好",
@@ -28,7 +28,8 @@
     "C": "原来 means it turns out, and it looks back at something just discovered rather than forward to tomorrow.",
     "D": "都要 means all must, which needs a group of things to be about; only one person is being reminded here."
    },
-   "content_hash": "b6a5832924336225"
+   "content_hash": "f0bda1c1d035013c",
+   "prompt_en": "Fill the blank: 明天开会，你______不要迟到。"
   },
   {
    "id": "zc:L05-04",
@@ -37,7 +38,7 @@
    "subject": "zh-word",
    "skill": "word-choice",
    "difficulty": "E",
-   "prompt": "Fill the blank: 天快黑了，你______不要出去了。",
+   "prompt": "选词填空：天快黑了，你______不要出去了。",
    "choices": {
     "A": "只好",
     "B": "一定",
@@ -55,7 +56,8 @@
     "B": "一定 would turn this into an order — you definitely must not go out — and the sentence is softer than that.",
     "C": "突然 means something happened all at once, so it describes an event rather than what somebody should do."
    },
-   "content_hash": "badae2ed7ba83f8d"
+   "content_hash": "407c14c72d3864a6",
+   "prompt_en": "Fill the blank: 天快黑了，你______不要出去了。"
   },
   {
    "id": "zc:L05-05",
@@ -64,7 +66,7 @@
    "subject": "zh-word",
    "skill": "word-choice",
    "difficulty": "E",
-   "prompt": "Fill the blank: 老师进来了，教室______安静了。",
+   "prompt": "选词填空：老师进来了，教室______安静了。",
    "choices": {
     "A": "突然",
     "B": "只好",
@@ -82,7 +84,8 @@
     "C": "最好 offers advice, and nobody is being advised — the sentence reports what happened when the teacher came in.",
     "D": "一定 means certainly, which would say the room was bound to go quiet rather than describing the moment it did."
    },
-   "content_hash": "dd02f475c27a91c2"
+   "content_hash": "38ec23e3fc48346b",
+   "prompt_en": "Fill the blank: 老师进来了，教室______安静了。"
   },
   {
    "id": "zc:L05-06",
@@ -91,7 +94,7 @@
    "subject": "zh-word",
    "skill": "word-choice",
    "difficulty": "E",
-   "prompt": "Fill the blank: 我没带雨伞，______等雨停之后再走。",
+   "prompt": "选词填空：我没带雨伞，______等雨停之后再走。",
    "choices": {
     "A": "一定",
     "B": "只好",
@@ -109,7 +112,8 @@
     "C": "突然 describes something happening all at once, and waiting for rain to stop is the opposite — it takes a while.",
     "D": "最好 would make waiting the best idea among several, but with no umbrella it is the only idea."
    },
-   "content_hash": "6463e33b58be09f4"
+   "content_hash": "c7e1436711cc4517",
+   "prompt_en": "Fill the blank: 我没带雨伞，______等雨停之后再走。"
   },
   {
    "id": "zc:L05-07",
@@ -118,7 +122,7 @@
    "subject": "zh-word",
    "skill": "word-choice",
    "difficulty": "E",
-   "prompt": "Fill the blank: 我______要早睡早起，这样才能身体好。",
+   "prompt": "选词填空：我______要早睡早起，这样才能身体好。",
    "choices": {
     "A": "最好",
     "B": "突然",
@@ -136,7 +140,8 @@
     "B": "突然 means all at once, which cannot describe a habit kept night after night.",
     "D": "只好 means having no choice, but nobody is forcing these early nights — they are being chosen."
    },
-   "content_hash": "e935ca7a219935ee"
+   "content_hash": "0f16bb99dc2dc9f3",
+   "prompt_en": "Fill the blank: 我______要早睡早起，这样才能身体好。"
   },
   {
    "id": "zc:L05-08",
@@ -145,7 +150,7 @@
    "subject": "zh-word",
    "skill": "word-choice",
    "difficulty": "E",
-   "prompt": "Fill the blank: 小马不知道______怎么做。",
+   "prompt": "选词填空：小马不知道______怎么做。",
    "choices": {
     "A": "原来",
     "B": "既……也……",
@@ -163,7 +168,8 @@
     "B": "既……也…… joins two things that are both true, so it needs two halves to join; this sentence has only one.",
     "C": "小心 means careful, and the pony is not being careless — he simply does not know whose advice to follow."
    },
-   "content_hash": "01493776a47b1305"
+   "content_hash": "b58d615edf10dd2e",
+   "prompt_en": "Fill the blank: 小马不知道______怎么做。"
   },
   {
    "id": "zc:L05-09",
@@ -172,7 +178,7 @@
    "subject": "zh-word",
    "skill": "word-choice",
    "difficulty": "E",
-   "prompt": "Fill the blank: 下雨的时候走路要______一点儿。",
+   "prompt": "选词填空：下雨的时候走路要______一点儿。",
    "choices": {
     "A": "小心",
     "B": "应该",
@@ -190,7 +196,8 @@
     "C": "原来 means it turns out, which looks back at a discovery rather than telling you how to walk.",
     "D": "既……也…… links two things that are both true, and this sentence names only one thing to do."
    },
-   "content_hash": "fef0757482c924a5"
+   "content_hash": "3414ee03ac3fa8a7",
+   "prompt_en": "Fill the blank: 下雨的时候走路要______一点儿。"
   },
   {
    "id": "zc:L05-10",
@@ -199,7 +206,7 @@
    "subject": "zh-word",
    "skill": "paired-connectives",
    "difficulty": "M",
-   "prompt": "Fill the blanks: 他______喜欢吃中国菜，______喜欢吃美国菜。",
+   "prompt": "选词填空：他______喜欢吃中国菜，______喜欢吃美国菜。",
    "choices": {
     "A": "小心",
     "B": "既……也……",
@@ -217,7 +224,8 @@
     "C": "应该 means ought to, but nobody is being told what to do — the sentence reports what he enjoys.",
     "D": "原来 means it turns out, and it goes at the front of a single statement; it cannot stretch across two halves."
    },
-   "content_hash": "7c5159930f78854c"
+   "content_hash": "2d27cf8c18f07167",
+   "prompt_en": "Fill the blanks: 他______喜欢吃中国菜，______喜欢吃美国菜。"
   },
   {
    "id": "zc:L05-11",
@@ -226,7 +234,7 @@
    "subject": "zh-word",
    "skill": "word-choice",
    "difficulty": "M",
-   "prompt": "Fill the blank: 亮亮长得很像你，______他是你的弟弟啊。",
+   "prompt": "选词填空：亮亮长得很像你，______他是你的弟弟啊。",
    "choices": {
     "A": "应该",
     "B": "小心",
@@ -244,7 +252,8 @@
     "B": "小心 means careful, and nothing here is risky.",
     "D": "既……也…… joins two things that are both true, and this sentence is one discovery rather than two facts side by side."
    },
-   "content_hash": "3aff0205a744ce9f"
+   "content_hash": "a6d5fa6959b8fcf6",
+   "prompt_en": "Fill the blank: 亮亮长得很像你，______他是你的弟弟啊。"
   },
   {
    "id": "zc:L05-12",
@@ -253,7 +262,7 @@
    "subject": "zh-word",
    "skill": "function-words",
    "difficulty": "M",
-   "prompt": "Fill the blank: 小马听了老牛的话，______要过河，小松鼠来了。",
+   "prompt": "选择正确的答案填空：小马听了老牛的话，______要过河，小松鼠来了。",
    "choices": {
     "A": "从",
     "B": "到",
@@ -271,7 +280,8 @@
     "B": "到 means to or arrive, so it would need somewhere to arrive at — and the pony has not crossed yet.",
     "D": "也 means too, which would say the pony crossed as well, as though somebody else had already crossed."
    },
-   "content_hash": "431e64e2f308dfc7"
+   "content_hash": "1e85c9e944754650",
+   "prompt_en": "Fill the blank: 小马听了老牛的话，______要过河，小松鼠来了。"
   },
   {
    "id": "zc:L05-13",
@@ -280,7 +290,7 @@
    "subject": "zh-word",
    "skill": "function-words",
    "difficulty": "E",
-   "prompt": "Fill the blank: 奶奶画了一张画儿，我______画了一张。",
+   "prompt": "选择正确的答案填空：奶奶画了一张画儿，我______画了一张。",
    "choices": {
     "A": "也",
     "B": "又",
@@ -298,7 +308,8 @@
     "C": "既 does not stand on its own — it waits for 也 or 又 later in the sentence, as in 既……也…….",
     "D": "才 means only then or not until, which would say the drawing came later than expected rather than as well."
    },
-   "content_hash": "bbc48a58b3cd1bde"
+   "content_hash": "d166c296cb353661",
+   "prompt_en": "Fill the blank: 奶奶画了一张画儿，我______画了一张。"
   },
   {
    "id": "zc:L05-14",
@@ -307,7 +318,7 @@
    "subject": "zh-word",
    "skill": "de-particles",
    "difficulty": "H",
-   "prompt": "Fill the blank: 水很浅，小马过______去。",
+   "prompt": "选择正确的答案填空：水很浅，小马过______去。",
    "choices": {
     "A": "的",
     "B": "地",
@@ -325,7 +336,8 @@
     "B": "地 comes before a verb to say how it is done, like 小心地过河, but here the blank falls after 过.",
     "D": "了 marks something finished, and the pony has not crossed yet — he is being told that he is able to."
    },
-   "content_hash": "4ff7594bf306ad39"
+   "content_hash": "d2979db2e22eeddc",
+   "prompt_en": "Fill the blank: 水很浅，小马过______去。"
   },
   {
    "id": "zc:L05-15",
@@ -334,7 +346,7 @@
    "subject": "zh-word",
    "skill": "de-particles",
    "difficulty": "H",
-   "prompt": "Fill the blank: 公园里有很多美丽______花朵。",
+   "prompt": "选择正确的答案填空：公园里有很多美丽______花朵。",
    "choices": {
     "A": "的",
     "B": "地",
@@ -352,7 +364,8 @@
     "C": "得 follows a verb to say how it turned out, as in 过得去, and 美丽 is not a verb.",
     "D": "了 marks something completed, and nothing is being completed here — the flowers are simply there."
    },
-   "content_hash": "628dc04f196da0e6"
+   "content_hash": "26e59676c7d6a665",
+   "prompt_en": "Fill the blank: 公园里有很多美丽______花朵。"
   }
  ]
 }

@@ -516,6 +516,25 @@ export const Store = {
       { method: "POST", headers: { "Content-Type": `multipart/related; boundary=${boundary}` }, body: multipart })
       .then((r) => r.json()).then((f) => { this.fileId = f.id })
   },
+  /** A recording of her reading, as its own file in the same folder (lib/reading.js).
+   *  Binary, so the multipart is built as a Blob rather than a string; the
+   *  boundary name is what the test stub routes on. Resolves to the file id, or
+   *  null when there is no Drive to put it in — the artifact, or signed out —
+   *  in which case the transcript and the alignment are still kept. */
+  uploadMedia(name, blob, mime) {
+    if (!DRIVE_ENABLED || !this.folderId) return Promise.resolve(null)
+    const meta = { name, mimeType: mime || blob.type || "application/octet-stream", parents: [this.folderId] }
+    const boundary = "learningmedia" + Date.now()
+    const body = new Blob([`--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(meta)}\r\n--${boundary}\r\nContent-Type: ${meta.mimeType}\r\n\r\n`, blob, `\r\n--${boundary}--`])
+    return this.api("https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id",
+      { method: "POST", headers: { "Content-Type": `multipart/related; boundary=${boundary}` }, body })
+      .then((r) => r.json()).then((f) => f.id || null).catch(() => null)
+  },
+  /** An object URL for a recording kept in Drive, or null. The caller revokes it. */
+  mediaUrl(id) {
+    if (!DRIVE_ENABLED || !id) return Promise.resolve(null)
+    return this.api(`https://www.googleapis.com/drive/v3/files/${id}?alt=media`).then((r) => r.blob()).then((b) => URL.createObjectURL(b)).catch(() => null)
+  },
 }
 
 if (typeof window !== "undefined") {

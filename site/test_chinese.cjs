@@ -45,7 +45,17 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   pg.on('pageerror', (e) => errs.push('PAGEERR ' + e.message));
   // The voice: record what would have been said instead of saying it. Only
   // `speak` is replaced, so cancel() and getVoices() stay real.
-  await pg.addInitScript(() => { window.__spoken = []; const s = window.speechSynthesis; if (s) s.speak = (u) => window.__spoken.push({ text: u.text, lang: u.lang }); });
+  await pg.addInitScript(() => {
+    window.__spoken = []; const s = window.speechSynthesis; if (s) s.speak = (u) => window.__spoken.push({ text: u.text, lang: u.lang });
+    // Headless Chromium has no microphone and no recogniser. Both are faked at
+    // the shape lib/reading.js uses: a recogniser that reports window.__asr as
+    // one final result shortly after start(), a recorder that yields one chunk.
+    window.webkitSpeechRecognition = class { start() { setTimeout(() => { const r = [{ transcript: window.__asr || '' }]; r.isFinal = true; this.onresult && this.onresult({ resultIndex: 0, results: [r] }); }, 60); } stop() { this.onend && this.onend(); } };
+    window.SpeechRecognition = window.webkitSpeechRecognition;
+    navigator.mediaDevices = navigator.mediaDevices || {};
+    navigator.mediaDevices.getUserMedia = () => Promise.resolve({ getTracks: () => [{ stop() {} }] });
+    window.MediaRecorder = class { constructor(stream, o) { this.mimeType = (o && o.mimeType) || 'audio/mp4'; } static isTypeSupported(m) { return m === 'audio/mp4'; } start() {} stop() { this.ondataavailable && this.ondataavailable({ data: new Blob(['x'], { type: this.mimeType }) }); this.onstop && this.onstop(); } };
+  });
   await pg.goto('http://localhost:8149/learning/', { waitUntil: 'networkidle' });
   await signIn(pg);
   await pg.waitForSelector('[data-testid=today]');
@@ -82,6 +92,11 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // -- one sitting through the shared runner, with a miss in it
   await pg.evaluate(() => { location.hash = '#/chinese/run/zh-word/L05/0'; }); await pg.waitForSelector('[data-testid=choice]');
   check('a Chinese sitting has no pacing timer', !(await pg.$('[data-testid=soft-timer]')));
+  const qtext = await pg.textContent('[data-testid=question]');
+  check('the prompt is the book\'s own Chinese wording', /选词填空|读音|几画/.test(qtext) && !/Fill the blank|How is/.test(qtext), qtext);
+  check('and the English is behind a tap, not shown by default', !!(await pg.$('[data-testid=english-toggle]')) && !(await pg.$('[data-testid=english]')));
+  await pg.click('[data-testid=english-toggle]');
+  check('tapping it shows the translation', /Fill the blank|How is|How many strokes/.test(await pg.textContent('[data-testid=english]')));
   for (let i = 0; i < 15 && !(await pg.$('[data-testid=score]')); i++) { await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]'); await pg.waitForTimeout(120); }
   await pg.waitForSelector('[data-testid=score]');
   let st = await ls(pg);
@@ -112,13 +127,32 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('the rating is in the zh slice, keyed by the note', hw.dictation && Object.keys(hw.dictation).length === 1 && hw.dictation['松树'] && hw.dictation['松树'].ok === true, JSON.stringify(hw.dictation));
   check('the word was read aloud first', (await pg.evaluate(() => window.__spoken.slice(-1)[0])).text === '松树');
 
-  // -- read-aloud: a time log, never a score
+  // -- reading aloud: the passage pasted once, her reading recorded, transcribed, aligned
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
-  await pg.fill('[data-testid=zh-read-minutes]', '12'); await pg.click('[data-testid=zh-read-done]');
-  await pg.waitForTimeout(200);
-  check('read-aloud is recorded as done with its minutes', /Done/.test(await pg.textContent('[data-testid=zh-read]')));
+  check('each task card says what kind it is', /Reading/.test(await pg.textContent('[data-testid=zh-read]')) && /Workbook/.test(await pg.textContent('[data-testid=zh-workbook]')) && /Dictation/.test(await pg.textContent('[data-testid=zh-dictation-card]')));
+  await pg.click('[data-testid=zh-read-open]'); await pg.waitForSelector('[data-testid=zh-read-page]');
+  check('with no passage kept, the page asks a parent for it', !!(await pg.$('[data-testid=zh-passage-setup]')));
+  // The 句子 and two 用一用 phrases, which the repo already holds — not the 课文.
+  const passage = '河水是深还是浅，最好你自己去试试。突然停电了，只好请别人帮忙。';
+  await pg.fill('[data-testid=zh-passage-text]', passage); await pg.click('[data-testid=zh-passage-save]');
+  await pg.waitForSelector('[data-testid=zh-passage]');
+  check('the passage is kept in the zh slice, not the bundle', ((await ls(pg)).zh['text:L05:阅读《谦虚过度》'] || {}).text === passage, Object.keys((await ls(pg)).zh).join(','));
+  await pg.evaluate(() => { window.__asr = '河水是深还是浅最好你自己去试试突然只好请别人帮忙'; });   // 停电了 unheard: three characters
+  await pg.click('[data-testid=zh-rec-start]'); await pg.waitForSelector('[data-testid=zh-rec-stop]'); await pg.waitForTimeout(250);
+  check('the transcript appears while she reads', /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-transcript]')));
+  await pg.click('[data-testid=zh-rec-stop]'); await pg.waitForSelector('[data-testid=zh-read-result]');
+  const misses = await pg.$$eval('[data-testid=zh-marked] [data-hit="0"]', (n) => n.map((x) => x.textContent).join(''));
+  check('the characters the recogniser did not hear are marked, and only those', misses === '停电了', misses);
+  check('and marked without red', !(await pg.$('[data-testid=zh-marked] .text-destructive')));
+  check('her view has the pace (or says the reading was too short for one) and no percentage', /字\/分钟|too short/.test(await pg.textContent('[data-testid=zh-read-result]')) && !(await pg.$('[data-testid=zh-pct]')));
+  await pg.click('[data-testid=zh-parent-toggle]'); await pg.waitForSelector('[data-testid=zh-parent]');
+  check('the parent view has the percentage, labelled as an estimate', (await pg.textContent('[data-testid=zh-pct]')) === '89%' && /estimate/.test(await pg.textContent('[data-testid=zh-parent]')), await pg.textContent('[data-testid=zh-pct]'));
+  check('the recording went to Drive as its own file', !!(await pg.$('[data-testid=zh-play]')));
   st = await ls(pg);
-  check('and lands in the zh slice without a score', st.zh['hw:2026-09-30'].read.done === true && st.zh['hw:2026-09-30'].read.minutes === 12 && !('score' in st.zh['hw:2026-09-30'].read));
+  const att = ((st.zh['hw:2026-09-30'] || {}).read || {}).attempts || [];
+  check('the reading is kept: transcript, counts, file id, done', att.length === 1 && att[0].matched === 24 && att[0].total === 27 && att[0].fileId === 'media1' && st.zh['hw:2026-09-30'].read.done === true, JSON.stringify(att[0] || null));
+  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
+  check('the week card shows it read, with the last reading', /Read/.test(await pg.textContent('[data-testid=zh-read]')) && /last: \d+ s/.test(await pg.textContent('[data-testid=zh-read]')));
   check('the dictation card counts the rating', (await pg.textContent('[data-testid=zh-rated-count]')) === '1');
   check('no page errors', errs.length === 0, errs.join(' | '));
 

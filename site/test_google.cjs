@@ -50,10 +50,26 @@ async function stubGoogle(ctx) {
       drive.folders[name] = id; drive.folder = id; return json({ id });
     }
     if (/upload\/drive\/v3\/files\?/.test(u) && m === 'POST') {
-      drive.file = 'file1'; drive.body = r.request().postData();
-      const meta = JSON.parse(drive.body.split('\r\n\r\n')[1].split('\r\n--')[0]);
+      const body = r.request().postData() || '';
+      // A recording is its own file beside progress.json (lib/reading.js), sent
+      // as a binary multipart whose boundary says so — postData() cannot be
+      // parsed for it. Kept apart here so a test that records does not overwrite
+      // the record the other checks read back, and so a reading can be fetched.
+      const ct = (r.request().headers()['content-type'] || '');
+      const meta = /boundary=learningmedia/.test(ct) ? { name: 'recording', mimeType: 'audio/mp4' } : JSON.parse((body.split('\r\n\r\n')[1] || '{}').split('\r\n--')[0] || '{}');
+      if (meta.name && meta.name !== 'progress.json') {
+        drive.media = drive.media || {};
+        const id = 'media' + (Object.keys(drive.media).length + 1);
+        drive.media[id] = { name: meta.name, mime: meta.mimeType, size: body.length, parent: (meta.parents || [])[0] || drive.folder };
+        return json({ id });
+      }
+      drive.file = 'file1'; drive.body = body;
       drive.parent = (meta.parents || [])[0] || drive.folder;
       return json({ id: 'file1' });
+    }
+    if (/drive\/v3\/files\/media\d+\?alt=media/.test(u)) {
+      const id = (u.match(/files\/(media\d+)/) || [])[1], rec = (drive.media || {})[id];
+      return rec ? r.fulfill({ status: 200, contentType: rec.mime || 'audio/mp4', body: 'not-really-audio' }) : r.fulfill({ status: 404, body: '{}' });
     }
     if (/upload\/drive\/v3\/files\/file1/.test(u) && m === 'PATCH') {
       if (drive.hold) { drive.held++; await drive.hold; }

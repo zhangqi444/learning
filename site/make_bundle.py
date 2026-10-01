@@ -82,7 +82,7 @@ if os.path.isdir(_ZH):
         _b=json.load(open(f'{_ZH}/question-banks/{_f}'))
         zh['banks'][_b['bank']]=[{'id':i['id'],'l':i.get('lesson',''),'sk':i.get('skill',''),'d':i.get('difficulty',''),
             'q':i['prompt'],'c':[i['choices'][k] for k in 'ABCD'],'k':i['correct'],'e':i.get('explanation',''),
-            'src':i.get('source',''),**({'y':i['why']} if i.get('why') else {})} for i in _b['items']]
+            'src':i.get('source',''),**({'qe':i['prompt_en']} if i.get('prompt_en') else {}),**({'y':i['why']} if i.get('why') else {})} for i in _b['items']]
     out['zh']=zh
 import os as _os, datetime as _dt
 if _os.path.exists('site/content/seed.json'):

@@ -1,16 +1,18 @@
 import * as React from "react"
 import { useMemo, useState } from "react"
-import { BookOpen, Check, Eye, Play, Volume2, X } from "lucide-react"
+import { BookOpen, Check, Eye, Mic, Play, Square, Volume2, X } from "lucide-react"
 import { D, ZH, ZH_ORDER, setId, zhHomework, zhLessons, zhSets } from "@/lib/content"
 import { reviewQueue } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { speak, canSpeak } from "@/lib/speech"
+import { alignChars, canRecognize, canRecord, markPassage, pace, startRecognition, startRecorder } from "@/lib/reading"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Input } from "@zhangqi444/ui/ui/input"
+import { Textarea } from "@zhangqi444/ui/ui/textarea"
 import { Runner } from "@/pages/runner"
 
 /* The Chinese half of the site (docs/chinese.md). The spine is the lesson and the
@@ -37,24 +39,17 @@ export function Speak({ text, className, label }) {
 function ReadAloudTask({ note, task }) {
   useStore()
   const st = hwState(note.set).read || {}
-  const [min, setMin] = useState(st.minutes || "")
-  const save = (done) => Store.setSlice("zh", hwKey(note.set), (cur) => ({ ...cur, read: { done, minutes: Number(min) || 0, at: new Date().toISOString() } }))
+  const last = (st.attempts || []).slice(-1)[0]
   return (
     <Card data-testid="zh-read">
       <CardHeader>
         <CardTitle>{task.line}</CardTitle>
-        <CardDescription>{task.what}</CardDescription>
-        <CardAction>{st.done ? <Badge variant="success"><Check /> Done</Badge> : <Badge variant="outline">To do</Badge>}</CardAction>
+        <CardDescription><Badge variant="outline" className="mr-1">Reading</Badge>{task.what}</CardDescription>
+        <CardAction>{st.done ? <Badge variant="success"><Check /> Read</Badge> : <Badge variant="outline">To do</Badge>}</CardAction>
       </CardHeader>
-      <CardContent className="flex flex-col gap-3">
-        <p className="text-muted-foreground text-sm">{task.rule}</p>
-        <div className="flex flex-wrap items-center gap-2">
-          <label className="text-sm" htmlFor="zh-read-minutes">Minutes read</label>
-          <Input id="zh-read-minutes" inputMode="numeric" className="w-20" value={min} onChange={(e) => setMin(e.target.value.replace(/[^\d]/g, ""))} data-testid="zh-read-minutes" />
-          <Button size="sm" onClick={() => save(true)} data-testid="zh-read-done"><Check /> Read it</Button>
-          {st.done ? <Button size="sm" variant="ghost" onClick={() => save(false)}>Undo</Button> : null}
-          {st.minutes ? <span className="text-muted-foreground text-xs tabular-nums">last: {st.minutes} min</span> : null}
-        </div>
+      <CardContent className="flex flex-wrap items-center gap-3">
+        <Button size="sm" onClick={() => go(`/chinese/read/${note.set}`)} data-testid="zh-read-open"><Mic /> Read it aloud</Button>
+        {last ? <span className="text-muted-foreground text-xs tabular-nums">last: {Math.round(last.ms / 1000)} s{pace(last.total, last.ms) ? ` · ${pace(last.total, last.ms)} 字/分钟` : ""} · {st.attempts.length} reading{st.attempts.length === 1 ? "" : "s"}</span> : null}
       </CardContent>
     </Card>
   )
@@ -69,7 +64,7 @@ function WorkbookTask({ note, task, lesson }) {
     <Card data-testid="zh-workbook">
       <CardHeader>
         <CardTitle>{task.line}</CardTitle>
-        <CardDescription>{task.what}</CardDescription>
+        <CardDescription><Badge variant="outline" className="mr-1">Workbook</Badge>{task.what}</CardDescription>
         <CardAction><Badge variant={done === rows.length ? "success" : "outline"}>{done}/{rows.length} sittings</Badge></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
@@ -104,7 +99,7 @@ function DictationTask({ note, task }) {
     <Card data-testid="zh-dictation-card">
       <CardHeader>
         <CardTitle>{task.line}</CardTitle>
-        <CardDescription>{task.what}</CardDescription>
+        <CardDescription><Badge variant="outline" className="mr-1">Dictation</Badge>{task.what}</CardDescription>
         <CardAction><Button size="sm" onClick={() => go(`/chinese/dictation/${note.set}`)}><Volume2 /> Practise</Button></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
@@ -269,6 +264,123 @@ export function Dictation({ set }) {
   )
 }
 
+/* ---------- reading aloud: recorded, transcribed, aligned ---------- */
+const textKey = (lesson, what) => `text:${lesson}:${what}`
+/** The passage text lives in her Drive record, pasted once by a parent; never in
+ *  the repo (docs/chinese.md § 8). `drive.file` scope means a file dropped into
+ *  the folder by hand is invisible to the app, so the app writes it itself. */
+function PassageSetup({ lesson, what, where }) {
+  const [text, setText] = useState("")
+  return (
+    <Card data-testid="zh-passage-setup">
+      <CardHeader>
+        <CardTitle>The passage is not here yet</CardTitle>
+        <CardDescription>{what} · {where}. Paste the text from the book once; it is kept in her Drive record, not on the site.</CardDescription>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-2">
+        <Textarea rows={8} value={text} onChange={(e) => setText(e.target.value)} placeholder="Paste the passage here…" data-testid="zh-passage-text" />
+        <div><Button size="sm" disabled={!text.trim()} onClick={() => Store.setSlice("zh", textKey(lesson, what), (cur) => ({ ...cur, text: text.trim(), what, where }))} data-testid="zh-passage-save"><Check /> Keep it</Button></div>
+      </CardContent>
+    </Card>
+  )
+}
+function Marked({ marks }) {
+  // A character the recogniser did not hear is marked, never reddened: it is as
+  // likely the recogniser's miss as hers, and docs/cats.md's four guardrails hold.
+  return (
+    <p className="text-xl leading-9 tracking-wide" data-testid="zh-marked">
+      {marks.map((m, i) => <span key={i} className={cn(m.read && !m.hit && "border-b-2 border-dotted border-muted-foreground/70 text-muted-foreground")} data-hit={m.read ? (m.hit ? "1" : "0") : undefined}>{m.ch}</span>)}
+    </p>
+  )
+}
+export function ReadAloud({ set }) {
+  useStore()
+  const note = D.zh.homework[set]
+  const task = note && note.tasks.find((t) => t.kind === "read_aloud")
+  const lesson = note && D.zh.lessons[note.lesson]
+  const what = task ? task.what.split(",")[0].trim() : ""
+  const passage = note ? ((Store.s.zh || {})[textKey(note.lesson, what)] || {}).text : ""
+  const [mode, setMode] = useState("idle")            // idle | recording | saving | done
+  const [finals, setFinals] = useState(""), [interim, setInterim] = useState("")
+  const [since, setSince] = useState(0), [now, setNow] = useState(0)
+  const [result, setResult] = useState(null)
+  const [parent, setParent] = useState(false)
+  const [playUrl, setPlayUrl] = useState(null)
+  const live = React.useRef(null)
+  React.useEffect(() => { if (mode !== "recording") return; const t = setInterval(() => setNow(Date.now()), 500); return () => clearInterval(t) }, [mode])
+  if (!task || !lesson) return <ChineseHome />
+  if (!passage) return <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page"><PassageSetup lesson={note.lesson} what={what} where={task.what} /></div>
+  const st = hwState(set).read || {}
+  const attempts = st.attempts || []
+  const start = async () => {
+    setResult(null); setFinals(""); setInterim(""); setPlayUrl(null)
+    let rec = null
+    try { rec = canRecord() ? await startRecorder() : null } catch { rec = null }   // no mic, or refused: the transcript alone still works
+    const asr = startRecognition((f, i) => { setFinals(f); setInterim(i) })
+    live.current = { rec, asr, t0: Date.now() }
+    setSince(Date.now()); setNow(Date.now()); setMode("recording")
+  }
+  const stop = async () => {
+    const l = live.current; if (!l) return
+    setMode("saving"); l.asr.stop()
+    const audio = l.rec ? await l.rec.stop() : { blob: null, ms: Date.now() - l.t0, mime: "" }
+    const transcript = finals + interim
+    const align = alignChars(passage, transcript)
+    const fileId = audio.blob ? await Store.uploadMedia(`zh-read-${set}-${Date.now()}.${/mp4/.test(audio.mime) ? "m4a" : "webm"}`, audio.blob, audio.mime) : null
+    const attempt = { at: new Date().toISOString(), ms: audio.ms, transcript, matched: align.matched, total: align.total, heard: align.heard, fileId, mime: audio.mime || null }
+    Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, read: { done: true, at: attempt.at, minutes: Math.round(audio.ms / 60000), attempts: [...((cur.read || {}).attempts || []), attempt].slice(-8) } }))
+    setResult({ ...attempt, marks: markPassage(passage, align), pct: align.pct }); setMode("done")
+  }
+  const play = async (id) => { const u = await Store.mediaUrl(id); setPlayUrl(u) }
+  const sec = Math.round(((mode === "recording" ? now : 0) - since) / 1000)
+  return (
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page">
+      <Card>
+        <CardHeader>
+          <CardTitle>{task.line}</CardTitle>
+          <CardDescription><Badge variant="outline" className="mr-1">Reading</Badge>{task.what}</CardDescription>
+          <CardAction>
+            {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-rec-stop"><Square /> Stop · {sec} s</Button>
+              : mode === "saving" ? <Button size="sm" disabled>Saving…</Button>
+              : <Button size="sm" onClick={start} data-testid="zh-rec-start"><Mic /> {attempts.length ? "Read it again" : "Start reading"}</Button>}
+          </CardAction>
+        </CardHeader>
+        <CardContent className="text-muted-foreground text-sm">
+          {canRecognize() ? "Read the passage aloud. The words appear as they are heard; press Stop when you reach the end." : "This browser cannot transcribe speech — the reading is still recorded and kept."}
+        </CardContent>
+      </Card>
+      <div className="grid gap-4 @md/main:grid-cols-2">
+        <Card>
+          <CardHeader><CardTitle>{what}</CardTitle><CardDescription>{task.what}</CardDescription></CardHeader>
+          <CardContent>{result ? <Marked marks={result.marks} /> : <p className="text-xl leading-9 tracking-wide" data-testid="zh-passage">{passage}</p>}</CardContent>
+        </Card>
+        <Card>
+          <CardHeader><CardTitle>{mode === "recording" ? "Hearing…" : result ? "Heard" : "What is heard"}</CardTitle><CardDescription>as the recogniser hears it — an estimate</CardDescription></CardHeader>
+          <CardContent>
+            <p className="text-xl leading-9 tracking-wide min-h-10" data-testid="zh-transcript">{mode === "done" && result ? result.transcript : <>{finals}<span className="text-muted-foreground">{interim}</span></>}</p>
+          </CardContent>
+        </Card>
+      </div>
+      {result ? (
+        <Card data-testid="zh-read-result">
+          <CardHeader>
+            <CardTitle>Read in {Math.round(result.ms / 1000)} s</CardTitle>
+            <CardDescription>{pace(result.total, result.ms) ? `about ${pace(result.total, result.ms)} 字/分钟 · ` : "too short to tell the pace · "}the dotted characters are ones the recogniser did not hear — read them once more</CardDescription>
+            <CardAction><Button size="sm" variant="ghost" onClick={() => setParent((p) => !p)} data-testid="zh-parent-toggle">{parent ? "Hide" : "Parent view"}</Button></CardAction>
+          </CardHeader>
+          {parent ? (
+            <CardContent className="flex flex-col gap-2 text-sm" data-testid="zh-parent">
+              <div><span className="tabular-nums" data-testid="zh-pct">{result.pct}%</span> of {result.total} characters matched, as heard by the recogniser — an estimate, not a mark. {result.heard} heard in all.</div>
+              {result.fileId ? <div className="flex items-center gap-2"><Button size="sm" variant="outline" onClick={() => play(result.fileId)} data-testid="zh-play"><Play /> Play the recording</Button>{playUrl ? <audio controls autoPlay src={playUrl} /> : null}</div> : <div className="text-muted-foreground">No recording was kept (no microphone, or no Drive).</div>}
+              {attempts.length > 1 ? <div className="text-muted-foreground">{attempts.length} readings kept · first {attempts[0].matched}/{attempts[0].total}</div> : null}
+            </CardContent>
+          ) : null}
+        </Card>
+      ) : null}
+    </div>
+  )
+}
+
 /* ---------- a sitting, and the review pile, through the same runner ---------- */
 function ZhRun({ sub, lesson, n }) {
   const set = zhSets(sub, lesson)[n]
@@ -289,6 +401,7 @@ export function ChineseScreen({ rest }) {
   if (top === "l" && a) return <Lesson key={a} id={a} />
   if (top === "run" && ZH[a] && b) return <ZhRun key={`${a}:${b}:${c}`} sub={a} lesson={b} n={+c || 0} />
   if (top === "dictation" && a) return <Dictation key={a} set={a} />
+  if (top === "read" && a) return <ReadAloud key={a} set={a} />
   if (top === "review") return <ZhReview />
   return <ChineseHome />
 }
@@ -300,6 +413,7 @@ export function zhCrumbs(rest) {
   if (top === "l" && l(a)) out.push({ label: `第${l(a).no}课 ${l(a).title}`, path: `/chinese/l/${a}` })
   else if (top === "run" && ZH[a] && l(b)) { out.push({ label: `第${l(b).no}课 ${l(b).title}`, path: `/chinese/l/${b}` }); out.push({ label: `${ZH[a].name} · Set ${(+c || 0) + 1}`, path: `/chinese/run/${a}/${b}/${c || 0}` }) }
   else if (top === "dictation" && a) out.push({ label: `听写 · ${a}`, path: `/chinese/dictation/${a}` })
+  else if (top === "read" && a) out.push({ label: `读熟练 · ${a}`, path: `/chinese/read/${a}` })
   else if (top === "review") out.push({ label: "Review", path: "/chinese/review" })
   return out
 }

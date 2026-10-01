@@ -10,7 +10,7 @@
    "subject": "zh-char",
    "skill": "tone-sandhi",
    "difficulty": "M",
-   "prompt": "How is 一定 pronounced in 「你一定要照顾好自己。」?",
+   "prompt": "「你一定要照顾好自己。」中，\"一定\"的读音是？",
    "choices": {
     "A": "yīdìng",
     "B": "yīdīng",
@@ -28,7 +28,8 @@
     "B": "yīdīng puts 定 in the first tone, but 定 is always a fourth tone, dìng, falling at the end of the word.",
     "D": "yìdīng has both tones the wrong way round: 一 is not a fourth tone here, and 定 is not a first tone."
    },
-   "content_hash": "aefd8d4e9088b48b"
+   "content_hash": "8ef1d74cff1ba322",
+   "prompt_en": "How is 一定 pronounced in 「你一定要照顾好自己。」?"
   },
   {
    "id": "z:L05-02",
@@ -55,7 +56,8 @@
     "C": "九；犬 counts the strokes correctly, but 犬 is the part underneath; the radical of 突 is the 穴 above it.",
     "D": "十；犬 misses twice over: the stroke count is nine, and the radical is 穴 rather than 犬."
    },
-   "content_hash": "86a0559e8aa166b3"
+   "content_hash": "5d94851042642dd6",
+   "prompt_en": "How many strokes does 突 have, and what is its radical?"
   }
  ]
 }

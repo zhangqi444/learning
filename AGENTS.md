@@ -826,6 +826,15 @@ after the answer is revealed.
    doubt, keep both copies.
 2. **No backend, no accounts, no third-party analytics.** The data belongs to the
    family and stays in their Drive.
+   **One exception, the owner's, 1 October 2026:** when she reads a Chinese
+   passage aloud, the browser's own speech recogniser (`SpeechRecognition`,
+   zh-CN) transcribes it live, and that sends her voice to Google's servers in
+   Chrome or Apple's in Safari — unless the iPad does Chinese dictation
+   on-device, which is a setting there, not something the site can see. Nothing
+   else leaves the device; the recording itself goes to her Drive like
+   everything else. The owner chose this over on-device Whisper (slow, not live,
+   a large download) and over no transcript at all. If that trade changes,
+   `lib/reading.js` is the only place that knows the recogniser exists.
 3. **A child uses this.** No streak that punishes a missed day, no leaderboard, no
    dark pattern, nothing that makes a bad session feel like failure.
 4. **Honest numbers.** A score with no data says "—", not zero. Estimates are
