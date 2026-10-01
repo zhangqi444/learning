@@ -8,6 +8,21 @@ export const SUBJ = {
   rc: { name: "Reading Comprehension", short: "Reading", blurb: "Passages and comprehension", color: "var(--chart-4)" },
 }
 export const ORDER = ["vr", "qr", "ma", "rc"]
+/* The Chinese half (docs/chinese.md § 3–4). Two subjects, keyed by bank, and never
+ * in ORDER: readiness() walks ORDER, and a subject there is a subject inside the
+ * ISEE number. The spine is the lesson, L05, not the plan week, so nothing here
+ * asks currentWeek() or spans() a question. */
+export const ZH = {
+  "zh-char": { name: "汉字", short: "汉字", blurb: "Characters — pinyin, strokes, radicals", color: "var(--chart-2)" },
+  "zh-word": { name: "词语", short: "词语", blurb: "The lesson's words in a sentence with one gap", color: "var(--chart-1)" },
+}
+export const ZH_ORDER = ["zh-char", "zh-word"]
+export const isZh = (sub) => typeof sub === "string" && sub.startsWith("zh-")
+export function subName(sub) { return (SUBJ[sub] || ZH[sub] || {}).name || sub }
+export function zhItems(sub, lesson) { return (((D.zh || {}).banks || {})[sub] || []).filter((i) => i.l === lesson) }
+export function zhSets(sub, lesson) { return chunk(zhItems(sub, lesson)) }
+export function zhLessons() { return Object.values((D.zh || {}).lessons || {}).sort((a, b) => a.no - b.no) }
+export function zhHomework() { return Object.values((D.zh || {}).homework || {}).sort((a, b) => (a.set < b.set ? 1 : -1)) }
 export const SETSIZE = 12
 export const LTR = ["A", "B", "C", "D"]
 

@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
 
-import { D, LTR, keyOf } from "@/lib/content"
+import { D, LTR, isZh, keyOf } from "@/lib/content"
 import { BUDGET, CAUSES, findItem, paceFlag, passageWords, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast, words } from "@/lib/engine"
 import { LearnCard } from "@/components/learn-card"
 import { syncBadges } from "@/lib/rewards"
@@ -238,7 +238,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   const entered = useRef(Date.now())
   const finished = useRef(false)
   const it = items[i], total = items.length
-  const pacing = !!store.s.pacing
+  const pacing = !!store.s.pacing && !isZh(subHint)   // Chinese practice is untimed (docs/chinese.md § 3)
   /* Careful mode: the choices stay out of reach until the question has been on
    * screen long enough to have been read. Opt-in, and off by default — a child
    * uses this, and a timer she did not ask for that stops her answering is a

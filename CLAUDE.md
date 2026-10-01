@@ -35,7 +35,7 @@ working agreement for Claude Code sessions.
 Run both from the repository root:
 
 ```bash
-(cd site && npm run build && npm test)      # all four suites must pass
+(cd site && npm run build && npm test)      # all five suites must pass
 python3 site/make_bundle.py && git diff --exit-code -- site/content/bundle.json
 ```
 
@@ -43,7 +43,7 @@ python3 site/make_bundle.py && git diff --exit-code -- site/content/bundle.json
 content is checked before anything is built out of it. It did not, until a
 checker pointed out that neither of these two commands ever called the
 validator — and that was demonstrated rather than argued: one `content_hash` was
-corrupted by hand, and `npm test` reported all four suites passing while the
+corrupted by hand, and `npm test` reported every suite passing while the
 bundle check reported no drift. A stale hash, a `why` written on a correct
 answer, an item with no explanation, a `passage_id` pointing at nothing, or a
 week whose answer positions have gone cyclic would all have landed. That is the
@@ -86,7 +86,7 @@ Claude-Session: <session url>
 - **`npm test` needs `playwright`, and nothing declares it.** It is not in
   `site/package.json`, so it survives only as an un-tracked install in
   `node_modules`. Run `npm ci` — which installs exactly what the lockfile says —
-  and all four browser suites die at once with "Cannot find module 'playwright'",
+  and all five browser suites die at once with "Cannot find module 'playwright'",
   in zero seconds, which reads like a catastrophe and is a missing package.
   Reinstall it with `npm i --no-save playwright`.
 - **A stale `node_modules` reads as a missing upstream module, and it is not.** After
@@ -152,7 +152,7 @@ npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63
 - **Tailwind v4 does not scan `node_modules`.** The shadcn primitives come from
   `@zhangqi444/ui` now, so the whole of their styling hangs on one line —
   `@source "../node_modules/@zhangqi444/ui/src";` in `src/index.css`. Remove it
-  and the build still succeeds, every import still resolves, and all four suites
+  and the build still succeeds, every import still resolves, and all five suites
   still pass, because they assert on text, roles and behaviour and cannot see a
   missing rule; the page just renders as unstyled HTML. `check_css.cjs` compares
   the class names only the package uses against the stylesheet the build

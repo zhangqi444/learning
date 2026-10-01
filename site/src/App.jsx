@@ -2,7 +2,8 @@ import * as React from "react"
 
 import { D, SUBJ, parseSetId, setId, setsFor } from "@/lib/content"
 import { anotherLike, reviewQueue, wordQuizItems } from "@/lib/engine"
-import { go, useRoute } from "@/lib/router"
+import { go, lastCat, rememberCat, splitCat, useRoute } from "@/lib/router"
+import { ChineseScreen } from "@/pages/chinese"
 import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { AppShell } from "@zhangqi444/ui/app/app-shell"
@@ -84,7 +85,11 @@ function AgainRun({ id, from }) {
 }
 
 function Screen({ route }) {
-  const [top, a, b, c] = route
+  // The category is the first segment (docs/chinese.md § 2). `isee` is stripped so
+  // the ISEE routes below read as they always have; `chinese` has its own switch.
+  const { cat, rest } = splitCat(route)
+  if (cat === "chinese") return <ChineseScreen rest={rest} />
+  const [top, a, b, c] = rest
   if (top === "s" && SUBJ[a]) return <Subject sub={a} wk={b} />
   if (top === "run" && SUBJ[a]) {
     const n = +c
@@ -154,6 +159,17 @@ class ErrorBoundary extends React.Component {
 export default function App() {
   const route = useRoute()
   const store = useStore()
+  // Opening the site at `#/` lands on the half she used last — remembered in
+  // localStorage only, because which half she opened is not learning evidence.
+  // Only the first route of a session is redirected: after that `#/` is the ISEE
+  // dashboard, or the switch to ISEE would bounce straight back to 中文, which is
+  // what the first version of this did and the suite caught.
+  const first = React.useRef(true)
+  React.useEffect(() => {
+    const opened = first.current; first.current = false
+    if (!route.length && opened && lastCat() === "chinese") { go("/chinese"); return }
+    rememberCat(splitCat(route).cat)
+  }, [route])
   // Nothing renders until Google has said who this is. The offline artifact build
   // has no Drive at all, so it is never gated.
   if (DRIVE_ENABLED) {

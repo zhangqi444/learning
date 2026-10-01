@@ -100,7 +100,7 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   await pg.waitForSelector('[data-testid=score]');
   await pushed(() => /"ma:W2:0"/.test(drive.body));
   check('finished set pushed to Drive', /"ma:W2:0"/.test(drive.body));
-  check('learning records travel with it (schema 6, items, mixed, reviews, base)', /"schema":6/.test(drive.body) && /"items":\{"/.test(drive.body) && /"mixed"/.test(drive.body) && /"reviews":\{/.test(drive.body) && /"base":\{/.test(drive.body));
+  check('learning records travel with it (schema 7, items, mixed, reviews, base, zh)', /"schema":7/.test(drive.body) && /"items":\{"/.test(drive.body) && /"mixed"/.test(drive.body) && /"reviews":\{/.test(drive.body) && /"base":\{/.test(drive.body) && /"zh":\{/.test(drive.body));
 
   // The hour expiry should be invisible: the next Drive call refreshes silently.
   await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.drive.exp = Date.now() - 1000; localStorage.setItem('isee.v1', JSON.stringify(s)); location.hash = '#/'; });

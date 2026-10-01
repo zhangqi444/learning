@@ -2,7 +2,7 @@
  * skill mastery, mixed sets, vocabulary mastery, mock next steps, streaks and
  * the readiness score. Pure functions over Store.s + the bundle, except the
  * few writers at the top. Nothing here ever deletes a result. */
-import { D, ORDER, SUBJ, LTR, keyOf, setId, setsFor, currentWeek } from "./content"
+import { D, ORDER, SUBJ, LTR, keyOf, setId, setsFor, currentWeek, isZh } from "./content"
 import { Store, ts } from "./store"
 import { aopsFor, learnName } from "./aops"
 import { W, atLeast } from "./world"
@@ -67,6 +67,9 @@ function index() {
   if (IDX && IDX_FOR === D) return IDX
   IDX = {}; IDX_FOR = D
   for (const s of ORDER) for (const it of D.subjects[s] || []) IDX[it.id] = { sub: s, it, src: "set" }
+  // The Chinese banks index by their own subject keys (zh-char, zh-word) and the
+  // z:/zc: ids are real ids in them — no generation step, unlike w: words.
+  for (const s of Object.keys((D.zh || {}).banks || {})) for (const it of D.zh.banks[s]) IDX[it.id] = { sub: s, it, src: "set" }
   for (const form of Object.keys(D.mockItems || {})) for (const sec of Object.keys(D.mockItems[form])) for (const it of D.mockItems[form][sec]) IDX[it.id] = { sub: SEC2SUB[sec] || "vr", it, src: "mock", form }
   return IDX
 }
@@ -255,7 +258,7 @@ export function rescueWordSides() {
 
 /* ---------- review queue ---------- */
 /** Everything with a date on it. due: needs a go now · scheduled: later · checkin: cleared, but time to make sure it stuck. */
-export function reviewQueue(sub) {
+export function reviewQueue(sub, cat = "isee") {
   const now = Date.now(), out = { due: [], scheduled: [], checkin: [] }
   const items = Store.s.items || {}
   for (const id of Object.keys(items)) {
@@ -263,6 +266,11 @@ export function reviewQueue(sub) {
     if (!r || !r.due) continue
     const f = findItem(id)
     if (!f || (sub && f.sub !== sub)) continue
+    // No subject named: the caller is a category surface. The ISEE review page,
+    // its sidebar badge and readiness's review-health part all read this with no
+    // subject, and a Chinese miss arriving there would be the number scoring
+    // homework that is not ISEE — the thing docs/chinese.md § 3 exists to stop.
+    if (!sub && isZh(f.sub) !== (cat === "chinese")) continue
     const row = { id, sub: f.sub, it: f.it, rec: r, due: ts(r.due), src: f.src }
     if (r.cleared) { if (row.due <= now) out.checkin.push(row) }
     else if (row.due <= now) out.due.push(row)
@@ -619,6 +627,7 @@ export function passageWords(it) {
  */
 export function readFloor(it, withPassage = false) {
   if (!it) return 0
+  if (/^zc?:/.test(it.id || "")) return 0      // untimed: there is no honest floor for a prompt words() counts as 1
   let n = words(it.q)
   for (const c of it.c || []) n += Math.max(1, words(c))
   if (withPassage) n += passageWords(it)
@@ -628,7 +637,7 @@ export function readFloor(it, withPassage = false) {
 export function tooFast(it, ms, withPassage = false) { return !!ms && !!it && ms < readFloor(it, withPassage) }
 
 export function paceFlag(sub, ms, ok) {
-  if (!ms) return null
+  if (!ms || isZh(sub)) return null            // Chinese practice is untimed (docs/chinese.md § 3)
   const b = BUDGET[sub] || 50, sec = ms / 1000
   if (ok && sec > b * 1.5) return { id: "slow", label: "Slow but right", tone: "warning" }
   if (!ok && sec < b * 0.5) return { id: "fast", label: "Fast and wrong", tone: "destructive" }

@@ -107,6 +107,13 @@ an answer that is in the other app's file is, from where she is standing, an ans
 the site lost. One app, one store, one Drive file. That is not a preference; it is
 the constraint everything else in this section works around.
 
+**One deviation from the table above, made on purpose.** `#/isee/s/vr/W3` works, and
+so does `#/s/vr/W3`: the ISEE routes keep their un-prefixed form as well as taking
+the prefix. Eighteen files and three suites address them the short way, and a
+rewrite would have churned all of it for an address bar. New links are written
+short; the typed URL `/isee` and its stub resolve to the same pages. The Chinese
+routes have only the prefixed form.
+
 **So: the category is the first route segment.** Hash routing is what makes GitHub
 Pages (no server rewrites) and the single-file artifact behave identically, and it
 stays:
@@ -274,6 +281,15 @@ her? A character she cannot read yet has to look like a cat that has not met her
 If it looks like a failure, it is wrong, and the four guardrails decide, not me.
 
 ## 7. How it lands
+
+**Status (1 October 2026): Phase 1 is in.** The category layer, the two stubs, the
+service worker and manifest, schema 7 with the `zh` slice, the `zh` bundle key,
+第五课 authored with `why` on every wrong choice, the three surfaces of a homework
+note (the sittings through the shared runner, the dictation list read aloud by the
+device's own voice and rated by hand, the read-aloud time log), and
+`test_chinese.cjs` as the fifth suite. One deviation from § 2, recorded there.
+Not in: the Wordwood (Phase 3), the skills (Phase 4), and the Chinese review and
+again runs beyond the plain due pile.
 
 Phase 1 is the layer and **one real lesson, end to end** — routes, category nav,
 schema 7, the `zh` bundle key, the two stubs, the service worker and the manifest,

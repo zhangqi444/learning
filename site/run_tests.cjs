@@ -1,4 +1,4 @@
-/* Run all four suites, whatever any of them does.
+/* Run all five suites, whatever any of them does.
  *
  * `npm test` used to be the four scripts joined with `&&`, which stops at the
  * first failure. That reads as thrift and behaves as concealment: for several
@@ -29,7 +29,7 @@ const suite = (file) => run('node', [file], file)
 const results = []
 
 // And the Pages build is made here for the same reason the artifact is. Three of
-// the four suites serve `dist/`, and nothing rebuilt it — so they tested
+// the five suites serve `dist/`, and nothing rebuilt it — so they tested
 // whatever happened to be lying there, which after a `git merge` is the tree as
 // it was before the merge. That failed here exactly once and looked like the
 // merge had broken three checks; it had not, the build was simply a commit old.
@@ -65,7 +65,7 @@ if (pages.code !== 0) {
   console.log('\n  the Pages build failed — the three suites that serve dist/ cannot run')
   process.exit(pages.code)
 }
-for (const f of ['test_e2e.cjs', 'test_drive.cjs', 'test_features.cjs']) results.push(suite(f))
+for (const f of ['test_e2e.cjs', 'test_drive.cjs', 'test_features.cjs', 'test_chinese.cjs']) results.push(suite(f))
 
 // the artifact is built from the same source but a different target, so it is
 // made fresh here rather than trusted; dist is restored for anyone running the

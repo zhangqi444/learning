@@ -41,6 +41,22 @@ function learningTarget() {
       const out = path.join(ROOT, 'dist/content')
       fs.mkdirSync(out, { recursive: true })
       fs.copyFileSync(path.join(ROOT, 'content/bundle.json'), path.join(out, 'bundle.json'))
+      // The typed URLs /isee and /chinese are redirect stubs (docs/chinese.md § 2):
+      // a dozen lines, no assets, one hop to the hash route. They cannot be copies
+      // of the app — base './' would resolve the hashed assets against /chinese/,
+      // where nothing is served. Both join the service worker's PRECACHE, or a
+      // first offline visit to /chinese/ is answered with the root document under
+      // the wrong path and its assets 404.
+      for (const cat of ['isee', 'chinese']) {
+        const dir = path.join(ROOT, 'dist', cat)
+        fs.mkdirSync(dir, { recursive: true })
+        fs.writeFileSync(path.join(dir, 'index.html'), `<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sheila's Learning</title><meta name="robots" content="noindex">
+<script>location.replace('../#/${cat}')</script></head>
+<body><p>Opening <a href="../#/${cat}">${cat}</a>…</p></body></html>
+`)
+      }
     },
   }
 }

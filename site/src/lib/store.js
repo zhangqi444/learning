@@ -33,7 +33,7 @@ export const Store = {
   init() {
     this.s = lsLoad()
     this.s.results = this.s.results || {}
-    for (const k of ["precision", "essays", "mocks", "checklists", "items", "mixed", "badges", "rewards", "books", "reviews", "reviewsSeen", "base", "drafts"]) if (!this.s[k] || typeof this.s[k] !== "object") this.s[k] = {}
+    for (const k of ["precision", "essays", "mocks", "checklists", "items", "mixed", "badges", "rewards", "books", "reviews", "reviewsSeen", "base", "drafts", "zh"]) if (!this.s[k] || typeof this.s[k] !== "object") this.s[k] = {}
     /* A draft is an offer to carry on, and after a fortnight it is not one any
      * more — the questions have moved on, the mixed set it belonged to was built
      * for a day three weeks ago. Dropped here rather than left to accumulate,
@@ -374,7 +374,9 @@ export const Store = {
     if (!remote || !remote.results) return
     // keyed slices: last-write-wins per key by `at`. `reviews` are written outside the
     // app (see lib/reviews.js), so a remote copy this device has never seen must land.
-    for (const slice of ["precision", "essays", "mocks", "checklists", "mixed", "badges", "rewards", "reviews", "reviewsSeen", "base"]) {
+    // `zh` is the Chinese lesson's own state — a homework note's read-aloud log and
+    // dictation ratings — precision-shaped and keyed by note (docs/chinese.md § 5).
+    for (const slice of ["precision", "essays", "mocks", "checklists", "mixed", "badges", "rewards", "reviews", "reviewsSeen", "base", "zh"]) {
       const rs = remote[slice] || {}, ls = this.s[slice]
       for (const k of Object.keys(rs)) {
         if (!rs[k] || typeof rs[k] !== "object") continue
@@ -491,13 +493,13 @@ export const Store = {
       })
       .finally(() => { this.flushing = false })
   },
-  /** The Drive payload. Schema 5: bump it, and update init/merge/push, when a slice is added.
+  /** The Drive payload. Schema 7: bump it, and update init/merge/push, when a slice is added.
    *  `drafts` is the one slice that is left out on purpose — see saveDraft(). */
   body() {
-    return JSON.stringify({ schema: 6, savedAt: new Date().toISOString(), results: this.s.results,
+    return JSON.stringify({ schema: 7, savedAt: new Date().toISOString(), results: this.s.results,
       precision: this.s.precision, essays: this.s.essays, mocks: this.s.mocks, checklists: this.s.checklists, items: this.s.items, mixed: this.s.mixed,
       badges: this.s.badges, rewards: this.s.rewards, books: this.s.books, booksSeeded: !!this.s.booksSeeded,
-      reviews: this.s.reviews, reviewsSeen: this.s.reviewsSeen, base: this.s.base,
+      reviews: this.s.reviews, reviewsSeen: this.s.reviewsSeen, base: this.s.base, zh: this.s.zh,
       testDate: this.s.testDate || null, testFormat: this.s.testFormat || null, pacing: !!this.s.pacing })
   },
   push() {

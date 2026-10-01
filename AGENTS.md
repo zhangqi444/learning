@@ -39,7 +39,7 @@ site/
   src/components/ui/       shadcn/ui components, written into the repo (not a dependency)
   src/components/          glim.jsx (draws a cat), gate.jsx, burst.jsx and the shell
   test_*.cjs               four Playwright suites — see Testing
-  run_tests.cjs            runs all four and reports, rather than stopping at the first
+  run_tests.cjs            runs all five and reports, rather than stopping at the first
   oauth.json               the Google OAuth client's public facts (no secrets)
 .github/workflows/pages.yml  build + deploy to GitHub Pages
 docs/                     architecture.md (how it is built), design.md (why it looks and
@@ -151,7 +151,7 @@ npm ci
 npm run dev                 # local dev server
 npm run build               # → site/dist   (the Pages build)
 npm run build:artifact      # → ../artifact.html (single file, Drive disabled)
-npm test                    # all four Playwright suites
+npm test                    # all five Playwright suites
 python3 site/make_bundle.py # rebuild bundle.json after editing content/**
 ```
 
@@ -160,7 +160,7 @@ python3 site/make_bundle.py # rebuild bundle.json after editing content/**
 
 ## Testing
 
-Four suites, all real browsers against the built `dist/`:
+Five suites, all real browsers against the built `dist/`:
 
 | Suite | Covers |
 |---|---|
@@ -168,12 +168,13 @@ Four suites, all real browsers against the built `dist/`:
 | `test_drive.cjs` | Google stubbed: sign-in once, reload without a prompt, silent reconnect, merge conflicts, a review arriving from Drive and surviving a save |
 | `test_features.cjs` | precision, essay (time log, review import), mocks, calendar, checklist, learning engine, rewards, reading, AoPS pointers, the Den and the Glimbook, the Wordwood, and the cats' voices |
 | `test_artifact.cjs` | the single-file build: no Drive, no external requests, host theme |
+| `test_chinese.cjs` | the Chinese half: the two typed-URL stubs, the category switch and last-used root, a sitting through the shared runner, dictation read aloud and rated, the read-aloud log, and that a Chinese miss leaves the ISEE dashboard untouched |
 
 Rules: every feature gets checks in the suite it belongs to; a UI change that
 breaks a selector means fixing the test's *assumption*, not deleting the check.
 All four must pass before a commit.
 
-`npm test` runs all four whatever any of them does, and prints a pass/fail line
+`npm test` runs all five whatever any of them does, and prints a pass/fail line
 each (`run_tests.cjs`). It used to be the four joined with `&&`, which reads as
 thrift and behaves as concealment: a failing check in the features suite stood in
 front of the artifact suite for a week, and nothing in the output said a whole

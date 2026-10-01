@@ -3,7 +3,8 @@ import { Moon, Sun, Volume2, VolumeX } from "lucide-react"
 
 import { D, SUBJ, spanById } from "@/lib/content"
 import { W } from "@/lib/world"
-import { go } from "@/lib/router"
+import { go, splitCat } from "@/lib/router"
+import { zhCrumbs } from "@/pages/chinese"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { DriveChip } from "@zhangqi444/ui/app/drive-chip"
 import { SiteHeaderTemplate } from "@zhangqi444/ui/app/site-header"
@@ -14,7 +15,9 @@ import { CHIP_LABEL, STATUS_LABEL } from "@/components/nav-user"
 /** Breadcrumb trail for the current hash route. Every crumb is a real link, so
  *  there is always a way out of a set or a review. */
 function crumbs(route) {
-  const [top, a, b, c] = route
+  const { cat, rest } = splitCat(route)
+  if (cat === "chinese") return zhCrumbs(rest)
+  const [top, a, b, c] = rest
   const out = [{ label: "Dashboard", path: "/" }]
   if (top === "s" && SUBJ[a]) {
     out.push({ label: SUBJ[a].name, path: "/s/" + a })

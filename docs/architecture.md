@@ -43,7 +43,7 @@ flowchart LR
 | `site/src/lib/` | The engine. `store.js` (state + Drive), `content.js` (bundle helpers), `engine.js` (learning engine), `rewards.js` (badges, levels, shelf), `books.js` (reading log), `reviews.js` (essay reviews), `aops.js`, `router.js`, `utils.js`. |
 | `site/src/pages/` | One file per route. |
 | `site/src/components/` | App chrome (sidebar, header, sign-in dialog, review card) and `ui/`, the shadcn/ui primitives, copied into the repo and owned by it. |
-| `site/test_*.cjs` | Four Playwright suites run against the built `dist/`. |
+| `site/test_*.cjs` | Five Playwright suites run against the built `dist/`. |
 | `site/public/` | `sw.js` (service worker), `manifest.webmanifest`, favicon. |
 | `site/oauth.json` | The Google OAuth client's public facts. No secrets anywhere in the repo. |
 | `tools/` | Content validation and audit scripts, and `review_link.py`. |
@@ -241,7 +241,7 @@ sidebar is a drawer, so nothing lives only there.
 
 ## 11. Testing and deployment
 
-Four Playwright suites run real Chromium against the built `dist/`:
+Five Playwright suites run real Chromium against the built `dist/`:
 
 | Suite | Covers |
 |---|---|

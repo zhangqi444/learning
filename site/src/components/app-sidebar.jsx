@@ -1,7 +1,7 @@
 import * as React from "react"
-import { Award, Blocks, BookA, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
+import { Award, Blocks, BookA, Languages, Volume2, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
 
-import { D, ORDER, SUBJ, subjProgress } from "@/lib/content"
+import { D, ORDER, SUBJ, subjProgress, zhHomework, zhLessons } from "@/lib/content"
 import { W } from "@/lib/world"
 import { reviewQueue } from "@/lib/engine"
 import { recentBadges } from "@/lib/rewards"
@@ -10,7 +10,8 @@ import { currentBook, finishedBooks } from "@/lib/books"
 import { nextUp, weekLeft } from "@/pages/checklist"
 import { essayStatus } from "@/pages/essay"
 import { unseenReviews } from "@/lib/reviews"
-import { go } from "@/lib/router"
+import { go, splitCat } from "@/lib/router"
+import { cn } from "@/lib/utils"
 import { useStore } from "@/lib/store"
 import {
   Sidebar,
@@ -40,13 +41,17 @@ export function AppSidebar({ route, ...props }) {
   useStore()
   const nav = useNav()
   const misses = reviewQueue().due.length
+  const zhDue = reviewQueue(null, "chinese").due.length
   const fresh = recentBadges(3).length
   const week = weekLeft()
   const next = nextUp()
   const essayDone = D.weeks.filter((w) => essayStatus(w.w) === "complete").length
   const newReviews = unseenReviews().length
-  const top = route[0] || ""
-  const activeSub = top === "s" || top === "run" ? route[1] : top === "precision" ? "vr" : null
+  const { cat, rest } = splitCat(route)
+  const isee = cat === "isee"
+  const top = rest[0] || ""
+  const activeSub = top === "s" || top === "run" ? rest[1] : top === "precision" ? "vr" : null
+  const zhLesson = zhLessons()[0], zhNote = zhHomework()[0]
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
@@ -54,16 +59,56 @@ export function AppSidebar({ route, ...props }) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
-              <a href="#/" onClick={(e) => { e.preventDefault(); nav("/") }}>
+              <a href={isee ? "#/" : "#/chinese"} onClick={(e) => { e.preventDefault(); nav(isee ? "/" : "/chinese") }}>
                 <GraduationCap className="!size-5 text-primary" />
-                <span className="text-base font-semibold tracking-tight">Sheila · ISEE</span>
+                <span className="text-base font-semibold tracking-tight">{isee ? "Sheila · ISEE" : "Sheila · 中文"}</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
+        {/* Two halves, one record (docs/chinese.md § 2). The switch lives in the
+            header, not among the groups: test_features.cjs reads the groups by
+            position — the first is the working list — and a switch is not a list
+            of pages. Both roots are typed URLs too, so no page lives only here. */}
+        <div className="grid grid-cols-2 gap-1 rounded-lg border p-1" role="tablist" aria-label="Category" data-testid="category-switch">
+          <button type="button" role="tab" aria-selected={isee} className={cn("rounded-md px-2 py-1 text-sm", isee ? "bg-primary text-primary-foreground" : "hover:bg-accent")} onClick={() => nav("/")} data-testid="cat-isee">ISEE</button>
+          <button type="button" role="tab" aria-selected={!isee} className={cn("rounded-md px-2 py-1 text-sm", !isee ? "bg-primary text-primary-foreground" : "hover:bg-accent")} onClick={() => nav("/chinese")} data-testid="cat-chinese">中文</button>
+        </div>
       </SidebarHeader>
 
       <SidebarContent>
+        {!isee && zhLesson ? (
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton tooltip="This week's homework" isActive={top === ""} onClick={() => nav("/chinese")}>
+                    <ListChecks /><span>This week</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton tooltip={zhLesson.title} isActive={top === "l"} onClick={() => nav("/chinese/l/" + zhLesson.id)}>
+                    <BookOpen /><span>第{zhLesson.no}课 {zhLesson.title}</span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                {zhNote ? (
+                  <SidebarMenuItem>
+                    <SidebarMenuButton tooltip="Dictation" isActive={top === "dictation"} onClick={() => nav("/chinese/dictation/" + zhNote.set)}>
+                      <Volume2 /><span>听写</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ) : null}
+                <SidebarMenuItem>
+                  <SidebarMenuButton tooltip="Review" isActive={top === "review"} onClick={() => nav("/chinese/review")}>
+                    <RotateCcw /><span>Review</span>
+                  </SidebarMenuButton>
+                  {zhDue ? <SidebarMenuBadge className="bg-destructive text-white rounded-full h-5 min-w-5 px-1.5" data-testid="zh-due">{zhDue}</SidebarMenuBadge> : null}
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        ) : null}
+        {isee ? (
         <SidebarGroup>
           <SidebarGroupContent className="flex flex-col gap-2">
             <SidebarMenu>
@@ -139,6 +184,7 @@ export function AppSidebar({ route, ...props }) {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        ) : null}
 
         {/* The world's own two: the place she builds and what the work is for.
             Neither produces a single piece of learning evidence, which is why
@@ -174,6 +220,7 @@ export function AppSidebar({ route, ...props }) {
           </SidebarGroupContent>
         </SidebarGroup>
 
+        {isee ? (
         <SidebarGroup>
           <SidebarGroupLabel>Subjects</SidebarGroupLabel>
           <SidebarGroupContent>
@@ -211,6 +258,7 @@ export function AppSidebar({ route, ...props }) {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+        ) : null}
       </SidebarContent>
 
       <SidebarFooter>
