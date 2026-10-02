@@ -98,6 +98,16 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('and the English is behind a tap, not shown by default', !!(await pg.$('[data-testid=english-toggle]')) && !(await pg.$('[data-testid=english]')));
   await pg.click('[data-testid=english-toggle]');
   check('tapping it shows the translation', /Fill the blank|How is|How many strokes/.test(await pg.textContent('[data-testid=english]')));
+  // The explanation and the `why` follow the page's language too: pick a wrong
+  // choice, read the why in Chinese, flip to English, read it again.
+  await pg.click('[data-testid=choice] >> nth=0'); await pg.waitForSelector('[data-testid=why]');
+  const whyZh = await pg.textContent('[data-testid=why]');
+  check('a wrong choice is told what it was, in Chinese', /没有别的办法|不是提建议/.test(whyZh), whyZh.slice(0, 40));
+  await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
+  const whyEn = await pg.textContent('[data-testid=why]');
+  check('and in English once the page is flipped', /no other choice|nothing else|being left with no choice/.test(whyEn), whyEn.slice(0, 40));
+  check('and the prompt flipped with it', /Fill the blank/.test(await pg.textContent('[data-testid=question]')));
+  await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
   for (let i = 0; i < 15 && !(await pg.$('[data-testid=score]')); i++) { await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]'); await pg.waitForTimeout(120); }
   await pg.waitForSelector('[data-testid=score]');
   let st = await ls(pg);

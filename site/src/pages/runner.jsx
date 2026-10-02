@@ -2,6 +2,7 @@ import * as React from "react"
 import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
 
 import { D, LTR, isZh, keyOf } from "@/lib/content"
+import { getLang, useLang } from "@/lib/lang"
 import { BUDGET, CAUSES, findItem, paceFlag, passageWords, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast, words } from "@/lib/engine"
 import { LearnCard } from "@/components/learn-card"
 import { syncBadges } from "@/lib/rewards"
@@ -184,12 +185,21 @@ export function CauseTags({ id, compact }) {
   )
 }
 
-/** The prompt in English, behind a tap. */
+/* The Chinese half carries its prompt, explanation and `why` in both languages;
+ * which one is shown follows the page's language (lib/lang.js), with English as
+ * the fallback where a Chinese version is absent — so an ISEE item, which has
+ * none, renders exactly as before. */
+const zhMode = () => getLang() === "zh"
+const qOf = (q) => (zhMode() || !q.qe ? q.q : q.qe)
+const qOther = (q) => (q.qe ? (zhMode() ? q.qe : q.q) : null)
+const eOf = (q) => (zhMode() && q.ez ? q.ez : q.e)
+const yOf = (q, L) => (zhMode() && q.yz && q.yz[L] ? q.yz[L] : (q.y && q.y[L]))
+/** The prompt in the other language, behind a tap. */
 function EnglishLine({ text }) {
   const [open, setOpen] = useState(false)
   return (
     <div className="mt-1 flex flex-col items-start gap-1">
-      <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs text-muted-foreground" onClick={() => setOpen((o) => !o)} data-testid="english-toggle">{open ? "中文" : "English"}</Button>
+      <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs text-muted-foreground" onClick={() => setOpen((o) => !o)} data-testid="english-toggle">{open ? (zhMode() ? "中文" : "English") : (zhMode() ? "English" : "中文")}</Button>
       {open ? <p className="text-muted-foreground text-sm" data-testid="english">{text}</p> : null}
     </div>
   )
@@ -214,6 +224,7 @@ function SoftTimer({ since, budget }) {
  * prior: an earlier result to reopen · record=false: nothing is written (corrections right after a mock).
  */
 export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exitLabel, prior, record = true, onFinish, sub: subHint, backTo, promotion }) {
+  useLang()
   const kind = ctx || (custom ? "review" : "set")
   const store = useStore()
   /* Where an unfinished run is kept. A real set is its own id; a generated run
@@ -501,7 +512,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                     {flag ? <Badge variant={flag.tone} className="text-xs">{flag.label}</Badge> : null}
                     {!ok ? <MissStage id={q.id} /> : null}
                   </div>
-                  <CardTitle className="text-[15px] leading-snug font-medium">{q.q}</CardTitle>
+                  <CardTitle className="text-[15px] leading-snug font-medium">{qOf(q)}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-2 px-5 text-sm">
                   <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{yours}</span></div>
@@ -511,15 +522,15 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                   {/* the same naming of her own mistake as on the reveal — this
                       is where it lands after a timed set, when nothing was
                       revealed as she went */}
-                  {!ok && picks[j] != null && q.y && q.y[LTR[picks[j]]] ? (
-                    <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{q.y[LTR[picks[j]]]}</div>
+                  {!ok && picks[j] != null && yOf(q, LTR[picks[j]]) ? (
+                    <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{yOf(q, LTR[picks[j]])}</div>
                   ) : null}
                   {!ok && tooFast(q, ms, firstOfPassage(items, j)) ? (
                     <div className="border-warning/50 bg-warning-soft rounded-md border p-3 leading-relaxed" data-testid="rushed">
                       {fmtSec(ms)} on {rushedPhrase(items, j, q)} — answered before it was read.
                     </div>
                   ) : null}
-                  {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
+                  {eOf(q) ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{eOf(q)}</div> : null}
                   {!ok && canTag ? <CauseTags id={q.id} /> : null}
                   {/* Open where she missed it, folded where she did not. A
                       question she got right still gets the offer — knowing the
@@ -653,10 +664,10 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             </div>
           ) : (
             <>
-              <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id}>{it.q}</p>
-              {/* A Chinese prompt is the book's own wording; the English is a translation she
-                  can ask for, the way the book glosses its headings — never the default. */}
-              {it.qe ? <EnglishLine text={it.qe} /> : null}
+              <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id}>{qOf(it)}</p>
+              {/* A Chinese prompt is the book's own wording; the other language is a
+                  translation she can ask for, the way the book glosses its headings. */}
+              {qOther(it) ? <EnglishLine key={getLang()} text={qOther(it)} /> : null}
             </>
           )}
           {gameMode ? <p className="text-muted-foreground -mb-2 text-xs font-semibold tracking-wide uppercase">Your spells</p> : null}
@@ -728,8 +739,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                   2(10+3) = 26" she still does not know that the 30 she picked
                   was the area. Authored per wrong choice in `why`, so it is only
                   here when someone has actually written it. */}
-              {!gotIt && it.y && it.y[LTR[picks[i]]] ? (
-                <p className="border-destructive/40 bg-destructive/5 mt-2 rounded-lg border p-3 text-sm leading-relaxed" data-testid="why">{it.y[LTR[picks[i]]]}</p>
+              {!gotIt && yOf(it, LTR[picks[i]]) ? (
+                <p className="border-destructive/40 bg-destructive/5 mt-2 rounded-lg border p-3 text-sm leading-relaxed" data-testid="why">{yOf(it, LTR[picks[i]])}</p>
               ) : null}
               {/* Answering before the question has been read is its own mistake,
                   and a different one from not knowing the answer. Naming it with
@@ -740,7 +751,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                   {(() => { const sec = Math.max(1, Math.round((Date.now() - entered.current) / 1000)); return `That took about ${sec} second${sec === 1 ? "" : "s"}.` })()} {rushedSentence(items, i, it)} This one was answered before it was read.
                 </p>
               ) : null}
-              {it.e ? <p className="bg-muted/60 text-muted-foreground mt-2 rounded-lg p-3 text-sm leading-relaxed">{it.e}</p> : null}
+              {eOf(it) ? <p className="bg-muted/60 text-muted-foreground mt-2 rounded-lg p-3 text-sm leading-relaxed">{eOf(it)}</p> : null}
               {/* Forty-four of the forty-five maths skills already carry the Beast
                   Academy unit and Prealgebra chapter that teach them, and until
                   now that only showed on the subject and review pages — never at

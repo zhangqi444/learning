@@ -28,8 +28,14 @@
     "C": "原来 means it turns out, and it looks back at something just discovered rather than forward to tomorrow.",
     "D": "都要 means all must, which needs a group of things to be about; only one person is being reminded here."
    },
-   "content_hash": "f0bda1c1d035013c",
-   "prompt_en": "Fill the blank: 明天开会，你______不要迟到。"
+   "content_hash": "6c7fc6f93dbbc615",
+   "prompt_en": "Fill the blank: 明天开会，你______不要迟到。",
+   "explanation_zh": "\"最好\"用来给人提建议——你最好别迟到。提醒明天开会，是建议，不是命令。",
+   "why_zh": {
+    "A": "\"只好\"是没有别的办法，像\"小马只好回家问妈妈\"，说的是没得选，不是提建议。",
+    "C": "\"原来\"是\"原来如此\"的意思，说的是刚弄明白的事，不是明天的事。",
+    "D": "\"都要\"是\"全都必须\"，要有一群人或一堆事才说得通；这里只提醒一个人。"
+   }
   },
   {
    "id": "zc:L05-04",
@@ -56,8 +62,14 @@
     "B": "一定 would turn this into an order — you definitely must not go out — and the sentence is softer than that.",
     "C": "突然 means something happened all at once, so it describes an event rather than what somebody should do."
    },
-   "content_hash": "407c14c72d3864a6",
-   "prompt_en": "Fill the blank: 天快黑了，你______不要出去了。"
+   "content_hash": "c01da41dda09e914",
+   "prompt_en": "Fill the blank: 天快黑了，你______不要出去了。",
+   "explanation_zh": "\"最好\"是温和的建议——天快黑了，你还是别出去。这句话是劝，不是命令。",
+   "why_zh": {
+    "A": "\"只好\"是没有别的办法，可这里出不出去还可以选，只是劝你别去。",
+    "B": "\"一定\"就成了命令——你绝对不能出去——这句话没那么重。",
+    "C": "\"突然\"说的是事情一下子发生，不是该做什么。"
+   }
   },
   {
    "id": "zc:L05-05",
@@ -84,8 +96,14 @@
     "C": "最好 offers advice, and nobody is being advised — the sentence reports what happened when the teacher came in.",
     "D": "一定 means certainly, which would say the room was bound to go quiet rather than describing the moment it did."
    },
-   "content_hash": "38ec23e3fc48346b",
-   "prompt_en": "Fill the blank: 老师进来了，教室______安静了。"
+   "content_hash": "324023a932023231",
+   "prompt_en": "Fill the blank: 老师进来了，教室______安静了。",
+   "explanation_zh": "\"突然\"说一下子变了——老师一进来，教室一下就安静了。",
+   "why_zh": {
+    "B": "\"只好\"是没有办法只能这样，可教室不会\"选择\"安静，它就是一下子安静了。",
+    "C": "\"最好\"是提建议，这句话没有在劝谁，只是说发生了什么。",
+    "D": "\"一定\"是\"肯定会\"，说的是必然，不是那一刻的变化。"
+   }
   },
   {
    "id": "zc:L05-06",
@@ -112,8 +130,14 @@
     "C": "突然 describes something happening all at once, and waiting for rain to stop is the opposite — it takes a while.",
     "D": "最好 would make waiting the best idea among several, but with no umbrella it is the only idea."
    },
-   "content_hash": "c7e1436711cc4517",
-   "prompt_en": "Fill the blank: 我没带雨伞，______等雨停之后再走。"
+   "content_hash": "80ed09ccb1ecb2b7",
+   "prompt_en": "Fill the blank: 我没带雨伞，______等雨停之后再走。",
+   "explanation_zh": "\"只好\"是别的办法都没有了。没带雨伞，只能等雨停。",
+   "why_zh": {
+    "A": "\"一定\"是\"肯定会\"，像在保证会等，而不是说没办法只能等。",
+    "C": "\"突然\"是一下子发生的事，等雨停正好相反——要等好一会儿。",
+    "D": "\"最好\"是几个办法里挑最好的，可没带伞，等雨停是唯一的办法。"
+   }
   },
   {
    "id": "zc:L05-07",
@@ -140,8 +164,14 @@
     "B": "突然 means all at once, which cannot describe a habit kept night after night.",
     "D": "只好 means having no choice, but nobody is forcing these early nights — they are being chosen."
    },
-   "content_hash": "0f16bb99dc2dc9f3",
-   "prompt_en": "Fill the blank: 我______要早睡早起，这样才能身体好。"
+   "content_hash": "94d08174e821f949",
+   "prompt_en": "Fill the blank: 我______要早睡早起，这样才能身体好。",
+   "explanation_zh": "\"一定\"是对自己下的决心——我肯定要早睡早起。后半句说了原因，所以前半句是决心。",
+   "why_zh": {
+    "A": "\"最好\"变成在劝别人，可这句话是说话的人在给自己下决心。",
+    "B": "\"突然\"是一下子，不能用来说天天坚持的习惯。",
+    "D": "\"只好\"是没办法，可早睡早起是自己决定的，没人逼。"
+   }
   },
   {
    "id": "zc:L05-08",
@@ -168,8 +198,14 @@
     "B": "既……也…… joins two things that are both true, so it needs two halves to join; this sentence has only one.",
     "C": "小心 means careful, and the pony is not being careless — he simply does not know whose advice to follow."
    },
-   "content_hash": "b58d615edf10dd2e",
-   "prompt_en": "Fill the blank: 小马不知道______怎么做。"
+   "content_hash": "3f41d73d5b434a9b",
+   "prompt_en": "Fill the blank: 小马不知道______怎么做。",
+   "explanation_zh": "\"应该\"说的是该做什么。小马听了两种相反的话，不知道该怎么办。",
+   "why_zh": {
+    "A": "\"原来\"是刚弄明白的事，不是该做什么。",
+    "B": "\"既……也……\"把两件都对的事连起来，要两半才能用；这句话只有一半。",
+    "C": "\"小心\"是当心、仔细，小马不是不小心，是不知道该听谁的。"
+   }
   },
   {
    "id": "zc:L05-09",
@@ -196,8 +232,14 @@
     "C": "原来 means it turns out, which looks back at a discovery rather than telling you how to walk.",
     "D": "既……也…… links two things that are both true, and this sentence names only one thing to do."
    },
-   "content_hash": "3414ee03ac3fa8a7",
-   "prompt_en": "Fill the blank: 下雨的时候走路要______一点儿。"
+   "content_hash": "62df06817c8b7431",
+   "prompt_en": "Fill the blank: 下雨的时候走路要______一点儿。",
+   "explanation_zh": "\"小心\"是当心。下雨路滑，走路要更当心一点儿。",
+   "why_zh": {
+    "B": "\"应该\"是\"该\"，句子里的\"要\"已经是这个意思了，缺的是\"当心\"这个词。",
+    "C": "\"原来\"说的是刚发现的事，不是教你怎么走路。",
+    "D": "\"既……也……\"连两件都对的事，这句话只说了一件要做的事。"
+   }
   },
   {
    "id": "zc:L05-10",
@@ -224,8 +266,14 @@
     "C": "应该 means ought to, but nobody is being told what to do — the sentence reports what he enjoys.",
     "D": "原来 means it turns out, and it goes at the front of a single statement; it cannot stretch across two halves."
    },
-   "content_hash": "2d27cf8c18f07167",
-   "prompt_en": "Fill the blanks: 他______喜欢吃中国菜，______喜欢吃美国菜。"
+   "content_hash": "c61f76a7e210033b",
+   "prompt_en": "Fill the blanks: 他______喜欢吃中国菜，______喜欢吃美国菜。",
+   "explanation_zh": "\"既……也……\"把两件同时都对的事连起来。看，句子有两个空、两个半句——正是这个句式。",
+   "why_zh": {
+    "A": "\"小心\"是当心，和喜欢吃什么菜没关系。",
+    "C": "\"应该\"是该做什么，可这句话没人在要求谁，只是说他喜欢什么。",
+    "D": "\"原来\"放在一句话开头，说刚发现的事；它跨不了两个半句。"
+   }
   },
   {
    "id": "zc:L05-11",
@@ -252,8 +300,14 @@
     "B": "小心 means careful, and nothing here is risky.",
     "D": "既……也…… joins two things that are both true, and this sentence is one discovery rather than two facts side by side."
    },
-   "content_hash": "a6d5fa6959b8fcf6",
-   "prompt_en": "Fill the blank: 亮亮长得很像你，______他是你的弟弟啊。"
+   "content_hash": "bccec4ed7b0e8236",
+   "prompt_en": "Fill the blank: 亮亮长得很像你，______他是你的弟弟啊。",
+   "explanation_zh": "\"原来\"是忽然明白的那一下——他长得这么像你，原来是你弟弟。句尾的\"啊\"就是明白过来的语气。",
+   "why_zh": {
+    "A": "\"应该\"是该做什么，总不能要求他\"该\"当你的弟弟。",
+    "B": "\"小心\"是当心，这里没有什么要当心的。",
+    "D": "\"既……也……\"连两件都对的事，这句话是一个发现，不是两件事。"
+   }
   },
   {
    "id": "zc:L05-12",
@@ -280,8 +334,14 @@
     "B": "到 means to or arrive, so it would need somewhere to arrive at — and the pony has not crossed yet.",
     "D": "也 means too, which would say the pony crossed as well, as though somebody else had already crossed."
    },
-   "content_hash": "1e85c9e944754650",
-   "prompt_en": "Fill the blank: 小马听了老牛的话，______要过河，小松鼠来了。"
+   "content_hash": "9b0d574fe2fb79d4",
+   "prompt_en": "Fill the blank: 小马听了老牛的话，______要过河，小松鼠来了。",
+   "explanation_zh": "\"正\"放在动词前面，是\"正要、刚要\"——小马刚要过河，小松鼠就来了。课文里也是这么写的：小马听了老牛的话，正要过河。",
+   "why_zh": {
+    "A": "\"从\"后面要跟一个地方，像\"从树上跳下来\"，不能直接放在\"要\"前面。",
+    "B": "\"到\"是到达，后面要有到的地方——小马还没过河呢。",
+    "D": "\"也\"是\"也一样\"，好像别人已经过了河，小马也过。"
+   }
   },
   {
    "id": "zc:L05-13",
@@ -308,8 +368,14 @@
     "C": "既 does not stand on its own — it waits for 也 or 又 later in the sentence, as in 既……也…….",
     "D": "才 means only then or not until, which would say the drawing came later than expected rather than as well."
    },
-   "content_hash": "d166c296cb353661",
-   "prompt_en": "Fill the blank: 奶奶画了一张画儿，我______画了一张。"
+   "content_hash": "09c732a9e2a04211",
+   "prompt_en": "Fill the blank: 奶奶画了一张画儿，我______画了一张。",
+   "explanation_zh": "\"也\"是\"也一样\"。奶奶画了一张，我也画了一张——两个人做同一件事，正是\"也\"。",
+   "why_zh": {
+    "B": "\"又\"是同一个人再做一次，可第二张画是另一个人画的。",
+    "C": "\"既\"不能单独用，它要等后面的\"也\"或\"又\"，像\"既……也……\"。",
+    "D": "\"才\"是\"这才、直到……才\"，说的是晚了才做，不是\"也\"。"
+   }
   },
   {
    "id": "zc:L05-14",
@@ -336,8 +402,14 @@
     "B": "地 comes before a verb to say how it is done, like 小心地过河, but here the blank falls after 过.",
     "D": "了 marks something finished, and the pony has not crossed yet — he is being told that he is able to."
    },
-   "content_hash": "d2979db2e22eeddc",
-   "prompt_en": "Fill the blank: 水很浅，小马过______去。"
+   "content_hash": "a36b24fe895dd98d",
+   "prompt_en": "Fill the blank: 水很浅，小马过______去。",
+   "explanation_zh": "\"得\"接在动词后面，说能不能——\"过得去\"就是能过去。课文里老牛就是这么说的：水很浅，你过得去。",
+   "why_zh": {
+    "A": "\"的\"连接形容词和名词，像\"美丽的花朵\"，后面要跟名词，不是\"去\"。",
+    "B": "\"地\"放在动词前面，说怎样做，像\"小心地过河\"；这里的空在\"过\"后面。",
+    "D": "\"了\"说事情做完了，可小马还没过河——是在说他能过去。"
+   }
   },
   {
    "id": "zc:L05-15",
@@ -364,8 +436,14 @@
     "C": "得 follows a verb to say how it turned out, as in 过得去, and 美丽 is not a verb.",
     "D": "了 marks something completed, and nothing is being completed here — the flowers are simply there."
    },
-   "content_hash": "26e59676c7d6a665",
-   "prompt_en": "Fill the blank: 公园里有很多美丽______花朵。"
+   "content_hash": "aefaabf79e19d5f4",
+   "prompt_en": "Fill the blank: 公园里有很多美丽______花朵。",
+   "explanation_zh": "\"的\"把形容词和它形容的名词连起来：美丽的花朵。",
+   "why_zh": {
+    "B": "\"地\"放在动词前面说怎样做，像\"慢慢地走\"，可\"花朵\"是东西，不是动作。",
+    "C": "\"得\"接在动词后面说结果，像\"过得去\"，\"美丽\"不是动词。",
+    "D": "\"了\"说做完了，这里没有什么做完的事——花朵就在那里。"
+   }
   }
  ]
 }

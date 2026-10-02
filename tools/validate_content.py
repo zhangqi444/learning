@@ -150,6 +150,21 @@ def spelling_errors(it):
 # again on the score card, and in the mock's missed-questions list. A question
 # that arrives without one is a miss that teaches her nothing, and the moment to
 # write it is while the question is being written.
+def why_zh_errors(it):
+    # The Chinese half carries its explanation and its `why` in both languages
+    # (the owner's ask: all of it in two languages). The second language has to
+    # answer the same wrong choices as the first — a gap there is a wrong choice
+    # that is told what it was in one language and nothing in the other.
+    z=it.get('why_zh')
+    if z is None and not it.get('explanation_zh'): return []
+    i=it['id']; out=[]
+    if not str(it.get('explanation_zh') or '').strip(): out.append(f'{i}: why_zh without explanation_zh')
+    if not isinstance(z, dict): return out+[f'{i}: why_zh is not an object']
+    if set(z)!=set(it.get('why') or {}): out.append(f'{i}: why_zh answers {sorted(z)} but why answers {sorted(it.get("why") or {})}')
+    for k,v in z.items():
+        if k==it.get('correct'): out.append(f'{i}: why_zh on {k}, which is the CORRECT answer')
+        if not str(v or '').strip(): out.append(f'{i}: why_zh on {k} is blank')
+    return out
 def why_gap_errors(it):
     w = it.get('why') or {}
     gaps = [l for l in it.get('choices', {}) if l != it.get('correct') and not str(w.get(l) or '').strip()]
@@ -210,6 +225,7 @@ for f in bank_files():
         errs += gloss_errors(it)
         errs += letter_errors(it)
         errs += why_gap_errors(it)
+        errs += why_zh_errors(it)
         errs += trap_errors(it, passage_text)
         errs += spelling_errors(it)
 

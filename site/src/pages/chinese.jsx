@@ -101,7 +101,7 @@ function WorkbookTask({ note, task, lesson }) {
         <details className="text-sm">
           <summary className="text-muted-foreground cursor-pointer">{t(`纸上作业 — ${task.on_paper.length} 项`, `On paper — ${task.on_paper.length} exercises the book sets by hand`)}</summary>
           <ul className="mt-2 flex flex-col gap-1 pl-1">
-            {task.on_paper.map((e, i) => <li key={i} className="text-muted-foreground">{e.day} · p.{e.page} · {e.ex} · {e.what}</li>)}
+            {task.on_paper.map((e, i) => <li key={i} className="text-muted-foreground">{e.day} · p.{e.page} · {e.ex} · {t(e.what, e.what_en || e.what)}</li>)}
           </ul>
           <p className="text-muted-foreground mt-2 text-xs">{tf(task.finding)}</p>
         </details>
@@ -177,7 +177,7 @@ export function Lesson({ id }) {
               <div key={z.zi} className="flex flex-col items-center gap-0.5 rounded-xl border p-3" data-testid="zh-char">
                 <span className="text-muted-foreground text-xs">{z.py}</span>
                 <span className="text-3xl leading-none">{z.zi}</span>
-                <span className="text-muted-foreground text-xs">{z.gloss}</span>
+                <span className="text-muted-foreground text-xs">{tf(z.gloss)}</span>
                 <Speak text={z.zi} />
               </div>
             ))}

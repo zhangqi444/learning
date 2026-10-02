@@ -17,57 +17,87 @@
  },
  "生字": {
   "where": "教材 printed p.50",
-  "gloss_note": "character and 拼音 are the book's; the meaning is a one-word gloss authored here, not printed in the book",
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book",
   "items": [
    {
     "zi": "喝",
     "py": "hē",
-    "gloss": "drink"
+    "gloss": {
+     "zh": "把水、茶等咽下去",
+     "en": "drink"
+    }
    },
    {
     "zi": "伯",
     "py": "bó",
-    "gloss": "uncle (father's elder brother)"
+    "gloss": {
+     "zh": "爸爸的哥哥",
+     "en": "uncle (father's elder brother)"
+    }
    },
    {
     "zi": "深",
     "py": "shēn",
-    "gloss": "deep"
+    "gloss": {
+     "zh": "从上到下距离大，跟\"浅\"相对",
+     "en": "deep"
+    }
    },
    {
     "zi": "浅",
     "py": "qiǎn",
-    "gloss": "shallow"
+    "gloss": {
+     "zh": "从上到下距离小，跟\"深\"相对",
+     "en": "shallow"
+    }
    },
    {
     "zi": "正",
     "py": "zhèng",
-    "gloss": "just about to; straight"
+    "gloss": {
+     "zh": "正要、刚要；不歪",
+     "en": "just about to; straight"
+    }
    },
    {
     "zi": "突",
     "py": "tū",
-    "gloss": "sudden"
+    "gloss": {
+     "zh": "忽然",
+     "en": "sudden"
+    }
    },
    {
     "zi": "松",
     "py": "sōng",
-    "gloss": "pine"
+    "gloss": {
+     "zh": "松树",
+     "en": "pine"
+    }
    },
    {
     "zi": "鼠",
     "py": "shǔ",
-    "gloss": "mouse, rat"
+    "gloss": {
+     "zh": "老鼠",
+     "en": "mouse, rat"
+    }
    },
    {
     "zi": "淹",
     "py": "yān",
-    "gloss": "drown, flood"
+    "gloss": {
+     "zh": "被水盖住",
+     "en": "drown, flood"
+    }
    },
    {
     "zi": "定",
     "py": "dìng",
-    "gloss": "certain, fixed"
+    "gloss": {
+     "zh": "确定、不变",
+     "en": "certain, fixed"
+    }
    }
   ],
   "部首": [

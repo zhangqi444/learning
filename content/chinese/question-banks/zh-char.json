@@ -28,8 +28,14 @@
     "B": "yīdīng puts 定 in the first tone, but 定 is always a fourth tone, dìng, falling at the end of the word.",
     "D": "yìdīng has both tones the wrong way round: 一 is not a fourth tone here, and 定 is not a first tone."
    },
-   "content_hash": "8ef1d74cff1ba322",
-   "prompt_en": "How is 一定 pronounced in 「你一定要照顾好自己。」?"
+   "content_hash": "d64d8cacd43fd2f5",
+   "prompt_en": "How is 一定 pronounced in 「你一定要照顾好自己。」?",
+   "explanation_zh": "\"一\"的声调会随后面的字变化：后面是第四声（定 dìng）时，\"一\"读第二声，所以\"一定\"读 yídìng。",
+   "why_zh": {
+    "A": "yīdìng 是\"一\"单独数数时的第一声（一、二、三），可是在第四声的字前面要变成第二声。",
+    "B": "yīdīng 把\"定\"读成了第一声，可\"定\"一直是第四声 dìng。",
+    "D": "yìdīng 两个声调都反了：\"一\"在这里不读第四声，\"定\"也不读第一声。"
+   }
   },
   {
    "id": "z:L05-02",
@@ -56,8 +62,14 @@
     "C": "九；犬 counts the strokes correctly, but 犬 is the part underneath; the radical of 突 is the 穴 above it.",
     "D": "十；犬 misses twice over: the stroke count is nine, and the radical is 穴 rather than 犬."
    },
-   "content_hash": "5d94851042642dd6",
-   "prompt_en": "How many strokes does 突 have, and what is its radical?"
+   "content_hash": "f89e1fdf6a9068f0",
+   "prompt_en": "How many strokes does 突 have, and what is its radical?",
+   "explanation_zh": "\"突\"上面是\"穴\"，下面是\"犬\"。\"穴\"五画，\"犬\"四画，一共九画；部首是上面的\"穴\"——课本第50页写着\"穴→突\"。",
+   "why_zh": {
+    "B": "十；穴 部首对了，但多数了一画：\"穴\"五画加\"犬\"四画是九画。",
+    "C": "九；犬 笔画数对了，可\"犬\"在下面，\"突\"的部首是上面的\"穴\"。",
+    "D": "十；犬 两处都不对：九画，部首是\"穴\"。"
+   }
   }
  ]
 }

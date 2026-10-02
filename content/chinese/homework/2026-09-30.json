@@ -35,91 +35,106 @@
      "day": "星期一",
      "page": 30,
      "ex": 1,
-     "what": "按照汉字结构写一写"
+     "what": "按照汉字结构写一写",
+     "what_en": "Follow the structures to write"
     },
     {
      "day": "星期一",
      "page": 31,
      "ex": 2,
-     "what": "找朋友，连成字写下来并组词"
+     "what": "找朋友，连成字写下来并组词",
+     "what_en": "Look for friends, make characters and write words"
     },
     {
      "day": "星期一",
      "page": 31,
      "ex": 3,
-     "what": "组一组，填一填"
+     "what": "组一组，填一填",
+     "what_en": "Form words and fill"
     },
     {
      "day": "星期一",
      "page": 32,
      "ex": 5,
-     "what": "根据拼音写汉字"
+     "what": "根据拼音写汉字",
+     "what_en": "Write characters below Pinyin"
     },
     {
      "day": "星期二",
      "page": 33,
      "ex": 1,
-     "what": "火车赛跑，组词语"
+     "what": "火车赛跑，组词语",
+     "what_en": "Form words on the running trains"
     },
     {
      "day": "星期二",
      "page": 33,
      "ex": 2,
-     "what": "比一比，再组词（伯/白，所/听，浅/前，机/几）"
+     "what": "比一比，再组词（伯/白，所/听，浅/前，机/几）",
+     "what_en": "Compare and form words (伯/白, 所/听, 浅/前, 机/几)"
     },
     {
      "day": "星期二",
      "page": 34,
      "ex": 3,
-     "what": "词语连线，并填入句子里面"
+     "what": "词语连线，并填入句子里面",
+     "what_en": "Match to make words and fill in the sentences"
     },
     {
      "day": "星期二",
      "page": 34,
      "ex": 5,
-     "what": "仿照例子造句（……是……还是……）"
+     "what": "仿照例子造句（……是……还是……）",
+     "what_en": "Follow the example to make sentences (…是…还是…)"
     },
     {
      "day": "星期三",
      "page": 35,
      "ex": 1,
-     "what": "读一读（read aloud, not scored）"
+     "what": "读一读（朗读，不评分）",
+     "what_en": "Read aloud (not scored)"
     },
     {
      "day": "星期三",
      "page": 36,
      "ex": 3,
-     "what": "连词成句"
+     "what": "连词成句",
+     "what_en": "Write the words in the correct order to make sentences"
     },
     {
      "day": "星期三",
      "page": 36,
      "ex": 4,
-     "what": "根据课文判断正误"
+     "what": "根据课文判断正误",
+     "what_en": "Decide whether the statements are true or false according to the text"
     },
     {
      "day": "星期三",
      "page": 37,
      "ex": 5,
-     "what": "根据课文和图片给句子排序"
+     "what": "根据课文和图片给句子排序",
+     "what_en": "Sequence the sentences according to the text and the pictures"
     },
     {
      "day": "星期四",
      "page": 38,
      "ex": 2,
-     "what": "根据课文回答问题"
+     "what": "根据课文回答问题",
+     "what_en": "Answer the questions according to the text"
     },
     {
      "day": "星期四",
      "page": 39,
      "ex": 3,
-     "what": "选择相应的句子补全对话"
+     "what": "选择相应的句子补全对话",
+     "what_en": "Choose the correct sentences to complete the dialogue"
     },
     {
      "day": "星期四",
      "page": 39,
      "ex": 4,
-     "what": "把故事讲给爸爸妈妈听（家长签名）"
+     "what": "把故事讲给爸爸妈妈听（家长签名）",
+     "what_en": "Tell the story to your parents and test them (parent's signature)"
     }
    ],
    "known_gaps": [
