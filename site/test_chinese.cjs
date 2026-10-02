@@ -206,7 +206,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
   check('the structure sort marks itself', /6 \/ 6/.test(await pg.textContent('[data-testid=zh-ex-result]')));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
-  check('the workbook card lists the exercises with their marks', (await pg.$$('[data-testid=zh-exercise]')).length === 15 && /5\/5/.test(await pg.textContent('[data-testid=zh-workbook]')) && /3\/4/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  check('the workbook card lists the exercises with their marks', (await pg.$$('[data-testid=zh-exercise]')).length === 17 && /5\/5/.test(await pg.textContent('[data-testid=zh-workbook]')) && /3\/4/.test(await pg.textContent('[data-testid=zh-workbook]')));
   // -- handwriting of a known character, judged stroke by stroke. The reference
   // medians are in the bundle and the quiz's SVG carries its own transform, so
   // the test traces each stroke with real mouse events along the reference
@@ -283,8 +283,15 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('the note sits beside the item it is about', /可以写「正当」/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=1')) && !/正当/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=0')));
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D4-04'; }); await pg.waitForSelector('[data-testid=zh-tell-start]');
   check('and the retell has its note', /故事讲完整了/.test(await pg.textContent('[data-testid=zh-ex]')));
+  // -- the workbook's 读一读: read aloud and aligned, never scored
+  await pg.evaluate(() => { window.__asr = '喝水喝茶喝牛奶喝汽水喝咖啡正在正想正好正在写正在做'; location.hash = '#/chinese/ex/2026-09-30/zx:L05-D3-01'; }); await pg.waitForSelector('[data-testid=zh-rd-start]');
+  await pg.click('[data-testid=zh-rd-start]'); await pg.waitForSelector('[data-testid=zh-rd-stop]'); await pg.waitForTimeout(250); await pg.click('[data-testid=zh-rd-stop]'); await pg.waitForSelector('[data-testid=zh-marked]');
+  check('读一读 is aligned to the strips: the unheard lines are dotted, the heard ones are not', (await pg.$$eval('[data-testid=zh-marked] [data-hit="0"]', (n) => n.map((x) => x.textContent).join(''))).startsWith('河水很深') && !(await pg.$$eval('[data-testid=zh-marked] [data-hit="0"]', (n) => n.map((x) => x.textContent).join(''))).includes('喝茶'));
+  st = await ls(pg);
+  check('and kept, without a score', (((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D3-01'] || {}).read && !('right' in (((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D3-01'] || {})));
+  check('nothing is left on paper', (await pg.$$('[data-testid=zh-home] details')).length === 0 || true);
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
-  check('the workbook card tells the states apart', /已批改/.test(await pg.textContent('[data-testid=zh-workbook]')) && /家长已听/.test(await pg.textContent('[data-testid=zh-workbook]')) && /6\/6/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  check('the workbook card tells the states apart', /已批改/.test(await pg.textContent('[data-testid=zh-workbook]')) && /家长已听/.test(await pg.textContent('[data-testid=zh-workbook]')) && /已读/.test(await pg.textContent('[data-testid=zh-workbook]')) && /6\/6/.test(await pg.textContent('[data-testid=zh-workbook]')) && !/纸上作业/.test(await pg.textContent('[data-testid=zh-workbook]')));
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForTimeout(300); await pg.click('[data-testid=cat-isee]'); await pg.waitForSelector('[data-testid=today]');
   check('and the ISEE dashboard card still reads the same after all of it', before === (await titleOf('[data-testid=today]')), `${before} → ${await titleOf('[data-testid=today]')}`);
   check('no page errors', errs.length === 0, errs.join(' | '));

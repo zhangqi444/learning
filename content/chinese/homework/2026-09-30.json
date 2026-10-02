@@ -27,81 +27,10 @@
     "zh-word"
    ],
    "finding": {
-    "zh": "设计原本以为按星期分四组；实际上每天只有一道选择题块，共十五题、两组。另外七项有唯一答案，现在在网站上做、按规则判：判断正误、连词成句、排序、补全对话、连线、找朋友、结构分类。其余的——写字、组词、造句、问答、讲故事——暂时仍在纸上，等手写板和批改技能。",
-    "en": "The design expected four sittings; the pages give one four-choice block a day, fifteen items, two sittings. Seven more exercises have one right answer and are now done on the site and marked by rule: true/false, word order, sequencing, the dialogue, the matching pairs, the radical pairs, the structure sort. The rest — handwriting, 组词, 造句, the answers, the retell — stay on paper until the Pencil canvas and the review skill arrive."
+    "zh": "设计原本以为按星期分四组；实际上每天只有一道选择题块，共十五题、两组。其余十七项现在都在网站上做：有唯一答案的按规则判；写字按笔顺判；自由书写（组词、造句、问答）用笔写，保存后由批改技能批改；讲故事录音、家长签名；读一读录音对照。纸上不再剩下作业。",
+    "en": "The design expected four sittings; the pages give one four-choice block a day. The other seventeen exercises are all done on the site now: one-answer ones marked by rule, known characters judged stroke by stroke, free writing (组词, 造句, answers) written with the pen and judged by the review skill, the retell recorded and signed, 读一读 read aloud and aligned. Nothing is left on paper."
    },
-   "on_paper": [
-    {
-     "day": "星期一",
-     "page": 30,
-     "ex": 1,
-     "what": "按照汉字结构写一写（结构分类已数字化）",
-     "what_en": "Follow the structures to write (the structure sort is on the site)"
-    },
-    {
-     "day": "星期一",
-     "page": 31,
-     "ex": 2,
-     "what": "找朋友：写下来并组词（连线部分已数字化）",
-     "what_en": "Look for friends: write the characters and form words (the matching is on the site)"
-    },
-    {
-     "day": "星期一",
-     "page": 31,
-     "ex": 3,
-     "what": "组一组，填一填",
-     "what_en": "Form words and fill"
-    },
-    {
-     "day": "星期一",
-     "page": 32,
-     "ex": 5,
-     "what": "根据拼音写汉字",
-     "what_en": "Write characters below Pinyin"
-    },
-    {
-     "day": "星期二",
-     "page": 33,
-     "ex": 1,
-     "what": "火车赛跑，组词语",
-     "what_en": "Form words on the running trains"
-    },
-    {
-     "day": "星期二",
-     "page": 33,
-     "ex": 2,
-     "what": "比一比，再组词（伯/白，所/听，浅/前，机/几）",
-     "what_en": "Compare and form words (伯/白, 所/听, 浅/前, 机/几)"
-    },
-    {
-     "day": "星期二",
-     "page": 34,
-     "ex": 5,
-     "what": "仿照例子造句（……是……还是……）",
-     "what_en": "Follow the example to make sentences (…是…还是…)"
-    },
-    {
-     "day": "星期三",
-     "page": 35,
-     "ex": 1,
-     "what": "读一读（朗读，不评分）",
-     "what_en": "Read aloud (not scored)"
-    },
-    {
-     "day": "星期四",
-     "page": 38,
-     "ex": 2,
-     "what": "根据课文回答问题",
-     "what_en": "Answer the questions according to the text"
-    },
-    {
-     "day": "星期四",
-     "page": 39,
-     "ex": 4,
-     "what": "把故事讲给爸爸妈妈听（家长签名）",
-     "what_en": "Tell the story to your parents and test them (parent's signature)"
-    }
-   ],
+   "on_paper": [],
    "known_gaps": [
     {
      "where": "练习册A 星期一 练习4（2），printed p.32",

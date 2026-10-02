@@ -126,19 +126,19 @@ function WorkbookTask({ note, task, lesson }) {
               <div key={ex.id} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid="zh-exercise">
                 <span className="text-sm">{t(ex.title, ex.title_en)} <span className="text-muted-foreground">· {ex.day} · p.{ex.page}</span></span>
                 <span className="flex items-center gap-2">
-                  {r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : reviewed(ex) ? <Badge variant="success">{t("已批改", "reviewed")}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : null}
-                  <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(`/chinese/ex/${note.set}/${ex.id}`)}>{ex.type === "write" || ex.type === "free" ? <PenLine /> : ex.type === "speak" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
+                  {r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : reviewed(ex) ? <Badge variant="success">{t("已批改", "reviewed")}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : r && r.read ? <Badge variant="success">{t("已读", "read")}</Badge> : null}
+                  <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(`/chinese/ex/${note.set}/${ex.id}`)}>{ex.type === "write" || ex.type === "free" ? <PenLine /> : ex.type === "speak" || ex.type === "read" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
                 </span>
               </div>) })}
           </div>
         ) : null}
-        <details className="text-sm">
+        {task.on_paper.length ? <details className="text-sm">
           <summary className="text-muted-foreground cursor-pointer">{t(`纸上作业 — ${task.on_paper.length} 项`, `On paper — ${task.on_paper.length} exercises the book sets by hand`)}</summary>
           <ul className="mt-2 flex flex-col gap-1 pl-1">
             {task.on_paper.map((e, i) => <li key={i} className="text-muted-foreground">{e.day} · p.{e.page} · {e.ex} · {t(e.what, e.what_en || e.what)}</li>)}
           </ul>
           <p className="text-muted-foreground mt-2 text-xs">{tf(task.finding)}</p>
-        </details>
+        </details> : <p className="text-muted-foreground text-xs">{tf(task.finding)}</p>}
       </CardContent>
     </Card>
   )
@@ -665,6 +665,53 @@ function SpeakWidget({ ex, set, exId }) {
     </div>
   )
 }
+/** The workbook's own 读一读: read aloud, transcribed, aligned to the strips — the
+ *  reading page's mechanism on an exercise, never scored, the unheard dotted. */
+function ReadWidget({ ex, set, exId }) {
+  useStore()
+  const st = (hwState(set).exercises || {})[exId] || {}
+  const [mode, setMode] = useState("idle"), [finals, setFinals] = useState(""), [interim, setInterim] = useState("")
+  const [res, setRes] = useState(null)
+  const live = useRef(null)
+  const start = async () => {
+    setRes(null); setFinals(""); setInterim("")
+    let rec = null; try { rec = canRecord() ? await startRecorder() : null } catch { rec = null }
+    const asr = startRecognition((f, i) => { setFinals(f); setInterim(i) })
+    live.current = { rec, asr, t0: Date.now() }; setMode("recording")
+  }
+  const stop = async () => {
+    const l = live.current; if (!l) return
+    setMode("saving"); l.asr.stop()
+    const audio = l.rec ? await l.rec.stop() : { blob: null, ms: Date.now() - l.t0, mime: "" }
+    const transcript = finals + interim, align = alignChars(ex.text, transcript)
+    const fileId = audio.blob ? await Store.uploadMedia(`zh-read-${set}-${exId.replace(/[^\w-]/g, "_")}-${Date.now()}.${/mp4/.test(audio.mime) ? "m4a" : "webm"}`, audio.blob, audio.mime) : null
+    const r = { at: new Date().toISOString(), ms: audio.ms, transcript, matched: align.matched, total: align.total, heard: align.heard, fileId }
+    Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, exercises: { ...(cur.exercises || {}), [exId]: { ...((cur.exercises || {})[exId] || {}), read: r } } }))
+    recordAttempts([{ id: exId, ok: true, ms: audio.ms, pick: String(align.matched) }], "exercise")
+    setRes({ marks: markPassage(ex.text, align), ...r }); setMode("idle")
+  }
+  const lines = ex.text.split("\n")
+  return (
+    <div className="flex flex-col gap-3">
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("读一读", "Read aloud")}</CardTitle>
+          <CardDescription>{st.read && !res ? t(`上次读了 ${Math.round(st.read.ms / 1000)} 秒`, `last read in ${Math.round(st.read.ms / 1000)} s`) : t("读出来，不打分。", "Read it aloud; it is not scored.")}</CardDescription>
+          <CardAction>
+            {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-rd-stop"><Square /> {t("停止", "Stop")}</Button>
+              : mode === "saving" ? <Button size="sm" disabled>{t("保存中…", "Saving…")}</Button>
+              : <Button size="sm" onClick={start} data-testid="zh-rd-start"><Mic /> {st.read || res ? t("再读一次", "Read again") : t("开始朗读", "Start reading")}</Button>}
+          </CardAction>
+        </CardHeader>
+        <CardContent>
+          {res ? <Marked marks={res.marks} /> : <div className="text-xl leading-9 tracking-wide" data-testid="zh-rd-text">{lines.map((l, i) => <p key={i}>{l}</p>)}</div>}
+          {mode === "recording" ? <p className="text-muted-foreground mt-2 text-sm" data-testid="zh-rd-transcript">{finals}<span className="opacity-60">{interim}</span></p> : null}
+          {res ? <p className="text-muted-foreground mt-2 text-xs">{t("点线标出的字是没听到的——再读一遍。", "The dotted characters are ones the recogniser did not hear — read them once more.")}</p> : null}
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
 const WIDGET = { tf: TfWidget, order: OrderWidget, slots: SlotsWidget, match: MatchWidget, sort: SortWidget, write: WriteWidget, free: FreeWidget }
 const itemLabel = (ex, it) => it.text || it.left || it.slot || it.key || (it.pieces ? it.pieces.join(" / ") : it.id)
 export function Exercise({ set, exId }) {
@@ -695,10 +742,10 @@ export function Exercise({ set, exId }) {
     setDone({ submitted: true })
   }
   const Widget = WIDGET[ex.type]
-  if (ex.type === "speak") return (
+  if (ex.type === "speak" || ex.type === "read") return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-ex">
       <Card><CardHeader><CardTitle>{t(ex.title, ex.title_en)}</CardTitle><CardDescription>{ex.day} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}</CardDescription></CardHeader>{ex.note ? <CardContent className="text-muted-foreground text-sm">{tf(ex.note)}</CardContent> : null}</Card>
-      <SpeakWidget ex={ex} set={set} exId={exId} />
+      {ex.type === "speak" ? <SpeakWidget ex={ex} set={set} exId={exId} /> : <ReadWidget ex={ex} set={set} exId={exId} />}
     </div>
   )
   return (

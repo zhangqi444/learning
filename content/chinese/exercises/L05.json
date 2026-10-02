@@ -5,233 +5,505 @@
  "note": "The workbook's exercises, typed. tf/order/slots/match/sort have one answer the book fixes and are marked by rule on the device. write is handwriting of a known character, judged stroke by stroke against the vendored stroke data (content/chinese/strokes). free is handwriting with no key — kept as image and strokes, judged by the chinese-review skill. speak is the retell — recorded and transcribed, with a parent's tap as the signature.",
  "exercises": [
   {
-   "id": "zx:L05-D3-04",
-   "day": "星期三",
-   "page": 36,
-   "ex": 4,
-   "type": "tf",
-   "title": "根据课文判断正误",
-   "title_en": "Decide whether the statements are true or false according to the text",
-   "items": [
-    {
-     "id": "zx:L05-D3-04-1",
-     "text": "小马想要过河。",
-     "key": true,
-     "explanation": {
-      "zh": "课文第一句就是：小马要过河。",
-      "en": "The first line of the text: 小马要过河 — the pony wants to cross the river."
-     }
-    },
-    {
-     "id": "zx:L05-D3-04-2",
-     "text": "老牛说水很浅，因为他又高又大。",
-     "key": true,
-     "explanation": {
-      "zh": "老牛说\"水很浅\"；妈妈解释了原因：老牛又高又大，他会觉得水很浅。",
-      "en": "The ox says the water is shallow, and Mother explains why: the ox is tall and big, so to him it feels shallow."
-     }
-    },
-    {
-     "id": "zx:L05-D3-04-3",
-     "text": "小松鼠也认为很容易过河。",
-     "key": false,
-     "explanation": {
-      "zh": "小松鼠说的正相反：别过河！水深得很，你会淹死的。",
-      "en": "The squirrel says the opposite: don't cross — the water is very deep, you will drown."
-     }
-    },
-    {
-     "id": "zx:L05-D3-04-4",
-     "text": "小马没有回家问妈妈的建议。",
-     "key": false,
-     "explanation": {
-      "zh": "小马不知道该怎么办，只好回家问妈妈。",
-      "en": "The pony did not know what to do, so he went home and asked his mother."
-     }
-    },
-    {
-     "id": "zx:L05-D3-04-5",
-     "text": "小马最后没有过河。",
-     "key": false,
-     "explanation": {
-      "zh": "小马又跑到河边，小心地过了河。",
-      "en": "The pony went back to the river and crossed it carefully."
-     }
-    }
-   ]
-  },
-  {
-   "id": "zx:L05-D3-03",
-   "day": "星期三",
-   "page": 36,
-   "ex": 3,
-   "type": "order",
-   "title": "连词成句",
-   "title_en": "Write the words in the correct order to make sentences",
-   "items": [
-    {
-     "id": "zx:L05-D3-03-1",
-     "pieces": [
-      "觉得",
-      "老牛",
-      "一定会",
-      "河水很浅"
-     ],
-     "key": [
-      1,
-      2,
-      0,
-      3
-     ],
-     "explanation": {
-      "zh": "正确的顺序：老牛一定会觉得河水很浅。",
-      "en": "In order: 老牛一定会觉得河水很浅 — the ox would surely think the river is shallow."
-     }
-    },
-    {
-     "id": "zx:L05-D3-03-2",
-     "pieces": [
-      "我",
-      "中文",
-      "一定会",
-      "努力学习"
-     ],
-     "key": [
-      0,
-      2,
-      3,
-      1
-     ],
-     "explanation": {
-      "zh": "正确的顺序：我一定会努力学习中文。",
-      "en": "In order: 我一定会努力学习中文 — I will surely study Chinese hard."
-     }
-    },
-    {
-     "id": "zx:L05-D3-03-3",
-     "pieces": [
-      "做家务",
-      "亮亮",
-      "一定会",
-      "帮妈妈"
-     ],
-     "key": [
-      1,
-      2,
-      3,
-      0
-     ],
-     "explanation": {
-      "zh": "正确的顺序：亮亮一定会帮妈妈做家务。",
-      "en": "In order: 亮亮一定会帮妈妈做家务 — Liangliang will surely help Mother with the housework."
-     }
-    },
-    {
-     "id": "zx:L05-D3-03-4",
-     "pieces": [
-      "妹妹",
-      "玩具",
-      "一定会",
-      "喜欢",
-      "爸爸买的"
-     ],
-     "key": [
-      0,
-      2,
-      3,
-      4,
-      1
-     ],
-     "explanation": {
-      "zh": "正确的顺序：妹妹一定会喜欢爸爸买的玩具。",
-      "en": "In order: 妹妹一定会喜欢爸爸买的玩具 — Little sister will surely like the toy Father bought."
-     }
-    }
-   ]
-  },
-  {
-   "id": "zx:L05-D3-05",
-   "day": "星期三",
-   "page": 37,
-   "ex": 5,
-   "type": "order",
-   "title": "根据课文和图片给句子排序",
-   "title_en": "Sequence the sentences according to the text and the pictures",
+   "id": "zx:L05-D1-01s",
+   "day": "星期一",
+   "page": 30,
+   "ex": 1,
+   "type": "sort",
+   "title": "左右结构，还是上下结构？",
+   "title_en": "Left–right structure, or top–bottom?",
    "note": {
-    "zh": "图在练习册第37页；句子按故事先后排。",
-    "en": "The pictures are on workbook p.37; put the sentences in the story's order."
+    "zh": "练习1的后半部分；写字的部分仍在纸上。",
+    "en": "The second half of exercise 1; the handwriting stays on paper for now."
    },
-   "items": [
-    {
-     "id": "zx:L05-D3-05-1",
-     "pieces": [
-      "小松鼠从树上跳下来，告诉小马水很深，他会淹死的。",
-      "小马跑回家问妈妈，妈妈告诉他最好自己试一试。",
-      "小马又跑到河边，小心地过了河。",
-      "小马想要过河，牛伯伯告诉他水很浅，过得去。"
-     ],
-     "labels": [
-      "②",
-      "③",
-      "④",
-      "①"
-     ],
-     "key": [
-      3,
-      0,
-      1,
-      2
-     ],
-     "explanation": {
-      "zh": "故事的顺序：先问牛伯伯（①），松鼠跳下来（②），回家问妈妈（③），最后小心地过了河（④）。",
-      "en": "The story's order: ask the ox first (①), the squirrel jumps down (②), home to ask Mother (③), then across the river carefully (④)."
-     }
-    }
-   ]
-  },
-  {
-   "id": "zx:L05-D4-03",
-   "day": "星期四",
-   "page": 39,
-   "ex": 3,
-   "type": "slots",
-   "title": "选择相应的句子补全对话",
-   "title_en": "Choose the correct sentences to complete the dialogue",
-   "options": [
-    "河水是深还是浅，最好你自己去试试。",
-    "小马，别过河！水深得很呢！你会淹死的！",
-    "水很浅，你过得去。"
+   "groups": [
+    "左右结构",
+    "上下结构"
    ],
    "items": [
     {
-     "id": "zx:L05-D4-03-1",
-     "before": "小马：牛伯伯，我要过河，水深吗？",
-     "slot": "老牛",
-     "key": 2,
-     "explanation": {
-      "zh": "老牛说的是：水很浅，你过得去。",
-      "en": "The ox's line: 水很浅，你过得去 — the water is shallow, you can get across."
-     }
-    },
-    {
-     "id": "zx:L05-D4-03-2",
-     "before": "（小松鼠从树上跳了下来。）",
-     "slot": "小松鼠",
-     "key": 1,
-     "explanation": {
-      "zh": "小松鼠说的是：小马，别过河！水深得很呢！你会淹死的！",
-      "en": "The squirrel's line: don't cross — the water is very deep, you will drown!"
-     }
-    },
-    {
-     "id": "zx:L05-D4-03-3",
-     "before": "（小马不知道怎么办，只好回家问妈妈。）",
-     "slot": "妈妈",
+     "id": "zx:L05-D1-01s-1",
+     "text": "喝",
      "key": 0,
      "explanation": {
-      "zh": "妈妈说的是：河水是深还是浅，最好你自己去试试。",
-      "en": "Mother's line: is the river deep or shallow — best go and try for yourself."
+      "zh": "口在左、曷在右：左右结构。",
+      "en": "口 on the left, 曷 on the right: left–right."
      }
+    },
+    {
+     "id": "zx:L05-D1-01s-2",
+     "text": "伯",
+     "key": 0,
+     "explanation": {
+      "zh": "亻在左、白在右：左右结构。",
+      "en": "亻 on the left, 白 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01s-3",
+     "text": "深",
+     "key": 0,
+     "explanation": {
+      "zh": "氵在左、罙在右：左右结构。",
+      "en": "氵 on the left, 罙 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01s-4",
+     "text": "突",
+     "key": 1,
+     "explanation": {
+      "zh": "穴在上、犬在下：上下结构。",
+      "en": "穴 above, 犬 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01s-5",
+     "text": "松",
+     "key": 0,
+     "explanation": {
+      "zh": "木在左、公在右：左右结构。",
+      "en": "木 on the left, 公 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01s-6",
+     "text": "定",
+     "key": 1,
+     "explanation": {
+      "zh": "宀在上、疋在下：上下结构。",
+      "en": "宀 above, 疋 below: top–bottom."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D1-01w",
+   "day": "星期一",
+   "page": 30,
+   "ex": 1,
+   "type": "write",
+   "title": "按照汉字结构写一写",
+   "title_en": "Follow the structures to write",
+   "outline": false,
+   "note": {
+    "zh": "看着部件，用笔把字写出来。笔顺按规则判，写错三笔会给提示。",
+    "en": "Look at the parts and write the character with the Pencil. Stroke order is judged by rule; after three wrong strokes a hint appears."
+   },
+   "items": [
+    {
+     "id": "zx:L05-D1-01w-1",
+     "parts": "口＋曷",
+     "key": "喝",
+     "explanation": {
+      "zh": "口在左，曷在右：喝。",
+      "en": "口 on the left, 曷 on the right: 喝."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-2",
+     "parts": "亻＋白",
+     "key": "伯",
+     "explanation": {
+      "zh": "亻在左，白在右：伯。",
+      "en": "亻 on the left, 白 on the right: 伯."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-3",
+     "parts": "氵＋罙",
+     "key": "深",
+     "explanation": {
+      "zh": "氵在左，罙在右：深。",
+      "en": "氵 on the left, 罙 on the right: 深."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-4",
+     "parts": "穴＋犬",
+     "key": "突",
+     "explanation": {
+      "zh": "穴在上，犬在下：突。",
+      "en": "穴 above, 犬 below: 突."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-5",
+     "parts": "木＋公",
+     "key": "松",
+     "explanation": {
+      "zh": "木在左，公在右：松。",
+      "en": "木 on the left, 公 on the right: 松."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-6",
+     "parts": "宀＋疋",
+     "key": "定",
+     "explanation": {
+      "zh": "宀在上，疋在下：定。",
+      "en": "宀 above, 疋 below: 定."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D1-02",
+   "day": "星期一",
+   "page": 31,
+   "ex": 2,
+   "type": "match",
+   "title": "找朋友，连成字",
+   "title_en": "Look for friends, make characters",
+   "note": {
+    "zh": "连好以后，写下来并组词的部分仍在纸上。",
+    "en": "Writing the characters and forming words stays on paper for now."
+   },
+   "left": [
+    "亻",
+    "氵",
+    "木",
+    "口",
+    "穴",
+    "宀"
+   ],
+   "right": [
+    "公",
+    "曷",
+    "罙",
+    "疋",
+    "白",
+    "犬"
+   ],
+   "pairs": [
+    [
+     0,
+     4
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     3
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L05-D1-02-1",
+     "left": "亻",
+     "key": 4,
+     "word": "伯",
+     "explanation": {
+      "zh": "亻和白合成\"伯\"。",
+      "en": "亻 and 白 make 伯."
+     }
+    },
+    {
+     "id": "zx:L05-D1-02-2",
+     "left": "氵",
+     "key": 2,
+     "word": "深",
+     "explanation": {
+      "zh": "氵和罙合成\"深\"。",
+      "en": "氵 and 罙 make 深."
+     }
+    },
+    {
+     "id": "zx:L05-D1-02-3",
+     "left": "木",
+     "key": 0,
+     "word": "松",
+     "explanation": {
+      "zh": "木和公合成\"松\"——课本给的例子。",
+      "en": "木 and 公 make 松 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L05-D1-02-4",
+     "left": "口",
+     "key": 1,
+     "word": "喝",
+     "explanation": {
+      "zh": "口和曷合成\"喝\"。",
+      "en": "口 and 曷 make 喝."
+     }
+    },
+    {
+     "id": "zx:L05-D1-02-5",
+     "left": "穴",
+     "key": 5,
+     "word": "突",
+     "explanation": {
+      "zh": "穴和犬合成\"突\"。",
+      "en": "穴 and 犬 make 突."
+     }
+    },
+    {
+     "id": "zx:L05-D1-02-6",
+     "left": "宀",
+     "key": 3,
+     "word": "定",
+     "explanation": {
+      "zh": "宀和疋合成\"定\"。",
+      "en": "宀 and 疋 make 定."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D1-02w",
+   "day": "星期一",
+   "page": 31,
+   "ex": 2,
+   "type": "free",
+   "title": "找朋友：写下来并组词",
+   "title_en": "Look for friends: write the characters and form words",
+   "note": {
+    "zh": "连线在前面做过了；这里把六个字写下来，各组一个词。",
+    "en": "The matching was done on the site; here write the six characters and make one word with each."
+   },
+   "items": [
+    {
+     "id": "zx:L05-D1-02w-1",
+     "prompt": "伯、深、松、喝、突、定 —— 各写一遍，各组一个词（例：松 → 松鼠）",
+     "prompt_en": "伯 深 松 喝 突 定 — write each once and make one word with each (e.g. 松 → 松鼠)"
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D1-03",
+   "day": "星期一",
+   "page": 31,
+   "ex": 3,
+   "type": "free",
+   "title": "组一组，填一填",
+   "title_en": "Form words and fill",
+   "items": [
+    {
+     "id": "zx:L05-D1-03-1",
+     "prompt": "喝：喝茶、＿＿、＿＿、＿＿",
+     "prompt_en": "喝: 喝茶, and three more words"
+    },
+    {
+     "id": "zx:L05-D1-03-2",
+     "prompt": "正：＿＿、＿＿、＿＿、＿＿",
+     "prompt_en": "正: four words"
+    },
+    {
+     "id": "zx:L05-D1-03-3",
+     "prompt": "那：＿＿、＿＿、＿＿、＿＿",
+     "prompt_en": "那: four words"
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D1-05",
+   "day": "星期一",
+   "page": 32,
+   "ex": 5,
+   "type": "write",
+   "title": "根据拼音写汉字",
+   "title_en": "Write characters below Pinyin",
+   "outline": false,
+   "note": {
+    "zh": "同一个拼音，不同的字——看旁边的字想词。",
+    "en": "Same or similar pinyin, different characters — the character beside the blank tells you the word."
+   },
+   "items": [
+    {
+     "id": "zx:L05-D1-05-1",
+     "py": "shēn",
+     "context": "＿浅",
+     "key": "深",
+     "explanation": {
+      "zh": "深浅：shēn。",
+      "en": "深浅 — shēn, deep and shallow."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-2",
+     "py": "shēn",
+     "context": "＿体",
+     "key": "身",
+     "explanation": {
+      "zh": "身体：shēn。",
+      "en": "身体 — shēn, body."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-3",
+     "py": "shēng",
+     "context": "学＿",
+     "key": "生",
+     "explanation": {
+      "zh": "学生：shēng。",
+      "en": "学生 — shēng, student."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-4",
+     "py": "jì",
+     "context": "＿然",
+     "key": "既",
+     "explanation": {
+      "zh": "既然：jì。",
+      "en": "既然 — jì, since / now that."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-5",
+     "py": "jī",
+     "context": "＿会",
+     "key": "机",
+     "explanation": {
+      "zh": "机会：jī。",
+      "en": "机会 — jī, chance."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-6",
+     "py": "jǐ",
+     "context": "＿个",
+     "key": "几",
+     "explanation": {
+      "zh": "几个：jǐ。",
+      "en": "几个 — jǐ, a few."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-7",
+     "py": "yuán",
+     "context": "草＿",
+     "key": "原",
+     "explanation": {
+      "zh": "草原：yuán。",
+      "en": "草原 — yuán, grassland."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-8",
+     "py": "yuán",
+     "context": "公＿",
+     "key": "园",
+     "explanation": {
+      "zh": "公园：yuán。",
+      "en": "公园 — yuán, park."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-9",
+     "py": "yuǎn",
+     "context": "永＿",
+     "key": "远",
+     "explanation": {
+      "zh": "永远：yuǎn。",
+      "en": "永远 — yuǎn, forever."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-10",
+     "py": "xiàng",
+     "context": "画＿",
+     "key": "像",
+     "explanation": {
+      "zh": "画像：xiàng。",
+      "en": "画像 — xiàng, portrait."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-11",
+     "py": "xiǎng",
+     "context": "思＿",
+     "key": "想",
+     "explanation": {
+      "zh": "思想：xiǎng。",
+      "en": "思想 — xiǎng, thought."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-12",
+     "py": "xiāng",
+     "context": "家＿",
+     "key": "乡",
+     "explanation": {
+      "zh": "家乡：xiāng。",
+      "en": "家乡 — xiāng, hometown."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D2-01",
+   "day": "星期二",
+   "page": 33,
+   "ex": 1,
+   "type": "free",
+   "title": "火车赛跑，组词语",
+   "title_en": "Form words on the running trains",
+   "items": [
+    {
+     "id": "zx:L05-D2-01-1",
+     "prompt": "那：＿＿、＿＿、＿＿",
+     "prompt_en": "那: three words"
+    },
+    {
+     "id": "zx:L05-D2-01-2",
+     "prompt": "最：＿＿、＿＿、＿＿",
+     "prompt_en": "最: three words"
+    },
+    {
+     "id": "zx:L05-D2-01-3",
+     "prompt": "像：＿＿、＿＿、＿＿",
+     "prompt_en": "像: three words"
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D2-02",
+   "day": "星期二",
+   "page": 33,
+   "ex": 2,
+   "type": "free",
+   "title": "比一比，再组词",
+   "title_en": "Compare and form words",
+   "note": {
+    "zh": "两个字长得像，各组一个词。",
+    "en": "The two look alike; make one word with each."
+   },
+   "items": [
+    {
+     "id": "zx:L05-D2-02-1",
+     "prompt": "伯／白",
+     "prompt_en": "伯 / 白"
+    },
+    {
+     "id": "zx:L05-D2-02-2",
+     "prompt": "所／听",
+     "prompt_en": "所 / 听"
+    },
+    {
+     "id": "zx:L05-D2-02-3",
+     "prompt": "浅／前",
+     "prompt_en": "浅 / 前"
+    },
+    {
+     "id": "zx:L05-D2-02-4",
+     "prompt": "机／几",
+     "prompt_en": "机 / 几"
     }
    ]
   },
@@ -384,489 +656,6 @@
    }
   },
   {
-   "id": "zx:L05-D1-02",
-   "day": "星期一",
-   "page": 31,
-   "ex": 2,
-   "type": "match",
-   "title": "找朋友，连成字",
-   "title_en": "Look for friends, make characters",
-   "note": {
-    "zh": "连好以后，写下来并组词的部分仍在纸上。",
-    "en": "Writing the characters and forming words stays on paper for now."
-   },
-   "left": [
-    "亻",
-    "氵",
-    "木",
-    "口",
-    "穴",
-    "宀"
-   ],
-   "right": [
-    "公",
-    "曷",
-    "罙",
-    "疋",
-    "白",
-    "犬"
-   ],
-   "pairs": [
-    [
-     0,
-     4
-    ],
-    [
-     1,
-     2
-    ],
-    [
-     2,
-     0
-    ],
-    [
-     3,
-     1
-    ],
-    [
-     4,
-     5
-    ],
-    [
-     5,
-     3
-    ]
-   ],
-   "items": [
-    {
-     "id": "zx:L05-D1-02-1",
-     "left": "亻",
-     "key": 4,
-     "word": "伯",
-     "explanation": {
-      "zh": "亻和白合成\"伯\"。",
-      "en": "亻 and 白 make 伯."
-     }
-    },
-    {
-     "id": "zx:L05-D1-02-2",
-     "left": "氵",
-     "key": 2,
-     "word": "深",
-     "explanation": {
-      "zh": "氵和罙合成\"深\"。",
-      "en": "氵 and 罙 make 深."
-     }
-    },
-    {
-     "id": "zx:L05-D1-02-3",
-     "left": "木",
-     "key": 0,
-     "word": "松",
-     "explanation": {
-      "zh": "木和公合成\"松\"——课本给的例子。",
-      "en": "木 and 公 make 松 — the book's own example."
-     }
-    },
-    {
-     "id": "zx:L05-D1-02-4",
-     "left": "口",
-     "key": 1,
-     "word": "喝",
-     "explanation": {
-      "zh": "口和曷合成\"喝\"。",
-      "en": "口 and 曷 make 喝."
-     }
-    },
-    {
-     "id": "zx:L05-D1-02-5",
-     "left": "穴",
-     "key": 5,
-     "word": "突",
-     "explanation": {
-      "zh": "穴和犬合成\"突\"。",
-      "en": "穴 and 犬 make 突."
-     }
-    },
-    {
-     "id": "zx:L05-D1-02-6",
-     "left": "宀",
-     "key": 3,
-     "word": "定",
-     "explanation": {
-      "zh": "宀和疋合成\"定\"。",
-      "en": "宀 and 疋 make 定."
-     }
-    }
-   ]
-  },
-  {
-   "id": "zx:L05-D1-01s",
-   "day": "星期一",
-   "page": 30,
-   "ex": 1,
-   "type": "sort",
-   "title": "左右结构，还是上下结构？",
-   "title_en": "Left–right structure, or top–bottom?",
-   "note": {
-    "zh": "练习1的后半部分；写字的部分仍在纸上。",
-    "en": "The second half of exercise 1; the handwriting stays on paper for now."
-   },
-   "groups": [
-    "左右结构",
-    "上下结构"
-   ],
-   "items": [
-    {
-     "id": "zx:L05-D1-01s-1",
-     "text": "喝",
-     "key": 0,
-     "explanation": {
-      "zh": "口在左、曷在右：左右结构。",
-      "en": "口 on the left, 曷 on the right: left–right."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01s-2",
-     "text": "伯",
-     "key": 0,
-     "explanation": {
-      "zh": "亻在左、白在右：左右结构。",
-      "en": "亻 on the left, 白 on the right: left–right."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01s-3",
-     "text": "深",
-     "key": 0,
-     "explanation": {
-      "zh": "氵在左、罙在右：左右结构。",
-      "en": "氵 on the left, 罙 on the right: left–right."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01s-4",
-     "text": "突",
-     "key": 1,
-     "explanation": {
-      "zh": "穴在上、犬在下：上下结构。",
-      "en": "穴 above, 犬 below: top–bottom."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01s-5",
-     "text": "松",
-     "key": 0,
-     "explanation": {
-      "zh": "木在左、公在右：左右结构。",
-      "en": "木 on the left, 公 on the right: left–right."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01s-6",
-     "text": "定",
-     "key": 1,
-     "explanation": {
-      "zh": "宀在上、疋在下：上下结构。",
-      "en": "宀 above, 疋 below: top–bottom."
-     }
-    }
-   ]
-  },
-  {
-   "id": "zx:L05-D1-01w",
-   "day": "星期一",
-   "page": 30,
-   "ex": 1,
-   "type": "write",
-   "title": "按照汉字结构写一写",
-   "title_en": "Follow the structures to write",
-   "outline": false,
-   "note": {
-    "zh": "看着部件，用笔把字写出来。笔顺按规则判，写错三笔会给提示。",
-    "en": "Look at the parts and write the character with the Pencil. Stroke order is judged by rule; after three wrong strokes a hint appears."
-   },
-   "items": [
-    {
-     "id": "zx:L05-D1-01w-1",
-     "parts": "口＋曷",
-     "key": "喝",
-     "explanation": {
-      "zh": "口在左，曷在右：喝。",
-      "en": "口 on the left, 曷 on the right: 喝."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01w-2",
-     "parts": "亻＋白",
-     "key": "伯",
-     "explanation": {
-      "zh": "亻在左，白在右：伯。",
-      "en": "亻 on the left, 白 on the right: 伯."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01w-3",
-     "parts": "氵＋罙",
-     "key": "深",
-     "explanation": {
-      "zh": "氵在左，罙在右：深。",
-      "en": "氵 on the left, 罙 on the right: 深."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01w-4",
-     "parts": "穴＋犬",
-     "key": "突",
-     "explanation": {
-      "zh": "穴在上，犬在下：突。",
-      "en": "穴 above, 犬 below: 突."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01w-5",
-     "parts": "木＋公",
-     "key": "松",
-     "explanation": {
-      "zh": "木在左，公在右：松。",
-      "en": "木 on the left, 公 on the right: 松."
-     }
-    },
-    {
-     "id": "zx:L05-D1-01w-6",
-     "parts": "宀＋疋",
-     "key": "定",
-     "explanation": {
-      "zh": "宀在上，疋在下：定。",
-      "en": "宀 above, 疋 below: 定."
-     }
-    }
-   ]
-  },
-  {
-   "id": "zx:L05-D1-05",
-   "day": "星期一",
-   "page": 32,
-   "ex": 5,
-   "type": "write",
-   "title": "根据拼音写汉字",
-   "title_en": "Write characters below Pinyin",
-   "outline": false,
-   "note": {
-    "zh": "同一个拼音，不同的字——看旁边的字想词。",
-    "en": "Same or similar pinyin, different characters — the character beside the blank tells you the word."
-   },
-   "items": [
-    {
-     "id": "zx:L05-D1-05-1",
-     "py": "shēn",
-     "context": "＿浅",
-     "key": "深",
-     "explanation": {
-      "zh": "深浅：shēn。",
-      "en": "深浅 — shēn, deep and shallow."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-2",
-     "py": "shēn",
-     "context": "＿体",
-     "key": "身",
-     "explanation": {
-      "zh": "身体：shēn。",
-      "en": "身体 — shēn, body."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-3",
-     "py": "shēng",
-     "context": "学＿",
-     "key": "生",
-     "explanation": {
-      "zh": "学生：shēng。",
-      "en": "学生 — shēng, student."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-4",
-     "py": "jì",
-     "context": "＿然",
-     "key": "既",
-     "explanation": {
-      "zh": "既然：jì。",
-      "en": "既然 — jì, since / now that."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-5",
-     "py": "jī",
-     "context": "＿会",
-     "key": "机",
-     "explanation": {
-      "zh": "机会：jī。",
-      "en": "机会 — jī, chance."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-6",
-     "py": "jǐ",
-     "context": "＿个",
-     "key": "几",
-     "explanation": {
-      "zh": "几个：jǐ。",
-      "en": "几个 — jǐ, a few."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-7",
-     "py": "yuán",
-     "context": "草＿",
-     "key": "原",
-     "explanation": {
-      "zh": "草原：yuán。",
-      "en": "草原 — yuán, grassland."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-8",
-     "py": "yuán",
-     "context": "公＿",
-     "key": "园",
-     "explanation": {
-      "zh": "公园：yuán。",
-      "en": "公园 — yuán, park."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-9",
-     "py": "yuǎn",
-     "context": "永＿",
-     "key": "远",
-     "explanation": {
-      "zh": "永远：yuǎn。",
-      "en": "永远 — yuǎn, forever."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-10",
-     "py": "xiàng",
-     "context": "画＿",
-     "key": "像",
-     "explanation": {
-      "zh": "画像：xiàng。",
-      "en": "画像 — xiàng, portrait."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-11",
-     "py": "xiǎng",
-     "context": "思＿",
-     "key": "想",
-     "explanation": {
-      "zh": "思想：xiǎng。",
-      "en": "思想 — xiǎng, thought."
-     }
-    },
-    {
-     "id": "zx:L05-D1-05-12",
-     "py": "xiāng",
-     "context": "家＿",
-     "key": "乡",
-     "explanation": {
-      "zh": "家乡：xiāng。",
-      "en": "家乡 — xiāng, hometown."
-     }
-    }
-   ]
-  },
-  {
-   "id": "zx:L05-D1-03",
-   "day": "星期一",
-   "page": 31,
-   "ex": 3,
-   "type": "free",
-   "title": "组一组，填一填",
-   "title_en": "Form words and fill",
-   "items": [
-    {
-     "id": "zx:L05-D1-03-1",
-     "prompt": "喝：喝茶、＿＿、＿＿、＿＿",
-     "prompt_en": "喝: 喝茶, and three more words"
-    },
-    {
-     "id": "zx:L05-D1-03-2",
-     "prompt": "正：＿＿、＿＿、＿＿、＿＿",
-     "prompt_en": "正: four words"
-    },
-    {
-     "id": "zx:L05-D1-03-3",
-     "prompt": "那：＿＿、＿＿、＿＿、＿＿",
-     "prompt_en": "那: four words"
-    }
-   ]
-  },
-  {
-   "id": "zx:L05-D2-01",
-   "day": "星期二",
-   "page": 33,
-   "ex": 1,
-   "type": "free",
-   "title": "火车赛跑，组词语",
-   "title_en": "Form words on the running trains",
-   "items": [
-    {
-     "id": "zx:L05-D2-01-1",
-     "prompt": "那：＿＿、＿＿、＿＿",
-     "prompt_en": "那: three words"
-    },
-    {
-     "id": "zx:L05-D2-01-2",
-     "prompt": "最：＿＿、＿＿、＿＿",
-     "prompt_en": "最: three words"
-    },
-    {
-     "id": "zx:L05-D2-01-3",
-     "prompt": "像：＿＿、＿＿、＿＿",
-     "prompt_en": "像: three words"
-    }
-   ]
-  },
-  {
-   "id": "zx:L05-D2-02",
-   "day": "星期二",
-   "page": 33,
-   "ex": 2,
-   "type": "free",
-   "title": "比一比，再组词",
-   "title_en": "Compare and form words",
-   "note": {
-    "zh": "两个字长得像，各组一个词。",
-    "en": "The two look alike; make one word with each."
-   },
-   "items": [
-    {
-     "id": "zx:L05-D2-02-1",
-     "prompt": "伯／白",
-     "prompt_en": "伯 / 白"
-    },
-    {
-     "id": "zx:L05-D2-02-2",
-     "prompt": "所／听",
-     "prompt_en": "所 / 听"
-    },
-    {
-     "id": "zx:L05-D2-02-3",
-     "prompt": "浅／前",
-     "prompt_en": "浅 / 前"
-    },
-    {
-     "id": "zx:L05-D2-02-4",
-     "prompt": "机／几",
-     "prompt_en": "机 / 几"
-    }
-   ]
-  },
-  {
    "id": "zx:L05-D2-05",
    "day": "星期二",
    "page": 34,
@@ -898,6 +687,205 @@
    ]
   },
   {
+   "id": "zx:L05-D3-01",
+   "day": "星期三",
+   "page": 35,
+   "ex": 1,
+   "type": "read",
+   "title": "读一读",
+   "title_en": "Read aloud",
+   "note": {
+    "zh": "读出来就行，不打分：没听到的字会点出来，再读一遍。",
+    "en": "Just read it aloud; it is not scored. Characters the recogniser did not hear are dotted — read them once more."
+   },
+   "text": "喝水 喝茶 喝牛奶 喝汽水 喝咖啡\n正在 正想 正好 正在写 正在做\n河水很深。河水很浅。河水是深还是浅？\n河水既不像老牛说的那样浅，也不像松鼠说的那样深。"
+  },
+  {
+   "id": "zx:L05-D3-03",
+   "day": "星期三",
+   "page": 36,
+   "ex": 3,
+   "type": "order",
+   "title": "连词成句",
+   "title_en": "Write the words in the correct order to make sentences",
+   "items": [
+    {
+     "id": "zx:L05-D3-03-1",
+     "pieces": [
+      "觉得",
+      "老牛",
+      "一定会",
+      "河水很浅"
+     ],
+     "key": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "explanation": {
+      "zh": "正确的顺序：老牛一定会觉得河水很浅。",
+      "en": "In order: 老牛一定会觉得河水很浅 — the ox would surely think the river is shallow."
+     }
+    },
+    {
+     "id": "zx:L05-D3-03-2",
+     "pieces": [
+      "我",
+      "中文",
+      "一定会",
+      "努力学习"
+     ],
+     "key": [
+      0,
+      2,
+      3,
+      1
+     ],
+     "explanation": {
+      "zh": "正确的顺序：我一定会努力学习中文。",
+      "en": "In order: 我一定会努力学习中文 — I will surely study Chinese hard."
+     }
+    },
+    {
+     "id": "zx:L05-D3-03-3",
+     "pieces": [
+      "做家务",
+      "亮亮",
+      "一定会",
+      "帮妈妈"
+     ],
+     "key": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "explanation": {
+      "zh": "正确的顺序：亮亮一定会帮妈妈做家务。",
+      "en": "In order: 亮亮一定会帮妈妈做家务 — Liangliang will surely help Mother with the housework."
+     }
+    },
+    {
+     "id": "zx:L05-D3-03-4",
+     "pieces": [
+      "妹妹",
+      "玩具",
+      "一定会",
+      "喜欢",
+      "爸爸买的"
+     ],
+     "key": [
+      0,
+      2,
+      3,
+      4,
+      1
+     ],
+     "explanation": {
+      "zh": "正确的顺序：妹妹一定会喜欢爸爸买的玩具。",
+      "en": "In order: 妹妹一定会喜欢爸爸买的玩具 — Little sister will surely like the toy Father bought."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D3-04",
+   "day": "星期三",
+   "page": 36,
+   "ex": 4,
+   "type": "tf",
+   "title": "根据课文判断正误",
+   "title_en": "Decide whether the statements are true or false according to the text",
+   "items": [
+    {
+     "id": "zx:L05-D3-04-1",
+     "text": "小马想要过河。",
+     "key": true,
+     "explanation": {
+      "zh": "课文第一句就是：小马要过河。",
+      "en": "The first line of the text: 小马要过河 — the pony wants to cross the river."
+     }
+    },
+    {
+     "id": "zx:L05-D3-04-2",
+     "text": "老牛说水很浅，因为他又高又大。",
+     "key": true,
+     "explanation": {
+      "zh": "老牛说\"水很浅\"；妈妈解释了原因：老牛又高又大，他会觉得水很浅。",
+      "en": "The ox says the water is shallow, and Mother explains why: the ox is tall and big, so to him it feels shallow."
+     }
+    },
+    {
+     "id": "zx:L05-D3-04-3",
+     "text": "小松鼠也认为很容易过河。",
+     "key": false,
+     "explanation": {
+      "zh": "小松鼠说的正相反：别过河！水深得很，你会淹死的。",
+      "en": "The squirrel says the opposite: don't cross — the water is very deep, you will drown."
+     }
+    },
+    {
+     "id": "zx:L05-D3-04-4",
+     "text": "小马没有回家问妈妈的建议。",
+     "key": false,
+     "explanation": {
+      "zh": "小马不知道该怎么办，只好回家问妈妈。",
+      "en": "The pony did not know what to do, so he went home and asked his mother."
+     }
+    },
+    {
+     "id": "zx:L05-D3-04-5",
+     "text": "小马最后没有过河。",
+     "key": false,
+     "explanation": {
+      "zh": "小马又跑到河边，小心地过了河。",
+      "en": "The pony went back to the river and crossed it carefully."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D3-05",
+   "day": "星期三",
+   "page": 37,
+   "ex": 5,
+   "type": "order",
+   "title": "根据课文和图片给句子排序",
+   "title_en": "Sequence the sentences according to the text and the pictures",
+   "note": {
+    "zh": "图在练习册第37页；句子按故事先后排。",
+    "en": "The pictures are on workbook p.37; put the sentences in the story's order."
+   },
+   "items": [
+    {
+     "id": "zx:L05-D3-05-1",
+     "pieces": [
+      "小松鼠从树上跳下来，告诉小马水很深，他会淹死的。",
+      "小马跑回家问妈妈，妈妈告诉他最好自己试一试。",
+      "小马又跑到河边，小心地过了河。",
+      "小马想要过河，牛伯伯告诉他水很浅，过得去。"
+     ],
+     "labels": [
+      "②",
+      "③",
+      "④",
+      "①"
+     ],
+     "key": [
+      3,
+      0,
+      1,
+      2
+     ],
+     "explanation": {
+      "zh": "故事的顺序：先问牛伯伯（①），松鼠跳下来（②），回家问妈妈（③），最后小心地过了河（④）。",
+      "en": "The story's order: ask the ox first (①), the squirrel jumps down (②), home to ask Mother (③), then across the river carefully (④)."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L05-D4-02",
    "day": "星期四",
    "page": 38,
@@ -925,6 +913,52 @@
      "id": "zx:L05-D4-02-4",
      "prompt": "（4）妈妈觉得小马应该怎么做？",
      "prompt_en": "(4) What does Mother think the pony should do?"
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D4-03",
+   "day": "星期四",
+   "page": 39,
+   "ex": 3,
+   "type": "slots",
+   "title": "选择相应的句子补全对话",
+   "title_en": "Choose the correct sentences to complete the dialogue",
+   "options": [
+    "河水是深还是浅，最好你自己去试试。",
+    "小马，别过河！水深得很呢！你会淹死的！",
+    "水很浅，你过得去。"
+   ],
+   "items": [
+    {
+     "id": "zx:L05-D4-03-1",
+     "before": "小马：牛伯伯，我要过河，水深吗？",
+     "slot": "老牛",
+     "key": 2,
+     "explanation": {
+      "zh": "老牛说的是：水很浅，你过得去。",
+      "en": "The ox's line: 水很浅，你过得去 — the water is shallow, you can get across."
+     }
+    },
+    {
+     "id": "zx:L05-D4-03-2",
+     "before": "（小松鼠从树上跳了下来。）",
+     "slot": "小松鼠",
+     "key": 1,
+     "explanation": {
+      "zh": "小松鼠说的是：小马，别过河！水深得很呢！你会淹死的！",
+      "en": "The squirrel's line: don't cross — the water is very deep, you will drown!"
+     }
+    },
+    {
+     "id": "zx:L05-D4-03-3",
+     "before": "（小马不知道怎么办，只好回家问妈妈。）",
+     "slot": "妈妈",
+     "key": 0,
+     "explanation": {
+      "zh": "妈妈说的是：河水是深还是浅，最好你自己去试试。",
+      "en": "Mother's line: is the river deep or shallow — best go and try for yourself."
+     }
     }
    ]
   },

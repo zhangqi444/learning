@@ -281,6 +281,8 @@ def ex_errors(ex):
     elif t=='free':
         for it in ex.get('items',[]):
             if not str(it.get('prompt') or '').strip() or not str(it.get('prompt_en') or '').strip(): out.append(f"{it.get('id',i)}: free item needs prompt and prompt_en")
+    elif t=='read':
+        if not str(ex.get('text') or '').strip(): out.append(f'{i}: read needs text to read')
     elif t=='speak':
         q=ex.get('question')
         if not isinstance(q,dict) or not q.get('zh') or not q.get('en'): out.append(f'{i}: speak needs a question in zh and en')
