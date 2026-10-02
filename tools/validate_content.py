@@ -293,6 +293,22 @@ def ex_errors(ex):
         else: seen.add(it['id'])
     return out
 HWDIR='content/chinese/homework'
+# The four-choice blocks of a homework note name bank items by id; a block that
+# names an item twice, or one that does not exist, would be a sitting with a
+# hole in it. Checked against the Chinese banks loaded above.
+_zh_ids={it['id'] for f in bank_files() if '/chinese/' in f for it in json.load(open(f))['items']}
+if os.path.isdir(HWDIR):
+    for f in sorted(os.listdir(HWDIR)):
+        if not f.endswith('.json'): continue
+        for t in json.load(open(f'{HWDIR}/{f}')).get('tasks',[]):
+            used=[]
+            for b in t.get('blocks',[]) or []:
+                for k in ('id','day','page','ex','title','title_en','items'):
+                    if not b.get(k): errs.append(f"{f}: block {b.get('id','?')} missing {k}")
+                for i in b.get('items',[]):
+                    if i not in _zh_ids: errs.append(f"{f}: block {b.get('id')} names {i}, which is not in a Chinese bank")
+                    if i in used: errs.append(f"{f}: {i} is in two blocks")
+                    used.append(i)
 if os.path.isdir(HWDIR):
     for f in sorted(os.listdir(HWDIR)):
         if not f.endswith('.json'): continue

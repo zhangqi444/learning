@@ -27,6 +27,18 @@ export function zhLessons() { return Object.values((D.zh || {}).lessons || {}).s
  *  a match exercise is one item per left-hand part plus its fills; the rest are
  *  their items. Ids carry the zx: prefix beside z: and zc:. */
 export function zhExercises(lesson) { return ((((D.zh || {}).exercises || {})[lesson]) || {}).exercises || [] }
+/** The workbook, in the book's order: for a homework note, its four-choice blocks
+ *  (one per weekday, the book's own division — no chunk()) and its exercises,
+ *  merged and sorted by day, then exercise number, then the part: the writing
+ *  half of an exercise before its sort, a matching before its words. */
+export const ZH_DAYS = ["星期一", "星期二", "星期三", "星期四", "星期五"]
+const partRank = (id) => (/w$/.test(id) ? 1 : /s$/.test(id) ? 2 : 0)
+export function zhWorkbook(note, lesson) {
+  const wb = (note && note.tasks.find((x) => x.kind === "workbook")) || {}
+  const rows = [...(wb.blocks || []).map((b) => ({ ...b, kind: "block" })), ...zhExercises(lesson).map((e) => ({ ...e, kind: "exercise" }))]
+  return rows.sort((a, b) => (ZH_DAYS.indexOf(a.day) - ZH_DAYS.indexOf(b.day)) || (a.ex - b.ex) || (partRank(a.id) - partRank(b.id)))
+}
+export function zhBlock(note, id) { const wb = note && note.tasks.find((x) => x.kind === "workbook"); return ((wb && wb.blocks) || []).find((b) => b.id === id) || null }
 export function exItems(ex) { return [...(ex.items || []), ...((ex.fills || {}).items || [])] }
 export function zhHomework() { return Object.values((D.zh || {}).homework || {}).sort((a, b) => (a.set < b.set ? 1 : -1)) }
 export const SETSIZE = 12

@@ -91,7 +91,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('tapping the speaker says the character in zh-CN', spoken.length === 1 && spoken[0].text === '喝' && spoken[0].lang === 'zh-CN', JSON.stringify(spoken));
 
   // -- one sitting through the shared runner, with a miss in it
-  await pg.evaluate(() => { location.hash = '#/chinese/run/zh-word/L05/0'; }); await pg.waitForSelector('[data-testid=choice]');
+  await pg.evaluate(() => { location.hash = '#/chinese/block/2026-09-30/zb:L05-D2'; }); await pg.waitForSelector('[data-testid=choice]');
   check('a Chinese sitting has no pacing timer', !(await pg.$('[data-testid=soft-timer]')));
   const qtext = await pg.textContent('[data-testid=question]');
   check('the prompt is the book\'s own Chinese wording', /选词填空|读音|几画/.test(qtext) && !/Fill the blank|How is/.test(qtext), qtext);
@@ -106,16 +106,16 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('a wrong choice is told what it was, in Chinese', /没有别的办法|不是提建议/.test(whyZh), whyZh.slice(0, 40));
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
   const whyEn = await pg.textContent('[data-testid=why]');
-  check('and in English once the page is flipped', /no other choice|nothing else|being left with no choice/.test(whyEn), whyEn.slice(0, 40));
+  check('and in English once the page is flipped', /no other (choice|option)|nothing else|no choice/.test(whyEn), whyEn.slice(0, 40));
   check('and the prompt flipped with it', /Fill the blank/.test(await pg.textContent('[data-testid=question]')));
   check('and so did the runner\'s own chrome', /The answer is/.test(await pg.textContent('main')) && /Next/.test(await pg.textContent('[data-testid=next]')));
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
   for (let i = 0; i < 15 && !(await pg.$('[data-testid=score]')); i++) { await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]'); await pg.waitForTimeout(120); }
   await pg.waitForSelector('[data-testid=score]');
   let st = await ls(pg);
-  check('the sitting is a result keyed zh-word:L05:0', !!(st.results || {})['zh-word:L05:0'], Object.keys(st.results || {}).join(','));
+  check('the sitting is a result keyed by its weekday block', !!(st.results || {})['zh-block:L05-D2:0'], Object.keys(st.results || {}).join(','));
   check('its questions have learning records under zc: ids', Object.keys(st.items || {}).some((k) => k.startsWith('zc:')));
-  const r = st.results['zh-word:L05:0'];
+  const r = st.results['zh-block:L05-D2:0'];
   check('and the sitting had at least one miss, so the next check means something', r && r.right < r.n, r ? `${r.right}/${r.n}` : '');
 
   // -- beside the number: nothing on the ISEE side moved
@@ -206,7 +206,10 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
   check('the structure sort marks itself', /6 \/ 6/.test(await pg.textContent('[data-testid=zh-ex-result]')));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
-  check('the workbook card lists the exercises with their marks', (await pg.$$('[data-testid=zh-exercise]')).length === 17 && /5\/5/.test(await pg.textContent('[data-testid=zh-workbook]')) && /3\/4/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  check('the workbook card lists the exercises with their marks', (await pg.$$('[data-testid=zh-exercise]')).length === 17 && (await pg.$$('[data-testid=zh-sitting]')).length === 4 && /5\/5/.test(await pg.textContent('[data-testid=zh-workbook]')) && /3\/4/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  const order = await pg.$$eval('[data-testid=zh-exercise], [data-testid=zh-sitting]', (n) => n.map((x) => x.dataset.id));
+  check('and in the book\'s order: day by day, by exercise number, the writing before its sort, the block in its place', order.slice(0, 7).join(' ') === 'zx:L05-D1-01w zx:L05-D1-01s zx:L05-D1-02 zx:L05-D1-02w zx:L05-D1-03 zb:L05-D1 zx:L05-D1-05' && order[order.length - 1] === 'zx:L05-D4-04' && order.indexOf('zb:L05-D4') === order.indexOf('zx:L05-D4-02') - 1, order.join(' '));
+  check('with a heading per weekday', (await pg.$$('[data-testid=zh-day]')).length === 4);
   // -- handwriting of a known character, judged stroke by stroke. The reference
   // medians are in the bundle and the quiz's SVG carries its own transform, so
   // the test traces each stroke with real mouse events along the reference

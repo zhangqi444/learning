@@ -1,8 +1,8 @@
 import * as React from "react"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { BookOpen, Check, Eye, Mic, PenLine, Play, RotateCcw, Square, Volume2, X } from "lucide-react"
-import { D, ZH, ZH_ORDER, exItems, setId, zhExercises, zhHomework, zhLessons, zhSets } from "@/lib/content"
-import { recordAttempts, reviewQueue } from "@/lib/engine"
+import { D, ZH, exItems, setId, zhBlock, zhExercises, zhHomework, zhLessons, zhSets, zhWorkbook } from "@/lib/content"
+import { findItem, recordAttempts, reviewQueue } from "@/lib/engine"
 import { t, tf, useLang } from "@/lib/lang"
 import { go } from "@/lib/router"
 import { speak, canSpeak } from "@/lib/speech"
@@ -90,48 +90,45 @@ function ReadAloudTask({ note, task }) {
   )
 }
 
+const blockSetId = (b) => setId("zh-block", b.id.replace(/^zb:/, ""), 0)
 function WorkbookTask({ note, task, lesson }) {
   const store = useStore(); useLang()
-  const rows = []
-  for (const sub of ZH_ORDER) zhSets(sub, lesson.id).forEach((set, n) => rows.push({ sub, n, set, id: setId(sub, lesson.id, n), r: store.s.results[setId(sub, lesson.id, n)] }))
-  const done = rows.filter((x) => x.r).length
-  const exs = zhExercises(lesson.id), exSt = hwState(note.set).exercises || {}
+  const rows = zhWorkbook(note, lesson.id)
+  const exSt = hwState(note.set).exercises || {}
   const notes = zhNotes(note.set)
   // A review changes the state of free writing only: the retell keeps the parent's
   // signature as its badge, and its note shows on its own page.
   const reviewed = (ex) => ex.type === "free" && ex.items.some((it) => notes[it.id])
-  const exDone = exs.filter((ex) => exSt[ex.id]).length
+  const rec = (row) => (row.kind === "block" ? store.s.results[blockSetId(row)] : exSt[row.id])
+  const done = rows.filter((row) => rec(row)).length
+  let lastDay = null
   return (
     <Card data-testid="zh-workbook">
       <CardHeader>
         <CardTitle>{t("练习册", "Workbook")}</CardTitle>
         <CardDescription>{task.what}</CardDescription>
-        <CardAction><Badge variant={done === rows.length && exDone === exs.length ? "success" : "outline"}>{done + exDone}/{rows.length + exs.length}</Badge></CardAction>
+        <CardAction><Badge variant={done === rows.length ? "success" : "outline"}>{done}/{rows.length}</Badge></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
-        <div className="flex flex-col gap-1.5">
-          {rows.map((x) => (
-            <div key={x.id} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid="zh-sitting">
-              <span className="text-sm">{ZH[x.sub].name} · {t(`第 ${x.n + 1} 组`, `Set ${x.n + 1}`)} <span className="text-muted-foreground">· {x.set.length} {t("题", "questions")}</span></span>
-              <span className="flex items-center gap-2">
-                {x.r ? <Badge variant="success" className="tabular-nums">{x.r.right}/{x.r.n}</Badge> : null}
-                <Button size="sm" variant={x.r ? "outline" : "default"} onClick={() => go(`/chinese/run/${x.sub}/${lesson.id}/${x.n}`)}><Play /> {x.r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
-              </span>
-            </div>
-          ))}
+        <div className="flex flex-col gap-1.5" data-testid="zh-exercises">
+          {rows.map((row) => {
+            const r = rec(row), head = row.day !== lastDay ? row.day : null; lastDay = row.day
+            const isBlock = row.kind === "block"
+            return (
+              <React.Fragment key={row.id}>
+                {head ? <div className="text-muted-foreground mt-1 text-xs font-semibold" data-testid="zh-day">{head}</div> : null}
+                <div className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid={isBlock ? "zh-sitting" : "zh-exercise"} data-id={row.id}>
+                  <span className="text-sm">{t(row.title, row.title_en)} <span className="text-muted-foreground">· {t(`练习 ${row.ex}`, `ex. ${row.ex}`)} · p.{row.page}{isBlock ? ` · ${row.items.length} ${t("题", "questions")}` : ""}</span></span>
+                  <span className="flex items-center gap-2">
+                    {isBlock ? (r ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : null)
+                      : r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : reviewed(row) ? <Badge variant="success">{t("已批改", "reviewed")}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : r && r.read ? <Badge variant="success">{t("已读", "read")}</Badge> : null}
+                    <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(isBlock ? `/chinese/block/${note.set}/${row.id}` : `/chinese/ex/${note.set}/${row.id}`)}>{row.type === "write" || row.type === "free" ? <PenLine /> : row.type === "speak" || row.type === "read" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
+                  </span>
+                </div>
+              </React.Fragment>
+            )
+          })}
         </div>
-        {exs.length ? (
-          <div className="flex flex-col gap-1.5" data-testid="zh-exercises">
-            {exs.map((ex) => { const r = exSt[ex.id]; return (
-              <div key={ex.id} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid="zh-exercise">
-                <span className="text-sm">{t(ex.title, ex.title_en)} <span className="text-muted-foreground">· {ex.day} · p.{ex.page}</span></span>
-                <span className="flex items-center gap-2">
-                  {r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : reviewed(ex) ? <Badge variant="success">{t("已批改", "reviewed")}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : r && r.read ? <Badge variant="success">{t("已读", "read")}</Badge> : null}
-                  <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(`/chinese/ex/${note.set}/${ex.id}`)}>{ex.type === "write" || ex.type === "free" ? <PenLine /> : ex.type === "speak" || ex.type === "read" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
-                </span>
-              </div>) })}
-          </div>
-        ) : null}
         {task.on_paper.length ? <details className="text-sm">
           <summary className="text-muted-foreground cursor-pointer">{t(`纸上作业 — ${task.on_paper.length} 项`, `On paper — ${task.on_paper.length} exercises the book sets by hand`)}</summary>
           <ul className="mt-2 flex flex-col gap-1 pl-1">
@@ -784,6 +781,17 @@ export function Exercise({ set, exId }) {
 }
 
 /* ---------- a sitting, and the review pile, through the same runner ---------- */
+/** A weekday's four-choice block through the shared runner, under its own set id
+ *  (zh-block:L05-D2:0). The earlier 7/6 chunked sittings are not shown any more;
+ *  any result recorded under their ids stays in the record untouched. */
+function ZhBlockRun({ set, id }) {
+  const note = D.zh.homework[set]
+  const block = zhBlock(note, id)
+  const items = block ? block.items.map((i) => (findItem(i) || {}).it).filter(Boolean) : []
+  if (!block || !items.length) return <ChineseHome />
+  const sid = blockSetId(block)
+  return <Runner key={sid} items={items} setId={sid} prior={Store.s.results[sid] || null} sub="zh-word" title={`${t(block.title, block.title_en)} · ${block.day}`} exitPath="/chinese" exitLabel={t("回到本周", "Back to the week")} />
+}
 function ZhRun({ sub, lesson, n }) {
   const set = zhSets(sub, lesson)[n]
   const l = D.zh.lessons[lesson]
@@ -805,6 +813,7 @@ export function ChineseScreen({ rest }) {
   if (top === "dictation" && a) return <Dictation key={a} set={a} />
   if (top === "read" && a) return <ReadAloud key={a} set={a} />
   if (top === "ex" && a && b) return <Exercise key={a + b} set={a} exId={b} />
+  if (top === "block" && a && b) return <ZhBlockRun key={a + b} set={a} id={b} />
   if (top === "review") return <ZhReview />
   return <ChineseHome />
 }
@@ -818,6 +827,7 @@ export function zhCrumbs(rest) {
   else if (top === "dictation" && a) out.push({ label: `${t("听写", "Dictation")} · ${a}`, path: `/chinese/dictation/${a}` })
   else if (top === "read" && a) out.push({ label: `${t("阅读", "Reading")} · ${a}`, path: `/chinese/read/${a}` })
   else if (top === "ex" && a && b) { const n = D.zh && D.zh.homework[a], e = n && zhExercises(n.lesson).find((x) => x.id === b); out.push({ label: e ? t(e.title, e.title_en) : t("练习", "Exercise"), path: `/chinese/ex/${a}/${b}` }) }
+  else if (top === "block" && a && b) { const n = D.zh && D.zh.homework[a], bl = n && zhBlock(n, b); out.push({ label: bl ? `${t(bl.title, bl.title_en)} · ${bl.day}` : t("练习", "Exercise"), path: `/chinese/block/${a}/${b}` }) }
   else if (top === "review") out.push({ label: t("复习", "Review"), path: "/chinese/review" })
   return out
 }
