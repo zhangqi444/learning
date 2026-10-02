@@ -618,18 +618,23 @@ function MiGrid({ size }) {
 /** One character, written freely into a 米字格 and judged after 写好了: her strokes
  *  stay on top, the standard form appears beneath and animates once in order,
  *  each of her strokes is marked. No shadow before she writes — that is the
- *  owner's point: 描红 after, not before. */
+ *  owner's point: 描红 after, not before. Then a tap on the box swaps the two
+ *  layers — the standard form in front at full strength, hers faint beneath —
+ *  and a second tap swaps them back: two drawings on top of each other are
+ *  compared by looking at each in turn (the owner's ask, 2 October). A
+ *  mechanic, in docs/cats.md's terms: the comparison is the learning. */
 function HanziBox({ ch, size = 140, onDone, label }) {
   const ref = useRef(null), cv = useRef(null), drawn = useRef([]), cur = useRef(null), writer = useRef(null)
   const [n, setN] = useState(0)
   const [res, setRes] = useState(null)
   const [gen, setGen] = useState(0)
+  const [front, setFront] = useState("ink")   // after 写好了: "ink" (hers in front) or "ref" (the standard form)
   useLang()
   useEffect(() => {
     if (!ref.current) return
     ref.current.innerHTML = ""
     writer.current = drawReference(ref.current, ch, size)
-    drawn.current = []; cur.current = null; setN(0); setRes(null)
+    drawn.current = []; cur.current = null; setN(0); setRes(null); setFront("ink")
     const c = cv.current; if (c) c.getContext("2d").clearRect(0, 0, c.width, c.height)
   }, [ch, size, gen])
   const k = () => cv.current.width / size
@@ -646,20 +651,23 @@ function HanziBox({ ch, size = 140, onDone, label }) {
     const r = { ch, mistakes: j.mistakes, n: j.n, missing: j.missing, strokes: strokes.map((pts, i) => ({ n: i, ok: !!(j.strokes[i] && j.strokes[i].ok), verdict: (j.strokes[i] || {}).verdict || "extra", pts: pts.map(([x, y]) => [Math.round(x), Math.round(y)]) })) }
     setRes(r); onDone && onDone(r)
   }
+  const swap = () => { if (res) setFront((f) => (f === "ink" ? "ref" : "ink")) }
+  const refFront = !!res && front === "ref"
   const nRef = (strokeData(ch) || { strokes: [] }).strokes.length
   const wrong = res ? res.strokes.filter((x) => !x.ok) : []
   const verdictText = res ? (res.mistakes === 0 ? t("一笔没错", "every stroke right")
     : [wrong.length ? t(`第 ${wrong.map((x) => x.n + 1).join("、")} 笔${wrong.every((x) => x.verdict === "backwards") ? "方向反了" : "不像"}`, `stroke ${wrong.map((x) => x.n + 1).join(", ")} ${wrong.every((x) => x.verdict === "backwards") ? "backwards" : "off"}`) : "",
        res.missing ? t(`少写了 ${res.missing} 笔`, `${res.missing} missing`) : "", res.strokes.length > res.n ? t(`多写了 ${res.strokes.length - res.n} 笔`, `${res.strokes.length - res.n} extra`) : ""].filter(Boolean).join(" · ")) : null
   return (
-    <div className="flex flex-col items-center gap-1" data-testid="zh-hanzi" data-char={ch} data-done={res ? "1" : "0"} data-mistakes={res ? res.mistakes : 0} data-strokes={n}>
+    <div className="flex flex-col items-center gap-1" data-testid="zh-hanzi" data-char={ch} data-done={res ? "1" : "0"} data-mistakes={res ? res.mistakes : 0} data-strokes={n} data-front={res ? front : undefined}>
       {label ? <span className="text-muted-foreground text-xs">{label}</span> : null}
-      <div className="relative rounded-lg bg-white" style={{ width: size, height: size }}>
+      <div className={cn("relative rounded-lg bg-white", res && "cursor-pointer")} style={{ width: size, height: size }} onClick={swap} role={res ? "button" : undefined} aria-label={res ? t("点一下，换前后", "Tap to swap front and back") : undefined} data-testid="zh-hanzi-box">
         <MiGrid size={size} />
-        <div ref={ref} className="absolute inset-0" style={{ opacity: res ? 0.45 : 0, pointerEvents: "none" }} data-testid="zh-reference" />
-        <canvas ref={cv} width={size * 4} height={size * 4} className="absolute inset-0" style={{ width: size, height: size, touchAction: "none" }} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up} data-testid="zh-ink-box" />
+        <div ref={ref} className="absolute inset-0" style={{ opacity: res ? (refFront ? 1 : 0.45) : 0, zIndex: refFront ? 2 : 1, pointerEvents: "none" }} data-testid="zh-reference" />
+        <canvas ref={cv} width={size * 4} height={size * 4} className="absolute inset-0" style={{ width: size, height: size, touchAction: "none", opacity: refFront ? 0.45 : 1, zIndex: refFront ? 1 : 2 }} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up} data-testid="zh-ink-box" />
       </div>
       <span className={cn("text-xs tabular-nums", res ? (res.mistakes ? "text-muted-foreground" : "text-success") : "text-muted-foreground")}>{res ? verdictText : t(`${n}/${nRef} 笔`, `${n}/${nRef} strokes`)}</span>
+      {res ? <span className="text-muted-foreground text-center text-[11px] leading-tight" style={{ maxWidth: size }} data-testid="zh-hanzi-swap-hint">{refFront ? t("再点一下换回来", "Tap again: yours in front") : t("点一下看标准写法", "Tap: standard form in front")}</span> : null}
       <span className="flex gap-1">
         {!res ? <Button size="sm" variant={n ? "default" : "outline"} className="h-6 px-2 text-xs" disabled={!n} onClick={finish} data-testid="zh-hanzi-done">{t("写好了", "Done")}</Button> : null}
         {n || res ? <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs" onClick={() => setGen((g) => g + 1)} data-testid="zh-hanzi-redo">{t("重写", "Write again")}</Button> : null}

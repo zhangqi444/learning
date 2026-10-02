@@ -215,7 +215,10 @@ word she writes from hearing, a character under its pinyin — the box is a 米�
 character freely, every stroke captured as a point sequence, and only when she
 taps 写好了 does the standard form appear beneath her strokes and animate once in
 stroke order — 描红 after the fact, the owner's own phrase, so she compares
-rather than traces. The judge is ours, over her strokes in character space,
+rather than traces. A tap on the box then swaps the two layers — the standard
+form in front at full strength, her strokes faint beneath — and a second tap
+swaps them back: two drawings on top of each other are compared by looking at
+each in turn (the owner's ask, 2 October). The judge is ours, over her strokes in character space,
 against reference data from Make Me a Hanzi (`hanzi-writer-data`, Arphic Public
 License; the characters a lesson needs are vendored under
 `content/chinese/strokes/` beside the licence file and inlined in the bundle,

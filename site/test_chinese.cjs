@@ -323,6 +323,17 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await trace('[data-testid=zh-hanzi][data-char="定"]', '定', { skip: [7] });
   check('a character short of a stroke is told how many are missing', /少写了 1 笔/.test(await pg.textContent('[data-testid=zh-hanzi][data-char="定"]')) && (await pg.getAttribute('[data-testid=zh-hanzi][data-char="定"]', 'data-mistakes')) === '1');
   check('and the standard form appears beneath her strokes once she is done', +(await pg.$eval('[data-testid=zh-hanzi][data-char="定"] [data-testid=zh-reference]', (x) => getComputedStyle(x).opacity)) > 0);
+  // The swap: her strokes in front by default; a tap on the box brings the
+  // standard form to the front at full strength with hers faint beneath, and a
+  // second tap puts hers back. Before 写好了 a tap does nothing (no data-front).
+  const layer = (sel) => pg.$eval(sel, (x) => ({ o: +getComputedStyle(x).opacity, z: +getComputedStyle(x).zIndex }));
+  const BOX = '[data-testid=zh-hanzi][data-char="定"]';
+  check('her strokes are in front of it', (await pg.getAttribute(BOX, 'data-front')) === 'ink' && (await layer(`${BOX} canvas`)).z > (await layer(`${BOX} [data-testid=zh-reference]`)).z && !(await pg.getAttribute('[data-testid=zh-hanzi][data-char="喝"]', 'data-front')));
+  await pg.click(`${BOX} [data-testid=zh-hanzi-box]`); await pg.waitForTimeout(80);
+  const refL = await layer(`${BOX} [data-testid=zh-reference]`), inkL = await layer(`${BOX} canvas`);
+  check('a tap on the box brings the standard form to the front, hers faint beneath', (await pg.getAttribute(BOX, 'data-front')) === 'ref' && refL.z > inkL.z && refL.o === 1 && inkL.o < 1 && /再点一下/.test(await pg.textContent(`${BOX} [data-testid=zh-hanzi-swap-hint]`)), JSON.stringify({ refL, inkL }));
+  await pg.click(`${BOX} [data-testid=zh-hanzi-box]`); await pg.waitForTimeout(80);
+  check('and a second tap puts hers back in front', (await pg.getAttribute(BOX, 'data-front')) === 'ink' && (await layer(`${BOX} canvas`)).o === 1);
   await pg.click('[data-testid=zh-hanzi][data-char="定"] [data-testid=zh-hanzi-redo]'); await pg.waitForTimeout(100);
   check('写 again clears it', (await pg.getAttribute('[data-testid=zh-hanzi][data-char="定"]', 'data-done')) === '0');
   for (const ch of ['喝', '伯', '深', '突', '松', '定']) await trace(`[data-testid=zh-hanzi][data-char="${ch}"]`, ch);
