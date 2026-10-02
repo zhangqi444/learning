@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Award, Blocks, BookA, Languages, Volume2, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
 
-import { D, ORDER, SUBJ, subjProgress, zhHomework, zhLessons } from "@/lib/content"
+import { D, ORDER, SUBJ, subjProgress, zhHomework, zhLessonLabel, zhLessons } from "@/lib/content"
 import { W } from "@/lib/world"
 import { reviewQueue } from "@/lib/engine"
 import { recentBadges } from "@/lib/rewards"
@@ -9,7 +9,7 @@ import { baseCounts } from "@/lib/base"
 import { currentBook, finishedBooks } from "@/lib/books"
 import { nextUp, weekLeft } from "@/pages/checklist"
 import { essayStatus } from "@/pages/essay"
-import { unseenReviews } from "@/lib/reviews"
+import { importIsZh, unseenReviews } from "@/lib/reviews"
 import { go, splitCat } from "@/lib/router"
 import { t, useLang } from "@/lib/lang"
 import { cn } from "@/lib/utils"
@@ -49,7 +49,10 @@ export function AppSidebar({ route, ...props }) {
   const essayDone = D.weeks.filter((w) => essayStatus(w.w) === "complete").length
   const newReviews = unseenReviews().length
   const { cat, rest } = splitCat(route)
-  const isee = cat === "isee"
+  // An import link carrying Chinese reviews is a Chinese page, as the header
+  // already treats it (site-header.jsx): the sidebar it sits beside is 中文's.
+  const zhImport = React.useMemo(() => rest[0] === "import" && !!rest[1] && importIsZh(rest[1]), [route])
+  const isee = cat === "isee" && !zhImport
   const top = rest[0] || ""
   const activeSub = top === "s" || top === "run" ? rest[1] : top === "precision" ? "vr" : null
   const zhLesson = zhLessons()[0], zhNote = zhHomework()[0]
@@ -62,7 +65,7 @@ export function AppSidebar({ route, ...props }) {
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
               <a href={isee ? "#/" : "#/chinese"} onClick={(e) => { e.preventDefault(); nav(isee ? "/" : "/chinese") }}>
                 <GraduationCap className="!size-5 text-primary" />
-                <span className="text-base font-semibold tracking-tight">{isee ? "Sheila · ISEE" : "Sheila · 中文"}</span>
+                <span className="text-base font-semibold tracking-tight">{isee ? "Sheila · ISEE" : t("Sheila · 中文", "Sheila · Chinese")}</span>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
@@ -71,9 +74,9 @@ export function AppSidebar({ route, ...props }) {
             header, not among the groups: test_features.cjs reads the groups by
             position — the first is the working list — and a switch is not a list
             of pages. Both roots are typed URLs too, so no page lives only here. */}
-        <div className="grid grid-cols-2 gap-1 rounded-lg border p-1" role="tablist" aria-label="Category" data-testid="category-switch">
+        <div className="grid grid-cols-2 gap-1 rounded-lg border p-1" role="tablist" aria-label={isee ? "Category" : t("类别", "Category")} data-testid="category-switch">
           <button type="button" role="tab" aria-selected={isee} className={cn("rounded-md px-2 py-1 text-sm", isee ? "bg-primary text-primary-foreground" : "hover:bg-accent")} onClick={() => nav("/")} data-testid="cat-isee">ISEE</button>
-          <button type="button" role="tab" aria-selected={!isee} className={cn("rounded-md px-2 py-1 text-sm", !isee ? "bg-primary text-primary-foreground" : "hover:bg-accent")} onClick={() => nav("/chinese")} data-testid="cat-chinese">中文</button>
+          <button type="button" role="tab" aria-selected={!isee} className={cn("rounded-md px-2 py-1 text-sm", !isee ? "bg-primary text-primary-foreground" : "hover:bg-accent")} onClick={() => nav("/chinese")} data-testid="cat-chinese">{t("中文", "Chinese")}</button>
         </div>
       </SidebarHeader>
 
@@ -88,14 +91,14 @@ export function AppSidebar({ route, ...props }) {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton tooltip={zhLesson.title} isActive={top === "l"} onClick={() => nav("/chinese/l/" + zhLesson.id)}>
-                    <BookOpen /><span>第{zhLesson.no}课 {zhLesson.title}</span>
+                  <SidebarMenuButton tooltip={zhLessonLabel(zhLesson)} isActive={top === "l"} onClick={() => nav("/chinese/l/" + zhLesson.id)}>
+                    <BookOpen /><span>{zhLessonLabel(zhLesson)}</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 {zhNote ? (
                   <SidebarMenuItem>
                     <SidebarMenuButton tooltip={t("听写", "Dictation")} isActive={top === "dictation"} onClick={() => nav("/chinese/dictation/" + zhNote.set)}>
-                      <Volume2 /><span>听写</span>
+                      <Volume2 /><span>{t("听写", "Dictation")}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ) : null}
@@ -263,7 +266,7 @@ export function AppSidebar({ route, ...props }) {
       </SidebarContent>
 
       <SidebarFooter>
-        <NavUser />
+        <NavUser zh={!isee} />
       </SidebarFooter>
     </Sidebar>
   )

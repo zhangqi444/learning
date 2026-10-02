@@ -1,5 +1,6 @@
 /* Question-bank helpers. `D` is the bundle (window.__LEARNING__ or content/bundle.json). */
 import { Store, ts } from "./store"
+import { t, tf } from "./lang"
 
 export const SUBJ = {
   vr: { name: "Verbal Reasoning", short: "Verbal", blurb: "Vocabulary and sentence completion", color: "var(--chart-1)" },
@@ -13,13 +14,24 @@ export const ORDER = ["vr", "qr", "ma", "rc"]
  * ISEE number. The spine is the lesson, L05, not the plan week, so nothing here
  * asks currentWeek() or spans() a question. */
 export const ZH = {
-  "zh-char": { name: "汉字", short: "汉字", blurb: "Characters — pinyin, strokes, radicals", color: "var(--chart-2)" },
-  "zh-word": { name: "词语", short: "词语", blurb: "The lesson's words in a sentence with one gap", color: "var(--chart-1)" },
-  "zh-ex": { name: "练习", short: "练习", blurb: "The workbook's own exercises, marked by rule", color: "var(--chart-3)" },
+  "zh-char": { name: "汉字", name_en: "Characters", short: "汉字", blurb: "Characters — pinyin, strokes, radicals", color: "var(--chart-2)" },
+  "zh-word": { name: "词语", name_en: "Words", short: "词语", blurb: "The lesson's words in a sentence with one gap", color: "var(--chart-1)" },
+  "zh-ex": { name: "练习", name_en: "Exercises", short: "练习", blurb: "The workbook's own exercises, marked by rule", color: "var(--chart-3)" },
 }
 export const ZH_ORDER = ["zh-char", "zh-word"]
 export const isZh = (sub) => typeof sub === "string" && sub.startsWith("zh-")
 export function subName(sub) { return (SUBJ[sub] || ZH[sub] || {}).name || sub }
+/* The Chinese half's chrome in the page's language (lib/lang.js): a subject's
+ * name, a weekday heading, a skill's name. The content keeps the book's own
+ * Chinese — 星期一, the skill id — and these say it in whichever language the
+ * header's toggle has chosen. A skill with no entry in content/chinese/skills.json
+ * would print its id, which is why the validator refuses one. */
+export const zhSubName = (sub) => (ZH[sub] ? t(ZH[sub].name, ZH[sub].name_en) : sub)
+export const ZH_DAYS_EN = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+export const zhDay = (day) => { const i = ZH_DAYS.indexOf(day); return i < 0 ? day : t(day, ZH_DAYS_EN[i]) }
+export const zhSkillName = (sk) => tf((((D || {}).zh || {}).skills || {})[sk]) || sk
+/** "第5课 小马过河" on the Chinese page, "Lesson 5 · A Pony Crosses the River" on the English one. */
+export const zhLessonLabel = (l) => t(`第${l.no}课 ${l.title}`, `Lesson ${l.no} · ${l.title_en}`)
 export function zhItems(sub, lesson) { return (((D.zh || {}).banks || {})[sub] || []).filter((i) => i.l === lesson) }
 export function zhSets(sub, lesson) { return chunk(zhItems(sub, lesson)) }
 export function zhLessons() { return Object.values((D.zh || {}).lessons || {}).sort((a, b) => a.no - b.no) }
@@ -229,8 +241,10 @@ export function accuracyByWeek() {
     return row
   })
 }
-export function fmtDate(iso) {
-  const t = ts(iso)
-  if (!t) return ""
-  return new Date(t).toLocaleDateString(undefined, { month: "short", day: "numeric" })
+/** `locale` is for the Chinese pages, which pass zh-CN in Chinese mode; left
+ *  out, the device's own locale decides, as every ISEE page has always had it. */
+export function fmtDate(iso, locale) {
+  const ms = ts(iso)
+  if (!ms) return ""
+  return new Date(ms).toLocaleDateString(locale || undefined, { month: "short", day: "numeric" })
 }

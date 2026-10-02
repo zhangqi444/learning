@@ -88,7 +88,7 @@
    "outline": false,
    "note": {
     "zh": "看着部件，用笔把字写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
-    "en": "Look at the parts and write the character with the Pencil. When you tap 写好了, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+    "en": "Look at the parts and write the character with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
    },
    "items": [
     {
@@ -976,7 +976,7 @@
    },
    "note": {
     "zh": "把故事讲一遍，录下来；讲完问爸爸妈妈这个问题，再请他们点一下\"家长已听\"。",
-    "en": "Tell the story and it is recorded; then ask your parents the question, and have them tap 家长已听."
+    "en": "Tell the story and it is recorded; then ask your parents the question, and have them tap Listened."
    }
   }
  ]

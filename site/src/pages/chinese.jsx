@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { BookOpen, Check, Eye, Mic, PenLine, Play, RotateCcw, Square, Volume2, X } from "lucide-react"
-import { D, ZH, exItems, setId, zhBlock, zhExercises, zhHomework, zhLessons, zhSets, zhWorkbook } from "@/lib/content"
+import { D, ZH, exItems, setId, zhBlock, zhDay, zhExercises, zhHomework, zhLessonLabel, zhLessons, zhSets, zhSubName, zhWorkbook } from "@/lib/content"
 import { findItem, recordAttempts, reviewQueue } from "@/lib/engine"
 import { t, tf, useLang } from "@/lib/lang"
 import { go } from "@/lib/router"
@@ -53,7 +53,7 @@ function passageFor(lesson, what) {
 /** A speaker button. Every one is a tap, which is the only way sound may start. */
 export function Speak({ text, className, label }) {
   return (
-    <Button size="sm" variant="ghost" className={cn("h-7 px-1.5", className)} onClick={() => speak(text)} aria-label={label || `读 ${text}`} title={canSpeak() ? t("朗读", "Read aloud") : t("这个浏览器不能朗读", "This browser cannot read aloud")} data-testid="zh-speak" data-text={text}>
+    <Button size="sm" variant="ghost" className={cn("h-7 px-1.5", className)} onClick={() => speak(text)} aria-label={label || t(`读 ${text}`, `Say ${text}`)} title={canSpeak() ? t("朗读", "Read aloud") : t("这个浏览器不能朗读", "This browser cannot read aloud")} data-testid="zh-speak" data-text={text}>
       <Volume2 className="size-4" />
     </Button>
   )
@@ -72,17 +72,17 @@ function ReadAloudTask({ note, task }) {
     <Card data-testid="zh-read">
       <CardHeader>
         <CardTitle>{t("阅读", "Reading")}</CardTitle>
-        <CardDescription>{task.what}</CardDescription>
+        <CardDescription>{t(task.what, task.what_en)}</CardDescription>
         <CardAction>{st.done ? <Badge variant="success"><Check /> {t("已读", "Read")}</Badge> : <Badge variant="outline">{t("待读", "To do")}</Badge>}</CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
         {passage ? <p className="text-xl leading-9 tracking-wide" data-testid="zh-home-passage">{passage}</p>
-          : <PassageSetup bare lesson={note.lesson} what={task.what} where={task.pages} actions={readBtn} />}
+          : <PassageSetup bare lesson={note.lesson} task={task} actions={readBtn} />}
         <Note n={zhNotes(note.set).read} />
         {passage ? (
           <div className="flex flex-wrap items-center gap-3">
             {readBtn}
-            {last ? <span className="text-muted-foreground text-xs tabular-nums">{t("上次", "last")}: {Math.round(last.ms / 1000)} {t("秒", "s")}{pace(last.total, last.ms) ? ` · ${pace(last.total, last.ms)} 字/分钟` : ""} · {t(`共 ${st.attempts.length} 次`, `${st.attempts.length} reading${st.attempts.length === 1 ? "" : "s"}`)}</span> : null}
+            {last ? <span className="text-muted-foreground text-xs tabular-nums">{t("上次", "last")}: {Math.round(last.ms / 1000)} {t("秒", "s")}{pace(last.total, last.ms) ? ` · ${pace(last.total, last.ms)} ${t("字/分钟", "chars/min")}` : ""} · {t(`共 ${st.attempts.length} 次`, `${st.attempts.length} reading${st.attempts.length === 1 ? "" : "s"}`)}</span> : null}
           </div>
         ) : null}
       </CardContent>
@@ -106,7 +106,7 @@ function WorkbookTask({ note, task, lesson }) {
     <Card data-testid="zh-workbook">
       <CardHeader>
         <CardTitle>{t("练习册", "Workbook")}</CardTitle>
-        <CardDescription>{task.what}</CardDescription>
+        <CardDescription>{t(task.what, task.what_en)}</CardDescription>
         <CardAction><Badge variant={done === rows.length ? "success" : "outline"}>{done}/{rows.length}</Badge></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
@@ -116,7 +116,7 @@ function WorkbookTask({ note, task, lesson }) {
             const isBlock = row.kind === "block"
             return (
               <React.Fragment key={row.id}>
-                {head ? <div className="text-muted-foreground mt-1 text-xs font-semibold" data-testid="zh-day">{head}</div> : null}
+                {head ? <div className="text-muted-foreground mt-1 text-xs font-semibold" data-testid="zh-day">{zhDay(head)}</div> : null}
                 <div className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid={isBlock ? "zh-sitting" : "zh-exercise"} data-id={row.id}>
                   <span className="text-sm">{t(row.title, row.title_en)} <span className="text-muted-foreground">· {t(`练习 ${row.ex}`, `ex. ${row.ex}`)} · p.{row.page}{isBlock ? ` · ${row.items.length} ${t("题", "questions")}` : ""}</span></span>
                   <span className="flex items-center gap-2">
@@ -132,7 +132,7 @@ function WorkbookTask({ note, task, lesson }) {
         {task.on_paper.length ? <details className="text-sm">
           <summary className="text-muted-foreground cursor-pointer">{t(`纸上作业 — ${task.on_paper.length} 项`, `On paper — ${task.on_paper.length} exercises the book sets by hand`)}</summary>
           <ul className="mt-2 flex flex-col gap-1 pl-1">
-            {task.on_paper.map((e, i) => <li key={i} className="text-muted-foreground">{e.day} · p.{e.page} · {e.ex} · {t(e.what, e.what_en || e.what)}</li>)}
+            {task.on_paper.map((e, i) => <li key={i} className="text-muted-foreground">{zhDay(e.day)} · p.{e.page} · {e.ex} · {t(e.what, e.what_en)}</li>)}
           </ul>
           <p className="text-muted-foreground mt-2 text-xs">{tf(task.finding)}</p>
         </details> : <p className="text-muted-foreground text-xs">{tf(task.finding)}</p>}
@@ -149,7 +149,7 @@ function DictationTask({ note, task }) {
     <Card data-testid="zh-dictation-card">
       <CardHeader>
         <CardTitle>{t("听写", "Dictation")}</CardTitle>
-        <CardDescription>{task.what}</CardDescription>
+        <CardDescription>{t(task.what, task.what_en)}</CardDescription>
         <CardAction><Button size="sm" onClick={() => go(`/chinese/dictation/${note.set}`)}><Volume2 /> {t("练习", "Practise")}</Button></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
@@ -171,23 +171,25 @@ export function ChineseHome() {
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-home">
       <Card>
         <CardHeader>
-          <CardTitle>第{lesson.no}课 · {lesson.title}</CardTitle>
-          <CardDescription>{t(`${D.zh.manifest.volume} · ${D.zh.manifest.edition}`, `${lesson.title_en} · ${D.zh.manifest.volume} · ${D.zh.manifest.edition}`)}</CardDescription>
+          <CardTitle>{t(`第${lesson.no}课`, `Lesson ${lesson.no}`)} · {t(lesson.title, lesson.title_en)}</CardTitle>
+          <CardDescription>{t(`${D.zh.manifest.volume} · ${D.zh.manifest.edition}`, `${D.zh.manifest.volume_en} · ${D.zh.manifest.edition_en}`)}</CardDescription>
           <CardAction><Button size="sm" variant="outline" onClick={() => go(`/chinese/l/${lesson.id}`)}><BookOpen /> {t("生字词语", "The lesson")}</Button></CardAction>
         </CardHeader>
         <CardContent className="text-muted-foreground flex flex-wrap gap-x-4 gap-y-1 text-sm">
-          <span>{lesson["生字"].items.length} 生字</span>
-          <span>{lesson["词语"].items.length} 词语</span>
+          <span>{t(`${lesson["生字"].items.length} 生字`, `${lesson["生字"].items.length} new characters`)}</span>
+          <span>{t(`${lesson["词语"].items.length} 词语`, `${lesson["词语"].items.length} words`)}</span>
           <span data-testid="zh-review-due">{q.due.length ? t(`${q.due.length} 题待复习`, `${q.due.length} due for review`) : t("没有待复习的题", "nothing due for review")}</span>
         </CardContent>
       </Card>
       {note ? note.tasks.map((x) => x.kind === "read_aloud" ? <ReadAloudTask key={x.kind} note={note} task={x} /> : x.kind === "workbook" ? <WorkbookTask key={x.kind} note={note} task={x} lesson={lesson} /> : <DictationTask key={x.kind} note={note} task={x} />) : null}
-      {note ? reviewsFor({ kind: "zh", set: note.set }).map((r) => <ReviewCard key={r.id} r={r} labels={{ title: t("批改", "What a reader noticed"), readFrom: t("来源：", "Read from"), words: t("字", "words"), fresh: t("新", "New"), worked: t("做得好", "What worked"), tryThis: t("试试这样", "Try this"), next: t("下周：", "For next week:"), checklist: t("清单上", "On the checklist"), open: t("打开", "Open") }} />) : null}
+      {note ? reviewsFor({ kind: "zh", set: note.set }).map((r) => <ReviewCard key={r.id} r={r} labels={{ title: t("批改", "What a reader noticed"), readFrom: t("来源：", "Read from"), words: t("字", "words"), fresh: t("新", "New"), worked: t("做得好", "What worked"), tryThis: t("试试这样", "Try this"), next: t("下周：", "For next week:"), checklist: t("清单上", "On the checklist"), open: t("打开", "Open"), locale: t("zh-CN", undefined), stale: (d) => t(`这份批改看的是 ${d} 的那一稿；之后作业又改过。`, `This review is of the draft from ${d}; the work here has changed since.`) }} />) : null}
     </div>
   )
 }
 
 /* ---------- the lesson's own pages ---------- */
+/** The book's section headings, said in English when the page is. */
+const SECTION_EN = { "读一读": "Read aloud", "用一用": "Use it" }
 export function Lesson({ id }) {
   useLang()
   const l = D.zh.lessons[id]
@@ -196,13 +198,13 @@ export function Lesson({ id }) {
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-lesson">
       <Card>
         <CardHeader>
-          <CardTitle>第{l.no}课 · {l.title}</CardTitle>
-          <CardDescription>{t("", `${l.title_en} · `)}课文 p.{l.pages["课文"]} · 生字 p.{l.pages["生字·词语·句子"]} · 阅读 p.{l.pages["阅读"]}</CardDescription>
+          <CardTitle>{t(`第${l.no}课`, `Lesson ${l.no}`)} · {t(l.title, l.title_en)}</CardTitle>
+          <CardDescription>{t("课文", "Text")} p.{l.pages["课文"]} · {t("生字", "Characters")} p.{l.pages["生字·词语·句子"]} · {t("阅读", "Reading")} p.{l.pages["阅读"]}</CardDescription>
         </CardHeader>
         {l["课文"].text ? null : <CardContent className="text-muted-foreground text-sm">{t("课文请看课本。", "The text is read from the book, not from here.")}</CardContent>}
       </Card>
       <Card>
-        <CardHeader><CardTitle>生字</CardTitle><CardDescription>{l["生字"].where}</CardDescription></CardHeader>
+        <CardHeader><CardTitle>{t("生字", "New characters")}</CardTitle><CardDescription>{tf(l["生字"].where)}</CardDescription></CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
             {l["生字"].items.map((z) => (
@@ -214,11 +216,11 @@ export function Lesson({ id }) {
               </div>
             ))}
           </div>
-          {l["生字"]["部首"] ? <p className="text-muted-foreground mt-3 text-xs">部首 · {l["生字"]["部首"].map((b) => `${b.bu} → ${b.zi}`).join(" · ")}</p> : null}
+          {l["生字"]["部首"] ? <p className="text-muted-foreground mt-3 text-xs">{t("部首", "Radicals")} · {l["生字"]["部首"].map((b) => `${b.bu} → ${b.zi}`).join(" · ")}</p> : null}
         </CardContent>
       </Card>
       <Card>
-        <CardHeader><CardTitle>词语</CardTitle><CardDescription>{l["词语"].where}</CardDescription></CardHeader>
+        <CardHeader><CardTitle>{t("词语", "Words")}</CardTitle><CardDescription>{tf(l["词语"].where)}</CardDescription></CardHeader>
         <CardContent className="flex flex-wrap gap-2">
           {l["词语"].items.map((w) => (
             <span key={w.w} className="flex items-center gap-1 rounded-lg border px-2 py-1" data-testid="zh-word">
@@ -228,7 +230,7 @@ export function Lesson({ id }) {
         </CardContent>
       </Card>
       <Card>
-        <CardHeader><CardTitle>句子</CardTitle><CardDescription>{l["句子"].where} · 句型 {l["句型"].pattern}</CardDescription></CardHeader>
+        <CardHeader><CardTitle>{t("句子", "Sentence")}</CardTitle><CardDescription>{tf(l["句子"].where)} · {t("句型", "Pattern")} <span data-testid="zh-pattern">{l["句型"].pattern}</span></CardDescription></CardHeader>
         <CardContent className="flex flex-col gap-2">
           <p className="flex items-center gap-2 text-lg">{l["句子"].zh} <Speak text={l["句子"].zh} /></p>
           <p className="text-muted-foreground text-sm">{l["句子"].py}</p>
@@ -237,7 +239,7 @@ export function Lesson({ id }) {
       </Card>
       {["读一读", "用一用"].map((k) => (
         <Card key={k}>
-          <CardHeader><CardTitle>{k}</CardTitle><CardDescription>{l[k].where}</CardDescription></CardHeader>
+          <CardHeader><CardTitle>{t(k, SECTION_EN[k])}</CardTitle><CardDescription>{tf(l[k].where)}</CardDescription></CardHeader>
           <CardContent className="flex flex-col gap-1.5">
             {l[k].rows.map((row, i) => (
               <div key={i} className="flex flex-wrap items-center gap-x-3 gap-y-1">
@@ -280,14 +282,14 @@ export function Dictation({ set }) {
       <Card>
         <CardHeader>
           <CardTitle>{t("听写", "Dictation")}</CardTitle>
-          <CardDescription>{task.what}</CardDescription>
+          <CardDescription>{t(task.what, task.what_en)}</CardDescription>
           <CardAction><Badge variant="outline" className="tabular-nums"><span data-testid="zh-rated">{rated}</span>/{total}{rated ? ` · ${t("对", "right")} ${right}` : ""}</Badge></CardAction>
         </CardHeader>
         <CardContent className="text-muted-foreground text-sm">{tf(task.rule)}</CardContent>
       </Card>
       {Object.keys(task.words).map((section) => (
         <Card key={section}>
-          <CardHeader><CardTitle>{section}</CardTitle></CardHeader>
+          <CardHeader><CardTitle>{t(section, (task.sections_en || {})[section] || section)}</CardTitle></CardHeader>
           <CardContent className="flex flex-col gap-1.5">
             {task.words[section].map((w) => {
               const r = st[w], open = !!shown[w]
@@ -329,14 +331,18 @@ export function Dictation({ set }) {
  *  once by a parent into her Drive record (docs/chinese.md § 8). `drive.file`
  *  scope means a file dropped into the folder by hand is invisible to the app,
  *  so the app writes it itself. */
-function PassageSetup({ lesson, what, where, bare, actions }) {
+function PassageSetup({ lesson, task, bare, actions }) {
   useLang()
   const [text, setText] = useState("")
+  // `task.what` is the key the passage is kept under (text:L05:阅读《谦虚过度》),
+  // so it stays the book's Chinese whichever language the page is read in; the
+  // twins are only for what the sentence says.
+  const what = task.what, label = t(task.what, task.what_en), where = t(task.pages, task.pages_en)
   const body = (
     <>
-      <p className="text-muted-foreground text-sm">{t(`课文还没有录入。请把${what}（${where}）的原文粘贴一次——只保存在她的 Drive 记录里，不在网站上。`, `The passage is not here yet. Paste the text of ${what} (${where}) once — it is kept in her Drive record, not on the site.`)}</p>
+      <p className="text-muted-foreground text-sm">{t(`课文还没有录入。请把${label}（${where}）的原文粘贴一次——只保存在她的 Drive 记录里，不在网站上。`, `The passage is not here yet. Paste the text of ${label} (${where}) once — it is kept in her Drive record, not on the site.`)}</p>
       <Textarea rows={6} value={text} onChange={(e) => setText(e.target.value)} placeholder={t("把课文粘贴到这里…", "Paste the passage here…")} data-testid="zh-passage-text" />
-      <div className="flex flex-wrap items-center gap-3"><Button size="sm" disabled={!text.trim()} onClick={() => Store.setSlice("zh", textKey(lesson, what), (cur) => ({ ...cur, text: text.trim(), what, where }))} data-testid="zh-passage-save"><Check /> {t("保存", "Keep it")}</Button>{actions || null}</div>
+      <div className="flex flex-wrap items-center gap-3"><Button size="sm" disabled={!text.trim()} onClick={() => Store.setSlice("zh", textKey(lesson, what), (cur) => ({ ...cur, text: text.trim(), what, where: task.pages }))} data-testid="zh-passage-save"><Check /> {t("保存", "Keep it")}</Button>{actions || null}</div>
     </>
   )
   if (bare) return <div className="flex flex-col gap-2" data-testid="zh-passage-setup">{body}</div>
@@ -390,6 +396,7 @@ export function ReadAloud({ set }) {
   const task = note && note.tasks.find((x) => x.kind === "read_aloud")
   const lesson = note && D.zh.lessons[note.lesson]
   const what = task ? task.what : ""
+  const label = task ? t(task.what, task.what_en) : ""
   const passage = note ? passageFor(note.lesson, what) : ""
   const [mode, setMode] = useState("idle")            // idle | recording | saving | done
   const [finals, setFinals] = useState(""), [interim, setInterim] = useState("")
@@ -401,7 +408,7 @@ export function ReadAloud({ set }) {
   const live = React.useRef(null)
   React.useEffect(() => { if (mode !== "recording") return; const tm = setInterval(() => setNow(Date.now()), 500); return () => clearInterval(tm) }, [mode])
   if (!task || !lesson) return <ChineseHome />
-  if (!passage) return <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page"><PassageSetup lesson={note.lesson} what={what} where={task.pages} /></div>
+  if (!passage) return <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page"><PassageSetup lesson={note.lesson} task={task} /></div>
   const st = hwState(set).read || {}
   const attempts = st.attempts || []
   const start = async () => {
@@ -434,7 +441,7 @@ export function ReadAloud({ set }) {
       <Card>
         <CardHeader>
           <CardTitle>{t("阅读", "Reading")}</CardTitle>
-          <CardDescription>{what}</CardDescription>
+          <CardDescription>{label}</CardDescription>
           <CardAction>
             {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-rec-stop"><Square /> {t("停止", "Stop")} · {sec} {t("秒", "s")}</Button>
               : mode === "saving" ? <Button size="sm" disabled>{t("保存中…", "Saving…")}</Button>
@@ -450,7 +457,7 @@ export function ReadAloud({ set }) {
           it is shown to her: the transcript, the alignment and the number are for
           the evaluation, in the parent view and the review (the owner's ask). */}
       <Card>
-        <CardHeader><CardTitle>{what}</CardTitle>{mode === "recording" ? <CardDescription data-testid="zh-recording">{t(`正在录音 · ${sec} 秒`, `Recording · ${sec} s`)}</CardDescription> : null}</CardHeader>
+        <CardHeader><CardTitle>{label}</CardTitle>{mode === "recording" ? <CardDescription data-testid="zh-recording">{t(`正在录音 · ${sec} 秒`, `Recording · ${sec} s`)}</CardDescription> : null}</CardHeader>
         <CardContent><p className="text-xl leading-9 tracking-wide" data-testid="zh-passage">{passage}</p></CardContent>
       </Card>
       {/* After recording: her recording, to listen to again — and nothing else.
@@ -471,7 +478,7 @@ export function ReadAloud({ set }) {
           {parent ? (
             <CardContent className="flex flex-col gap-2 border-t pt-4 text-sm" data-testid="zh-parent">
               {!evalNote ? <Compared passage={passage} transcript={last.transcript} /> : null}
-              <div>{t("识别匹配 ", "")}<span className="tabular-nums" data-testid="zh-pct">{result ? result.pct : (last.total ? Math.round((100 * last.matched) / last.total) : 0)}%</span>{t(`（共 ${last.total} 字，听到 ${last.heard} 字）——仅供参考，不是评分。`, ` of ${last.total} characters matched, as heard by the recogniser — an estimate, not a mark. ${last.heard} heard in all.`)}{p ? t(` 大约 ${p} 字/分钟。`, ` About ${p} 字/分钟.`) : ""}</div>
+              <div>{t("识别匹配 ", "")}<span className="tabular-nums" data-testid="zh-pct">{result ? result.pct : (last.total ? Math.round((100 * last.matched) / last.total) : 0)}%</span>{t(`（共 ${last.total} 字，听到 ${last.heard} 字）——仅供参考，不是评分。`, ` of ${last.total} characters matched, as heard by the recogniser — an estimate, not a mark. ${last.heard} heard in all.`)}{p ? t(` 大约 ${p} 字/分钟。`, ` About ${p} characters a minute.`) : ""}</div>
               {last.fileId ? <div className="flex items-center gap-2"><Button size="sm" variant="outline" onClick={() => play(last.fileId)} data-testid="zh-play"><Play /> {t("播放录音", "Play the recording")}</Button>{playUrl ? <audio controls autoPlay src={playUrl} /> : null}</div> : <div className="text-muted-foreground">{t("没有保存录音（没有麦克风，或没有连接 Drive）。", "No recording was kept (no microphone, or no Drive).")}</div>}
               {attempts.length > 1 ? <div className="text-muted-foreground">{t(`已保存 ${attempts.length} 次朗读 · 第一次 ${attempts[0].matched}/${attempts[0].total}`, `${attempts.length} readings kept · first ${attempts[0].matched}/${attempts[0].total}`)}</div> : null}
             </CardContent>
@@ -510,8 +517,8 @@ function TfWidget({ ex, ans, set1, done }) {
     <div key={it.id} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid={`zh-tf-${i}`}>
       <span className="text-lg">{it.text}</span>
       <span className="flex shrink-0 gap-1.5">
-        <Button size="sm" variant={ans[it.id] === true ? "default" : "outline"} disabled={!!done} onClick={() => set1(it.id, true)} data-testid="zh-tf-t">对</Button>
-        <Button size="sm" variant={ans[it.id] === false ? "default" : "outline"} disabled={!!done} onClick={() => set1(it.id, false)} data-testid="zh-tf-f">错</Button>
+        <Button size="sm" variant={ans[it.id] === true ? "default" : "outline"} disabled={!!done} onClick={() => set1(it.id, true)} data-testid="zh-tf-t">{t("对", "True")}</Button>
+        <Button size="sm" variant={ans[it.id] === false ? "default" : "outline"} disabled={!!done} onClick={() => set1(it.id, false)} data-testid="zh-tf-f">{t("错", "False")}</Button>
       </span>
     </div>
   ))
@@ -721,7 +728,7 @@ function SpeakWidget({ ex, set, exId }) {
     <div className="flex flex-col gap-3">
       <Card>
         <CardHeader>
-          <CardTitle>{tf(ex.question)}</CardTitle>
+          <CardTitle data-testid="zh-tell-question">{tf(ex.question)}</CardTitle>
           <CardDescription>{t("先讲故事，再问爸爸妈妈这个问题。", "Tell the story first, then ask your parents this question.")}</CardDescription>
           <CardAction>
             {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-tell-stop"><Square /> {t("停止", "Stop")}</Button>
@@ -738,7 +745,7 @@ function SpeakWidget({ ex, set, exId }) {
       <Card>
         <CardHeader>
           <CardTitle>{t("家长签名", "Parent's signature")}</CardTitle>
-          <CardDescription>{st.parent ? t(`${st.parent.by} 已听 · ${new Date(st.parent.at).toLocaleDateString()}`, `${st.parent.by} listened · ${new Date(st.parent.at).toLocaleDateString()}`) : t("听完故事、回答了问题以后，请家长点一下。", "After listening and answering the question, a parent taps here.")}</CardDescription>
+          <CardDescription>{st.parent ? t(`${st.parent.by} 已听 · ${new Date(st.parent.at).toLocaleDateString("zh-CN")}`, `${st.parent.by} listened · ${new Date(st.parent.at).toLocaleDateString()}`) : t("听完故事、回答了问题以后，请家长点一下。", "After listening and answering the question, a parent taps here.")}</CardDescription>
           <CardAction><Button size="sm" variant={st.parent ? "outline" : "default"} disabled={!st.told} onClick={sign} data-testid="zh-tell-sign"><Check /> {t("家长已听", "Listened")}</Button></CardAction>
         </CardHeader>
       </Card>
@@ -828,7 +835,7 @@ export function Exercise({ set, exId }) {
   const Widget = WIDGET[ex.type]
   if (ex.type === "speak" || ex.type === "read") return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-ex">
-      <Card><CardHeader><CardTitle>{t(ex.title, ex.title_en)}</CardTitle><CardDescription>{ex.day} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}</CardDescription></CardHeader>{ex.note ? <CardContent className="text-muted-foreground text-sm">{tf(ex.note)}</CardContent> : null}</Card>
+      <Card><CardHeader><CardTitle>{t(ex.title, ex.title_en)}</CardTitle><CardDescription>{zhDay(ex.day)} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}</CardDescription></CardHeader>{ex.note ? <CardContent className="text-muted-foreground text-sm">{tf(ex.note)}</CardContent> : null}</Card>
       {ex.type === "speak" ? <SpeakWidget ex={ex} set={set} exId={exId} /> : <ReadWidget ex={ex} set={set} exId={exId} />}
     </div>
   )
@@ -837,7 +844,7 @@ export function Exercise({ set, exId }) {
       <Card>
         <CardHeader>
           <CardTitle>{t(ex.title, ex.title_en)}</CardTitle>
-          <CardDescription>{ex.day} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}{prev && prev.n != null ? ` · ${t("上次", "last")} ${prev.right}/${prev.n}` : ""}</CardDescription>
+          <CardDescription>{zhDay(ex.day)} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}{prev && prev.n != null ? ` · ${t("上次", "last")} ${prev.right}/${prev.n}` : ""}</CardDescription>
           <CardAction>{done ? <Button size="sm" variant="outline" onClick={() => { setAns({}); setDone(null) }}><RotateCcw /> {t("再做一次", "Again")}</Button> : ex.type === "free" ? null : <Button size="sm" disabled={!complete} onClick={submit} data-testid="zh-ex-submit"><Check /> {t("交卷", "Check")}</Button>}</CardAction>
         </CardHeader>
         {ex.note ? <CardContent className="text-muted-foreground text-sm">{tf(ex.note)}</CardContent> : null}
@@ -871,25 +878,33 @@ export function Exercise({ set, exId }) {
 /** A weekday's four-choice block through the shared runner, under its own set id
  *  (zh-block:L05-D2:0). The earlier 7/6 chunked sittings are not shown any more;
  *  any result recorded under their ids stays in the record untouched. */
+/* Each of these three calls useLang() for its own sake, not the Runner's: the
+ * title and the exit label are made HERE, and t() reads the language at the
+ * moment it runs. The Runner subscribes to the toggle and re-renders itself,
+ * but a prop computed by a parent that did not subscribe keeps the language
+ * it was first rendered in — the chrome flipped and the title did not. */
 function ZhBlockRun({ set, id }) {
+  useLang()
   const note = D.zh.homework[set]
   const block = zhBlock(note, id)
   const items = block ? block.items.map((i) => (findItem(i) || {}).it).filter(Boolean) : []
   if (!block || !items.length) return <ChineseHome />
   const sid = blockSetId(block)
-  return <Runner key={sid} items={items} setId={sid} prior={Store.s.results[sid] || null} sub="zh-word" title={`${t(block.title, block.title_en)} · ${block.day}`} exitPath="/chinese" exitLabel={t("回到本周", "Back to the week")} />
+  return <Runner key={sid} items={items} setId={sid} prior={Store.s.results[sid] || null} sub="zh-word" title={`${t(block.title, block.title_en)} · ${zhDay(block.day)}`} exitPath="/chinese" exitLabel={t("回到本周", "Back to the week")} />
 }
 function ZhRun({ sub, lesson, n }) {
+  useLang()
   const set = zhSets(sub, lesson)[n]
   const l = D.zh.lessons[lesson]
   if (!set || !l) return <ChineseHome />
   const id = setId(sub, lesson, n)
-  return <Runner key={id} items={set} setId={id} prior={Store.s.results[id] || null} sub={sub} title={`${ZH[sub].name} · ${l.title} · ${t(`第 ${n + 1} 组`, `Set ${n + 1}`)}`} exitPath="/chinese" exitLabel={t("回到本周", "Back to the week")} />
+  return <Runner key={id} items={set} setId={id} prior={Store.s.results[id] || null} sub={sub} title={`${zhSubName(sub)} · ${t(l.title, l.title_en)} · ${t(`第 ${n + 1} 组`, `Set ${n + 1}`)}`} exitPath="/chinese" exitLabel={t("回到本周", "Back to the week")} />
 }
 function ZhReview() {
+  useLang()
   const items = useMemo(() => reviewQueue(null, "chinese").due.map((x) => x.it), [])
   if (!items.length) return <ChineseHome />
-  return <Runner items={items} custom ctx="review" resume="review:zh" sub="zh-word" title={t("中文 · 复习", "中文 · Review")} exitPath="/chinese" exitLabel={t("回到本周", "Back to the week")} />
+  return <Runner items={items} custom ctx="review" resume="review:zh" sub="zh-word" title={t("中文 · 复习", "Chinese · Review")} exitPath="/chinese" exitLabel={t("回到本周", "Back to the week")} />
 }
 
 /** The Chinese half's own route switch; `rest` is the route with `chinese` taken off. */
@@ -907,14 +922,14 @@ export function ChineseScreen({ rest }) {
 /** Breadcrumbs for the Chinese half, every one a real link. */
 export function zhCrumbs(rest) {
   const [top, a, b, c] = rest
-  const out = [{ label: "中文", path: "/chinese" }]
+  const out = [{ label: t("中文", "Chinese"), path: "/chinese" }]
   const l = (id) => (D.zh && D.zh.lessons[id]) || null
-  if (top === "l" && l(a)) out.push({ label: `第${l(a).no}课 ${l(a).title}`, path: `/chinese/l/${a}` })
-  else if (top === "run" && ZH[a] && l(b)) { out.push({ label: `第${l(b).no}课 ${l(b).title}`, path: `/chinese/l/${b}` }); out.push({ label: `${ZH[a].name} · ${t(`第 ${(+c || 0) + 1} 组`, `Set ${(+c || 0) + 1}`)}`, path: `/chinese/run/${a}/${b}/${c || 0}` }) }
+  if (top === "l" && l(a)) out.push({ label: zhLessonLabel(l(a)), path: `/chinese/l/${a}` })
+  else if (top === "run" && ZH[a] && l(b)) { out.push({ label: zhLessonLabel(l(b)), path: `/chinese/l/${b}` }); out.push({ label: `${zhSubName(a)} · ${t(`第 ${(+c || 0) + 1} 组`, `Set ${(+c || 0) + 1}`)}`, path: `/chinese/run/${a}/${b}/${c || 0}` }) }
   else if (top === "dictation" && a) out.push({ label: `${t("听写", "Dictation")} · ${a}`, path: `/chinese/dictation/${a}` })
   else if (top === "read" && a) out.push({ label: `${t("阅读", "Reading")} · ${a}`, path: `/chinese/read/${a}` })
   else if (top === "ex" && a && b) { const n = D.zh && D.zh.homework[a], e = n && zhExercises(n.lesson).find((x) => x.id === b); out.push({ label: e ? t(e.title, e.title_en) : t("练习", "Exercise"), path: `/chinese/ex/${a}/${b}` }) }
-  else if (top === "block" && a && b) { const n = D.zh && D.zh.homework[a], bl = n && zhBlock(n, b); out.push({ label: bl ? `${t(bl.title, bl.title_en)} · ${bl.day}` : t("练习", "Exercise"), path: `/chinese/block/${a}/${b}` }) }
+  else if (top === "block" && a && b) { const n = D.zh && D.zh.homework[a], bl = n && zhBlock(n, b); out.push({ label: bl ? `${t(bl.title, bl.title_en)} · ${zhDay(bl.day)}` : t("练习", "Exercise"), path: `/chinese/block/${a}/${b}` }) }
   else if (top === "review") out.push({ label: t("复习", "Review"), path: "/chinese/review" })
   return out
 }

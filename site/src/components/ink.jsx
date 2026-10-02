@@ -1,6 +1,7 @@
 import * as React from "react"
 import { forwardRef, useImperativeHandle, useRef, useState } from "react"
 import { Eraser } from "lucide-react"
+import { t } from "@/lib/lang"
 import { Button } from "@zhangqi444/ui/ui/button"
 
 /* Free handwriting: a canvas that keeps what she wrote two ways — the pixels, as
@@ -25,7 +26,7 @@ export const Ink = forwardRef(function Ink({ height = 300, onChange }, ref) {
   return (
     <div className="flex flex-col gap-1.5">
       <canvas ref={cv} width={1200} height={Math.round((1200 * height) / 600)} className="w-full rounded-lg border bg-white" style={{ touchAction: "none", height }} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up} data-testid="zh-ink" data-strokes={n} />
-      <div className="flex items-center justify-between"><span className="text-muted-foreground text-xs tabular-nums">{n} 笔</span><Button size="sm" variant="ghost" onClick={clear} data-testid="zh-ink-clear"><Eraser /> 清除</Button></div>
+      <div className="flex items-center justify-between"><span className="text-muted-foreground text-xs tabular-nums">{t(`${n} 笔`, `${n} strokes`)}</span><Button size="sm" variant="ghost" onClick={clear} data-testid="zh-ink-clear"><Eraser /> {t("清除", "Clear")}</Button></div>
     </div>
   )
 })

@@ -197,6 +197,18 @@ npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63
   mid-week. The fix is to make the finished item — quick-add one and tick it —
   rather than hope the date supplies one. Anything asserting on `spanOpen()`
   wants the same treatment, or `pg.clock.install`.
+- **`t()` reads the language when it runs; only `useLang()` makes it run again.**
+  `t(zh, en)` in `src/lib/lang.js` is a plain function over the current value,
+  and `useLang()` is what subscribes a component to the toggle. A title computed
+  in a parent that never subscribed and handed down as a prop keeps the language
+  the page was opened in, while the child that did subscribe flips around it:
+  `ZhBlockRun` built the sitting's title and only the Runner called `useLang()`,
+  so the buttons flip to English and the title they sit under stays Chinese.
+  Found by reading the wrappers, not by the suite — the check that flipped the
+  runner read its buttons and never its title. Each of the three Chinese
+  wrappers subscribes for its own sake now, and the `both()` walk in
+  `test_chinese.cjs` reads the title with the rest of the chrome, which is how
+  the next one shows up as a red line instead of a screenshot.
 
 ## Verification habit
 

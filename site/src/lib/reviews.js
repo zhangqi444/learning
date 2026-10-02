@@ -6,6 +6,7 @@
  * to enter through the app — pasted or opened as an import link — and from there
  * it syncs like everything else. The contract is docs/review.md. */
 import { D } from "@/lib/content"
+import { t as pick } from "@/lib/lang"
 import { Store, ts } from "@/lib/store"
 
 export const REVIEW_VERSION = 1
@@ -127,9 +128,16 @@ export function reviewTargetLabel(r) {
   if (t.kind === "essay") return `Essay · ${t.wk}`
   if (t.kind === "week") return `${t.wk} · the week`
   if (t.kind === "month") return monthName(t.m)
-  if (t.kind === "zh") return `中文 · ${t.set}`
+  if (t.kind === "zh") return `${pick("中文", "Chinese")} · ${t.set}`
   const m = D.mocks.find((x) => x.id === t.form)
   return `${m ? m.name : t.form} · essay`
+}
+/** Does an import link carry Chinese reviews and nothing else? Then the import
+ *  page is a Chinese page: its chrome in the page's language, the toggle in the
+ *  header. A link that does not parse is not one, and is not an error here —
+ *  the import page says what is wrong with it. */
+export function importIsZh(payload) {
+  try { const list = Object.values(parseImport(payload)); return list.length > 0 && list.every((r) => r.target.kind === "zh") } catch { return false }
 }
 export function reviewPath(r) {
   const t = r.target

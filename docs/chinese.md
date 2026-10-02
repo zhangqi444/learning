@@ -268,7 +268,15 @@ paper exercises carry the English the book itself prints under each heading.
 The runner reads by the page's language with English as the fallback, so an
 ISEE item renders as it always has. The validator holds the two together:
 `why_zh` must answer the same wrong choices as `why`, never the correct one,
-never blank.
+never blank — and, since 2 October, every other twin as well: a Chinese bank
+item without `prompt_en`, `explanation_zh` or `why_zh`; a lesson, exercise,
+task, block or dictation section without its `_en`; a `{zh, en}` with a side
+missing; a label whose English carries Chinese or whose Chinese carries an
+English word; a bank `skill` with no name in `content/chinese/skills.json`.
+The chrome is held the same way: every string a Chinese page shows goes
+through `t()`/`tf()`, and `test_chinese.cjs` reads the chrome of each kind of
+page in both states. The rule, and how to apply it to a new page, string or
+file, is in AGENTS.md § UI conventions and § Content rules.
 
 **The validator applies unchanged, and gains two rules.** Four choices, none blank
 or duplicated, a `why` on each of the three wrong ones, a resolving `passage_id`,

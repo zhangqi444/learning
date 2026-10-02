@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
 
-import { D, LTR, isZh, keyOf } from "@/lib/content"
+import { D, LTR, isZh, keyOf, zhSkillName } from "@/lib/content"
 import { getLang, useLang } from "@/lib/lang"
 import { BUDGET, CAUSES, findItem, paceFlag, passageWords, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast, words } from "@/lib/engine"
 import { LearnCard } from "@/components/learn-card"
@@ -157,7 +157,7 @@ const subOf = (q, fallback) => (findItem(q.id) || {}).sub || fallback || "vr"
  *  surface does not get one (Verbal has the cat at its gate; corrections get
  *  nothing, because going back over answers is not an event). */
 const catFor = (q, sub) => (q ? skillCat(sub, q.sk) : null)
-const fmtSec = (ms) => `${Math.round(ms / 1000)} s`
+const fmtSec = (ms, zh) => `${Math.round(ms / 1000)} ${zh ? "秒" : "s"}`
 
 /** Why did this go wrong? One tap for the cause, one for "were you sure". */
 export function CauseTags({ id, compact }) {
@@ -231,6 +231,7 @@ function SoftTimer({ since, budget }) {
 export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exitLabel, prior, record = true, onFinish, sub: subHint, backTo, promotion }) {
   useLang()
   const zh = zhUi(subHint)
+  const zhSet = isZh(subHint)   // a Chinese sitting, whichever language the page is read in
   const kind = ctx || (custom ? "review" : "set")
   const store = useStore()
   /* Where an unfinished run is kept. A real set is its own id; a generated run
@@ -412,10 +413,15 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
 
   if (done) {
     const pct = Math.round((done.right / total) * 100)
-    const msg = pct >= 85 ? "Strong set. Read the notes on anything you guessed."
+    const msg = zh
+      ? (pct >= 85 ? "很好。猜的那几题，看看下面的解释。" : pct >= 60 ? "不错。下面的解释，就是再拿几分的地方。" : "这一组很难。慢慢看下面的解释——分数就是这样一点点上去的。")
+      : pct >= 85 ? "Strong set. Read the notes on anything you guessed."
       : pct >= 60 ? "Solid. The notes below are where the next few marks are."
       : "This one was hard. Work through the notes slowly — that is what moves the score."
-    const when = done.at ? new Date(done.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : null
+    const when = done.at ? new Date(done.at).toLocaleDateString(zh ? "zh-CN" : undefined, { month: "short", day: "numeric" }) : null
+    // A Chinese skill is named in the page's language (content/chinese/skills.json);
+    // an ISEE skill's id is its name.
+    const skName = (sk) => (zhSet ? zhSkillName(sk) : sk)
     const noLetters = done.reopened && !(prior && prior.picks)
     const canTag = record && kind !== "corr"
     const misses = items.filter((q, j) => LTR[picks[j]] !== keyOf(q))
@@ -442,12 +448,16 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
           {/* Only for a set just finished — reopening an old result is not an event. */}
           {!done.reopened ? <Burst seed={done.at} /> : null}
           <CardHeader className="w-full">
-            <CardDescription>{title}{done.reopened && when ? ` · completed ${when}` : ""}{done.attempts > 1 ? ` · attempt ${done.attempts}` : ""}</CardDescription>
+            <CardDescription>{title}{done.reopened && when ? (zh ? ` · ${when} 完成` : ` · completed ${when}`) : ""}{done.attempts > 1 ? (zh ? ` · 第 ${done.attempts} 次` : ` · attempt ${done.attempts}`) : ""}</CardDescription>
             <CardTitle className="text-5xl font-extrabold tracking-tight tabular-nums">
               {done.reopened ? done.right : counted}<span className="text-muted-foreground text-xl font-normal"> / {total}</span>
             </CardTitle>
             <CardDescription className="text-base">{pct}% · {msg}</CardDescription>
-            {avg != null && (
+            {/* Not on a Chinese sitting: it is untimed (docs/chinese.md § 3), so a
+                "real-test budget" there would be a number about a test she is
+                not sitting. paceFlag already says nothing for one; this is the
+                same silence on the summary line. */}
+            {avg != null && !zhSet && (
               <CardDescription className="flex flex-wrap items-center justify-center gap-x-3 text-xs" data-testid="pace-summary">
                 <span><Gauge className="mr-1 inline size-3" />about {Math.round(avg / 1000)} s a question · real-test budget {budget} s</span>
                 {avg / 1000 > budget * 1.25 ? <Badge variant="warning">slower than the budget</Badge> : avg / 1000 < budget * 0.5 && pct < 70 ? <Badge variant="destructive">very fast — slow down</Badge> : <Badge variant="success">on pace</Badge>}
@@ -458,19 +468,19 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                 {/* What became of the misses, not just how many there were. On a
                     set just finished it stays hidden until something has
                     actually happened — see MissProgress. */}
-                <MissProgress ids={misses.map((q) => q.id)} quiet={!done.reopened} />
-                {tagged < misses.length ? <span>{tagged} of {misses.length} miss{misses.length === 1 ? "" : "es"} tagged — one tap each below says why it went wrong.</span> : null}
+                <MissProgress ids={misses.map((q) => q.id)} quiet={!done.reopened} zh={zh} />
+                {tagged < misses.length ? <span>{zh ? `${tagged}/${misses.length} 道错题标了原因——下面每道题点一下，说说为什么错。` : `${tagged} of ${misses.length} miss${misses.length === 1 ? "" : "es"} tagged — one tap each below says why it went wrong.`}</span> : null}
               </CardDescription>
             ) : null}
             {came.length ? (
               <div className="mt-3 flex flex-wrap justify-center gap-2" data-testid="set-came">
                 {came.map((c) => (
-                  <figure key={c.word} className="flex w-24 flex-col items-center gap-0.5" title={`${c.sk} — ${c.stage}`}>
-                    <button {...hearProps(c.word, { label: c.sk })}>
-                      <Glim word={c.word} stage={c.stage} className="size-11" title={c.sk} />
+                  <figure key={c.word} className="flex w-24 flex-col items-center gap-0.5" title={`${skName(c.sk)} — ${c.stage}`}>
+                    <button {...hearProps(c.word, { label: skName(c.sk) })}>
+                      <Glim word={c.word} stage={c.stage} className="size-11" title={skName(c.sk)} />
                     </button>
                     <figcaption className="line-clamp-2 w-full text-center text-[11px] leading-tight font-semibold">
-                      {c.sk}{c.n > 1 ? ` ×${c.n}` : ""}
+                      {skName(c.sk)}{c.n > 1 ? ` ×${c.n}` : ""}
                     </figcaption>
                   </figure>
                 ))}
@@ -488,20 +498,20 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                 data-testid="badges-won"
               >
                 <Award className="text-primary size-7" />
-                <span className="text-primary text-base font-extrabold tracking-tight">{won.length === 1 ? "New badge earned" : `${won.length} new badges earned`}</span>
+                <span className="text-primary text-base font-extrabold tracking-tight">{zh ? (won.length === 1 ? "得到了一个新徽章" : `得到了 ${won.length} 个新徽章`) : won.length === 1 ? "New badge earned" : `${won.length} new badges earned`}</span>
                 <span className="text-lg font-bold">{won.map((b) => b.name).join(" · ")}</span>
-                <Button size="sm" onClick={() => go("/rewards")}>See rewards</Button>
+                <Button size="sm" onClick={() => go("/rewards")}>{zh ? "看看奖励" : "See rewards"}</Button>
               </div>
             ) : null}
             {!custom && (
               <div className="mt-2 flex justify-center">
-                <Button variant="outline" size="sm" onClick={retry} data-testid="retry"><RotateCcw /> Try this set again</Button>
+                <Button variant="outline" size="sm" onClick={retry} data-testid="retry"><RotateCcw /> {zh ? "再做一次这一组" : "Try this set again"}</Button>
               </div>
             )}
-            {noLetters && <CardDescription className="text-xs">This set was done before answers were recorded letter by letter, so only right/missed is shown.</CardDescription>}
+            {noLetters && <CardDescription className="text-xs">{zh ? "这一组做的时候还没有按字母记答案，所以只显示对错。" : "This set was done before answers were recorded letter by letter, so only right/missed is shown."}</CardDescription>}
           </CardHeader>
         </Card>
-        <h2 className="mt-2 text-xl font-semibold">Every question</h2>
+        <h2 className="mt-2 text-xl font-semibold">{zh ? "每一题" : "Every question"}</h2>
         <div className="flex flex-col gap-3">
           {items.map((q, j) => {
             const ok = LTR[picks[j]] === keyOf(q)
@@ -512,18 +522,18 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
               <Card key={j} className={cn("gap-3 py-5", !ok && "border-destructive/40")}>
                 <CardHeader className="px-5">
                   <div className="flex flex-wrap items-center gap-2">
-                    {ok ? <Badge variant="success"><CheckCircle2 /> Correct</Badge> : <Badge variant="destructive"><XCircle /> Missed</Badge>}
-                    <span className="text-muted-foreground text-xs">Q{j + 1}{q.sk ? " · " + q.sk : ""}</span>
-                    {ms ? <span className="text-muted-foreground text-xs tabular-nums">· {fmtSec(ms)}</span> : null}
+                    {ok ? <Badge variant="success"><CheckCircle2 /> {zh ? "对了" : "Correct"}</Badge> : <Badge variant="destructive"><XCircle /> {zh ? "错了" : "Missed"}</Badge>}
+                    <span className="text-muted-foreground text-xs">{zh ? `第 ${j + 1} 题` : `Q${j + 1}`}{q.sk ? " · " + skName(q.sk) : ""}</span>
+                    {ms ? <span className="text-muted-foreground text-xs tabular-nums">· {fmtSec(ms, zh)}</span> : null}
                     {flag ? <Badge variant={flag.tone} className="text-xs">{flag.label}</Badge> : null}
-                    {!ok ? <MissStage id={q.id} /> : null}
+                    {!ok ? <MissStage id={q.id} zh={zh} /> : null}
                   </div>
                   <CardTitle className="text-[15px] leading-snug font-medium">{qOf(q)}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-2 px-5 text-sm">
-                  <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{yours}</span></div>
+                  <div className="text-muted-foreground">{zh ? "你的答案：" : "Your answer: "}<span className="text-foreground font-medium">{yours}</span></div>
                   {!ok && (
-                    <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
+                    <div className="text-muted-foreground">{zh ? "正确答案：" : "Correct: "}<span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
                   )}
                   {/* the same naming of her own mistake as on the reveal — this
                       is where it lands after a timed set, when nothing was
@@ -556,8 +566,14 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                       twice — she knows its answer now. So the miss offers a
                       different question on the same skill, which is the only
                       version of "try again" that is worth anything. It is
-                      evidence, not a correction: she has seen no key for it. */}
-                  {!ok ? (
+                      evidence, not a correction: she has seen no key for it.
+
+                      Not on a Chinese item. The /again route and anotherLike()
+                      walk ISEE's subjects, so for a z:/zc: id the button led to
+                      an English "No other question on this one yet" on an ISEE
+                      page — a dead end wearing an invitation. The Chinese half's
+                      second go at a miss is its review pile. */}
+                  {!ok && !zhSet ? (
                     <div>
                       <Button size="sm" variant="outline" data-testid="try-another" data-qid={q.id}
                         onClick={() => go(`/again/${q.id}${setId || backTo ? "/" + (setId || backTo) : ""}`)}>
@@ -571,7 +587,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
           })}
         </div>
         <ActionBar>
-          <Button variant="outline" onClick={() => go("/")}><Home /> Dashboard</Button>
+          {/* Home is the half she is in: a Chinese sitting's home is 中文, not the ISEE dashboard. */}
+          <Button variant="outline" onClick={() => go(zhSet ? "/chinese" : "/")}><Home /> {zhSet ? (zh ? "中文" : "Chinese") : "Dashboard"}</Button>
           <span className="flex-1" />
           <Button onClick={() => go(exitPath)}>{exitLabel} <ArrowRight /></Button>
         </ActionBar>
@@ -608,7 +625,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4">
       <div className="flex flex-col gap-2">
         <div className="text-muted-foreground flex items-center justify-between gap-2 text-sm">
-          <span className="truncate font-medium">{title}</span>
+          <span className="truncate font-medium" data-testid="run-title">{title}</span>
           <span className="flex shrink-0 items-center gap-2">
             {pacing ? <SoftTimer key={i} since={entered.current} budget={budget} /> : null}
             {kind !== "corr" ? (
@@ -616,15 +633,19 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                 <TooltipTrigger asChild>
                   <Button size="sm" variant={instant ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("instant", !instant)} data-testid="instant-toggle"><Zap /> {zh ? `即时 ${instant ? "开" : "关"}` : `Instant ${instant ? "on" : "off"}`}</Button>
                 </TooltipTrigger>
-                <TooltipContent>Marks each answer as you go. Turn it off to sit the set the way the real test works — everything at the end.</TooltipContent>
+                <TooltipContent>{zh ? "每答一题就判一题。关掉就像真正考试那样，最后一起看。" : "Marks each answer as you go. Turn it off to sit the set the way the real test works — everything at the end."}</TooltipContent>
               </Tooltip>
             ) : null}
+            {/* Chinese practice is untimed (docs/chinese.md § 3): `pacing` is forced
+                off above, so a switch that turns it on would turn on nothing. */}
+            {zhSet ? null : (
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button size="sm" variant={pacing ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("pacing", !pacing)} data-testid="pacing-toggle"><Gauge /> {zh ? `计时 ${pacing ? "开" : "关"}` : `Pacing ${pacing ? "on" : "off"}`}</Button>
+                <Button size="sm" variant={pacing ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("pacing", !pacing)} data-testid="pacing-toggle"><Gauge /> {`Pacing ${pacing ? "on" : "off"}`}</Button>
               </TooltipTrigger>
               <TooltipContent>Shows a soft timer against the real test's {budget} seconds a question. Nothing auto-advances.</TooltipContent>
             </Tooltip>
+            )}
             {/* Its own Tooltip: TooltipTrigger takes asChild, so it holds exactly
                 one child and a second Button inside it renders nothing at all. */}
             {kind !== "corr" ? (
@@ -632,13 +653,13 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                 <TooltipTrigger asChild>
                   <Button size="sm" variant={careful ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("careful", !careful)} data-testid="careful-toggle"><Eye /> {zh ? `慢读 ${careful ? "开" : "关"}` : `Careful ${careful ? "on" : "off"}`}</Button>
                 </TooltipTrigger>
-                <TooltipContent>Holds the choices back until the question has been on screen long enough to have been read. For when you catch yourself answering too early.</TooltipContent>
+                <TooltipContent>{zh ? "题目在屏幕上停够读完的时间，选项才出来。给发现自己答得太早的时候用。" : "Holds the choices back until the question has been on screen long enough to have been read. For when you catch yourself answering too early."}</TooltipContent>
               </Tooltip>
             ) : null}
             <span className="tabular-nums" data-testid="counter">{i + 1} / {total}</span>
           </span>
         </div>
-        <Progress value={(i / total) * 100} className="h-1.5" aria-label="Progress through the set" />
+        <Progress value={(i / total) * 100} className="h-1.5" aria-label={zh ? "这一组的进度" : "Progress through the set"} />
       </div>
       <Card className="gap-5">
         <CardContent className="flex flex-col gap-5">
@@ -684,11 +705,11 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
               broken page instead of an instruction. */}
           {holding ? (
             <p className="text-muted-foreground flex items-center gap-2 text-xs" data-testid="holding">
-              <Eye className="size-3.5" /> Read the {firstOfPassage(items, i) ? "passage and the question" : "whole question"} first — the choices unlock in {Math.ceil(held / 1000)}s
+              <Eye className="size-3.5" /> {zh ? `先把题目读完——${Math.ceil(held / 1000)} 秒后可以选` : `Read the ${firstOfPassage(items, i) ? "passage and the question" : "whole question"} first — the choices unlock in ${Math.ceil(held / 1000)}s`}
             </p>
           ) : null}
           <div className={cn(holding && "pointer-events-none opacity-40 transition-opacity")} aria-hidden={holding ? "true" : undefined}>
-          <RadioGroup value={picks[i] == null ? "" : LTR[picks[i]]} onValueChange={(v) => choose(LTR.indexOf(v))} className="gap-2.5" aria-label="Answer choices">
+          <RadioGroup value={picks[i] == null ? "" : LTR[picks[i]]} onValueChange={(v) => choose(LTR.indexOf(v))} className="gap-2.5" aria-label={zh ? "选项" : "Answer choices"}>
             {it.c.map((c, k) => (
               <Choice
                 key={k}
@@ -727,13 +748,13 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                       key={reactCat.word + (gotIt ? ":y" : ":n")}
                       word={reactCat.word}
                       stage={reactCat.stage}
-                      title={it.sk}
+                      title={zhSet ? zhSkillName(it.sk) : it.sk}
                       arrive
                       className="size-14"
                     />
                   </span>
                 ) : null}
-                <div className={cn("flex items-center gap-2 pt-1 text-sm font-bold", gotIt ? "text-success" : "text-destructive")}>
+                <div className={cn("flex items-center gap-2 pt-1 text-sm font-bold", gotIt ? "text-success" : "text-destructive")} data-testid="verdict">
                   {gotIt
                     ? <><CheckCircle2 className="size-4" /> {gameMode ? "The gate opens." : zh ? "对了" : "Right"}</>
                     : <><XCircle className="size-4" /> {gameMode ? `The gate holds. It wanted “${it.c[LTR.indexOf(keyOf(it))]}”.` : zh ? `答案是 ${keyOf(it)}` : `The answer is ${keyOf(it)}`}</>}
@@ -782,7 +803,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
       </Card>
       <ActionBar>
         <Button variant="outline" onClick={() => step(-1)} disabled={i === 0}><ArrowLeft /> {zh ? "上一题" : "Back"}</Button>
-        <span className="text-muted-foreground hidden flex-1 text-sm sm:block">{picks[i] == null ? "Pick an answer (or press A–D)" : "Press Enter to continue"}</span>
+        <span className="text-muted-foreground hidden flex-1 text-sm sm:block" data-testid="run-hint">{picks[i] == null ? (zh ? "选一个答案（或按 A–D）" : "Pick an answer (or press A–D)") : (zh ? "按回车继续" : "Press Enter to continue")}</span>
         <span className="flex-1 sm:hidden" />
         <Button onClick={() => step(1)} disabled={picks[i] == null} data-testid="next">
           {/* "Finish set" is wrong for a set of one: a single question run from

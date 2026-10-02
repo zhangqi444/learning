@@ -29,6 +29,9 @@ content/                 the source of truth for everything the site teaches
   books.json               reading shelf: starter books + suggested reads
   aops.json                ISEE skill → AoPS chapter map
   catcare.json             what a cat needs, and what helps real cats — every item carries its source
+  chinese/                 the Chinese half (docs/chinese.md): manifest, lessons, homework notes,
+                           exercises, question banks, skills.json, stroke data — every printed
+                           field in both languages (Content rules)
 site/
   make_bundle.py           content/** → site/content/bundle.json (the app's only data input)
   build_seed.py *          (repo root) Sheets → site/content/seed.json, her migrated Week-1 work
@@ -168,7 +171,7 @@ Five suites, all real browsers against the built `dist/`:
 | `test_drive.cjs` | Google stubbed: sign-in once, reload without a prompt, silent reconnect, merge conflicts, a review arriving from Drive and surviving a save |
 | `test_features.cjs` | precision, essay (time log, review import), mocks, calendar, checklist, learning engine, rewards, reading, AoPS pointers, the Den and the Glimbook, the Wordwood, and the cats' voices |
 | `test_artifact.cjs` | the single-file build: no Drive, no external requests, host theme |
-| `test_chinese.cjs` | the Chinese half: the two typed-URL stubs, the category switch and last-used root, a sitting through the shared runner, dictation read aloud and rated, the read-aloud log, and that a Chinese miss leaves the ISEE dashboard untouched |
+| `test_chinese.cjs` | the Chinese half: the two typed-URL stubs, the category switch and last-used root, a sitting through the shared runner, dictation read aloud and rated, the read-aloud log, that a Chinese miss leaves the ISEE dashboard untouched — and, on every kind of Chinese page it visits (the week and its workbook list, the lesson, dictation, the reading, each exercise type, a sitting and its score, the review card, a Chinese review's import page), that the chrome is Chinese in 中 and English in EN with nothing of the other |
 
 Rules: every feature gets checks in the suite it belongs to; a UI change that
 breaks a selector means fixing the test's *assumption*, not deleting the check.
@@ -208,6 +211,28 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
 - Container queries (`@md/main:`) rather than viewport breakpoints inside the shell.
 - Dark mode is a first-class theme, not an inversion. Tokens in `src/index.css`.
 - Numbers use `tabular-nums`. Dates render through `fmtDate`.
+- **The Chinese half is bilingual by construction.** The owner's decision,
+  1 October 2026: it reads as Chinese, because it is a Chinese workbook's site,
+  with English behind the one 中/EN toggle in the header (`src/lib/lang.js`),
+  and a page is never two languages at once. So every string the chrome shows on
+  a `#/chinese/**` route — a title, a subtitle, a button, a badge, an
+  `aria-label`, a placeholder, an empty state, a crumb, the sidebar's working
+  list, the header's own words, the import page when the link carries a Chinese
+  review — is written `t("中文", "English")` or `tf({zh, en})`, inside a
+  component that calls `useLang()` so it re-renders when the toggle is tapped.
+  The material is not chrome: the characters, words, sentences and passages she
+  reads stay Chinese in both modes, and what carries them has an English twin in
+  the content instead (Content rules, below). The shared runner follows the same
+  rule for a Chinese sitting (`zhUi` in `runner.jsx`); the ISEE half never
+  consults the toggle. `test_chinese.cjs` walks every kind of Chinese page in
+  both states and fails on an English word in 中 or a Chinese character in EN
+  (`both()`), so a new page, string or element goes into that walk with its
+  content marked out by test id. Two ways it has gone wrong already: a string
+  that only ever existed in one language — the first audit found dozens in each
+  direction, from `字/分钟` on the reading card to "Every question" on the
+  score screen — and a `t()` evaluated in a parent that never called
+  `useLang()`, which hands the child a title in the language the page was
+  opened in and leaves it there when the chrome around it flips.
 
 ## Content rules
 
@@ -218,6 +243,21 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
   short sentences, concrete examples, no talking down.
 - Question banks are fact-checked before they land. A wrong answer key is worse
   than a missing question.
+- **Chinese content carries both languages, by construction** — the owner's
+  ask, 1 October 2026: "make sure all your content is in 2 languages". Every
+  field a Chinese page prints exists in both: on a bank item `prompt`/`prompt_en`,
+  `explanation`/`explanation_zh`, `why`/`why_zh` keyed alike; on a lesson, an
+  exercise, a task or a block `title`/`title_en`, `what`/`what_en`,
+  `pages`/`pages_en`; a `{zh, en}` object for a rule, a finding, a note, an
+  explanation, a 生字 gloss, a section's `where`; `sections_en` beside a
+  dictation's word list, whose keys are the book's own headings; a name in
+  `content/chinese/skills.json` for every `skill` a bank uses, so a page never
+  prints the id. A label's English twin carries no Chinese and its Chinese side
+  no English word, because a label is chrome once it is on the page and the
+  suite reads it as such; text — a prompt, a gloss, a note — quotes the material
+  and only has to be present and non-blank. `tools/validate_content.py` refuses
+  a missing, blank or mixed twin, and `npm test` runs it first; the twin is
+  written when the field is, the way `why` is.
 
 ## How the learning system is designed
 

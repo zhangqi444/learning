@@ -171,6 +171,64 @@ def why_gap_errors(it):
     if not gaps: return []
     return [f'{it["id"]}: no why for {", ".join(sorted(gaps))} — that choice is never told what it was']
 
+# ---- the Chinese half is in two languages, by construction --------------------
+# The owner's decision, 1 October 2026: the Chinese half reads as Chinese, with
+# English behind one toggle in the header, and a page is never two languages at
+# once — so every field a page prints has to exist in both, or the English page
+# shows Chinese in the middle of a sentence and nothing says so. The first rule
+# here (`why_zh` keyed like `why`) fired only when a twin was present, which
+# left the gap it was written for: an item with no twin at all passed. These
+# rules are unconditional for everything under content/chinese/.
+#
+# Two kinds of field. A LABEL — a title, a section name, a page reference, a
+# skill's name — is chrome once it is on the page, so its English twin may not
+# carry Chinese and its Chinese side may not carry an English word: the page
+# shows one language and the suite asserts it. TEXT — a prompt, a gloss, an
+# explanation, a note — quotes the material, so "口 on the left" is right in
+# English and only has to be present and non-blank.
+CJK=re.compile(r'[㐀-鿿　-〿＀-￯]')
+LATIN_WORD=re.compile(r'[A-Za-z]{2,}')
+ZH_DAYS=['星期一','星期二','星期三','星期四','星期五']   # mirrors ZH_DAYS in site/src/lib/content.js
+_s=lambda v: str(v or '').strip()
+
+def label_script_errors(where, key, zh, en):
+    out=[]
+    if en and CJK.search(en): out.append(f'{where}: {key} English twin carries Chinese ({en!r}) — a label in English mode is English')
+    if zh and LATIN_WORD.search(zh): out.append(f'{where}: {key} Chinese side carries an English word ({zh!r}) — a label in Chinese mode is Chinese')
+    return out
+
+def pair_errors(obj, key, where, label=False):
+    """`key` and `key_en`, both present and non-blank — the shape title/title_en uses."""
+    zh=_s(obj.get(key)); en=_s(obj.get(key+'_en')); out=[]
+    if not zh: out.append(f'{where}: {key} is missing')
+    if not en: out.append(f'{where}: {key}_en is missing — the English page would print Chinese here')
+    return out+(label_script_errors(where, key, zh, en) if label else [])
+
+def both_errors(obj, key, where, label=False, required=True):
+    """`key` as {zh, en}, both non-blank — the shape rule/finding/note/explanation use."""
+    v=obj.get(key)
+    if v is None and not required: return []
+    if not isinstance(v, dict): return [f'{where}: {key} must be {{zh, en}}, not {type(v).__name__}']
+    zh=_s(v.get('zh')); en=_s(v.get('en')); out=[]
+    if not zh: out.append(f'{where}: {key}.zh is missing')
+    if not en: out.append(f'{where}: {key}.en is missing — the English page would print Chinese here')
+    return out+(label_script_errors(where, key, zh, en) if label else [])
+
+ZH_SKILLS_FILE='content/chinese/skills.json'
+ZH_SKILLS=json.load(open(ZH_SKILLS_FILE)).get('skills',{}) if os.path.exists(ZH_SKILLS_FILE) else {}
+def zh_item_errors(it):
+    """A Chinese bank item: the prompt's English, the explanation's Chinese, a `why_zh`
+    for every `why`, and a skill the page can name in either language."""
+    if not str(it.get('subject') or '').startswith('zh-'): return []
+    i=it['id']; out=[]
+    if not _s(it.get('prompt_en')): out.append(f'{i}: no prompt_en — the English page would ask the question in Chinese')
+    if not _s(it.get('explanation_zh')): out.append(f'{i}: no explanation_zh — a miss would be explained in English on the Chinese page')
+    if it.get('why_zh') is None and it.get('why'): out.append(f'{i}: why without why_zh — a wrong choice is told what it was in one language only')
+    sk=it.get('skill')
+    if sk and sk not in ZH_SKILLS: out.append(f'{i}: skill {sk!r} has no name in {ZH_SKILLS_FILE} — the page would print the id')
+    return out
+for _sk,_v in ZH_SKILLS.items(): errs+=both_errors({'name':_v}, 'name', f'{ZH_SKILLS_FILE} {_sk}', label=True)
+
 # ---- prose may not name a choice by its letter -------------------------------
 # See tools/letters.py for the forms and why each one is there.
 from letters import letter_errors, self_test
@@ -226,6 +284,7 @@ for f in bank_files():
         errs += letter_errors(it)
         errs += why_gap_errors(it)
         errs += why_zh_errors(it)
+        errs += zh_item_errors(it)
         errs += trap_errors(it, passage_text)
         errs += spelling_errors(it)
 
@@ -239,6 +298,13 @@ for f in bank_files():
 EXDIR='content/chinese/exercises'
 def ex_errors(ex):
     out=[]; i=ex.get('id','?'); t=ex.get('type')
+    # The heading, the weekday and the note are what the workbook card and the
+    # exercise page print around the items; each in both languages, the heading
+    # in one script per side (the book itself prints English under each heading).
+    out+=pair_errors(ex, 'title', i, label=True)
+    if ex.get('day') not in ZH_DAYS: out.append(f'{i}: day {ex.get("day")!r} is not one of {ZH_DAYS}')
+    out+=both_errors(ex, 'note', i, required=False)
+    if ex.get('fills'): out+=both_errors(ex['fills'], 'given', i, required=False)
     def need_expl(it):
         e=it.get('explanation')
         if not isinstance(e,dict) or not str(e.get('zh') or '').strip() or not str(e.get('en') or '').strip(): out.append(f"{it.get('id',i)}: a miss here would teach nothing — explanation needs zh and en")
@@ -301,10 +367,28 @@ if os.path.isdir(HWDIR):
     for f in sorted(os.listdir(HWDIR)):
         if not f.endswith('.json'): continue
         for t in json.load(open(f'{HWDIR}/{f}')).get('tasks',[]):
+            # What the task card prints: its heading line and where in the book
+            # it is, each in both languages; the rule under the dictation and the
+            # reading, the finding under the workbook, as {zh, en}.
+            w=f'{f} {t.get("kind","?")}'
+            errs+=pair_errors(t, 'what', w, label=True)
+            errs+=pair_errors(t, 'pages', w, label=True)
+            if t.get('kind') in ('read_aloud','dictation'): errs+=both_errors(t, 'rule', w)
+            if t.get('kind')=='workbook':
+                errs+=both_errors(t, 'finding', w)
+                for e in t.get('on_paper',[]) or []: errs+=pair_errors(e, 'what', f'{w} on_paper')
+            if t.get('kind')=='dictation':
+                # The section headings over the word list: the key is the book's
+                # own heading, so the English twin sits in a map beside the list.
+                sec_en=t.get('sections_en') or {}
+                for sec in (t.get('words') or {}):
+                    errs+=pair_errors({'title':sec,'title_en':sec_en.get(sec)}, 'title', f'{w} section {sec!r}', label=True)
             used=[]
             for b in t.get('blocks',[]) or []:
                 for k in ('id','day','page','ex','title','title_en','items'):
                     if not b.get(k): errs.append(f"{f}: block {b.get('id','?')} missing {k}")
+                errs+=pair_errors(b, 'title', f"{f} block {b.get('id','?')}", label=True)
+                if b.get('day') not in ZH_DAYS: errs.append(f"{f}: block {b.get('id','?')} day {b.get('day')!r} is not one of {ZH_DAYS}")
                 for i in b.get('items',[]):
                     if i not in _zh_ids: errs.append(f"{f}: block {b.get('id')} names {i}, which is not in a Chinese bank")
                     if i in used: errs.append(f"{f}: {i} is in two blocks")
@@ -324,6 +408,25 @@ if os.path.isdir(EXDIR):
         d=json.load(open(f'{EXDIR}/{f}'))
         for ex in d.get('exercises',[]):
             total+=1; errs+=ex_errors(ex)
+# The lesson page: its title, where each section is in the book, a gloss on
+# every 生字 and the reading's title — every one of them printed, so every one
+# of them in both languages. The section `where` is a label (it is the card's
+# subtitle); a gloss is text.
+LESSONDIR='content/chinese/lessons'
+if os.path.isdir(LESSONDIR):
+    for f in sorted(os.listdir(LESSONDIR)):
+        if not f.endswith('.json'): continue
+        l=json.load(open(f'{LESSONDIR}/{f}')); w=f'{LESSONDIR}/{f}'
+        errs+=pair_errors(l, 'title', w, label=True)
+        for sec in ('课文','生字','词语','句子','句型','读一读','用一用','阅读'):
+            if isinstance(l.get(sec), dict) and 'where' in l[sec]: errs+=both_errors(l[sec], 'where', f'{w} {sec}', label=True)
+        for z in (l.get('生字') or {}).get('items',[]): errs+=both_errors(z, 'gloss', f'{w} 生字 {z.get("zi","?")}')
+        if isinstance(l.get('阅读'), dict) and l['阅读'].get('title'): errs+=pair_errors(l['阅读'], 'title', f'{w} 阅读', label=True)
+# The manifest's two lines on the home card.
+MANIFEST='content/chinese/manifest.json'
+if os.path.exists(MANIFEST):
+    m=json.load(open(MANIFEST))
+    for k in ('volume','edition'): errs+=pair_errors(m, k, MANIFEST, label=True)
 
 # answer-position sanity per bank/form
 for f in bank_files():

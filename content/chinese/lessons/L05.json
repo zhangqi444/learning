@@ -11,12 +11,18 @@
   "阅读": "55–56"
  },
  "课文": {
-  "where": "教材 printed 48–49",
+  "where": {
+   "zh": "课本第48–49页",
+   "en": "Textbook pp. 48–49"
+  },
   "text": null,
   "note": "Fully pinyin-annotated in the book. The text is deliberately not reproduced: docs/chinese.md § 8 holds that a 课文 is copyrighted text from a textbook in print and that no lesson text is committed until the owner decides where it may live."
  },
  "生字": {
-  "where": "教材 printed p.50",
+  "where": {
+   "zh": "课本第50页",
+   "en": "Textbook p. 50"
+  },
   "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book",
   "items": [
    {
@@ -112,7 +118,10 @@
   ]
  },
  "词语": {
-  "where": "教材 printed p.50",
+  "where": {
+   "zh": "课本第50页",
+   "en": "Textbook p. 50"
+  },
   "items": [
    {
     "w": "伯伯",
@@ -145,12 +154,18 @@
   ]
  },
  "句子": {
-  "where": "教材 printed p.50",
+  "where": {
+   "zh": "课本第50页",
+   "en": "Textbook p. 50"
+  },
   "zh": "河水是深还是浅，最好你自己去试试。",
   "py": "hé shuǐ shì shēn hái shi qiǎn, zuì hǎo nǐ zì jǐ qù shì shi."
  },
  "句型": {
-  "where": "教材 printed p.52 扩展与替换",
+  "where": {
+   "zh": "课本第52页 扩展与替换",
+   "en": "Textbook p. 52, Expand and substitute"
+  },
   "pattern": "是……还是……",
   "ladder": [
    "是深还是浅",
@@ -159,7 +174,10 @@
   ]
  },
  "读一读": {
-  "where": "教材 printed 51–52",
+  "where": {
+   "zh": "课本第51–52页",
+   "en": "Textbook pp. 51–52"
+  },
   "rows": [
    [
     "喝水",
@@ -205,7 +223,10 @@
   "page_break": "the first five rows are on p.51, the last two on p.52"
  },
  "用一用": {
-  "where": "教材 printed p.52",
+  "where": {
+   "zh": "课本第52页",
+   "en": "Textbook p. 52"
+  },
   "rows": [
    [
     "很突然",
@@ -237,7 +258,10 @@
   ]
  },
  "阅读": {
-  "where": "教材 printed 55–56",
+  "where": {
+   "zh": "课本第55–56页",
+   "en": "Textbook pp. 55–56"
+  },
   "title": "谦虚过度",
   "title_en": "Excessive Modesty",
   "sidebar": [

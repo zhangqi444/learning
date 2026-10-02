@@ -13,7 +13,7 @@ const TITLE = { essay: "What a reader noticed", mock: "What a reader noticed", w
 /* The card's own words. English by default — the ISEE pages pass nothing — and
  * the Chinese home passes its own, so a review on a Chinese page reads in the
  * page's language, the way the runner's chrome does. */
-const DEFAULT_LABELS = { readFrom: "Read from", words: "words", fresh: "New", worked: "What worked", tryThis: "Try this", next: "For next week:", checklist: "On the checklist", open: "Open" }
+const DEFAULT_LABELS = { readFrom: "Read from", words: "words", fresh: "New", worked: "What worked", tryThis: "Try this", next: "For next week:", checklist: "On the checklist", open: "Open", locale: undefined, stale: (d) => `This review is of the draft from ${d}; the work here has changed since.` }
 
 /** One review — of an essay, or of a whole week or month — written to her. `changedAt`
  *  is when the work last changed, so a review of an older draft says so. */
@@ -27,7 +27,7 @@ export function ReviewCard({ r, changedAt, labels }) {
   return (
     <Card className="border-primary/30 gap-4" data-testid="essay-review" data-id={r.id}>
       <CardHeader>
-        <CardDescription className="flex items-center gap-2"><MessageSquareText className="size-4" /> {reviewTargetLabel(r)} · {r.reviewer} · {fmtDate(r.at)}</CardDescription>
+        <CardDescription className="flex items-center gap-2"><MessageSquareText className="size-4" /> {reviewTargetLabel(r)} · {r.reviewer} · {fmtDate(r.at, L.locale)}</CardDescription>
         <CardTitle className="text-lg">{L.title || TITLE[r.target.kind] || "What a reader noticed"}</CardTitle>
         {r.source ? <CardDescription>{L.readFrom} {r.source}{r.words ? ` · ${r.words} ${L.words}` : ""}</CardDescription> : r.words ? <CardDescription>{r.words} {L.words}</CardDescription> : null}
         {fresh ? <CardAction><Badge>{L.fresh}</Badge></CardAction> : null}
@@ -73,7 +73,7 @@ export function ReviewCard({ r, changedAt, labels }) {
             })}
           </div>
         ) : null}
-        {stale ? <p className="text-muted-foreground text-xs">This review is of the draft from {fmtDate(r.draftAt)}; the work here has changed since.</p> : null}
+        {stale ? <p className="text-muted-foreground text-xs">{L.stale(fmtDate(r.draftAt, L.locale))}</p> : null}
       </CardContent>
     </Card>
   )

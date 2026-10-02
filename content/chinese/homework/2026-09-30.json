@@ -12,16 +12,19 @@
    "line": "课本55到56页，读熟练。",
    "kind": "read_aloud",
    "what": "阅读《谦虚过度》",
+   "what_en": "Reading: Excessive Modesty",
    "rule": {
     "zh": "录下朗读。识别和对照在批改时看，朗读时不显示。",
     "en": "The reading is recorded. The transcript and the comparison are for the evaluation; nothing is shown while she reads."
    },
-   "pages": "教材 p.55–56"
+   "pages": "课本第55–56页",
+   "pages_en": "Textbook pp. 55–56"
   },
   {
    "line": "完成五课一练习册星期一到星期四的练习题。",
    "kind": "workbook",
    "what": "练习册A 第五课，星期一到星期四",
+   "what_en": "Workbook A, Lesson 5, Monday to Thursday",
    "banks": [
     "zh-char",
     "zh-word"
@@ -39,7 +42,8 @@
      "why_omitted": "Five strokes is certain; the radical is not. The PRC 《汉字部首表》 files 正 under 止, which the workbook does not offer, and textbooks split between 一 and 正. A wrong answer key is worse than a missing question. Ask her teacher, then add it. The parallel question about 突 is in zh-char and is safe: the textbook prints 穴 → 突 on p.50."
     }
    ],
-   "pages": "练习册A printed 30–39",
+   "pages": "练习册A 第30–39页",
+   "pages_en": "Workbook A, pp. 30–39",
    "exercises": "content/chinese/exercises/L05.json",
    "blocks": [
     {
@@ -103,10 +107,11 @@
    "line": "听写：课本52页的词语。",
    "kind": "dictation",
    "what": "课本 p.52 的词语",
+   "what_en": "The words on textbook p. 52",
    "scope_note": "The note says 词语 and names p.52. The section headed 词语 is on p.50; p.52 carries the last two rows of 读一读 and the whole of 用一用. The owner read the note literally — the words on p.52 — so both sections are listed here, labelled, and the parent may trim to the 读一读 rows if that is what the teacher dictates. The first draft of this file recorded the ten 生字 from p.50 instead; that matched neither the note's word nor its page and was withdrawn.",
    "rule": {
     "zh": "先听，再用笔在格子里写——点\"写好了\"会显示标准写法，按笔顺判；也可以在纸上写，显示对照，自己或家长打分。",
-    "en": "Listen, then write it with the Pencil in the box — the standard form appears when you tap 写好了 and the strokes are judged by rule; or write it on paper, show it, and rate it yourself or with a parent."
+    "en": "Listen, then write it with the Pencil in the box — the standard form appears when you tap Done and the strokes are judged by rule; or write it on paper, show it, and rate it yourself or with a parent."
    },
    "words": {
     "读一读（第52页）": [
@@ -137,7 +142,12 @@
      "那样深"
     ]
    },
-   "pages": "教材 p.52"
+   "sections_en": {
+    "读一读（第52页）": "Read aloud (p. 52)",
+    "用一用（第52页）": "Use it (p. 52)"
+   },
+   "pages": "课本第52页",
+   "pages_en": "Textbook p. 52"
   }
  ]
 }

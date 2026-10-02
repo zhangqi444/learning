@@ -6,7 +6,9 @@
  * category switch and the last-used root, one real sitting through the shared
  * runner, the dictation list read aloud and rated, the read-aloud log, and the
  * guarantee the whole design hangs on — a Chinese miss changes nothing on the
- * ISEE dashboard. */
+ * ISEE dashboard. And, on every kind of Chinese page it visits, that the
+ * chrome is in one language at a time: Chinese by default, English once the
+ * header's toggle is tapped (`both`, below). */
 const { chromium } = require('playwright');
 const { stubGoogle, signIn } = require('./test_google.cjs');
 const http = require('http'), fs = require('fs'), path = require('path');
@@ -62,6 +64,58 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   const titleOf = (sel) => pg.evaluate((s) => { const h = document.querySelector(s); const t = h && h.querySelector('[data-slot=card-title]'); return t ? t.textContent.trim() : ''; }, sel);
   const before = await titleOf('[data-testid=today]');
 
+  // -- both languages, on every kind of page. The Chinese half is bilingual by
+  // construction (AGENTS.md § UI conventions): Chinese by default, English
+  // behind the header's toggle, never both at once. Each `both` below reads the
+  // chrome it names with the page in 中 and asserts there is no English word in
+  // it, flips the toggle, asserts there is no Chinese in it, and flips back.
+  // What is read is chrome — titles, subtitles, buttons, badges, the trail, the
+  // sidebar's working list — and never the material: the characters, words,
+  // sentences and passages she reads are Chinese in both modes, and every
+  // element that carries them is left out by test id. Names stay names in
+  // either language (Drive, Google, ISEE, Sheila), as the toggle itself says 中
+  // and EN; the signed-in account's own name and address are not chrome either.
+  const SKIP = ['lang-toggle', 'english-toggle', 'english', 'badges-won', 'set-came', 'hear-glim', 'glim', 'essay-review', 'zh-speak', 'zh-piece', 'zh-option', 'zh-left', 'zh-right', 'zh-fill-option', 'zh-sort-item', 'zh-order-answer', 'zh-tell-question', 'zh-pattern', 'zh-compare', 'zh-marked', 'zh-transcript', 'zh-tell-transcript', 'zh-passage', 'zh-home-passage', 'zh-rd-text', 'choice', 'question']
+    .map((x) => `[data-testid=${x}]`).concat(['[data-sidebar=trigger]', '[data-sidebar=rail]']).join(', ');
+  // Two accessible names come from @zhangqi444/ui and are not this repo's to
+  // change: the sidebar trigger's "Toggle Sidebar" (skipped above, with the
+  // rail) and the trail's landmark, <nav aria-label="breadcrumb">. The crumbs
+  // inside that nav ARE this repo's, so only the landmark's own attributes are
+  // passed over, never its contents.
+  const PKG_ATTRS = '[data-slot=breadcrumb]';
+  const chromeText = (sels) => pg.evaluate(([sels, SKIP, PKG_ATTRS]) => {
+    const out = [];
+    const attrs = (el) => { if (el.matches(PKG_ATTRS)) return; for (const a of ['aria-label', 'title', 'placeholder']) { const v = el.getAttribute(a); if (v) out.push(v); } };
+    for (const s of sels) for (const el of document.querySelectorAll(s)) {
+      if (el.closest(SKIP)) continue;
+      const c = el.cloneNode(true); for (const x of c.querySelectorAll(SKIP)) x.remove();
+      out.push(c.textContent || ''); attrs(el); for (const d of c.querySelectorAll('[aria-label], [title], [placeholder]')) attrs(d);
+    }
+    return out.join(' | ').replace(/\s+/g, ' ');
+  }, [sels, SKIP, PKG_ATTRS]);
+  const CJK = /[㐀-鿿　-〿＀-￯]/, LATIN = /[A-Za-z]{2,}/, NAMES = /Drive|Google|ISEE|Sheila|Claude|Qi Zhang|qi@example\.com/g;
+  const around = (s, re) => { const m = re.exec(s); return m ? '…' + s.slice(Math.max(0, m.index - 30), m.index + 30) + '…' : ''; };
+  // on every page: the header (trail, Drive chip, the sound and theme buttons),
+  // the sidebar's head (the brand, the category switch) and its working list
+  const CHROME = ['header', '[data-slot=sidebar] [data-sidebar=header]', '[data-slot=sidebar] [data-sidebar=group]:first-of-type'];
+  const both = async (name, sels) => {
+    const all = [...CHROME, ...sels];
+    const zh = (await chromeText(all)).replace(NAMES, '');
+    check(`${name}: in 中, the chrome is Chinese and carries no English word`, CJK.test(zh) && !LATIN.test(zh), around(zh, LATIN) || zh.slice(0, 80));
+    await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(120);
+    const en = await chromeText(all);
+    check(`${name}: in EN, the same chrome is English and carries no Chinese`, LATIN.test(en) && !CJK.test(en), around(en, CJK) || en.slice(0, 80));
+    await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(120);
+  };
+  const HOME = ['[data-testid=zh-home] [data-slot=card-title]', '[data-testid=zh-home] [data-slot=card-description]', '[data-testid=zh-home] button', '[data-testid=zh-home] [data-slot=badge]', '[data-testid=zh-day]', '[data-testid=zh-review-due]', '[data-testid=zh-exercise]', '[data-testid=zh-sitting]', '[data-testid=zh-passage-setup]'];
+  const LESSON = ['[data-testid=zh-lesson] [data-slot=card-title]', '[data-testid=zh-lesson] [data-slot=card-description]', '[data-testid=zh-lesson] button'];
+  const RUN = ['[data-testid=run-title]', '[data-testid=counter]', '[data-testid=instant-toggle]', '[data-testid=careful-toggle]', '[data-testid=next]', '[data-testid=run-hint]', '[data-testid=verdict]', '[data-testid=cause-tags]', 'main [role=progressbar]'];
+  const SCORE = ['[data-testid=score]', 'main h2', 'main [data-slot=badge]', '[data-testid=cause-tags]', 'main button'];
+  const DICT = ['[data-testid=zh-dictation] [data-slot=card-title]', '[data-testid=zh-dictation] [data-slot=card-description]', '[data-testid=zh-dictation] button', '[data-testid=zh-dictation] [data-slot=badge]'];
+  const READ = ['[data-testid=zh-read-page] [data-slot=card-title]', '[data-testid=zh-read-page] [data-slot=card-description]', '[data-testid=zh-read-page] button', '[data-testid=zh-parent]'];
+  const EX = ['[data-testid=zh-ex] [data-slot=card-title]', '[data-testid=zh-ex] [data-slot=card-description]', '[data-testid=zh-ex] button', '[data-testid=zh-ex] [data-slot=badge]'];
+  const IMPORT = ['main [data-slot=card-title]', 'main [data-slot=card-description]', 'main button'];
+
   // -- the switch and the two roots
   check('the sidebar has the category switch', !!(await pg.$('[data-testid=category-switch]')));
   await pg.click('[data-testid=cat-chinese]'); await pg.waitForSelector('[data-testid=zh-home]');
@@ -86,6 +140,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.evaluate(() => { location.hash = '#/chinese/l/L05'; }); await pg.waitForSelector('[data-testid=zh-lesson]');
   check('the ten 生字 are on the lesson page', (await pg.$$('[data-testid=zh-char]')).length === 10);
   check('and the seven 词语', (await pg.$$('[data-testid=zh-word]')).length === 7);
+  await both('the lesson page', LESSON);
   await pg.click('[data-testid=zh-char] [data-testid=zh-speak]');
   const spoken = await pg.evaluate(() => window.__spoken);
   check('tapping the speaker says the character in zh-CN', spoken.length === 1 && spoken[0].text === '喝' && spoken[0].lang === 'zh-CN', JSON.stringify(spoken));
@@ -110,8 +165,12 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('and the prompt flipped with it', /Fill the blank/.test(await pg.textContent('[data-testid=question]')));
   check('and so did the runner\'s own chrome', /The answer is/.test(await pg.textContent('main')) && /Next/.test(await pg.textContent('[data-testid=next]')));
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
+  check('a Chinese sitting has no pacing switch either: there is no timer for it to turn on', !(await pg.$('[data-testid=pacing-toggle]')));
+  await both('a sitting, with an answer revealed', RUN);
   for (let i = 0; i < 15 && !(await pg.$('[data-testid=score]')); i++) { await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]'); await pg.waitForTimeout(120); }
   await pg.waitForSelector('[data-testid=score]');
+  await both('the score screen', SCORE);
+  check('the score screen of a Chinese sitting names no test budget and offers no ISEE "try another"', !(await pg.$('[data-testid=pace-summary]')) && !(await pg.$('[data-testid=try-another]')));
   let st = await ls(pg);
   check('the sitting is a result keyed by its weekday block', !!(st.results || {})['zh-block:L05-D2:0'], Object.keys(st.results || {}).join(','));
   check('its questions have learning records under zc: ids', Object.keys(st.items || {}).some((k) => k.startsWith('zc:')));
@@ -128,6 +187,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
 
   // -- dictation: shown, then rated
   await pg.evaluate(() => { location.hash = '#/chinese/dictation/2026-09-30'; }); await pg.waitForSelector('[data-testid=zh-dictation]');
+  await both('the dictation page', DICT);
   const rows = await pg.$$('[data-testid=zh-dict-row]');
   check('the dictation lists the words on p.52 by section', rows.length === 23, String(rows.length));
   check('a word is hidden until shown', !(await pg.$('[data-testid=zh-dict-row] [data-testid=zh-ok]')));
@@ -149,6 +209,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('the header toggle turns the whole page English', (await title('[data-testid=zh-read]')) === 'Reading' && (await title('[data-testid=zh-dictation-card]')) === 'Dictation' && /This week/.test(await pg.textContent('[data-slot=sidebar]')));
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
   check('and back', (await title('[data-testid=zh-read]')) === '阅读');
+  await both('the week: its three cards, the workbook list, the passage box', HOME);
   // The 句子 and two 用一用 phrases, which the repo already holds — not the 课文. Pasted on the home card.
   const passage = '河水是深还是浅，最好你自己去试试。突然停电了，只好请别人帮忙。';
   await pg.fill('[data-testid=zh-read] [data-testid=zh-passage-text]', passage); await pg.click('[data-testid=zh-read] [data-testid=zh-passage-save]');
@@ -164,6 +225,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.click('[data-testid=zh-play-again]'); await pg.waitForSelector('[data-testid=zh-play-again-audio]');
   check('and pressing it brings the player, with her recording in it', /^blob:/.test(await pg.getAttribute('[data-testid=zh-play-again-audio]', 'src')));
   await pg.click('[data-testid=zh-parent-toggle]'); await pg.waitForSelector('[data-testid=zh-parent]');
+  await both('her reading, recorded, with the parent view open', READ);
   const misses = await pg.$$eval('[data-testid=zh-marked] [data-hit="0"]', (n) => n.map((x) => x.textContent).join(''));
   check('the parent view marks the characters the recogniser did not hear, and only those', misses === '停电了', misses);
   check('and highlighted amber, not red', !(await pg.$('[data-testid=zh-marked] .text-destructive')) && !!(await pg.$('[data-testid=zh-marked] .bg-warning-soft')));
@@ -178,6 +240,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('the dictation card counts the rating', (await pg.textContent('[data-testid=zh-rated-count]')) === '1');
   // -- the workbook's closed exercises, marked by rule
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D3-04'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  await both('判断正误 (true/false)', EX);
   check('the check button waits for every statement', await pg.isDisabled('[data-testid=zh-ex-submit]'));
   for (const [i, v] of [[0, 't'], [1, 't'], [2, 'f'], [3, 'f'], [4, 'f']]) await pg.click(`[data-testid=zh-tf-${i}] [data-testid=zh-tf-${v}]`);
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
@@ -187,6 +250,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('the exercise is kept in the zh slice with her answers', exrec.right === 5 && exrec.n === 5 && exrec.answers && exrec.answers['zx:L05-D3-04-3'] === false, JSON.stringify(exrec).slice(0, 80));
   check('each statement has a learning record under zx:, unscheduled', Object.keys(st.items).filter((k) => k.startsWith('zx:L05-D3-04')).length === 5 && !Object.keys(st.items).filter((k) => k.startsWith('zx:')).some((k) => st.items[k].due));
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D3-03'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  await both('连词成句 (order)', EX);
   const tap = async (item, text) => pg.click(`[data-testid=zh-order-${item}] [data-testid=zh-piece]:has-text("${text}")`);
   for (const w of ['老牛', '一定会', '觉得', '河水很浅']) await tap(0, w);
   for (const w of ['我', '一定会', '努力学习', '中文']) await tap(1, w);
@@ -196,14 +260,17 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('连词成句 marks three right and one wrong', /3 \/ 4/.test(await pg.textContent('[data-testid=zh-ex-result]')));
   check('and the wrong one is told the right order, in Chinese', /妹妹一定会喜欢爸爸买的玩具/.test(await pg.textContent('[data-testid=zh-ex-miss]')));
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-02'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  await both('找朋友 (match)', EX);
   for (const [l, r] of [['亻', '白'], ['氵', '罙'], ['木', '公'], ['口', '曷'], ['穴', '犬'], ['宀', '疋']]) { await pg.click(`[data-testid=zh-left]:has-text("${l}")`); await pg.click(`[data-testid=zh-right]:has-text("${r}")`); }
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
   check('找朋友 pairs the parts into the six 生字', /6 \/ 6/.test(await pg.textContent('[data-testid=zh-ex-result]')));
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D4-03'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  await both('补全对话 (slots)', EX);
   for (const [i, k] of [[0, 2], [1, 1], [2, 0]]) await pg.click(`[data-testid=zh-slot-${i}] [data-testid=zh-option] >> nth=${k}`);
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
   check('补全对话 gives each speaker their line', /3 \/ 3/.test(await pg.textContent('[data-testid=zh-ex-result]')));
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-01s'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  await both('结构 (sort)', EX);
   const taps = [1, 1, 1, 2, 1, 2];   // 喝 伯 深 → 左右 (one tap), 突 定 → 上下 (two)
   for (let i = 0; i < taps.length; i++) for (let k = 0; k < taps[i]; k++) await pg.click(`[data-testid=zh-sort-item] >> nth=${i}`);
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
@@ -233,6 +300,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     if (done) await pg.click(`${sel} >> [data-testid=zh-hanzi-done]`);
   };
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-01w'; }); await pg.waitForSelector('[data-testid=zh-hanzi] svg');
+  await both('写一写 (handwriting)', EX);
   check('写一写 shows six boxes, one per character, none done', (await pg.$$('[data-testid=zh-hanzi][data-done="0"]')).length === 6);
   check('and no shadow of the character before she writes', (await pg.$$eval('[data-testid=zh-reference]', (n) => n.map((x) => getComputedStyle(x).opacity))).every((o) => +o === 0));
   check('but a 米字格 to write into', (await pg.$$('[data-testid=zh-hanzi] svg line')).length === 24);
@@ -264,6 +332,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('and the row says so', /笔/.test(await pg.textContent('[data-testid=zh-dict-row][data-word="田鼠"]')));
   // -- free writing: kept as a PNG and as strokes in her Drive, awaiting review
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-03'; }); await pg.waitForSelector('[data-testid=zh-ink]');
+  await both('组词 (free writing)', EX);
   check('free writing cannot be handed in blank', await pg.isDisabled('[data-testid=zh-free-submit]'));
   const ink = await pg.$('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-ink]'); const ib = await ink.boundingBox();
   for (const [a, b] of [[0.2, 0.3], [0.5, 0.6]]) { await pg.mouse.move(ib.x + ib.width * a, ib.y + ib.height * b); await pg.mouse.down(); await pg.mouse.move(ib.x + ib.width * (a + 0.2), ib.y + ib.height * (b + 0.1), { steps: 5 }); await pg.mouse.up(); }
@@ -275,6 +344,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('the page went to Drive as a PNG and as strokes, two files', /^media\d+$/.test(f1.png || '') && /^media\d+$/.test(f1.strokes || '') && f1.n === 2, JSON.stringify(f1));
   // -- the retell: recorded, transcribed, signed by a parent's tap
   await pg.evaluate(() => { window.__asr = '小马过河告诉我们，别人说的不一定对，要自己试一试。'; location.hash = '#/chinese/ex/2026-09-30/zx:L05-D4-04'; }); await pg.waitForSelector('[data-testid=zh-tell-start]');
+  await both('the retell (speak)', EX);
   check('the signature waits for the story', await pg.isDisabled('[data-testid=zh-tell-sign]'));
   await pg.click('[data-testid=zh-tell-start]'); await pg.waitForSelector('[data-testid=zh-tell-stop]'); await pg.waitForTimeout(250);
   check('nothing of the recogniser shows while she tells it', !(await pg.$('[data-testid=zh-tell-transcript]')) && !!(await pg.$('[data-testid=zh-tell-recording]')));
@@ -292,6 +362,10 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     items: [{ id: 'zx:L05-D1-03-2', ok: false, note: '第三个词可以写「正当」。' }, { id: 'tell', ok: true, note: '故事讲完整了。' }, { id: 'read', ok: false, note: '「停电了」三个字读得不清楚，再读一遍。' }, { id: 'zx:nope', ok: true, note: 'kept as written: the site shows what the reviewer said' }] };
   const payload = Buffer.from(JSON.stringify(review), 'utf8').toString('base64url');
   await pg.evaluate((h) => { location.hash = h; }, '#/import/' + payload); await pg.waitForSelector('[data-testid=import-add]');
+  // An import link of Chinese reviews is a Chinese page: the toggle is in its
+  // header, its trail starts at 中文, and its words follow the toggle.
+  check('the import page of a Chinese review has the language toggle and a 中文 trail', !!(await pg.$('[data-testid=lang-toggle]')) && /中文/.test(await pg.textContent('header')) && /添加批改/.test(await pg.textContent('header')), await pg.textContent('header'));
+  await both('the import page, a Chinese review in the link', IMPORT);
   await pg.click('[data-testid=import-add]'); await pg.waitForTimeout(300);
   st = await ls(pg);
   const got = Object.values(st.reviews || {}).find((r) => r.target && r.target.kind === 'zh');
@@ -302,6 +376,12 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
   check('the review card shows under the week\'s tasks', /这一周的作业做得很认真/.test(await pg.textContent('[data-testid=zh-home]')));
   check('and its chrome is in the page\'s language', /批改/.test(await pg.textContent('[data-testid=essay-review]')) && !/What a reader noticed|Try this|For next week/.test(await pg.textContent('[data-testid=essay-review]')));
+  // The card's own words are chrome; what the reviewer wrote is not, so this is
+  // a check on its labels and on the week it names, not a script test.
+  await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(120);
+  const rcEn = await pg.textContent('[data-testid=essay-review]');
+  check('flipped to English, the review card\'s labels and the week it names follow', /What a reader noticed/.test(rcEn) && /What worked/.test(rcEn) && /Try this/.test(rcEn) && /For next week:/.test(rcEn) && /Chinese · 2026-09-30/.test(rcEn) && !/批改|做得好|试试这样|下周：|中文 · /.test(rcEn), rcEn.slice(0, 80));
+  await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(120);
   check('and the free exercise it spoke to reads reviewed, not awaiting', /已批改/.test(await pg.textContent('[data-testid=zh-workbook]')));
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-03'; }); await pg.waitForSelector('[data-testid=zh-ex]');
   check('the note sits beside the item it is about', /可以写「正当」/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=1')) && !/正当/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=0')));
@@ -309,6 +389,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('and the retell has its note, and now shows its transcript', /故事讲完整了/.test(await pg.textContent('[data-testid=zh-ex]')) && /自己试一试/.test(await pg.textContent('[data-testid=zh-tell-transcript]')));
   // -- the workbook's 读一读: read aloud and aligned, never scored
   await pg.evaluate(() => { window.__asr = '喝水喝茶喝牛奶喝汽水喝咖啡正在正想正好正在写正在做'; location.hash = '#/chinese/ex/2026-09-30/zx:L05-D3-01'; }); await pg.waitForSelector('[data-testid=zh-rd-start]');
+  await both('读一读 (read aloud)', EX);
   await pg.click('[data-testid=zh-rd-start]'); await pg.waitForSelector('[data-testid=zh-rd-stop]'); await pg.waitForTimeout(250); await pg.click('[data-testid=zh-rd-stop]'); await pg.waitForSelector('[data-testid=zh-rd-done]');
   check('读一读 shows her nothing but that it is recorded', !(await pg.$('[data-testid=zh-marked]')));
   await pg.click('[data-testid=zh-rd-parent]'); await pg.waitForSelector('[data-testid=zh-marked]');
