@@ -695,8 +695,8 @@ function ReadWidget({ ex, set, exId }) {
     <div className="flex flex-col gap-3">
       <Card>
         <CardHeader>
-          <CardTitle>{t("读一读", "Read aloud")}</CardTitle>
-          <CardDescription>{st.read && !res ? t(`上次读了 ${Math.round(st.read.ms / 1000)} 秒`, `last read in ${Math.round(st.read.ms / 1000)} s`) : t("读出来，不打分。", "Read it aloud; it is not scored.")}</CardDescription>
+          <CardTitle>{t("朗读", "Read it aloud")}</CardTitle>
+          <CardDescription>{st.read && !res ? t(`上次读了 ${Math.round(st.read.ms / 1000)} 秒`, `last read in ${Math.round(st.read.ms / 1000)} s`) : t("不打分。", "Not scored.")}</CardDescription>
           <CardAction>
             {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-rd-stop"><Square /> {t("停止", "Stop")}</Button>
               : mode === "saving" ? <Button size="sm" disabled>{t("保存中…", "Saving…")}</Button>
