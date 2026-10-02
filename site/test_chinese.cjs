@@ -225,6 +225,14 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
   check('and back', (await title('[data-testid=zh-read]')) === '阅读');
   await both('the week: its three cards, the workbook list, the passage box', HOME);
+  // The workbook list is a section per weekday: the first day with work left is
+  // open (Monday — only Tuesday's block has been sat so far), the rest closed,
+  // and a tap on a day's heading opens or closes it.
+  check('the workbook is a section per weekday, the first with work left open and the rest closed', (await pg.$$('[data-testid=zh-day-section]')).length === 4 && (await pg.$$eval('[data-testid=zh-day-section]', (n) => n.map((x) => x.dataset.open).join(''))) === '1000', await pg.$$eval('[data-testid=zh-day-section]', (n) => n.map((x) => x.dataset.day + ':' + x.dataset.open).join(' ')));
+  await pg.click('[data-testid=zh-day-section][data-day="星期二"] [data-testid=zh-day]'); await pg.waitForTimeout(80);
+  check('and a tap on a day opens it', (await pg.getAttribute('[data-testid=zh-day-section][data-day="星期二"]', 'data-open')) === '1');
+  await pg.click('[data-testid=zh-day-section][data-day="星期二"] [data-testid=zh-day]'); await pg.waitForTimeout(80);
+  check('and closes it again', (await pg.getAttribute('[data-testid=zh-day-section][data-day="星期二"]', 'data-open')) === '0');
   // What the book says, known to the evaluator and never to the site: she reads
   // from the book, and the review brings the text with it (docs/review.md).
   const passage = '河水是深还是浅，最好你自己去试试。突然停电了，只好请别人帮忙。';

@@ -108,7 +108,15 @@ function WorkbookTask({ note, task, lesson }) {
   const reviewed = (ex) => ex.type === "free" && ex.items.some((it) => notes[it.id])
   const rec = (row) => (row.kind === "block" ? store.s.results[blockSetId(row)] : exSt[row.id])
   const done = rows.filter((row) => rec(row)).length
-  let lastDay = null
+  // A section per weekday — the book's own division — each folding: the first
+  // day with something left is open, the rest closed, and a tap on a day's
+  // heading opens or closes it. Twenty-one rows in one list was the owner's
+  // "should be multiple sections, or collapse by default?".
+  const days = []
+  for (const row of rows) { const d = days[days.length - 1]; if (d && d.day === row.day) d.rows.push(row); else days.push({ day: row.day, rows: [row] }) }
+  const firstLeft = days.findIndex((d) => d.rows.some((row) => !rec(row)))
+  const [folds, setFolds] = useState({})
+  const isOpen = (d, i) => (d.day in folds ? folds[d.day] : i === firstLeft)
   return (
     <Card data-testid="zh-workbook">
       <CardHeader>
@@ -117,22 +125,31 @@ function WorkbookTask({ note, task, lesson }) {
         <CardAction><Badge variant={done === rows.length ? "success" : "outline"}>{done}/{rows.length}</Badge></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
-        <div className="flex flex-col gap-1.5" data-testid="zh-exercises">
-          {rows.map((row) => {
-            const r = rec(row), head = row.day !== lastDay ? row.day : null; lastDay = row.day
-            const isBlock = row.kind === "block"
+        <div className="flex flex-col gap-2" data-testid="zh-exercises">
+          {days.map((d, i) => {
+            const dDone = d.rows.filter((row) => rec(row)).length
             return (
-              <React.Fragment key={row.id}>
-                {head ? <div className="text-muted-foreground mt-1 text-xs font-semibold" data-testid="zh-day">{zhDay(head)}</div> : null}
-                <div className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid={isBlock ? "zh-sitting" : "zh-exercise"} data-id={row.id}>
-                  <span className="text-sm">{t(row.title, row.title_en)} <span className="text-muted-foreground">· {t(`练习 ${row.ex}`, `ex. ${row.ex}`)} · p.{row.page}{isBlock ? ` · ${row.items.length} ${t("题", "questions")}` : ""}</span></span>
-                  <span className="flex items-center gap-2">
-                    {isBlock ? (r ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : null)
-                      : r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : reviewed(row) ? <Badge variant="success">{t("已批改", "reviewed")}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : r && r.read ? <Badge variant="success">{t("已读", "read")}</Badge> : null}
-                    <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(isBlock ? `/chinese/block/${row.id}` : `/chinese/ex/${row.id}`)}>{row.type === "write" || row.type === "free" ? <PenLine /> : row.type === "speak" || row.type === "read" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
-                  </span>
+              <details key={d.day} open={isOpen(d, i)} onToggle={(e) => { const open = e.currentTarget.open; setFolds((f) => (f[d.day] === open ? f : { ...f, [d.day]: open })) }} className="rounded-lg border" data-testid="zh-day-section" data-day={d.day} data-open={isOpen(d, i) ? "1" : "0"}>
+                <summary className="flex cursor-pointer items-center justify-between gap-2 px-3 py-2 text-sm font-semibold select-none" data-testid="zh-day">
+                  <span>{zhDay(d.day)}</span>
+                  <Badge variant={dDone === d.rows.length ? "success" : "outline"} className="tabular-nums">{dDone}/{d.rows.length}</Badge>
+                </summary>
+                <div className="flex flex-col gap-1.5 px-2 pb-2">
+                  {d.rows.map((row) => {
+                    const r = rec(row), isBlock = row.kind === "block"
+                    return (
+                        <div className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid={isBlock ? "zh-sitting" : "zh-exercise"} data-id={row.id}>
+                          <span className="text-sm">{t(row.title, row.title_en)} <span className="text-muted-foreground">· {t(`练习 ${row.ex}`, `ex. ${row.ex}`)} · p.{row.page}{isBlock ? ` · ${row.items.length} ${t("题", "questions")}` : ""}</span></span>
+                          <span className="flex items-center gap-2">
+                            {isBlock ? (r ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : null)
+                              : r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : reviewed(row) ? <Badge variant="success">{t("已批改", "reviewed")}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : r && r.read ? <Badge variant="success">{t("已读", "read")}</Badge> : null}
+                            <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(isBlock ? `/chinese/block/${row.id}` : `/chinese/ex/${row.id}`)}>{row.type === "write" || row.type === "free" ? <PenLine /> : row.type === "speak" || row.type === "read" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
+                          </span>
+                        </div>
+                    )
+                  })}
                 </div>
-              </React.Fragment>
+              </details>
             )
           })}
         </div>
@@ -527,13 +544,16 @@ function OrderWidget({ ex, ans, set1, done }) {
     )
   })
 }
+/** A dialogue with lines missing: the line before, the speaker whose line it
+ *  is, and the lines to choose from — at reading size, with room between them.
+ *  The first version was three cramped rows; the owner's "why so compact". */
 function SlotsWidget({ ex, ans, set1, done }) {
   return ex.items.map((it, i) => (
-    <div key={it.id} className="flex flex-col gap-2 rounded-lg border p-3" data-testid={`zh-slot-${i}`}>
-      <p className="text-muted-foreground text-sm">{it.before}</p>
-      <p className="text-lg">{it.slot}：{Number.isInteger(ans[it.id]) ? ex.options[ans[it.id]] : "______"}</p>
-      <div className="flex flex-col gap-1.5">
-        {ex.options.map((o, k) => <Button key={k} size="sm" variant={ans[it.id] === k ? "default" : "outline"} className="h-auto justify-start whitespace-normal text-left" disabled={!!done} onClick={() => set1(it.id, k)} data-testid="zh-option">{CIRCLED[k]} {o}</Button>)}
+    <div key={it.id} className="flex flex-col gap-4 rounded-lg border p-4" data-testid={`zh-slot-${i}`}>
+      <p className="text-muted-foreground text-base leading-7">{it.before}</p>
+      <p className="text-lg leading-8"><span className="font-medium">{it.slot}：</span>{Number.isInteger(ans[it.id]) ? ex.options[ans[it.id]] : <span className="text-muted-foreground">______</span>}</p>
+      <div className="flex flex-col gap-2">
+        {ex.options.map((o, k) => <Button key={k} variant={ans[it.id] === k ? "default" : "outline"} className="h-auto justify-start whitespace-normal px-4 py-3 text-left text-base leading-7" disabled={!!done} onClick={() => set1(it.id, k)} data-testid="zh-option">{CIRCLED[k]} {o}</Button>)}
       </div>
     </div>
   ))
