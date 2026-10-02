@@ -269,14 +269,57 @@
    "title": "找朋友：写下来并组词",
    "title_en": "Look for friends: write the characters and form words",
    "note": {
-    "zh": "连线在前面做过了；这里把六个字写下来，各组一个词。",
-    "en": "The matching was done on the site; here write the six characters and make one word with each."
+    "zh": "连线在前面做过了；这里把六个字各写一遍，再各组一个词（例：松 → 松鼠）。",
+    "en": "The matching was done on the site; here write each of the six characters once and make one word with each (e.g. 松 → 松鼠)."
    },
    "items": [
     {
      "id": "zx:L05-D1-02w-1",
-     "prompt": "伯、深、松、喝、突、定 —— 各写一遍，各组一个词（例：松 → 松鼠）",
-     "prompt_en": "伯 深 松 喝 突 定 — write each once and make one word with each (e.g. 松 → 松鼠)"
+     "key": "伯",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "伯 → 组一个词",
+     "prompt_en": "伯 → one word"
+    },
+    {
+     "id": "zx:L05-D1-02w-2",
+     "key": "深",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "深 → 组一个词",
+     "prompt_en": "深 → one word"
+    },
+    {
+     "id": "zx:L05-D1-02w-3",
+     "key": "松",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "松 → 组一个词",
+     "prompt_en": "松 → one word"
+    },
+    {
+     "id": "zx:L05-D1-02w-4",
+     "key": "喝",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "喝 → 组一个词",
+     "prompt_en": "喝 → one word"
+    },
+    {
+     "id": "zx:L05-D1-02w-5",
+     "key": "突",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "突 → 组一个词",
+     "prompt_en": "突 → one word"
+    },
+    {
+     "id": "zx:L05-D1-02w-6",
+     "key": "定",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "定 → 组一个词",
+     "prompt_en": "定 → one word"
     }
    ]
   },
@@ -292,17 +335,23 @@
     {
      "id": "zx:L05-D1-03-1",
      "prompt": "喝：喝茶、＿＿、＿＿、＿＿",
-     "prompt_en": "喝: 喝茶, and three more words"
+     "prompt_en": "喝: 喝茶, and three more words",
+     "blanks": 3,
+     "cells": 2
     },
     {
      "id": "zx:L05-D1-03-2",
      "prompt": "正：＿＿、＿＿、＿＿、＿＿",
-     "prompt_en": "正: four words"
+     "prompt_en": "正: four words",
+     "blanks": 4,
+     "cells": 2
     },
     {
      "id": "zx:L05-D1-03-3",
      "prompt": "那：＿＿、＿＿、＿＿、＿＿",
-     "prompt_en": "那: four words"
+     "prompt_en": "那: four words",
+     "blanks": 4,
+     "cells": 2
     }
    ]
   },
@@ -454,17 +503,23 @@
     {
      "id": "zx:L05-D2-01-1",
      "prompt": "那：＿＿、＿＿、＿＿",
-     "prompt_en": "那: three words"
+     "prompt_en": "那: three words",
+     "blanks": 3,
+     "cells": 2
     },
     {
      "id": "zx:L05-D2-01-2",
      "prompt": "最：＿＿、＿＿、＿＿",
-     "prompt_en": "最: three words"
+     "prompt_en": "最: three words",
+     "blanks": 3,
+     "cells": 2
     },
     {
      "id": "zx:L05-D2-01-3",
      "prompt": "像：＿＿、＿＿、＿＿",
-     "prompt_en": "像: three words"
+     "prompt_en": "像: three words",
+     "blanks": 3,
+     "cells": 2
     }
    ]
   },
@@ -484,22 +539,30 @@
     {
      "id": "zx:L05-D2-02-1",
      "prompt": "伯／白",
-     "prompt_en": "伯 / 白"
+     "prompt_en": "伯 / 白",
+     "blanks": 2,
+     "cells": 2
     },
     {
      "id": "zx:L05-D2-02-2",
      "prompt": "所／听",
-     "prompt_en": "所 / 听"
+     "prompt_en": "所 / 听",
+     "blanks": 2,
+     "cells": 2
     },
     {
      "id": "zx:L05-D2-02-3",
      "prompt": "浅／前",
-     "prompt_en": "浅 / 前"
+     "prompt_en": "浅 / 前",
+     "blanks": 2,
+     "cells": 2
     },
     {
      "id": "zx:L05-D2-02-4",
      "prompt": "机／几",
-     "prompt_en": "机 / 几"
+     "prompt_en": "机 / 几",
+     "blanks": 2,
+     "cells": 2
     }
    ]
   },
@@ -663,22 +726,30 @@
     {
      "id": "zx:L05-D2-05-1",
      "prompt": "例：鞋子是大还是小，要试穿一下才知道。（1）＿是＿还是＿，＿。",
-     "prompt_en": "Example: 鞋子是大还是小，要试穿一下才知道。 (1) …是…还是…，…。"
+     "prompt_en": "Example: 鞋子是大还是小，要试穿一下才知道。 (1) …是…还是…，…。",
+     "blanks": 1,
+     "cells": 20
     },
     {
      "id": "zx:L05-D2-05-2",
      "prompt": "（2）＿是＿还是＿，＿。",
-     "prompt_en": "(2) …是…还是…，…。"
+     "prompt_en": "(2) …是…还是…，…。",
+     "blanks": 1,
+     "cells": 20
     },
     {
      "id": "zx:L05-D2-05-3",
      "prompt": "（3）＿是＿还是＿，＿。",
-     "prompt_en": "(3) …是…还是…，…。"
+     "prompt_en": "(3) …是…还是…，…。",
+     "blanks": 1,
+     "cells": 20
     },
     {
      "id": "zx:L05-D2-05-4",
      "prompt": "（4）＿是＿还是＿，＿。",
-     "prompt_en": "(4) …是…还是…，…。"
+     "prompt_en": "(4) …是…还是…，…。",
+     "blanks": 1,
+     "cells": 20
     }
    ]
   },
@@ -893,22 +964,30 @@
     {
      "id": "zx:L05-D4-02-1",
      "prompt": "（1）小马想要干什么？",
-     "prompt_en": "(1) What does the pony want to do?"
+     "prompt_en": "(1) What does the pony want to do?",
+     "blanks": 1,
+     "cells": 24
     },
     {
      "id": "zx:L05-D4-02-2",
      "prompt": "（2）牛伯伯为什么告诉小马水很浅，可以过河？",
-     "prompt_en": "(2) Why does the ox tell the pony the water is shallow and he can cross?"
+     "prompt_en": "(2) Why does the ox tell the pony the water is shallow and he can cross?",
+     "blanks": 1,
+     "cells": 24
     },
     {
      "id": "zx:L05-D4-02-3",
      "prompt": "（3）松鼠为什么说水深得很，小马会淹死的？",
-     "prompt_en": "(3) Why does the squirrel say the water is very deep and the pony would drown?"
+     "prompt_en": "(3) Why does the squirrel say the water is very deep and the pony would drown?",
+     "blanks": 1,
+     "cells": 24
     },
     {
      "id": "zx:L05-D4-02-4",
      "prompt": "（4）妈妈觉得小马应该怎么做？",
-     "prompt_en": "(4) What does Mother think the pony should do?"
+     "prompt_en": "(4) What does Mother think the pony should do?",
+     "blanks": 1,
+     "cells": 24
     }
    ]
   },

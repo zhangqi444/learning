@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { BookOpen, Check, Eye, Mic, PenLine, Play, RotateCcw, Square, Volume2, X } from "lucide-react"
+import { BookOpen, Check, Eraser, Eye, Mic, PenLine, Play, RotateCcw, Square, Volume2, X } from "lucide-react"
 import { D, ZH, exItems, setId, zhBlock, zhDay, zhExercises, zhHomework, zhLessonLabel, zhLessons, zhSets, zhSubName, zhWorkbook } from "@/lib/content"
 import { findItem, recordAttempts, reviewQueue } from "@/lib/engine"
 import { t, tf, useLang } from "@/lib/lang"
@@ -8,7 +8,6 @@ import { go } from "@/lib/router"
 import { speak, canSpeak } from "@/lib/speech"
 import { alignChars, canRecognize, canRecord, markPassage, startRecognition, startRecorder } from "@/lib/reading"
 import { boxToChar, drawReference, hasStrokes, judgeStrokes, strokeData, writtenWell } from "@/lib/strokes"
-import { Ink } from "@/components/ink"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Badge } from "@zhangqi444/ui/ui/badge"
@@ -722,10 +721,70 @@ function WriteWidget({ ex, ans, set1, done }) {
     </div>
   )
 }
-/** Free writing: kept as a PNG and as strokes, in her Drive, and judged by the
- *  review skill — there is no key to mark it against here. */
+/** Grid paper. Free writing goes into 米字格 cells, one character each — the way
+ *  the workbook's own lines are ruled — rather than onto a blank canvas: a word
+ *  is a run of two cells, a sentence a strip of them that wraps. Each cell keeps
+ *  its strokes as point sequences (for the review skill, and for a stroke-order
+ *  question later), and the item hands in one picture of the whole grid, as
+ *  before. The owner's ask, 2 October: "why not several rows for each word? and
+ *  why not 米 grid". A mechanic: the cells are how Chinese is written. */
+const GridInk = React.forwardRef(function GridInk({ blanks = 1, cells = 16, size = 56, onChange }, ref) {
+  useLang()
+  const cv = useRef([]), strokes = useRef({}), cur = useRef(null)
+  const [n, setN] = useState(0)
+  const total = blanks * cells, k = 4
+  const at = (e, c) => { const r = c.getBoundingClientRect(); return [+((e.clientX - r.left) * (size / r.width)).toFixed(1), +((e.clientY - r.top) * (size / r.height)).toFixed(1), +(e.pressure || 0.5).toFixed(2), Date.now()] }
+  const pen = (g) => { g.lineCap = "round"; g.lineJoin = "round"; g.strokeStyle = "#1f1b3a"; g.lineWidth = 3 * k }
+  const count = () => Object.values(strokes.current).reduce((a, ss) => a + ss.length, 0)
+  const down = (i) => (e) => {
+    e.preventDefault(); const c = cv.current[i]; try { c.setPointerCapture(e.pointerId) } catch { /* no-op */ }
+    const p = at(e, c); cur.current = { i, pts: [p] }
+    const g = c.getContext("2d"); pen(g); g.beginPath(); g.moveTo(p[0] * k, p[1] * k); g.lineTo(p[0] * k + 0.1, p[1] * k); g.stroke()
+  }
+  const move = (e) => { const d = cur.current; if (!d) return; const c = cv.current[d.i]; const p = at(e, c), q = d.pts[d.pts.length - 1]; d.pts.push(p); const g = c.getContext("2d"); g.beginPath(); g.moveTo(q[0] * k, q[1] * k); g.lineTo(p[0] * k, p[1] * k); g.stroke() }
+  const up = () => { const d = cur.current; if (!d) return; cur.current = null; (strokes.current[d.i] = strokes.current[d.i] || []).push(d.pts); const m = count(); setN(m); onChange && onChange(m) }
+  const clear = () => { strokes.current = {}; for (const c of cv.current) if (c) c.getContext("2d").clearRect(0, 0, c.width, c.height); setN(0); onChange && onChange(0) }
+  React.useImperativeHandle(ref, () => ({
+    count, clear,
+    export: async () => {
+      // one picture of the grid, the cells in rows of ten at most, plus every cell's strokes
+      const perRow = Math.min(total, 10), rows = Math.ceil(total / perRow), gap = 6
+      const W = perRow * size + (perRow - 1) * gap, H = rows * size + (rows - 1) * gap
+      const out = document.createElement("canvas"); out.width = W * 2; out.height = H * 2
+      const g = out.getContext("2d"); g.scale(2, 2); g.fillStyle = "#fff"; g.fillRect(0, 0, W, H)
+      for (let i = 0; i < total; i++) {
+        const x = (i % perRow) * (size + gap), y = Math.floor(i / perRow) * (size + gap)
+        g.strokeStyle = "#c9c7e8"; g.lineWidth = 1; g.strokeRect(x + 0.5, y + 0.5, size - 1, size - 1)
+        const c = cv.current[i]; if (c) g.drawImage(c, x, y, size, size)
+      }
+      const blob = await new Promise((r) => out.toBlob(r, "image/png"))
+      const all = []; for (const [i, ss] of Object.entries(strokes.current)) for (const pts of ss) all.push({ blank: Math.floor(+i / cells), cell: +i % cells, pts })
+      return { blob, strokes: all, width: W, height: H, cells: total }
+    },
+  }))
+  return (
+    <div className="flex flex-col gap-1.5">
+      <div className="flex flex-wrap gap-x-4 gap-y-2" data-testid="zh-grid" data-strokes={n}>
+        {Array.from({ length: blanks }, (_, b) => (
+          <div key={b} className="flex flex-wrap gap-1" data-testid="zh-blank">
+            {Array.from({ length: cells }, (_, c) => { const i = b * cells + c; return (
+              <div key={c} className="relative rounded-md bg-white" style={{ width: size, height: size }}>
+                <MiGrid size={size} />
+                <canvas ref={(el) => { cv.current[i] = el }} width={size * k} height={size * k} className="absolute inset-0" style={{ width: size, height: size, touchAction: "none" }} onPointerDown={down(i)} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up} data-testid="zh-cell" />
+              </div>) })}
+          </div>
+        ))}
+      </div>
+      <div className="flex items-center justify-between"><span className="text-muted-foreground text-xs tabular-nums">{t(`${n} 笔`, `${n} strokes`)}</span><Button size="sm" variant="ghost" onClick={clear} data-testid="zh-ink-clear"><Eraser /> {t("清除", "Clear")}</Button></div>
+    </div>
+  )
+})
+/** Free writing: on grid paper, kept as a PNG and as strokes in her Drive, and
+ *  judged by the review skill — there is no key to mark it against here. An
+ *  item with a `key` writes that character first, in a judged 米字格 box, and
+ *  then the word beside it. */
 function FreeWidget({ ex, ans, set1, done, onSaved, set }) {
-  const refs = useRef({})
+  const refs = useRef({}), judged = useRef({})
   const notes = zhNotes(set)
   const [busy, setBusy] = useState(false)
   const submit = async () => {
@@ -733,11 +792,11 @@ function FreeWidget({ ex, ans, set1, done, onSaved, set }) {
     const out = {}
     for (const it of ex.items) {
       const r = refs.current[it.id]; if (!r) continue
-      const { blob, strokes, width, height } = await r.export()
+      const { blob, strokes, width, height, cells } = await r.export()
       const base = `zh-ink-${set}-${it.id.replace(/[^\w-]/g, "_")}-${Date.now()}`
       const png = await Store.uploadMedia(`${base}.png`, blob, "image/png")
-      const sj = await Store.uploadMedia(`${base}.json`, new Blob([JSON.stringify({ item: it.id, width, height, strokes })], { type: "application/json" }), "application/json")
-      out[it.id] = { png, strokes: sj, n: strokes.length, at: new Date().toISOString() }
+      const sj = await Store.uploadMedia(`${base}.json`, new Blob([JSON.stringify({ item: it.id, width, height, cells, blanks: it.blanks || 1, strokes })], { type: "application/json" }), "application/json")
+      out[it.id] = { png, strokes: sj, n: strokes.length, at: new Date().toISOString(), ...(judged.current[it.id] ? { judged: judged.current[it.id] } : {}) }
     }
     setBusy(false); onSaved(out)
   }
@@ -747,7 +806,12 @@ function FreeWidget({ ex, ans, set1, done, onSaved, set }) {
       {ex.items.map((it) => (
         <div key={it.id} className="flex flex-col gap-2 rounded-lg border p-3" data-testid="zh-free-item">
           <p className="text-lg">{t(it.prompt, it.prompt_en)}</p>
-          {done ? <p className="text-muted-foreground text-sm">{t("已交。", "Handed in.")}</p> : <Ink ref={(r) => { refs.current[it.id] = r }} height={200} onChange={(n) => set1(it.id, n)} />}
+          {done ? <p className="text-muted-foreground text-sm">{t("已交。", "Handed in.")}</p> : (
+            <div className="flex flex-wrap items-start gap-4">
+              {it.key ? <HanziBox ch={it.key} size={112} onDone={(r) => { judged.current[it.id] = { mistakes: r.mistakes, n: r.n, missing: r.missing } }} /> : null}
+              <GridInk ref={(r) => { refs.current[it.id] = r }} blanks={it.blanks || 1} cells={it.cells || 16} onChange={(n) => set1(it.id, n)} />
+            </div>
+          )}
           <Note n={notes[it.id]} />
         </div>
       ))}

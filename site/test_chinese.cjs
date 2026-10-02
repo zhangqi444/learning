@@ -379,17 +379,23 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('a word written with the Pencil is rated by rule and its strokes kept', d2.ok === true && d2.mode === 'pencil' && Array.isArray(d2.strokes) && d2.strokes.length === 2, JSON.stringify({ ok: d2.ok, mode: d2.mode, mistakes: d2.mistakes, chars: (d2.strokes || []).length }));
   check('and the row says so', /笔/.test(await pg.textContent('[data-testid=zh-dict-row][data-word="田鼠"]')));
   // -- free writing: kept as a PNG and as strokes in her Drive, awaiting review
-  await pg.evaluate(() => { location.hash = '#/chinese/ex/zx:L05-D1-03'; }); await pg.waitForSelector('[data-testid=zh-ink]');
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/zx:L05-D1-03'; }); await pg.waitForSelector('[data-testid=zh-cell]');
   await both('组词 (free writing)', EX);
   check('free writing cannot be handed in blank', await pg.isDisabled('[data-testid=zh-free-submit]'));
-  const ink = await pg.$('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-ink]'); const ib = await ink.boundingBox();
-  for (const [a, b] of [[0.2, 0.3], [0.5, 0.6]]) { await pg.mouse.move(ib.x + ib.width * a, ib.y + ib.height * b); await pg.mouse.down(); await pg.mouse.move(ib.x + ib.width * (a + 0.2), ib.y + ib.height * (b + 0.1), { steps: 5 }); await pg.mouse.up(); }
-  check('strokes on the canvas are counted', (await pg.getAttribute('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-ink]', 'data-strokes')) === '2');
+  // grid paper: 喝 asks for three words, two 米字格 cells each; 正 and 那 for four
+  check('each word is a run of two cells: three words for 喝, four for 正', (await pg.$$('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-cell]')).length === 6 && (await pg.$$('[data-testid=zh-free-item] >> nth=1 >> [data-testid=zh-cell]')).length === 8 && (await pg.$$('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-blank]')).length === 3);
+  for (const c of [0, 1]) { const cell = await pg.$(`[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-cell] >> nth=${c}`); const ib = await cell.boundingBox(); await pg.mouse.move(ib.x + ib.width * 0.2, ib.y + ib.height * 0.5); await pg.mouse.down(); await pg.mouse.move(ib.x + ib.width * 0.8, ib.y + ib.height * 0.5, { steps: 5 }); await pg.mouse.up(); }
+  check('strokes in the cells are counted', (await pg.getAttribute('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-grid]', 'data-strokes')) === '2');
   await pg.click('[data-testid=zh-free-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
   check('handing in says it awaits review, not a mark', /等批改/.test(await pg.textContent('[data-testid=zh-ex-result]')) && !/\d+ \/ \d+/.test(await pg.textContent('[data-testid=zh-ex-result]')));
   st = await ls(pg);
   const f1 = ((((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D1-03'] || {}).items || {})['zx:L05-D1-03-1'] || {};
   check('the page went to Drive as a PNG and as strokes, two files', /^media\d+$/.test(f1.png || '') && /^media\d+$/.test(f1.strokes || '') && f1.n === 2, JSON.stringify(f1));
+  // 找朋友's writing: six rows, each the character in a judged box and then two cells for its word; a sentence is a strip of twenty
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/zx:L05-D1-02w'; }); await pg.waitForSelector('[data-testid=zh-cell]');
+  check('写下来并组词 is six rows: a judged box for the character and two cells for the word', (await pg.$$('[data-testid=zh-free-item]')).length === 6 && (await pg.$$('[data-testid=zh-free-item] [data-testid=zh-hanzi]')).length === 6 && (await pg.$$('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-cell]')).length === 2);
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/zx:L05-D2-05'; }); await pg.waitForSelector('[data-testid=zh-cell]');
+  check('a sentence is a strip of twenty cells', (await pg.$$('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-cell]')).length === 20);
   // -- the retell: recorded, transcribed, signed by a parent's tap
   await pg.evaluate(() => { window.__asr = '小马过河告诉我们，别人说的不一定对，要自己试一试。'; location.hash = '#/chinese/ex/zx:L05-D4-04'; }); await pg.waitForSelector('[data-testid=zh-tell-start]');
   await both('the retell (speak)', EX);

@@ -347,6 +347,18 @@ def ex_errors(ex):
     elif t=='free':
         for it in ex.get('items',[]):
             if not str(it.get('prompt') or '').strip() or not str(it.get('prompt_en') or '').strip(): out.append(f"{it.get('id',i)}: free item needs prompt and prompt_en")
+            # grid paper: how many words and how many 米字格 cells each; an optional
+            # character to write first, judged by stroke, which needs stroke data
+            for k,hi in (('blanks',8),('cells',40)):
+                if k in it and not (isinstance(it[k],int) and 1<=it[k]<=hi): out.append(f"{it.get('id',i)}: {k} must be an integer from 1 to {hi}")
+            if 'key' in it and (not isinstance(it['key'],str) or len(it['key'])!=1): out.append(f"{it.get('id',i)}: key must be one character")
+            elif 'key' in it and not os.path.exists(f"content/chinese/strokes/{it['key']}.json"): out.append(f"{it.get('id',i)}: no stroke data for {it['key']} in content/chinese/strokes/")
+            # grid paper: how many words and how many 米字格 cells each; an optional
+            # character to write first, judged by stroke, which needs stroke data
+            for k,hi in (('blanks',8),('cells',40)):
+                if k in it and not (isinstance(it[k],int) and 1<=it[k]<=hi): out.append(f"{it.get('id',i)}: {k} must be an integer from 1 to {hi}")
+            if 'key' in it and (not isinstance(it['key'],str) or len(it['key'])!=1): out.append(f"{it.get('id',i)}: key must be one character")
+            elif 'key' in it and not os.path.exists(f"content/chinese/strokes/{it['key']}.json"): out.append(f"{it.get('id',i)}: no stroke data for {it['key']} in content/chinese/strokes/")
     elif t=='read':
         if not str(ex.get('text') or '').strip(): out.append(f'{i}: read needs text to read')
     elif t=='speak':
