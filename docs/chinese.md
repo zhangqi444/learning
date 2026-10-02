@@ -217,6 +217,17 @@ rewriting learning records and hard rule 1 forbids losing them: `z:` for a 汉�
 `findItem` and `rescueWordSides` already special-case and which will need to know
 about the new two.
 
+**Everything she reads is in both languages, and the page shows one at a time.**
+The owner's ask, after the first lesson: the chrome went Chinese with English
+behind one toggle at the top right of the header (`lib/lang.js`), and then the
+content followed — every item carries `prompt_en`, `explanation_zh` and `why_zh`
+beside `prompt`, `explanation` and `why`; the 生字 glosses are `{zh, en}`; the
+paper exercises carry the English the book itself prints under each heading.
+The runner reads by the page's language with English as the fallback, so an
+ISEE item renders as it always has. The validator holds the two together:
+`why_zh` must answer the same wrong choices as `why`, never the correct one,
+never blank.
+
 **The validator applies unchanged, and gains two rules.** Four choices, none blank
 or duplicated, a `why` on each of the three wrong ones, a resolving `passage_id`,
 a matching `content_hash`, and answer positions that are not cyclic — all of it
@@ -289,8 +300,9 @@ service worker and manifest, schema 7 with the `zh` slice, the `zh` bundle key,
 note (the sittings through the shared runner, the dictation list read aloud by the
 device's own voice and rated by hand, the read-aloud time log), and
 `test_chinese.cjs` as the fifth suite. One deviation from § 2, recorded there.
-Later the same day: the prompts became the book's own Chinese wording, with the
-English kept as a translation behind a tap; and the read-aloud task grew its
+Later the same day: the prompts became the book's own Chinese wording, then the
+whole half went Chinese with English behind one header toggle and every item's
+explanation and `why` authored in both languages (§ 4); and the read-aloud task grew its
 input — her reading recorded to her Drive as its own file, transcribed live by
 the browser's recogniser, aligned to the passage, the misses marked for her and
 the number for a parent (§ 8). Not in: the Wordwood (Phase 3), the skills
