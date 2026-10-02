@@ -343,12 +343,45 @@ function PassageSetup({ lesson, what, where, bare, actions }) {
   return <Card data-testid="zh-passage-setup"><CardContent className="flex flex-col gap-2 pt-6">{body}</CardContent></Card>
 }
 function Marked({ marks }) {
-  // A character the recogniser did not hear is marked, never reddened: it is as
-  // likely the recogniser's miss as hers, and docs/cats.md's four guardrails hold.
+  // A character the recogniser did not hear is highlighted — amber, the way a
+  // reading app marks the words it did not catch, never red: it is as likely the
+  // recogniser's miss as hers, and docs/cats.md's four guardrails hold.
   return (
-    <p className="text-xl leading-9 tracking-wide" data-testid="zh-marked">
-      {marks.map((m, i) => <span key={i} className={cn(m.read && !m.hit && "border-b-2 border-dotted border-muted-foreground/70 text-muted-foreground")} data-hit={m.read ? (m.hit ? "1" : "0") : undefined}>{m.ch}</span>)}
+    <p className="text-xl leading-9 tracking-wide whitespace-pre-line" data-testid="zh-marked">
+      {marks.map((m, i) => <span key={i} className={cn("rounded-sm", m.read && !m.hit && "bg-warning-soft text-warning")} data-hit={m.read ? (m.hit ? "1" : "0") : undefined}>{m.ch}</span>)}
     </p>
+  )
+}
+/** The comparison, once there is an evaluation: the whole passage with the words
+ *  not heard highlighted, and what was heard beside it. */
+function Compared({ passage, transcript }) {
+  const align = alignChars(passage, transcript || "")
+  return (
+    <div className="grid gap-3 @md/main:grid-cols-2" data-testid="zh-compare">
+      <div><div className="text-muted-foreground mb-1 text-xs">{t("课文——标出的字没有听清", "The passage — highlighted: not heard clearly")}</div><Marked marks={markPassage(passage, align)} /></div>
+      <div><div className="text-muted-foreground mb-1 text-xs">{t("听到的", "What was heard")}</div><p className="text-xl leading-9 tracking-wide whitespace-pre-line" data-testid="zh-transcript">{transcript || t("（什么也没听到）", "(nothing heard)")}</p></div>
+    </div>
+  )
+}
+/** Her own recording, played back: the blob just recorded, or the file in Drive. */
+function PlayAgain({ blobUrl, fileId, testid = "zh-play-again" }) {
+  // The button is the whole of it until she presses it: then the player appears
+  // and plays — the blob just recorded, or the file fetched from her Drive.
+  const [url, setUrl] = useState(null)
+  const ref = useRef(null)
+  useEffect(() => { setUrl(null) }, [blobUrl, fileId])
+  const play = async () => {
+    if (url) { const a = ref.current; if (a) { try { a.currentTime = 0; await a.play() } catch { /* the controls are there */ } } return }
+    let u = blobUrl || null
+    if (!u && fileId) { try { u = await Store.mediaUrl(fileId) } catch { u = null } }
+    if (u) setUrl(u)
+  }
+  if (!blobUrl && !fileId) return null
+  return (
+    <span className="flex flex-wrap items-center gap-2">
+      <Button size="sm" variant="outline" onClick={play} data-testid={testid}><Play /> {t("再听一遍", "Listen again")}</Button>
+      {url ? <audio ref={ref} controls autoPlay src={url} className="h-8" data-testid={`${testid}-audio`} /> : null}
+    </span>
   )
 }
 export function ReadAloud({ set }) {
@@ -364,6 +397,7 @@ export function ReadAloud({ set }) {
   const [result, setResult] = useState(null)
   const [parent, setParent] = useState(false)
   const [playUrl, setPlayUrl] = useState(null)
+  const [blobUrl, setBlobUrl] = useState(null)
   const live = React.useRef(null)
   React.useEffect(() => { if (mode !== "recording") return; const tm = setInterval(() => setNow(Date.now()), 500); return () => clearInterval(tm) }, [mode])
   if (!task || !lesson) return <ChineseHome />
@@ -382,16 +416,19 @@ export function ReadAloud({ set }) {
     const l = live.current; if (!l) return
     setMode("saving"); l.asr.stop()
     const audio = l.rec ? await l.rec.stop() : { blob: null, ms: Date.now() - l.t0, mime: "" }
+    if (audio.blob) { try { setBlobUrl(URL.createObjectURL(audio.blob)) } catch { /* no-op */ } }
     const transcript = finals + interim
     const align = alignChars(passage, transcript)
     const fileId = audio.blob ? await Store.uploadMedia(`zh-read-${set}-${Date.now()}.${/mp4/.test(audio.mime) ? "m4a" : "webm"}`, audio.blob, audio.mime) : null
     const attempt = { at: new Date().toISOString(), ms: audio.ms, transcript, matched: align.matched, total: align.total, heard: align.heard, fileId, mime: audio.mime || null }
     Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, read: { done: true, at: attempt.at, minutes: Math.round(audio.ms / 60000), attempts: [...((cur.read || {}).attempts || []), attempt].slice(-8) } }))
-    setResult({ ...attempt, marks: markPassage(passage, align), pct: align.pct }); setMode("done")
+    setResult({ ...attempt, pct: align.pct }); setMode("done")
   }
   const play = async (id) => { const u = await Store.mediaUrl(id); setPlayUrl(u) }
   const sec = Math.round(((mode === "recording" ? now : 0) - since) / 1000)
   const p = result ? pace(result.total, result.ms) : null
+  const last = result || attempts[attempts.length - 1] || null
+  const evalNote = zhNotes(set).read
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page">
       <Card>
@@ -405,32 +442,37 @@ export function ReadAloud({ set }) {
           </CardAction>
         </CardHeader>
         <CardContent className="text-muted-foreground text-sm">
-          {canRecognize() ? t("朗读课文。听到的字会出现在旁边；读完请按停止。", "Read the passage aloud. The words appear as they are heard; press Stop when you reach the end.") : t("这个浏览器不能识别语音——朗读仍会录下来保存。", "This browser cannot transcribe speech — the reading is still recorded and kept.")}
+          {canRecognize() ? t("朗读课文，读完请按停止。录好了可以再听一遍。", "Read the passage aloud and press Stop at the end. Then you can listen to it again.") : t("这个浏览器不能识别语音——朗读仍会录下来保存。", "This browser cannot transcribe speech — the reading is still recorded and kept.")}
         </CardContent>
       </Card>
-      <div className="grid gap-4 @md/main:grid-cols-2">
-        <Card>
-          <CardHeader><CardTitle>{what}</CardTitle></CardHeader>
-          <CardContent>{result ? <Marked marks={result.marks} /> : <p className="text-xl leading-9 tracking-wide" data-testid="zh-passage">{passage}</p>}</CardContent>
-        </Card>
-        <Card>
-          <CardHeader><CardTitle>{mode === "recording" ? t("正在听…", "Hearing…") : result ? t("听到的", "Heard") : t("听到的", "What is heard")}</CardTitle><CardDescription>{t("识别结果，仅供参考", "as the recogniser hears it — an estimate")}</CardDescription></CardHeader>
-          <CardContent>
-            <p className="text-xl leading-9 tracking-wide min-h-10" data-testid="zh-transcript">{mode === "done" && result ? result.transcript : <>{finals}<span className="text-muted-foreground">{interim}</span></>}</p>
-          </CardContent>
-        </Card>
-      </div>
-      {result ? (
+      {/* Her side is the passage and the two buttons. The recogniser runs while she
+          reads — a browser can only transcribe a live microphone — but nothing of
+          it is shown to her: the transcript, the alignment and the number are for
+          the evaluation, in the parent view and the review (the owner's ask). */}
+      <Card>
+        <CardHeader><CardTitle>{what}</CardTitle>{mode === "recording" ? <CardDescription data-testid="zh-recording">{t(`正在录音 · ${sec} 秒`, `Recording · ${sec} s`)}</CardDescription> : null}</CardHeader>
+        <CardContent><p className="text-xl leading-9 tracking-wide" data-testid="zh-passage">{passage}</p></CardContent>
+      </Card>
+      {/* After recording: her recording, to listen to again — and nothing else.
+          Once evaluated (a review with a note on her reading), the comparison:
+          the passage with the words not heard highlighted, the transcript beside,
+          the reviewer's note. The parent view has all of it at any time. */}
+      {last ? (
         <Card data-testid="zh-read-result">
           <CardHeader>
-            <CardTitle>{t(`读了 ${Math.round(result.ms / 1000)} 秒`, `Read in ${Math.round(result.ms / 1000)} s`)}</CardTitle>
-            <CardDescription>{p ? t(`大约 ${p} 字/分钟 · `, `about ${p} 字/分钟 · `) : t("太短，算不出速度 · ", "too short to tell the pace · ")}{t("点线标出的字是没听到的——再读一遍", "the dotted characters are ones the recogniser did not hear — read them once more")}</CardDescription>
+            <CardTitle>{t(`已录好 · ${Math.round(last.ms / 1000)} 秒`, `Recorded · ${Math.round(last.ms / 1000)} s`)}</CardTitle>
+            <CardDescription>{evalNote ? t("已批改。", "Evaluated.") : t("交给批改。", "Handed in for evaluation.")}</CardDescription>
             <CardAction><Button size="sm" variant="ghost" onClick={() => setParent((v) => !v)} data-testid="zh-parent-toggle">{parent ? t("收起", "Hide") : t("家长视图", "Parent view")}</Button></CardAction>
           </CardHeader>
+          <CardContent className="flex flex-col gap-3 text-sm">
+            <PlayAgain blobUrl={result ? blobUrl : null} fileId={last.fileId} />
+            {evalNote ? <><Compared passage={passage} transcript={last.transcript} /><Note n={evalNote} /></> : null}
+          </CardContent>
           {parent ? (
-            <CardContent className="flex flex-col gap-2 text-sm" data-testid="zh-parent">
-              <div>{t("识别匹配 ", "")}<span className="tabular-nums" data-testid="zh-pct">{result.pct}%</span>{t(`（共 ${result.total} 字，听到 ${result.heard} 字）——仅供参考，不是评分。`, ` of ${result.total} characters matched, as heard by the recogniser — an estimate, not a mark. ${result.heard} heard in all.`)}</div>
-              {result.fileId ? <div className="flex items-center gap-2"><Button size="sm" variant="outline" onClick={() => play(result.fileId)} data-testid="zh-play"><Play /> {t("播放录音", "Play the recording")}</Button>{playUrl ? <audio controls autoPlay src={playUrl} /> : null}</div> : <div className="text-muted-foreground">{t("没有保存录音（没有麦克风，或没有连接 Drive）。", "No recording was kept (no microphone, or no Drive).")}</div>}
+            <CardContent className="flex flex-col gap-2 border-t pt-4 text-sm" data-testid="zh-parent">
+              {!evalNote ? <Compared passage={passage} transcript={last.transcript} /> : null}
+              <div>{t("识别匹配 ", "")}<span className="tabular-nums" data-testid="zh-pct">{result ? result.pct : (last.total ? Math.round((100 * last.matched) / last.total) : 0)}%</span>{t(`（共 ${last.total} 字，听到 ${last.heard} 字）——仅供参考，不是评分。`, ` of ${last.total} characters matched, as heard by the recogniser — an estimate, not a mark. ${last.heard} heard in all.`)}{p ? t(` 大约 ${p} 字/分钟。`, ` About ${p} 字/分钟.`) : ""}</div>
+              {last.fileId ? <div className="flex items-center gap-2"><Button size="sm" variant="outline" onClick={() => play(last.fileId)} data-testid="zh-play"><Play /> {t("播放录音", "Play the recording")}</Button>{playUrl ? <audio controls autoPlay src={playUrl} /> : null}</div> : <div className="text-muted-foreground">{t("没有保存录音（没有麦克风，或没有连接 Drive）。", "No recording was kept (no microphone, or no Drive).")}</div>}
               {attempts.length > 1 ? <div className="text-muted-foreground">{t(`已保存 ${attempts.length} 次朗读 · 第一次 ${attempts[0].matched}/${attempts[0].total}`, `${attempts.length} readings kept · first ${attempts[0].matched}/${attempts[0].total}`)}</div> : null}
             </CardContent>
           ) : null}
@@ -656,9 +698,11 @@ function SpeakWidget({ ex, set, exId }) {
   useStore()
   const st = (hwState(set).exercises || {})[exId] || {}
   const [mode, setMode] = useState("idle"), [finals, setFinals] = useState(""), [interim, setInterim] = useState("")
+  const [parent, setParent] = useState(false)
+  const [blobUrl, setBlobUrl] = useState(null)
   const live = useRef(null)
   const start = async () => {
-    setFinals(""); setInterim("")
+    setFinals(""); setInterim(""); setParent(false); setBlobUrl(null)
     let rec = null; try { rec = canRecord() ? await startRecorder() : null } catch { rec = null }
     const asr = startRecognition((f, i) => { setFinals(f); setInterim(i) })
     live.current = { rec, asr, t0: Date.now() }; setMode("recording")
@@ -667,6 +711,7 @@ function SpeakWidget({ ex, set, exId }) {
     const l = live.current; if (!l) return
     setMode("saving"); l.asr.stop()
     const audio = l.rec ? await l.rec.stop() : { blob: null, ms: Date.now() - l.t0, mime: "" }
+    if (audio.blob) { try { setBlobUrl(URL.createObjectURL(audio.blob)) } catch { /* no-op */ } }
     const fileId = audio.blob ? await Store.uploadMedia(`zh-tell-${set}-${Date.now()}.${/mp4/.test(audio.mime) ? "m4a" : "webm"}`, audio.blob, audio.mime) : null
     Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, exercises: { ...(cur.exercises || {}), [exId]: { ...((cur.exercises || {})[exId] || {}), told: { at: new Date().toISOString(), ms: audio.ms, transcript: finals + interim, fileId } } } }))
     setMode("idle")
@@ -685,8 +730,8 @@ function SpeakWidget({ ex, set, exId }) {
           </CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-2">
-          <p className="text-lg leading-8 min-h-8" data-testid="zh-tell-transcript">{mode === "recording" ? <>{finals}<span className="text-muted-foreground">{interim}</span></> : st.told ? st.told.transcript : <span className="text-muted-foreground text-sm">{t("讲的话会出现在这里。", "What you say appears here.")}</span>}</p>
-          {st.told ? <p className="text-muted-foreground text-xs">{t(`已录 ${Math.round(st.told.ms / 1000)} 秒`, `recorded, ${Math.round(st.told.ms / 1000)} s`)}{st.told.fileId ? "" : t(" · 没有保存录音", " · no recording kept")}</p> : null}
+          {mode === "recording" ? <p className="text-muted-foreground text-sm" data-testid="zh-tell-recording">{t("正在录音…", "Recording…")}</p> : st.told ? <div className="flex flex-col gap-2"><p className="text-muted-foreground text-xs">{zhNotes(set).tell ? t(`已录好 · ${Math.round(st.told.ms / 1000)} 秒 · 已批改。`, `Recorded · ${Math.round(st.told.ms / 1000)} s · evaluated.`) : t(`已录好 · ${Math.round(st.told.ms / 1000)} 秒 · 交给批改。`, `Recorded · ${Math.round(st.told.ms / 1000)} s · handed in for evaluation.`)}{st.told.fileId ? "" : t(" 没有保存录音。", " No recording kept.")} <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs" onClick={() => setParent((v) => !v)} data-testid="zh-tell-parent">{parent ? t("收起", "Hide") : t("家长视图", "Parent view")}</Button></p><PlayAgain blobUrl={blobUrl} fileId={st.told.fileId} testid="zh-tell-play" /></div> : <p className="text-muted-foreground text-sm">{t("按开始，把故事讲一遍。", "Tap start and tell the story.")}</p>}
+          {(parent || zhNotes(set).tell) && st.told ? <p className="text-lg leading-8" data-testid="zh-tell-transcript">{st.told.transcript || t("（什么也没听到）", "(nothing heard)")}</p> : null}
           <Note n={zhNotes(set).tell} />
         </CardContent>
       </Card>
@@ -707,9 +752,10 @@ function ReadWidget({ ex, set, exId }) {
   const st = (hwState(set).exercises || {})[exId] || {}
   const [mode, setMode] = useState("idle"), [finals, setFinals] = useState(""), [interim, setInterim] = useState("")
   const [res, setRes] = useState(null)
+  const [parent, setParent] = useState(false)
   const live = useRef(null)
   const start = async () => {
-    setRes(null); setFinals(""); setInterim("")
+    setRes(null); setFinals(""); setInterim(""); setParent(false)
     let rec = null; try { rec = canRecord() ? await startRecorder() : null } catch { rec = null }
     const asr = startRecognition((f, i) => { setFinals(f); setInterim(i) })
     live.current = { rec, asr, t0: Date.now() }; setMode("recording")
@@ -723,7 +769,8 @@ function ReadWidget({ ex, set, exId }) {
     const r = { at: new Date().toISOString(), ms: audio.ms, transcript, matched: align.matched, total: align.total, heard: align.heard, fileId }
     Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, exercises: { ...(cur.exercises || {}), [exId]: { ...((cur.exercises || {})[exId] || {}), read: r } } }))
     recordAttempts([{ id: exId, ok: true, ms: audio.ms, pick: String(align.matched) }], "exercise")
-    setRes({ marks: markPassage(ex.text, align), ...r }); setMode("idle")
+    let blobUrl = null; if (audio.blob) { try { blobUrl = URL.createObjectURL(audio.blob) } catch { /* no-op */ } }
+    setRes({ ...r, blobUrl }); setMode("idle")
   }
   const lines = ex.text.split("\n")
   return (
@@ -739,9 +786,11 @@ function ReadWidget({ ex, set, exId }) {
           </CardAction>
         </CardHeader>
         <CardContent>
-          {res ? <Marked marks={res.marks} /> : <div className="text-xl leading-9 tracking-wide" data-testid="zh-rd-text">{lines.map((l, i) => <p key={i}>{l}</p>)}</div>}
-          {mode === "recording" ? <p className="text-muted-foreground mt-2 text-sm" data-testid="zh-rd-transcript">{finals}<span className="opacity-60">{interim}</span></p> : null}
-          {res ? <p className="text-muted-foreground mt-2 text-xs">{t("点线标出的字是没听到的——再读一遍。", "The dotted characters are ones the recogniser did not hear — read them once more.")}</p> : null}
+          <div className="text-xl leading-9 tracking-wide" data-testid="zh-rd-text">{lines.map((l, i) => <p key={i}>{l}</p>)}</div>
+          {mode === "recording" ? <p className="text-muted-foreground mt-2 text-sm" data-testid="zh-rd-recording">{t("正在录音…", "Recording…")}</p> : null}
+          {res || st.read ? <div className="mt-2 flex flex-col gap-2" data-testid="zh-rd-done"><p className="text-muted-foreground text-xs">{zhNotes(set)[exId] ? t("已批改。", "Evaluated.") : t("已录好，交给批改。", "Recorded, handed in for evaluation.")} <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs" onClick={() => setParent((v) => !v)} data-testid="zh-rd-parent">{parent ? t("收起", "Hide") : t("家长视图", "Parent view")}</Button></p><PlayAgain blobUrl={res ? res.blobUrl : null} fileId={(res || st.read).fileId} testid="zh-rd-play" /></div> : null}
+          {zhNotes(set)[exId] && (res || st.read) ? <div className="mt-3 flex flex-col gap-2"><Compared passage={ex.text} transcript={(res || st.read).transcript} /><Note n={zhNotes(set)[exId]} /></div> : null}
+          {parent && (res || st.read) && !zhNotes(set)[exId] ? <div className="mt-2" data-testid="zh-rd-parentview"><Compared passage={ex.text} transcript={(res || st.read).transcript} /></div> : null}
         </CardContent>
       </Card>
     </div>

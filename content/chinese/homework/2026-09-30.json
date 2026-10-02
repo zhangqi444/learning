@@ -13,8 +13,8 @@
    "kind": "read_aloud",
    "what": "阅读《谦虚过度》",
    "rule": {
-    "zh": "录下朗读，边读边识别，再和课文逐字对照。没听到的字会标出来；百分比只在家长视图里，是识别结果，不是评分。",
-    "en": "Recorded as done with a time log, never scored. There is no honest way to mark fluency from a tap."
+    "zh": "录下朗读。识别和对照在批改时看，朗读时不显示。",
+    "en": "The reading is recorded. The transcript and the comparison are for the evaluation; nothing is shown while she reads."
    },
    "pages": "教材 p.55–56"
   },
@@ -105,8 +105,8 @@
    "what": "课本 p.52 的词语",
    "scope_note": "The note says 词语 and names p.52. The section headed 词语 is on p.50; p.52 carries the last two rows of 读一读 and the whole of 用一用. The owner read the note literally — the words on p.52 — so both sections are listed here, labelled, and the parent may trim to the 读一读 rows if that is what the teacher dictates. The first draft of this file recorded the ten 生字 from p.50 instead; that matched neither the note's word nor its page and was withdrawn.",
    "rule": {
-    "zh": "先听，再在纸上写，然后显示对照，自己或家长打分。网站不批改手写。",
-    "en": "Shown, then self- or parent-rated, the way precision already works. Dictation means writing characters from hearing them; the site cannot mark that and must not pretend to."
+    "zh": "先听，再用笔在格子里写——点\"写好了\"会显示标准写法，按笔顺判；也可以在纸上写，显示对照，自己或家长打分。",
+    "en": "Listen, then write it with the Pencil in the box — the standard form appears when you tap 写好了 and the strokes are judged by rule; or write it on paper, show it, and rate it yourself or with a parent."
    },
    "words": {
     "读一读（第52页）": [

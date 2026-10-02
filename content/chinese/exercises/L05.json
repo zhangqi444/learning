@@ -87,8 +87,8 @@
    "title_en": "Follow the structures to write",
    "outline": false,
    "note": {
-    "zh": "看着部件，用笔把字写出来。笔顺按规则判，写错三笔会给提示。",
-    "en": "Look at the parts and write the character with the Pencil. Stroke order is judged by rule; after three wrong strokes a hint appears."
+    "zh": "看着部件，用笔把字写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "Look at the parts and write the character with the Pencil. When you tap 写好了, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
    },
    "items": [
     {
@@ -695,8 +695,8 @@
    "title": "读一读",
    "title_en": "Read aloud",
    "note": {
-    "zh": "读出来就行，不打分：没听到的字会点出来，再读一遍。",
-    "en": "Just read it aloud; it is not scored. Characters the recogniser did not hear are dotted — read them once more."
+    "zh": "读出来，录下来就行，不打分。对照在批改的时候看。",
+    "en": "Just read it aloud; it is recorded, not scored. The comparison is for the evaluation."
    },
    "text": "喝水 喝茶 喝牛奶 喝汽水 喝咖啡\n正在 正想 正好 正在写 正在做\n河水很深。河水很浅。河水是深还是浅？\n河水既不像老牛说的那样浅，也不像松鼠说的那样深。"
   },
