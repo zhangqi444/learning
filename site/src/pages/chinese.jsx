@@ -7,7 +7,7 @@ import { t, tf, useLang } from "@/lib/lang"
 import { go } from "@/lib/router"
 import { speak, canSpeak } from "@/lib/speech"
 import { alignChars, canRecognize, canRecord, markPassage, pace, startRecognition, startRecorder } from "@/lib/reading"
-import { hasStrokes, makeQuiz, strokeData, writtenWell } from "@/lib/strokes"
+import { boxToChar, drawReference, hasStrokes, judgeStrokes, strokeData, writtenWell } from "@/lib/strokes"
 import { Ink } from "@/components/ink"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
@@ -542,27 +542,65 @@ function SortWidget({ ex, ans, set1, done }) {
     </div>
   )
 }
-/** One character to write with the Pencil, judged stroke by stroke. */
-function HanziBox({ ch, outline = false, size = 112, onDone, label }) {
-  const el = useRef(null)
-  const [state, setState] = useState({ done: false, mistakes: 0, strokeNum: 0 })
-  const [gen, setGen] = useState(0)
-  useEffect(() => {
-    if (!el.current) return
-    el.current.innerHTML = ""
-    setState({ done: false, mistakes: 0, strokeNum: 0 })
-    const q = makeQuiz(el.current, ch, { size, outline,
-      onProgress: (p) => setState((st) => ({ ...st, mistakes: p.totalMistakes, strokeNum: p.strokeNum })),
-      onDone: (r) => { setState({ done: true, mistakes: r.mistakes, strokeNum: 0 }); onDone && onDone(r) } })
-    return () => q && q.cancel()
-  }, [ch, outline, size, gen])   // eslint-disable-line react-hooks/exhaustive-deps
-  const n = (strokeData(ch) || { strokes: [] }).strokes.length
+/** A 米字格: the square, its midlines and its diagonals, dotted and faint. */
+function MiGrid({ size }) {
+  const s = size, h = s / 2
   return (
-    <div className="flex flex-col items-center gap-1" data-testid="zh-hanzi" data-char={ch} data-done={state.done ? "1" : "0"} data-mistakes={state.mistakes}>
+    <svg width={s} height={s} viewBox={`0 0 ${s} ${s}`} className="absolute inset-0" aria-hidden="true">
+      <rect x="0.5" y="0.5" width={s - 1} height={s - 1} fill="none" stroke="#c9c7e8" strokeWidth="1" />
+      {[[0, h, s, h], [h, 0, h, s], [0, 0, s, s], [s, 0, 0, s]].map(([x1, y1, x2, y2], i) => <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#d4d2ee" strokeWidth="1" strokeDasharray="3 4" />)}
+    </svg>
+  )
+}
+/** One character, written freely into a 米字格 and judged after 写好了: her strokes
+ *  stay on top, the standard form appears beneath and animates once in order,
+ *  each of her strokes is marked. No shadow before she writes — that is the
+ *  owner's point: 描红 after, not before. */
+function HanziBox({ ch, size = 140, onDone, label }) {
+  const ref = useRef(null), cv = useRef(null), drawn = useRef([]), cur = useRef(null), writer = useRef(null)
+  const [n, setN] = useState(0)
+  const [res, setRes] = useState(null)
+  const [gen, setGen] = useState(0)
+  useLang()
+  useEffect(() => {
+    if (!ref.current) return
+    ref.current.innerHTML = ""
+    writer.current = drawReference(ref.current, ch, size)
+    drawn.current = []; cur.current = null; setN(0); setRes(null)
+    const c = cv.current; if (c) c.getContext("2d").clearRect(0, 0, c.width, c.height)
+  }, [ch, size, gen])
+  const k = () => cv.current.width / size
+  const at = (e) => { const r = cv.current.getBoundingClientRect(); return [(e.clientX - r.left) * (size / r.width), (e.clientY - r.top) * (size / r.height)] }
+  const down = (e) => { if (res) return; e.preventDefault(); try { cv.current.setPointerCapture(e.pointerId) } catch { /* no-op */ } const p = at(e); cur.current = [p]; const c = cv.current.getContext("2d"); c.lineCap = "round"; c.lineJoin = "round"; c.strokeStyle = "#2b2a55"; c.lineWidth = 4 * k(); c.beginPath(); c.moveTo(p[0] * k(), p[1] * k()); c.lineTo(p[0] * k() + 0.1, p[1] * k()); c.stroke() }
+  const move = (e) => { if (!cur.current) return; const p = at(e), q = cur.current[cur.current.length - 1]; cur.current.push(p); const c = cv.current.getContext("2d"); c.beginPath(); c.moveTo(q[0] * k(), q[1] * k()); c.lineTo(p[0] * k(), p[1] * k()); c.stroke() }
+  const up = () => { if (!cur.current) return; drawn.current.push(cur.current); cur.current = null; setN(drawn.current.length) }
+  const finish = () => {
+    const map = boxToChar(ref.current)
+    const strokes = drawn.current.map((pts) => pts.map(([x, y]) => map ? map(x, y) : [x, y]))
+    const j = judgeStrokes(ch, strokes) || { mistakes: 0, strokes: [], n: 0, missing: 0 }
+    // the standard form, beneath hers, drawn once in order
+    if (writer.current) { try { writer.current.hideCharacter({ duration: 0 }); writer.current.animateCharacter() } catch { /* already visible */ } }
+    const r = { ch, mistakes: j.mistakes, n: j.n, missing: j.missing, strokes: strokes.map((pts, i) => ({ n: i, ok: !!(j.strokes[i] && j.strokes[i].ok), verdict: (j.strokes[i] || {}).verdict || "extra", pts: pts.map(([x, y]) => [Math.round(x), Math.round(y)]) })) }
+    setRes(r); onDone && onDone(r)
+  }
+  const nRef = (strokeData(ch) || { strokes: [] }).strokes.length
+  const wrong = res ? res.strokes.filter((x) => !x.ok) : []
+  const verdictText = res ? (res.mistakes === 0 ? t("一笔没错", "every stroke right")
+    : [wrong.length ? t(`第 ${wrong.map((x) => x.n + 1).join("、")} 笔${wrong.every((x) => x.verdict === "backwards") ? "方向反了" : "不像"}`, `stroke ${wrong.map((x) => x.n + 1).join(", ")} ${wrong.every((x) => x.verdict === "backwards") ? "backwards" : "off"}`) : "",
+       res.missing ? t(`少写了 ${res.missing} 笔`, `${res.missing} missing`) : "", res.strokes.length > res.n ? t(`多写了 ${res.strokes.length - res.n} 笔`, `${res.strokes.length - res.n} extra`) : ""].filter(Boolean).join(" · ")) : null
+  return (
+    <div className="flex flex-col items-center gap-1" data-testid="zh-hanzi" data-char={ch} data-done={res ? "1" : "0"} data-mistakes={res ? res.mistakes : 0} data-strokes={n}>
       {label ? <span className="text-muted-foreground text-xs">{label}</span> : null}
-      <div ref={el} className={cn("rounded-lg border bg-white", state.done && "border-success")} style={{ width: size, height: size, touchAction: "none" }} />
-      <span className="text-muted-foreground text-xs tabular-nums">{state.done ? (state.mistakes ? t(`写好了 · 错了 ${state.mistakes} 笔`, `done · ${state.mistakes} wrong strokes`) : t("一笔没错", "every stroke right")) : t(`${state.strokeNum}/${n} 笔`, `${state.strokeNum}/${n} strokes`)}</span>
-      {state.done ? <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs" onClick={() => setGen((g) => g + 1)}>{t("重写", "Write again")}</Button> : null}
+      <div className="relative rounded-lg bg-white" style={{ width: size, height: size }}>
+        <MiGrid size={size} />
+        <div ref={ref} className="absolute inset-0" style={{ opacity: res ? 0.45 : 0, pointerEvents: "none" }} data-testid="zh-reference" />
+        <canvas ref={cv} width={size * 4} height={size * 4} className="absolute inset-0" style={{ width: size, height: size, touchAction: "none" }} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up} data-testid="zh-ink-box" />
+      </div>
+      <span className={cn("text-xs tabular-nums", res ? (res.mistakes ? "text-muted-foreground" : "text-success") : "text-muted-foreground")}>{res ? verdictText : t(`${n}/${nRef} 笔`, `${n}/${nRef} strokes`)}</span>
+      <span className="flex gap-1">
+        {!res ? <Button size="sm" variant={n ? "default" : "outline"} className="h-6 px-2 text-xs" disabled={!n} onClick={finish} data-testid="zh-hanzi-done">{t("写好了", "Done")}</Button> : null}
+        {n || res ? <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs" onClick={() => setGen((g) => g + 1)} data-testid="zh-hanzi-redo">{t("重写", "Write again")}</Button> : null}
+      </span>
     </div>
   )
 }
@@ -573,7 +611,7 @@ function WriteWidget({ ex, ans, set1, done }) {
         <div key={it.id} className="flex flex-col items-center gap-1 rounded-lg border p-3" data-testid="zh-write-item">
           {it.parts ? <span className="text-lg">{it.parts}</span> : null}
           {it.py ? <span className="text-sm"><span className="text-muted-foreground">{it.py}</span> {it.context}</span> : null}
-          <HanziBox ch={it.key} outline={!!ex.outline} onDone={(r) => set1(it.id, { done: true, mistakes: r.mistakes, strokes: r.strokes, n: (strokeData(it.key) || { strokes: [] }).strokes.length })} />
+          <HanziBox ch={it.key} onDone={(r) => set1(it.id, { done: true, mistakes: r.mistakes, strokes: r.strokes, n: (strokeData(it.key) || { strokes: [] }).strokes.length })} />
         </div>
       ))}
     </div>

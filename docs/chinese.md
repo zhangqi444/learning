@@ -205,28 +205,37 @@ Three subjects, not four. 汉字, 词语 and 阅读 are each a real section of t
 each already has machinery waiting for it: the 课文 is a passage and reuses the `p`
 field and the passage renderer exactly; 词语 in a sentence with a gap **is the
 sentence-completion mechanic the whole site is built on**, arriving in a second
-language. **Handwriting is in, and judged on the device.** The first draft of this section
-put it out of reach — no canvas, no stroke-order data. The owner's brief changed
-that: she does the homework, the result is kept digitally, and it is judged by a
-rule where a rule can exist. The Pencil gives the rule its evidence. For a
-*known* character — the 生字 she copies, a dictation word she writes from
-hearing, a character under its pinyin — `hanzi-writer` (MIT) runs a stroke quiz
+language. **Handwriting is in, judged on the device — and she writes first, then sees.**
+The first draft of this section put it out of reach — no canvas, no stroke-order
+data. The owner's brief changed that: she does the homework, the result is kept
+digitally, and it is judged by a rule where a rule can exist. The Pencil gives
+the rule its evidence. For a *known* character — the 生字 she copies, a dictation
+word she writes from hearing, a character under its pinyin — the box is a 米字格
+(dotted midlines and diagonals) with **no shadow in it**: she writes the
+character freely, every stroke captured as a point sequence, and only when she
+taps 写好了 does the standard form appear beneath her strokes and animate once in
+stroke order — 描红 after the fact, the owner's own phrase, so she compares
+rather than traces. The judge is ours, over her strokes in character space,
 against reference data from Make Me a Hanzi (`hanzi-writer-data`, Arphic Public
-License; the 57 characters this lesson needs are vendored under
-`content/chinese/strokes/` beside the licence file and inlined in the bundle, so
-nothing is fetched and it works offline and in the artifact). Each stroke she
-draws is matched in order; the drawn paths are kept with the answer, stroke by
-stroke, with whether each matched — the stroke sequence the owner asked for. A
-character written with at most two slips (or a quarter of its strokes, whichever
-is more) counts as written: a decision, not a measurement, because a
-ten-year-old mis-starts strokes and the quiz already makes her redo them. The
-validator refuses to ask for a character that has no stroke data. *Free*
-writing — 组词, 造句, answers to the text — has no key: an ink canvas keeps the
-page as a PNG and the strokes as point sequences with pressure and time, both
-uploaded to her Drive as their own files, and the `chinese-review` skill judges
-them; the site says "awaiting review" and never guesses a mark. The retell is
-recorded and transcribed like the reading, with a parent's tap as the signature
-the book asks for. Typing was offered and declined: it exercises nothing.
+License; the characters a lesson needs are vendored under
+`content/chinese/strokes/` beside the licence file and inlined in the bundle,
+so nothing is fetched and it works offline and in the artifact): her k-th
+stroke against the k-th reference median — mean distance along the stroke,
+where it starts and ends, its length, its direction — with thresholds near the
+library's own leniency; a stroke drawn backwards, a stroke out of place, a
+stroke missing or too many each count once, and the verdict names them (第 3 笔
+方向反了 · 少写了 1 笔). `hanzi-writer` (MIT) is kept only to draw the reference.
+A character written with at most two slips (or a quarter of its strokes,
+whichever is more) counts as written: a decision, not a measurement, because a
+ten-year-old mis-starts strokes and the standard form is right there to compare
+against. The validator refuses to ask for a character that has no stroke data.
+*Free* writing — 组词, 造句, answers to the text — has no key: an ink canvas keeps
+the page as a PNG and the strokes as point sequences with pressure and time,
+both uploaded to her Drive as their own files, and the `chinese-review` skill
+judges them; the site says "awaiting review" and never guesses a mark. The
+retell is recorded and transcribed like the reading, with a parent's tap as the
+signature the book asks for. Typing was offered and declined: it exercises
+nothing.
 
 Item ids are namespaced from the first commit, because retrofitting a prefix means
 rewriting learning records and hard rule 1 forbids losing them: `z:` for a 汉字,

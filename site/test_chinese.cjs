@@ -215,18 +215,30 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // the test traces each stroke with real mouse events along the reference
   // path; the quiz has to accept them, and the strokes have to be kept.
   const bundle = JSON.parse(fs.readFileSync(path.join(DIST, 'content/bundle.json'), 'utf8'));
-  const trace = async (sel, ch) => {
+  // She writes freely into the box, then taps 写好了; the reference beneath her
+  // strokes is what the test traces along, read back through its own transform.
+  const trace = async (sel, ch, { done = true, skip = [] } = {}) => {
     await pg.$eval(sel, (e) => e.scrollIntoView({ block: 'center' }));
-    const info = await pg.$eval(sel, (box) => { const svg = box.querySelector('svg'); const g = svg.querySelector('g[transform]'); const m = /translate\(\s*([-\d.]+)[,\s]+([-\d.]+)\s*\)\s*scale\(\s*([-\d.]+)[,\s]+([-\d.]+)\s*\)/.exec(g.getAttribute('transform')); const r = svg.getBoundingClientRect(); return { left: r.left, top: r.top, tx: +m[1], ty: +m[2], sx: +m[3], sy: +m[4] }; });
-    for (const med of bundle.zh.strokes[ch].medians) {
+    const info = await pg.$eval(sel, (box) => { const svg = box.querySelector('[data-testid=zh-reference] svg'); const g = svg.querySelector('g[transform]'); const m = /translate\(\s*([-\d.]+)[,\s]+([-\d.]+)\s*\)\s*scale\(\s*([-\d.]+)[,\s]+([-\d.]+)\s*\)/.exec(g.getAttribute('transform')); const r = svg.getBoundingClientRect(); return { left: r.left, top: r.top, tx: +m[1], ty: +m[2], sx: +m[3], sy: +m[4] }; });
+    for (const [k, med] of bundle.zh.strokes[ch].medians.entries()) {
+      if (skip.includes(k)) continue;
       const pts = med.map(([x, y]) => [info.left + info.tx + x * info.sx, info.top + info.ty + y * info.sy]);
       await pg.mouse.move(pts[0][0], pts[0][1]); await pg.mouse.down();
       for (const [x, y] of pts.slice(1)) await pg.mouse.move(x, y, { steps: 3 });
-      await pg.mouse.up(); await pg.waitForTimeout(40);
+      await pg.mouse.up(); await pg.waitForTimeout(30);
     }
+    if (done) await pg.click(`${sel} >> [data-testid=zh-hanzi-done]`);
   };
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-01w'; }); await pg.waitForSelector('[data-testid=zh-hanzi] svg');
   check('写一写 shows six boxes, one per character, none done', (await pg.$$('[data-testid=zh-hanzi][data-done="0"]')).length === 6);
+  check('and no shadow of the character before she writes', (await pg.$$eval('[data-testid=zh-reference]', (n) => n.map((x) => getComputedStyle(x).opacity))).every((o) => +o === 0));
+  check('but a 米字格 to write into', (await pg.$$('[data-testid=zh-hanzi] svg line')).length === 24);
+  // one character with a stroke left out, to see the judge say so
+  await trace('[data-testid=zh-hanzi][data-char="定"]', '定', { skip: [7] });
+  check('a character short of a stroke is told how many are missing', /少写了 1 笔/.test(await pg.textContent('[data-testid=zh-hanzi][data-char="定"]')) && (await pg.getAttribute('[data-testid=zh-hanzi][data-char="定"]', 'data-mistakes')) === '1');
+  check('and the standard form appears beneath her strokes once she is done', +(await pg.$eval('[data-testid=zh-hanzi][data-char="定"] [data-testid=zh-reference]', (x) => getComputedStyle(x).opacity)) > 0);
+  await pg.click('[data-testid=zh-hanzi][data-char="定"] [data-testid=zh-hanzi-redo]'); await pg.waitForTimeout(100);
+  check('写 again clears it', (await pg.getAttribute('[data-testid=zh-hanzi][data-char="定"]', 'data-done')) === '0');
   for (const ch of ['喝', '伯', '深', '突', '松', '定']) await trace(`[data-testid=zh-hanzi][data-char="${ch}"]`, ch);
   await pg.waitForFunction(() => document.querySelectorAll('[data-testid=zh-hanzi][data-done="1"]').length === 6, null, { timeout: 8000 }).catch(() => {});
   const doneBoxes = await pg.$$eval('[data-testid=zh-hanzi]', (n) => n.map((x) => `${x.dataset.char}:${x.dataset.done}/${x.dataset.mistakes}`).join(' '));
