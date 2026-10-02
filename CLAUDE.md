@@ -177,6 +177,15 @@ npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63
   slower, which reads as "the header is broken" and is not. Wait for
   `[data-testid=drive-button]:has-text("Saved to Drive")`, and report what the
   chip actually said when it does not arrive.
+- **A Playwright timeout on a reload, minutes after the same suite passed, wants
+  `uptime` before it wants a diff.** On 2 October the Drive suite died twice at
+  two different lines — a `page.reload` that never reached `networkidle`, then a
+  run that sat silent for nine minutes — with no change anywhere near it. The Mac
+  was at a load average over 300, 15 GB of disk free of 926 and CacheDelete
+  purging, with 126 MB of memory unused; the browser's timers were being starved,
+  not the page broken. Read the load, wait it out, and rerun. A suite that passes
+  three gates and then fails at a line the change did not touch is the machine
+  until shown otherwise.
 - **A check that reads the real calendar will fail on a date nobody chose.**
   `test_features.cjs` clicked the dashboard's "Show N done" fold as soon as the
   page loaded. That fold only exists once something on the open week is
