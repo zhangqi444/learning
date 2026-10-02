@@ -27,22 +27,47 @@ def load_content():
         if isinstance(v, dict) and "id" in v: forms.add(v["id"])
         elif isinstance(v, list): forms.update(x.get("id") for x in v if isinstance(x, dict))
     forms |= {"DGN", "M01", "M02", "M03"}
-    return weeks, dims, forms
+    # A Chinese review targets one homework note by date, and may speak to the
+    # exercise items the site cannot mark by rule (docs/review.md, docs/chinese.md § 8).
+    zh_sets, zh_items = set(), {"read", "tell"}
+    hw = ROOT / "content" / "chinese" / "homework"
+    if hw.is_dir():
+        for f in sorted(hw.glob("*.json")):
+            n = json.loads(f.read_text()); zh_sets.add(n.get("set"))
+    exd = ROOT / "content" / "chinese" / "exercises"
+    if exd.is_dir():
+        for f in sorted(exd.glob("*.json")):
+            for ex in json.loads(f.read_text()).get("exercises", []):
+                zh_items.add(ex.get("id"))
+                for it in ex.get("items", []) + (ex.get("fills") or {}).get("items", []): zh_items.add(it.get("id"))
+    return weeks, dims, forms, zh_sets, zh_items
 
 
 def check(r):
-    weeks, dims, forms = load_content()
+    weeks, dims, forms, zh_sets, zh_items = load_content()
     errs = []
     t = r.get("target") or {}
     kind = t.get("kind")
-    if kind in ("essay", "week"):
+    if kind == "zh":
+        if t.get("set") not in zh_sets: errs.append(f"target.set must be the date of a homework note: {sorted(zh_sets)}")
+        items = r.get("items", [])
+        if not isinstance(items, list): errs.append("items must be a list of {id, ok, note}")
+        elif len(items) > 20: errs.append("at most twenty item notes")
+        else:
+            for i, it in enumerate(items):
+                if not isinstance(it, dict): errs.append(f"items[{i}] must be an object"); continue
+                if it.get("id") not in zh_items: errs.append(f"items[{i}].id {it.get('id')!r} is not an exercise item, 'read' or 'tell'")
+                if it.get("ok") not in (True, False, None): errs.append(f"items[{i}].ok must be true, false or null")
+                if not str(it.get("note", "")).strip(): errs.append(f"items[{i}] needs a note to Sheila")
+        if r.get("rubric"): errs.append("a Chinese review has no rubric")
+    elif kind in ("essay", "week"):
         if t.get("wk") not in weeks: errs.append(f"target.wk must be one of {sorted(weeks)}")
     elif kind == "mock":
         if t.get("form") not in forms: errs.append(f"target.form must be one of {sorted(forms)}")
     elif kind == "month":
         if not re.fullmatch(r"\d{4}-\d{2}", str(t.get("m", ""))): errs.append("target.m must be YYYY-MM")
     else:
-        errs.append("target.kind must be 'essay'/'week' (with wk), 'mock' (with form) or 'month' (with m)")
+        errs.append("target.kind must be 'essay'/'week' (with wk), 'mock' (with form), 'month' (with m) or 'zh' (with set)")
     if not str(r.get("summary", "")).strip(): errs.append("summary is required")
     if not str(r.get("reviewer", "")).strip(): errs.append("reviewer is required, e.g. 'Claude, asked by Dad'")
     if not re.fullmatch(r"\d{4}-\d{2}-\d{2}T[\d:.]+Z?", str(r.get("at", ""))): errs.append("at must be an ISO timestamp, e.g. 2026-09-05T18:00:00Z")
@@ -74,7 +99,8 @@ def link(r):
 def doc(r):
     t = r["target"]
     what = {"essay": lambda: f"Essay {t['wk']}", "week": lambda: f"week {t['wk']}",
-            "month": lambda: f"month {t['m']}", "mock": lambda: f"Mock {t.get('form')} essay"}[t["kind"]]()
+            "month": lambda: f"month {t['m']}", "mock": lambda: f"Mock {t.get('form')} essay",
+            "zh": lambda: f"Chinese homework of {t.get('set')}"}[t["kind"]]()
     lines = [f"Review of Sheila's {what}", f"By {r['reviewer']} · {r['at'][:10]}"]
     if r.get("source"): lines.append(f"Read from {r['source']}")
     lines += ["", r["summary"], ""]

@@ -265,8 +265,26 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   st = await ls(pg);
   const tell = (((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D4-04'] || {});
   check('the recording, the transcript and the parent\'s tap are all in the zh slice', /^media\d+$/.test((tell.told || {}).fileId || '') && /自己试一试/.test((tell.told || {}).transcript || '') && !!(tell.parent && tell.parent.at), JSON.stringify({ file: (tell.told || {}).fileId, by: (tell.parent || {}).by }));
+  // -- the judge: a chinese-review arrives through the import link, like an essay review
+  const review = { id: 'zh:2026-09-30:test', v: 1, target: { kind: 'zh', set: '2026-09-30' }, at: '2026-10-01T23:00:00Z', reviewer: 'Claude, asked by Dad', source: 'progress.json and the ink pages in her Drive',
+    summary: '这一周的作业做得很认真。', strengths: ['「出门看看才知道」写得很自然。'], suggestions: ['「深」字右边再写一遍看看。'], next: '每个生字先看结构再写。',
+    items: [{ id: 'zx:L05-D1-03-2', ok: false, note: '第三个词可以写「正当」。' }, { id: 'tell', ok: true, note: '故事讲完整了。' }, { id: 'zx:nope', ok: true, note: 'kept as written: the site shows what the reviewer said' }] };
+  const payload = Buffer.from(JSON.stringify(review), 'utf8').toString('base64url');
+  await pg.evaluate((h) => { location.hash = h; }, '#/import/' + payload); await pg.waitForSelector('[data-testid=import-add]');
+  await pg.click('[data-testid=import-add]'); await pg.waitForTimeout(300);
+  st = await ls(pg);
+  const got = Object.values(st.reviews || {}).find((r) => r.target && r.target.kind === 'zh');
+  check('a Chinese review is accepted, its target kept, its item notes kept', !!got && got.target.set === '2026-09-30' && Array.isArray(got.items) && got.items.length === 3, JSON.stringify(got && { target: got.target, items: (got.items || []).length }));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
-  check('the workbook card tells the three states apart', /待批改/.test(await pg.textContent('[data-testid=zh-workbook]')) && /家长已听/.test(await pg.textContent('[data-testid=zh-workbook]')) && /6\/6/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  check('the review card shows under the week\'s tasks', /这一周的作业做得很认真/.test(await pg.textContent('[data-testid=zh-home]')));
+  check('and its chrome is in the page\'s language', /批改/.test(await pg.textContent('[data-testid=essay-review]')) && !/What a reader noticed|Try this/.test(await pg.textContent('[data-testid=essay-review]')));
+  check('and the free exercise it spoke to reads reviewed, not awaiting', /已批改/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-03'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  check('the note sits beside the item it is about', /可以写「正当」/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=1')) && !/正当/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=0')));
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D4-04'; }); await pg.waitForSelector('[data-testid=zh-tell-start]');
+  check('and the retell has its note', /故事讲完整了/.test(await pg.textContent('[data-testid=zh-ex]')));
+  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
+  check('the workbook card tells the states apart', /已批改/.test(await pg.textContent('[data-testid=zh-workbook]')) && /家长已听/.test(await pg.textContent('[data-testid=zh-workbook]')) && /6\/6/.test(await pg.textContent('[data-testid=zh-workbook]')));
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForTimeout(300); await pg.click('[data-testid=cat-isee]'); await pg.waitForSelector('[data-testid=today]');
   check('and the ISEE dashboard card still reads the same after all of it', before === (await titleOf('[data-testid=today]')), `${before} → ${await titleOf('[data-testid=today]')}`);
   check('no page errors', errs.length === 0, errs.join(' | '));

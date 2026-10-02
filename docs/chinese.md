@@ -342,7 +342,12 @@ the number for a parent (§ 8). Then the seven closed workbook exercises became 
 (§ 4), and the other eight followed: handwriting of known characters judged
 stroke by stroke with the Pencil, free writing kept as image and strokes for
 the review skill, the retell recorded and signed; dictation can be written with
-the pen and rated by rule. Not in: the Wordwood (Phase 3), the skills (Phase 4), the Chinese review
+the pen and rated by rule. Then the judge: `chinese-review`, the Chinese
+`essay-review`, reads the week from her Drive — the ink pages as images, the
+transcripts — and brings back a review with a note per item, which the site
+shows under the week and beside each exercise (`docs/review.md`, target `zh`).
+Phase 4 is therefore in for the skill that judges; `progress-digest` still
+reports only ISEE. Not in: the Wordwood (Phase 3), the skills (Phase 4), the Chinese review
 and again runs beyond the plain due pile, the Pencil canvas with stroke capture,
 and the `chinese-review` skill for the open exercises.
 

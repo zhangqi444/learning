@@ -68,7 +68,8 @@ ellipsis. On a device where the raw link is awkward, `#/import` has a paste box.
 | Field | Rule |
 |---|---|
 | `id` | Unique. `essay:<wk>:<date>` or `mock:<form>:<date>`. A second review of the same essay on a later day is a new id; both are kept. |
-| `target` | One of `{kind:"essay", wk}`, `{kind:"week", wk}` (wk = `W1`…`W8`), `{kind:"mock", form}` (`DGN`/`M01`/`M02`/`M03`), `{kind:"month", m:"YYYY-MM"}`. Unknown targets are dropped on import. |
+| `target` | One of `{kind:"essay", wk}`, `{kind:"week", wk}` (wk = `W1`…`W8`), `{kind:"mock", form}` (`DGN`/`M01`/`M02`/`M03`), `{kind:"month", m:"YYYY-MM"}`, or `{kind:"zh", set:"YYYY-MM-DD"}` — one week of Chinese homework, by the date of the teacher's note (`content/chinese/homework/`). Unknown targets are dropped on import. |
+| `items` | Chinese reviews only. Per-item verdicts, at most twenty: `{id, ok, note}` — `id` an exercise item id (`zx:…`) or `read` / `tell`; `ok` true, false or null; `note` one or two sentences to Sheila, Chinese first. Shown beside the item on the site. |
 | `at` | When it was written. Merge key: for the same id the newer `at` wins. |
 | `reviewer` | Who. Name the person who asked as well as the tool: "Claude, asked by Dad". |
 | `source` | Optional. Where the reviewer read the essay, in words. Shown on the card. |
@@ -84,6 +85,9 @@ ellipsis. On a device where the raw link is awkward, `#/import` has a paste box.
 - The essay week page shows the review card under the prompt, above the phase
   tabs, so it is there whichever tab she is on and even if it arrives from Drive
   while the page is open. A mock essay shows it under the submitted text.
+- A **Chinese** review (`kind: "zh"`) shows on the Chinese home under that week's
+  tasks, and each of its `items` beside the exercise it names; the free-writing
+  exercises read "awaiting review" until one arrives.
 - A **week** review shows at the top of `/checklist/<wk>`; a **month** review at
   the top of `/checklist/month/<m>`. Their follow-ups appear as `Follow-up` rows
   on the week each names, and any still un-ticked in the current week are listed

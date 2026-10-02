@@ -25,11 +25,13 @@ export function normalizeReview(raw) {
   if (t.kind === "mock" && D.mocks.some((m) => m.id === t.form)) target = { kind: "mock", form: t.form }
   if (t.kind === "week" && planWeeks().includes(t.wk)) target = { kind: "week", wk: t.wk }
   if (t.kind === "month" && /^\d{4}-\d{2}$/.test(t.m || "")) target = { kind: "month", m: t.m }
+  // One week of Chinese homework, by the date of the teacher's note (docs/chinese.md § 8).
+  if (t.kind === "zh" && D.zh && D.zh.homework && D.zh.homework[t.set]) target = { kind: "zh", set: t.set }
   if (!target) return null
   const summary = str(raw.summary)
   if (!summary) return null
   const at = ts(raw.at) ? new Date(ts(raw.at)).toISOString() : new Date().toISOString()
-  const key = target.wk || target.form || target.m
+  const key = target.wk || target.form || target.m || target.set
   const id = str(raw.id) || `${target.kind}:${key}:${at.slice(0, 10)}`
   const out = { id, v: REVIEW_VERSION, target, at, reviewer: str(raw.reviewer) || "Reviewer", summary, next: str(raw.next) }
   for (const k of LIST) out[k] = list(raw[k])
@@ -41,6 +43,12 @@ export function normalizeReview(raw) {
     const wk = planWeeks().includes(a && a.wk) ? a.wk : target.kind === "week" ? target.wk : null
     return text && wk ? { text, wk, path: str(a && a.path) || null } : null
   }).filter(Boolean).slice(0, 8)
+  // A Chinese review speaks to the items no rule could mark: a note each, to her,
+  // shown beside the exercise. ok is true, false, or null when it is not a yes/no.
+  if (target.kind === "zh") out.items = (Array.isArray(raw.items) ? raw.items : []).map((it) => {
+    const id = str(it && it.id), note = str(it && it.note), ok = it && (it.ok === true || it.ok === false) ? it.ok : null
+    return id && note ? { id, ok, note } : null
+  }).filter(Boolean).slice(0, 20)
   if (raw.draftAt && ts(raw.draftAt)) out.draftAt = new Date(ts(raw.draftAt)).toISOString()
   if (typeof raw.words === "number" && raw.words >= 0) out.words = Math.round(raw.words)
   const dims = ((D.essay && D.essay.rubric && D.essay.rubric.dimensions) || []).map((d) => d.name)
@@ -89,7 +97,7 @@ export function parseImport(text) {
 /* ---------- reading ---------- */
 export function allReviews() { return Object.values(Store.s.reviews || {}).filter((r) => r && r.target).sort((a, b) => ts(b.at) - ts(a.at)) }
 export function reviewsFor(target) {
-  const same = (a, b) => a.kind === b.kind && a.wk === b.wk && a.form === b.form && a.m === b.m
+  const same = (a, b) => a.kind === b.kind && a.wk === b.wk && a.form === b.form && a.m === b.m && a.set === b.set
   return allReviews().filter((r) => same(r.target, target))
 }
 /** Follow-ups any review asked for in week `wk`, with a stable id so a tick sticks. */
@@ -119,6 +127,7 @@ export function reviewTargetLabel(r) {
   if (t.kind === "essay") return `Essay · ${t.wk}`
   if (t.kind === "week") return `${t.wk} · the week`
   if (t.kind === "month") return monthName(t.m)
+  if (t.kind === "zh") return `中文 · ${t.set}`
   const m = D.mocks.find((x) => x.id === t.form)
   return `${m ? m.name : t.form} · essay`
 }
@@ -127,5 +136,6 @@ export function reviewPath(r) {
   if (t.kind === "essay") return `/essay/${t.wk}`
   if (t.kind === "week") return `/checklist/${t.wk}`
   if (t.kind === "month") return `/checklist/month/${t.m}`
+  if (t.kind === "zh") return "/chinese"
   return `/mock/${t.form}/ESSAY`
 }

@@ -10,10 +10,15 @@ import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 
 const TITLE = { essay: "What a reader noticed", mock: "What a reader noticed", week: "How the week went", month: "How the month went" }
+/* The card's own words. English by default — the ISEE pages pass nothing — and
+ * the Chinese home passes its own, so a review on a Chinese page reads in the
+ * page's language, the way the runner's chrome does. */
+const DEFAULT_LABELS = { readFrom: "Read from", words: "words", fresh: "New", worked: "What worked", tryThis: "Try this", next: "{L.next}", checklist: "On the checklist", open: "Open" }
 
 /** One review — of an essay, or of a whole week or month — written to her. `changedAt`
  *  is when the work last changed, so a review of an older draft says so. */
-export function ReviewCard({ r, changedAt }) {
+export function ReviewCard({ r, changedAt, labels }) {
+  const L = { ...DEFAULT_LABELS, ...(labels || {}) }
   // "New" stays for this visit; the dot elsewhere goes as soon as she has opened it.
   const [fresh] = React.useState(() => !isSeen(r.id))
   React.useEffect(() => { markSeen(r.id) }, [r.id])
@@ -23,15 +28,15 @@ export function ReviewCard({ r, changedAt }) {
     <Card className="border-primary/30 gap-4" data-testid="essay-review" data-id={r.id}>
       <CardHeader>
         <CardDescription className="flex items-center gap-2"><MessageSquareText className="size-4" /> {reviewTargetLabel(r)} · {r.reviewer} · {fmtDate(r.at)}</CardDescription>
-        <CardTitle className="text-lg">{TITLE[r.target.kind] || "What a reader noticed"}</CardTitle>
-        {r.source ? <CardDescription>Read from {r.source}{r.words ? ` · ${r.words} words` : ""}</CardDescription> : r.words ? <CardDescription>{r.words} words</CardDescription> : null}
-        {fresh ? <CardAction><Badge>New</Badge></CardAction> : null}
+        <CardTitle className="text-lg">{L.title || TITLE[r.target.kind] || "What a reader noticed"}</CardTitle>
+        {r.source ? <CardDescription>{L.readFrom} {r.source}{r.words ? ` · ${r.words} ${L.words}` : ""}</CardDescription> : r.words ? <CardDescription>{r.words} {L.words}</CardDescription> : null}
+        {fresh ? <CardAction><Badge>{L.fresh}</Badge></CardAction> : null}
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <p className="text-[15px] leading-relaxed">{r.summary}</p>
         {r.strengths.length ? (
           <div className="flex flex-col gap-1.5">
-            <div className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">What worked</div>
+            <div className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">{L.worked}</div>
             <ul className="flex flex-col gap-1.5">
               {r.strengths.map((s, i) => <li key={i} className="flex items-start gap-2 text-sm leading-relaxed"><CheckCircle2 className="text-success mt-0.5 size-4 shrink-0" /> <span>{s}</span></li>)}
             </ul>
@@ -39,7 +44,7 @@ export function ReviewCard({ r, changedAt }) {
         ) : null}
         {r.suggestions.length ? (
           <div className="flex flex-col gap-1.5">
-            <div className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">Try this</div>
+            <div className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">{L.tryThis}</div>
             <ol className="flex flex-col gap-1.5">
               {r.suggestions.map((s, i) => <li key={i} className="flex items-start gap-2 text-sm leading-relaxed"><span className="bg-muted text-muted-foreground mt-0.5 inline-flex size-5 shrink-0 items-center justify-center rounded-full text-xs font-semibold tabular-nums">{i + 1}</span> <span>{s}</span></li>)}
             </ol>
@@ -48,13 +53,13 @@ export function ReviewCard({ r, changedAt }) {
         {r.next ? <div className="bg-accent text-accent-foreground flex items-start gap-2 rounded-md px-3 py-2 text-sm"><Sparkles className="mt-0.5 size-4 shrink-0" /> <span><span className="font-medium">For next week:</span> {r.next}</span></div> : null}
         {(r.actions || []).length ? (
           <div className="flex flex-col gap-1.5" data-testid="review-actions">
-            <div className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">On the checklist</div>
+            <div className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">{L.checklist}</div>
             <ul className="divide-y rounded-md border">
               {r.actions.map((a, i) => (
                 <li key={i} className="flex flex-wrap items-center gap-2 px-3 py-2 text-sm">
                   <Badge variant="outline" className="shrink-0">{a.wk}</Badge>
                   <span className="min-w-0 flex-1">{a.text}</span>
-                  {a.path ? <Button size="sm" variant="ghost" className="h-7 px-2" onClick={() => go(a.path)}>Open</Button> : null}
+                  {a.path ? <Button size="sm" variant="ghost" className="h-7 px-2" onClick={() => go(a.path)}>{L.open}</Button> : null}
                 </li>
               ))}
             </ul>

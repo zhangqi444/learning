@@ -16,6 +16,8 @@ import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Textarea } from "@zhangqi444/ui/ui/textarea"
 import { Runner } from "@/pages/runner"
+import { reviewsFor } from "@/lib/reviews"
+import { ReviewCard } from "@/components/review-card"
 
 /* The Chinese half of the site (docs/chinese.md). The spine is the lesson and the
  * unit of a week is the teacher's homework note, so this file has the week's
@@ -25,6 +27,17 @@ import { Runner } from "@/pages/runner"
  * toggle (lib/lang.js): every visible string is t(zh, en). */
 
 const hwKey = (set) => "hw:" + set
+/** The notes a Chinese review left on this week's items, newest review winning. */
+function zhNotes(set) {
+  const out = {}
+  for (const r of reviewsFor({ kind: "zh", set }).slice().reverse()) for (const it of r.items || []) out[it.id] = it
+  return out
+}
+/** One note beside the thing it is about: ✓ or ✗ when it is a yes/no, then the sentence. */
+function Note({ n }) {
+  if (!n) return null
+  return <div className="bg-accent text-accent-foreground flex items-start gap-2 rounded-md px-3 py-2 text-sm leading-relaxed" data-testid="zh-note-item">{n.ok === true ? <Check className="mt-0.5 size-4 shrink-0" /> : n.ok === false ? <X className="mt-0.5 size-4 shrink-0" /> : null}<span>{n.note}</span></div>
+}
 function hwState(set) { return (Store.s.zh || {})[hwKey(set)] || {} }
 const textKey = (lesson, what) => `text:${lesson}:${what}`
 /** The passage: from the bundle when the lesson carries its text, else from her
@@ -65,6 +78,7 @@ function ReadAloudTask({ note, task }) {
       <CardContent className="flex flex-col gap-3">
         {passage ? <p className="text-xl leading-9 tracking-wide" data-testid="zh-home-passage">{passage}</p>
           : <PassageSetup bare lesson={note.lesson} what={task.what} where={task.pages} actions={readBtn} />}
+        <Note n={zhNotes(note.set).read} />
         {passage ? (
           <div className="flex flex-wrap items-center gap-3">
             {readBtn}
@@ -82,6 +96,10 @@ function WorkbookTask({ note, task, lesson }) {
   for (const sub of ZH_ORDER) zhSets(sub, lesson.id).forEach((set, n) => rows.push({ sub, n, set, id: setId(sub, lesson.id, n), r: store.s.results[setId(sub, lesson.id, n)] }))
   const done = rows.filter((x) => x.r).length
   const exs = zhExercises(lesson.id), exSt = hwState(note.set).exercises || {}
+  const notes = zhNotes(note.set)
+  // A review changes the state of free writing only: the retell keeps the parent's
+  // signature as its badge, and its note shows on its own page.
+  const reviewed = (ex) => ex.type === "free" && ex.items.some((it) => notes[it.id])
   const exDone = exs.filter((ex) => exSt[ex.id]).length
   return (
     <Card data-testid="zh-workbook">
@@ -108,7 +126,7 @@ function WorkbookTask({ note, task, lesson }) {
               <div key={ex.id} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid="zh-exercise">
                 <span className="text-sm">{t(ex.title, ex.title_en)} <span className="text-muted-foreground">· {ex.day} · p.{ex.page}</span></span>
                 <span className="flex items-center gap-2">
-                  {r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : null}
+                  {r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : reviewed(ex) ? <Badge variant="success">{t("已批改", "reviewed")}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : null}
                   <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(`/chinese/ex/${note.set}/${ex.id}`)}>{ex.type === "write" || ex.type === "free" ? <PenLine /> : ex.type === "speak" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
                 </span>
               </div>) })}
@@ -167,6 +185,7 @@ export function ChineseHome() {
         </CardContent>
       </Card>
       {note ? note.tasks.map((x) => x.kind === "read_aloud" ? <ReadAloudTask key={x.kind} note={note} task={x} /> : x.kind === "workbook" ? <WorkbookTask key={x.kind} note={note} task={x} lesson={lesson} /> : <DictationTask key={x.kind} note={note} task={x} />) : null}
+      {note ? reviewsFor({ kind: "zh", set: note.set }).map((r) => <ReviewCard key={r.id} r={r} labels={{ title: t("批改", "What a reader noticed"), readFrom: t("来源：", "Read from"), words: t("字", "words"), fresh: t("新", "New"), worked: t("做得好", "What worked"), tryThis: t("试试这样", "Try this"), next: t("下周：", "For next week:"), checklist: t("清单上", "On the checklist"), open: t("打开", "Open") }} />) : null}
     </div>
   )
 }
@@ -567,6 +586,7 @@ function WriteWidget({ ex, ans, set1, done }) {
  *  review skill — there is no key to mark it against here. */
 function FreeWidget({ ex, ans, set1, done, onSaved, set }) {
   const refs = useRef({})
+  const notes = zhNotes(set)
   const [busy, setBusy] = useState(false)
   const submit = async () => {
     setBusy(true)
@@ -588,6 +608,7 @@ function FreeWidget({ ex, ans, set1, done, onSaved, set }) {
         <div key={it.id} className="flex flex-col gap-2 rounded-lg border p-3" data-testid="zh-free-item">
           <p className="text-lg">{t(it.prompt, it.prompt_en)}</p>
           {done ? <p className="text-muted-foreground text-sm">{t("已交。", "Handed in.")}</p> : <Ink ref={(r) => { refs.current[it.id] = r }} height={200} onChange={(n) => set1(it.id, n)} />}
+          <Note n={notes[it.id]} />
         </div>
       ))}
       {!done ? <div><Button size="sm" disabled={!any || busy} onClick={submit} data-testid="zh-free-submit"><Check /> {busy ? t("保存中…", "Saving…") : t("交卷", "Hand in")}</Button></div> : null}
@@ -631,6 +652,7 @@ function SpeakWidget({ ex, set, exId }) {
         <CardContent className="flex flex-col gap-2">
           <p className="text-lg leading-8 min-h-8" data-testid="zh-tell-transcript">{mode === "recording" ? <>{finals}<span className="text-muted-foreground">{interim}</span></> : st.told ? st.told.transcript : <span className="text-muted-foreground text-sm">{t("讲的话会出现在这里。", "What you say appears here.")}</span>}</p>
           {st.told ? <p className="text-muted-foreground text-xs">{t(`已录 ${Math.round(st.told.ms / 1000)} 秒`, `recorded, ${Math.round(st.told.ms / 1000)} s`)}{st.told.fileId ? "" : t(" · 没有保存录音", " · no recording kept")}</p> : null}
+          <Note n={zhNotes(set).tell} />
         </CardContent>
       </Card>
       <Card>
@@ -650,7 +672,8 @@ export function Exercise({ set, exId }) {
   const note = D.zh.homework[set]
   const ex = note ? zhExercises(note.lesson).find((e) => e.id === exId) : null
   const [ans, setAns] = useState({})
-  const [done, setDone] = useState(null)
+  const prevRec = ex ? (hwState(set).exercises || {})[exId] : null
+  const [done, setDone] = useState(ex && ex.type === "free" && prevRec && prevRec.submitted ? { submitted: true } : null)
   if (!ex) return <ChineseHome />
   const items = exItems(ex)
   const set1 = (id, v) => setAns((a) => ({ ...a, [id]: v }))
@@ -683,7 +706,7 @@ export function Exercise({ set, exId }) {
       <Card>
         <CardHeader>
           <CardTitle>{t(ex.title, ex.title_en)}</CardTitle>
-          <CardDescription>{ex.day} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}{prev ? ` · ${t("上次", "last")} ${prev.right}/${prev.n}` : ""}</CardDescription>
+          <CardDescription>{ex.day} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}{prev && prev.n != null ? ` · ${t("上次", "last")} ${prev.right}/${prev.n}` : ""}</CardDescription>
           <CardAction>{done ? <Button size="sm" variant="outline" onClick={() => { setAns({}); setDone(null) }}><RotateCcw /> {t("再做一次", "Again")}</Button> : ex.type === "free" ? null : <Button size="sm" disabled={!complete} onClick={submit} data-testid="zh-ex-submit"><Check /> {t("交卷", "Check")}</Button>}</CardAction>
         </CardHeader>
         {ex.note ? <CardContent className="text-muted-foreground text-sm">{tf(ex.note)}</CardContent> : null}
