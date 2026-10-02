@@ -50,6 +50,9 @@ function ReadAloudTask({ note, task }) {
   const st = hwState(note.set).read || {}
   const last = (st.attempts || []).slice(-1)[0]
   const passage = passageFor(note.lesson, task.what)
+  // One button, two homes: beside 保存 while the passage is still to be pasted,
+  // under the passage once it is there.
+  const readBtn = <Button size="sm" onClick={() => go(`/chinese/read/${note.set}`)} data-testid="zh-read-open"><Mic /> {t("朗读", "Read it aloud")}</Button>
   return (
     <Card data-testid="zh-read">
       <CardHeader>
@@ -58,11 +61,14 @@ function ReadAloudTask({ note, task }) {
         <CardAction>{st.done ? <Badge variant="success"><Check /> {t("已读", "Read")}</Badge> : <Badge variant="outline">{t("待读", "To do")}</Badge>}</CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
-        {passage ? <p className="text-xl leading-9 tracking-wide" data-testid="zh-home-passage">{passage}</p> : <PassageSetup bare lesson={note.lesson} what={task.what} where={task.pages} />}
-        <div className="flex flex-wrap items-center gap-3">
-          <Button size="sm" onClick={() => go(`/chinese/read/${note.set}`)} data-testid="zh-read-open"><Mic /> {t("朗读", "Read it aloud")}</Button>
-          {last ? <span className="text-muted-foreground text-xs tabular-nums">{t("上次", "last")}: {Math.round(last.ms / 1000)} {t("秒", "s")}{pace(last.total, last.ms) ? ` · ${pace(last.total, last.ms)} 字/分钟` : ""} · {t(`共 ${st.attempts.length} 次`, `${st.attempts.length} reading${st.attempts.length === 1 ? "" : "s"}`)}</span> : null}
-        </div>
+        {passage ? <p className="text-xl leading-9 tracking-wide" data-testid="zh-home-passage">{passage}</p>
+          : <PassageSetup bare lesson={note.lesson} what={task.what} where={task.pages} actions={readBtn} />}
+        {passage ? (
+          <div className="flex flex-wrap items-center gap-3">
+            {readBtn}
+            {last ? <span className="text-muted-foreground text-xs tabular-nums">{t("上次", "last")}: {Math.round(last.ms / 1000)} {t("秒", "s")}{pace(last.total, last.ms) ? ` · ${pace(last.total, last.ms)} 字/分钟` : ""} · {t(`共 ${st.attempts.length} 次`, `${st.attempts.length} reading${st.attempts.length === 1 ? "" : "s"}`)}</span> : null}
+          </div>
+        ) : null}
       </CardContent>
     </Card>
   )
@@ -270,14 +276,14 @@ export function Dictation({ set }) {
  *  once by a parent into her Drive record (docs/chinese.md § 8). `drive.file`
  *  scope means a file dropped into the folder by hand is invisible to the app,
  *  so the app writes it itself. */
-function PassageSetup({ lesson, what, where, bare }) {
+function PassageSetup({ lesson, what, where, bare, actions }) {
   useLang()
   const [text, setText] = useState("")
   const body = (
     <>
       <p className="text-muted-foreground text-sm">{t(`课文还没有录入。请把${what}（${where}）的原文粘贴一次——只保存在她的 Drive 记录里，不在网站上。`, `The passage is not here yet. Paste the text of ${what} (${where}) once — it is kept in her Drive record, not on the site.`)}</p>
       <Textarea rows={6} value={text} onChange={(e) => setText(e.target.value)} placeholder={t("把课文粘贴到这里…", "Paste the passage here…")} data-testid="zh-passage-text" />
-      <div><Button size="sm" disabled={!text.trim()} onClick={() => Store.setSlice("zh", textKey(lesson, what), (cur) => ({ ...cur, text: text.trim(), what, where }))} data-testid="zh-passage-save"><Check /> {t("保存", "Keep it")}</Button></div>
+      <div className="flex flex-wrap items-center gap-3"><Button size="sm" disabled={!text.trim()} onClick={() => Store.setSlice("zh", textKey(lesson, what), (cur) => ({ ...cur, text: text.trim(), what, where }))} data-testid="zh-passage-save"><Check /> {t("保存", "Keep it")}</Button>{actions || null}</div>
     </>
   )
   if (bare) return <div className="flex flex-col gap-2" data-testid="zh-passage-setup">{body}</div>
