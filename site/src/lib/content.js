@@ -15,6 +15,7 @@ export const ORDER = ["vr", "qr", "ma", "rc"]
 export const ZH = {
   "zh-char": { name: "汉字", short: "汉字", blurb: "Characters — pinyin, strokes, radicals", color: "var(--chart-2)" },
   "zh-word": { name: "词语", short: "词语", blurb: "The lesson's words in a sentence with one gap", color: "var(--chart-1)" },
+  "zh-ex": { name: "练习", short: "练习", blurb: "The workbook's own exercises, marked by rule", color: "var(--chart-3)" },
 }
 export const ZH_ORDER = ["zh-char", "zh-word"]
 export const isZh = (sub) => typeof sub === "string" && sub.startsWith("zh-")
@@ -22,6 +23,11 @@ export function subName(sub) { return (SUBJ[sub] || ZH[sub] || {}).name || sub }
 export function zhItems(sub, lesson) { return (((D.zh || {}).banks || {})[sub] || []).filter((i) => i.l === lesson) }
 export function zhSets(sub, lesson) { return chunk(zhItems(sub, lesson)) }
 export function zhLessons() { return Object.values((D.zh || {}).lessons || {}).sort((a, b) => a.no - b.no) }
+/** The workbook's closed exercises for a lesson, and their markable items flattened:
+ *  a match exercise is one item per left-hand part plus its fills; the rest are
+ *  their items. Ids carry the zx: prefix beside z: and zc:. */
+export function zhExercises(lesson) { return ((((D.zh || {}).exercises || {})[lesson]) || {}).exercises || [] }
+export function exItems(ex) { return [...(ex.items || []), ...((ex.fills || {}).items || [])] }
 export function zhHomework() { return Object.values((D.zh || {}).homework || {}).sort((a, b) => (a.set < b.set ? 1 : -1)) }
 export const SETSIZE = 12
 export const LTR = ["A", "B", "C", "D"]

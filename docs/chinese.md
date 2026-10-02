@@ -217,6 +217,22 @@ rewriting learning records and hard rule 1 forbids losing them: `z:` for a 汉�
 `findItem` and `rescueWordSides` already special-case and which will need to know
 about the new two.
 
+**The workbook's closed exercises are a fourth file and a third prefix.** The
+owner's brief, after the first week: she does the homework, the result is kept
+digitally, and it is judged — by a rule wherever a rule can exist, by a Routine
+where it cannot. Seven of 第五课's fifteen paper exercises have one answer the
+book fixes — true/false, word order, sequencing, a sentence into a slot, parts
+into pairs, a character into a structure group — and they live in
+`content/chinese/exercises/L05.json` as typed exercises (`tf`, `order`,
+`slots`, `match`, `sort`), each item under a `zx:` id with its key and a
+two-language explanation for a miss, marked on the device. The validator checks
+each type's own shape: a key that is not a permutation of its pieces, a pair
+past the right-hand column, a miss with nothing to say. They record as evidence
+(ctx `exercise`, which `LEARN_CTX` does not admit) and never enter the review
+pile, because the review runner is four-choice. The eight that remain —
+handwriting, 组词, 造句, the answers, the retell — wait on the Pencil canvas
+with stroke capture and the `chinese-review` skill.
+
 **Everything she reads is in both languages, and the page shows one at a time.**
 The owner's ask, after the first lesson: the chrome went Chinese with English
 behind one toggle at the top right of the header (`lib/lang.js`), and then the
@@ -305,9 +321,10 @@ whole half went Chinese with English behind one header toggle and every item's
 explanation and `why` authored in both languages (§ 4); and the read-aloud task grew its
 input — her reading recorded to her Drive as its own file, transcribed live by
 the browser's recogniser, aligned to the passage, the misses marked for her and
-the number for a parent (§ 8). Not in: the Wordwood (Phase 3), the skills
-(Phase 4), the Chinese review and again runs beyond the plain due pile, and the
-Pencil canvas for dictation.
+the number for a parent (§ 8). Then the seven closed workbook exercises became self-marking on the site
+(§ 4). Not in: the Wordwood (Phase 3), the skills (Phase 4), the Chinese review
+and again runs beyond the plain due pile, the Pencil canvas with stroke capture,
+and the `chinese-review` skill for the open exercises.
 
 Phase 1 is the layer and **one real lesson, end to end** — routes, category nav,
 schema 7, the `zh` bundle key, the two stubs, the service worker and the manifest,

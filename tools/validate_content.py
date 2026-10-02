@@ -229,6 +229,62 @@ for f in bank_files():
         errs += trap_errors(it, passage_text)
         errs += spelling_errors(it)
 
+# ---- the workbook's closed exercises (content/chinese/exercises) -------------
+# Not four-choice, so none of the rules above fit them; each type has its own
+# shape and its own way of being wrong, checked here: a key that is not a
+# permutation of its pieces, a pair pointing past the right-hand column, a slot
+# key past the options, a sort key past the groups — and a miss with nothing to
+# say, in either language, which is the one failure every item in this repo
+# shares.
+EXDIR='content/chinese/exercises'
+def ex_errors(ex):
+    out=[]; i=ex.get('id','?'); t=ex.get('type')
+    def need_expl(it):
+        e=it.get('explanation')
+        if not isinstance(e,dict) or not str(e.get('zh') or '').strip() or not str(e.get('en') or '').strip(): out.append(f"{it.get('id',i)}: a miss here would teach nothing — explanation needs zh and en")
+    if t=='tf':
+        for it in ex.get('items',[]):
+            if not isinstance(it.get('key'),bool): out.append(f"{it.get('id',i)}: tf key must be true/false")
+            need_expl(it)
+    elif t=='order':
+        for it in ex.get('items',[]):
+            n=len(it.get('pieces',[]))
+            if sorted(it.get('key',[]))!=list(range(n)): out.append(f"{it.get('id',i)}: order key is not a permutation of its {n} pieces")
+            need_expl(it)
+    elif t=='slots':
+        n=len(ex.get('options',[]))
+        for it in ex.get('items',[]):
+            if not (isinstance(it.get('key'),int) and 0<=it['key']<n): out.append(f"{it.get('id',i)}: slot key {it.get('key')} is not one of {n} options")
+            need_expl(it)
+    elif t=='match':
+        L=ex.get('left',[]); Rr=ex.get('right',[]); pairs=ex.get('pairs',[])
+        if sorted(p[0] for p in pairs)!=list(range(len(L))) or sorted(p[1] for p in pairs)!=list(range(len(Rr))): out.append(f'{i}: pairs do not cover left and right exactly once each')
+        for it in ex.get('items',[]):
+            if not (isinstance(it.get('key'),int) and 0<=it['key']<len(Rr)): out.append(f"{it.get('id',i)}: match key past the right-hand column")
+            need_expl(it)
+        f=ex.get('fills')
+        if f:
+            for it in f.get('items',[]):
+                if it.get('key') not in f.get('options',[]): out.append(f"{it.get('id',i)}: fill key {it.get('key')!r} is not among the options")
+                need_expl(it)
+    elif t=='sort':
+        n=len(ex.get('groups',[]))
+        for it in ex.get('items',[]):
+            if not (isinstance(it.get('key'),int) and 0<=it['key']<n): out.append(f"{it.get('id',i)}: sort key past the groups")
+            need_expl(it)
+    else: out.append(f'{i}: unknown exercise type {t!r}')
+    for it in ex.get('items',[])+(ex.get('fills') or {}).get('items',[]):
+        if not it.get('id'): out.append(f'{i}: an item without an id')
+        elif it['id'] in seen: out.append(f"{it['id']}: duplicate id")
+        else: seen.add(it['id'])
+    return out
+if os.path.isdir(EXDIR):
+    for f in sorted(os.listdir(EXDIR)):
+        if not f.endswith('.json'): continue
+        d=json.load(open(f'{EXDIR}/{f}'))
+        for ex in d.get('exercises',[]):
+            total+=1; errs+=ex_errors(ex)
+
 # answer-position sanity per bank/form
 for f in bank_files():
     d=json.load(open(f))

@@ -83,6 +83,10 @@ if os.path.isdir(_ZH):
         zh['banks'][_b['bank']]=[{'id':i['id'],'l':i.get('lesson',''),'sk':i.get('skill',''),'d':i.get('difficulty',''),
             'q':i['prompt'],'c':[i['choices'][k] for k in 'ABCD'],'k':i['correct'],'e':i.get('explanation',''),
             'src':i.get('source',''),**({'qe':i['prompt_en']} if i.get('prompt_en') else {}),**({'ez':i['explanation_zh']} if i.get('explanation_zh') else {}),**({'y':i['why']} if i.get('why') else {}),**({'yz':i['why_zh']} if i.get('why_zh') else {})} for i in _b['items']]
+    zh['exercises']={}
+    if os.path.isdir(f'{_ZH}/exercises'):
+        for _f in sorted(os.listdir(f'{_ZH}/exercises')):
+            _e=json.load(open(f'{_ZH}/exercises/{_f}')); zh['exercises'][_e['lesson']]=_e
     out['zh']=zh
 import os as _os, datetime as _dt
 if _os.path.exists('site/content/seed.json'):

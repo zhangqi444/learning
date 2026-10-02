@@ -2,7 +2,7 @@
  * skill mastery, mixed sets, vocabulary mastery, mock next steps, streaks and
  * the readiness score. Pure functions over Store.s + the bundle, except the
  * few writers at the top. Nothing here ever deletes a result. */
-import { D, ORDER, SUBJ, LTR, keyOf, setId, setsFor, currentWeek, isZh } from "./content"
+import { D, ORDER, SUBJ, LTR, keyOf, setId, setsFor, currentWeek, isZh, exItems } from "./content"
 import { Store, ts } from "./store"
 import { aopsFor, learnName } from "./aops"
 import { W, atLeast } from "./world"
@@ -70,6 +70,9 @@ function index() {
   // The Chinese banks index by their own subject keys (zh-char, zh-word) and the
   // z:/zc: ids are real ids in them — no generation step, unlike w: words.
   for (const s of Object.keys((D.zh || {}).banks || {})) for (const it of D.zh.banks[s]) IDX[it.id] = { sub: s, it, src: "set" }
+  // The workbook's closed exercises: recorded as evidence (ctx "exercise", which
+  // LEARN_CTX does not admit), never scheduled — the review runner is four-choice.
+  for (const L of Object.keys((D.zh || {}).exercises || {})) for (const ex of (D.zh.exercises[L].exercises || [])) for (const it of exItems(ex)) IDX[it.id] = { sub: "zh-ex", it, src: "exercise", ex }
   for (const form of Object.keys(D.mockItems || {})) for (const sec of Object.keys(D.mockItems[form])) for (const it of D.mockItems[form][sec]) IDX[it.id] = { sub: SEC2SUB[sec] || "vr", it, src: "mock", form }
   return IDX
 }

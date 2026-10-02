@@ -173,6 +173,42 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
   check('the week card shows it read, with the last reading and the passage', /已读/.test(await pg.textContent('[data-testid=zh-read]')) && /上次: \d+ 秒/.test(await pg.textContent('[data-testid=zh-read]')) && /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-read]')));
   check('the dictation card counts the rating', (await pg.textContent('[data-testid=zh-rated-count]')) === '1');
+  // -- the workbook's closed exercises, marked by rule
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D3-04'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  check('the check button waits for every statement', await pg.isDisabled('[data-testid=zh-ex-submit]'));
+  for (const [i, v] of [[0, 't'], [1, 't'], [2, 'f'], [3, 'f'], [4, 'f']]) await pg.click(`[data-testid=zh-tf-${i}] [data-testid=zh-tf-${v}]`);
+  await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
+  check('判断正误 marks itself: five of five', /5 \/ 5/.test(await pg.textContent('[data-testid=zh-ex-result]')), await pg.textContent('[data-testid=zh-ex-result] [data-slot=card-title]'));
+  st = await ls(pg);
+  const exrec = (((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D3-04'] || {});
+  check('the exercise is kept in the zh slice with her answers', exrec.right === 5 && exrec.n === 5 && exrec.answers && exrec.answers['zx:L05-D3-04-3'] === false, JSON.stringify(exrec).slice(0, 80));
+  check('each statement has a learning record under zx:, unscheduled', Object.keys(st.items).filter((k) => k.startsWith('zx:L05-D3-04')).length === 5 && !Object.keys(st.items).filter((k) => k.startsWith('zx:')).some((k) => st.items[k].due));
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D3-03'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  const tap = async (item, text) => pg.click(`[data-testid=zh-order-${item}] [data-testid=zh-piece]:has-text("${text}")`);
+  for (const w of ['老牛', '一定会', '觉得', '河水很浅']) await tap(0, w);
+  for (const w of ['我', '一定会', '努力学习', '中文']) await tap(1, w);
+  for (const w of ['亮亮', '一定会', '帮妈妈', '做家务']) await tap(2, w);
+  for (const w of ['玩具', '妹妹', '一定会', '喜欢', '爸爸买的']) await tap(3, w);   // wrong on purpose
+  await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
+  check('连词成句 marks three right and one wrong', /3 \/ 4/.test(await pg.textContent('[data-testid=zh-ex-result]')));
+  check('and the wrong one is told the right order, in Chinese', /妹妹一定会喜欢爸爸买的玩具/.test(await pg.textContent('[data-testid=zh-ex-miss]')));
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-02'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  for (const [l, r] of [['亻', '白'], ['氵', '罙'], ['木', '公'], ['口', '曷'], ['穴', '犬'], ['宀', '疋']]) { await pg.click(`[data-testid=zh-left]:has-text("${l}")`); await pg.click(`[data-testid=zh-right]:has-text("${r}")`); }
+  await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
+  check('找朋友 pairs the parts into the six 生字', /6 \/ 6/.test(await pg.textContent('[data-testid=zh-ex-result]')));
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D4-03'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  for (const [i, k] of [[0, 2], [1, 1], [2, 0]]) await pg.click(`[data-testid=zh-slot-${i}] [data-testid=zh-option] >> nth=${k}`);
+  await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
+  check('补全对话 gives each speaker their line', /3 \/ 3/.test(await pg.textContent('[data-testid=zh-ex-result]')));
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-01s'; }); await pg.waitForSelector('[data-testid=zh-ex]');
+  const taps = [1, 1, 1, 2, 1, 2];   // 喝 伯 深 → 左右 (one tap), 突 定 → 上下 (two)
+  for (let i = 0; i < taps.length; i++) for (let k = 0; k < taps[i]; k++) await pg.click(`[data-testid=zh-sort-item] >> nth=${i}`);
+  await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
+  check('the structure sort marks itself', /6 \/ 6/.test(await pg.textContent('[data-testid=zh-ex-result]')));
+  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
+  check('the workbook card lists the exercises with their marks', (await pg.$$('[data-testid=zh-exercise]')).length === 7 && /5\/5/.test(await pg.textContent('[data-testid=zh-workbook]')) && /3\/4/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForTimeout(300); await pg.click('[data-testid=cat-isee]'); await pg.waitForSelector('[data-testid=today]');
+  check('and the ISEE dashboard card still reads the same after all of it', before === (await titleOf('[data-testid=today]')), `${before} → ${await titleOf('[data-testid=today]')}`);
   check('no page errors', errs.length === 0, errs.join(' | '));
 
   await b.close(); srv.close();

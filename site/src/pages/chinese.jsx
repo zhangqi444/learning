@@ -1,8 +1,8 @@
 import * as React from "react"
 import { useMemo, useState } from "react"
-import { BookOpen, Check, Eye, Mic, Play, Square, Volume2, X } from "lucide-react"
-import { D, ZH, ZH_ORDER, setId, zhHomework, zhLessons, zhSets } from "@/lib/content"
-import { reviewQueue } from "@/lib/engine"
+import { BookOpen, Check, Eye, Mic, Play, RotateCcw, Square, Volume2, X } from "lucide-react"
+import { D, ZH, ZH_ORDER, exItems, setId, zhExercises, zhHomework, zhLessons, zhSets } from "@/lib/content"
+import { recordAttempts, reviewQueue } from "@/lib/engine"
 import { t, tf, useLang } from "@/lib/lang"
 import { go } from "@/lib/router"
 import { speak, canSpeak } from "@/lib/speech"
@@ -79,12 +79,14 @@ function WorkbookTask({ note, task, lesson }) {
   const rows = []
   for (const sub of ZH_ORDER) zhSets(sub, lesson.id).forEach((set, n) => rows.push({ sub, n, set, id: setId(sub, lesson.id, n), r: store.s.results[setId(sub, lesson.id, n)] }))
   const done = rows.filter((x) => x.r).length
+  const exs = zhExercises(lesson.id), exSt = hwState(note.set).exercises || {}
+  const exDone = exs.filter((ex) => exSt[ex.id]).length
   return (
     <Card data-testid="zh-workbook">
       <CardHeader>
         <CardTitle>{t("练习册", "Workbook")}</CardTitle>
         <CardDescription>{task.what}</CardDescription>
-        <CardAction><Badge variant={done === rows.length ? "success" : "outline"}>{done}/{rows.length} {t("组", "sittings")}</Badge></CardAction>
+        <CardAction><Badge variant={done === rows.length && exDone === exs.length ? "success" : "outline"}>{done + exDone}/{rows.length + exs.length}</Badge></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
         <div className="flex flex-col gap-1.5">
@@ -98,6 +100,18 @@ function WorkbookTask({ note, task, lesson }) {
             </div>
           ))}
         </div>
+        {exs.length ? (
+          <div className="flex flex-col gap-1.5" data-testid="zh-exercises">
+            {exs.map((ex) => { const r = exSt[ex.id]; return (
+              <div key={ex.id} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid="zh-exercise">
+                <span className="text-sm">{t(ex.title, ex.title_en)} <span className="text-muted-foreground">· {ex.day} · p.{ex.page}</span></span>
+                <span className="flex items-center gap-2">
+                  {r ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : null}
+                  <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(`/chinese/ex/${note.set}/${ex.id}`)}><Play /> {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
+                </span>
+              </div>) })}
+          </div>
+        ) : null}
         <details className="text-sm">
           <summary className="text-muted-foreground cursor-pointer">{t(`纸上作业 — ${task.on_paper.length} 项`, `On paper — ${task.on_paper.length} exercises the book sets by hand`)}</summary>
           <ul className="mt-2 flex flex-col gap-1 pl-1">
@@ -387,6 +401,159 @@ export function ReadAloud({ set }) {
   )
 }
 
+/* ---------- the workbook's closed exercises, marked by rule ---------- */
+/* Each type has one right answer the book fixes, so the device marks it: true or
+ * false, the order of pieces, a sentence into a slot, parts into pairs, a
+ * character into a group. What she did is kept in the zh slice under the note;
+ * each markable item gets a learning record (ctx "exercise", evidence but never
+ * scheduled, because the review runner is four-choice). A miss is explained in
+ * the page's language. Nothing here reaches the ISEE number. */
+const isPair = (ex, it) => ex.type === "match" && "left" in it
+const isFill = (ex, it) => ex.type === "match" && "text" in it
+function answered(ex, it, v) {
+  if (ex.type === "tf") return typeof v === "boolean"
+  if (ex.type === "order") return Array.isArray(v) && v.length === it.pieces.length
+  if (isFill(ex, it)) return typeof v === "string"
+  return Number.isInteger(v)
+}
+function isRight(ex, it, v) {
+  if (ex.type === "order") return JSON.stringify(v) === JSON.stringify(it.key)
+  return v === it.key
+}
+const CIRCLED = ["①", "②", "③", "④", "⑤", "⑥"]
+function TfWidget({ ex, ans, set1, done }) {
+  return ex.items.map((it, i) => (
+    <div key={it.id} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid={`zh-tf-${i}`}>
+      <span className="text-lg">{it.text}</span>
+      <span className="flex shrink-0 gap-1.5">
+        <Button size="sm" variant={ans[it.id] === true ? "default" : "outline"} disabled={!!done} onClick={() => set1(it.id, true)} data-testid="zh-tf-t">对</Button>
+        <Button size="sm" variant={ans[it.id] === false ? "default" : "outline"} disabled={!!done} onClick={() => set1(it.id, false)} data-testid="zh-tf-f">错</Button>
+      </span>
+    </div>
+  ))
+}
+function OrderWidget({ ex, ans, set1, done }) {
+  return ex.items.map((it, i) => {
+    const chosen = ans[it.id] || [], left = it.pieces.map((_, k) => k).filter((k) => !chosen.includes(k))
+    const label = (k) => (it.labels ? it.labels[k] + " " : "") + it.pieces[k]
+    return (
+      <div key={it.id} className="flex flex-col gap-2 rounded-lg border p-3" data-testid={`zh-order-${i}`}>
+        <div className="bg-muted/50 flex min-h-9 flex-wrap items-center gap-1.5 rounded-md px-2 py-1" data-testid="zh-order-answer">
+          {chosen.length ? chosen.map((k, j) => <button key={j} type="button" className="bg-background rounded-md border px-2 py-0.5 text-lg" disabled={!!done} onClick={() => set1(it.id, chosen.filter((_, q) => q !== j))}>{label(k)}</button>) : <span className="text-muted-foreground text-sm">{t("点下面的词，按顺序排好", "Tap the pieces below in order")}</span>}
+        </div>
+        <div className="flex flex-wrap gap-1.5">
+          {left.map((k) => <Button key={k} size="sm" variant="outline" className="h-auto whitespace-normal text-left" disabled={!!done} onClick={() => set1(it.id, [...chosen, k])} data-testid="zh-piece">{label(k)}</Button>)}
+        </div>
+      </div>
+    )
+  })
+}
+function SlotsWidget({ ex, ans, set1, done }) {
+  return ex.items.map((it, i) => (
+    <div key={it.id} className="flex flex-col gap-2 rounded-lg border p-3" data-testid={`zh-slot-${i}`}>
+      <p className="text-muted-foreground text-sm">{it.before}</p>
+      <p className="text-lg">{it.slot}：{Number.isInteger(ans[it.id]) ? ex.options[ans[it.id]] : "______"}</p>
+      <div className="flex flex-col gap-1.5">
+        {ex.options.map((o, k) => <Button key={k} size="sm" variant={ans[it.id] === k ? "default" : "outline"} className="h-auto justify-start whitespace-normal text-left" disabled={!!done} onClick={() => set1(it.id, k)} data-testid="zh-option">{CIRCLED[k]} {o}</Button>)}
+      </div>
+    </div>
+  ))
+}
+function MatchWidget({ ex, ans, set1, done }) {
+  const [pick, setPick] = useState(null)
+  const used = new Set(ex.items.map((it) => ans[it.id]).filter(Number.isInteger))
+  return (
+    <>
+      <div className="grid grid-cols-2 gap-3">
+        <div className="flex flex-col gap-1.5">
+          {ex.items.map((it) => <Button key={it.id} size="sm" variant={pick === it.id ? "default" : Number.isInteger(ans[it.id]) ? "secondary" : "outline"} className="justify-start text-lg" disabled={!!done} onClick={() => (Number.isInteger(ans[it.id]) ? set1(it.id, undefined) : setPick(pick === it.id ? null : it.id))} data-testid="zh-left">{it.left}{Number.isInteger(ans[it.id]) ? ` — ${ex.right[ans[it.id]]}` : ""}</Button>)}
+        </div>
+        <div className="flex flex-col gap-1.5">
+          {ex.right.map((r, k) => <Button key={k} size="sm" variant="outline" className="justify-start text-lg" disabled={!!done || !pick || used.has(k)} onClick={() => { set1(pick, k); setPick(null) }} data-testid="zh-right">{r}</Button>)}
+        </div>
+      </div>
+      {ex.fills ? (
+        <div className="mt-3 flex flex-col gap-2">
+          {ex.fills.given ? <p className="text-muted-foreground text-xs">{tf(ex.fills.given)}</p> : null}
+          {ex.fills.items.map((it, i) => (
+            <div key={it.id} className="flex flex-col gap-1.5 rounded-lg border p-3" data-testid={`zh-fill-${i}`}>
+              <p className="text-lg">{ans[it.id] ? it.text.replace("______", ans[it.id]) : it.text}</p>
+              <div className="flex flex-wrap gap-1.5">{ex.fills.options.map((o) => <Button key={o} size="sm" variant={ans[it.id] === o ? "default" : "outline"} disabled={!!done} onClick={() => set1(it.id, o)} data-testid="zh-fill-option">{o}</Button>)}</div>
+            </div>
+          ))}
+        </div>
+      ) : null}
+    </>
+  )
+}
+function SortWidget({ ex, ans, set1, done }) {
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap gap-2">
+        {ex.items.map((it) => { const g = ans[it.id]; return (
+          <Button key={it.id} variant="outline" className="h-auto flex-col gap-0.5 px-4 py-2" disabled={!!done} onClick={() => set1(it.id, Number.isInteger(g) ? (g + 1) % ex.groups.length : 0)} data-testid="zh-sort-item">
+            <span className="text-2xl">{it.text}</span>
+            <span className="text-muted-foreground text-xs">{Number.isInteger(g) ? ex.groups[g] : t("点一下选结构", "tap to choose")}</span>
+          </Button>) })}
+      </div>
+      {ex.groups.map((g, k) => <div key={g} className="text-sm"><span className="font-medium">{g}：</span>{ex.items.filter((it) => ans[it.id] === k).map((it) => it.text).join(" ") || "—"}</div>)}
+    </div>
+  )
+}
+const WIDGET = { tf: TfWidget, order: OrderWidget, slots: SlotsWidget, match: MatchWidget, sort: SortWidget }
+const itemLabel = (ex, it) => it.text || it.left || it.slot || (it.pieces ? it.pieces.join(" / ") : it.id)
+export function Exercise({ set, exId }) {
+  useStore(); useLang()
+  const note = D.zh.homework[set]
+  const ex = note ? zhExercises(note.lesson).find((e) => e.id === exId) : null
+  const [ans, setAns] = useState({})
+  const [done, setDone] = useState(null)
+  if (!ex) return <ChineseHome />
+  const items = exItems(ex)
+  const set1 = (id, v) => setAns((a) => ({ ...a, [id]: v }))
+  const complete = items.every((it) => answered(ex, it, ans[it.id]))
+  const prev = (hwState(set).exercises || {})[exId]
+  const submit = () => {
+    const marks = items.map((it) => ({ id: it.id, ok: isRight(ex, it, ans[it.id]), pick: ans[it.id] }))
+    const right = marks.filter((m) => m.ok).length
+    Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, exercises: { ...(cur.exercises || {}), [exId]: { at: new Date().toISOString(), right, n: items.length, answers: ans } } }))
+    recordAttempts(marks.map((m) => ({ id: m.id, ok: m.ok, ms: 0, pick: JSON.stringify(m.pick === undefined ? null : m.pick) })), "exercise")
+    setDone({ right, marks })
+  }
+  const Widget = WIDGET[ex.type]
+  return (
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-ex">
+      <Card>
+        <CardHeader>
+          <CardTitle>{t(ex.title, ex.title_en)}</CardTitle>
+          <CardDescription>{ex.day} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}{prev ? ` · ${t("上次", "last")} ${prev.right}/${prev.n}` : ""}</CardDescription>
+          <CardAction>{done ? <Button size="sm" variant="outline" onClick={() => { setAns({}); setDone(null) }}><RotateCcw /> {t("再做一次", "Again")}</Button> : <Button size="sm" disabled={!complete} onClick={submit} data-testid="zh-ex-submit"><Check /> {t("交卷", "Check")}</Button>}</CardAction>
+        </CardHeader>
+        {ex.note ? <CardContent className="text-muted-foreground text-sm">{tf(ex.note)}</CardContent> : null}
+      </Card>
+      <div className="flex flex-col gap-2">{Widget ? <Widget ex={ex} ans={ans} set1={set1} done={done} /> : null}</div>
+      {done ? (
+        <Card data-testid="zh-ex-result">
+          <CardHeader>
+            <CardTitle className="tabular-nums">{done.right} / {items.length}</CardTitle>
+            <CardDescription>{done.right === items.length ? t("全对了！", "All right!") : t("错的下面有解释。", "The ones that went wrong are explained below.")}</CardDescription>
+            <CardAction><Button size="sm" variant="outline" onClick={() => go("/chinese")}>{t("回到本周", "Back to the week")}</Button></CardAction>
+          </CardHeader>
+          {done.marks.some((m) => !m.ok) ? (
+            <CardContent className="flex flex-col gap-2">
+              {done.marks.filter((m) => !m.ok).map((m) => { const it = items.find((x) => x.id === m.id); return (
+                <div key={m.id} className="rounded-md border p-3 text-sm" data-testid="zh-ex-miss">
+                  <div className="font-medium">{itemLabel(ex, it)}</div>
+                  <div className="text-muted-foreground">{tf(it.explanation)}</div>
+                </div>) })}
+            </CardContent>
+          ) : null}
+        </Card>
+      ) : null}
+    </div>
+  )
+}
+
 /* ---------- a sitting, and the review pile, through the same runner ---------- */
 function ZhRun({ sub, lesson, n }) {
   const set = zhSets(sub, lesson)[n]
@@ -408,6 +575,7 @@ export function ChineseScreen({ rest }) {
   if (top === "run" && ZH[a] && b) return <ZhRun key={`${a}:${b}:${c}`} sub={a} lesson={b} n={+c || 0} />
   if (top === "dictation" && a) return <Dictation key={a} set={a} />
   if (top === "read" && a) return <ReadAloud key={a} set={a} />
+  if (top === "ex" && a && b) return <Exercise key={a + b} set={a} exId={b} />
   if (top === "review") return <ZhReview />
   return <ChineseHome />
 }
@@ -420,6 +588,7 @@ export function zhCrumbs(rest) {
   else if (top === "run" && ZH[a] && l(b)) { out.push({ label: `第${l(b).no}课 ${l(b).title}`, path: `/chinese/l/${b}` }); out.push({ label: `${ZH[a].name} · ${t(`第 ${(+c || 0) + 1} 组`, `Set ${(+c || 0) + 1}`)}`, path: `/chinese/run/${a}/${b}/${c || 0}` }) }
   else if (top === "dictation" && a) out.push({ label: `${t("听写", "Dictation")} · ${a}`, path: `/chinese/dictation/${a}` })
   else if (top === "read" && a) out.push({ label: `${t("阅读", "Reading")} · ${a}`, path: `/chinese/read/${a}` })
+  else if (top === "ex" && a && b) { const n = D.zh && D.zh.homework[a], e = n && zhExercises(n.lesson).find((x) => x.id === b); out.push({ label: e ? t(e.title, e.title_en) : t("练习", "Exercise"), path: `/chinese/ex/${a}/${b}` }) }
   else if (top === "review") out.push({ label: t("复习", "Review"), path: "/chinese/review" })
   return out
 }
