@@ -87,7 +87,11 @@ ellipsis. On a device where the raw link is awkward, `#/import` has a paste box.
   while the page is open. A mock essay shows it under the submitted text.
 - A **Chinese** review (`kind: "zh"`) shows on the Chinese home under that week's
   tasks, and each of its `items` beside the exercise it names; the free-writing
-  exercises read "awaiting review" until one arrives.
+  exercises read "awaiting review" until one arrives. A note on `read`, on
+  `tell`, or on a 读一读 exercise she recorded is also what reveals the
+  comparison to her: the passage with the characters the recogniser did not
+  hear highlighted and the transcript beside it appear on her page only once
+  such a note exists; before that she has her recording and a play button.
 - A **week** review shows at the top of `/checklist/<wk>`; a **month** review at
   the top of `/checklist/month/<m>`. Their follow-ups appear as `Follow-up` rows
   on the week each names, and any still un-ticked in the current week are listed

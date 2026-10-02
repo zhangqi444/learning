@@ -32,7 +32,8 @@ in to the site with** (the test user in `site/oauth.json`). Search
     writing `submitted: true` and `items[itemId] = { png, strokes, n }` where
     `png` and `strokes` are Drive file ids (`zh-ink-<set>-<item>-<time>.png` and
     `.json`); for the retell `told { transcript, ms, fileId }` and
-    `parent { at, by }`.
+    `parent { at, by }`; for a 读一读 exercise she read aloud, `read { transcript,
+    matched, total, heard, ms, fileId }` — the same shape as a reading attempt.
 - The exercises themselves — prompts, keys, explanations — are in the repo at
   `content/chinese/exercises/L05.json`; the lesson's 生字, 词语 and 读一读 lists at
   `content/chinese/lessons/L05.json`. A 组词 answer is right when it is a real
@@ -63,7 +64,17 @@ odd character as the recogniser's before hers — and judge whether the story is
 told in order with its turning point (she tries the river herself) and whether
 the question (《小马过河》告诉了我们什么道理？) got an answer. For the reading,
 `read.attempts` already carries the alignment; note only what repeats across
-attempts.
+attempts. Listen to the recording (`fileId`) before trusting a miss: the
+recogniser drops characters a child read perfectly well.
+
+**Always write an item for the reading (`read`), for the retell (`tell`) and
+for each 读一读 exercise she recorded (its exercise id, e.g. `zx:L05-D3-01`).**
+Her page shows the side-by-side comparison — the passage with the characters
+the recogniser did not hear highlighted, the transcript beside it — only once a
+review carries a note with that id. Until then she has her recording and a
+play button, nothing else, by the owner's decision (1 October 2026): no
+transcript shown to her unasked, and the comparison only with an evaluation
+attached. A reading without a note is a reading she never gets to compare.
 
 ## 3. Write the review
 
