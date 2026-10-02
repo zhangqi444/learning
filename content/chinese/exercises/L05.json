@@ -12,10 +12,6 @@
    "type": "sort",
    "title": "左右结构，还是上下结构？",
    "title_en": "Left–right structure, or top–bottom?",
-   "note": {
-    "zh": "练习1的后半部分；写字的部分仍在纸上。",
-    "en": "The second half of exercise 1; the handwriting stays on paper for now."
-   },
    "groups": [
     "左右结构",
     "上下结构"
@@ -156,8 +152,8 @@
    "title": "找朋友，连成字",
    "title_en": "Look for friends, make characters",
    "note": {
-    "zh": "连好以后，写下来并组词的部分仍在纸上。",
-    "en": "Writing the characters and forming words stays on paper for now."
+    "zh": "先点左边的部件，再点右边能和它合成字的那一半。",
+    "en": "Tap a part on the left, then the half on the right that makes a character with it."
    },
    "left": [
     "亻",

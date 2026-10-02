@@ -591,17 +591,57 @@ function MatchWidget({ ex, ans, set1, done }) {
     </>
   )
 }
+/** 结构分类 as blocks she moves: each character is a tile, dragged into the box
+ *  for its structure — 左右结构 or 上下结构 — and out again, or across to the
+ *  other box. Pointer events, so a finger, the Pencil and a mouse all drag; a
+ *  tile that is tapped rather than dragged steps into the next box, so a click
+ *  still sorts. A mechanic in docs/cats.md's terms: the sorting is the exercise.
+ *  The owner's ask, 2 October: "why not a block-moving experience". */
 function SortWidget({ ex, ans, set1, done }) {
+  const [drag, setDrag] = useState(null)   // a tile in the air: where it is, where it started, which box it is over
+  const zones = useRef({})
+  const hit = (x, y) => {
+    for (const [k, el] of Object.entries(zones.current)) {
+      if (!el || !/^\d+$/.test(k)) continue
+      const r = el.getBoundingClientRect()
+      if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) return +k
+    }
+    return null
+  }
+  const down = (it) => (e) => {
+    if (done) return
+    e.preventDefault(); try { e.currentTarget.setPointerCapture(e.pointerId) } catch { /* no-op */ }
+    const r = e.currentTarget.getBoundingClientRect()
+    setDrag({ id: it.id, text: it.text, x0: e.clientX, y0: e.clientY, x: e.clientX, y: e.clientY, ox: e.clientX - r.left, oy: e.clientY - r.top, over: null, moved: false })
+  }
+  const move = (e) => {
+    setDrag((d) => { if (!d) return d; const moved = d.moved || Math.hypot(e.clientX - d.x0, e.clientY - d.y0) > 6; return { ...d, x: e.clientX, y: e.clientY, moved, over: moved ? hit(e.clientX, e.clientY) : null } })
+  }
+  const up = (it) => (e) => {
+    const d = drag; setDrag(null); if (!d) return
+    if (!d.moved) { const g = ans[it.id]; set1(it.id, Number.isInteger(g) ? (g + 1) % ex.groups.length : 0); return }
+    const z = hit(e.clientX, e.clientY); set1(it.id, z == null ? undefined : z)
+  }
+  const tile = (it, where) => (
+    <button key={it.id} type="button" className={cn("bg-background rounded-lg border px-4 py-2 text-2xl shadow-sm select-none", drag && drag.id === it.id && drag.moved && "opacity-30", done ? "cursor-default" : "cursor-grab")} style={{ touchAction: "none" }} disabled={!!done}
+      onPointerDown={down(it)} onPointerMove={move} onPointerUp={up(it)} onPointerCancel={() => setDrag(null)} data-testid="zh-sort-item" data-id={it.id} data-where={where}>{it.text}</button>
+  )
+  const pool = ex.items.filter((it) => !Number.isInteger(ans[it.id]))
   return (
     <div className="flex flex-col gap-3">
-      <div className="flex flex-wrap gap-2">
-        {ex.items.map((it) => { const g = ans[it.id]; return (
-          <Button key={it.id} variant="outline" className="h-auto flex-col gap-0.5 px-4 py-2" disabled={!!done} onClick={() => set1(it.id, Number.isInteger(g) ? (g + 1) % ex.groups.length : 0)} data-testid="zh-sort-item">
-            <span className="text-2xl">{it.text}</span>
-            <span className="text-muted-foreground text-xs">{Number.isInteger(g) ? ex.groups[g] : t("点一下选结构", "tap to choose")}</span>
-          </Button>) })}
+      <div className="bg-muted/40 flex min-h-14 flex-wrap items-center gap-2 rounded-lg border border-dashed p-2" data-testid="zh-sort-pool">
+        {pool.length ? pool.map((it) => tile(it, "pool")) : <span className="text-muted-foreground px-1 text-sm">{t("都放好了", "All sorted")}</span>}
       </div>
-      {ex.groups.map((g, k) => <div key={g} className="text-sm"><span className="font-medium">{g}：</span>{ex.items.filter((it) => ans[it.id] === k).map((it) => it.text).join(" ") || "—"}</div>)}
+      <p className="text-muted-foreground text-xs">{t("把每个字拖到它的结构里。", "Drag each character into the box for its structure.")}</p>
+      <div className="grid grid-cols-2 gap-3">
+        {ex.groups.map((g, k) => (
+          <div key={g} ref={(el) => { zones.current[k] = el }} className={cn("flex min-h-24 flex-col gap-2 rounded-lg border-2 p-2", drag && drag.over === k ? "border-primary bg-primary/10" : "border-dashed")} data-testid="zh-sort-zone" data-group={k} data-over={drag && drag.over === k ? "1" : "0"}>
+            <div className="text-sm font-medium">{g}</div>
+            <div className="flex flex-wrap gap-2">{ex.items.filter((it) => ans[it.id] === k).map((it) => tile(it, String(k)))}</div>
+          </div>
+        ))}
+      </div>
+      {drag && drag.moved ? <div className="bg-background pointer-events-none fixed z-50 rounded-lg border px-4 py-2 text-2xl shadow-lg" style={{ left: drag.x - drag.ox, top: drag.y - drag.oy }} data-testid="zh-sort-ghost">{drag.text}</div> : null}
     </div>
   )
 }

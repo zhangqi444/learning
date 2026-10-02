@@ -286,8 +286,20 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('补全对话 gives each speaker their line', /3 \/ 3/.test(await pg.textContent('[data-testid=zh-ex-result]')));
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-01s'; }); await pg.waitForSelector('[data-testid=zh-ex]');
   await both('结构 (sort)', EX);
-  const taps = [1, 1, 1, 2, 1, 2];   // 喝 伯 深 → 左右 (one tap), 突 定 → 上下 (two)
-  for (let i = 0; i < taps.length; i++) for (let k = 0; k < taps[i]; k++) await pg.click(`[data-testid=zh-sort-item] >> nth=${i}`);
+  // Blocks she moves: a tile is dragged into the box for its structure. Pointer
+  // events, so the mouse here stands for a finger or the Pencil on the iPad.
+  const dragTo = async (from, to) => { const a = await (await pg.$(from)).boundingBox(), b = await (await pg.$(to)).boundingBox(); await pg.mouse.move(a.x + a.width / 2, a.y + a.height / 2); await pg.mouse.down(); await pg.mouse.move(a.x + a.width / 2 + 12, a.y + a.height / 2 + 12, { steps: 3 }); await pg.mouse.move(b.x + b.width / 2, b.y + b.height / 2, { steps: 8 }); await pg.mouse.up(); await pg.waitForTimeout(60); };
+  const inZone = async (k) => (await pg.$$(`[data-testid=zh-sort-zone][data-group="${k}"] [data-testid=zh-sort-item]`)).length;
+  const inPool = async () => (await pg.$$('[data-testid=zh-sort-pool] [data-testid=zh-sort-item]')).length;
+  check('the six characters start in the pool, the two boxes empty', (await inPool()) === 6 && (await inZone(0)) === 0 && (await inZone(1)) === 0);
+  for (const ch of ['喝', '伯', '深']) await dragTo(`[data-testid=zh-sort-item][data-where=pool]:has-text("${ch}")`, '[data-testid=zh-sort-zone][data-group="0"]');
+  for (const ch of ['突', '定']) await dragTo(`[data-testid=zh-sort-item][data-where=pool]:has-text("${ch}")`, '[data-testid=zh-sort-zone][data-group="1"]');
+  check('five tiles dragged into their boxes sit in them; one is still in the pool', (await inZone(0)) === 3 && (await inZone(1)) === 2 && (await inPool()) === 1, `${await inZone(0)}/${await inZone(1)}/${await inPool()}`);
+  await dragTo('[data-testid=zh-sort-zone][data-group="1"] [data-testid=zh-sort-item]:has-text("定")', '[data-testid=zh-sort-pool]');
+  check('a tile dragged back out returns to the pool', (await inPool()) === 2 && (await inZone(1)) === 1);
+  await dragTo('[data-testid=zh-sort-item][data-where=pool]:has-text("定")', '[data-testid=zh-sort-zone][data-group="1"]');
+  await pg.click('[data-testid=zh-sort-item][data-where=pool]:has-text("松")');
+  check('a tap rather than a drag still sorts: 松 steps into the first box', (await inZone(0)) === 4 && (await inPool()) === 0);
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
   check('the structure sort marks itself', /6 \/ 6/.test(await pg.textContent('[data-testid=zh-ex-result]')));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
