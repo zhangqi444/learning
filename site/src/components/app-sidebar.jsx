@@ -97,7 +97,7 @@ export function AppSidebar({ route, ...props }) {
                 </SidebarMenuItem>
                 {zhNote ? (
                   <SidebarMenuItem>
-                    <SidebarMenuButton tooltip={t("听写", "Dictation")} isActive={top === "dictation"} onClick={() => nav("/chinese/dictation/" + zhNote.set)}>
+                    <SidebarMenuButton tooltip={t("听写", "Dictation")} isActive={top === "dictation"} onClick={() => nav("/chinese/dictation/" + zhNote.lesson)}>
                       <Volume2 /><span>{t("听写", "Dictation")}</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

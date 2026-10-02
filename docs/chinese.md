@@ -128,6 +128,17 @@ stays:
 in `localStorage` only — it is a convenience, not learning evidence, so it has no
 business in Drive.
 
+A Chinese address names the lesson or the exercise, never the week:
+`#/chinese/read/L05`, `#/chinese/dictation/L05`, `#/chinese/ex/zx:L05-D1-01s`,
+`#/chinese/block/zb:L05-D2`. The first version put the homework note's date in
+every one of them (`#/chinese/ex/2026-09-30/zx:L05-D1-01s`), and the owner asked
+why a page about an exercise should be bound to a date — her progress is hers,
+not the week's (2 October). The week is found from the lesson in the id — the
+newest note that assigns it — and her record still lands under that week's note
+(`hw:<set>` in Drive), because what was assigned when is a fact worth keeping;
+only the address stopped saying it. An address that still carries the date is
+answered too, so a link already shared keeps working.
+
 **The typed URLs are two redirect stubs.** The build writes `dist/isee/index.html`
 and `dist/chinese/index.html`: a dozen lines each, no assets, `location.replace`
 to `../#/isee`. They cannot be copies of the app — `base: './'` would resolve the

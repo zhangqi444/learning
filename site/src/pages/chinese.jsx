@@ -39,6 +39,22 @@ function Note({ n }) {
   return <div className="bg-accent text-accent-foreground flex items-start gap-2 rounded-md px-3 py-2 text-sm leading-relaxed" data-testid="zh-note-item">{n.ok === true ? <Check className="mt-0.5 size-4 shrink-0" /> : n.ok === false ? <X className="mt-0.5 size-4 shrink-0" /> : null}<span>{n.note}</span></div>
 }
 function hwState(set) { return (Store.s.zh || {})[hwKey(set)] || {} }
+/** The homework note a page is about, from whatever its URL carries: a lesson
+ *  id (the newest note that assigns the lesson), an exercise or block id
+ *  (whose lesson is in its name), or the note's own date — the record's key,
+ *  still accepted so a link already shared keeps working. The URL no longer
+ *  has to say the date: the owner's point, 2 October, that her progress is
+ *  hers and not the week's. The record stays under the week's note (hw:<set>),
+ *  because what was assigned when is a fact worth keeping; only the address
+ *  stopped saying it. */
+const DATE = /^\d{4}-\d{2}-\d{2}$/
+export function noteFor(key) {
+  if (!key || !D.zh) return null
+  if (DATE.test(key)) return D.zh.homework[key] || null
+  const m = /^z[xb]:(L\d+)/.exec(key)
+  const lesson = m ? m[1] : key
+  return zhHomework().find((n) => n.lesson === lesson) || null   // zhHomework() is newest first
+}
 const textKey = (lesson, what) => `text:${lesson}:${what}`
 /** The passage: from the bundle when the lesson carries its text, else from her
  *  Drive record where a parent pasted it (docs/chinese.md § 8 on copyright). */
@@ -78,7 +94,7 @@ function ReadAloudTask({ note, task }) {
   const passage = passageFor(note.lesson, task.what)
   // One button, two homes: beside 保存 while the passage is still to be pasted,
   // under the passage once it is there.
-  const readBtn = <Button size="sm" onClick={() => go(`/chinese/read/${note.set}`)} data-testid="zh-read-open"><Mic /> {t("朗读", "Read it aloud")}</Button>
+  const readBtn = <Button size="sm" onClick={() => go(`/chinese/read/${note.lesson}`)} data-testid="zh-read-open"><Mic /> {t("朗读", "Read it aloud")}</Button>
   return (
     <Card data-testid="zh-read">
       <CardHeader>
@@ -133,7 +149,7 @@ function WorkbookTask({ note, task, lesson }) {
                   <span className="flex items-center gap-2">
                     {isBlock ? (r ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : null)
                       : r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : reviewed(row) ? <Badge variant="success">{t("已批改", "reviewed")}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : r && r.read ? <Badge variant="success">{t("已读", "read")}</Badge> : null}
-                    <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(isBlock ? `/chinese/block/${note.set}/${row.id}` : `/chinese/ex/${note.set}/${row.id}`)}>{row.type === "write" || row.type === "free" ? <PenLine /> : row.type === "speak" || row.type === "read" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
+                    <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(isBlock ? `/chinese/block/${row.id}` : `/chinese/ex/${row.id}`)}>{row.type === "write" || row.type === "free" ? <PenLine /> : row.type === "speak" || row.type === "read" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
                   </span>
                 </div>
               </React.Fragment>
@@ -163,7 +179,7 @@ function DictationTask({ note, task }) {
       <CardHeader>
         <CardTitle>{t("听写", "Dictation")}</CardTitle>
         <CardDescription>{t(task.what, task.what_en)}</CardDescription>
-        <CardAction><Button size="sm" onClick={() => go(`/chinese/dictation/${note.set}`)}><Volume2 /> {t("练习", "Practise")}</Button></CardAction>
+        <CardAction><Button size="sm" onClick={() => go(`/chinese/dictation/${note.lesson}`)}><Volume2 /> {t("练习", "Practise")}</Button></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         <p className="text-muted-foreground text-sm">{tf(task.rule)}</p>
@@ -974,10 +990,13 @@ export function ChineseScreen({ rest }) {
   const [top, a, b, c] = rest
   if (top === "l" && a) return <Lesson key={a} id={a} />
   if (top === "run" && ZH[a] && b) return <ZhRun key={`${a}:${b}:${c}`} sub={a} lesson={b} n={+c || 0} />
-  if (top === "dictation" && a) return <Dictation key={a} set={a} />
-  if (top === "read" && a) return <ReadAloud key={a} set={a} />
-  if (top === "ex" && a && b) return <Exercise key={a + b} set={a} exId={b} />
-  if (top === "block" && a && b) return <ZhBlockRun key={a + b} set={a} id={b} />
+  // /dictation/<lesson>, /read/<lesson>, /ex/<exercise id>, /block/<block id> —
+  // and each still answers to the older form that carried the note's date.
+  const n = noteFor(a)
+  if (top === "dictation" && n) return <Dictation key={n.set} set={n.set} />
+  if (top === "read" && n) return <ReadAloud key={n.set} set={n.set} />
+  if (top === "ex" && n && (b || a)) return <Exercise key={n.set + (b || a)} set={n.set} exId={b || a} />
+  if (top === "block" && n && (b || a)) return <ZhBlockRun key={n.set + (b || a)} set={n.set} id={b || a} />
   if (top === "review") return <ZhReview />
   return <ChineseHome />
 }
@@ -988,10 +1007,10 @@ export function zhCrumbs(rest) {
   const l = (id) => (D.zh && D.zh.lessons[id]) || null
   if (top === "l" && l(a)) out.push({ label: zhLessonLabel(l(a)), path: `/chinese/l/${a}` })
   else if (top === "run" && ZH[a] && l(b)) { out.push({ label: zhLessonLabel(l(b)), path: `/chinese/l/${b}` }); out.push({ label: `${zhSubName(a)} · ${t(`第 ${(+c || 0) + 1} 组`, `Set ${(+c || 0) + 1}`)}`, path: `/chinese/run/${a}/${b}/${c || 0}` }) }
-  else if (top === "dictation" && a) out.push({ label: `${t("听写", "Dictation")} · ${a}`, path: `/chinese/dictation/${a}` })
-  else if (top === "read" && a) out.push({ label: `${t("阅读", "Reading")} · ${a}`, path: `/chinese/read/${a}` })
-  else if (top === "ex" && a && b) { const n = D.zh && D.zh.homework[a], e = n && zhExercises(n.lesson).find((x) => x.id === b); out.push({ label: e ? t(e.title, e.title_en) : t("练习", "Exercise"), path: `/chinese/ex/${a}/${b}` }) }
-  else if (top === "block" && a && b) { const n = D.zh && D.zh.homework[a], bl = n && zhBlock(n, b); out.push({ label: bl ? `${t(bl.title, bl.title_en)} · ${zhDay(bl.day)}` : t("练习", "Exercise"), path: `/chinese/block/${a}/${b}` }) }
+  else if (top === "dictation" && a) out.push({ label: t("听写", "Dictation"), path: `/chinese/dictation/${a}` })
+  else if (top === "read" && a) out.push({ label: t("阅读", "Reading"), path: `/chinese/read/${a}` })
+  else if (top === "ex" && a) { const id = b || a, n = noteFor(a), e = n && zhExercises(n.lesson).find((x) => x.id === id); out.push({ label: e ? t(e.title, e.title_en) : t("练习", "Exercise"), path: `/chinese/ex/${id}` }) }
+  else if (top === "block" && a) { const id = b || a, n = noteFor(a), bl = n && zhBlock(n, id); out.push({ label: bl ? `${t(bl.title, bl.title_en)} · ${zhDay(bl.day)}` : t("练习", "Exercise"), path: `/chinese/block/${id}` }) }
   else if (top === "review") out.push({ label: t("复习", "Review"), path: "/chinese/review" })
   return out
 }
