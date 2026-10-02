@@ -277,7 +277,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('a Chinese review is accepted, its target kept, its item notes kept', !!got && got.target.set === '2026-09-30' && Array.isArray(got.items) && got.items.length === 3, JSON.stringify(got && { target: got.target, items: (got.items || []).length }));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
   check('the review card shows under the week\'s tasks', /这一周的作业做得很认真/.test(await pg.textContent('[data-testid=zh-home]')));
-  check('and its chrome is in the page\'s language', /批改/.test(await pg.textContent('[data-testid=essay-review]')) && !/What a reader noticed|Try this/.test(await pg.textContent('[data-testid=essay-review]')));
+  check('and its chrome is in the page\'s language', /批改/.test(await pg.textContent('[data-testid=essay-review]')) && !/What a reader noticed|Try this|For next week/.test(await pg.textContent('[data-testid=essay-review]')));
   check('and the free exercise it spoke to reads reviewed, not awaiting', /已批改/.test(await pg.textContent('[data-testid=zh-workbook]')));
   await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-03'; }); await pg.waitForSelector('[data-testid=zh-ex]');
   check('the note sits beside the item it is about', /可以写「正当」/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=1')) && !/正当/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=0')));

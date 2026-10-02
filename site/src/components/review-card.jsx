@@ -13,7 +13,7 @@ const TITLE = { essay: "What a reader noticed", mock: "What a reader noticed", w
 /* The card's own words. English by default — the ISEE pages pass nothing — and
  * the Chinese home passes its own, so a review on a Chinese page reads in the
  * page's language, the way the runner's chrome does. */
-const DEFAULT_LABELS = { readFrom: "Read from", words: "words", fresh: "New", worked: "What worked", tryThis: "Try this", next: "{L.next}", checklist: "On the checklist", open: "Open" }
+const DEFAULT_LABELS = { readFrom: "Read from", words: "words", fresh: "New", worked: "What worked", tryThis: "Try this", next: "For next week:", checklist: "On the checklist", open: "Open" }
 
 /** One review — of an essay, or of a whole week or month — written to her. `changedAt`
  *  is when the work last changed, so a review of an older draft says so. */
@@ -50,7 +50,7 @@ export function ReviewCard({ r, changedAt, labels }) {
             </ol>
           </div>
         ) : null}
-        {r.next ? <div className="bg-accent text-accent-foreground flex items-start gap-2 rounded-md px-3 py-2 text-sm"><Sparkles className="mt-0.5 size-4 shrink-0" /> <span><span className="font-medium">For next week:</span> {r.next}</span></div> : null}
+        {r.next ? <div className="bg-accent text-accent-foreground flex items-start gap-2 rounded-md px-3 py-2 text-sm"><Sparkles className="mt-0.5 size-4 shrink-0" /> <span><span className="font-medium">{L.next}</span> {r.next}</span></div> : null}
         {(r.actions || []).length ? (
           <div className="flex flex-col gap-1.5" data-testid="review-actions">
             <div className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">{L.checklist}</div>
