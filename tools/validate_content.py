@@ -205,7 +205,7 @@ def pair_errors(obj, key, where, label=False):
     return out+(label_script_errors(where, key, zh, en) if label else [])
 
 def both_errors(obj, key, where, label=False, required=True):
-    """`key` as {zh, en}, both non-blank — the shape rule/finding/note/explanation use."""
+    """`key` as {zh, en}, both non-blank — the shape rule/note/explanation use."""
     v=obj.get(key)
     if v is None and not required: return []
     if not isinstance(v, dict): return [f'{where}: {key} must be {{zh, en}}, not {type(v).__name__}']
@@ -369,14 +369,13 @@ if os.path.isdir(HWDIR):
         for t in json.load(open(f'{HWDIR}/{f}')).get('tasks',[]):
             # What the task card prints: its heading line and where in the book
             # it is, each in both languages; the rule under the dictation and the
-            # reading, the finding under the workbook, as {zh, en}.
+            # reading as {zh, en}. A scope_note is internal and never printed.
             w=f'{f} {t.get("kind","?")}'
             errs+=pair_errors(t, 'what', w, label=True)
             errs+=pair_errors(t, 'pages', w, label=True)
             if t.get('kind') in ('read_aloud','dictation'): errs+=both_errors(t, 'rule', w)
             if t.get('kind')=='workbook':
-                errs+=both_errors(t, 'finding', w)
-                for e in t.get('on_paper',[]) or []: errs+=pair_errors(e, 'what', f'{w} on_paper')
+                    for e in t.get('on_paper',[]) or []: errs+=pair_errors(e, 'what', f'{w} on_paper')
             if t.get('kind')=='dictation':
                 # The section headings over the word list: the key is the book's
                 # own heading, so the English twin sits in a map beside the list.

@@ -248,7 +248,7 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
   field a Chinese page prints exists in both: on a bank item `prompt`/`prompt_en`,
   `explanation`/`explanation_zh`, `why`/`why_zh` keyed alike; on a lesson, an
   exercise, a task or a block `title`/`title_en`, `what`/`what_en`,
-  `pages`/`pages_en`; a `{zh, en}` object for a rule, a finding, a note, an
+  `pages`/`pages_en`; a `{zh, en}` object for a rule, a note, an
   explanation, a 生字 gloss, a section's `where`; `sections_en` beside a
   dictation's word list, whose keys are the book's own headings; a name in
   `content/chinese/skills.json` for every `skill` a bank uses, so a page never

@@ -29,10 +29,7 @@
     "zh-char",
     "zh-word"
    ],
-   "finding": {
-    "zh": "设计原本就说对了：书按星期分好了，每天一个四选一的题块就是一组，不用再切；加上其余十七项，全部按书的顺序、按天列在网站上做。有唯一答案的按规则判；写字按笔顺判；自由书写用笔写、由批改技能批改；讲故事录音、家长签名；读一读录音对照。纸上不再剩下作业。",
-    "en": "The design had it right: the book is divided by weekday, and each day's four-choice block is a sitting of its own, no chunking needed. With the other seventeen exercises, everything is listed on the site in the book's order, day by day: one-answer ones marked by rule, known characters judged stroke by stroke, free writing by pen for the review skill, the retell recorded and signed, 读一读 read aloud and aligned. Nothing is left on paper."
-   },
+   "scope_note": "Internal, never printed. The design had it right: the book is divided by weekday, and each day's four-choice block is a sitting of its own, no chunking needed. With the other seventeen exercises, everything is listed on the site in the book's order, day by day: one-answer ones marked by rule, known characters judged stroke by stroke, free writing by pen for the review skill, the retell recorded and signed, 读一读 read aloud and aligned. Nothing is left on paper.",
    "on_paper": [],
    "known_gaps": [
     {

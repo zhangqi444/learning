@@ -60,8 +60,19 @@ export function Speak({ text, className, label }) {
 }
 
 /* ---------- the week: one homework note, three kinds of task ---------- */
+/** What she reads, said once: the passage's own title (the lesson's 阅读 section,
+ *  when that is what the task names) and where it is in the book. `task.what` is
+ *  the key the passage is kept under and begins with 阅读, which the card's title
+ *  already says — printed under it, the word came three times in three lines. */
+function readTitle(lesson, task) {
+  const r = lesson && lesson["阅读"]
+  if (r && r.title && task.what.includes(r.title)) return t(`《${r.title}》`, r.title_en || r.title)
+  return t(task.what, task.what_en)
+}
+const readWhere = (task) => t(task.pages, task.pages_en)
 function ReadAloudTask({ note, task }) {
   useStore(); useLang()
+  const lesson = D.zh.lessons[note.lesson]
   const st = hwState(note.set).read || {}
   const last = (st.attempts || []).slice(-1)[0]
   const passage = passageFor(note.lesson, task.what)
@@ -72,7 +83,7 @@ function ReadAloudTask({ note, task }) {
     <Card data-testid="zh-read">
       <CardHeader>
         <CardTitle>{t("阅读", "Reading")}</CardTitle>
-        <CardDescription>{t(task.what, task.what_en)}</CardDescription>
+        <CardDescription>{readTitle(lesson, task)} · {readWhere(task)}</CardDescription>
         <CardAction>{st.done ? <Badge variant="success"><Check /> {t("已读", "Read")}</Badge> : <Badge variant="outline">{t("待读", "To do")}</Badge>}</CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
@@ -129,13 +140,15 @@ function WorkbookTask({ note, task, lesson }) {
             )
           })}
         </div>
+        {/* Only what is still on paper, if anything is. The note's own account of
+            why the list looks the way it does is a record for the next author
+            (scope_note), not a thing for her page. */}
         {task.on_paper.length ? <details className="text-sm">
           <summary className="text-muted-foreground cursor-pointer">{t(`纸上作业 — ${task.on_paper.length} 项`, `On paper — ${task.on_paper.length} exercises the book sets by hand`)}</summary>
           <ul className="mt-2 flex flex-col gap-1 pl-1">
             {task.on_paper.map((e, i) => <li key={i} className="text-muted-foreground">{zhDay(e.day)} · p.{e.page} · {e.ex} · {t(e.what, e.what_en)}</li>)}
           </ul>
-          <p className="text-muted-foreground mt-2 text-xs">{tf(task.finding)}</p>
-        </details> : <p className="text-muted-foreground text-xs">{tf(task.finding)}</p>}
+        </details> : null}
       </CardContent>
     </Card>
   )
@@ -337,11 +350,13 @@ function PassageSetup({ lesson, task, bare, actions }) {
   // `task.what` is the key the passage is kept under (text:L05:阅读《谦虚过度》),
   // so it stays the book's Chinese whichever language the page is read in; the
   // twins are only for what the sentence says.
-  const what = task.what, label = t(task.what, task.what_en), where = t(task.pages, task.pages_en)
+  const what = task.what, where = readWhere(task)
+  // One line, to the parent, saying only what to do. Why the text is pasted
+  // rather than shipped is docs/chinese.md § 8, and not a thing for the page.
   const body = (
     <>
-      <p className="text-muted-foreground text-sm">{t(`课文还没有录入。请把${label}（${where}）的原文粘贴一次——只保存在她的 Drive 记录里，不在网站上。`, `The passage is not here yet. Paste the text of ${label} (${where}) once — it is kept in her Drive record, not on the site.`)}</p>
-      <Textarea rows={6} value={text} onChange={(e) => setText(e.target.value)} placeholder={t("把课文粘贴到这里…", "Paste the passage here…")} data-testid="zh-passage-text" />
+      <p className="text-muted-foreground text-sm">{t(`请家长把${where}的课文粘贴到这里。`, `A parent pastes the text from ${where} here.`)}</p>
+      <Textarea rows={6} value={text} onChange={(e) => setText(e.target.value)} placeholder={t("课文…", "The passage…")} data-testid="zh-passage-text" />
       <div className="flex flex-wrap items-center gap-3"><Button size="sm" disabled={!text.trim()} onClick={() => Store.setSlice("zh", textKey(lesson, what), (cur) => ({ ...cur, text: text.trim(), what, where: task.pages }))} data-testid="zh-passage-save"><Check /> {t("保存", "Keep it")}</Button>{actions || null}</div>
     </>
   )
@@ -396,7 +411,6 @@ export function ReadAloud({ set }) {
   const task = note && note.tasks.find((x) => x.kind === "read_aloud")
   const lesson = note && D.zh.lessons[note.lesson]
   const what = task ? task.what : ""
-  const label = task ? t(task.what, task.what_en) : ""
   const passage = note ? passageFor(note.lesson, what) : ""
   const [mode, setMode] = useState("idle")            // idle | recording | saving | done
   const [finals, setFinals] = useState(""), [interim, setInterim] = useState("")
@@ -441,7 +455,7 @@ export function ReadAloud({ set }) {
       <Card>
         <CardHeader>
           <CardTitle>{t("阅读", "Reading")}</CardTitle>
-          <CardDescription>{label}</CardDescription>
+          <CardDescription>{readWhere(task)}</CardDescription>
           <CardAction>
             {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-rec-stop"><Square /> {t("停止", "Stop")} · {sec} {t("秒", "s")}</Button>
               : mode === "saving" ? <Button size="sm" disabled>{t("保存中…", "Saving…")}</Button>
@@ -457,7 +471,7 @@ export function ReadAloud({ set }) {
           it is shown to her: the transcript, the alignment and the number are for
           the evaluation, in the parent view and the review (the owner's ask). */}
       <Card>
-        <CardHeader><CardTitle>{label}</CardTitle>{mode === "recording" ? <CardDescription data-testid="zh-recording">{t(`正在录音 · ${sec} 秒`, `Recording · ${sec} s`)}</CardDescription> : null}</CardHeader>
+        <CardHeader><CardTitle>{readTitle(lesson, task)}</CardTitle>{mode === "recording" ? <CardDescription data-testid="zh-recording">{t(`正在录音 · ${sec} 秒`, `Recording · ${sec} s`)}</CardDescription> : null}</CardHeader>
         <CardContent><p className="text-xl leading-9 tracking-wide" data-testid="zh-passage">{passage}</p></CardContent>
       </Card>
       {/* After recording: her recording, to listen to again — and nothing else.
