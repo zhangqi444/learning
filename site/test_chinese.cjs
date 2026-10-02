@@ -98,8 +98,23 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // on every page: the header (trail, Drive chip, the sound and theme buttons),
   // the sidebar's head (the brand, the category switch) and its working list
   const CHROME = ['header', '[data-slot=sidebar] [data-sidebar=header]', '[data-slot=sidebar] [data-sidebar=group]:first-of-type'];
+  // Internal notes — every string under a key ending in _note in content/chinese,
+  // the next author's notes to themself — may not appear on her page. Read from
+  // the content files, not the bundle, because make_bundle.py strips them from
+  // the bundle, and that is the first thing checked here. AGENTS.md § Content rules.
+  const INTERNAL = (() => {
+    const out = []; const walk = (o) => { if (Array.isArray(o)) o.forEach(walk); else if (o && typeof o === 'object') for (const [k, v] of Object.entries(o)) { if (k.endsWith('_note')) { for (const x of (Array.isArray(v) ? v : [v])) if (typeof x === 'string' && x.trim()) out.push(x.trim().slice(0, 40)); } else walk(v); } };
+    const files = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? (e.name === 'strokes' ? [] : files(path.join(d, e.name))) : e.name.endsWith('.json') ? [path.join(d, e.name)] : []);
+    for (const f of files(path.join(__dirname, '..', 'content', 'chinese'))) walk(JSON.parse(fs.readFileSync(f, 'utf8')));
+    return out;
+  })();
+  check('the content carries internal notes to check against', INTERNAL.length >= 8, String(INTERNAL.length));
+  check('and the served bundle carries none of them', !/"[^"]*_note":/.test(JSON.stringify(JSON.parse(fs.readFileSync(path.join(DIST, 'content/bundle.json'), 'utf8')).zh)));
   const both = async (name, sels) => {
     const all = [...CHROME, ...sels];
+    const page = (await pg.textContent('body')).replace(/\s+/g, ' ');
+    const leak = INTERNAL.find((x) => page.includes(x.replace(/\s+/g, ' ')));
+    check(`${name}: no internal note is on the page`, !leak, leak || '');
     const zh = (await chromeText(all)).replace(NAMES, '');
     check(`${name}: in 中, the chrome is Chinese and carries no English word`, CJK.test(zh) && !LATIN.test(zh), around(zh, LATIN) || zh.slice(0, 80));
     await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(120);

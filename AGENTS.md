@@ -233,6 +233,10 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
   score screen — and a `t()` evaluated in a parent that never called
   `useLang()`, which hands the child a title in the language the page was
   opened in and leaves it there when the chrome around it flips.
+- A Chinese page prints the content's printed fields and nothing else: never a
+  key ending in `_note`, never the reasoning behind a decision (Content rules,
+  below). The paragraph that explains why a card looks the way it does belongs
+  in docs/, and a card's subtitle says the thing its title did not.
 
 ## Content rules
 
@@ -258,6 +262,23 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
   and only has to be present and non-blank. `tools/validate_content.py` refuses
   a missing, blank or mixed twin, and `npm test` runs it first; the twin is
   written when the field is, the way `why` is.
+- **Nothing internal reaches her page.** A content file carries two kinds of
+  text: what a page prints, and notes to the next author — where a page number
+  was read from, why a question was left out, how a list came to be in the order
+  it is, what a field is for. On 2 October 2026 the owner found two of the second
+  kind on the week's page (the paste box explaining the copyright hold, and the
+  workbook's account of its own order, in two languages) and asked why they were
+  there at all. So an internal note lives under a key that ends in `_note`
+  (`scope_note`, `text_note`, `gloss_note`, `omitted_note`, `file_note`, …), is
+  one language and plain — it has no reader on the page, so no twin — and never
+  reaches the browser: `site/make_bundle.py` strips every `_note` key out of `zh`
+  when it builds the bundle, so a page cannot print what it is never given;
+  `tools/validate_content.py` refuses a `_note` that is not a non-blank string
+  and a bare `note` that is a string, since a `note` is `{zh, en}` and printed or
+  it is a `_note` and not; and `test_chinese.cjs` reads every internal note out
+  of the content and fails any Chinese page it visits whose text carries one. A
+  thought for the next author goes in a `_note` or in docs/chinese.md; a thought
+  for her goes in a printed field, with its twin.
 
 ## How the learning system is designed
 

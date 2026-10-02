@@ -421,6 +421,30 @@ if os.path.isdir(LESSONDIR):
             if isinstance(l.get(sec), dict) and 'where' in l[sec]: errs+=both_errors(l[sec], 'where', f'{w} {sec}', label=True)
         for z in (l.get('生字') or {}).get('items',[]): errs+=both_errors(z, 'gloss', f'{w} 生字 {z.get("zi","?")}')
         if isinstance(l.get('阅读'), dict) and l['阅读'].get('title'): errs+=pair_errors(l['阅读'], 'title', f'{w} 阅读', label=True)
+# Internal notes. A key ending in _note is a note to the next author: plain
+# English (or the teacher's own words), one language, never printed —
+# site/make_bundle.py strips every such key before the browser sees the file,
+# and test_chinese.cjs fails a page that carries one's text. So a _note must be
+# a non-blank string (or a list of them), and a bare `note` holding a string is
+# a mistake: a `note` is {zh, en} and printed (exercises), or it is a _note and not.
+def internal_note_errors(o, where):
+    out=[]
+    if isinstance(o, dict):
+        for k,v in o.items():
+            if k.endswith('_note'):
+                # one string, or the lines of one (the teacher's note is kept line by line)
+                ok=(isinstance(v,str) and v.strip()) or (isinstance(v,list) and v and all(isinstance(x,str) and x.strip() for x in v))
+                if not ok: out.append(f'{where}: {k} must be a non-blank string, or a list of them — an internal note has one reader, the next author')
+            elif k=='note' and isinstance(v,str):
+                out.append(f'{where}: `note` is a plain string — a printed note is {{zh, en}}; an internal one ends in _note')
+            else: out+=internal_note_errors(v, f'{where}/{k}')
+    elif isinstance(o, list):
+        for i,v in enumerate(o): out+=internal_note_errors(v, f'{where}[{i}]')
+    return out
+for _d,_sub,_fs in os.walk('content/chinese'):
+    if 'strokes' in _d: continue
+    for _f in sorted(_fs):
+        if _f.endswith('.json'): errs+=internal_note_errors(json.load(open(f'{_d}/{_f}')), f'{_d}/{_f}')
 # The manifest's two lines on the home card.
 MANIFEST='content/chinese/manifest.json'
 if os.path.exists(MANIFEST):

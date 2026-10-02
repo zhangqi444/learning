@@ -16,7 +16,7 @@
    "en": "Textbook pp. 48–49"
   },
   "text": null,
-  "note": "Fully pinyin-annotated in the book. The text is deliberately not reproduced: docs/chinese.md § 8 holds that a 课文 is copyrighted text from a textbook in print and that no lesson text is committed until the owner decides where it may live."
+  "text_note": "Fully pinyin-annotated in the book. The text is deliberately not reproduced: docs/chinese.md § 8 holds that a 课文 is copyrighted text from a textbook in print and that no lesson text is committed until the owner decides where it may live."
  },
  "生字": {
   "where": {
@@ -220,7 +220,7 @@
     "必定"
    ]
   ],
-  "page_break": "the first five rows are on p.51, the last two on p.52"
+  "page_break_note": "the first five rows are on p.51, the last two on p.52"
  },
  "用一用": {
   "where": {
@@ -271,6 +271,6 @@
    "谣言：没有事实根据的消息。"
   ],
   "text": null,
-  "note": "same copyright hold as the 课文"
+  "text_note": "same copyright hold as the 课文"
  }
 }

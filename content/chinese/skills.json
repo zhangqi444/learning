@@ -1,5 +1,5 @@
 {
- "note": "A name in each language for every `skill` the Chinese banks use. The id is the bank's; the name is what a page prints beside a question and under the skill's cat. tools/validate_content.py fails a bank skill that has no entry here.",
+ "file_note": "A name in each language for every `skill` the Chinese banks use. The id is the bank's; the name is what a page prints beside a question and under the skill's cat. tools/validate_content.py fails a bank skill that has no entry here.",
  "skills": {
   "tone-sandhi": {
    "zh": "变调",

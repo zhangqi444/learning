@@ -97,7 +97,16 @@ if os.path.isdir(_ZH):
     if os.path.isdir(f'{_ZH}/strokes'):
         for _f in sorted(os.listdir(f'{_ZH}/strokes')):
             if _f.endswith('.json'): zh['strokes'][_f[:-5]]=json.load(open(f'{_ZH}/strokes/{_f}'))
-    out['zh']=zh
+    # Internal notes never reach the browser. A key ending in _note is a note to
+    # the next author — where a page number was read from, why a question was
+    # left out, how a list came to be in its order — and the owner found two of
+    # them printed on the week's page (2 October 2026). Stripped here, a page
+    # cannot print what it is never given; AGENTS.md § Content rules has the rule.
+    def _strip_notes(o):
+        if isinstance(o,dict): return {k:_strip_notes(v) for k,v in o.items() if not k.endswith('_note')}
+        if isinstance(o,list): return [_strip_notes(v) for v in o]
+        return o
+    out['zh']=_strip_notes(zh)
 import os as _os, datetime as _dt
 if _os.path.exists('site/content/seed.json'):
     out['seed']=json.load(open('site/content/seed.json'))

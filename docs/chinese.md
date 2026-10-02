@@ -277,6 +277,9 @@ The chrome is held the same way: every string a Chinese page shows goes
 through `t()`/`tf()`, and `test_chinese.cjs` reads the chrome of each kind of
 page in both states. The rule, and how to apply it to a new page, string or
 file, is in AGENTS.md § UI conventions and § Content rules.
+Internal notes — any key ending in `_note` — are the other way round: one
+language, never a twin, stripped from the bundle by `make_bundle.py`, and the
+suite fails a page that carries one's text (AGENTS.md § Content rules).
 
 **The validator applies unchanged, and gains two rules.** Four choices, none blank
 or duplicated, a `why` on each of the three wrong ones, a resolving `passage_id`,

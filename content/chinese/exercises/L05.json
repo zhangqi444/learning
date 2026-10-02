@@ -2,7 +2,7 @@
  "lesson": "L05",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册A 第五课《小马过河》",
- "note": "The workbook's exercises, typed. tf/order/slots/match/sort have one answer the book fixes and are marked by rule on the device. write is handwriting of a known character, judged stroke by stroke against the vendored stroke data (content/chinese/strokes). free is handwriting with no key — kept as image and strokes, judged by the chinese-review skill. speak is the retell — recorded and transcribed, with a parent's tap as the signature.",
+ "file_note": "The workbook's exercises, typed. tf/order/slots/match/sort have one answer the book fixes and are marked by rule on the device. write is handwriting of a known character, judged stroke by stroke against the vendored stroke data (content/chinese/strokes). free is handwriting with no key — kept as image and strokes, judged by the chinese-review skill. speak is the retell — recorded and transcribed, with a parent's tap as the signature.",
  "exercises": [
   {
    "id": "zx:L05-D1-01s",

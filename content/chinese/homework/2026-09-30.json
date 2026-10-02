@@ -2,7 +2,7 @@
  "set": "2026-09-30",
  "lesson": "L05",
  "edition": "2023年第三版",
- "note_verbatim": [
+ "verbatim_note": [
   "课本55到56页，读熟练。",
   "完成五课一练习册星期一到星期四的练习题。",
   "听写：课本52页的词语。"
@@ -36,7 +36,7 @@
      "where": "练习册A 星期一 练习4（2），printed p.32",
      "question": "「正」共有＿＿画，部首是＿＿。",
      "offered": "A. 六；一   B. 五；正   C. 六；正   D. 五；一",
-     "why_omitted": "Five strokes is certain; the radical is not. The PRC 《汉字部首表》 files 正 under 止, which the workbook does not offer, and textbooks split between 一 and 正. A wrong answer key is worse than a missing question. Ask her teacher, then add it. The parallel question about 突 is in zh-char and is safe: the textbook prints 穴 → 突 on p.50."
+     "omitted_note": "Five strokes is certain; the radical is not. The PRC 《汉字部首表》 files 正 under 止, which the workbook does not offer, and textbooks split between 一 and 正. A wrong answer key is worse than a missing question. Ask her teacher, then add it. The parallel question about 突 is in zh-char and is safe: the textbook prints 穴 → 突 on p.50."
     }
    ],
    "pages": "练习册A 第30–39页",
