@@ -18,7 +18,7 @@ import { RadioGroup, RadioGroupPrimitive } from "@zhangqi444/ui/ui/radio-group"
 import { ScrollArea } from "@zhangqi444/ui/ui/scroll-area"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@zhangqi444/ui/ui/tooltip"
 import { Burst, useCountUp } from "@/components/burst"
-import { Gate, inscribe } from "@/components/gate"
+import { Gate, inscribe, strip } from "@/components/gate"
 import { Glim, hearProps } from "@/components/glim"
 import { PromotionReport } from "@/components/promotion"
 import { MissProgress, MissStage } from "@/components/miss-status"
@@ -158,6 +158,14 @@ const subOf = (q, fallback) => (findItem(q.id) || {}).sub || fallback || "vr"
  *  nothing, because going back over answers is not an event). */
 const catFor = (q, sub) => (q ? skillCat(sub, q.sk) : null)
 const fmtSec = (ms, zh) => `${Math.round(ms / 1000)} ${zh ? "秒" : "s"}`
+/** Which questions are drawn as the gate. Every Verbal Reasoning item is one —
+ *  VR is the gate it already was (AGENTS.md § The game) — and in the Chinese
+ *  half a 选词填空 item: the book's sentence with one 词语 taken out, which is
+ *  the same shape in a second language (docs/chinese.md § 10.4). A tone or a
+ *  stroke-count question is not a sentence with a gap, and stays plain. */
+const isGate = (sub, q) => sub === "vr" || (sub === "zh-word" && /_{3,}/.test(String((q && q.q) || "")))
+/** Whether the answer is a name a cat can wear: one English word, or a 词语. */
+const gateName = (sub, name) => (sub === "vr" ? /^[a-z][a-z'-]*$/i.test(name) : /^[\p{Script=Han}…]+$/u.test(name))
 
 /** Why did this go wrong? One tap for the cause, one for "were you sure". */
 export function CauseTags({ id, compact }) {
@@ -288,8 +296,19 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   function leave() { spent.current[i] = (spent.current[i] || 0) + (Date.now() - entered.current); entered.current = Date.now() }
   function retry() { Store.dropDraft(draftKey); finished.current = false; setPicks([]); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
 
+  /* One tap reaches here twice: the choice's own onClick and the radio group's
+   * onValueChange both fire for a single click, and the second call lands
+   * before `shown` has updated, so the guard below never saw it — and the cat
+   * answered twice to every right call at a gate. One tap is one pick, so the
+   * same pick arriving again inside the same instant is dropped. Keyed on the
+   * question and the choice, and on time rather than for good, so a set done
+   * again can pick the same answer again. */
+  const lastPick = useRef(null)
   function choose(k) {
     if (instant && shown[i]) return          // an answered question stays answered
+    const now = Date.now()
+    if (lastPick.current && lastPick.current.i === i && lastPick.current.k === k && now - lastPick.current.at < 80) return
+    lastPick.current = { i, k, at: now }
     const np = picks.slice(); np[i] = k; setPicks(np)
     if (!instant) { sfx("pick"); return }
     setShown({ ...shown, [i]: true })
@@ -305,7 +324,9 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     // cat is the one that turns up — the same cat she has in the Glimbook, so
     // getting Percent right sounds like Percent. A wrong answer keeps the plain
     // soft note: nobody was called, so nobody came, and nothing is taken away.
-    const word = ok && kind !== "corr" ? (sub === "vr" && /^[a-z][a-z'-]*$/i.test(name) ? name : items[i].sk ? sub + ":" + items[i].sk : null) : null
+    // A 选词填空 sentence is a gate too (docs/chinese.md § 10.4), so the 词语 she
+    // called is the cat that answers — in its own voice, hashed from the word.
+    const word = ok && kind !== "corr" ? (isGate(sub, items[i]) && gateName(sub, name) ? name : items[i].sk ? sub + ":" + items[i].sk : null) : null
     sfx(word ? "call" : ok ? "right" : "wrong", word || undefined)
   }
   function step(d) {
@@ -605,8 +626,12 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
    * recording, same marking — only the frame changes, so nothing about the
    * evidence this produces is different from a plain set. Corrections stay
    * plain: reviewing answers is not a gate to open. */
-  const gameMode = kind !== "corr" && subOf(it, subHint) === "vr"
-  const rune = gameMode ? inscribe(it.q) : null
+  const gameMode = kind !== "corr" && isGate(subOf(it, subHint), it)
+  // A Chinese gate is inscribed with the book's sentence and nothing else: the
+  // instruction in front of it (选词填空：, Fill the blank:) is what the lead line
+  // already says, in the page's language, so the inscription is the material
+  // and reads the same whichever way the toggle is set.
+  const rune = gameMode ? inscribe(zhSet ? strip(qOf(it)) : it.q, { zh }) : null
   /* Who walks through when the gate opens. Deliberately only on the REVEAL, and
    * deliberately not on the choices: the Wordwood is the game and its controls
    * wear faces, but a practice set is the rehearsal, and on the day it counts
@@ -614,7 +639,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
    * tabby would be training her for a test that does not exist (rule 5).
    * Only single words get a cat — a choice that is a phrase is not a name. */
   const answerText = gameMode ? String(it.c[LTR.indexOf(keyOf(it))] || "").trim() : ""
-  const arrival = gameMode && gotIt && /^[a-z][a-z'-]*$/i.test(answerText) ? answerText : null
+  const arrival = gameMode && gotIt && gateName(subOf(it, subHint), answerText) ? answerText : null
   // Verbal already has the cat that walked through the gate, so it does not want
   // a second one; every other subject gets its skill's cat on the reveal.
   // A plain const, NOT a useMemo: everything from here down sits after the early
@@ -667,13 +692,13 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
           {gameMode ? (
             <div className="flex flex-col items-center gap-3">
               <div className="relative w-full max-w-xs">
-                <Gate open={gotIt} glow={!arrival} className="w-full" />
+                <Gate open={gotIt} glow={!arrival} zh={zh} className="w-full" />
                 {arrival ? (
                   <Glim
                     key={arrival}
                     word={arrival}
                     stage="Bright"
-                    title={`${arrival} came to the gate`}
+                    title={zh ? `${arrival} 来了` : `${arrival} came to the gate`}
                     arrive
                     className="absolute top-[66%] left-1/2 size-20 -translate-x-1/2 -translate-y-1/2"
                   />
@@ -697,7 +722,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
               {qOther(it) ? <EnglishLine key={getLang()} text={qOther(it)} /> : null}
             </>
           )}
-          {gameMode ? <p className="text-muted-foreground -mb-2 text-xs font-semibold tracking-wide uppercase">Your spells</p> : null}
+          {gameMode ? <p className="text-muted-foreground -mb-2 text-xs font-semibold tracking-wide uppercase">{zh ? "你会的名字" : "Your spells"}</p> : null}
           {/* Name what the wait is for. On the question where she meets a
               passage the floor includes it, so the hold is the length of the
               reading rather than of a stem — long enough that "read the whole
@@ -756,8 +781,12 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                 ) : null}
                 <div className={cn("flex items-center gap-2 pt-1 text-sm font-bold", gotIt ? "text-success" : "text-destructive")} data-testid="verdict">
                   {gotIt
-                    ? <><CheckCircle2 className="size-4" /> {gameMode ? "The gate opens." : zh ? "对了" : "Right"}</>
-                    : <><XCircle className="size-4" /> {gameMode ? `The gate holds. It wanted “${it.c[LTR.indexOf(keyOf(it))]}”.` : zh ? `答案是 ${keyOf(it)}` : `The answer is ${keyOf(it)}`}</>}
+                    ? <><CheckCircle2 className="size-4" /> {gameMode ? (zh ? "门开了。" : "The gate opens.") : zh ? "对了" : "Right"}</>
+                    : <><XCircle className="size-4" /> {gameMode
+                      // the name it wanted is the material, not the chrome: it reads the same in either language
+                      // one span, so the verdict's flex gap does not open up inside the brackets
+                      ? (zh ? <span>门没开。它要的是「<span data-testid="gate-wanted">{it.c[LTR.indexOf(keyOf(it))]}</span>」。</span> : <span>The gate holds. It wanted “<span data-testid="gate-wanted">{it.c[LTR.indexOf(keyOf(it))]}</span>”.</span>)
+                      : zh ? `答案是 ${keyOf(it)}` : `The answer is ${keyOf(it)}`}</>}
                 </div>
               </div>
               {/* What HER choice did, before what the right method is. The

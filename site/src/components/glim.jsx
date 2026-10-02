@@ -10,10 +10,12 @@ import { cn } from "@/lib/utils"
  * what the click does, what a screen reader is told, and that it is reachable by
  * keyboard. Cats that are *controls* (the hand of names in the Wordwood, where
  * clicking casts) deliberately do not get this: one click, one meaning. */
-export const hearProps = (word, { label, className } = {}) => ({
+/* `aria` is the whole accessible name, for a page whose chrome is not English:
+ * a Chinese page says 听 喝, never "Hear 喝" (AGENTS.md § UI conventions). */
+export const hearProps = (word, { label, className, aria } = {}) => ({
   type: "button",
   onClick: () => sfx("call", word),
-  "aria-label": `Hear ${label || word}`,
+  "aria-label": aria || `Hear ${label || word}`,
   "data-testid": "hear-glim",
   className: cn(
     // `glim-hear` is what index.css hangs the tail on: a cat you can tap looks

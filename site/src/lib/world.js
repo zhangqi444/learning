@@ -47,6 +47,20 @@ export const W = {
   },
 }
 
+/* The world's nouns on a Chinese page. A page there is one language at a time
+ * (AGENTS.md § UI conventions), so the world's group in its sidebar cannot say
+ * "Wildlight" or "Den" in 中. These are the plain words — a cat, the world, the
+ * place she builds, the shelf — and every one is a placeholder: naming the
+ * world is Sheila's and the owner's (docs/world.md), and a Chinese name for it
+ * is a decision for them, not a transliteration made here. The proper name
+ * Wildlight stays out of Chinese chrome until then. */
+export const WZ = {
+  world: "世界",
+  cat: "猫",
+  homeTitle: "猫窝",
+  rewards: "奖励",
+}
+
 /** The same six, dimmest first, for anywhere that needs to compare them. */
 export const GLOW_ORDER = ["Unseen", "Glimpsed", "Flickering", "Steady", "Bright", "Radiant"]
 

@@ -162,6 +162,15 @@ comes through the gate; the wrong name and **the wrong cat comes** — call `rig
 and something stiff and unbendable stalks in, sits down, and will not be moved.
 Nobody is told off. She simply sees what she actually asked for.
 
+Calling is also done **by hand**. In the Chinese half a 生字 — a character her
+book is teaching her to write — is a Glim whose name is the character, and
+writing it from memory into a 米字格 is calling it: she writes with no shadow in
+the box, taps 写好了, and the standard form appears beneath her strokes. If the
+judge accepts the character, the cat comes and answers in its own voice; if
+not, the standard form and the verdict are all there is, and nobody came.
+Nothing is renamed for this and nothing is added to the fiction: it is the same
+verb in a second language, and the whole of it is in § 12.
+
 **Cats at the door.** The review pile. A cat whose name she got wrong does not
 run away and is not lost. It comes and sits outside — after a day, then three,
 then a week — waiting to be called again. Get its name right on two different
@@ -200,6 +209,8 @@ the clock beat her. Learning to move at a steady pace is worth real practice.
 | To rescue / rescue run | **cats at the door** | "rescue" implies she stranded them |
 | Skill crests, word cards | **the Glimbook** | two names for one idea |
 | Effort points | **Hum** | as above |
+| — | **写 as calling** | a 生字 written from memory is a cat called by hand (§ 6, § 12); the act already had a name, so it was not given a second one |
+| Glim, Wildlight, the Den, Rewards — on a Chinese page | **猫 · 世界 · 猫窝 · 奖励** | a Chinese page is one language at a time, and these are the plain words, placeholders in `world.js` (`WZ`) until the world is named in Chinese by the people whose naming it is. Wildlight itself is kept out of Chinese chrome rather than transliterated |
 
 ## 8. The rules that hold whatever we invent
 
@@ -433,3 +444,65 @@ so it is two cats — otherwise the cat at the gate would not be the cat on the
 shelf. And a cat she has just called correctly is never drawn faint, even the
 first time: the honest number lives on the score page, and dimming a cat she just
 got right reads as the game arguing with her.
+
+## 12. The Chinese half
+
+The second category (docs/chinese.md) is in the world, and it is in it by the
+one door that was already open: calling. Designed and tagged in
+[docs/chinese.md § 10](chinese.md#10-the-game-in-the-chinese-half); what is
+written here is the part the world owns.
+
+**A 生字 is a Glim.** Its name is the character. `traits(ch)` hashes the
+character the way it hashes `benign`, so 喝 is the same cat on the laptop, on
+the iPad and in a year, with the same call. Only the 生字 of the lessons in the
+bundle are cats — what the book is teaching her to write — and no other
+character is: a dictation phrase brings the cat for the one new character in
+it and none for the old ones, which is `met()`'s rule from the Wordwood.
+
+**She meets them on the lesson page**, the way she meets a word on the
+precision review: ten tiles, each with its cat, a shadow and two eyes until she
+has written that character from memory. **She calls them by hand** — on the
+lesson page, in the workbook's writing exercises, in a dictation with the
+Pencil — and the judge, not a tap, decides whether the cat comes. It comes when
+the character is *written* by the site's own rule (two slips, or a quarter of
+the strokes), not only when it is perfect; the verdict still names the slips.
+
+**Brightness is her writing record, read live and never stored:**
+
+| Her record for the character | Stage |
+|---|---|
+| never written anywhere | Unseen |
+| written, never yet accepted by the judge | Glimpsed |
+| accepted once, and that was the last time | Steady |
+| accepted on two different days | Radiant |
+| accepted before, but the last attempt was not | Flickering |
+
+Two different days is the engine's own retirement rule applied to writing, and
+it is what "can write it from memory" honestly means. Flickering on a bad last
+attempt is not a cat reacting to a miss; it is the light not lying, and it means
+exactly what it means for a word that has fallen due.
+
+**What is evidence:** only strokes judged by rule. **What is not,** on purpose:
+the reading aloud and 读一读 (a recogniser's estimate must never drive a light),
+a dictation word shown and rated by hand, the retell, the free writing a person
+judges, and the four-choice questions about tone and stroke count. None of
+those gets a cat or a sound.
+
+**The gate is the same gate.** A 选词填空 item is the book's sentence with one
+词语 taken out, which is what VR already is, so it is drawn through the same gate:
+plain choices, the 词语 she called walking through on a right answer and
+answering in its own voice, the gate holding on a wrong one with nobody coming.
+
+**Where the Chinese cats live:** a third shelf in the Glimbook, 汉字 — every
+character she has met at its true brightness, the Radiant ones counted, nothing
+unmet drawn. The lesson is deliberately **not a Reach**: the Reaches are the
+eight plan weeks and the Chinese spine is the lesson, and nothing on the
+Chinese side counts toward a Reach, the readiness number, or the Den's lights.
+
+**Rule 4, checked.** A not-written verdict draws nothing and plays nothing — not
+even the runner's soft note, because in the box the standard form appearing is
+the whole acknowledgement. No cat leaves a tile or a shelf. No cat reads a date
+except to count the days a character was written well. A shadow with two eyes
+on a character she has not written yet is the picture the precision review
+already draws for a word she has not written yet, before she has done anything
+at all: it reads as *not met*, which is true.

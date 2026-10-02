@@ -10,6 +10,10 @@ import { alignChars, canRecognize, canRecord, markPassage, startRecognition, sta
 import { boxToChar, drawReference, hasStrokes, judgeStrokes, strokeData, writtenWell } from "@/lib/strokes"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
+import { atLeast } from "@/lib/world"
+import { sfx } from "@/lib/sfx"
+import { charStatus, isGlimChar, lessonChars, recordWrite, writtenCount } from "@/lib/zi"
+import { Glim, hearProps } from "@/components/glim"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
@@ -192,6 +196,7 @@ export function ChineseHome() {
   const lesson = note ? D.zh.lessons[note.lesson] : zhLessons()[0]
   const q = reviewQueue(null, "chinese")
   if (!lesson) return <div className="text-muted-foreground p-6">{t("还没有中文课文。", "No Chinese lesson is in the bundle yet.")}</div>
+  const chars = lessonChars(lesson.id), can = writtenCount(lesson.id)
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-home">
       <Card>
@@ -200,10 +205,26 @@ export function ChineseHome() {
           <CardDescription>{t(`${D.zh.manifest.volume} · ${D.zh.manifest.edition}`, `${D.zh.manifest.volume_en} · ${D.zh.manifest.edition_en}`)}</CardDescription>
           <CardAction><Button size="sm" variant="outline" onClick={() => go(`/chinese/l/${lesson.id}`)}><BookOpen /> {t("生字词语", "The lesson")}</Button></CardAction>
         </CardHeader>
-        <CardContent className="text-muted-foreground flex flex-wrap gap-x-4 gap-y-1 text-sm">
-          <span>{t(`${lesson["生字"].items.length} 生字`, `${lesson["生字"].items.length} new characters`)}</span>
-          <span>{t(`${lesson["词语"].items.length} 词语`, `${lesson["词语"].items.length} words`)}</span>
-          <span data-testid="zh-review-due">{q.due.length ? t(`${q.due.length} 题待复习`, `${q.due.length} due for review`) : t("没有待复习的题", "nothing due for review")}</span>
+        {/* Her real state, and nothing she cannot act on. This line used to say
+            "10 生字 · 7 词语 · 没有待复习的题" — two facts of the book and a sentence
+            about an absence — and the owner asked why it was there (2 October).
+            Now: the lesson's cats at the brightness her own writing has given
+            them (docs/chinese.md § 10), how many she can write from memory by the
+            judge's rule, and a way into 复习 exactly when something is due — red,
+            which on this site means due now, and never a sentence saying nothing is. */}
+        <CardContent className="flex flex-col gap-3">
+          <div className="flex flex-wrap gap-1" data-testid="zh-home-cats">
+            {chars.map((ch) => { const st = charStatus(ch); return (
+              <figure key={ch} className="flex w-11 flex-col items-center" data-testid="zh-home-cat" data-char={ch} data-stage={st.stage}>
+                <button {...hearProps(ch, { aria: t(`听 ${ch}`, `Hear ${ch}`) })}><Glim word={ch} stage={st.stage} className="size-10" title={ch} /></button>
+                <figcaption className={cn("text-xs leading-none", st.stage === "Unseen" ? "text-muted-foreground" : "font-semibold")}>{ch}</figcaption>
+              </figure>
+            ) })}
+          </div>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
+            <span className="tabular-nums" data-testid="zh-can-write">{t(`能默写 ${can.written} / ${can.total} 个生字`, `${can.written} of ${can.total} characters written from memory`)}</span>
+            {q.due.length ? <Button size="sm" variant="outline" onClick={() => go("/chinese/review")} data-testid="zh-review-due"><RotateCcw /> {t("复习", "Review")} <Badge variant="destructive" className="rounded-full tabular-nums">{q.due.length}</Badge></Button> : null}
+          </div>
         </CardContent>
       </Card>
       {note ? note.tasks.map((x) => x.kind === "read_aloud" ? <ReadAloudTask key={x.kind} note={note} task={x} /> : x.kind === "workbook" ? <WorkbookTask key={x.kind} note={note} task={x} lesson={lesson} /> : <DictationTask key={x.kind} note={note} task={x} />) : null}
@@ -215,10 +236,28 @@ export function ChineseHome() {
 /* ---------- the lesson's own pages ---------- */
 /** The book's section headings, said in English when the page is. */
 const SECTION_EN = { "读一读": "Read aloud", "用一用": "Use it" }
+/* The lesson page is where she meets the lesson's cats (docs/chinese.md § 10.3):
+ * each 生字 tile carries its cat at the brightness her own writing has earned —
+ * a shadow and two eyes until she has written it from memory — and a 写 opens a
+ * 米字格 under the grid with the pinyin and the meaning as the cue, the
+ * character itself hidden on its tile while the box is open, because written
+ * from memory is the whole point and the character is otherwise right there.
+ * This is the precision review's job in the Chinese half: optional practice
+ * outside the teacher's homework, as the Wordwood is outside the plan. */
 export function Lesson({ id }) {
-  useLang()
+  useStore(); useLang()
   const l = D.zh.lessons[id]
+  const [writing, setWriting] = useState(null)   // { ch, done }: the character open under the grid, and whether its box has been judged
+  const [blink, setBlink] = useState({})         // a seed per character; bumped once when the judge first accepts it this sitting
   if (!l) return <ChineseHome />
+  const onWritten = (ch, r) => {
+    const ok = recordWrite(ch, r)
+    setWriting({ ch, done: true })
+    // The slow blink is the cat coming to know her, on the one event that means
+    // it — the judge accepting the character — and never on a render or a tap.
+    if (ok) setBlink((b) => ({ ...b, [ch]: (b[ch] || 0) + 1 }))
+  }
+  const cue = writing ? l["生字"].items.find((z) => z.zi === writing.ch) : null
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-lesson">
       <Card>
@@ -229,18 +268,39 @@ export function Lesson({ id }) {
         {l["课文"].text ? null : <CardContent className="text-muted-foreground text-sm">{t("课文请看课本。", "The text is read from the book, not from here.")}</CardContent>}
       </Card>
       <Card>
-        <CardHeader><CardTitle>{t("生字", "New characters")}</CardTitle><CardDescription>{tf(l["生字"].where)}</CardDescription></CardHeader>
+        <CardHeader><CardTitle>{t("生字", "New characters")}</CardTitle><CardDescription>{tf(l["生字"].where)} · {t("会写的字会来找你——点「写」，默写一个试试。", "A character you can write comes to you — tap Write and write one from memory.")}</CardDescription></CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
-            {l["生字"].items.map((z) => (
-              <div key={z.zi} className="flex flex-col items-center gap-0.5 rounded-xl border p-3" data-testid="zh-char">
-                <span className="text-muted-foreground text-xs">{z.py}</span>
-                <span className="text-3xl leading-none">{z.zi}</span>
-                <span className="text-muted-foreground text-xs">{tf(z.gloss)}</span>
-                <Speak text={z.zi} />
-              </div>
-            ))}
+            {l["生字"].items.map((z) => {
+              const st = charStatus(z.zi), here = !!(writing && writing.ch === z.zi), hidden = here && !writing.done
+              return (
+                <div key={z.zi} className={cn("flex flex-col items-center gap-0.5 rounded-xl border p-3", here && "border-primary")} data-testid="zh-char">
+                  <span data-testid="zh-zi" data-char={z.zi} data-stage={st.stage}>
+                    <button {...hearProps(z.zi, { aria: t(`听 ${z.zi}`, `Hear ${z.zi}`) })}>
+                      <Glim word={z.zi} stage={st.stage} className="size-12" title={z.zi} blink={blink[z.zi] || 0} />
+                    </button>
+                  </span>
+                  <span className="text-muted-foreground text-xs">{z.py}</span>
+                  <span className={cn("text-3xl leading-none", hidden && "select-none blur-sm")} aria-hidden={hidden || undefined} data-testid="zh-zi-char">{hidden ? "〇" : z.zi}</span>
+                  <span className="text-muted-foreground text-xs">{tf(z.gloss)}</span>
+                  <span className="flex items-center gap-0.5">
+                    <Speak text={z.zi} />
+                    <Button size="sm" variant={here ? "secondary" : "ghost"} className="h-7 px-1.5 text-xs" onClick={() => setWriting({ ch: z.zi, done: false })} data-testid="zh-zi-write"><PenLine className="size-4" /> {t("写", "Write")}</Button>
+                  </span>
+                </div>
+              )
+            })}
           </div>
+          {writing && cue ? (
+            <div className="mt-3 flex flex-col items-center gap-2 rounded-xl border p-3" data-testid="zh-zi-panel" data-char={writing.ch}>
+              <div className="flex w-full items-center justify-between gap-2">
+                <span className="text-sm" data-testid="zh-zi-cue"><span className="font-medium">{cue.py}</span> · {tf(cue.gloss)}</span>
+                <Button size="sm" variant="ghost" className="h-7" onClick={() => setWriting(null)} data-testid="zh-zi-close">{t("收起", "Close")}</Button>
+              </div>
+              <p className="text-muted-foreground text-xs">{t("看着拼音和意思，把字写出来。", "From the pinyin and the meaning, write the character.")}</p>
+              <HanziBox key={writing.ch} ch={writing.ch} size={160} cat={false} onDone={(r) => onWritten(writing.ch, r)} onReset={() => setWriting({ ch: writing.ch, done: false })} />
+            </div>
+          ) : null}
           {l["生字"]["部首"] ? <p className="text-muted-foreground mt-3 text-xs">{t("部首", "Radicals")} · {l["生字"]["部首"].map((b) => `${b.bu} → ${b.zi}`).join(" · ")}</p> : null}
         </CardContent>
       </Card>
@@ -285,11 +345,13 @@ export function Dictation({ set }) {
   const task = note && note.tasks.find((x) => x.kind === "dictation")
   const [shown, setShown] = useState({})
   const [writing, setWriting] = useState(null)      // the word being written with the Pencil
+  const [judged, setJudged] = useState(null)        // the word whose boxes have all been judged and are still open to look at
   const boxes = useRef({})
   if (!task) return <ChineseHome />
   const st = hwState(set).dictation || {}
   const writable = (w) => [...w].every((ch) => !/[\p{Script=Han}]/u.test(ch) || hasStrokes(ch))
-  const startWrite = (w) => { boxes.current = {}; setWriting(w); speak(w) }
+  const startWrite = (w) => { boxes.current = {}; setWriting(w); setJudged(null); speak(w) }
+  const close = () => { setWriting(null); setJudged(null) }
   const boxDone = (w, ch, i, r) => {
     boxes.current[i] = r
     const chars = [...w].filter((c) => /\p{Script=Han}/u.test(c))
@@ -297,7 +359,10 @@ export function Dictation({ set }) {
     const mistakes = Object.values(boxes.current).reduce((n, x) => n + x.mistakes, 0)
     const nStrokes = chars.reduce((n, c) => n + ((strokeData(c) || { strokes: [] }).strokes.length), 0)
     Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, dictation: { ...(cur.dictation || {}), [w]: { ok: writtenWell(mistakes, nStrokes), at: new Date().toISOString(), mode: "pencil", mistakes, strokes: Object.values(boxes.current).map((x) => ({ ch: x.ch, strokes: x.strokes })) } } }))
-    setWriting(null)
+    // The boxes stay open once the last one is judged, until she closes them.
+    // They used to vanish the instant the verdict landed, which hid the last
+    // character's verdict, the layer swap, and now the cat that came.
+    setJudged(w)
   }
   const rate = (w, ok) => Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, dictation: { ...(cur.dictation || {}), [w]: { ok, at: new Date().toISOString() } } }))
   const total = Object.values(task.words).reduce((n, a) => n + a.length, 0)
@@ -320,7 +385,7 @@ export function Dictation({ set }) {
               const r = st[w], open = !!shown[w]
               if (writing === w) return (
                 <div key={w} className="flex flex-col gap-2 rounded-lg border px-3 py-2" data-testid="zh-dict-row" data-word={w} data-writing="1">
-                  <div className="flex items-center gap-2"><Speak text={w} /><span className="text-muted-foreground text-sm">{t(`听一听，写 ${[...w].filter((c) => /\p{Script=Han}/u.test(c)).length} 个字`, `Listen, then write ${[...w].filter((c) => /\p{Script=Han}/u.test(c)).length} characters`)}</span><Button size="sm" variant="ghost" className="ml-auto h-7" onClick={() => setWriting(null)}>{t("取消", "Cancel")}</Button></div>
+                  <div className="flex items-center gap-2"><Speak text={w} /><span className="text-muted-foreground text-sm">{judged === w && r && r.mode === "pencil" ? (r.mistakes ? t(`错 ${r.mistakes} 笔`, `${r.mistakes} wrong strokes`) : t("一笔没错", "every stroke right")) : t(`听一听，写 ${[...w].filter((c) => /\p{Script=Han}/u.test(c)).length} 个字`, `Listen, then write ${[...w].filter((c) => /\p{Script=Han}/u.test(c)).length} characters`)}</span><Button size="sm" variant="ghost" className="ml-auto h-7" onClick={close} data-testid={judged === w ? "zh-dict-close" : undefined}>{judged === w ? t("收起", "Close") : t("取消", "Cancel")}</Button></div>
                   <div className="flex flex-wrap gap-2">{[...w].filter((c) => /\p{Script=Han}/u.test(c)).map((ch, i) => <HanziBox key={w + i} ch={ch} label={`${i + 1}`} onDone={(res) => boxDone(w, ch, i, res)} />)}</div>
                 </div>
               )
@@ -656,7 +721,18 @@ function MiGrid({ size }) {
  *  and a second tap swaps them back: two drawings on top of each other are
  *  compared by looking at each in turn (the owner's ask, 2 October). A
  *  mechanic, in docs/cats.md's terms: the comparison is the learning. */
-function HanziBox({ ch, size = 140, onDone, label }) {
+/* And the cat (docs/chinese.md § 10.3). A 生字 — a character the lesson is
+ * teaching her to write, and no other — is a Glim whose name is the character,
+ * and writing it from memory is calling it by hand. So when the judge accepts
+ * the character, its cat answers: it arrives beside the verdict and calls in
+ * its own voice. Not accepted: the standard form appears beneath her strokes
+ * and the verdict line names the strokes, and nothing else happens — no cat
+ * and no sound, not even the runner's soft note, because nobody came and the
+ * standard form appearing is already the whole of the acknowledgement. `cat`
+ * false is for the lesson page, whose cat is on the tile and brightens there
+ * instead of arriving twice; the call still comes from here, so a character
+ * answers in one place only. */
+function HanziBox({ ch, size = 140, onDone, onReset, label, cat = true }) {
   const ref = useRef(null), cv = useRef(null), drawn = useRef([]), cur = useRef(null), writer = useRef(null)
   const [n, setN] = useState(0)
   const [res, setRes] = useState(null)
@@ -682,7 +758,9 @@ function HanziBox({ ch, size = 140, onDone, label }) {
     // the standard form, beneath hers, drawn once in order
     if (writer.current) { try { writer.current.hideCharacter({ duration: 0 }); writer.current.animateCharacter() } catch { /* already visible */ } }
     const r = { ch, mistakes: j.mistakes, n: j.n, missing: j.missing, strokes: strokes.map((pts, i) => ({ n: i, ok: !!(j.strokes[i] && j.strokes[i].ok), verdict: (j.strokes[i] || {}).verdict || "extra", pts: pts.map(([x, y]) => [Math.round(x), Math.round(y)]) })) }
-    setRes(r); onDone && onDone(r)
+    const came = isGlimChar(ch) && writtenWell(j.mistakes, j.n)
+    if (came) sfx("call", ch)
+    setRes({ ...r, came }); onDone && onDone(r)
   }
   const swap = () => { if (res) setFront((f) => (f === "ink" ? "ref" : "ink")) }
   const refFront = !!res && front === "ref"
@@ -692,18 +770,23 @@ function HanziBox({ ch, size = 140, onDone, label }) {
     : [wrong.length ? t(`第 ${wrong.map((x) => x.n + 1).join("、")} 笔${wrong.every((x) => x.verdict === "backwards") ? "方向反了" : "不像"}`, `stroke ${wrong.map((x) => x.n + 1).join(", ")} ${wrong.every((x) => x.verdict === "backwards") ? "backwards" : "off"}`) : "",
        res.missing ? t(`少写了 ${res.missing} 笔`, `${res.missing} missing`) : "", res.strokes.length > res.n ? t(`多写了 ${res.strokes.length - res.n} 笔`, `${res.strokes.length - res.n} extra`) : ""].filter(Boolean).join(" · ")) : null
   return (
-    <div className="flex flex-col items-center gap-1" data-testid="zh-hanzi" data-char={ch} data-done={res ? "1" : "0"} data-mistakes={res ? res.mistakes : 0} data-strokes={n} data-front={res ? front : undefined}>
+    <div className="flex flex-col items-center gap-1" data-testid="zh-hanzi" data-char={ch} data-done={res ? "1" : "0"} data-mistakes={res ? res.mistakes : 0} data-strokes={n} data-front={res ? front : undefined} data-came={res ? (res.came ? "1" : "0") : undefined}>
       {label ? <span className="text-muted-foreground text-xs">{label}</span> : null}
       <div className={cn("relative rounded-lg bg-white", res && "cursor-pointer")} style={{ width: size, height: size }} onClick={swap} role={res ? "button" : undefined} aria-label={res ? t("点一下，换前后", "Tap to swap front and back") : undefined} data-testid="zh-hanzi-box">
         <MiGrid size={size} />
         <div ref={ref} className="absolute inset-0" style={{ opacity: res ? (refFront ? 1 : 0.45) : 0, zIndex: refFront ? 2 : 1, pointerEvents: "none" }} data-testid="zh-reference" />
         <canvas ref={cv} width={size * 4} height={size * 4} className="absolute inset-0" style={{ width: size, height: size, touchAction: "none", opacity: refFront ? 0.45 : 1, zIndex: refFront ? 1 : 2 }} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up} data-testid="zh-ink-box" />
       </div>
-      <span className={cn("text-xs tabular-nums", res ? (res.mistakes ? "text-muted-foreground" : "text-success") : "text-muted-foreground")}>{res ? verdictText : t(`${n}/${nRef} 笔`, `${n}/${nRef} strokes`)}</span>
+      <span className={cn("flex items-center gap-1.5 text-xs tabular-nums", res ? (res.mistakes ? "text-muted-foreground" : "text-success") : "text-muted-foreground")}>
+        {/* the cat that came, walking in from its own side; drawn no dimmer
+            than Steady, because a cat she has just called right is never faint */}
+        {res && res.came && cat ? <Glim word={ch} stage={atLeast(charStatus(ch).stage)} className="size-10" title={ch} arrive /> : null}
+        <span>{res ? verdictText : t(`${n}/${nRef} 笔`, `${n}/${nRef} strokes`)}</span>
+      </span>
       {res ? <span className="text-muted-foreground text-center text-[11px] leading-tight" style={{ maxWidth: size }} data-testid="zh-hanzi-swap-hint">{refFront ? t("再点一下换回来", "Tap again: yours in front") : t("点一下看标准写法", "Tap: standard form in front")}</span> : null}
       <span className="flex gap-1">
         {!res ? <Button size="sm" variant={n ? "default" : "outline"} className="h-6 px-2 text-xs" disabled={!n} onClick={finish} data-testid="zh-hanzi-done">{t("写好了", "Done")}</Button> : null}
-        {n || res ? <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs" onClick={() => setGen((g) => g + 1)} data-testid="zh-hanzi-redo">{t("重写", "Write again")}</Button> : null}
+        {n || res ? <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs" onClick={() => { setGen((g) => g + 1); onReset && onReset() }} data-testid="zh-hanzi-redo">{t("重写", "Write again")}</Button> : null}
       </span>
     </div>
   )
@@ -808,7 +891,8 @@ function FreeWidget({ ex, ans, set1, done, onSaved, set }) {
           <p className="text-lg">{t(it.prompt, it.prompt_en)}</p>
           {done ? <p className="text-muted-foreground text-sm">{t("已交。", "Handed in.")}</p> : (
             <div className="flex flex-wrap items-start gap-4">
-              {it.key ? <HanziBox ch={it.key} size={112} onDone={(r) => { judged.current[it.id] = { mistakes: r.mistakes, n: r.n, missing: r.missing } }} /> : null}
+              {/* the judged box is evidence the character was written (lib/zi.js), so it carries its moment */}
+              {it.key ? <HanziBox ch={it.key} size={112} onDone={(r) => { judged.current[it.id] = { mistakes: r.mistakes, n: r.n, missing: r.missing, at: new Date().toISOString() } }} /> : null}
               <GridInk ref={(r) => { refs.current[it.id] = r }} blanks={it.blanks || 1} cells={it.cells || 16} onChange={(n) => set1(it.id, n)} />
             </div>
           )}

@@ -2,7 +2,7 @@ import * as React from "react"
 import { Award, Blocks, BookA, Languages, Volume2, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, subjProgress, zhHomework, zhLessonLabel, zhLessons } from "@/lib/content"
-import { W } from "@/lib/world"
+import { W, WZ } from "@/lib/world"
 import { reviewQueue } from "@/lib/engine"
 import { recentBadges } from "@/lib/rewards"
 import { baseCounts } from "@/lib/base"
@@ -202,23 +202,27 @@ export function AppSidebar({ route, ...props }) {
             practice. Nor is this group called "Games": that phrase means "the
             fun after the work", which is the one framing this whole design
             exists to avoid. */}
-        <SidebarGroup>
-          <SidebarGroupLabel>{W.world}</SidebarGroupLabel>
+        {/* On the Chinese side the same two, in Chinese: a page is one language
+            at a time, and the world's nouns there are the plain words in WZ —
+            placeholders until the world is named in Chinese by the people whose
+            naming it is (docs/world.md § 12). */}
+        <SidebarGroup data-testid="world-group">
+          <SidebarGroupLabel>{isee ? W.world : t(WZ.world, W.world)}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip={W.homeTitle} isActive={top === "base"} onClick={() => nav("/base")}>
+                <SidebarMenuButton tooltip={isee ? W.homeTitle : t(WZ.homeTitle, W.homeTitle)} isActive={top === "base"} onClick={() => nav("/base")}>
                   <Blocks />
-                  <span>{W.homeTitle}</span>
+                  <span>{isee ? W.homeTitle : t(WZ.homeTitle, W.homeTitle)}</span>
                 </SidebarMenuButton>
                 <SidebarMenuBadge className="text-muted-foreground tabular-nums">{baseCounts().built}/{baseCounts().total}</SidebarMenuBadge>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Rewards" isActive={top === "rewards"} onClick={() => nav("/rewards")}>
+                <SidebarMenuButton tooltip={isee ? "Rewards" : t(WZ.rewards, "Rewards")} isActive={top === "rewards"} onClick={() => nav("/rewards")}>
                   <Award />
-                  <span>Rewards</span>
+                  <span>{isee ? "Rewards" : t(WZ.rewards, "Rewards")}</span>
                 </SidebarMenuButton>
-                {fresh ? <SidebarMenuBadge className="pointer-events-none" data-testid="rewards-new"><span className="bg-primary size-2 rounded-full" title={`${fresh} new badge${fresh === 1 ? "" : "s"}`} /></SidebarMenuBadge> : null}
+                {fresh ? <SidebarMenuBadge className="pointer-events-none" data-testid="rewards-new"><span className="bg-primary size-2 rounded-full" title={isee ? `${fresh} new badge${fresh === 1 ? "" : "s"}` : t(`${fresh} 个新徽章`, `${fresh} new badge${fresh === 1 ? "" : "s"}`)} /></SidebarMenuBadge> : null}
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>

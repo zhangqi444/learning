@@ -435,7 +435,14 @@ export function skillTable(sub) {
   if (!SK_CACHE || SK_FOR !== D) { SK_CACHE = {}; SK_FOR = D }
   if (SK_CACHE[sub]) return SK_CACHE[sub]
   const t = {}
-  for (const it of D.subjects[sub] || []) { const sk = skillOf(sub, it); (t[sk] = t[sk] || { sk, ids: [], weeks: new Set() }); t[sk].ids.push(it.id); t[sk].weeks.add(it.w) }
+  // The Chinese banks index by their own subject keys (zh-char, zh-word) beside
+  // `subjects`, never inside it (docs/chinese.md § 4). Without them here a
+  // Chinese skill had no table, `skillLevel` answered null, and the skill's cat
+  // on a Chinese score card was drawn at the floor however she had done —
+  // honest in the sense of never flattering, and still a number nobody read.
+  // ORDER is unchanged, so nothing here reaches readiness, mastery or the Den.
+  const bank = D.subjects[sub] || ((D.zh || {}).banks || {})[sub] || []
+  for (const it of bank) { const sk = skillOf(sub, it); (t[sk] = t[sk] || { sk, ids: [], weeks: new Set() }); t[sk].ids.push(it.id); t[sk].weeks.add(it.w || it.l) }
   return (SK_CACHE[sub] = t)
 }
 function attemptsOf(r, asOf) { return (r && r.hist ? r.hist : []).filter((h) => LEARN_CTX[h.ctx] && (!asOf || ts(h.at) <= asOf)) }

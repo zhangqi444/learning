@@ -255,7 +255,11 @@ Item ids are namespaced from the first commit, because retrofitting a prefix mea
 rewriting learning records and hard rule 1 forbids losing them: `z:` for a 汉字,
 `zc:` for a 词语 — alongside the existing `w:` for an ISEE precision word, which
 `findItem` and `rescueWordSides` already special-case and which will need to know
-about the new two.
+about the new two. A fourth, `zi:<character>`, is a character written from memory
+on the lesson page (§ 10): keyed on the character itself, because a character is
+the same character in any lesson and its cat is hashed from it, and never
+resolved by `findItem`, because nothing needs it to be — it is evidence for the
+cat's brightness and for nothing else.
 
 **The workbook's closed exercises are a fourth file and a third prefix.** The
 owner's brief, after the first week: she does the homework, the result is kept
@@ -359,6 +363,13 @@ settles anything: could a ten-year-old read this as the cat being disappointed i
 her? A character she cannot read yet has to look like a cat that has not met her.
 If it looks like a failure, it is wrong, and the four guardrails decide, not me.
 
+**Built, 2 October 2026 — and not quite as the list above imagined.** The cat the
+Chinese half turned out to need is not the one a 汉字 *reading* would give but the
+one a 汉字 *written from memory* gives: the Pencil and the stroke judge arrived
+after this section was written, and they put a real act of recall on the device
+that a four-choice question never could. What shipped, with every piece tagged
+and the flashcard test run on each, is § 10.
+
 ## 7. How it lands
 
 **Status (1 October 2026): Phase 1 is in.** The category layer, the two stubs, the
@@ -381,9 +392,11 @@ the pen and rated by rule. Then the judge: `chinese-review`, the Chinese
 transcripts — and brings back a review with a note per item, which the site
 shows under the week and beside each exercise (`docs/review.md`, target `zh`).
 Phase 4 is therefore in for the skill that judges; `progress-digest` still
-reports only ISEE. Not in: the Wordwood (Phase 3), the skills (Phase 4), the Chinese review
-and again runs beyond the plain due pile, the Pencil canvas with stroke capture,
-and the `chinese-review` skill for the open exercises.
+reports only ISEE. Then the game (§ 10, 2 October): a 生字 as a cat called by
+writing it from memory, 选词填空 drawn as the gate, the lesson's cats on the home
+card in place of the book's counts, the 汉字 shelf in the Glimbook. Not in: a
+Chinese Wordwood walk (Phase 3, § 10.7), the Chinese review and again runs
+beyond the plain due pile, Hum for the Chinese work (§ 10.7).
 
 Phase 1 is the layer and **one real lesson, end to end** — routes, category nav,
 schema 7, the `zh` bundle key, the two stubs, the service worker and the manifest,
@@ -475,3 +488,271 @@ reproduction is fine. Until that is settled, no lesson text is committed.
    certain and it is still a reading.
 4. The lesson count per volume, confirmed from the book rather than a search result.
 5. Whether a 课文 may be committed to a public repository (§ 8).
+
+## 10. The game, in the Chinese half
+
+Written before the code, as AGENTS.md § The game asks: say what each piece is —
+Skin, Signal or Mechanic — and run the flashcard test on it in writing. The
+verdicts are the point of this section, not an ornament on it. The world's own
+account of the same thing is [docs/world.md § 12](world.md#12-the-chinese-half).
+
+### 10.1 What the homework is, in Wildlight's terms
+
+The premise of the world is recall: a cat that knows you comes when you call its
+name. The whole of the Chinese homework is that act in a second language, and
+it is worth being exact about where the act is and where it is not.
+
+| What she does | What it is in the world | Where it already was | Tag |
+|---|---|---|---|
+| writes a 生字 from memory into a 米字格 — the workbook's 写一写 and 看拼音写汉字, the judged box beside a 找朋友 word, the dictation with the Pencil, and now the lesson page | **calling by hand.** The character is a Glim; its name is the character; writing it from nothing is calling it. The standard form appearing beneath her strokes is the cat answering or not | `HanziBox`, `judgeStrokes`, `writtenWell` | **Mechanic** |
+| 选词填空: the book's sentence with one 词语 taken out, four words offered | **the gate**, exactly as Verbal Reasoning is drawn — a real sentence with a word missing. The 词语 she calls is the cat that walks through | the four weekday blocks through the runner | **Mechanic** |
+| hears a word and writes it (听写 with the Pencil) | calling from hearing — the same call, cued by sound instead of by parts or pinyin | `Dictation` | **Mechanic** (the same one) |
+| reads the passage aloud; retells the story; the free writing (组词, 造句, answers) | **not a mechanic here.** A reading is transcribed by a recogniser that is "as likely the recogniser's miss as hers"; the retell and the free writing are judged by a person. None of it can honestly drive a light, so none of it does | `ReadAloud`, `SpeakWidget`, `GridInk`, the `chinese-review` skill | — (no cat, no sound) |
+| the true/false, ordering, matching, slots, structure sort | marked by rule, but the content is not a name: there is nothing to call. The structure sort is already "blocks she moves" (the owner's ask), which is its own mechanic and needs no cat | the typed exercises | — |
+
+**No new noun.** Calling is already the world's verb (world.md § 6). The Chinese
+half adds a second *way* of calling — by hand, into a 米字格 — and says so there
+rather than inventing a name for it. A metaphor that has to be explained has
+failed; "write the character and the cat comes" needs none.
+
+### 10.2 The flashcard test, piece by piece
+
+The test: would this still work if the questions were swapped for arithmetic
+flashcards? If yes, it is a veneer.
+
+- **A 生字 as a Glim, called by writing it.** Swap the character for `7 × 8`:
+  there is no name to call. A cat hashed from a sum that arrives when she writes
+  `56` is decoration on arithmetic — exactly why the Weighbridge and the Workyard
+  have no cats on the question (AGENTS.md, "Why the numbers are not a game
+  yet"). With a character, the form she has to produce from nothing *is* the
+  cat's identity, hashed from the character, the same cat on every device
+  forever; after a fortnight she recognises *that* cat as *that* character,
+  which is the argument that made `benign` a Mechanic. **Passes, for the same
+  reason the Wordwood passes and the Weighbridge does not.** § 6 made this call
+  before anything was built: "the gap between seeing a character and knowing
+  its name is the entire skill".
+- **Brightness read from her writing record.** The same honest number said in
+  the world's language, derived on every render and never stored (rule 3).
+  **Mechanic**, by AGENTS.md's own definition.
+- **选词填空 drawn as the gate.** Swap the sentence for a sum: no sentence, no gap,
+  no gate. **Passes**, identically to Verbal Reasoning (178 of 330 VR items are
+  a sentence with a word removed; 13 of the 13 zh-word items are).
+- **The cat arriving in the writing box after 写好了, in its own voice.** The
+  runner's reveal cat moved to the moment of commitment in the box: she commits
+  (写好了), the world is allowed back in (the standard form, the verdict, the
+  cat). It would not survive the swap on its own — it is the *drawing* of the
+  Mechanic above, not a feature beside it, and is tagged with it.
+- **The slow blink on the lesson tile when the judge first accepts a
+  character.** Derived from one real event, never from a timer or a render.
+  **Signal.**
+- **The count on the home card, 能默写 N / 10.** A number read off records of
+  work judged by rule. **Signal.** It would survive the swap (any count would),
+  which is why it is a Signal and not claimed as more.
+- **The 汉字 shelf in the Glimbook.** Every character she has met at its true
+  brightness, Radiant ones counted, nothing unmet drawn. **Signal**, as the
+  gathering on the rewards page is.
+- **The Chinese sidebar's world group in Chinese (世界 · 猫窝 · 奖励).** **Skin**,
+  free, and required anyway by the bilingual rule.
+
+A list that came out all-Skin would be the mistake already made twice. This one
+has two Mechanics, and everything else is their readout.
+
+### 10.3 A 生字 is a Glim
+
+**Identity.** `traits(ch)` hashes FNV-1a over `charCodeAt`, which is defined on
+CJK code points, so 喝 seeds a coat, a build and a call exactly as `benign`
+does. No new drawing, no new sound, no new stub. Which characters are cats: the
+生字 of every lesson in the bundle (`glimChars()` in `lib/zi.js`) — the
+characters the book is teaching her to write — and no others. A dictation phrase
+like 突然站了起来 brings the cat for 突 and none for 站; `田鼠` brings 鼠's and
+not 田's. The population is what the book teaches, which is `met()`'s rule from
+the Wordwood: a cat she has never been offered cannot be a cat she failed to
+call.
+
+**Where she meets them: the lesson page.** The precision review is where an ISEE
+word's cat first appears — a shadow with two eyes until she writes the word in
+her own words. The lesson page is that page in the Chinese half: each 生字 tile
+carries its cat at its true brightness, Unseen until she has written it from
+memory, and 写 opens a 米字格 under the grid with the pinyin and the gloss as the
+cue, the character hidden on its tile while the box is open — written from
+memory is the whole point, and the character is otherwise right there. Ten per
+lesson, not 160: the "unseen shelf" cats.md § 8 refused was a field of cats she
+had never been offered, on the collection page; these ten are the lesson in
+front of her, and she can close each distance by writing. It is optional
+practice outside the teacher's homework, as the Wordwood is outside the plan's
+percentage: it changes nothing about what she is assigned, how much, or when.
+
+**How it is called.** Every surface that writes a character is the same call —
+the lesson page, the workbook's `write` exercises, the judged box a free-writing
+item carries when the book asks for the character first, the dictation with the
+Pencil — and each ends in `judgeStrokes` and `writtenWell`, the site's one
+definition of "written" (a decision, not a measurement: two slips, or a quarter
+of the strokes). The cat comes when the character is written by that rule, not
+only when it is perfect; the verdict line still names the slips.
+
+**What happens on 写好了.** Written: the character's cat arrives beside the
+verdict (the `arrive` primitive — it walks in from its own side and never fades
+up on the spot) and calls in its own voice (`sfx("call", ch)`: two rising notes
+from the one pentatonic set, through the mouth already built). On the lesson
+page the cat is already on the tile, so nothing arrives twice: the tile's cat
+comes nearer and brighter as its stage changes from the record, and slow-blinks
+once; the call still comes from the box, so a character answers in one place.
+Not written: the standard form appears beneath her strokes and animates in order,
+the verdict names the strokes, and **nothing else happens — no cat, no sound.**
+Not the runner's soft note either: in the box the standard form appearing *is*
+the acknowledgement, and a note on top of it would be the app marking her when
+what she needs to do is look. Nobody came; 重写 is right there.
+
+**The guardrails, checked.** No cat reacts to a miss: a not-written verdict draws
+nothing and plays nothing. No cat leaves: a cat on a tile stays on the tile; a
+judged dictation row now stays open until she closes it, where it used to vanish
+the instant the last box was judged (which hid the last verdict and the layer
+swap too). No cat is the bearer of bad news: the strokes are named by the
+verdict line, in words, as they were. No cat has an opinion about attendance:
+nothing here reads a date except to count the days a character was written
+well. Could a ten-year-old read a shadow with two eyes on a character she has
+not written yet as the cat being disappointed in her? It is the same shadow the
+precision page draws for a word she has not written yet, before she has done
+anything at all — there is nothing to be disappointed about. It reads as "not
+met yet", which is true.
+
+**Brightness: the ladder.** Derived live from every attempt the judge saw, never
+stored, mapped onto the six stage names so the two cannot drift
+(`charStatus()`):
+
+| Her record for the character | Stage | What she sees |
+|---|---|---|
+| never written anywhere | **Unseen** | a shadow and two eyes |
+| written, never yet accepted by the judge | **Glimpsed** | there, but faint — she has met it |
+| accepted once, and that was the last time she wrote it | **Steady** | fully there |
+| accepted on two different days | **Radiant** | lit, with a halo |
+| accepted before, but the last attempt was not | **Flickering** | almost solid, wavering — the same meaning a due word has |
+
+Bright is not used, as it is not for words. "Two different days" is the
+engine's own retirement rule (two correct answers on different days) applied
+to writing, and it is the honest meaning of "can write it from memory": once
+today proves she could today. Flickering on a bad last attempt is not a cat
+reacting to a miss — it is the light not lying. A word she knew that falls due
+dims to Flickering for the same reason, and world.md § 11 calls that "a cat she
+knows whose light has dimmed a little, not a failure".
+
+**What counts as evidence — only what the judge saw.** The lesson page's own
+writes (`zi:` records); the workbook `write` items whose key is the character
+(`zx:` records, ctx `exercise`); the judged box on a free-writing item that
+carries a `key` (kept with the hand-in); dictation words written with the
+Pencil, re-read per character from the strokes the zh slice already keeps —
+each stroke's verdict is stored, so nothing new is written. Deliberately
+**not** evidence: the reading aloud and 读一读 (a recogniser's estimate must never
+drive a light — the reading page itself refuses to score it); a dictation word
+shown and rated by hand (a tick on a five-character phrase says nothing about
+which characters); the zh-char bank's four-choice items (they ask about tone and
+stroke count, not for the character). The count on the home card is therefore
+exactly "characters the judge has accepted, from memory, on the device".
+
+**Records.** A lesson-page write records under `zi:<character>` (§ 4), ctx
+`exercise`, which `LEARN_CTX` does not admit: it never schedules, never reaches
+any ISEE number, pays no Hum (`eachTimestamp` counts only review and vocab
+contexts) and counts no active day. `findItem` does not resolve it and nothing
+needs it to — `reviewQueue` skips what it cannot resolve and `backfill` touches
+only results, mocks and precision. Her strokes — learner input — are kept beside
+it in the zh slice under the same key, as the workbook keeps them. No schema
+bump: `zh` already exists and `items` already merges by union of history.
+
+**A small honesty fix on the way.** `skillTable()` indexes the Chinese banks
+beside `subjects` now, so the skill's cat on a Chinese score card is drawn at
+the level the engine reports for that skill rather than always at the floor.
+`ORDER` is unchanged, so nothing of it reaches readiness, mastery or the Den.
+
+**Where the Chinese cats live.** The Glimbook gains a third shelf, characters:
+every character she has met (written at least once, anywhere the judge saw it),
+at its true brightness, brightest first, each tapping to its call — the same
+shelf the words have. The headline count is the Radiant ones, as for words.
+Nothing unmet is drawn. This is the Chinese half's place in the world: small,
+inside the existing collection, not a parallel one. The lesson is deliberately
+**not** a Reach: the Reaches are the eight plan weeks, the Chinese spine is the
+lesson (§ 3's most important line), and nothing on the Chinese side counts
+toward a Reach's progress, the readiness number, or the Den's lights.
+
+### 10.4 The gate
+
+`runner.jsx` already draws a Verbal Reasoning item as the gate it is
+(`gameMode`): the sentence as an inscription, the four choices as plain words,
+and on the reveal the word she called walking through the opened gate. A
+选词填空 item is the same shape in a second language — 明天开会，你______不要迟到。
+with 最好 / 只好 / 原来 / 都要 — and 13 of the 13 zh-word items are one. So a
+zh-word item with a gap is drawn through the same `gameMode` (`isGate` in the
+runner); a tone or stroke-count question is not a sentence with a gap, and
+stays plain with its English behind the tap it always had:
+
+- the inscription is the book's sentence, with the book's own instruction
+  (选词填空：/ Fill the blank:) taken off the front (`strip` in `gate.jsx`), since
+  the lead line says it in the page's language and a gate is inscribed with the
+  sentence, not with a rubric. That makes the inscription the material: it reads
+  the same whichever way the toggle is set, which is why it has no "other
+  language" line — there is nothing to translate;
+- the choices stay plain words — the game's controls wear faces only in the
+  Wordwood; this is practice, and the rehearsal's controls do not;
+- right: the gate opens and the 词语 she called walks through, arriving, and
+  answers in its own voice (`sfx("call", word)`, hashed from the word);
+- wrong: the gate holds, the plain soft note, the `why` for her choice, and no
+  cat — the runner's rule for a VR practice set; only the Wordwood brings the
+  wrong cat, because there the hand is the content. The skill's cat no longer
+  doubles up on the reveal, exactly as Verbal "does not get a second one";
+- the lead, the hand's heading, the gate's own name and the verdict go through
+  the runner's language (门上刻着 / 你会的名字 / 门开了。/ 门没开。它要的是「最好」。),
+  the name it wanted marked as material so it reads the same in either.
+
+### 10.5 The lesson card on the home page
+
+The owner asked why the card said "10 生字 · 7 词语 · 没有待复习的题". The two
+counts are facts of the book and tell her nothing she can act on; the third is
+a sentence about an absence. The card now says her real state and nothing else:
+the lesson's ten cats at their true brightness, in a row, and one line — 能默写
+N / 10 个生字 — read off the ladder above (Steady or Radiant). When something is
+due for review, and only then, a button into 复习 carrying the count in red,
+which is this site's one meaning for red: due now. The suite's walk still reads
+the button by its old id; the check's assumption moved from "a sentence is
+always there" to "a button is there exactly when something is due".
+
+### 10.6 Sound and motion — nothing new
+
+No new keyframe: the tile blinks with `glim-blink`, the box's cat and the gate's
+arrive with `glim-arrive`, the shelf kneads with `glim-knead`, all with resting
+frames that are the correct picture, so the reduced-motion reader sees a cat
+sitting where it belongs. No new sound: a character's call is `callHz(ch)`
+through the mouth already built, two notes from the one pentatonic set; the
+audio stub needs nothing added. `test_chinese.cjs` installs the same fake
+`AudioContext` the features suite does — with `createBiquadFilter`, per
+CLAUDE.md's trap — and asserts the call on the lesson page, in the dictation,
+at the gate and on the shelf: two notes, rising, both in the set.
+
+### 10.7 Left as proposals — decisions only the owner can make
+
+1. **Hum for Chinese work.** Today a four-choice block pays 10 Hum like any set
+   (it is a `result`), and nothing else in the week does — not a character
+   written, not a dictation, not the reading. Hum is made by trying; the writing
+   is trying. But the Den's seven prices were set against ISEE loads, and
+   adding sources to `eachTimestamp` is an economy decision. Recommended: pay
+   the workbook exercises as sets do (one timestamp each, replaced on a redo, so
+   self-limiting like a set) and leave reading and dictation out until watched.
+   Not built.
+2. **Chinese names for the world's nouns.** A Chinese page may not say "Glim",
+   "Wildlight" or "Den" in 中 mode, and naming is Sheila's and the owner's. The
+   pages use the plain words — 猫, 世界, 猫窝, 奖励 — as placeholders in
+   `world.js` (`WZ`), and Wildlight is kept out of Chinese chrome rather than
+   transliterated. A cat's own `aria-label` (its coat, build and stage) stays
+   English everywhere; a Chinese twin for twelve coats and six stages is a
+   naming job for her.
+3. **A Chinese Wordwood walk** (Phase 3). A walk needs a pool of met cats,
+   decoys by part of speech and an inscription per 词语; the lesson has 用一用
+   phrases, not sentences, and the only gap sentences are the bank's 13 — which
+   the four blocks already serve. Until two or three lessons give a pool, a walk
+   would be the same 13 gates wearing a second door.
+4. **词语 as cats on the lesson page.** Only four of the seven 词语 are the key of
+   any gate (最好 突然 只好 一定), so three could never brighten — a debt with a
+   face. Revisit when the bank grows.
+5. **The retell as a Telling.** The weekly essay is the Telling because a Reach
+   is only hers once its story is written down; 把故事讲一遍 is literally a telling
+   of 小马过河. Naming the retell card so is Skin and free, but it puts a world
+   noun in Chinese on her page, which is 2 above.
+6. **The reading as evidence.** Not while the recogniser is the judge.

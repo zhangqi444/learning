@@ -10,6 +10,7 @@ import { cn } from "@/lib/utils"
 import { W, GLOW_ORDER } from "@/lib/world"
 import { Glim, hearProps } from "@/components/glim"
 import { WORD_GLOW } from "@/lib/glim"
+import { glimChars, metChars } from "@/lib/zi"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
@@ -431,6 +432,49 @@ function Collections() {
           )}
         </CardContent>
       </Card>
+
+      <Characters />
     </div>
+  )
+}
+
+/* The Chinese half's shelf (docs/chinese.md § 10, world.md § 12). A 生字 is a
+ * cat whose name is the character, and writing it from memory into a 米字格 is
+ * calling it. The shelf draws every character she has met — written at least
+ * once, anywhere the stroke judge saw it — at the brightness her own strokes
+ * give it, and none she has not: ten un-lit animals she has not been offered is
+ * the shelf cats.md § 8 refused, with a face on it. The headline counts only
+ * the Radiant ones, exactly as the words do: drawing a cat is not earning it.
+ * Nothing here is stored, and nothing here reaches the ISEE number, the
+ * Reaches or the lights above. */
+function Characters() {
+  const all = glimChars()
+  if (!all.length) return null
+  const met = metChars().sort((a, b) => GLOW_ORDER.indexOf(b.stage) - GLOW_ORDER.indexOf(a.stage) || all.indexOf(a.ch) - all.indexOf(b.ch))
+  const radiant = met.filter((c) => c.stage === "Radiant")
+  return (
+    <Card className="gap-3">
+      <CardHeader>
+        <CardTitle className="text-base">{W.book} · characters</CardTitle>
+        <CardDescription>A character from her Chinese book is a {W.cat} too — its coat comes out of the character itself. It is here once she has written it from memory into a 米字格, at the brightness her strokes have earned: Steady once the judge accepts it, Radiant once that has happened on two different days.</CardDescription>
+        <CardAction><Badge variant="outline" className="tabular-nums">{radiant.length} / {all.length}</Badge></CardAction>
+      </CardHeader>
+      <CardContent>
+        {met.length ? (
+          <div className="flex flex-wrap gap-2" data-testid="zi-cards">
+            {met.map((c) => (
+              <figure key={c.ch} className="flex w-16 flex-col items-center gap-0.5" data-testid="zi-card" data-char={c.ch} data-stage={c.stage}>
+                <button {...hearProps(c.ch)}>
+                  <Glim word={c.ch} stage={c.stage} className="size-12" title={c.ch} knead />
+                </button>
+                <figcaption className="w-full text-center text-lg leading-tight font-semibold">{c.ch}</figcaption>
+              </figure>
+            ))}
+          </div>
+        ) : (
+          <p className="text-muted-foreground text-sm">None yet. Write a character from memory on the lesson page, in the workbook, or in a dictation with the Pencil, and it comes here.</p>
+        )}
+      </CardContent>
+    </Card>
   )
 }
