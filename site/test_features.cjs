@@ -39,13 +39,25 @@ async function runThrough(pg, pick, max = 60) {
  * test_drive.cjs, the stale-draft check next door, and "a book she took off the
  * shelf stays off", which failed about one full run in three while passing
  * every time the suite was run on its own. Write, read back, and only carry on
- * once it has held. */
+ * once it has held — past the writer's own window, see setLs. */
 async function setLs(pg, mutate, read, ms = 12000) {
+  // "Held" means held past the store's longest save debounce — 1200 ms in
+  // lib/store.js — not read back once. A read that held at 400 ms could still
+  // be overwritten by a flush the page had scheduled before the edit, and that
+  // is exactly how "a book she took off the shelf stays off" went red on
+  // 2 October: the flag read back true, the flush then saved the in-memory copy
+  // without it, and the reload found the book seeded again. So each attempt
+  // writes, then reads every 400 ms for 1600 ms, and only a value that held
+  // the whole way counts; one that flipped back is written again.
+  const HOLD = 1600;
   let last = null;
-  for (let waited = 0; waited < ms; waited += 400) {
+  for (let waited = 0; waited < ms; ) {
     await pg.evaluate(mutate);
-    await pg.waitForTimeout(400);
-    last = await pg.evaluate(read);
+    for (let held = 0; held < HOLD; held += 400) {
+      await pg.waitForTimeout(400); waited += 400;
+      last = await pg.evaluate(read);
+      if (last !== true) break;
+    }
     if (last === true) return true;
   }
   return last === true;

@@ -177,6 +177,11 @@ npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63
   slower, which reads as "the header is broken" and is not. Wait for
   `[data-testid=drive-button]:has-text("Saved to Drive")`, and report what the
   chip actually said when it does not arrive.
+  The same race wears another coat in `test_features.cjs`: an edit made to
+  localStorage under a live page is saved over by the page's next flush, up to
+  1200 ms later, so a read-back that holds at once proves nothing. `setLs`
+  there holds the value past that window before carrying on; a check that
+  edits the store by hand goes through it, never through a bare `evaluate`.
 - **A Playwright timeout on a reload, minutes after the same suite passed, wants
   `uptime` before it wants a diff.** On 2 October the Drive suite died twice at
   two different lines — a `page.reload` that never reached `networkidle`, then a
