@@ -11,6 +11,7 @@ import { nextUp, weekLeft } from "@/pages/checklist"
 import { essayStatus } from "@/pages/essay"
 import { unseenReviews } from "@/lib/reviews"
 import { go, splitCat } from "@/lib/router"
+import { t, useLang } from "@/lib/lang"
 import { cn } from "@/lib/utils"
 import { useStore } from "@/lib/store"
 import {
@@ -38,7 +39,7 @@ function useNav() {
 }
 
 export function AppSidebar({ route, ...props }) {
-  useStore()
+  useStore(); useLang()
   const nav = useNav()
   const misses = reviewQueue().due.length
   const zhDue = reviewQueue(null, "chinese").due.length
@@ -82,8 +83,8 @@ export function AppSidebar({ route, ...props }) {
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton tooltip="This week's homework" isActive={top === ""} onClick={() => nav("/chinese")}>
-                    <ListChecks /><span>This week</span>
+                  <SidebarMenuButton tooltip={t("本周作业", "This week's homework")} isActive={top === ""} onClick={() => nav("/chinese")}>
+                    <ListChecks /><span>{t("本周", "This week")}</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
@@ -93,14 +94,14 @@ export function AppSidebar({ route, ...props }) {
                 </SidebarMenuItem>
                 {zhNote ? (
                   <SidebarMenuItem>
-                    <SidebarMenuButton tooltip="Dictation" isActive={top === "dictation"} onClick={() => nav("/chinese/dictation/" + zhNote.set)}>
+                    <SidebarMenuButton tooltip={t("听写", "Dictation")} isActive={top === "dictation"} onClick={() => nav("/chinese/dictation/" + zhNote.set)}>
                       <Volume2 /><span>听写</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ) : null}
                 <SidebarMenuItem>
-                  <SidebarMenuButton tooltip="Review" isActive={top === "review"} onClick={() => nav("/chinese/review")}>
-                    <RotateCcw /><span>Review</span>
+                  <SidebarMenuButton tooltip={t("复习", "Review")} isActive={top === "review"} onClick={() => nav("/chinese/review")}>
+                    <RotateCcw /><span>{t("复习", "Review")}</span>
                   </SidebarMenuButton>
                   {zhDue ? <SidebarMenuBadge className="bg-destructive text-white rounded-full h-5 min-w-5 px-1.5" data-testid="zh-due">{zhDue}</SidebarMenuBadge> : null}
                 </SidebarMenuItem>

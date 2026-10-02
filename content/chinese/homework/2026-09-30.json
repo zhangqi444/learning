@@ -12,7 +12,10 @@
    "line": "课本55到56页，读熟练。",
    "kind": "read_aloud",
    "what": "阅读《谦虚过度》",
-   "rule": "Recorded as done with a time log, never scored. There is no honest way to mark fluency from a tap.",
+   "rule": {
+    "zh": "录下朗读，边读边识别，再和课文逐字对照。没听到的字会标出来；百分比只在家长视图里，是识别结果，不是评分。",
+    "en": "Recorded as done with a time log, never scored. There is no honest way to mark fluency from a tap."
+   },
    "pages": "教材 p.55–56"
   },
   {
@@ -23,7 +26,10 @@
     "zh-char",
     "zh-word"
    ],
-   "finding": "docs/chinese.md § 8 expected four sittings, one per weekday. The pages do not support that: of the lesson's nineteen exercises, four blocks (one per day) are four-choice and become fifteen items; the other fifteen exercises are handwriting, radical assembly, 组词, 连词成句, an open 造句, a 判断正误, a sequencing task, open comprehension questions, a dialogue completion from three given lines, and a retell with a parent's signature. Those stay on paper and are listed under on_paper.",
+   "finding": {
+    "zh": "设计原本以为按星期分四组；实际上每天只有一道选择题块，共十五题、两组。其余十五项——写字、拼部首、组词、连词成句、造句、判断、排序、问答、补全对话、讲故事——都在纸上完成，列在下面。",
+    "en": "docs/chinese.md § 8 expected four sittings, one per weekday. The pages do not support that: of the lesson's nineteen exercises, four blocks (one per day) are four-choice and become fifteen items; the other fifteen exercises are handwriting, radical assembly, 组词, 连词成句, an open 造句, a 判断正误, a sequencing task, open comprehension questions, a dialogue completion from three given lines, and a retell with a parent's signature. Those stay on paper and are listed under on_paper."
+   },
    "on_paper": [
     {
      "day": "星期一",
@@ -131,7 +137,10 @@
    "kind": "dictation",
    "what": "课本 p.52 的词语",
    "scope_note": "The note says 词语 and names p.52. The section headed 词语 is on p.50; p.52 carries the last two rows of 读一读 and the whole of 用一用. The owner read the note literally — the words on p.52 — so both sections are listed here, labelled, and the parent may trim to the 读一读 rows if that is what the teacher dictates. The first draft of this file recorded the ten 生字 from p.50 instead; that matched neither the note's word nor its page and was withdrawn.",
-   "rule": "Shown, then self- or parent-rated, the way precision already works. Dictation means writing characters from hearing them; the site cannot mark that and must not pretend to.",
+   "rule": {
+    "zh": "先听，再在纸上写，然后显示对照，自己或家长打分。网站不批改手写。",
+    "en": "Shown, then self- or parent-rated, the way precision already works. Dictation means writing characters from hearing them; the site cannot mark that and must not pretend to."
+   },
    "words": {
     "读一读（p.52 rows）": [
      "松树",

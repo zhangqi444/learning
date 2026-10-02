@@ -68,7 +68,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('中文 opens the Chinese home', !!(await pg.$('[data-testid=zh-home]')));
   check('and its url is the chinese category', (await pg.evaluate(() => location.hash)) === '#/chinese');
   const home = await pg.textContent('[data-testid=zh-home]');
-  check('the task cards are titled by kind, not by the note\'s lines', /Reading/.test(home) && /Workbook/.test(home) && /Dictation/.test(home) && !/课本55到56页，读熟练。/.test(home) && !(await pg.$('[data-testid=zh-note]')));
+  check('the note\'s lines are not titles, and the note is not repeated', !/课本55到56页，读熟练。/.test(home) && !(await pg.$('[data-testid=zh-note]')));
   check('with no passage kept, the reading card asks a parent for it in place', !!(await pg.$('[data-testid=zh-read] [data-testid=zh-passage-setup]')));
   check('the lesson is named', /小马过河/.test(await pg.textContent('[data-testid=zh-home]')));
   check('the trail starts at 中文', /中文/.test(await pg.textContent('header')));
@@ -130,7 +130,13 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
 
   // -- reading aloud: the passage pasted once, her reading recorded, transcribed, aligned
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
-  check('each task card says what kind it is', /Reading/.test(await pg.textContent('[data-testid=zh-read]')) && /Workbook/.test(await pg.textContent('[data-testid=zh-workbook]')) && /Dictation/.test(await pg.textContent('[data-testid=zh-dictation-card]')));
+  const title = (sel) => pg.textContent(`${sel} [data-slot=card-title]`);
+  check('each task card is titled by kind, in Chinese by default', (await title('[data-testid=zh-read]')) === '阅读' && (await title('[data-testid=zh-workbook]')) === '练习册' && (await title('[data-testid=zh-dictation-card]')) === '听写');
+  check('the page is one language: no English helper text beside the Chinese', !/the words printed|Shown, then|On paper/.test(await pg.textContent('[data-testid=zh-home]')));
+  await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
+  check('the header toggle turns the whole page English', (await title('[data-testid=zh-read]')) === 'Reading' && (await title('[data-testid=zh-dictation-card]')) === 'Dictation' && /This week/.test(await pg.textContent('[data-slot=sidebar]')));
+  await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
+  check('and back', (await title('[data-testid=zh-read]')) === '阅读');
   // The 句子 and two 用一用 phrases, which the repo already holds — not the 课文. Pasted on the home card.
   const passage = '河水是深还是浅，最好你自己去试试。突然停电了，只好请别人帮忙。';
   await pg.fill('[data-testid=zh-read] [data-testid=zh-passage-text]', passage); await pg.click('[data-testid=zh-read] [data-testid=zh-passage-save]');
@@ -145,15 +151,15 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   const misses = await pg.$$eval('[data-testid=zh-marked] [data-hit="0"]', (n) => n.map((x) => x.textContent).join(''));
   check('the characters the recogniser did not hear are marked, and only those', misses === '停电了', misses);
   check('and marked without red', !(await pg.$('[data-testid=zh-marked] .text-destructive')));
-  check('her view has the pace (or says the reading was too short for one) and no percentage', /字\/分钟|too short/.test(await pg.textContent('[data-testid=zh-read-result]')) && !(await pg.$('[data-testid=zh-pct]')));
+  check('her view has the pace (or says the reading was too short for one) and no percentage', /字\/分钟|太短/.test(await pg.textContent('[data-testid=zh-read-result]')) && !(await pg.$('[data-testid=zh-pct]')));
   await pg.click('[data-testid=zh-parent-toggle]'); await pg.waitForSelector('[data-testid=zh-parent]');
-  check('the parent view has the percentage, labelled as an estimate', (await pg.textContent('[data-testid=zh-pct]')) === '89%' && /estimate/.test(await pg.textContent('[data-testid=zh-parent]')), await pg.textContent('[data-testid=zh-pct]'));
+  check('the parent view has the percentage, labelled as an estimate', (await pg.textContent('[data-testid=zh-pct]')) === '89%' && /仅供参考/.test(await pg.textContent('[data-testid=zh-parent]')), await pg.textContent('[data-testid=zh-pct]'));
   check('the recording went to Drive as its own file', !!(await pg.$('[data-testid=zh-play]')));
   st = await ls(pg);
   const att = ((st.zh['hw:2026-09-30'] || {}).read || {}).attempts || [];
   check('the reading is kept: transcript, counts, file id, done', att.length === 1 && att[0].matched === 24 && att[0].total === 27 && att[0].fileId === 'media1' && st.zh['hw:2026-09-30'].read.done === true, JSON.stringify(att[0] || null));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
-  check('the week card shows it read, with the last reading and the passage', /Read/.test(await pg.textContent('[data-testid=zh-read]')) && /last: \d+ s/.test(await pg.textContent('[data-testid=zh-read]')) && /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-read]')));
+  check('the week card shows it read, with the last reading and the passage', /已读/.test(await pg.textContent('[data-testid=zh-read]')) && /上次: \d+ 秒/.test(await pg.textContent('[data-testid=zh-read]')) && /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-read]')));
   check('the dictation card counts the rating', (await pg.textContent('[data-testid=zh-rated-count]')) === '1');
   check('no page errors', errs.length === 0, errs.join(' | '));
 

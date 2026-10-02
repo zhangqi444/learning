@@ -5,6 +5,7 @@ import { D, SUBJ, spanById } from "@/lib/content"
 import { W } from "@/lib/world"
 import { go, splitCat } from "@/lib/router"
 import { zhCrumbs } from "@/pages/chinese"
+import { setLang, useLang } from "@/lib/lang"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { DriveChip } from "@zhangqi444/ui/app/drive-chip"
 import { SiteHeaderTemplate } from "@zhangqi444/ui/app/site-header"
@@ -89,7 +90,9 @@ function driveTip(status, store) {
 
 export function SiteHeader({ route }) {
   const store = useStore()
+  const lang = useLang()
   const trail = crumbs(route)
+  const chinese = splitCat(route).cat === "chinese"
   const status = DRIVE_ENABLED ? store.status : null
   const isDark = store.dark
 
@@ -102,6 +105,13 @@ export function SiteHeader({ route }) {
       trigger={<SidebarTrigger className="-ml-1" />}
       className="transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-(--header-height)"
     >
+      {/* One language per page: the Chinese half is Chinese by default, English
+          behind this one tap (lib/lang.js). The ISEE half has no such switch. */}
+      {chinese ? (
+        <Button variant="ghost" size="sm" className="h-8 px-2 text-xs font-semibold" onClick={() => setLang(lang === "en" ? "zh" : "en")} aria-label={lang === "en" ? "中文" : "English"} data-testid="lang-toggle">
+          {lang === "en" ? "中" : "EN"}
+        </Button>
+      ) : null}
       <DriveChip
         status={status}
         onAct={() => (status === "live" ? go("/drive") : store.signIn().catch(() => {}))}
