@@ -102,11 +102,13 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // choice, read the why in Chinese, flip to English, read it again.
   await pg.click('[data-testid=choice] >> nth=0'); await pg.waitForSelector('[data-testid=why]');
   const whyZh = await pg.textContent('[data-testid=why]');
+  check('the runner\'s chrome is Chinese in a Chinese sitting', /答案是/.test(await pg.textContent('main')) && /下一题/.test(await pg.textContent('[data-testid=next]')) && /即时/.test(await pg.textContent('[data-testid=instant-toggle]')));
   check('a wrong choice is told what it was, in Chinese', /没有别的办法|不是提建议/.test(whyZh), whyZh.slice(0, 40));
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
   const whyEn = await pg.textContent('[data-testid=why]');
   check('and in English once the page is flipped', /no other choice|nothing else|being left with no choice/.test(whyEn), whyEn.slice(0, 40));
   check('and the prompt flipped with it', /Fill the blank/.test(await pg.textContent('[data-testid=question]')));
+  check('and so did the runner\'s own chrome', /The answer is/.test(await pg.textContent('main')) && /Next/.test(await pg.textContent('[data-testid=next]')));
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
   for (let i = 0; i < 15 && !(await pg.$('[data-testid=score]')); i++) { await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]'); await pg.waitForTimeout(120); }
   await pg.waitForSelector('[data-testid=score]');

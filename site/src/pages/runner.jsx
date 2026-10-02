@@ -161,25 +161,26 @@ const fmtSec = (ms) => `${Math.round(ms / 1000)} s`
 
 /** Why did this go wrong? One tap for the cause, one for "were you sure". */
 export function CauseTags({ id, compact }) {
-  useStore()
+  useStore(); useLang()
   const r = rec(id) || {}
+  const zh = zhUi((findItem(id) || {}).sub)
   return (
     <div className={cn("flex flex-col gap-2", compact && "gap-1.5")} data-testid="cause-tags" data-tag={r.tag || ""}>
       <div className="flex flex-wrap items-center gap-1.5">
-        <span className="text-muted-foreground mr-1 text-xs">Why?</span>
+        <span className="text-muted-foreground mr-1 text-xs">{zh ? "为什么？" : "Why?"}</span>
         {CAUSES.map((c) => (
           <Tooltip key={c.id}>
             <TooltipTrigger asChild>
-              <Button size="sm" variant={r.tag === c.id ? "default" : "outline"} className="h-7 px-2.5 text-xs" onClick={() => setTag(id, { tag: r.tag === c.id ? null : c.id })} data-testid={`tag-${c.id}`}>{c.label}</Button>
+              <Button size="sm" variant={r.tag === c.id ? "default" : "outline"} className="h-7 px-2.5 text-xs" onClick={() => setTag(id, { tag: r.tag === c.id ? null : c.id })} data-testid={`tag-${c.id}`}>{zh ? CAUSE_ZH[c.id][0] : c.label}</Button>
             </TooltipTrigger>
-            <TooltipContent>{c.hint}</TooltipContent>
+            <TooltipContent>{zh ? CAUSE_ZH[c.id][1] : c.hint}</TooltipContent>
           </Tooltip>
         ))}
       </div>
       <div className="flex flex-wrap items-center gap-1.5">
-        <span className="text-muted-foreground mr-1 text-xs">Were you sure?</span>
-        <Button size="sm" variant={r.sure === true ? "default" : "outline"} className="h-7 px-2.5 text-xs" onClick={() => setTag(id, { sure: r.sure === true ? null : true })} data-testid="sure-yes">Sure</Button>
-        <Button size="sm" variant={r.sure === false ? "default" : "outline"} className="h-7 px-2.5 text-xs" onClick={() => setTag(id, { sure: r.sure === false ? null : false })} data-testid="sure-no">Guessing</Button>
+        <span className="text-muted-foreground mr-1 text-xs">{zh ? "有把握吗？" : "Were you sure?"}</span>
+        <Button size="sm" variant={r.sure === true ? "default" : "outline"} className="h-7 px-2.5 text-xs" onClick={() => setTag(id, { sure: r.sure === true ? null : true })} data-testid="sure-yes">{zh ? "有把握" : "Sure"}</Button>
+        <Button size="sm" variant={r.sure === false ? "default" : "outline"} className="h-7 px-2.5 text-xs" onClick={() => setTag(id, { sure: r.sure === false ? null : false })} data-testid="sure-no">{zh ? "猜的" : "Guessing"}</Button>
       </div>
     </div>
   )
@@ -194,6 +195,10 @@ const qOf = (q) => (zhMode() || !q.qe ? q.q : q.qe)
 const qOther = (q) => (q.qe ? (zhMode() ? q.qe : q.q) : null)
 const eOf = (q) => (zhMode() && q.ez ? q.ez : q.e)
 const yOf = (q, L) => (zhMode() && q.yz && q.yz[L] ? q.yz[L] : (q.y && q.y[L]))
+/** The runner's own chrome — chips, answer line, buttons, cause tags — in Chinese
+ *  when the sitting is Chinese and the page is; the ISEE runner never changes. */
+const zhUi = (sub) => zhMode() && isZh(sub)
+const CAUSE_ZH = { know: ["不会", "这个词或方法是新的，或忘了"], misread: ["看错了", "漏看了「不」「除了」这样的词，或看错了单位"], careless: ["粗心", "会做，小地方错了"], rushed: ["太赶了", "着急了，或者猜的"] }
 /** The prompt in the other language, behind a tap. */
 function EnglishLine({ text }) {
   const [open, setOpen] = useState(false)
@@ -225,6 +230,7 @@ function SoftTimer({ since, budget }) {
  */
 export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exitLabel, prior, record = true, onFinish, sub: subHint, backTo, promotion }) {
   useLang()
+  const zh = zhUi(subHint)
   const kind = ctx || (custom ? "review" : "set")
   const store = useStore()
   /* Where an unfinished run is kept. A real set is its own id; a generated run
@@ -608,14 +614,14 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             {kind !== "corr" ? (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button size="sm" variant={instant ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("instant", !instant)} data-testid="instant-toggle"><Zap /> Instant {instant ? "on" : "off"}</Button>
+                  <Button size="sm" variant={instant ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("instant", !instant)} data-testid="instant-toggle"><Zap /> {zh ? `即时 ${instant ? "开" : "关"}` : `Instant ${instant ? "on" : "off"}`}</Button>
                 </TooltipTrigger>
                 <TooltipContent>Marks each answer as you go. Turn it off to sit the set the way the real test works — everything at the end.</TooltipContent>
               </Tooltip>
             ) : null}
             <Tooltip>
               <TooltipTrigger asChild>
-                <Button size="sm" variant={pacing ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("pacing", !pacing)} data-testid="pacing-toggle"><Gauge /> Pacing {pacing ? "on" : "off"}</Button>
+                <Button size="sm" variant={pacing ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("pacing", !pacing)} data-testid="pacing-toggle"><Gauge /> {zh ? `计时 ${pacing ? "开" : "关"}` : `Pacing ${pacing ? "on" : "off"}`}</Button>
               </TooltipTrigger>
               <TooltipContent>Shows a soft timer against the real test's {budget} seconds a question. Nothing auto-advances.</TooltipContent>
             </Tooltip>
@@ -624,7 +630,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             {kind !== "corr" ? (
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button size="sm" variant={careful ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("careful", !careful)} data-testid="careful-toggle"><Eye /> Careful {careful ? "on" : "off"}</Button>
+                  <Button size="sm" variant={careful ? "secondary" : "ghost"} className="h-7 px-2 text-xs" onClick={() => Store.setPref("careful", !careful)} data-testid="careful-toggle"><Eye /> {zh ? `慢读 ${careful ? "开" : "关"}` : `Careful ${careful ? "on" : "off"}`}</Button>
                 </TooltipTrigger>
                 <TooltipContent>Holds the choices back until the question has been on screen long enough to have been read. For when you catch yourself answering too early.</TooltipContent>
               </Tooltip>
@@ -729,8 +735,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                 ) : null}
                 <div className={cn("flex items-center gap-2 pt-1 text-sm font-bold", gotIt ? "text-success" : "text-destructive")}>
                   {gotIt
-                    ? <><CheckCircle2 className="size-4" /> {gameMode ? "The gate opens." : "Right"}</>
-                    : <><XCircle className="size-4" /> {gameMode ? `The gate holds. It wanted “${it.c[LTR.indexOf(keyOf(it))]}”.` : `The answer is ${keyOf(it)}`}</>}
+                    ? <><CheckCircle2 className="size-4" /> {gameMode ? "The gate opens." : zh ? "对了" : "Right"}</>
+                    : <><XCircle className="size-4" /> {gameMode ? `The gate holds. It wanted “${it.c[LTR.indexOf(keyOf(it))]}”.` : zh ? `答案是 ${keyOf(it)}` : `The answer is ${keyOf(it)}`}</>}
                 </div>
               </div>
               {/* What HER choice did, before what the right method is. The
@@ -775,13 +781,13 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
         </CardContent>
       </Card>
       <ActionBar>
-        <Button variant="outline" onClick={() => step(-1)} disabled={i === 0}><ArrowLeft /> Back</Button>
+        <Button variant="outline" onClick={() => step(-1)} disabled={i === 0}><ArrowLeft /> {zh ? "上一题" : "Back"}</Button>
         <span className="text-muted-foreground hidden flex-1 text-sm sm:block">{picks[i] == null ? "Pick an answer (or press A–D)" : "Press Enter to continue"}</span>
         <span className="flex-1 sm:hidden" />
         <Button onClick={() => step(1)} disabled={picks[i] == null} data-testid="next">
           {/* "Finish set" is wrong for a set of one: a single question run from
               a miss is not a set she is finishing, it is one more go. */}
-          {last ? (items.length === 1 ? <>Done <Check /></> : <>Finish set <Check /></>) : <>Next <ArrowRight /></>}
+          {last ? (items.length === 1 ? <>{zh ? "完成" : "Done"} <Check /></> : <>{zh ? "完成这一组" : "Finish set"} <Check /></>) : <>{zh ? "下一题" : "Next"} <ArrowRight /></>}
         </Button>
       </ActionBar>
     </div>
