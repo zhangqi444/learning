@@ -6,7 +6,7 @@ import { findItem, recordAttempts, reviewQueue } from "@/lib/engine"
 import { t, tf, useLang } from "@/lib/lang"
 import { go } from "@/lib/router"
 import { speak, canSpeak } from "@/lib/speech"
-import { alignChars, canRecognize, canRecord, markPassage, pace, startRecognition, startRecorder } from "@/lib/reading"
+import { alignChars, canRecognize, canRecord, markPassage, startRecognition, startRecorder } from "@/lib/reading"
 import { boxToChar, drawReference, hasStrokes, judgeStrokes, strokeData, writtenWell } from "@/lib/strokes"
 import { Ink } from "@/components/ink"
 import { Store, useStore } from "@/lib/store"
@@ -14,7 +14,6 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
-import { Textarea } from "@zhangqi444/ui/ui/textarea"
 import { Runner } from "@/pages/runner"
 import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
@@ -55,17 +54,6 @@ export function noteFor(key) {
   const lesson = m ? m[1] : key
   return zhHomework().find((n) => n.lesson === lesson) || null   // zhHomework() is newest first
 }
-const textKey = (lesson, what) => `text:${lesson}:${what}`
-/** The passage: from the bundle when the lesson carries its text, else from her
- *  Drive record where a parent pasted it (docs/chinese.md § 8 on copyright). */
-function passageFor(lesson, what) {
-  const l = D.zh.lessons[lesson] || {}
-  const r = l["阅读"], k = l["课文"]
-  if (r && r.text && what.includes(r.title)) return r.text
-  if (k && k.text && /课文/.test(what)) return k.text
-  return ((Store.s.zh || {})[textKey(lesson, what)] || {}).text || ""
-}
-
 /** A speaker button. Every one is a tap, which is the only way sound may start. */
 export function Speak({ text, className, label }) {
   return (
@@ -91,10 +79,6 @@ function ReadAloudTask({ note, task }) {
   const lesson = D.zh.lessons[note.lesson]
   const st = hwState(note.set).read || {}
   const last = (st.attempts || []).slice(-1)[0]
-  const passage = passageFor(note.lesson, task.what)
-  // One button, two homes: beside 保存 while the passage is still to be pasted,
-  // under the passage once it is there.
-  const readBtn = <Button size="sm" onClick={() => go(`/chinese/read/${note.lesson}`)} data-testid="zh-read-open"><Mic /> {t("朗读", "Read it aloud")}</Button>
   return (
     <Card data-testid="zh-read">
       <CardHeader>
@@ -103,15 +87,11 @@ function ReadAloudTask({ note, task }) {
         <CardAction>{st.done ? <Badge variant="success"><Check /> {t("已读", "Read")}</Badge> : <Badge variant="outline">{t("待读", "To do")}</Badge>}</CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
-        {passage ? <p className="text-xl leading-9 tracking-wide" data-testid="zh-home-passage">{passage}</p>
-          : <PassageSetup bare lesson={note.lesson} task={task} actions={readBtn} />}
         <Note n={zhNotes(note.set).read} />
-        {passage ? (
-          <div className="flex flex-wrap items-center gap-3">
-            {readBtn}
-            {last ? <span className="text-muted-foreground text-xs tabular-nums">{t("上次", "last")}: {Math.round(last.ms / 1000)} {t("秒", "s")}{pace(last.total, last.ms) ? ` · ${pace(last.total, last.ms)} ${t("字/分钟", "chars/min")}` : ""} · {t(`共 ${st.attempts.length} 次`, `${st.attempts.length} reading${st.attempts.length === 1 ? "" : "s"}`)}</span> : null}
-          </div>
-        ) : null}
+        <div className="flex flex-wrap items-center gap-3">
+          <Button size="sm" onClick={() => go(`/chinese/read/${note.lesson}`)} data-testid="zh-read-open"><Mic /> {t("朗读", "Read it aloud")}</Button>
+          {last ? <span className="text-muted-foreground text-xs tabular-nums">{t("上次", "last")}: {Math.round(last.ms / 1000)} {t("秒", "s")} · {t(`共 ${st.attempts.length} 次`, `${st.attempts.length} reading${st.attempts.length === 1 ? "" : "s"}`)}</span> : null}
+        </div>
       </CardContent>
     </Card>
   )
@@ -360,25 +340,6 @@ export function Dictation({ set }) {
  *  once by a parent into her Drive record (docs/chinese.md § 8). `drive.file`
  *  scope means a file dropped into the folder by hand is invisible to the app,
  *  so the app writes it itself. */
-function PassageSetup({ lesson, task, bare, actions }) {
-  useLang()
-  const [text, setText] = useState("")
-  // `task.what` is the key the passage is kept under (text:L05:阅读《谦虚过度》),
-  // so it stays the book's Chinese whichever language the page is read in; the
-  // twins are only for what the sentence says.
-  const what = task.what, where = readWhere(task)
-  // One line, to the parent, saying only what to do. Why the text is pasted
-  // rather than shipped is docs/chinese.md § 8, and not a thing for the page.
-  const body = (
-    <>
-      <p className="text-muted-foreground text-sm">{t(`请家长把${where}的课文粘贴到这里。`, `A parent pastes the text from ${where} here.`)}</p>
-      <Textarea rows={6} value={text} onChange={(e) => setText(e.target.value)} placeholder={t("课文…", "The passage…")} data-testid="zh-passage-text" />
-      <div className="flex flex-wrap items-center gap-3"><Button size="sm" disabled={!text.trim()} onClick={() => Store.setSlice("zh", textKey(lesson, what), (cur) => ({ ...cur, text: text.trim(), what, where: task.pages }))} data-testid="zh-passage-save"><Check /> {t("保存", "Keep it")}</Button>{actions || null}</div>
-    </>
-  )
-  if (bare) return <div className="flex flex-col gap-2" data-testid="zh-passage-setup">{body}</div>
-  return <Card data-testid="zh-passage-setup"><CardContent className="flex flex-col gap-2 pt-6">{body}</CardContent></Card>
-}
 function Marked({ marks }) {
   // A character the recogniser did not hear is highlighted — amber, the way a
   // reading app marks the words it did not catch, never red: it is as likely the
@@ -426,8 +387,6 @@ export function ReadAloud({ set }) {
   const note = D.zh.homework[set]
   const task = note && note.tasks.find((x) => x.kind === "read_aloud")
   const lesson = note && D.zh.lessons[note.lesson]
-  const what = task ? task.what : ""
-  const passage = note ? passageFor(note.lesson, what) : ""
   const [mode, setMode] = useState("idle")            // idle | recording | saving | done
   const [finals, setFinals] = useState(""), [interim, setInterim] = useState("")
   const [since, setSince] = useState(0), [now, setNow] = useState(0)
@@ -438,13 +397,12 @@ export function ReadAloud({ set }) {
   const live = React.useRef(null)
   React.useEffect(() => { if (mode !== "recording") return; const tm = setInterval(() => setNow(Date.now()), 500); return () => clearInterval(tm) }, [mode])
   if (!task || !lesson) return <ChineseHome />
-  if (!passage) return <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page"><PassageSetup lesson={note.lesson} task={task} /></div>
   const st = hwState(set).read || {}
   const attempts = st.attempts || []
   const start = async () => {
     setResult(null); setFinals(""); setInterim(""); setPlayUrl(null)
     let rec = null
-    try { rec = canRecord() ? await startRecorder() : null } catch { rec = null }   // no mic, or refused: the transcript alone still works
+    try { rec = canRecord() ? await startRecorder() : null } catch { rec = null }   // no mic, or refused: the transcript alone is still kept
     const asr = startRecognition((f, i) => { setFinals(f); setInterim(i) })
     live.current = { rec, asr, t0: Date.now() }
     setSince(Date.now()); setNow(Date.now()); setMode("recording")
@@ -455,45 +413,44 @@ export function ReadAloud({ set }) {
     const audio = l.rec ? await l.rec.stop() : { blob: null, ms: Date.now() - l.t0, mime: "" }
     if (audio.blob) { try { setBlobUrl(URL.createObjectURL(audio.blob)) } catch { /* no-op */ } }
     const transcript = finals + interim
-    const align = alignChars(passage, transcript)
     const fileId = audio.blob ? await Store.uploadMedia(`zh-read-${set}-${Date.now()}.${/mp4/.test(audio.mime) ? "m4a" : "webm"}`, audio.blob, audio.mime) : null
-    const attempt = { at: new Date().toISOString(), ms: audio.ms, transcript, matched: align.matched, total: align.total, heard: align.heard, fileId, mime: audio.mime || null }
+    // No alignment here: the site holds no text of the book. The recogniser's
+    // transcript is kept as a hint for the evaluation, which brings the passage.
+    const attempt = { at: new Date().toISOString(), ms: audio.ms, transcript, fileId, mime: audio.mime || null }
     Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, read: { done: true, at: attempt.at, minutes: Math.round(audio.ms / 60000), attempts: [...((cur.read || {}).attempts || []), attempt].slice(-8) } }))
-    setResult({ ...attempt, pct: align.pct }); setMode("done")
+    setResult(attempt); setMode("done")
   }
   const play = async (id) => { const u = await Store.mediaUrl(id); setPlayUrl(u) }
   const sec = Math.round(((mode === "recording" ? now : 0) - since) / 1000)
-  const p = result ? pace(result.total, result.ms) : null
   const last = result || attempts[attempts.length - 1] || null
   const evalNote = zhNotes(set).read
+  // The comparison exists only once a review brought the book's text with it
+  // (docs/review.md: a read item's `passage`, and `heard` — the reviewer's own
+  // transcription, or failing that the recogniser's).
+  const compared = evalNote && evalNote.passage ? <Compared passage={evalNote.passage} transcript={evalNote.heard || (last && last.transcript) || ""} /> : null
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-read-page">
+      {/* She reads from the book: the site never holds the passage (the owner's
+          decision, 2 October — docs/chinese.md § 8). The recogniser runs while
+          she reads, silently; its transcript is a hint for the evaluation. */}
       <Card>
         <CardHeader>
           <CardTitle>{t("阅读", "Reading")}</CardTitle>
-          <CardDescription>{readWhere(task)}</CardDescription>
+          <CardDescription>{readTitle(lesson, task)} · {readWhere(task)}</CardDescription>
           <CardAction>
             {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-rec-stop"><Square /> {t("停止", "Stop")} · {sec} {t("秒", "s")}</Button>
               : mode === "saving" ? <Button size="sm" disabled>{t("保存中…", "Saving…")}</Button>
               : <Button size="sm" onClick={start} data-testid="zh-rec-start"><Mic /> {attempts.length ? t("再读一次", "Read it again") : t("开始朗读", "Start reading")}</Button>}
           </CardAction>
         </CardHeader>
-        <CardContent className="text-muted-foreground text-sm">
-          {canRecognize() ? t("朗读课文，读完请按停止。录好了可以再听一遍。", "Read the passage aloud and press Stop at the end. Then you can listen to it again.") : t("这个浏览器不能识别语音——朗读仍会录下来保存。", "This browser cannot transcribe speech — the reading is still recorded and kept.")}
+        <CardContent className="flex flex-col gap-2 text-sm">
+          <p className="text-muted-foreground">{t(`翻开${readWhere(task)}，对着书朗读；读完请按停止。录好了可以再听一遍。`, `Open the book to ${readWhere(task)} and read from it; press Stop at the end. Then you can listen to it again.`)}</p>
+          {mode === "recording" ? <p className="font-medium" data-testid="zh-recording">{t(`正在录音 · ${sec} 秒`, `Recording · ${sec} s`)}</p> : null}
         </CardContent>
       </Card>
-      {/* Her side is the passage and the two buttons. The recogniser runs while she
-          reads — a browser can only transcribe a live microphone — but nothing of
-          it is shown to her: the transcript, the alignment and the number are for
-          the evaluation, in the parent view and the review (the owner's ask). */}
-      <Card>
-        <CardHeader><CardTitle>{readTitle(lesson, task)}</CardTitle>{mode === "recording" ? <CardDescription data-testid="zh-recording">{t(`正在录音 · ${sec} 秒`, `Recording · ${sec} s`)}</CardDescription> : null}</CardHeader>
-        <CardContent><p className="text-xl leading-9 tracking-wide" data-testid="zh-passage">{passage}</p></CardContent>
-      </Card>
       {/* After recording: her recording, to listen to again — and nothing else.
-          Once evaluated (a review with a note on her reading), the comparison:
-          the passage with the words not heard highlighted, the transcript beside,
-          the reviewer's note. The parent view has all of it at any time. */}
+          Once evaluated, the comparison the review brought and the note. The
+          parent view has the recogniser's transcript at any time. */}
       {last ? (
         <Card data-testid="zh-read-result">
           <CardHeader>
@@ -503,14 +460,15 @@ export function ReadAloud({ set }) {
           </CardHeader>
           <CardContent className="flex flex-col gap-3 text-sm">
             <PlayAgain blobUrl={result ? blobUrl : null} fileId={last.fileId} />
-            {evalNote ? <><Compared passage={passage} transcript={last.transcript} /><Note n={evalNote} /></> : null}
+            {compared}
+            <Note n={evalNote} />
           </CardContent>
           {parent ? (
             <CardContent className="flex flex-col gap-2 border-t pt-4 text-sm" data-testid="zh-parent">
-              {!evalNote ? <Compared passage={passage} transcript={last.transcript} /> : null}
-              <div>{t("识别匹配 ", "")}<span className="tabular-nums" data-testid="zh-pct">{result ? result.pct : (last.total ? Math.round((100 * last.matched) / last.total) : 0)}%</span>{t(`（共 ${last.total} 字，听到 ${last.heard} 字）——仅供参考，不是评分。`, ` of ${last.total} characters matched, as heard by the recogniser — an estimate, not a mark. ${last.heard} heard in all.`)}{p ? t(` 大约 ${p} 字/分钟。`, ` About ${p} characters a minute.`) : ""}</div>
+              <div className="text-muted-foreground text-xs">{t("识别听到的（仅供参考）", "What the recogniser heard (a hint, not a mark)")}</div>
+              <p className="text-lg leading-8" data-testid="zh-transcript">{last.transcript || t("（什么也没听到）", "(nothing heard)")}</p>
               {last.fileId ? <div className="flex items-center gap-2"><Button size="sm" variant="outline" onClick={() => play(last.fileId)} data-testid="zh-play"><Play /> {t("播放录音", "Play the recording")}</Button>{playUrl ? <audio controls autoPlay src={playUrl} /> : null}</div> : <div className="text-muted-foreground">{t("没有保存录音（没有麦克风，或没有连接 Drive）。", "No recording was kept (no microphone, or no Drive).")}</div>}
-              {attempts.length > 1 ? <div className="text-muted-foreground">{t(`已保存 ${attempts.length} 次朗读 · 第一次 ${attempts[0].matched}/${attempts[0].total}`, `${attempts.length} readings kept · first ${attempts[0].matched}/${attempts[0].total}`)}</div> : null}
+              {attempts.length > 1 ? <div className="text-muted-foreground">{t(`已保存 ${attempts.length} 次朗读`, `${attempts.length} readings kept`)}</div> : null}
             </CardContent>
           ) : null}
         </Card>

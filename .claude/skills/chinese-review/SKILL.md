@@ -24,8 +24,10 @@ in to the site with** (the test user in `site/oauth.json`). Search
 
 - `zh["hw:<set>"]` is one homework note (`set` is its date, e.g. `2026-09-30`).
   - `read.attempts[]` — each reading: `transcript` (what the browser's recogniser
-    heard), `matched`/`total`/`heard`, `ms`, `fileId` (the recording, in the same
-    folder as `progress.json`, named `zh-read-<set>-<time>.m4a`).
+    heard, with no text to align it to — the site holds no passage), `ms`,
+    `fileId` (the recording, in the same folder as `progress.json`, named
+    `zh-read-<set>-<time>.m4a`). Older attempts may also carry
+    `matched`/`total`/`heard` from when a parent pasted the passage.
   - `dictation[word]` — `ok`, and `mode: "pencil"` with `mistakes` and `strokes`
     when written with the Pencil; `mode` absent when rated by hand from paper.
   - `exercises[exId]` — for a marked exercise `right`/`n`/`answers`; for free
@@ -62,16 +64,24 @@ for a judgment of the page.
 For the retell, read `told.transcript` — what the recogniser heard, so treat an
 odd character as the recogniser's before hers — and judge whether the story is
 told in order with its turning point (she tries the river herself) and whether
-the question (《小马过河》告诉了我们什么道理？) got an answer. For the reading,
-`read.attempts` already carries the alignment; note only what repeats across
-attempts. Listen to the recording (`fileId`) before trusting a miss: the
-recogniser drops characters a child read perfectly well.
+the question (《小马过河》告诉了我们什么道理？) got an answer. For the reading, the
+site holds no text to compare against — she reads from the book, by the owner's
+decision of 2 October ("kids read. you do offline evaluation. in the result show
+the diff."). So the comparison is made here: take the passage from the textbook
+itself (the scans on the owner's Mac, `~/Downloads`, 教材 pp. 55–56 for 第五课;
+docs/chinese.md § 8 says why it is never committed), listen to the recording
+(`fileId`) and transcribe what she actually read, and write both into the item —
+`passage` (the text as printed, at most 600 characters) and `heard` (your
+transcription; the browser's `transcript` is a hint, not the truth — it drops
+characters a child read perfectly well). The site draws the diff from those two:
+the passage with the characters not heard highlighted, the transcript beside it.
+Note only what repeats across attempts.
 
 **Always write an item for the reading (`read`), for the retell (`tell`) and
 for each 读一读 exercise she recorded (its exercise id, e.g. `zx:L05-D3-01`).**
 Her page shows the side-by-side comparison — the passage with the characters
-the recogniser did not hear highlighted, the transcript beside it — only once a
-review carries a note with that id. Until then she has her recording and a
+not heard highlighted, the transcript beside it — only once a review carries a
+note with that id, and for `read` only when that note carries `passage`. Until then she has her recording and a
 play button, nothing else, by the owner's decision (1 October 2026): no
 transcript shown to her unasked, and the comparison only with an evaluation
 attached. A reading without a note is a reading she never gets to compare.

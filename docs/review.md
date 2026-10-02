@@ -69,7 +69,7 @@ ellipsis. On a device where the raw link is awkward, `#/import` has a paste box.
 |---|---|
 | `id` | Unique. `essay:<wk>:<date>` or `mock:<form>:<date>`. A second review of the same essay on a later day is a new id; both are kept. |
 | `target` | One of `{kind:"essay", wk}`, `{kind:"week", wk}` (wk = `W1`…`W8`), `{kind:"mock", form}` (`DGN`/`M01`/`M02`/`M03`), `{kind:"month", m:"YYYY-MM"}`, or `{kind:"zh", set:"YYYY-MM-DD"}` — one week of Chinese homework, by the date of the teacher's note (`content/chinese/homework/`). Unknown targets are dropped on import. |
-| `items` | Chinese reviews only. Per-item verdicts, at most twenty: `{id, ok, note}` — `id` an exercise item id (`zx:…`) or `read` / `tell`; `ok` true, false or null; `note` one or two sentences to Sheila, Chinese first. Shown beside the item on the site. |
+| `items` | Chinese reviews only. Per-item verdicts, at most twenty: `{id, ok, note}` — `id` an exercise item id (`zx:…`) or `read` / `tell`; `ok` true, false or null; `note` one or two sentences to Sheila, Chinese first. Shown beside the item on the site. The `read` item (and a 读一读 exercise's) may also carry `passage` — the text she was to read, as printed in the book, at most 600 characters — and `heard`, the reviewer's own transcription of the recording; the site draws the comparison from them: the passage with the characters not heard highlighted, the transcript beside. Without `passage` there is no comparison, only the note: the site never holds the book's text itself (docs/chinese.md § 8). |
 | `at` | When it was written. Merge key: for the same id the newer `at` wins. |
 | `reviewer` | Who. Name the person who asked as well as the tool: "Claude, asked by Dad". |
 | `source` | Optional. Where the reviewer read the essay, in words. Shown on the card. |
@@ -89,9 +89,11 @@ ellipsis. On a device where the raw link is awkward, `#/import` has a paste box.
   tasks, and each of its `items` beside the exercise it names; the free-writing
   exercises read "awaiting review" until one arrives. A note on `read`, on
   `tell`, or on a 读一读 exercise she recorded is also what reveals the
-  comparison to her: the passage with the characters the recogniser did not
-  hear highlighted and the transcript beside it appear on her page only once
-  such a note exists; before that she has her recording and a play button.
+  comparison to her: the passage with the characters not heard highlighted and
+  the transcript beside it appear on her page only once such a note exists —
+  and, for the reading, only when the note carries `passage` (the site has no
+  text of its own to compare against); before that she has her recording and a
+  play button.
 - A **week** review shows at the top of `/checklist/<wk>`; a **month** review at
   the top of `/checklist/month/<m>`. Their follow-ups appear as `Follow-up` rows
   on the week each names, and any still un-ticked in the current week are listed

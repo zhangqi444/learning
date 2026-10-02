@@ -59,6 +59,9 @@ def check(r):
                 if it.get("id") not in zh_items: errs.append(f"items[{i}].id {it.get('id')!r} is not an exercise item, 'read' or 'tell'")
                 if it.get("ok") not in (True, False, None): errs.append(f"items[{i}].ok must be true, false or null")
                 if not str(it.get("note", "")).strip(): errs.append(f"items[{i}] needs a note to Sheila")
+                for k in ("passage", "heard"):
+                    if k in it and (not isinstance(it[k], str) or not it[k].strip() or len(it[k]) > 600): errs.append(f"items[{i}].{k} must be a non-blank string of at most 600 characters")
+                if "heard" in it and "passage" not in it: errs.append(f"items[{i}]: heard without passage — the site has no text to compare it against")
         if r.get("rubric"): errs.append("a Chinese review has no rubric")
     elif kind in ("essay", "week"):
         if t.get("wk") not in weeks: errs.append(f"target.wk must be one of {sorted(weeks)}")

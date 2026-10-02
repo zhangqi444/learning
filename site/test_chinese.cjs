@@ -138,7 +138,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('and its url is the chinese category', (await pg.evaluate(() => location.hash)) === '#/chinese');
   const home = await pg.textContent('[data-testid=zh-home]');
   check('the note\'s lines are not titles, and the note is not repeated', !/课本55到56页，读熟练。/.test(home) && !(await pg.$('[data-testid=zh-note]')));
-  check('with no passage kept, the reading card asks a parent for it in place', !!(await pg.$('[data-testid=zh-read] [data-testid=zh-passage-setup]')));
+  check('the reading card asks a parent for nothing: she reads from the book', !(await pg.$('[data-testid=zh-read] [data-testid=zh-passage-setup]')) && !!(await pg.$('[data-testid=zh-read-open]')));
   check('the lesson is named', /小马过河/.test(await pg.textContent('[data-testid=zh-home]')));
   check('the trail starts at 中文', /中文/.test(await pg.textContent('header')));
   // Opening the site fresh — the manifest's start_url, no hash — while 中文 was the
@@ -225,13 +225,11 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
   check('and back', (await title('[data-testid=zh-read]')) === '阅读');
   await both('the week: its three cards, the workbook list, the passage box', HOME);
-  // The 句子 and two 用一用 phrases, which the repo already holds — not the 课文. Pasted on the home card.
+  // What the book says, known to the evaluator and never to the site: she reads
+  // from the book, and the review brings the text with it (docs/review.md).
   const passage = '河水是深还是浅，最好你自己去试试。突然停电了，只好请别人帮忙。';
-  await pg.fill('[data-testid=zh-read] [data-testid=zh-passage-text]', passage); await pg.click('[data-testid=zh-read] [data-testid=zh-passage-save]');
-  await pg.waitForSelector('[data-testid=zh-home-passage]');
-  check('the passage then shows on the card itself', (await pg.textContent('[data-testid=zh-home-passage]')) === passage);
-  await pg.click('[data-testid=zh-read-open]'); await pg.waitForSelector('[data-testid=zh-passage]');
-  check('the passage is kept in the zh slice, not the bundle', ((await ls(pg)).zh['text:L05:阅读《谦虚过度》'] || {}).text === passage, Object.keys((await ls(pg)).zh).join(','));
+  await pg.click('[data-testid=zh-read-open]'); await pg.waitForSelector('[data-testid=zh-rec-start]');
+  check('the reading page holds no text of the book and says which pages to open', !(await pg.$('[data-testid=zh-passage]')) && /课本第55–56页/.test(await pg.textContent('[data-testid=zh-read-page]')) && !((await ls(pg)).zh['text:L05:阅读《谦虚过度》']));
   await pg.evaluate(() => { window.__asr = '河水是深还是浅最好你自己去试试突然只好请别人帮忙'; });   // 停电了 unheard: three characters
   await pg.click('[data-testid=zh-rec-start]'); await pg.waitForSelector('[data-testid=zh-rec-stop]'); await pg.waitForTimeout(250);
   check('nothing of the recogniser is shown while she reads', !(await pg.$('[data-testid=zh-transcript]')) && !(await pg.$('[data-testid=zh-marked]')) && /正在录音/.test(await pg.textContent('[data-testid=zh-recording]')));
@@ -241,17 +239,14 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('and pressing it brings the player, with her recording in it', /^blob:/.test(await pg.getAttribute('[data-testid=zh-play-again-audio]', 'src')));
   await pg.click('[data-testid=zh-parent-toggle]'); await pg.waitForSelector('[data-testid=zh-parent]');
   await both('her reading, recorded, with the parent view open', READ);
-  const misses = await pg.$$eval('[data-testid=zh-marked] [data-hit="0"]', (n) => n.map((x) => x.textContent).join(''));
-  check('the parent view marks the characters the recogniser did not hear, and only those', misses === '停电了', misses);
-  check('and highlighted amber, not red', !(await pg.$('[data-testid=zh-marked] .text-destructive')) && !!(await pg.$('[data-testid=zh-marked] .bg-warning-soft')));
-  check('and holds the transcript', /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-transcript]')));
-  check('the parent view has the percentage, labelled as an estimate', (await pg.textContent('[data-testid=zh-pct]')) === '89%' && /仅供参考/.test(await pg.textContent('[data-testid=zh-parent]')), await pg.textContent('[data-testid=zh-pct]'));
+  check('the parent view shows what the recogniser heard, and no comparison — the site has no text to compare against', /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-transcript]')) && !(await pg.$('[data-testid=zh-marked]')));
+  check('and no percentage anywhere: a number from a recogniser with no text to align to would be invented', !(await pg.$('[data-testid=zh-pct]')) && !/%/.test(await pg.textContent('[data-testid=zh-read-result]')));
   check('the recording went to Drive as its own file', !!(await pg.$('[data-testid=zh-play]')));
   st = await ls(pg);
   const att = ((st.zh['hw:2026-09-30'] || {}).read || {}).attempts || [];
-  check('the reading is kept: transcript, counts, file id, done', att.length === 1 && att[0].matched === 24 && att[0].total === 27 && att[0].fileId === 'media1' && st.zh['hw:2026-09-30'].read.done === true, JSON.stringify(att[0] || null));
+  check('the reading is kept: transcript, counts, file id, done', att.length === 1 && att[0].transcript === '河水是深还是浅最好你自己去试试突然只好请别人帮忙' && !('matched' in att[0]) && att[0].fileId === 'media1' && st.zh['hw:2026-09-30'].read.done === true, JSON.stringify(att[0] || null));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
-  check('the week card shows it read, with the last reading and the passage', /已读/.test(await pg.textContent('[data-testid=zh-read]')) && /上次: \d+ 秒/.test(await pg.textContent('[data-testid=zh-read]')) && /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-read]')));
+  check('the week card shows it read, with the last reading and no text of the book', /已读/.test(await pg.textContent('[data-testid=zh-read]')) && /上次: \d+ 秒/.test(await pg.textContent('[data-testid=zh-read]')) && !/河水是深还是浅/.test(await pg.textContent('[data-testid=zh-read]')));
   check('the dictation card counts the rating', (await pg.textContent('[data-testid=zh-rated-count]')) === '1');
   // -- the workbook's closed exercises, marked by rule
   await pg.evaluate(() => { location.hash = '#/chinese/ex/zx:L05-D3-04'; }); await pg.waitForSelector('[data-testid=zh-ex]');
@@ -404,7 +399,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // -- the judge: a chinese-review arrives through the import link, like an essay review
   const review = { id: 'zh:2026-09-30:test', v: 1, target: { kind: 'zh', set: '2026-09-30' }, at: '2026-10-01T23:00:00Z', reviewer: 'Claude, asked by Dad', source: 'progress.json and the ink pages in her Drive',
     summary: '这一周的作业做得很认真。', strengths: ['「出门看看才知道」写得很自然。'], suggestions: ['「深」字右边再写一遍看看。'], next: '每个生字先看结构再写。',
-    items: [{ id: 'zx:L05-D1-03-2', ok: false, note: '第三个词可以写「正当」。' }, { id: 'tell', ok: true, note: '故事讲完整了。' }, { id: 'read', ok: false, note: '「停电了」三个字读得不清楚，再读一遍。' }, { id: 'zx:nope', ok: true, note: 'kept as written: the site shows what the reviewer said' }] };
+    items: [{ id: 'zx:L05-D1-03-2', ok: false, note: '第三个词可以写「正当」。' }, { id: 'tell', ok: true, note: '故事讲完整了。' }, { id: 'read', ok: false, note: '「停电了」三个字读得不清楚，再读一遍。', passage, heard: '河水是深还是浅最好你自己去试试突然只好请别人帮忙' }, { id: 'zx:nope', ok: true, note: 'kept as written: the site shows what the reviewer said' }] };
   const payload = Buffer.from(JSON.stringify(review), 'utf8').toString('base64url');
   await pg.evaluate((h) => { location.hash = h; }, '#/import/' + payload); await pg.waitForSelector('[data-testid=import-add]');
   // An import link of Chinese reviews is a Chinese page: the toggle is in its
@@ -418,6 +413,8 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // once evaluated, her reading page shows the comparison: the passage with the words not heard highlighted, the transcript beside, the note
   await pg.evaluate(() => { location.hash = '#/chinese/read/L05'; }); await pg.waitForSelector('[data-testid=zh-compare]');
   check('once evaluated, the comparison is on her page: highlighted misses, transcript beside, the note', (await pg.$$eval('[data-testid=zh-compare] [data-hit="0"]', (n) => n.map((x) => x.textContent).join(''))) === '停电了' && /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-compare] [data-testid=zh-transcript]')) && /读得不清楚/.test(await pg.textContent('[data-testid=zh-read-result]')) && /已批改/.test(await pg.textContent('[data-testid=zh-read-result]')));
+  check('and highlighted amber, not red', !(await pg.$('[data-testid=zh-compare] .text-destructive')) && !!(await pg.$('[data-testid=zh-compare] .bg-warning-soft')));
+  check('and the review kept the passage and what was heard', (got.items.find((x) => x.id === 'read') || {}).passage === passage);
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
   check('the review card shows under the week\'s tasks', /这一周的作业做得很认真/.test(await pg.textContent('[data-testid=zh-home]')));
   check('and its chrome is in the page\'s language', /批改/.test(await pg.textContent('[data-testid=essay-review]')) && !/What a reader noticed|Try this|For next week/.test(await pg.textContent('[data-testid=essay-review]')));

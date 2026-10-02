@@ -48,7 +48,15 @@ export function normalizeReview(raw) {
   // shown beside the exercise. ok is true, false, or null when it is not a yes/no.
   if (target.kind === "zh") out.items = (Array.isArray(raw.items) ? raw.items : []).map((it) => {
     const id = str(it && it.id), note = str(it && it.note), ok = it && (it.ok === true || it.ok === false) ? it.ok : null
-    return id && note ? { id, ok, note } : null
+    if (!id || !note) return null
+    const o = { id, ok, note }
+    // A read item may bring the text she was to read and what the reviewer
+    // heard (docs/review.md): the site holds no passage of its own to compare
+    // against, so the comparison on her page is drawn from these two.
+    const passage = str(it.passage).slice(0, 600), heard = str(it.heard).slice(0, 600)
+    if (passage) o.passage = passage
+    if (heard) o.heard = heard
+    return o
   }).filter(Boolean).slice(0, 20)
   if (raw.draftAt && ts(raw.draftAt)) out.draftAt = new Date(ts(raw.draftAt)).toISOString()
   if (typeof raw.words === "number" && raw.words >= 0) out.words = Math.round(raw.words)
