@@ -87,6 +87,13 @@ if os.path.isdir(_ZH):
     if os.path.isdir(f'{_ZH}/exercises'):
         for _f in sorted(os.listdir(f'{_ZH}/exercises')):
             _e=json.load(open(f'{_ZH}/exercises/{_f}')); zh['exercises'][_e['lesson']]=_e
+    # Reference stroke data for every character she is asked to write (Make Me a
+    # Hanzi via hanzi-writer-data, Arphic Public License — the licence file sits
+    # beside the data). Inline, so the quiz works offline and in the artifact.
+    zh['strokes']={}
+    if os.path.isdir(f'{_ZH}/strokes'):
+        for _f in sorted(os.listdir(f'{_ZH}/strokes')):
+            if _f.endswith('.json'): zh['strokes'][_f[:-5]]=json.load(open(f'{_ZH}/strokes/{_f}'))
     out['zh']=zh
 import os as _os, datetime as _dt
 if _os.path.exists('site/content/seed.json'):

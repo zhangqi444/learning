@@ -205,11 +205,28 @@ Three subjects, not four. 汉字, 词语 and 阅读 are each a real section of t
 each already has machinery waiting for it: the 课文 is a passage and reuses the `p`
 field and the passage renderer exactly; 词语 in a sentence with a gap **is the
 sentence-completion mechanic the whole site is built on**, arriving in a second
-language. Handwriting is deliberately out of this design — it needs a canvas and
-stroke-order data the site does not have, and cannot be faked with four choices.
-It is a later question, not a gap here. The microphone arrived with the reading
-task (§ 8); dictation still does not use it, because dictation is her writing
-from hearing, and the site reads the word to her rather than listening.
+language. **Handwriting is in, and judged on the device.** The first draft of this section
+put it out of reach — no canvas, no stroke-order data. The owner's brief changed
+that: she does the homework, the result is kept digitally, and it is judged by a
+rule where a rule can exist. The Pencil gives the rule its evidence. For a
+*known* character — the 生字 she copies, a dictation word she writes from
+hearing, a character under its pinyin — `hanzi-writer` (MIT) runs a stroke quiz
+against reference data from Make Me a Hanzi (`hanzi-writer-data`, Arphic Public
+License; the 57 characters this lesson needs are vendored under
+`content/chinese/strokes/` beside the licence file and inlined in the bundle, so
+nothing is fetched and it works offline and in the artifact). Each stroke she
+draws is matched in order; the drawn paths are kept with the answer, stroke by
+stroke, with whether each matched — the stroke sequence the owner asked for. A
+character written with at most two slips (or a quarter of its strokes, whichever
+is more) counts as written: a decision, not a measurement, because a
+ten-year-old mis-starts strokes and the quiz already makes her redo them. The
+validator refuses to ask for a character that has no stroke data. *Free*
+writing — 组词, 造句, answers to the text — has no key: an ink canvas keeps the
+page as a PNG and the strokes as point sequences with pressure and time, both
+uploaded to her Drive as their own files, and the `chinese-review` skill judges
+them; the site says "awaiting review" and never guesses a mark. The retell is
+recorded and transcribed like the reading, with a parent's tap as the signature
+the book asks for. Typing was offered and declined: it exercises nothing.
 
 Item ids are namespaced from the first commit, because retrofitting a prefix means
 rewriting learning records and hard rule 1 forbids losing them: `z:` for a 汉字,
@@ -322,7 +339,10 @@ explanation and `why` authored in both languages (§ 4); and the read-aloud task
 input — her reading recorded to her Drive as its own file, transcribed live by
 the browser's recogniser, aligned to the passage, the misses marked for her and
 the number for a parent (§ 8). Then the seven closed workbook exercises became self-marking on the site
-(§ 4). Not in: the Wordwood (Phase 3), the skills (Phase 4), the Chinese review
+(§ 4), and the other eight followed: handwriting of known characters judged
+stroke by stroke with the Pencil, free writing kept as image and strokes for
+the review skill, the retell recorded and signed; dictation can be written with
+the pen and rated by rule. Not in: the Wordwood (Phase 3), the skills (Phase 4), the Chinese review
 and again runs beyond the plain due pile, the Pencil canvas with stroke capture,
 and the `chinese-review` skill for the open exercises.
 

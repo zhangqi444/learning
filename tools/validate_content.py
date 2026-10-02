@@ -272,12 +272,34 @@ def ex_errors(ex):
         for it in ex.get('items',[]):
             if not (isinstance(it.get('key'),int) and 0<=it['key']<n): out.append(f"{it.get('id',i)}: sort key past the groups")
             need_expl(it)
+    elif t=='write':
+        for it in ex.get('items',[]):
+            k=it.get('key','')
+            if not (isinstance(k,str) and len(k)==1 and '\u4e00'<=k<='\u9fff'): out.append(f"{it.get('id',i)}: write key must be one CJK character, got {k!r}")
+            elif not os.path.exists(f'content/chinese/strokes/{k}.json'): out.append(f"{it.get('id',i)}: no stroke data for {k} — nothing to judge the writing against")
+            need_expl(it)
+    elif t=='free':
+        for it in ex.get('items',[]):
+            if not str(it.get('prompt') or '').strip() or not str(it.get('prompt_en') or '').strip(): out.append(f"{it.get('id',i)}: free item needs prompt and prompt_en")
+    elif t=='speak':
+        q=ex.get('question')
+        if not isinstance(q,dict) or not q.get('zh') or not q.get('en'): out.append(f'{i}: speak needs a question in zh and en')
     else: out.append(f'{i}: unknown exercise type {t!r}')
     for it in ex.get('items',[])+(ex.get('fills') or {}).get('items',[]):
         if not it.get('id'): out.append(f'{i}: an item without an id')
         elif it['id'] in seen: out.append(f"{it['id']}: duplicate id")
         else: seen.add(it['id'])
     return out
+HWDIR='content/chinese/homework'
+if os.path.isdir(HWDIR):
+    for f in sorted(os.listdir(HWDIR)):
+        if not f.endswith('.json'): continue
+        for t in json.load(open(f'{HWDIR}/{f}')).get('tasks',[]):
+            if t.get('kind')!='dictation': continue
+            for sec in (t.get('words') or {}).values():
+                for w in sec:
+                    for ch in w:
+                        if '\u4e00'<=ch<='\u9fff' and not os.path.exists(f'content/chinese/strokes/{ch}.json'): errs.append(f'{f}: dictation word {w} has no stroke data for {ch}')
 if os.path.isdir(EXDIR):
     for f in sorted(os.listdir(EXDIR)):
         if not f.endswith('.json'): continue

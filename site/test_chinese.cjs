@@ -206,7 +206,67 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
   check('the structure sort marks itself', /6 \/ 6/.test(await pg.textContent('[data-testid=zh-ex-result]')));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
-  check('the workbook card lists the exercises with their marks', (await pg.$$('[data-testid=zh-exercise]')).length === 7 && /5\/5/.test(await pg.textContent('[data-testid=zh-workbook]')) && /3\/4/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  check('the workbook card lists the exercises with their marks', (await pg.$$('[data-testid=zh-exercise]')).length === 15 && /5\/5/.test(await pg.textContent('[data-testid=zh-workbook]')) && /3\/4/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  // -- handwriting of a known character, judged stroke by stroke. The reference
+  // medians are in the bundle and the quiz's SVG carries its own transform, so
+  // the test traces each stroke with real mouse events along the reference
+  // path; the quiz has to accept them, and the strokes have to be kept.
+  const bundle = JSON.parse(fs.readFileSync(path.join(DIST, 'content/bundle.json'), 'utf8'));
+  const trace = async (sel, ch) => {
+    await pg.$eval(sel, (e) => e.scrollIntoView({ block: 'center' }));
+    const info = await pg.$eval(sel, (box) => { const svg = box.querySelector('svg'); const g = svg.querySelector('g[transform]'); const m = /translate\(\s*([-\d.]+)[,\s]+([-\d.]+)\s*\)\s*scale\(\s*([-\d.]+)[,\s]+([-\d.]+)\s*\)/.exec(g.getAttribute('transform')); const r = svg.getBoundingClientRect(); return { left: r.left, top: r.top, tx: +m[1], ty: +m[2], sx: +m[3], sy: +m[4] }; });
+    for (const med of bundle.zh.strokes[ch].medians) {
+      const pts = med.map(([x, y]) => [info.left + info.tx + x * info.sx, info.top + info.ty + y * info.sy]);
+      await pg.mouse.move(pts[0][0], pts[0][1]); await pg.mouse.down();
+      for (const [x, y] of pts.slice(1)) await pg.mouse.move(x, y, { steps: 3 });
+      await pg.mouse.up(); await pg.waitForTimeout(40);
+    }
+  };
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-01w'; }); await pg.waitForSelector('[data-testid=zh-hanzi] svg');
+  check('写一写 shows six boxes, one per character, none done', (await pg.$$('[data-testid=zh-hanzi][data-done="0"]')).length === 6);
+  for (const ch of ['喝', '伯', '深', '突', '松', '定']) await trace(`[data-testid=zh-hanzi][data-char="${ch}"]`, ch);
+  await pg.waitForFunction(() => document.querySelectorAll('[data-testid=zh-hanzi][data-done="1"]').length === 6, null, { timeout: 8000 }).catch(() => {});
+  const doneBoxes = await pg.$$eval('[data-testid=zh-hanzi]', (n) => n.map((x) => `${x.dataset.char}:${x.dataset.done}/${x.dataset.mistakes}`).join(' '));
+  check('every character traced along its reference strokes is accepted', (await pg.$$('[data-testid=zh-hanzi][data-done="1"]')).length === 6, doneBoxes);
+  await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
+  check('and the writing is marked six of six', /6 \/ 6/.test(await pg.textContent('[data-testid=zh-ex-result]')));
+  st = await ls(pg);
+  const w1 = (((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D1-01w'] || {}).answers || {};
+  const k1 = w1['zx:L05-D1-01w-1'] || {};
+  check('the stroke sequence she wrote is kept, in order, with each stroke judged', Array.isArray(k1.strokes) && k1.strokes.length === k1.n && k1.strokes.every((x, i) => x.n === i && x.ok === true && Array.isArray(x.pts) && x.pts.length > 1), JSON.stringify({ n: k1.n, kept: (k1.strokes || []).length, first: (k1.strokes || [])[0] && (k1.strokes || [])[0].pts.length }));
+  // -- dictation written with the Pencil: hear it, write it, judged the same way
+  await pg.evaluate(() => { location.hash = '#/chinese/dictation/2026-09-30'; }); await pg.waitForSelector('[data-testid=zh-dictation]');
+  await pg.click('[data-testid=zh-dict-row][data-word="田鼠"] [data-testid=zh-write]'); await pg.waitForSelector('[data-testid=zh-dict-row][data-word="田鼠"] [data-testid=zh-hanzi] svg');
+  check('写 reads the word aloud first', (await pg.evaluate(() => window.__spoken.slice(-1)[0])).text === '田鼠');
+  for (const [i, ch] of [[0, '田'], [1, '鼠']]) await trace(`[data-testid=zh-dict-row][data-word="田鼠"] [data-testid=zh-hanzi] >> nth=${i}`, ch);
+  await pg.waitForFunction(() => { const r = document.querySelector('[data-testid=zh-dict-row][data-word="田鼠"]'); return r && !r.dataset.writing; }, null, { timeout: 8000 }).catch(() => {});
+  st = await ls(pg);
+  const d2 = ((st.zh['hw:2026-09-30'] || {}).dictation || {})['田鼠'] || {};
+  check('a word written with the Pencil is rated by rule and its strokes kept', d2.ok === true && d2.mode === 'pencil' && Array.isArray(d2.strokes) && d2.strokes.length === 2, JSON.stringify({ ok: d2.ok, mode: d2.mode, mistakes: d2.mistakes, chars: (d2.strokes || []).length }));
+  check('and the row says so', /笔/.test(await pg.textContent('[data-testid=zh-dict-row][data-word="田鼠"]')));
+  // -- free writing: kept as a PNG and as strokes in her Drive, awaiting review
+  await pg.evaluate(() => { location.hash = '#/chinese/ex/2026-09-30/zx:L05-D1-03'; }); await pg.waitForSelector('[data-testid=zh-ink]');
+  check('free writing cannot be handed in blank', await pg.isDisabled('[data-testid=zh-free-submit]'));
+  const ink = await pg.$('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-ink]'); const ib = await ink.boundingBox();
+  for (const [a, b] of [[0.2, 0.3], [0.5, 0.6]]) { await pg.mouse.move(ib.x + ib.width * a, ib.y + ib.height * b); await pg.mouse.down(); await pg.mouse.move(ib.x + ib.width * (a + 0.2), ib.y + ib.height * (b + 0.1), { steps: 5 }); await pg.mouse.up(); }
+  check('strokes on the canvas are counted', (await pg.getAttribute('[data-testid=zh-free-item] >> nth=0 >> [data-testid=zh-ink]', 'data-strokes')) === '2');
+  await pg.click('[data-testid=zh-free-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
+  check('handing in says it awaits review, not a mark', /等批改/.test(await pg.textContent('[data-testid=zh-ex-result]')) && !/\d+ \/ \d+/.test(await pg.textContent('[data-testid=zh-ex-result]')));
+  st = await ls(pg);
+  const f1 = ((((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D1-03'] || {}).items || {})['zx:L05-D1-03-1'] || {};
+  check('the page went to Drive as a PNG and as strokes, two files', /^media\d+$/.test(f1.png || '') && /^media\d+$/.test(f1.strokes || '') && f1.n === 2, JSON.stringify(f1));
+  // -- the retell: recorded, transcribed, signed by a parent's tap
+  await pg.evaluate(() => { window.__asr = '小马过河告诉我们，别人说的不一定对，要自己试一试。'; location.hash = '#/chinese/ex/2026-09-30/zx:L05-D4-04'; }); await pg.waitForSelector('[data-testid=zh-tell-start]');
+  check('the signature waits for the story', await pg.isDisabled('[data-testid=zh-tell-sign]'));
+  await pg.click('[data-testid=zh-tell-start]'); await pg.waitForSelector('[data-testid=zh-tell-stop]'); await pg.waitForTimeout(250); await pg.click('[data-testid=zh-tell-stop]');
+  await pg.waitForFunction(() => /自己试一试/.test(document.querySelector('[data-testid=zh-tell-transcript]').textContent), null, { timeout: 5000 }).catch(() => {});
+  check('the story is transcribed and kept', /自己试一试/.test(await pg.textContent('[data-testid=zh-tell-transcript]')));
+  await pg.click('[data-testid=zh-tell-sign]'); await pg.waitForTimeout(150);
+  st = await ls(pg);
+  const tell = (((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D4-04'] || {});
+  check('the recording, the transcript and the parent\'s tap are all in the zh slice', /^media\d+$/.test((tell.told || {}).fileId || '') && /自己试一试/.test((tell.told || {}).transcript || '') && !!(tell.parent && tell.parent.at), JSON.stringify({ file: (tell.told || {}).fileId, by: (tell.parent || {}).by }));
+  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
+  check('the workbook card tells the three states apart', /待批改/.test(await pg.textContent('[data-testid=zh-workbook]')) && /家长已听/.test(await pg.textContent('[data-testid=zh-workbook]')) && /6\/6/.test(await pg.textContent('[data-testid=zh-workbook]')));
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForTimeout(300); await pg.click('[data-testid=cat-isee]'); await pg.waitForSelector('[data-testid=today]');
   check('and the ISEE dashboard card still reads the same after all of it', before === (await titleOf('[data-testid=today]')), `${before} → ${await titleOf('[data-testid=today]')}`);
   check('no page errors', errs.length === 0, errs.join(' | '));

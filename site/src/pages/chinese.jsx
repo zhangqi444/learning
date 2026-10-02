@@ -1,12 +1,14 @@
 import * as React from "react"
-import { useMemo, useState } from "react"
-import { BookOpen, Check, Eye, Mic, Play, RotateCcw, Square, Volume2, X } from "lucide-react"
+import { useEffect, useMemo, useRef, useState } from "react"
+import { BookOpen, Check, Eye, Mic, PenLine, Play, RotateCcw, Square, Volume2, X } from "lucide-react"
 import { D, ZH, ZH_ORDER, exItems, setId, zhExercises, zhHomework, zhLessons, zhSets } from "@/lib/content"
 import { recordAttempts, reviewQueue } from "@/lib/engine"
 import { t, tf, useLang } from "@/lib/lang"
 import { go } from "@/lib/router"
 import { speak, canSpeak } from "@/lib/speech"
 import { alignChars, canRecognize, canRecord, markPassage, pace, startRecognition, startRecorder } from "@/lib/reading"
+import { hasStrokes, makeQuiz, strokeData, writtenWell } from "@/lib/strokes"
+import { Ink } from "@/components/ink"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Badge } from "@zhangqi444/ui/ui/badge"
@@ -106,8 +108,8 @@ function WorkbookTask({ note, task, lesson }) {
               <div key={ex.id} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid="zh-exercise">
                 <span className="text-sm">{t(ex.title, ex.title_en)} <span className="text-muted-foreground">· {ex.day} · p.{ex.page}</span></span>
                 <span className="flex items-center gap-2">
-                  {r ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : null}
-                  <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(`/chinese/ex/${note.set}/${ex.id}`)}><Play /> {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
+                  {r && r.n != null ? <Badge variant="success" className="tabular-nums">{r.right}/{r.n}</Badge> : r && r.submitted ? <Badge variant="outline">{t("待批改", "awaiting review")}</Badge> : r && (r.told || r.parent) ? <Badge variant={r.parent ? "success" : "outline"}>{r.parent ? t("家长已听", "signed") : t("已录", "recorded")}</Badge> : null}
+                  <Button size="sm" variant={r ? "outline" : "default"} onClick={() => go(`/chinese/ex/${note.set}/${ex.id}`)}>{ex.type === "write" || ex.type === "free" ? <PenLine /> : ex.type === "speak" ? <Mic /> : <Play />} {r ? t("再做一次", "Again") : t("开始", "Start")}</Button>
                 </span>
               </div>) })}
           </div>
@@ -239,8 +241,21 @@ export function Dictation({ set }) {
   const note = D.zh.homework[set]
   const task = note && note.tasks.find((x) => x.kind === "dictation")
   const [shown, setShown] = useState({})
+  const [writing, setWriting] = useState(null)      // the word being written with the Pencil
+  const boxes = useRef({})
   if (!task) return <ChineseHome />
   const st = hwState(set).dictation || {}
+  const writable = (w) => [...w].every((ch) => !/[\p{Script=Han}]/u.test(ch) || hasStrokes(ch))
+  const startWrite = (w) => { boxes.current = {}; setWriting(w); speak(w) }
+  const boxDone = (w, ch, i, r) => {
+    boxes.current[i] = r
+    const chars = [...w].filter((c) => /\p{Script=Han}/u.test(c))
+    if (Object.keys(boxes.current).length < chars.length) return
+    const mistakes = Object.values(boxes.current).reduce((n, x) => n + x.mistakes, 0)
+    const nStrokes = chars.reduce((n, c) => n + ((strokeData(c) || { strokes: [] }).strokes.length), 0)
+    Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, dictation: { ...(cur.dictation || {}), [w]: { ok: writtenWell(mistakes, nStrokes), at: new Date().toISOString(), mode: "pencil", mistakes, strokes: Object.values(boxes.current).map((x) => ({ ch: x.ch, strokes: x.strokes })) } } }))
+    setWriting(null)
+  }
   const rate = (w, ok) => Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, dictation: { ...(cur.dictation || {}), [w]: { ok, at: new Date().toISOString() } } }))
   const total = Object.values(task.words).reduce((n, a) => n + a.length, 0)
   const rated = Object.keys(st).length, right = Object.values(st).filter((x) => x.ok).length
@@ -260,14 +275,22 @@ export function Dictation({ set }) {
           <CardContent className="flex flex-col gap-1.5">
             {task.words[section].map((w) => {
               const r = st[w], open = !!shown[w]
+              if (writing === w) return (
+                <div key={w} className="flex flex-col gap-2 rounded-lg border px-3 py-2" data-testid="zh-dict-row" data-word={w} data-writing="1">
+                  <div className="flex items-center gap-2"><Speak text={w} /><span className="text-muted-foreground text-sm">{t(`听一听，写 ${[...w].filter((c) => /\p{Script=Han}/u.test(c)).length} 个字`, `Listen, then write ${[...w].filter((c) => /\p{Script=Han}/u.test(c)).length} characters`)}</span><Button size="sm" variant="ghost" className="ml-auto h-7" onClick={() => setWriting(null)}>{t("取消", "Cancel")}</Button></div>
+                  <div className="flex flex-wrap gap-2">{[...w].filter((c) => /\p{Script=Han}/u.test(c)).map((ch, i) => <HanziBox key={w + i} ch={ch} label={`${i + 1}`} onDone={(res) => boxDone(w, ch, i, res)} />)}</div>
+                </div>
+              )
               return (
                 <div key={w} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid="zh-dict-row" data-word={w}>
                   <span className="flex items-center gap-2">
                     <Speak text={w} />
                     <span className={cn("text-lg tabular-nums", !open && !r && "select-none blur-sm")} aria-hidden={!open && !r}>{open || r ? w : "〇〇"}</span>
+                    {r && r.mode === "pencil" ? <Badge variant="outline" className="text-xs">{r.mistakes ? t(`笔 · 错 ${r.mistakes} 笔`, `pen · ${r.mistakes} wrong strokes`) : t("笔 · 一笔没错", "pen · every stroke right")}</Badge> : null}
                   </span>
                   <span className="flex items-center gap-1.5">
-                    {!open && !r ? <Button size="sm" variant="ghost" onClick={() => setShown((s) => ({ ...s, [w]: true }))} data-testid="zh-reveal"><Eye /> {t("显示", "Show")}</Button> : null}
+                    {!open && !r && writing !== w && writable(w) ? <Button size="sm" variant="default" onClick={() => startWrite(w)} data-testid="zh-write"><PenLine /> {t("写", "Write")}</Button> : null}
+                    {!open && !r && writing !== w ? <Button size="sm" variant="ghost" onClick={() => setShown((s) => ({ ...s, [w]: true }))} data-testid="zh-reveal"><Eye /> {t("显示", "Show")}</Button> : null}
                     {open || r ? (
                       <>
                         <Button size="sm" variant={r && r.ok ? "default" : "outline"} onClick={() => rate(w, true)} data-testid="zh-ok" aria-label={t("对了", "right")}><Check /></Button>
@@ -411,12 +434,15 @@ export function ReadAloud({ set }) {
 const isPair = (ex, it) => ex.type === "match" && "left" in it
 const isFill = (ex, it) => ex.type === "match" && "text" in it
 function answered(ex, it, v) {
+  if (ex.type === "write") return !!(v && v.done)
+  if (ex.type === "free") return true
   if (ex.type === "tf") return typeof v === "boolean"
   if (ex.type === "order") return Array.isArray(v) && v.length === it.pieces.length
   if (isFill(ex, it)) return typeof v === "string"
   return Number.isInteger(v)
 }
 function isRight(ex, it, v) {
+  if (ex.type === "write") return !!(v && v.done) && writtenWell(v.mistakes, v.n)
   if (ex.type === "order") return JSON.stringify(v) === JSON.stringify(it.key)
   return v === it.key
 }
@@ -500,8 +526,125 @@ function SortWidget({ ex, ans, set1, done }) {
     </div>
   )
 }
-const WIDGET = { tf: TfWidget, order: OrderWidget, slots: SlotsWidget, match: MatchWidget, sort: SortWidget }
-const itemLabel = (ex, it) => it.text || it.left || it.slot || (it.pieces ? it.pieces.join(" / ") : it.id)
+/** One character to write with the Pencil, judged stroke by stroke. */
+function HanziBox({ ch, outline = false, size = 112, onDone, label }) {
+  const el = useRef(null)
+  const [state, setState] = useState({ done: false, mistakes: 0, strokeNum: 0 })
+  const [gen, setGen] = useState(0)
+  useEffect(() => {
+    if (!el.current) return
+    el.current.innerHTML = ""
+    setState({ done: false, mistakes: 0, strokeNum: 0 })
+    const q = makeQuiz(el.current, ch, { size, outline,
+      onProgress: (p) => setState((st) => ({ ...st, mistakes: p.totalMistakes, strokeNum: p.strokeNum })),
+      onDone: (r) => { setState({ done: true, mistakes: r.mistakes, strokeNum: 0 }); onDone && onDone(r) } })
+    return () => q && q.cancel()
+  }, [ch, outline, size, gen])   // eslint-disable-line react-hooks/exhaustive-deps
+  const n = (strokeData(ch) || { strokes: [] }).strokes.length
+  return (
+    <div className="flex flex-col items-center gap-1" data-testid="zh-hanzi" data-char={ch} data-done={state.done ? "1" : "0"} data-mistakes={state.mistakes}>
+      {label ? <span className="text-muted-foreground text-xs">{label}</span> : null}
+      <div ref={el} className={cn("rounded-lg border bg-white", state.done && "border-success")} style={{ width: size, height: size, touchAction: "none" }} />
+      <span className="text-muted-foreground text-xs tabular-nums">{state.done ? (state.mistakes ? t(`写好了 · 错了 ${state.mistakes} 笔`, `done · ${state.mistakes} wrong strokes`) : t("一笔没错", "every stroke right")) : t(`${state.strokeNum}/${n} 笔`, `${state.strokeNum}/${n} strokes`)}</span>
+      {state.done ? <Button size="sm" variant="ghost" className="h-6 px-1.5 text-xs" onClick={() => setGen((g) => g + 1)}>{t("重写", "Write again")}</Button> : null}
+    </div>
+  )
+}
+function WriteWidget({ ex, ans, set1, done }) {
+  return (
+    <div className="flex flex-wrap gap-3">
+      {ex.items.map((it) => (
+        <div key={it.id} className="flex flex-col items-center gap-1 rounded-lg border p-3" data-testid="zh-write-item">
+          {it.parts ? <span className="text-lg">{it.parts}</span> : null}
+          {it.py ? <span className="text-sm"><span className="text-muted-foreground">{it.py}</span> {it.context}</span> : null}
+          <HanziBox ch={it.key} outline={!!ex.outline} onDone={(r) => set1(it.id, { done: true, mistakes: r.mistakes, strokes: r.strokes, n: (strokeData(it.key) || { strokes: [] }).strokes.length })} />
+        </div>
+      ))}
+    </div>
+  )
+}
+/** Free writing: kept as a PNG and as strokes, in her Drive, and judged by the
+ *  review skill — there is no key to mark it against here. */
+function FreeWidget({ ex, ans, set1, done, onSaved, set }) {
+  const refs = useRef({})
+  const [busy, setBusy] = useState(false)
+  const submit = async () => {
+    setBusy(true)
+    const out = {}
+    for (const it of ex.items) {
+      const r = refs.current[it.id]; if (!r) continue
+      const { blob, strokes, width, height } = await r.export()
+      const base = `zh-ink-${set}-${it.id.replace(/[^\w-]/g, "_")}-${Date.now()}`
+      const png = await Store.uploadMedia(`${base}.png`, blob, "image/png")
+      const sj = await Store.uploadMedia(`${base}.json`, new Blob([JSON.stringify({ item: it.id, width, height, strokes })], { type: "application/json" }), "application/json")
+      out[it.id] = { png, strokes: sj, n: strokes.length, at: new Date().toISOString() }
+    }
+    setBusy(false); onSaved(out)
+  }
+  const any = ex.items.some((it) => (ans[it.id] || 0) > 0)
+  return (
+    <div className="flex flex-col gap-3">
+      {ex.items.map((it) => (
+        <div key={it.id} className="flex flex-col gap-2 rounded-lg border p-3" data-testid="zh-free-item">
+          <p className="text-lg">{t(it.prompt, it.prompt_en)}</p>
+          {done ? <p className="text-muted-foreground text-sm">{t("已交。", "Handed in.")}</p> : <Ink ref={(r) => { refs.current[it.id] = r }} height={200} onChange={(n) => set1(it.id, n)} />}
+        </div>
+      ))}
+      {!done ? <div><Button size="sm" disabled={!any || busy} onClick={submit} data-testid="zh-free-submit"><Check /> {busy ? t("保存中…", "Saving…") : t("交卷", "Hand in")}</Button></div> : null}
+    </div>
+  )
+}
+/** The retell: recorded and transcribed like the reading, no passage to align
+ *  to, and a parent's tap as the signature the book asks for. */
+function SpeakWidget({ ex, set, exId }) {
+  useStore()
+  const st = (hwState(set).exercises || {})[exId] || {}
+  const [mode, setMode] = useState("idle"), [finals, setFinals] = useState(""), [interim, setInterim] = useState("")
+  const live = useRef(null)
+  const start = async () => {
+    setFinals(""); setInterim("")
+    let rec = null; try { rec = canRecord() ? await startRecorder() : null } catch { rec = null }
+    const asr = startRecognition((f, i) => { setFinals(f); setInterim(i) })
+    live.current = { rec, asr, t0: Date.now() }; setMode("recording")
+  }
+  const stop = async () => {
+    const l = live.current; if (!l) return
+    setMode("saving"); l.asr.stop()
+    const audio = l.rec ? await l.rec.stop() : { blob: null, ms: Date.now() - l.t0, mime: "" }
+    const fileId = audio.blob ? await Store.uploadMedia(`zh-tell-${set}-${Date.now()}.${/mp4/.test(audio.mime) ? "m4a" : "webm"}`, audio.blob, audio.mime) : null
+    Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, exercises: { ...(cur.exercises || {}), [exId]: { ...((cur.exercises || {})[exId] || {}), told: { at: new Date().toISOString(), ms: audio.ms, transcript: finals + interim, fileId } } } }))
+    setMode("idle")
+  }
+  const sign = () => Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, exercises: { ...(cur.exercises || {}), [exId]: { ...((cur.exercises || {})[exId] || {}), parent: { at: new Date().toISOString(), by: Store.name || "parent" } } } }))
+  return (
+    <div className="flex flex-col gap-3">
+      <Card>
+        <CardHeader>
+          <CardTitle>{tf(ex.question)}</CardTitle>
+          <CardDescription>{t("先讲故事，再问爸爸妈妈这个问题。", "Tell the story first, then ask your parents this question.")}</CardDescription>
+          <CardAction>
+            {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-tell-stop"><Square /> {t("停止", "Stop")}</Button>
+              : mode === "saving" ? <Button size="sm" disabled>{t("保存中…", "Saving…")}</Button>
+              : <Button size="sm" onClick={start} data-testid="zh-tell-start"><Mic /> {st.told ? t("再讲一次", "Tell it again") : t("开始讲", "Start telling")}</Button>}
+          </CardAction>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-2">
+          <p className="text-lg leading-8 min-h-8" data-testid="zh-tell-transcript">{mode === "recording" ? <>{finals}<span className="text-muted-foreground">{interim}</span></> : st.told ? st.told.transcript : <span className="text-muted-foreground text-sm">{t("讲的话会出现在这里。", "What you say appears here.")}</span>}</p>
+          {st.told ? <p className="text-muted-foreground text-xs">{t(`已录 ${Math.round(st.told.ms / 1000)} 秒`, `recorded, ${Math.round(st.told.ms / 1000)} s`)}{st.told.fileId ? "" : t(" · 没有保存录音", " · no recording kept")}</p> : null}
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("家长签名", "Parent's signature")}</CardTitle>
+          <CardDescription>{st.parent ? t(`${st.parent.by} 已听 · ${new Date(st.parent.at).toLocaleDateString()}`, `${st.parent.by} listened · ${new Date(st.parent.at).toLocaleDateString()}`) : t("听完故事、回答了问题以后，请家长点一下。", "After listening and answering the question, a parent taps here.")}</CardDescription>
+          <CardAction><Button size="sm" variant={st.parent ? "outline" : "default"} disabled={!st.told} onClick={sign} data-testid="zh-tell-sign"><Check /> {t("家长已听", "Listened")}</Button></CardAction>
+        </CardHeader>
+      </Card>
+    </div>
+  )
+}
+const WIDGET = { tf: TfWidget, order: OrderWidget, slots: SlotsWidget, match: MatchWidget, sort: SortWidget, write: WriteWidget, free: FreeWidget }
+const itemLabel = (ex, it) => it.text || it.left || it.slot || it.key || (it.pieces ? it.pieces.join(" / ") : it.id)
 export function Exercise({ set, exId }) {
   useStore(); useLang()
   const note = D.zh.homework[set]
@@ -516,23 +659,39 @@ export function Exercise({ set, exId }) {
   const submit = () => {
     const marks = items.map((it) => ({ id: it.id, ok: isRight(ex, it, ans[it.id]), pick: ans[it.id] }))
     const right = marks.filter((m) => m.ok).length
-    Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, exercises: { ...(cur.exercises || {}), [exId]: { at: new Date().toISOString(), right, n: items.length, answers: ans } } }))
-    recordAttempts(marks.map((m) => ({ id: m.id, ok: m.ok, ms: 0, pick: JSON.stringify(m.pick === undefined ? null : m.pick) })), "exercise")
+    // Strokes are kept with the answer for a written character; the record's
+    // pick is the count, not the path — a learning record is small by design.
+    const kept = ex.type === "write" ? Object.fromEntries(items.map((it) => [it.id, ans[it.id] ? { mistakes: ans[it.id].mistakes, n: ans[it.id].n, strokes: ans[it.id].strokes } : null])) : ans
+    Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, exercises: { ...(cur.exercises || {}), [exId]: { at: new Date().toISOString(), right, n: items.length, answers: kept } } }))
+    recordAttempts(marks.map((m) => ({ id: m.id, ok: m.ok, ms: 0, pick: ex.type === "write" ? String((m.pick || {}).mistakes ?? "") : JSON.stringify(m.pick === undefined ? null : m.pick) })), "exercise")
     setDone({ right, marks })
   }
+  const onFreeSaved = (out) => {
+    Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, exercises: { ...(cur.exercises || {}), [exId]: { at: new Date().toISOString(), submitted: true, items: out } } }))
+    recordAttempts(ex.items.map((it) => ({ id: it.id, ok: true, ms: 0, pick: String((out[it.id] || {}).n || 0) })), "exercise")
+    setDone({ submitted: true })
+  }
   const Widget = WIDGET[ex.type]
+  if (ex.type === "speak") return (
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-ex">
+      <Card><CardHeader><CardTitle>{t(ex.title, ex.title_en)}</CardTitle><CardDescription>{ex.day} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}</CardDescription></CardHeader>{ex.note ? <CardContent className="text-muted-foreground text-sm">{tf(ex.note)}</CardContent> : null}</Card>
+      <SpeakWidget ex={ex} set={set} exId={exId} />
+    </div>
+  )
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-ex">
       <Card>
         <CardHeader>
           <CardTitle>{t(ex.title, ex.title_en)}</CardTitle>
           <CardDescription>{ex.day} · p.{ex.page} · {t(`练习 ${ex.ex}`, `exercise ${ex.ex}`)}{prev ? ` · ${t("上次", "last")} ${prev.right}/${prev.n}` : ""}</CardDescription>
-          <CardAction>{done ? <Button size="sm" variant="outline" onClick={() => { setAns({}); setDone(null) }}><RotateCcw /> {t("再做一次", "Again")}</Button> : <Button size="sm" disabled={!complete} onClick={submit} data-testid="zh-ex-submit"><Check /> {t("交卷", "Check")}</Button>}</CardAction>
+          <CardAction>{done ? <Button size="sm" variant="outline" onClick={() => { setAns({}); setDone(null) }}><RotateCcw /> {t("再做一次", "Again")}</Button> : ex.type === "free" ? null : <Button size="sm" disabled={!complete} onClick={submit} data-testid="zh-ex-submit"><Check /> {t("交卷", "Check")}</Button>}</CardAction>
         </CardHeader>
         {ex.note ? <CardContent className="text-muted-foreground text-sm">{tf(ex.note)}</CardContent> : null}
       </Card>
-      <div className="flex flex-col gap-2">{Widget ? <Widget ex={ex} ans={ans} set1={set1} done={done} /> : null}</div>
-      {done ? (
+      <div className="flex flex-col gap-2">{Widget ? <Widget ex={ex} ans={ans} set1={set1} done={done} onSaved={onFreeSaved} set={set} /> : null}</div>
+      {done && done.submitted ? (
+        <Card data-testid="zh-ex-result"><CardHeader><CardTitle>{t("已交，等批改", "Handed in — awaiting review")}</CardTitle><CardDescription>{t("写的内容已保存在她的 Drive 里（图片和笔画）。批改会出现在这里。", "What she wrote is kept in her Drive, as an image and as strokes. The review will appear here.")}</CardDescription><CardAction><Button size="sm" variant="outline" onClick={() => go("/chinese")}>{t("回到本周", "Back to the week")}</Button></CardAction></CardHeader></Card>
+      ) : done ? (
         <Card data-testid="zh-ex-result">
           <CardHeader>
             <CardTitle className="tabular-nums">{done.right} / {items.length}</CardTitle>
@@ -543,7 +702,7 @@ export function Exercise({ set, exId }) {
             <CardContent className="flex flex-col gap-2">
               {done.marks.filter((m) => !m.ok).map((m) => { const it = items.find((x) => x.id === m.id); return (
                 <div key={m.id} className="rounded-md border p-3 text-sm" data-testid="zh-ex-miss">
-                  <div className="font-medium">{itemLabel(ex, it)}</div>
+                  <div className="font-medium">{itemLabel(ex, it)}{ex.type === "write" && done.marks.find((m) => m.id === it.id) ? ` · ${t(`错了 ${(ans[it.id] || {}).mistakes} 笔`, `${(ans[it.id] || {}).mistakes} wrong strokes`)}` : ""}</div>
                   <div className="text-muted-foreground">{tf(it.explanation)}</div>
                 </div>) })}
             </CardContent>

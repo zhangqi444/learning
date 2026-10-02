@@ -2,7 +2,7 @@
  "lesson": "L05",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册A 第五课《小马过河》",
- "note": "The workbook's closed exercises — one right answer the book fixes — marked by rule on the device. Open exercises (writing, 组词, 造句, answers, the retell) are not here; they take the Pencil and the review skill.",
+ "note": "The workbook's exercises, typed. tf/order/slots/match/sort have one answer the book fixes and are marked by rule on the device. write is handwriting of a known character, judged stroke by stroke against the vendored stroke data (content/chinese/strokes). free is handwriting with no key — kept as image and strokes, judged by the chinese-review skill. speak is the retell — recorded and transcribed, with a parent's tap as the signature.",
  "exercises": [
   {
    "id": "zx:L05-D3-04",
@@ -572,6 +572,378 @@
      }
     }
    ]
+  },
+  {
+   "id": "zx:L05-D1-01w",
+   "day": "星期一",
+   "page": 30,
+   "ex": 1,
+   "type": "write",
+   "title": "按照汉字结构写一写",
+   "title_en": "Follow the structures to write",
+   "outline": false,
+   "note": {
+    "zh": "看着部件，用笔把字写出来。笔顺按规则判，写错三笔会给提示。",
+    "en": "Look at the parts and write the character with the Pencil. Stroke order is judged by rule; after three wrong strokes a hint appears."
+   },
+   "items": [
+    {
+     "id": "zx:L05-D1-01w-1",
+     "parts": "口＋曷",
+     "key": "喝",
+     "explanation": {
+      "zh": "口在左，曷在右：喝。",
+      "en": "口 on the left, 曷 on the right: 喝."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-2",
+     "parts": "亻＋白",
+     "key": "伯",
+     "explanation": {
+      "zh": "亻在左，白在右：伯。",
+      "en": "亻 on the left, 白 on the right: 伯."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-3",
+     "parts": "氵＋罙",
+     "key": "深",
+     "explanation": {
+      "zh": "氵在左，罙在右：深。",
+      "en": "氵 on the left, 罙 on the right: 深."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-4",
+     "parts": "穴＋犬",
+     "key": "突",
+     "explanation": {
+      "zh": "穴在上，犬在下：突。",
+      "en": "穴 above, 犬 below: 突."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-5",
+     "parts": "木＋公",
+     "key": "松",
+     "explanation": {
+      "zh": "木在左，公在右：松。",
+      "en": "木 on the left, 公 on the right: 松."
+     }
+    },
+    {
+     "id": "zx:L05-D1-01w-6",
+     "parts": "宀＋疋",
+     "key": "定",
+     "explanation": {
+      "zh": "宀在上，疋在下：定。",
+      "en": "宀 above, 疋 below: 定."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D1-05",
+   "day": "星期一",
+   "page": 32,
+   "ex": 5,
+   "type": "write",
+   "title": "根据拼音写汉字",
+   "title_en": "Write characters below Pinyin",
+   "outline": false,
+   "note": {
+    "zh": "同一个拼音，不同的字——看旁边的字想词。",
+    "en": "Same or similar pinyin, different characters — the character beside the blank tells you the word."
+   },
+   "items": [
+    {
+     "id": "zx:L05-D1-05-1",
+     "py": "shēn",
+     "context": "＿浅",
+     "key": "深",
+     "explanation": {
+      "zh": "深浅：shēn。",
+      "en": "深浅 — shēn, deep and shallow."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-2",
+     "py": "shēn",
+     "context": "＿体",
+     "key": "身",
+     "explanation": {
+      "zh": "身体：shēn。",
+      "en": "身体 — shēn, body."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-3",
+     "py": "shēng",
+     "context": "学＿",
+     "key": "生",
+     "explanation": {
+      "zh": "学生：shēng。",
+      "en": "学生 — shēng, student."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-4",
+     "py": "jì",
+     "context": "＿然",
+     "key": "既",
+     "explanation": {
+      "zh": "既然：jì。",
+      "en": "既然 — jì, since / now that."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-5",
+     "py": "jī",
+     "context": "＿会",
+     "key": "机",
+     "explanation": {
+      "zh": "机会：jī。",
+      "en": "机会 — jī, chance."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-6",
+     "py": "jǐ",
+     "context": "＿个",
+     "key": "几",
+     "explanation": {
+      "zh": "几个：jǐ。",
+      "en": "几个 — jǐ, a few."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-7",
+     "py": "yuán",
+     "context": "草＿",
+     "key": "原",
+     "explanation": {
+      "zh": "草原：yuán。",
+      "en": "草原 — yuán, grassland."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-8",
+     "py": "yuán",
+     "context": "公＿",
+     "key": "园",
+     "explanation": {
+      "zh": "公园：yuán。",
+      "en": "公园 — yuán, park."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-9",
+     "py": "yuǎn",
+     "context": "永＿",
+     "key": "远",
+     "explanation": {
+      "zh": "永远：yuǎn。",
+      "en": "永远 — yuǎn, forever."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-10",
+     "py": "xiàng",
+     "context": "画＿",
+     "key": "像",
+     "explanation": {
+      "zh": "画像：xiàng。",
+      "en": "画像 — xiàng, portrait."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-11",
+     "py": "xiǎng",
+     "context": "思＿",
+     "key": "想",
+     "explanation": {
+      "zh": "思想：xiǎng。",
+      "en": "思想 — xiǎng, thought."
+     }
+    },
+    {
+     "id": "zx:L05-D1-05-12",
+     "py": "xiāng",
+     "context": "家＿",
+     "key": "乡",
+     "explanation": {
+      "zh": "家乡：xiāng。",
+      "en": "家乡 — xiāng, hometown."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D1-03",
+   "day": "星期一",
+   "page": 31,
+   "ex": 3,
+   "type": "free",
+   "title": "组一组，填一填",
+   "title_en": "Form words and fill",
+   "items": [
+    {
+     "id": "zx:L05-D1-03-1",
+     "prompt": "喝：喝茶、＿＿、＿＿、＿＿",
+     "prompt_en": "喝: 喝茶, and three more words"
+    },
+    {
+     "id": "zx:L05-D1-03-2",
+     "prompt": "正：＿＿、＿＿、＿＿、＿＿",
+     "prompt_en": "正: four words"
+    },
+    {
+     "id": "zx:L05-D1-03-3",
+     "prompt": "那：＿＿、＿＿、＿＿、＿＿",
+     "prompt_en": "那: four words"
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D2-01",
+   "day": "星期二",
+   "page": 33,
+   "ex": 1,
+   "type": "free",
+   "title": "火车赛跑，组词语",
+   "title_en": "Form words on the running trains",
+   "items": [
+    {
+     "id": "zx:L05-D2-01-1",
+     "prompt": "那：＿＿、＿＿、＿＿",
+     "prompt_en": "那: three words"
+    },
+    {
+     "id": "zx:L05-D2-01-2",
+     "prompt": "最：＿＿、＿＿、＿＿",
+     "prompt_en": "最: three words"
+    },
+    {
+     "id": "zx:L05-D2-01-3",
+     "prompt": "像：＿＿、＿＿、＿＿",
+     "prompt_en": "像: three words"
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D2-02",
+   "day": "星期二",
+   "page": 33,
+   "ex": 2,
+   "type": "free",
+   "title": "比一比，再组词",
+   "title_en": "Compare and form words",
+   "note": {
+    "zh": "两个字长得像，各组一个词。",
+    "en": "The two look alike; make one word with each."
+   },
+   "items": [
+    {
+     "id": "zx:L05-D2-02-1",
+     "prompt": "伯／白",
+     "prompt_en": "伯 / 白"
+    },
+    {
+     "id": "zx:L05-D2-02-2",
+     "prompt": "所／听",
+     "prompt_en": "所 / 听"
+    },
+    {
+     "id": "zx:L05-D2-02-3",
+     "prompt": "浅／前",
+     "prompt_en": "浅 / 前"
+    },
+    {
+     "id": "zx:L05-D2-02-4",
+     "prompt": "机／几",
+     "prompt_en": "机 / 几"
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D2-05",
+   "day": "星期二",
+   "page": 34,
+   "ex": 5,
+   "type": "free",
+   "title": "仿照例子造句",
+   "title_en": "Follow the example to make sentences",
+   "items": [
+    {
+     "id": "zx:L05-D2-05-1",
+     "prompt": "例：鞋子是大还是小，要试穿一下才知道。（1）＿是＿还是＿，＿。",
+     "prompt_en": "Example: 鞋子是大还是小，要试穿一下才知道。 (1) …是…还是…，…。"
+    },
+    {
+     "id": "zx:L05-D2-05-2",
+     "prompt": "（2）＿是＿还是＿，＿。",
+     "prompt_en": "(2) …是…还是…，…。"
+    },
+    {
+     "id": "zx:L05-D2-05-3",
+     "prompt": "（3）＿是＿还是＿，＿。",
+     "prompt_en": "(3) …是…还是…，…。"
+    },
+    {
+     "id": "zx:L05-D2-05-4",
+     "prompt": "（4）＿是＿还是＿，＿。",
+     "prompt_en": "(4) …是…还是…，…。"
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D4-02",
+   "day": "星期四",
+   "page": 38,
+   "ex": 2,
+   "type": "free",
+   "title": "根据课文回答问题",
+   "title_en": "Answer the questions according to the text",
+   "items": [
+    {
+     "id": "zx:L05-D4-02-1",
+     "prompt": "（1）小马想要干什么？",
+     "prompt_en": "(1) What does the pony want to do?"
+    },
+    {
+     "id": "zx:L05-D4-02-2",
+     "prompt": "（2）牛伯伯为什么告诉小马水很浅，可以过河？",
+     "prompt_en": "(2) Why does the ox tell the pony the water is shallow and he can cross?"
+    },
+    {
+     "id": "zx:L05-D4-02-3",
+     "prompt": "（3）松鼠为什么说水深得很，小马会淹死的？",
+     "prompt_en": "(3) Why does the squirrel say the water is very deep and the pony would drown?"
+    },
+    {
+     "id": "zx:L05-D4-02-4",
+     "prompt": "（4）妈妈觉得小马应该怎么做？",
+     "prompt_en": "(4) What does Mother think the pony should do?"
+    }
+   ]
+  },
+  {
+   "id": "zx:L05-D4-04",
+   "day": "星期四",
+   "page": 39,
+   "ex": 4,
+   "type": "speak",
+   "title": "把故事讲给爸爸妈妈听，考考他们",
+   "title_en": "Tell the story to your parents and test them",
+   "question": {
+    "zh": "《小马过河》告诉了我们什么道理？",
+    "en": "What does 小马过河 teach us?"
+   },
+   "note": {
+    "zh": "把故事讲一遍，录下来；讲完问爸爸妈妈这个问题，再请他们点一下\"家长已听\"。",
+    "en": "Tell the story and it is recorded; then ask your parents the question, and have them tap 家长已听."
+   }
   }
  ]
 }
