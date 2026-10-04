@@ -1,5 +1,5 @@
 import * as React from "react"
-import { AlertTriangle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, Flag, PenLine, Play, RotateCcw, Send, Swords, Timer } from "lucide-react"
+import { AlertTriangle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, FileText, Flag, PenLine, Play, RotateCcw, Save, Send, Swords, Timer } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { W } from "@/lib/world"
@@ -14,6 +14,8 @@ import { MissProgress, MissStage } from "@/components/miss-status"
 import { RadioGroup } from "@zhangqi444/ui/ui/radio-group"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
 import { Textarea } from "@zhangqi444/ui/ui/textarea"
+import { Input } from "@zhangqi444/ui/ui/input"
+import { Label } from "@zhangqi444/ui/ui/label"
 import { ActionBar, CauseTags, Choice, Passage, Runner } from "@/pages/runner"
 import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
@@ -70,7 +72,171 @@ export function MockList() {
             </Card>
           )
         })}
+        {(D.offlineMocks || []).map((m) => {
+          const sc = offlineScores(m.id), k = Object.keys(sc.by).length
+          return (
+            <Card key={m.id} className="gap-3 py-5" data-testid={`offline-card-${m.id}`}>
+              <CardHeader className="px-5">
+                <CardTitle className="flex items-center gap-2"><FileText className="text-primary size-4 shrink-0" />{m.name}</CardTitle>
+                <CardDescription>{m.blurb}</CardDescription>
+                <CardAction>
+                  {k === m.sections.length ? <Badge variant="outline" className="tabular-nums">{sc.right}/{sc.n}</Badge> : k ? <Badge variant="outline">{k}/{m.sections.length} sections</Badge> : <Badge variant="outline">On paper</Badge>}
+                </CardAction>
+              </CardHeader>
+              <CardContent className="flex items-center gap-3 px-5">
+                <Button size="sm" variant="outline" onClick={() => go("/mock/" + m.id)} data-testid={`offline-open-${m.id}`}>{k ? "Results" : "Enter results"} <ChevronRight /></Button>
+                <span className="text-muted-foreground text-xs">Taken offline · no timer here</span>
+              </CardContent>
+            </Card>
+          )
+        })}
       </div>
+    </div>
+  )
+}
+
+/* ---------- a paper sat offline ----------
+ *
+ * Some practice happens on paper, away from the site — a published practice test
+ * from a book, marked at home with the book's own key. The site keeps the
+ * paper's shape (from content/offline_mocks.json) and the scores a parent types
+ * in, and nothing else: no questions, no key, no timer, because the paper is a
+ * copyrighted book and the sitting happened somewhere the site cannot see.
+ *
+ * The scores are her work, so they are a log, never a field that is written
+ * over: each save appends an entry, the newest entry that names a section is
+ * what the page shows, and Store.merge unions the log across devices.
+ *
+ * Deliberately outside mockBand(), readiness(), the Den and the rewards: the
+ * record has no `sections`, which is the shape every one of those reads. Whether
+ * a paper marked at home should move the readiness number is the owner's call
+ * (AGENTS.md, "A paper sat on paper"), and until it is made it does not. */
+export function offlineDef(id) { return (D.offlineMocks || []).find((m) => m.id === id) }
+export function offlineScores(id) {
+  const m = offlineDef(id), st = (Store.s.mocks || {})[id] || {}
+  const entries = Array.isArray(st.entries) ? [...st.entries].sort((a, b) => String(a.at).localeCompare(String(b.at))) : []
+  const by = {}
+  for (const e of entries) for (const [sec, right] of Object.entries(e.scores || {})) if (Number.isInteger(right)) by[sec] = { right, at: e.at, sat: e.sat }
+  let right = 0, n = 0
+  for (const s of (m ? m.sections : [])) if (by[s.id]) { right += by[s.id].right; n += s.n }
+  const last = entries[entries.length - 1]
+  return { by, right, n, entries, sat: last ? last.sat : null, at: last ? last.at : null }
+}
+function todayKey() { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` }
+function fmtDay(key) { return key ? new Date(key + "T12:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "" }
+
+export function OfflineMock({ form }) {
+  useStore()
+  const m = offlineDef(form)
+  const sc = offlineScores(form)
+  const [vals, setVals] = React.useState(() => Object.fromEntries((m ? m.sections : []).map((s) => [s.id, sc.by[s.id] ? String(sc.by[s.id].right) : ""])))
+  const [sat, setSat] = React.useState(sc.sat || todayKey())
+  const [msg, setMsg] = React.useState(null)
+  // A result that arrives from another device after the page opened fills an
+  // empty box, so the next save does not read it as a blank; a box with
+  // something typed in it is left alone.
+  const byKey = JSON.stringify(sc.by)
+  React.useEffect(() => {
+    setVals((x) => { const y = { ...x }; for (const [k, r] of Object.entries(sc.by)) if (!(y[k] || "").trim()) y[k] = String(r.right); return y })
+  }, [byKey]) // eslint-disable-line react-hooks/exhaustive-deps
+  if (!m) return null
+  const total = m.sections.reduce((a, s) => a + s.n, 0)
+  const all = Object.keys(sc.by).length === m.sections.length
+
+  function save() {
+    const scores = {}, bad = []
+    for (const s of m.sections) {
+      const v = (vals[s.id] || "").trim()
+      if (v === "") continue
+      const k = Number(v)
+      if (!/^\d+$/.test(v) || k > s.n) { bad.push(`${s.name} must be a whole number from 0 to ${s.n}`); continue }
+      if (!sc.by[s.id] || sc.by[s.id].right !== k || sc.sat !== sat) scores[s.id] = k
+    }
+    if (bad.length) { setMsg({ err: true, text: bad.join(". ") + "." }); return }
+    if (!Object.keys(scores).length) { setMsg({ err: true, text: "Nothing new to save — type the number right in at least one section." }); return }
+    const at = new Date().toISOString()
+    const entry = { id: at + ":" + Math.random().toString(36).slice(2, 8), at, sat, scores }
+    Store.setSlice("mocks", form, (cur) => ({ ...cur, offline: true, entries: [...(Array.isArray(cur.entries) ? cur.entries : []), entry] }))
+    setMsg({ err: false, text: "Saved to her record." })
+  }
+
+  return (
+    <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:gap-6">
+      <Card className="from-primary/5 to-card bg-gradient-to-t gap-4">
+        <CardHeader>
+          <CardDescription className="flex items-center gap-2"><FileText className="size-4" /> {W.longNight} · on paper</CardDescription>
+          <CardTitle className="text-2xl font-semibold tracking-tight">{m.name}</CardTitle>
+          <CardDescription>{m.blurb}</CardDescription>
+          <CardAction className="min-w-0">
+            {all ? (
+              <div className="text-right" data-testid="offline-total">
+                <div className="text-3xl font-semibold tabular-nums">{sc.right}<span className="text-muted-foreground text-base font-normal"> / {sc.n}</span></div>
+                <div className="text-muted-foreground text-xs">raw correct</div>
+              </div>
+            ) : <Badge variant="outline" data-testid="offline-badge">Offline</Badge>}
+          </CardAction>
+        </CardHeader>
+        <CardContent className="text-muted-foreground flex flex-col gap-1 text-sm">
+          <div data-testid="offline-howto">Taken offline: the booklet and the answer sheet are the paper, so there is no timer and no questions on this page. Time each section yourself, as the book says.</div>
+          <div><span className="text-foreground font-medium">Source:</span> {m.source}.</div>
+          <div><span className="text-foreground font-medium">File:</span> {m.file}{m.key ? "" : " — it has no answer key, so mark it with the key in the book"}.</div>
+        </CardContent>
+      </Card>
+
+      <Card className="gap-2 py-5">
+        <CardHeader className="px-5">
+          <CardTitle>Sections <span className="text-muted-foreground font-normal">· in order, one sitting</span></CardTitle>
+        </CardHeader>
+        <CardContent className="px-5">
+          <Table>
+            <TableHeader><TableRow><TableHead>Section</TableHead><TableHead className="text-right">Raw</TableHead><TableHead className="text-right">Percent</TableHead></TableRow></TableHeader>
+            <TableBody>
+              {m.sections.map((s) => {
+                const r = sc.by[s.id]
+                return (
+                  <TableRow key={s.id} data-testid="offline-row" data-sec={s.id} data-shape={`${s.n}/${s.min}`}>
+                    <TableCell className="whitespace-normal"><div className="font-medium">{s.name}</div><div className="text-muted-foreground text-xs tabular-nums">{s.n} questions · {s.min} min</div></TableCell>
+                    <TableCell className="text-right tabular-nums" data-testid="offline-raw">{r ? `${r.right}/${s.n}` : "—"}</TableCell>
+                    <TableCell className="text-right tabular-nums">{r ? `${Math.round((r.right / s.n) * 100)}%` : "—"}</TableCell>
+                  </TableRow>
+                )
+              })}
+              <TableRow>
+                <TableCell className="whitespace-normal"><div className="font-medium">Essay</div><div className="text-muted-foreground text-xs tabular-nums">{m.essay.min} min · not scored, the schools read it</div></TableCell>
+                <TableCell className="text-right">—</TableCell>
+                <TableCell className="text-right">—</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+          <p className="text-muted-foreground mt-3 text-xs">{total} questions in all. {sc.sat ? `Taken ${fmtDay(sc.sat)}. ` : ""}This paper sits beside the readiness number and the score band, not inside them.</p>
+        </CardContent>
+      </Card>
+
+      <Card className="gap-4 py-5">
+        <CardHeader className="px-5">
+          <CardTitle>{sc.entries.length ? "Change the results" : "Enter the results"}</CardTitle>
+          <CardDescription>The number right in each section, once the paper is marked. Fill in what you have; the rest can follow later. A change is added to her record beside the old one, never written over it.</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col gap-4 px-5">
+          <div className="grid grid-cols-1 gap-3 @md/main:grid-cols-2 @3xl/main:grid-cols-4">
+            {m.sections.map((s) => (
+              <div key={s.id} className="flex flex-col gap-1.5">
+                <Label htmlFor={`off-${s.id}`} className="text-muted-foreground text-xs">{s.name} <span className="tabular-nums">(of {s.n})</span></Label>
+                <Input id={`off-${s.id}`} inputMode="numeric" value={vals[s.id] || ""} onChange={(e) => { const v = e.target.value; setVals((x) => ({ ...x, [s.id]: v })); setMsg(null) }} placeholder="—" className="tabular-nums" data-testid={`offline-in-${s.id}`} />
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap items-end gap-3">
+            <div className="flex flex-col gap-1.5">
+              <Label htmlFor="off-sat" className="text-muted-foreground text-xs">Date she took it</Label>
+              <Input id="off-sat" type="date" value={sat} onChange={(e) => { setSat(e.target.value); setMsg(null) }} className="w-44" data-testid="offline-sat" />
+            </div>
+            <Button onClick={save} data-testid="offline-save"><Save /> Save results</Button>
+            {msg ? <span className={cn("text-sm", msg.err ? "text-destructive" : "text-muted-foreground")} data-testid="offline-msg">{msg.text}</span> : null}
+          </div>
+          {sc.entries.length ? <p className="text-muted-foreground text-xs" data-testid="offline-log" data-n={sc.entries.length}>{sc.entries.length === 1 ? "One entry" : `${sc.entries.length} entries`} in her record · last saved {fmtDate(sc.at)}</p> : null}
+        </CardContent>
+      </Card>
     </div>
   )
 }

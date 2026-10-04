@@ -126,6 +126,7 @@ for the writing sample and a number there would measure that she wrote one rathe
 | `/precision/<week>` | the week's 20 words, then a quiz on them |
 | `/essay/<week>` | plan, draft, revise against that week's rubric |
 | `/mock`, `/mock/<form>` | the four papers, timed by section, then corrections by skill |
+| `/mock/TPR` | a paper sat offline: its sections and source, and the scores a parent enters once it is marked |
 | `/score` | readiness, its six parts, and the trend across weeks |
 | `/calendar` | the real exam dates, registration cutoffs and application deadlines |
 | `/books` | the independent-reading log — titles chosen for the skills the ISEE tests, but kept out of the readiness score |

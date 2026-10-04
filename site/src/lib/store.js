@@ -380,6 +380,16 @@ export const Store = {
       const rs = remote[slice] || {}, ls = this.s[slice]
       for (const k of Object.keys(rs)) {
         if (!rs[k] || typeof rs[k] !== "object") continue
+        // A paper sat offline keeps its scores as a log of entries (pages/mock.jsx,
+        // OfflineMock). Two devices that each typed one in would otherwise lose the
+        // older one to last-write-wins; the log is unioned instead, so no entry is
+        // ever dropped and the newest per section is what the page shows.
+        if (slice === "mocks" && ls[k] && Array.isArray(rs[k].entries) && Array.isArray(ls[k].entries)) {
+          const newer = ts(rs[k].at) > ts(ls[k].at) ? rs[k] : ls[k], byId = {}
+          for (const e of [...ls[k].entries, ...rs[k].entries]) if (e && e.id) byId[e.id] = e
+          ls[k] = { ...newer, entries: Object.values(byId).sort((a, b) => ts(a.at) - ts(b.at)) }
+          continue
+        }
         if (!ls[k] || ts(rs[k].at) > ts(ls[k].at)) ls[k] = rs[k]
       }
     }

@@ -551,6 +551,87 @@ async function setLs(pg, mutate, read, ms = 12000) {
 
   await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
   check('mock list shows the estimated band card', /Estimated score band/.test(await body(pg)) && /stanine/i.test(await body(pg)));
+
+  /* A paper sat offline (content/offline_mocks.json). It is listed with the four
+     the site times, says it is taken on paper, carries no questions and no clock,
+     and keeps the scores a parent types in as a log that survives a reload, a
+     Drive round-trip and a second device — and none of it reaches the readiness
+     number or the band, because nobody has decided it should (AGENTS.md, "A
+     paper sat on paper"). The readiness and band text are read before anything
+     is entered and compared after, so a result leaking in shows as a diff. */
+  console.log('== a paper sat offline');
+  const remoteTPR = () => { try { return (JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]).mocks || {}).TPR || null; } catch { return null; } };
+  const until = async (fn, ms = 15000) => { for (let t = 0; t < ms; t += 250) { const v = fn(); if (v) return v; await pg.waitForTimeout(250); } return null; };
+  await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('[data-testid=score-parts]');
+  const readyBefore = (await pg.textContent('[data-testid=readiness]')).replace(/\s+/g, ' ');
+  const partsBefore = (await pg.textContent('[data-testid=score-parts]')).replace(/\s+/g, ' ');
+  await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
+  const bandBefore = (await pg.textContent('[data-testid=band-card]')).replace(/\s+/g, ' ');
+  const offCard = await pg.textContent('[data-testid=offline-card-TPR]');
+  check('the offline paper is listed beside the four, by its real name and marked on paper',
+    /Princeton Review practice test/.test(offCard) && /On paper/.test(offCard) && /Taken offline/.test(offCard) && (await pg.$$('[data-testid^=mock-open-]')).length === 4, offCard.replace(/\s+/g, ' ').slice(0, 120));
+  await pg.click('[data-testid=offline-open-TPR]');
+  await pg.waitForSelector('[data-testid=offline-save]');
+  const offPage = await body(pg);
+  const rows = await pg.$$eval('[data-testid=offline-row]', (r) => r.map((x) => x.dataset.sec + ':' + x.dataset.shape));
+  check('it says it is taken offline, with no timer and no questions on the page',
+    /Taken offline/.test(offPage) && !(await pg.$('[data-testid=mock-timer]')) && !(await pg.$('[data-testid=question]')) && !(await pg.$('[data-testid=mock-start]')), (await pg.textContent('[data-testid=offline-howto]')).slice(0, 80));
+  check('its sections are the paper\'s own: 34/20, 38/35, 25/25, 30/30, and the source is named',
+    rows.join(',') === 'VR:34/20,QR:38/35,RC:25/25,MA:30/30' && /34 questions · 20 min/.test(offPage) && /TPR Education IP Holdings/.test(offPage) && /no answer key/.test(offPage), rows.join(','));
+  await pg.fill('[data-testid=offline-in-VR]', '35');
+  await pg.click('[data-testid=offline-save]');
+  check('a score above the section\'s size is refused, and nothing is saved',
+    /from 0 to 34/.test(await pg.textContent('[data-testid=offline-msg]')) && !(await pg.$('[data-testid=offline-log]')));
+  await pg.fill('[data-testid=offline-in-VR]', '26');
+  await pg.fill('[data-testid=offline-sat]', '2026-10-03');
+  await pg.click('[data-testid=offline-save]');
+  await pg.waitForSelector('[data-testid=offline-log]');
+  check('a section result is entered and shown with its percent',
+    /26\/34/.test(await pg.textContent('[data-testid=offline-row][data-sec=VR]')) && /76%/.test(await pg.textContent('[data-testid=offline-row][data-sec=VR]')) && /Taken Oct 3, 2026/.test(await body(pg)));
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=offline-save]');
+  check('and survives a reload', /26\/34/.test(await pg.textContent('[data-testid=offline-row][data-sec=VR]')) && (await pg.inputValue('[data-testid=offline-in-VR]')) === '26');
+  const pushed = await until(() => { const r = remoteTPR(); return r && (r.entries || []).some((e) => e.scores && e.scores.VR === 26) ? r : null; });
+  check('and reaches her record in Drive', !!pushed && pushed.entries.length === 1 && pushed.entries[0].sat === '2026-10-03', pushed ? JSON.stringify(pushed.entries.map((e) => e.scores)) : 'not in drive.body');
+  // A second device typed QR in meanwhile: its entry arrives through the merge, and hers stays.
+  const offStash = drive.body;
+  {
+    const j = JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]);
+    const later = new Date(Date.now() + 3600e3).toISOString();
+    j.mocks.TPR = { ...j.mocks.TPR, at: later, entries: [...j.mocks.TPR.entries, { id: 'other-device', at: later, sat: '2026-10-03', scores: { QR: 30 } }] };
+    drive.body = JSON.stringify(j);
+  }
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=offline-save]');
+  await pg.waitForFunction(() => /30\/38/.test((document.querySelector('[data-testid=offline-row][data-sec=QR]') || {}).textContent || ''), null, { timeout: 15000 }).catch(() => {});
+  check('a result entered on another device arrives through Drive, beside hers',
+    /30\/38/.test(await pg.textContent('[data-testid=offline-row][data-sec=QR]')) && /26\/34/.test(await pg.textContent('[data-testid=offline-row][data-sec=VR]')),
+    (await pg.$$eval('[data-testid=offline-raw]', (n) => n.map((x) => x.textContent))).join(' '));
+  // Now the remote is newer and has lost her entry; a save here must not lose either side.
+  {
+    const j = JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]);
+    j.mocks.TPR = { ...j.mocks.TPR, at: new Date(Date.now() + 7200e3).toISOString(), entries: j.mocks.TPR.entries.filter((e) => e.id === 'other-device') };
+    drive.body = JSON.stringify(j);
+  }
+  await pg.fill('[data-testid=offline-in-RC]', '20');
+  await pg.click('[data-testid=offline-save]');
+  const merged = await until(() => { const r = remoteTPR(); return r && (r.entries || []).some((e) => e.scores && e.scores.RC === 20) ? r : null; });
+  const ids = merged ? merged.entries.map((e) => Object.keys(e.scores).join('+')) : [];
+  check('and a newer copy elsewhere never writes over an entry: the log is the union',
+    !!merged && ids.includes('VR') && ids.includes('QR') && ids.includes('RC') && merged.entries.length === 3, ids.join(' | ') || 'not in drive.body');
+  await pg.fill('[data-testid=offline-in-MA]', '22');
+  await pg.click('[data-testid=offline-save]');
+  await pg.waitForSelector('[data-testid=offline-total]');
+  check('with all four in, the paper totals its raw score', /98 \/ 127/.test((await pg.textContent('[data-testid=offline-total]')).replace(/\s+/g, ' ')));
+  await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
+  check('the band card is untouched by it', (await pg.textContent('[data-testid=band-card]')).replace(/\s+/g, ' ') === bandBefore && !/Princeton/.test(bandBefore));
+  check('and the list shows its total', /98\/127/.test(await pg.textContent('[data-testid=offline-card-TPR]')));
+  await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('[data-testid=score-parts]');
+  const readyAfter = (await pg.textContent('[data-testid=readiness]')).replace(/\s+/g, ' ');
+  const partsAfter = (await pg.textContent('[data-testid=score-parts]')).replace(/\s+/g, ' ');
+  check('and readiness is unchanged by it, every part', readyAfter === readyBefore && partsAfter === partsBefore, readyAfter === readyBefore ? 'same' : `${readyBefore.slice(0, 80)} → ${readyAfter.slice(0, 80)}`);
+  // The record stays: it has no `sections`, so nothing after this reads it. The
+  // remote goes back to the copy from before the stub's edits; the next save
+  // merges the rest of the log into it.
+  drive.body = offStash;
   await pg.evaluate(() => { location.hash = '#/mock/DGN'; }); await pg.waitForSelector('[data-testid=mock-corrections]');
   /* The score card is the one surface that knows WHICH wrong choice she made —
      it is sitting in `pick` — and for the whole life of the page it showed

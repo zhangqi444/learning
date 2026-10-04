@@ -16,7 +16,7 @@ import { Runner } from "@/pages/runner"
 import { Review } from "@/pages/review"
 import { Precision } from "@/pages/precision"
 import { EssayList, EssayWeek } from "@/pages/essay"
-import { MockCorrections, MockEssay, MockList, MockOverview, MockSection } from "@/pages/mock"
+import { MockCorrections, MockEssay, MockList, MockOverview, MockSection, OfflineMock } from "@/pages/mock"
 import { Calendar } from "@/pages/calendar"
 import { Checklist } from "@/pages/checklist"
 import { Mixed, MixedRun } from "@/pages/mixed"
@@ -129,6 +129,7 @@ function Screen({ route }) {
     if (b) return <MockSection key={a + b} form={a} sec={b} />
     return <MockOverview form={a} />
   }
+  if (top === "mock" && a && (D.offlineMocks || []).some((m) => m.id === a)) return <OfflineMock key={a} form={a} />
   if (top === "mock") return <MockList />
   if (top === "calendar") return <Calendar />
   if (top === "checklist") return a === "month" ? <Checklist month={b} /> : <Checklist wk={a} />

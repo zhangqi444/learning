@@ -60,6 +60,15 @@ for fid,name,blurb,label,start,ekey,split in FORMS:
     secs.append({'id':'BREAK2','name':'Break','min':10,'part':'B'})
     secs.append({'id':'ESSAY','name':'Essay','min':30,'part':'B','prompt':mock_essays[ekey]})
     out['mocks'].append({'id':fid,'name':name,'blurb':blurb,'label':label,'start':start,'split':split,'sections':secs})
+# A paper sat offline: its structure and source only, never its questions or key —
+# it is a published, copyrighted book, and this repository is public. It sits in a
+# key of its own rather than in `mocks`, because everything that reads `mocks` —
+# the band, readiness, backfill, the Den, the rewards — would otherwise count a
+# result nobody has decided should count (AGENTS.md, "A paper sat on paper").
+out['offlineMocks']=json.load(open('content/offline_mocks.json'))['forms']
+for f in out['offlineMocks']:
+    assert f['id'] not in {x[0] for x in FORMS},f['id']
+    assert [(s['id'],s['n'],s['min']) for s in f['sections']]==[(a,n,m) for a,_,n,m in SECTIONS],f['id']
 out['calendar']=json.load(open('content/calendar.json'))
 out['books']=json.load(open('content/books.json'))
 out['aops']=json.load(open('content/aops.json'))

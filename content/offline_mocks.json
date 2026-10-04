@@ -1,0 +1,19 @@
+{
+ "forms": [
+  {
+   "id": "TPR",
+   "name": "Princeton Review practice test",
+   "blurb": "A published Lower Level practice paper, sat on paper away from the site. Mark it with the book's answer key, then enter the number right in each section here.",
+   "source": "The Princeton Review, \"Lower Level ISEE Practice Test\" (Chapter 14 of its ISEE prep book), © 2024 TPR Education IP Holdings, LLC",
+   "file": "ISEE_Lower_Level_Practice_Test_2024.3.pdf, in the family's Google Drive",
+   "key": false,
+   "sections": [
+    { "id": "VR", "name": "Verbal Reasoning", "n": 34, "min": 20 },
+    { "id": "QR", "name": "Quantitative Reasoning", "n": 38, "min": 35 },
+    { "id": "RC", "name": "Reading Comprehension", "n": 25, "min": 25 },
+    { "id": "MA", "name": "Mathematics Achievement", "n": 30, "min": 30 }
+   ],
+   "essay": { "min": 30 }
+  }
+ ]
+}

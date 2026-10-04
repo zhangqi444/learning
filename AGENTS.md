@@ -25,6 +25,7 @@ content/                 the source of truth for everything the site teaches
   precision.json           8 weeks × 20 vocabulary words with meanings
   essay.json               8 weekly prompts, the guide, the rubric
   mock_essays.json         mock exam essay prompts
+  offline_mocks.json       papers sat on paper away from the site: name, source, sections — never questions or key
   calendar.json            researched ISEE dates, formats, school deadlines
   books.json               reading shelf: starter books + suggested reads
   aops.json                ISEE skill → AoPS chapter map
@@ -345,6 +346,39 @@ Catholic one on **Sat Dec 5**. Those are not interchangeable — an October date
 own week (Oct 19–25), and the Fall season closes Nov 30, which puts Mock 3 (Nov 23–29) on the wrong
 side of it. Before changing any mock date, read `calendar.events` and `calendar.monthly` and work
 out which sitting the schedule is actually serving.
+
+**A paper sat on paper is listed, kept, and left outside the number — until the owner rules.**
+On 4 October 2026 the owner added a paper she sits offline: the Princeton Review's "Lower Level
+ISEE Practice Test" (Chapter 14 of its ISEE prep book, © 2024 TPR Education IP Holdings; the PDF is
+`ISEE_Lower_Level_Practice_Test_2024.3.pdf` in the family's Drive). It has the real Lower Level
+shape — VR 34/20 min, QR 38/35, RC 25/25, MA 30/30, an essay of 30 — and **no answer key**; the
+key is elsewhere in the book. So the site records what the file supports and no more:
+`content/offline_mocks.json` carries the name, the source and the section structure, and the page
+(`/mock/TPR`, `OfflineMock` in `pages/mock.jsx`) takes the number right per section, typed in by a
+parent once the paper is marked. **Its questions, its key and its essay prompt are not in this
+repository**: it is a published, copyrighted book and this repository is public, the same reasoning
+docs/chinese.md § 8 gives for the textbook's text. `make_bundle.py` asserts the form's sections
+equal the real paper's, so a typo in a count cannot land.
+
+The scores are learner input (hard rule 1). They live in her Drive record under `mocks.TPR` as an
+append-only log of entries — `{id, at, sat, scores: {VR: n, …}}` — the newest entry naming a
+section is what the page shows, and `Store.merge` unions the log across devices instead of letting
+last-write-wins drop the older copy. No schema bump: it rides in the existing `mocks` slice.
+
+**It does not feed readiness, the band, the Den or the rewards**, because the docs above decide
+what a mock contributes only for the four papers the site times and marks, and nobody has decided
+the same for a paper marked at home. It is kept out by shape, not by a flag: the record has no
+`sections`, which is what `mockBand()`, `backfill()`, `eachTimestamp()` and the Den's `mockLight()`
+read, and the form sits in `D.offlineMocks`, not `D.mocks`. A check in `test_features.cjs`
+compares the readiness card, its parts and the band card before and after a full set of scores
+is entered. **Proposal for the owner**, not built: if it should count, the least surprising way
+is to let `mockBand()` read a fully-entered offline paper as one more finished mock dated by its
+`sat` day — so it becomes the "latest mock" for the 20-point part and adds its sections to
+recent accuracy — while still giving it no activity day, points or Den light, since the date is
+typed by a parent rather than recorded by a sitting. The case against: a published book's paper
+is not calibrated against the site's four, and a hand-marked raw score cannot be checked. The
+page shows raw and percent only, without the ≈stanine the site's own papers get, for the same
+reason.
 
 ## The game
 

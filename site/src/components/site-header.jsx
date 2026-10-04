@@ -60,6 +60,8 @@ function crumbs(route, zhImport) {
     out.push({ label: "Mock exams", path: "/mock" })
     const m = a && D.mocks.find((x) => x.id === a)
     if (m) out.push({ label: m.name, path: "/mock/" + a })
+    const off = a && !m && (D.offlineMocks || []).find((x) => x.id === a)
+    if (off) out.push({ label: off.name, path: "/mock/" + a })
     if (m && b) out.push({ label: b === "corrections" ? "Corrections" : (m.sections.find((x) => x.id === b) || {}).name || b, path: `/mock/${a}/${b}` })
   } else if (top === "calendar") {
     out.push({ label: "Calendar", path: "/calendar" })
