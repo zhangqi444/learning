@@ -248,6 +248,17 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
   short sentences, concrete examples, no talking down.
 - Question banks are fact-checked before they land. A wrong answer key is worse
   than a missing question.
+- **Every ISEE question, practice set and mock is written to
+  [docs/isee-item-spec.md](docs/isee-item-spec.md)** — the Lower Level spec taken
+  from ERB's own guide, *What to Expect on the ISEE*, with the Princeton Review
+  paper as a cross-check: the section blueprint, answer choices in the official
+  order (alphabetical words, phrases by length, ascending numbers), phrase
+  completions and a mix of parts of speech in Verbal, about half the math read
+  off a figure, table or graph, passages of 190–340 words with line numbers, and
+  the topics that are out of scope. Until 4 October 2026 there was no such spec;
+  the banks were written to a general idea of the test, and
+  docs/mock-review-2026-10-04.md measures where that drifted. A rule in the spec
+  cites ERB or the Princeton Review, never memory.
 - **Chinese content carries both languages, by construction** — the owner's
   ask, 1 October 2026: "make sure all your content is in 2 languages". Every
   field a Chinese page prints exists in both: on a bank item `prompt`/`prompt_en`,
