@@ -394,16 +394,7 @@ if os.path.isdir(HWDIR):
                 sec_en=t.get('sections_en') or {}
                 for sec in (t.get('words') or {}):
                     errs+=pair_errors({'title':sec,'title_en':sec_en.get(sec)}, 'title', f'{w} section {sec!r}', label=True)
-            used=[]
-            for b in t.get('blocks',[]) or []:
-                for k in ('id','day','page','ex','title','title_en','items'):
-                    if not b.get(k): errs.append(f"{f}: block {b.get('id','?')} missing {k}")
-                errs+=pair_errors(b, 'title', f"{f} block {b.get('id','?')}", label=True)
-                if b.get('day') not in ZH_DAYS: errs.append(f"{f}: block {b.get('id','?')} day {b.get('day')!r} is not one of {ZH_DAYS}")
-                for i in b.get('items',[]):
-                    if i not in _zh_ids: errs.append(f"{f}: block {b.get('id')} names {i}, which is not in a Chinese bank")
-                    if i in used: errs.append(f"{f}: {i} is in two blocks")
-                    used.append(i)
+            if t.get('blocks'): errs.append(f"{f}: a homework note no longer carries blocks — they live in content/chinese/exercises/<lesson>.json beside the exercises")
 if os.path.isdir(HWDIR):
     for f in sorted(os.listdir(HWDIR)):
         if not f.endswith('.json'): continue
@@ -419,6 +410,25 @@ if os.path.isdir(EXDIR):
         d=json.load(open(f'{EXDIR}/{f}'))
         for ex in d.get('exercises',[]):
             total+=1; errs+=ex_errors(ex)
+# The four-choice blocks of a lesson's workbook live in its exercises file, one
+# per weekday that has one, and name bank items by id; a block that names an id
+# the banks do not hold, or the same item twice, is a sitting that cannot be sat.
+_used_block_items={}
+if os.path.isdir(EXDIR):
+    for f in sorted(os.listdir(EXDIR)):
+        if not f.endswith('.json'): continue
+        d=json.load(open(f'{EXDIR}/{f}'))
+        for b in d.get('blocks',[]) or []:
+            w=f"{EXDIR}/{f} block {b.get('id','?')}"
+            for k in ('id','day','page','ex','title','title_en','items'):
+                if not b.get(k): errs.append(f"{w}: missing {k}")
+            errs+=pair_errors(b, 'title', w, label=True)
+            if b.get('day') not in ZH_DAYS: errs.append(f"{w}: day {b.get('day')!r} is not one of {ZH_DAYS}")
+            if not str(b.get('id','')).startswith(f"zb:{d.get('lesson')}-"): errs.append(f"{w}: id must start with zb:{d.get('lesson')}-")
+            for i in b.get('items',[]) or []:
+                if i not in _zh_ids: errs.append(f"{w}: names {i}, which is not in a Chinese bank")
+                if i in _used_block_items: errs.append(f"{w}: {i} is also in {_used_block_items[i]}")
+                _used_block_items[i]=b.get('id')
 # The lesson page: its title, where each section is in the book, a gloss on
 # every 生字 and the reading's title — every one of them printed, so every one
 # of them in both languages. The section `where` is a label (it is the card's

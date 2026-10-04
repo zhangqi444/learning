@@ -41,64 +41,7 @@
    ],
    "pages": "练习册A 第30–39页",
    "pages_en": "Workbook A, pp. 30–39",
-   "exercises": "content/chinese/exercises/L05.json",
-   "blocks": [
-    {
-     "id": "zb:L05-D1",
-     "day": "星期一",
-     "page": 32,
-     "ex": 4,
-     "title": "选择正确的答案填空",
-     "title_en": "Choose the correct answers to fill in the blanks",
-     "items": [
-      "z:L05-01",
-      "z:L05-02",
-      "zc:L05-03"
-     ]
-    },
-    {
-     "id": "zb:L05-D2",
-     "day": "星期二",
-     "page": 34,
-     "ex": 4,
-     "title": "选词填空",
-     "title_en": "Choose the right words to fill in the blanks",
-     "items": [
-      "zc:L05-04",
-      "zc:L05-05",
-      "zc:L05-06",
-      "zc:L05-07"
-     ]
-    },
-    {
-     "id": "zb:L05-D3",
-     "day": "星期三",
-     "page": 35,
-     "ex": 2,
-     "title": "选词填空",
-     "title_en": "Choose the right words to fill in the blanks",
-     "items": [
-      "zc:L05-08",
-      "zc:L05-09",
-      "zc:L05-10",
-      "zc:L05-11"
-     ]
-    },
-    {
-     "id": "zb:L05-D4",
-     "day": "星期四",
-     "page": 38,
-     "ex": 1,
-     "title": "选出正确的答案",
-     "title_en": "Choose the correct answers",
-     "items": [
-      "zc:L05-12",
-      "zc:L05-13",
-      "zc:L05-14",
-      "zc:L05-15"
-     ]
-    }
-   ]
+   "exercises": "content/chinese/exercises/L05.json"
   },
   {
    "line": "听写：课本52页的词语。",

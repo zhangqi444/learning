@@ -371,13 +371,16 @@ export function WeekRecap({ span, here, all, idx }) {
 
 function isDone(item, listKey) { return item.done == null ? !!listState(listKey).checked[item.id] : item.done }
 
-function Row({ item, listKey, compact, testId = "ck-item" }) {
+/** One row of a checklist. Shared with the Chinese half, which passes its own
+ *  three words (`labels`) and an id attribute (`attrs`); the ISEE pages pass nothing. */
+const ROW_LABELS = { done: "Done", notDone: "Not done", auto: "auto" }
+export function Row({ item, listKey, compact, testId = "ck-item", labels = ROW_LABELS, attrs }) {
   const manual = item.done == null
   const done = isDone(item, listKey)
   function toggle() { if (!manual) return; setList(listKey, (cur) => ({ ...cur, checked: { ...cur.checked, [item.id]: !cur.checked[item.id] } })) }
   return (
-    <li className={cn("flex items-start gap-3 px-3", compact ? "py-2" : "py-2.5", done && "opacity-70")} data-testid={testId} data-done={done ? "1" : "0"} data-auto={item.auto ? "1" : "0"}>
-      <button type="button" onClick={toggle} disabled={!manual} aria-label={done ? "Done" : "Not done"} className={cn("mt-0.5 shrink-0 rounded-full", manual ? "cursor-pointer" : "cursor-default")}>
+    <li className={cn("flex items-start gap-3 px-3", compact ? "py-2" : "py-2.5", done && "opacity-70")} data-testid={testId} data-done={done ? "1" : "0"} data-auto={item.auto ? "1" : "0"} {...(attrs || {})}>
+      <button type="button" onClick={toggle} disabled={!manual} aria-label={done ? labels.done : labels.notDone} className={cn("mt-0.5 shrink-0 rounded-full", manual ? "cursor-pointer" : "cursor-default")}>
         {done ? <CheckCircle2 className="text-success size-5" /> : <Circle className="text-muted-foreground size-5" />}
       </button>
       {compact && item.tag ? <span className="text-muted-foreground mt-0.5 w-20 shrink-0 truncate text-xs">{item.tag}</span> : null}
@@ -430,7 +433,7 @@ function Row({ item, listKey, compact, testId = "ck-item" }) {
         {item.pct != null ? <Progress value={item.pct * 100} className="mt-1 h-1" /> : null}
       </div>
       {compact && item.sub && done ? <span className="text-muted-foreground shrink-0 text-xs tabular-nums">{item.sub}</span> : null}
-      {!manual && !done && !compact && item.auto ? <Badge variant="outline" className="text-muted-foreground shrink-0">auto</Badge> : null}
+      {!manual && !done && !compact && item.auto ? <Badge variant="outline" className="text-muted-foreground shrink-0">{labels.auto}</Badge> : null}
     </li>
   )
 }

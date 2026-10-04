@@ -177,7 +177,10 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     check(`${name}: in EN, the same chrome is English and carries no Chinese`, LATIN.test(en) && !CJK.test(en), around(en, CJK) || en.slice(0, 80));
     await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(120);
   };
-  const HOME = ['[data-testid=zh-home] [data-slot=card-title]', '[data-testid=zh-home] [data-slot=card-description]', '[data-testid=zh-home] button', '[data-testid=zh-home] [data-slot=badge]', '[data-testid=zh-day]', '[data-testid=zh-review-due]', '[data-testid=zh-can-write]', '[data-testid=zh-exercise]', '[data-testid=zh-sitting]', '[data-testid=zh-passage-setup]'];
+  const HOME = ['[data-testid=zh-home] [data-slot=card-title]', '[data-testid=zh-home] [data-slot=card-description]', '[data-testid=zh-home] button', '[data-testid=zh-home] [data-slot=badge]', '[data-testid=zh-subject-row]', '[data-testid=zh-today-jobs]', '[data-testid=zh-review-due]', '[data-testid=zh-can-write]'];
+  const WB = ['[data-testid=zh-workbook] [data-slot=card-title]', '[data-testid=zh-workbook] [data-slot=card-description]', '[data-testid=zh-workbook] button', '[data-testid=zh-workbook] [data-slot=badge]', '[data-testid=zh-exercise]', '[data-testid=zh-sitting]'];
+  const CK = ['[data-testid=zh-checklist] [data-slot=card-title]', '[data-testid=zh-checklist] [data-slot=card-description]', '[data-testid=zh-checklist] button', '[data-testid=zh-ck-item]'];
+  const SC = ['[data-testid=zh-score] [data-slot=card-title]', '[data-testid=zh-score] [data-slot=card-description]', '[data-testid=zh-score] button'];
   const LESSON = ['[data-testid=zh-lesson] [data-slot=card-title]', '[data-testid=zh-lesson] [data-slot=card-description]', '[data-testid=zh-lesson] button', '[data-testid=zh-zi-panel] p'];
   const RUN = ['[data-testid=run-title]', '[data-testid=counter]', '[data-testid=instant-toggle]', '[data-testid=careful-toggle]', '[data-testid=next]', '[data-testid=run-hint]', '[data-testid=verdict]', '[data-testid=cause-tags]', 'main [role=progressbar]'];
   const SCORE = ['[data-testid=score]', 'main h2', 'main [data-slot=badge]', '[data-testid=cause-tags]', 'main button'];
@@ -193,7 +196,8 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('and its url is the chinese category', (await pg.evaluate(() => location.hash)) === '#/chinese');
   const home = await pg.textContent('[data-testid=zh-home]');
   check('the note\'s lines are not titles, and the note is not repeated', !/课本55到56页，读熟练。/.test(home) && !(await pg.$('[data-testid=zh-note]')));
-  check('the reading card asks a parent for nothing: she reads from the book', !(await pg.$('[data-testid=zh-read] [data-testid=zh-passage-setup]')) && !!(await pg.$('[data-testid=zh-read-open]')));
+  check('the dashboard has the ISEE shape: 今天 with 继续, the lesson, the four subjects, and no paste box anywhere', !!(await pg.$('[data-testid=zh-today]')) && !!(await pg.$('[data-testid=zh-continue]')) && (await pg.$$('[data-testid=zh-subject-row]')).length === 4 && !(await pg.$('[data-testid=zh-passage-setup]')));
+  check('继续 points at the first thing left, in the book\'s order, on the card and in the sidebar', /按照汉字结构写一写/.test(await pg.textContent('[data-testid=zh-today] [data-slot=card-title]')) && /按照汉字结构写一写/.test(await pg.textContent('[data-testid=zh-continue-practice]')));
   check('the lesson is named', /小马过河/.test(await pg.textContent('[data-testid=zh-home]')));
   check('the trail starts at 中文', /中文/.test(await pg.textContent('header')));
   // Opening the site fresh — the manifest's start_url, no hash — while 中文 was the
@@ -239,7 +243,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('收起 closes the box and the tile keeps its light', !(await pg.$('[data-testid=zh-zi-panel]')) && (await tileStages()).includes('喝:Steady'));
   // -- the home card says her real state, never the book's counts
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-home]');
-  const homeTop = await pg.textContent('[data-testid=zh-home] > :first-child');
+  const homeTop = await pg.textContent('[data-testid=zh-home] [data-slot=card]:has([data-testid=zh-home-cats])');
   check('the lesson card counts what she can write from memory, not the book\'s 生字 and 词语', /能默写 1 \/ 10 个生字/.test(await pg.textContent('[data-testid=zh-can-write]')) && !/10 生字|7 词语/.test(homeTop), await pg.textContent('[data-testid=zh-can-write]'));
   check('its cats are the lesson\'s, at her brightness: 喝 Steady and the other nine Unseen', (await pg.$$eval('[data-testid=zh-home-cat]', (n) => n.map((e) => e.dataset.char + ':' + e.dataset.stage))).join(' ') === '喝:Steady 伯:Unseen 深:Unseen 浅:Unseen 正:Unseen 突:Unseen 松:Unseen 鼠:Unseen 淹:Unseen 定:Unseen');
   check('and with nothing due there is no review line at all, not a sentence saying so', !(await pg.$('[data-testid=zh-review-due]')) && !/没有待复习/.test(await pg.textContent('[data-testid=zh-home]')));
@@ -318,28 +322,31 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('the rating is in the zh slice, keyed by the note', hw.dictation && Object.keys(hw.dictation).length === 1 && hw.dictation['松树'] && hw.dictation['松树'].ok === true, JSON.stringify(hw.dictation));
   check('the word was read aloud first', (await pg.evaluate(() => window.__spoken.slice(-1)[0])).text === '松树');
 
-  // -- reading aloud: the passage pasted once, her reading recorded, transcribed, aligned
-  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
-  const title = (sel) => pg.textContent(`${sel} [data-slot=card-title]`);
-  check('each task card is titled by kind, in Chinese by default', (await title('[data-testid=zh-read]')) === '阅读' && (await title('[data-testid=zh-workbook]')) === '练习册' && (await title('[data-testid=zh-dictation-card]')) === '听写');
+  // -- the dashboard, the workbook page and the checklist, in both languages
+  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-subjects]');
+  const subjNames = async () => pg.$$eval('[data-testid=zh-subject-row] button:first-of-type', (n) => n.map((x) => x.textContent.trim()).join(' '));
+  check('the four subjects are the textbook, the workbook, dictation and reading, in Chinese by default', (await subjNames()) === '课本 练习册 听写 阅读', await subjNames());
   check('the page is one language: no English helper text beside the Chinese', !/the words printed|Shown, then|On paper/.test(await pg.textContent('[data-testid=zh-home]')));
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
-  check('the header toggle turns the whole page English', (await title('[data-testid=zh-read]')) === 'Reading' && (await title('[data-testid=zh-dictation-card]')) === 'Dictation' && /This week/.test(await pg.textContent('[data-slot=sidebar]')));
+  check('the header toggle turns the whole page English', (await subjNames()) === 'Textbook Workbook Dictation Reading' && /Dashboard/.test(await pg.textContent('[data-slot=sidebar]')) && /Continue/.test(await pg.textContent('[data-testid=zh-continue-practice]')));
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(100);
-  check('and back', (await title('[data-testid=zh-read]')) === '阅读');
-  await both('the week: its three cards, the workbook list, the passage box', HOME);
-  // The workbook list is a section per weekday: the first day with work left is
-  // open (Monday — only Tuesday's block has been sat so far), the rest closed,
-  // and a tap on a day's heading opens or closes it.
-  check('the workbook is a section per weekday, the first with work left open and the rest closed', (await pg.$$('[data-testid=zh-day-section]')).length === 4 && (await pg.$$eval('[data-testid=zh-day-section]', (n) => n.map((x) => x.dataset.open).join(''))) === '1000', await pg.$$eval('[data-testid=zh-day-section]', (n) => n.map((x) => x.dataset.day + ':' + x.dataset.open).join(' ')));
-  await pg.click('[data-testid=zh-day-section][data-day="星期二"] [data-testid=zh-day]'); await pg.waitForTimeout(80);
-  check('and a tap on a day opens it', (await pg.getAttribute('[data-testid=zh-day-section][data-day="星期二"]', 'data-open')) === '1');
-  await pg.click('[data-testid=zh-day-section][data-day="星期二"] [data-testid=zh-day]'); await pg.waitForTimeout(80);
-  check('and closes it again', (await pg.getAttribute('[data-testid=zh-day-section][data-day="星期二"]', 'data-open')) === '0');
+  check('and back', (await subjNames()) === '课本 练习册 听写 阅读');
+  await both('the dashboard: 今天, the lesson, the subjects', HOME);
+  // the workbook is its own page: a card per weekday, every row the checklist's row
+  await pg.evaluate(() => { location.hash = '#/chinese/workbook/L05'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
+  check('the workbook page is a card per weekday with the checklist\'s rows, the sat block ticked and nothing else', (await pg.$$('[data-testid=zh-day-card]')).length === 4 && (await pg.$$('[data-testid=zh-exercise]')).length === 17 && (await pg.$$('[data-testid=zh-sitting]')).length === 4 && (await pg.$$('[data-testid=zh-exercise][data-done="0"]')).length === 17 && (await pg.$$('[data-testid=zh-sitting][data-done="1"]')).length === 1);
+  await both('the workbook page', WB);
+  // the checklist: the week's reading, workbook and dictation as rows that tick themselves
+  await pg.evaluate(() => { location.hash = '#/chinese/checklist'; }); await pg.waitForSelector('[data-testid=zh-checklist]');
+  check('the checklist holds the reading, the twenty-one workbook rows and the dictation, and only the sat block is ticked', (await pg.$$('[data-testid=zh-ck-item]')).length === 23 && (await pg.$$('[data-testid=zh-ck-item][data-done="1"]')).length === 1 && (await pg.getAttribute('[data-testid=zh-ck-item][data-id="zb:L05-D2"]', 'data-done')) === '1');
+  await both('the checklist', CK);
+  // -- reading aloud: her reading recorded; the review brings the text
+  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-subjects]');
   // What the book says, known to the evaluator and never to the site: she reads
   // from the book, and the review brings the text with it (docs/review.md).
   const passage = '河水是深还是浅，最好你自己去试试。突然停电了，只好请别人帮忙。';
-  await pg.click('[data-testid=zh-read-open]'); await pg.waitForSelector('[data-testid=zh-rec-start]');
+  await pg.click('[data-testid=zh-subject-row][data-id=read] button:last-of-type'); await pg.waitForSelector('[data-testid=zh-rec-start]');
+  check('the reading row\'s 朗读 opens the reading page', (await pg.evaluate(() => location.hash)) === '#/chinese/read/L05');
   check('the reading page holds no text of the book and says which pages to open', !(await pg.$('[data-testid=zh-passage]')) && /课本第55–56页/.test(await pg.textContent('[data-testid=zh-read-page]')) && !((await ls(pg)).zh['text:L05:阅读《谦虚过度》']));
   await pg.evaluate(() => { window.__asr = '河水是深还是浅最好你自己去试试突然只好请别人帮忙'; });   // 停电了 unheard: three characters
   await pg.click('[data-testid=zh-rec-start]'); await pg.waitForSelector('[data-testid=zh-rec-stop]'); await pg.waitForTimeout(250);
@@ -356,9 +363,11 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   st = await ls(pg);
   const att = ((st.zh['hw:2026-09-30'] || {}).read || {}).attempts || [];
   check('the reading is kept: transcript, counts, file id, done', att.length === 1 && att[0].transcript === '河水是深还是浅最好你自己去试试突然只好请别人帮忙' && !('matched' in att[0]) && att[0].fileId === 'media1' && st.zh['hw:2026-09-30'].read.done === true, JSON.stringify(att[0] || null));
-  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-read]');
-  check('the week card shows it read, with the last reading and no text of the book', /已读/.test(await pg.textContent('[data-testid=zh-read]')) && /上次: \d+ 秒/.test(await pg.textContent('[data-testid=zh-read]')) && !/河水是深还是浅/.test(await pg.textContent('[data-testid=zh-read]')));
-  check('the dictation card counts the rating', (await pg.textContent('[data-testid=zh-rated-count]')) === '1');
+  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-subjects]');
+  check('the dashboard\'s reading row shows it read, with the last reading and no text of the book', /上次 \d+ 秒/.test(await pg.textContent('[data-testid=zh-subject-row][data-id=read]')) && !/河水是深还是浅/.test(await pg.textContent('[data-testid=zh-home]')));
+  check('and the dictation row counts the rating', /已评 1 \/ 23/.test(await pg.textContent('[data-testid=zh-subject-row][data-id=dictation]')));
+  await pg.evaluate(() => { location.hash = '#/chinese/checklist'; }); await pg.waitForSelector('[data-testid=zh-checklist]');
+  check('and the checklist ticks the reading', (await pg.getAttribute('[data-testid=zh-ck-item][data-id=read]', 'data-done')) === '1');
   // -- the workbook's closed exercises, marked by rule
   await pg.evaluate(() => { location.hash = '#/chinese/ex/zx:L05-D3-04'; }); await pg.waitForSelector('[data-testid=zh-ex]');
   // The address names the exercise, never the week; the week is found from the
@@ -415,8 +424,8 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('a tap rather than a drag still sorts: 松 steps into the first box', (await inZone(0)) === 4 && (await inPool()) === 0);
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
   check('the structure sort marks itself', /6 \/ 6/.test(await pg.textContent('[data-testid=zh-ex-result]')));
-  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
-  check('the workbook card lists the exercises with their marks', (await pg.$$('[data-testid=zh-exercise]')).length === 17 && (await pg.$$('[data-testid=zh-sitting]')).length === 4 && /5\/5/.test(await pg.textContent('[data-testid=zh-workbook]')) && /3\/4/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  await pg.evaluate(() => { location.hash = '#/chinese/workbook/L05'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
+  check('the workbook page lists the exercises with their marks', (await pg.$$('[data-testid=zh-exercise]')).length === 17 && (await pg.$$('[data-testid=zh-sitting]')).length === 4 && /5\/5/.test(await pg.textContent('[data-testid=zh-workbook]')) && /3\/4/.test(await pg.textContent('[data-testid=zh-workbook]')));
   const order = await pg.$$eval('[data-testid=zh-exercise], [data-testid=zh-sitting]', (n) => n.map((x) => x.dataset.id));
   check('and in the book\'s order: day by day, by exercise number, the writing before its sort, the block in its place', order.slice(0, 7).join(' ') === 'zx:L05-D1-01w zx:L05-D1-01s zx:L05-D1-02 zx:L05-D1-02w zx:L05-D1-03 zb:L05-D1 zx:L05-D1-05' && order[order.length - 1] === 'zx:L05-D4-04' && order.indexOf('zb:L05-D4') === order.indexOf('zx:L05-D4-02') - 1, order.join(' '));
   check('with a heading per weekday', (await pg.$$('[data-testid=zh-day]')).length === 4);
@@ -542,7 +551,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('once evaluated, the comparison is on her page: highlighted misses, transcript beside, the note', (await pg.$$eval('[data-testid=zh-compare] [data-hit="0"]', (n) => n.map((x) => x.textContent).join(''))) === '停电了' && /河水是深还是浅/.test(await pg.textContent('[data-testid=zh-compare] [data-testid=zh-transcript]')) && /读得不清楚/.test(await pg.textContent('[data-testid=zh-read-result]')) && /已批改/.test(await pg.textContent('[data-testid=zh-read-result]')));
   check('and highlighted amber, not red', !(await pg.$('[data-testid=zh-compare] .text-destructive')) && !!(await pg.$('[data-testid=zh-compare] .bg-warning-soft')));
   check('and the review kept the passage and what was heard', (got.items.find((x) => x.id === 'read') || {}).passage === passage);
-  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
+  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-home]');
   check('the review card shows under the week\'s tasks', /这一周的作业做得很认真/.test(await pg.textContent('[data-testid=zh-home]')));
   check('and its chrome is in the page\'s language', /批改/.test(await pg.textContent('[data-testid=essay-review]')) && !/What a reader noticed|Try this|For next week/.test(await pg.textContent('[data-testid=essay-review]')));
   // The card's own words are chrome; what the reviewer wrote is not, so this is
@@ -551,6 +560,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   const rcEn = await pg.textContent('[data-testid=essay-review]');
   check('flipped to English, the review card\'s labels and the week it names follow', /What a reader noticed/.test(rcEn) && /What worked/.test(rcEn) && /Try this/.test(rcEn) && /For next week:/.test(rcEn) && /Chinese · 2026-09-30/.test(rcEn) && !/批改|做得好|试试这样|下周：|中文 · /.test(rcEn), rcEn.slice(0, 80));
   await pg.click('[data-testid=lang-toggle]'); await pg.waitForTimeout(120);
+  await pg.evaluate(() => { location.hash = '#/chinese/workbook/L05'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
   check('and the free exercise it spoke to reads reviewed, not awaiting', /已批改/.test(await pg.textContent('[data-testid=zh-workbook]')));
   await pg.evaluate(() => { location.hash = '#/chinese/ex/zx:L05-D1-03'; }); await pg.waitForSelector('[data-testid=zh-ex]');
   check('the note sits beside the item it is about', /可以写「正当」/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=1')) && !/正当/.test(await pg.textContent('[data-testid=zh-free-item] >> nth=0')));
@@ -566,8 +576,12 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   st = await ls(pg);
   check('and kept, without a score', (((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D3-01'] || {}).read && !('right' in (((st.zh['hw:2026-09-30'] || {}).exercises || {})['zx:L05-D3-01'] || {})));
   check('nothing is left on paper', (await pg.$$('[data-testid=zh-home] details')).length === 0 || true);
-  await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
-  check('the workbook card tells the states apart', /已批改/.test(await pg.textContent('[data-testid=zh-workbook]')) && /家长已听/.test(await pg.textContent('[data-testid=zh-workbook]')) && /已读/.test(await pg.textContent('[data-testid=zh-workbook]')) && /6\/6/.test(await pg.textContent('[data-testid=zh-workbook]')) && !/纸上作业/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  await pg.evaluate(() => { location.hash = '#/chinese/workbook/L05'; }); await pg.waitForSelector('[data-testid=zh-workbook]');
+  check('the workbook page tells the states apart', /已批改/.test(await pg.textContent('[data-testid=zh-workbook]')) && /家长已听/.test(await pg.textContent('[data-testid=zh-workbook]')) && /已读/.test(await pg.textContent('[data-testid=zh-workbook]')) && /6\/6/.test(await pg.textContent('[data-testid=zh-workbook]')) && !/纸上作业/.test(await pg.textContent('[data-testid=zh-workbook]')));
+  // -- 成绩: each number on its own, none folded into one
+  await pg.evaluate(() => { location.hash = '#/chinese/score'; }); await pg.waitForSelector('[data-testid=zh-score]');
+  check('成绩 says each number on its own: characters from memory, the workbook, dictation, reading, review', /\d+ \/ 10/.test(await pg.textContent('[data-testid=zh-score-write]')) && /\d+ \/ 21/.test(await pg.textContent('[data-testid=zh-score-workbook]')) && /\d+ \/ 23/.test(await pg.textContent('[data-testid=zh-score-dictation]')) && !!(await pg.$('[data-testid=zh-score-read]')) && !!(await pg.$('[data-testid=zh-score-review]')) && !/%/.test(await pg.textContent('[data-testid=zh-score]')));
+  await both('成绩', SC);
   // -- something due: the lesson card grows a way into 复习, and only then. A
   // miss schedules its question for tomorrow, so today the pile is empty by
   // design; the record is moved to yesterday by hand, held past the flush.

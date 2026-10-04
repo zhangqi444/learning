@@ -1,7 +1,8 @@
 import * as React from "react"
 import { Award, Blocks, BookA, Languages, Volume2, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
 
-import { D, ORDER, SUBJ, subjProgress, zhHomework, zhLessonLabel, zhLessons } from "@/lib/content"
+import { D, ORDER, SUBJ, subjProgress, zhLessonLabel } from "@/lib/content"
+import { currentZhLesson, noteFor, zhNextUp } from "@/pages/chinese"
 import { W, WZ } from "@/lib/world"
 import { reviewQueue } from "@/lib/engine"
 import { recentBadges } from "@/lib/rewards"
@@ -55,7 +56,7 @@ export function AppSidebar({ route, ...props }) {
   const isee = cat === "isee" && !zhImport
   const top = rest[0] || ""
   const activeSub = top === "s" || top === "run" ? rest[1] : top === "precision" ? "vr" : null
-  const zhLesson = zhLessons()[0], zhNote = zhHomework()[0]
+  const zhLesson = currentZhLesson(), zhNote = zhLesson ? noteFor(zhLesson.id) : null, zhNext = zhNote ? zhNextUp(zhNote) : null
 
   return (
     <Sidebar collapsible="offcanvas" {...props}>
@@ -83,30 +84,47 @@ export function AppSidebar({ route, ...props }) {
       <SidebarContent>
         {!isee && zhLesson ? (
           <SidebarGroup>
-            <SidebarGroupContent>
+            <SidebarGroupContent className="flex flex-col gap-2">
+              {/* The same working list the ISEE half has — 继续, the dashboard, the
+                  checklist, review, score — so the two halves are one site. */}
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton tooltip={t("本周作业", "This week's homework")} isActive={top === ""} onClick={() => nav("/chinese")}>
-                    <ListChecks /><span>{t("本周", "This week")}</span>
+                  <SidebarMenuButton
+                    size="lg"
+                    tooltip={zhNext ? t(`下一项：${zhNext.label}`, `Next: ${zhNext.label}`) : t("这周的作业都做完了", "Everything this week is done")}
+                    onClick={() => nav(zhNext ? zhNext.path : "/chinese")}
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground min-w-8 duration-200 ease-linear"
+                    data-testid="zh-continue-practice"
+                  >
+                    <Play className="shrink-0" />
+                    <span className="flex min-w-0 flex-col leading-tight">
+                      <span className="font-medium">{zhNext ? t("继续", "Continue") : t("都做完了", "All done")}</span>
+                      <span className="truncate text-xs opacity-80">{zhNext ? zhNext.label : t("这周没有剩下的了", "nothing left this week")}</span>
+                    </span>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton tooltip={t("首页", "Dashboard")} isActive={top === ""} onClick={() => nav("/chinese")}>
+                    <LayoutDashboard /><span>{t("首页", "Dashboard")}</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton tooltip={zhLessonLabel(zhLesson)} isActive={top === "l"} onClick={() => nav("/chinese/l/" + zhLesson.id)}>
-                    <BookOpen /><span>{zhLessonLabel(zhLesson)}</span>
+                  <SidebarMenuButton tooltip={t("清单", "Checklist")} isActive={top === "checklist"} onClick={() => nav("/chinese/checklist")}>
+                    <ListChecks /><span>{t("清单", "Checklist")}</span>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-                {zhNote ? (
-                  <SidebarMenuItem>
-                    <SidebarMenuButton tooltip={t("听写", "Dictation")} isActive={top === "dictation"} onClick={() => nav("/chinese/dictation/" + zhNote.lesson)}>
-                      <Volume2 /><span>{t("听写", "Dictation")}</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ) : null}
                 <SidebarMenuItem>
                   <SidebarMenuButton tooltip={t("复习", "Review")} isActive={top === "review"} onClick={() => nav("/chinese/review")}>
                     <RotateCcw /><span>{t("复习", "Review")}</span>
                   </SidebarMenuButton>
                   {zhDue ? <SidebarMenuBadge className="bg-destructive text-white rounded-full h-5 min-w-5 px-1.5" data-testid="zh-due">{zhDue}</SidebarMenuBadge> : null}
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton tooltip={t("成绩", "Score")} isActive={top === "score"} onClick={() => nav("/chinese/score")}>
+                    <Trophy /><span>{t("成绩", "Score")}</span>
+                  </SidebarMenuButton>
                 </SidebarMenuItem>
               </SidebarMenu>
             </SidebarGroupContent>
@@ -228,6 +246,35 @@ export function AppSidebar({ route, ...props }) {
           </SidebarGroupContent>
         </SidebarGroup>
 
+        {!isee && zhLesson ? (
+        <SidebarGroup data-testid="zh-subjects-group">
+          <SidebarGroupLabel>{t("科目", "Subjects")}</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip={zhLessonLabel(zhLesson)} isActive={top === "l"} onClick={() => nav("/chinese/l/" + zhLesson.id)}>
+                  <BookOpen /><span>{t("课本", "Textbook")}</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip={t("练习册", "Workbook")} isActive={top === "workbook" || top === "ex" || top === "block"} onClick={() => nav("/chinese/workbook/" + zhLesson.id)}>
+                  <PenLine /><span>{t("练习册", "Workbook")}</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip={t("听写", "Dictation")} isActive={top === "dictation"} onClick={() => nav("/chinese/dictation/" + zhLesson.id)}>
+                  <Volume2 /><span>{t("听写", "Dictation")}</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip={t("阅读", "Reading")} isActive={top === "read"} onClick={() => nav("/chinese/read/" + zhLesson.id)}>
+                  <BookMarked /><span>{t("阅读", "Reading")}</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+        ) : null}
         {isee ? (
         <SidebarGroup>
           <SidebarGroupLabel>Subjects</SidebarGroupLabel>

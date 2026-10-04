@@ -128,9 +128,28 @@ stays:
 in `localStorage` only — it is a convenience, not learning evidence, so it has no
 business in Drive.
 
+**The Chinese half has the ISEE half's shape** (the owner's ask, 3 October: "why
+is the site not organized the same way as ISEE — continue, dashboard, checklist,
+score, then the subjects"). The sidebar's working list is 继续, 首页, 清单, 复习,
+成绩; its subjects group is the four parts of a lesson — 课本, 练习册, 听写,
+阅读 — each a page for the lesson she is on. `#/chinese` is the dashboard: 今天
+with what is next and 继续, the lesson's cats, the four subjects with their
+state, the week's reviews. `#/chinese/checklist` is the week's homework as the
+checklist the ISEE half has, every row ticking itself from her work (the row is
+`checklist.jsx`'s own `Row`, with Chinese words); `#/chinese/workbook/L05` is the
+workbook, a card per weekday of the same rows (the owner asked why the workbook
+did not look like the checklist); `#/chinese/score` is 成绩 — each number on its
+own and never folded into one, because § 3 holds. One function, `zhWeekItems`,
+is the source for 今天, 清单, 练习册 and 继续, so they cannot disagree. A lesson
+nobody has assigned this week (第三课, 第四课) still has all four pages: its
+note is synthesised from the lesson and its exercises file (`noteFor`), its
+record lands under `hw:<lesson>`, and a review may target `set: "L03"`. The
+four-choice blocks live in the lesson's exercises file beside its exercises,
+not in the homework note, for the same reason.
+
 A Chinese address names the lesson or the exercise, never the week:
-`#/chinese/read/L05`, `#/chinese/dictation/L05`, `#/chinese/ex/zx:L05-D1-01s`,
-`#/chinese/block/zb:L05-D2`. The first version put the homework note's date in
+`#/chinese/read/L05`, `#/chinese/dictation/L05`, `#/chinese/workbook/L05`,
+`#/chinese/ex/zx:L05-D1-01s`, `#/chinese/block/zb:L05-D2`. The first version put the homework note's date in
 every one of them (`#/chinese/ex/2026-09-30/zx:L05-D1-01s`), and the owner asked
 why a page about an exercise should be bound to a date — her progress is hers,
 not the week's (2 October). The week is found from the lesson in the id — the

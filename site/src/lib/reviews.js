@@ -27,7 +27,8 @@ export function normalizeReview(raw) {
   if (t.kind === "week" && planWeeks().includes(t.wk)) target = { kind: "week", wk: t.wk }
   if (t.kind === "month" && /^\d{4}-\d{2}$/.test(t.m || "")) target = { kind: "month", m: t.m }
   // One week of Chinese homework, by the date of the teacher's note (docs/chinese.md § 8).
-  if (t.kind === "zh" && D.zh && D.zh.homework && D.zh.homework[t.set]) target = { kind: "zh", set: t.set }
+  // the date of a homework note, or a lesson id for a lesson she practises without one
+  if (t.kind === "zh" && D.zh && ((D.zh.homework || {})[t.set] || (D.zh.lessons || {})[t.set])) target = { kind: "zh", set: t.set }
   if (!target) return null
   const summary = str(raw.summary)
   if (!summary) return null
@@ -136,7 +137,7 @@ export function reviewTargetLabel(r) {
   if (t.kind === "essay") return `Essay · ${t.wk}`
   if (t.kind === "week") return `${t.wk} · the week`
   if (t.kind === "month") return monthName(t.m)
-  if (t.kind === "zh") return `${pick("中文", "Chinese")} · ${t.set}`
+  if (t.kind === "zh") { const l = D.zh && D.zh.lessons && D.zh.lessons[t.set]; return `${pick("中文", "Chinese")} · ${l ? pick(`第${l.no}课`, `Lesson ${l.no}`) : t.set}` }
   const m = D.mocks.find((x) => x.id === t.form)
   return `${m ? m.name : t.form} · essay`
 }

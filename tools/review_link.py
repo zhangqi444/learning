@@ -34,6 +34,8 @@ def load_content():
     if hw.is_dir():
         for f in sorted(hw.glob("*.json")):
             n = json.loads(f.read_text()); zh_sets.add(n.get("set"))
+    for f in sorted((ROOT / "content" / "chinese" / "lessons").glob("*.json")) if (ROOT / "content" / "chinese" / "lessons").exists() else []:
+        zh_sets.add(json.loads(f.read_text()).get("id"))   # a lesson practised without a note is reviewed under its id
     exd = ROOT / "content" / "chinese" / "exercises"
     if exd.is_dir():
         for f in sorted(exd.glob("*.json")):
@@ -49,7 +51,7 @@ def check(r):
     t = r.get("target") or {}
     kind = t.get("kind")
     if kind == "zh":
-        if t.get("set") not in zh_sets: errs.append(f"target.set must be the date of a homework note: {sorted(zh_sets)}")
+        if t.get("set") not in zh_sets: errs.append(f"target.set must be the date of a homework note, or a lesson id: {sorted(zh_sets)}")
         items = r.get("items", [])
         if not isinstance(items, list): errs.append("items must be a list of {id, ok, note}")
         elif len(items) > 20: errs.append("at most twenty item notes")
