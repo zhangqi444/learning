@@ -1,0 +1,1341 @@
+{
+ "lesson": "L04",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》",
+ "file_note": "The workbook's exercises for 第四课, typed from 练习册B pp. 16–30 (PDF index = printed + 4, verified on p. 16: 练习册A holds the odd lessons only, 1·3·5·7·9·11, and 练习册B the even ones). Same shapes as L05. Left out because no type fits, with their keys so a type can be added: 星期一 练习3 (p. 17–18, choose the word for a picture, two options each: 这是一匹骆驼 / 他俩在玩游戏 / 妈妈有两件漂亮的大衣 / 弟弟个子矮); 星期五 练习1 (p. 27, listen and choose, two options each — the script is in the appendix on p. 82: (1) 羊比骆驼矮 → A 羊 (2) 坐在我旁边的是云云 → A \"我\"旁边 (3) 画画儿是我的长处 → A 画画儿 (4) 园子四面有围墙 → A 围墙; 门又矮又窄 → B 又矮又窄). A two-choice `pick` type with the book's own options per item would take both.",
+ "blocks": [
+  {
+   "id": "zb:L04-D2",
+   "day": "星期二",
+   "page": 20,
+   "ex": 3,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L04-01",
+    "zc:L04-02",
+    "zc:L04-03",
+    "zc:L04-04"
+   ]
+  },
+  {
+   "id": "zb:L04-D4",
+   "day": "星期四",
+   "page": 25,
+   "ex": 2,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L04-05",
+    "zc:L04-06",
+    "zc:L04-07",
+    "zc:L04-08"
+   ]
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L04-D1-01w",
+   "day": "星期一",
+   "page": 16,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看旁边的词想字，用笔写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "The word beside the box tells you the character; write it with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L04-D1-01w-1",
+     "py": "kěn",
+     "context": "＿定",
+     "key": "肯",
+     "explanation": {
+      "zh": "肯定：kěn。",
+      "en": "肯定 — kěn, certainly."
+     }
+    },
+    {
+     "id": "zx:L04-D1-01w-2",
+     "py": "shū",
+     "context": "认＿",
+     "key": "输",
+     "explanation": {
+      "zh": "认输：shū。",
+      "en": "认输 — shū, admit defeat."
+     }
+    },
+    {
+     "id": "zx:L04-D1-01w-3",
+     "py": "zhǎi",
+     "context": "＿小",
+     "key": "窄",
+     "explanation": {
+      "zh": "窄小：zhǎi。",
+      "en": "窄小 — zhǎi, narrow and small."
+     }
+    },
+    {
+     "id": "zx:L04-D1-01w-4",
+     "py": "zhǎo",
+     "context": "＿人",
+     "key": "找",
+     "explanation": {
+      "zh": "找人：zhǎo。",
+      "en": "找人 — zhǎo, look for someone."
+     }
+    },
+    {
+     "id": "zx:L04-D1-01w-5",
+     "py": "píng",
+     "context": "批＿",
+     "key": "评",
+     "explanation": {
+      "zh": "批评：píng。",
+      "en": "批评 — píng, criticize."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D1-01s",
+   "day": "星期一",
+   "page": 16,
+   "ex": 1,
+   "type": "sort",
+   "title": "上下结构，还是左右结构？",
+   "title_en": "Top–bottom structure, or left–right?",
+   "groups": [
+    "上下结构",
+    "左右结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L04-D1-01s-1",
+     "text": "肯",
+     "key": 0,
+     "explanation": {
+      "zh": "止在上、月在下：上下结构。",
+      "en": "止 above, 月 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L04-D1-01s-2",
+     "text": "输",
+     "key": 1,
+     "explanation": {
+      "zh": "车在左、俞在右：左右结构。",
+      "en": "车 on the left, 俞 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L04-D1-01s-3",
+     "text": "窄",
+     "key": 0,
+     "explanation": {
+      "zh": "穴在上、乍在下：上下结构。",
+      "en": "穴 above, 乍 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L04-D1-01s-4",
+     "text": "找",
+     "key": 1,
+     "explanation": {
+      "zh": "扌在左、戈在右：左右结构。",
+      "en": "扌 on the left, 戈 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L04-D1-01s-5",
+     "text": "评",
+     "key": 1,
+     "explanation": {
+      "zh": "讠在左、平在右：左右结构。",
+      "en": "讠 on the left, 平 on the right: left–right."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D1-02",
+   "day": "星期一",
+   "page": 17,
+   "ex": 2,
+   "type": "match",
+   "title": "开动脑筋，找一找反义词",
+   "title_en": "Think and find the opposite words",
+   "note": {
+    "zh": "点左边的字，再点右边意思相反的字。课本已填好一个：大—小。",
+    "en": "Tap a character on the left, then its opposite on the right. The book has filled one in: 大—小."
+   },
+   "left": [
+    "大",
+    "高",
+    "宽",
+    "赢",
+    "长"
+   ],
+   "right": [
+    "小",
+    "短",
+    "输",
+    "窄",
+    "矮"
+   ],
+   "pairs": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     4,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L04-D1-02-1",
+     "left": "大",
+     "key": 0,
+     "explanation": {
+      "zh": "大的反义词是小——课本给的例子。",
+      "en": "The opposite of 大 (big) is 小 (small) — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L04-D1-02-2",
+     "left": "高",
+     "key": 4,
+     "explanation": {
+      "zh": "高的反义词是矮：骆驼长得高，羊长得矮。",
+      "en": "The opposite of 高 (tall) is 矮 (short): the camel is tall, the sheep is short."
+     }
+    },
+    {
+     "id": "zx:L04-D1-02-3",
+     "left": "宽",
+     "key": 3,
+     "explanation": {
+      "zh": "宽的反义词是窄：又窄又矮的门。",
+      "en": "The opposite of 宽 (wide) is 窄 (narrow), as in the narrow, low door."
+     }
+    },
+    {
+     "id": "zx:L04-D1-02-4",
+     "left": "赢",
+     "key": 2,
+     "explanation": {
+      "zh": "赢的反义词是输：不肯认输。",
+      "en": "The opposite of 赢 (win) is 输 (lose), as in 不肯认输."
+     }
+    },
+    {
+     "id": "zx:L04-D1-02-5",
+     "left": "长",
+     "key": 1,
+     "explanation": {
+      "zh": "长的反义词是短：长处和短处。",
+      "en": "The opposite of 长 (long) is 短 (short), as in 长处 and 短处."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D1-04",
+   "day": "星期一",
+   "page": 18,
+   "ex": 4,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match to form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：事—情。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 事—情."
+   },
+   "left": [
+    "事",
+    "证",
+    "茂",
+    "旁",
+    "围"
+   ],
+   "right": [
+    "情",
+    "明",
+    "墙",
+    "边",
+    "盛"
+   ],
+   "pairs": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     4,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L04-D1-04-1",
+     "left": "事",
+     "key": 0,
+     "word": "事情",
+     "explanation": {
+      "zh": "事—情：事情——课本给的例子。",
+      "en": "事 + 情 = 事情, a matter — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L04-D1-04-2",
+     "left": "证",
+     "key": 1,
+     "word": "证明",
+     "explanation": {
+      "zh": "证—明：证明。",
+      "en": "证 + 明 = 证明, prove."
+     }
+    },
+    {
+     "id": "zx:L04-D1-04-3",
+     "left": "茂",
+     "key": 4,
+     "word": "茂盛",
+     "explanation": {
+      "zh": "茂—盛：茂盛。",
+      "en": "茂 + 盛 = 茂盛, lush."
+     }
+    },
+    {
+     "id": "zx:L04-D1-04-4",
+     "left": "旁",
+     "key": 3,
+     "word": "旁边",
+     "explanation": {
+      "zh": "旁—边：旁边。",
+      "en": "旁 + 边 = 旁边, beside."
+     }
+    },
+    {
+     "id": "zx:L04-D1-04-5",
+     "left": "围",
+     "key": 2,
+     "word": "围墙",
+     "explanation": {
+      "zh": "围—墙：围墙。",
+      "en": "围 + 墙 = 围墙, an enclosing wall."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D1-04w",
+   "day": "星期一",
+   "page": 18,
+   "ex": 4,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match to form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把四个词各写一遍（课本已写好：事情）。",
+    "en": "The matching was done on the site; here write each of the four words once (the book has written 事情 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L04-D1-04w-1",
+     "prompt": "证＋明 → 写出词语",
+     "prompt_en": "证 + 明 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D1-04w-2",
+     "prompt": "茂＋盛 → 写出词语",
+     "prompt_en": "茂 + 盛 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D1-04w-3",
+     "prompt": "旁＋边 → 写出词语",
+     "prompt_en": "旁 + 边 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D1-04w-4",
+     "prompt": "围＋墙 → 写出词语",
+     "prompt_en": "围 + 墙 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D2-01",
+   "day": "星期二",
+   "page": 19,
+   "ex": 1,
+   "type": "write",
+   "title": "连一连，写一写",
+   "title_en": "Match and write",
+   "outline": false,
+   "note": {
+    "zh": "课本里先把上面的部件和下面的连起来，再写字；这里直接按部件写出字。马和亻各用两次。课本已连好一组：亻—两，俩。",
+    "en": "The book has you join a part from the top row to one below, then write the character; here write it from the parts given. 马 and 亻 are each used twice. The book has drawn one line already: 亻—两, 俩."
+   },
+   "shape_note": "Not a `match` because two of the four top parts (马, 亻) each pair with two of the six bottom parts, and a match's pairs must cover each side exactly once. The writing half carries the whole exercise.",
+   "items": [
+    {
+     "id": "zx:L04-D2-01-1",
+     "parts": "亻＋两",
+     "key": "俩",
+     "explanation": {
+      "zh": "亻在左，两在右：俩——课本给的例子。",
+      "en": "亻 on the left, 两 on the right: 俩 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L04-D2-01-2",
+     "parts": "马＋各",
+     "key": "骆",
+     "explanation": {
+      "zh": "马在左，各在右：骆。",
+      "en": "马 on the left, 各 on the right: 骆."
+     }
+    },
+    {
+     "id": "zx:L04-D2-01-3",
+     "parts": "马＋它",
+     "key": "驼",
+     "explanation": {
+      "zh": "马在左，它在右：驼。",
+      "en": "马 on the left, 它 on the right: 驼."
+     }
+    },
+    {
+     "id": "zx:L04-D2-01-4",
+     "parts": "矢＋委",
+     "key": "矮",
+     "explanation": {
+      "zh": "矢在左，委在右：矮。",
+      "en": "矢 on the left, 委 on the right: 矮."
+     }
+    },
+    {
+     "id": "zx:L04-D2-01-5",
+     "parts": "亻＋牛",
+     "key": "件",
+     "explanation": {
+      "zh": "亻在左，牛在右：件。",
+      "en": "亻 on the left, 牛 on the right: 件."
+     }
+    },
+    {
+     "id": "zx:L04-D2-01-6",
+     "parts": "扌＋八",
+     "key": "扒",
+     "explanation": {
+      "zh": "扌在左，八在右：扒。",
+      "en": "扌 on the left, 八 on the right: 扒."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D2-02",
+   "day": "星期二",
+   "page": 19,
+   "ex": 2,
+   "type": "sort",
+   "title": "根据提示找出部首相同的字",
+   "title_en": "Follow the prompts to find the characters with the same radicals",
+   "note": {
+    "zh": "把每个字放进它部首的格子里。课本已写好一个：马——骆。",
+    "en": "Put each character in the box of its radical. The book has placed one already: 马 — 骆."
+   },
+   "groups": [
+    "马",
+    "足",
+    "矢",
+    "扌"
+   ],
+   "items": [
+    {
+     "id": "zx:L04-D2-02-1",
+     "text": "跑",
+     "key": 1,
+     "explanation": {
+      "zh": "跑的部首是足字旁。",
+      "en": "The radical of 跑 is 足, the foot."
+     }
+    },
+    {
+     "id": "zx:L04-D2-02-2",
+     "text": "骆",
+     "key": 0,
+     "explanation": {
+      "zh": "骆的部首是马——课本给的例子。",
+      "en": "The radical of 骆 is 马 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L04-D2-02-3",
+     "text": "跪",
+     "key": 1,
+     "explanation": {
+      "zh": "跪的部首是足字旁：跪下用的是腿。",
+      "en": "The radical of 跪 is 足: you kneel with your legs."
+     }
+    },
+    {
+     "id": "zx:L04-D2-02-4",
+     "text": "短",
+     "key": 2,
+     "explanation": {
+      "zh": "短的部首是矢。",
+      "en": "The radical of 短 is 矢."
+     }
+    },
+    {
+     "id": "zx:L04-D2-02-5",
+     "text": "扒",
+     "key": 3,
+     "explanation": {
+      "zh": "扒的部首是扌：用手扒。",
+      "en": "The radical of 扒 is 扌, the hand."
+     }
+    },
+    {
+     "id": "zx:L04-D2-02-6",
+     "text": "矮",
+     "key": 2,
+     "explanation": {
+      "zh": "矮的部首是矢——课本第39页写着\"矢→矮\"。",
+      "en": "The radical of 矮 is 矢 — the textbook prints 矢 → 矮 on p. 39."
+     }
+    },
+    {
+     "id": "zx:L04-D2-02-7",
+     "text": "找",
+     "key": 3,
+     "explanation": {
+      "zh": "找的部首是扌。",
+      "en": "The radical of 找 is 扌, the hand."
+     }
+    },
+    {
+     "id": "zx:L04-D2-02-8",
+     "text": "驼",
+     "key": 0,
+     "explanation": {
+      "zh": "驼的部首是马，和骆一样。",
+      "en": "The radical of 驼 is 马, like 骆."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D2-04",
+   "day": "星期二",
+   "page": 21,
+   "ex": 4,
+   "type": "tf",
+   "title": "看图，选择正确的句子",
+   "title_en": "Look at the pictures and choose the correct sentences",
+   "note": {
+    "zh": "图在练习册第21页。每组两句，一句对、一句错。",
+    "en": "The pictures are on workbook p. 21. Each pair has one true sentence and one false."
+   },
+   "scope_note": "The book's pair (2) — 小明比爸爸瘦 / 小明比爸爸胖 — is left out: which is true depends on how the boy is drawn, and the picture does not settle it beyond doubt. The other three pairs are read from the picture (father taller) and from the world (summer hotter, ten bigger).",
+   "items": [
+    {
+     "id": "zx:L04-D2-04-1",
+     "text": "爸爸比小明高。",
+     "key": true,
+     "explanation": {
+      "zh": "图上爸爸高，小明矮：爸爸比小明高。",
+      "en": "In the picture the father is the tall one: 爸爸比小明高."
+     }
+    },
+    {
+     "id": "zx:L04-D2-04-2",
+     "text": "爸爸比小明矮。",
+     "key": false,
+     "explanation": {
+      "zh": "矮的是小明，不是爸爸。",
+      "en": "The short one is Xiaoming, not his father."
+     }
+    },
+    {
+     "id": "zx:L04-D2-04-3",
+     "text": "夏天比冬天冷。",
+     "key": false,
+     "explanation": {
+      "zh": "夏天热，冬天冷——图上一边是荷花，一边是雪人。",
+      "en": "Summer is hot and winter is cold — the lotus and the snowman in the pictures."
+     }
+    },
+    {
+     "id": "zx:L04-D2-04-4",
+     "text": "夏天比冬天热。",
+     "key": true,
+     "explanation": {
+      "zh": "夏天比冬天热。",
+      "en": "Summer is hotter than winter: 夏天比冬天热."
+     }
+    },
+    {
+     "id": "zx:L04-D2-04-5",
+     "text": "数字十比五大。",
+     "key": true,
+     "explanation": {
+      "zh": "十比五大。",
+      "en": "Ten is bigger than five: 十比五大."
+     }
+    },
+    {
+     "id": "zx:L04-D2-04-6",
+     "text": "数字十比五小。",
+     "key": false,
+     "explanation": {
+      "zh": "十比五大，不比五小。",
+      "en": "Ten is bigger than five, not smaller."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D3-01w",
+   "day": "星期三",
+   "page": 22,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看着部件，用笔把字写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "Look at the parts and write the character with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L04-D3-01w-1",
+     "parts": "止＋月",
+     "key": "肯",
+     "explanation": {
+      "zh": "止在上，月在下：肯。",
+      "en": "止 above, 月 below: 肯."
+     }
+    },
+    {
+     "id": "zx:L04-D3-01w-2",
+     "parts": "穴＋乍",
+     "key": "窄",
+     "explanation": {
+      "zh": "穴在上，乍在下：窄。",
+      "en": "穴 above, 乍 below: 窄."
+     }
+    },
+    {
+     "id": "zx:L04-D3-01w-3",
+     "parts": "足＋危",
+     "key": "跪",
+     "explanation": {
+      "zh": "足字旁在左，危在右：跪。",
+      "en": "足 on the left, 危 on the right: 跪."
+     }
+    },
+    {
+     "id": "zx:L04-D3-01w-4",
+     "parts": "钅＋占",
+     "key": "钻",
+     "explanation": {
+      "zh": "钅在左，占在右：钻。",
+      "en": "钅 on the left, 占 on the right: 钻."
+     }
+    },
+    {
+     "id": "zx:L04-D3-01w-5",
+     "parts": "矢＋豆",
+     "key": "短",
+     "explanation": {
+      "zh": "矢在左，豆在右：短。",
+      "en": "矢 on the left, 豆 on the right: 短."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D3-01s",
+   "day": "星期三",
+   "page": 22,
+   "ex": 1,
+   "type": "sort",
+   "title": "上下结构，还是左右结构？",
+   "title_en": "Top–bottom structure, or left–right?",
+   "groups": [
+    "上下结构",
+    "左右结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L04-D3-01s-1",
+     "text": "肯",
+     "key": 0,
+     "explanation": {
+      "zh": "止在上、月在下：上下结构。",
+      "en": "止 above, 月 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L04-D3-01s-2",
+     "text": "窄",
+     "key": 0,
+     "explanation": {
+      "zh": "穴在上、乍在下：上下结构。",
+      "en": "穴 above, 乍 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L04-D3-01s-3",
+     "text": "跪",
+     "key": 1,
+     "explanation": {
+      "zh": "足字旁在左、危在右：左右结构。",
+      "en": "足 on the left, 危 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L04-D3-01s-4",
+     "text": "钻",
+     "key": 1,
+     "explanation": {
+      "zh": "钅在左、占在右：左右结构。",
+      "en": "钅 on the left, 占 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L04-D3-01s-5",
+     "text": "短",
+     "key": 1,
+     "explanation": {
+      "zh": "矢在左、豆在右：左右结构。",
+      "en": "矢 on the left, 豆 on the right: left–right."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D3-02",
+   "day": "星期三",
+   "page": 23,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match to form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：枝—叶。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 枝—叶."
+   },
+   "left": [
+    "枝",
+    "抬",
+    "自",
+    "短"
+   ],
+   "right": [
+    "头",
+    "处",
+    "叶",
+    "己"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L04-D3-02-1",
+     "left": "枝",
+     "key": 2,
+     "word": "枝叶",
+     "explanation": {
+      "zh": "枝—叶：枝叶——课本给的例子。",
+      "en": "枝 + 叶 = 枝叶, branches and leaves — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L04-D3-02-2",
+     "left": "抬",
+     "key": 0,
+     "word": "抬头",
+     "explanation": {
+      "zh": "抬—头：抬头。",
+      "en": "抬 + 头 = 抬头, raise one's head."
+     }
+    },
+    {
+     "id": "zx:L04-D3-02-3",
+     "left": "自",
+     "key": 3,
+     "word": "自己",
+     "explanation": {
+      "zh": "自—己：自己。",
+      "en": "自 + 己 = 自己, oneself."
+     }
+    },
+    {
+     "id": "zx:L04-D3-02-4",
+     "left": "短",
+     "key": 1,
+     "word": "短处",
+     "explanation": {
+      "zh": "短—处：短处。",
+      "en": "短 + 处 = 短处, a weak point."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D3-02w",
+   "day": "星期三",
+   "page": 23,
+   "ex": 2,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match to form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把三个词各写一遍（课本已写好：枝叶）。",
+    "en": "The matching was done on the site; here write each of the three words once (the book has written 枝叶 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L04-D3-02w-1",
+     "prompt": "抬＋头 → 写出词语",
+     "prompt_en": "抬 + 头 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D3-02w-2",
+     "prompt": "自＋己 → 写出词语",
+     "prompt_en": "自 + 己 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D3-02w-3",
+     "prompt": "短＋处 → 写出词语",
+     "prompt_en": "短 + 处 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D3-03",
+   "day": "星期三",
+   "page": 23,
+   "ex": 3,
+   "type": "free",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "note": {
+    "zh": "例：头 → 抬头、摇头。每个字组两个词。",
+    "en": "Example: 头 → 抬头, 摇头. Make two words with each character."
+   },
+   "items": [
+    {
+     "id": "zx:L04-D3-03-1",
+     "prompt": "子：＿＿、＿＿",
+     "prompt_en": "子: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D3-03-2",
+     "prompt": "边：＿＿、＿＿",
+     "prompt_en": "边: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D3-03-3",
+     "prompt": "处：＿＿、＿＿",
+     "prompt_en": "处: two words",
+     "blanks": 2,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D3-04",
+   "day": "星期三",
+   "page": 24,
+   "ex": 4,
+   "type": "free",
+   "title": "动动小脑筋，完成句子",
+   "title_en": "Think and complete the sentences",
+   "note": {
+    "zh": "课本的表格：飞机 比 汽车 快；鲨鱼 比 金鱼 大。照这样把下面两句补完整。",
+    "en": "The book's table reads 飞机 比 汽车 快 and 鲨鱼 比 金鱼 大. Complete the two sentences below the same way."
+   },
+   "items": [
+    {
+     "id": "zx:L04-D3-04-1",
+     "prompt": "草莓比苹果＿＿。",
+     "prompt_en": "草莓比苹果＿＿。",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D3-04-2",
+     "prompt": "我比＿＿＿＿。",
+     "prompt_en": "我比＿＿＿＿。 (who, and how)",
+     "blanks": 1,
+     "cells": 8
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D3-05",
+   "day": "星期三",
+   "page": 24,
+   "ex": 5,
+   "type": "slots",
+   "title": "读一读，选择正确的语句填空",
+   "title_en": "Read the text and choose the correct expressions to fill in the blanks",
+   "note": {
+    "zh": "一段话里缺了四句，第一空课本已填好：骆驼认为长得高好。按课文的顺序选。",
+    "en": "Four lines are missing from the passage; the book has filled the first: 骆驼认为长得高好. Choose in the story's order."
+   },
+   "options": [
+    "都不肯认输",
+    "他们找了老牛评理",
+    "你们俩都只看到自己的长处，看不到自己的短处，这是不对的",
+    "羊认为长得矮好"
+   ],
+   "items": [
+    {
+     "id": "zx:L04-D3-05-1",
+     "before": "有一天，骆驼和羊聊天。骆驼认为长得高好，______。",
+     "slot": "第（1）空",
+     "key": 3,
+     "explanation": {
+      "zh": "骆驼说高好，羊说的正相反：羊认为长得矮好。",
+      "en": "The camel says tall is better; the sheep says the opposite — 羊认为长得矮好."
+     }
+    },
+    {
+     "id": "zx:L04-D3-05-2",
+     "before": "于是，他们俩分别做了一件事证明自己是对的，谁______，",
+     "slot": "第（2）空",
+     "key": 0,
+     "explanation": {
+      "zh": "两件事做完，谁都不肯认输。",
+      "en": "After both tests, neither would give in: 都不肯认输."
+     }
+    },
+    {
+     "id": "zx:L04-D3-05-3",
+     "before": "最后______。",
+     "slot": "第（3）空",
+     "key": 1,
+     "explanation": {
+      "zh": "最后他们找了老牛评理。",
+      "en": "In the end they went to the old ox to judge: 他们找了老牛评理."
+     }
+    },
+    {
+     "id": "zx:L04-D3-05-4",
+     "before": "老牛说：______。",
+     "slot": "第（4）空",
+     "key": 2,
+     "explanation": {
+      "zh": "老牛说的话：你们俩都只看到自己的长处，看不到自己的短处，这是不对的。",
+      "en": "The ox's words: you both see only your strengths and not your weaknesses, and that is wrong."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D4-01",
+   "day": "星期四",
+   "page": 25,
+   "ex": 1,
+   "type": "free",
+   "title": "想一想，写一写",
+   "title_en": "Think and write",
+   "note": {
+    "zh": "一个字两个读音，各组一个词。课本给了一半：长 zhǎng 长大；盛 chéng 盛饭；着 zháo 吃不着。",
+    "en": "One character, two readings — a word for each. The book gives half of each pair: 长 zhǎng 长大; 盛 chéng 盛饭; 着 zháo 吃不着."
+   },
+   "scope_note": "The fourth item on the page is the other way round — write the pinyin of 模 in 大模大样 (mú; the book gives mó 模特) — and a grid of 米字格 is no place for pinyin, so it is left out.",
+   "items": [
+    {
+     "id": "zx:L04-D4-01-1",
+     "prompt": "长 cháng：＿＿",
+     "prompt_en": "长 read cháng: a word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D4-01-2",
+     "prompt": "盛 shèng：＿＿",
+     "prompt_en": "盛 read shèng: a word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L04-D4-01-3",
+     "prompt": "着 zhe：＿＿",
+     "prompt_en": "着 read zhe: a word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D4-03",
+   "day": "星期四",
+   "page": 25,
+   "ex": 3,
+   "type": "tf",
+   "title": "根据课文判断正误",
+   "title_en": "Decide whether the statements are true or false according to the text",
+   "items": [
+    {
+     "id": "zx:L04-D4-03-1",
+     "text": "骆驼比羊高。",
+     "key": true,
+     "explanation": {
+      "zh": "课文第一句：骆驼长得高，羊长得矮。",
+      "en": "The first line of the text: 骆驼长得高，羊长得矮."
+     }
+    },
+    {
+     "id": "zx:L04-D4-03-2",
+     "text": "羊能吃到围墙外的树叶。",
+     "key": false,
+     "explanation": {
+      "zh": "羊抬起前腿，扒在墙上，脖子伸得老长，还是吃不着。",
+      "en": "The sheep stands on the wall and stretches its neck, and still cannot reach: 还是吃不着."
+     }
+    },
+    {
+     "id": "zx:L04-D4-03-3",
+     "text": "骆驼能钻进又窄又矮的门。",
+     "key": false,
+     "explanation": {
+      "zh": "骆驼跪下前腿，低下头，往门里钻，怎么也钻不进去。",
+      "en": "The camel kneels and lowers its head, and still cannot get through: 怎么也钻不进去."
+     }
+    },
+    {
+     "id": "zx:L04-D4-03-4",
+     "text": "骆驼和羊都只看到了自己的长处。",
+     "key": true,
+     "explanation": {
+      "zh": "老牛说：你们俩都只看到自己的长处，看不到自己的短处。",
+      "en": "The ox says so: 你们俩都只看到自己的长处，看不到自己的短处."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D4-04",
+   "day": "星期四",
+   "page": 26,
+   "ex": 4,
+   "type": "free",
+   "title": "看图用\"……比……\"完成句子",
+   "title_en": "Look at the picture and complete the sentences with \"…bǐ…\"",
+   "note": {
+    "zh": "全家福在练习册第26页：爷爷、奶奶、爸爸、妈妈和小朋友。",
+    "en": "The family picture is on workbook p. 26: grandfather, grandmother, father, mother and the child."
+   },
+   "items": [
+    {
+     "id": "zx:L04-D4-04-1",
+     "prompt": "（1）爸爸比＿＿高。",
+     "prompt_en": "(1) 爸爸比＿＿高。",
+     "blanks": 1,
+     "cells": 4
+    },
+    {
+     "id": "zx:L04-D4-04-2",
+     "prompt": "（2）奶奶的头发比妈妈的＿＿。",
+     "prompt_en": "(2) 奶奶的头发比妈妈的＿＿。",
+     "blanks": 1,
+     "cells": 4
+    },
+    {
+     "id": "zx:L04-D4-04-3",
+     "prompt": "（3）爷爷的胡子比爸爸的＿＿。",
+     "prompt_en": "(3) 爷爷的胡子比爸爸的＿＿。",
+     "blanks": 1,
+     "cells": 4
+    },
+    {
+     "id": "zx:L04-D4-04-4",
+     "prompt": "（4）我＿＿。",
+     "prompt_en": "(4) 我＿＿。 (a comparison of your own)",
+     "blanks": 1,
+     "cells": 12
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D4-05",
+   "day": "星期四",
+   "page": 26,
+   "ex": 5,
+   "type": "free",
+   "title": "根据提示写一写你的家（四十字以上）",
+   "title_en": "Follow the prompts to write about your family, with more than 40 characters",
+   "note": {
+    "zh": "提示：你们家有几口人？分别是谁？谁比你高？谁比妈妈矮？谁的头发比你的长？……",
+    "en": "Prompts: How many people are in your family, and who are they? Who is taller than you? Who is shorter than your mother? Whose hair is longer than yours? …"
+   },
+   "items": [
+    {
+     "id": "zx:L04-D4-05-1",
+     "prompt": "写一写你的家（四十字以上）。",
+     "prompt_en": "Write about your family (more than 40 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D5-02",
+   "day": "星期五",
+   "page": 28,
+   "ex": 2,
+   "type": "match",
+   "title": "读课文，连一连",
+   "title_en": "Read the text and match",
+   "note": {
+    "zh": "左边是小兔子说的话，右边是山羊伯伯的回答。课本已连好一组。",
+    "en": "On the left, what the bunnies say; on the right, Uncle Goat's replies. The book has drawn one line already."
+   },
+   "left": [
+    "山羊伯伯你在做什么呀？",
+    "我们来帮您吧！",
+    "谢谢您！"
+   ],
+   "right": [
+    "真懂事！那这车白菜送给你们吧。",
+    "不客气。",
+    "我种的白菜丰收了，我在收白菜。"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L04-D5-02-1",
+     "left": "山羊伯伯你在做什么呀？",
+     "key": 2,
+     "explanation": {
+      "zh": "问在做什么，答：我种的白菜丰收了，我在收白菜——课本连好的一组。",
+      "en": "Asked what he is doing, he answers that his cabbages are ready and he is harvesting them — the line the book drew."
+     }
+    },
+    {
+     "id": "zx:L04-D5-02-2",
+     "left": "我们来帮您吧！",
+     "key": 0,
+     "explanation": {
+      "zh": "小兔子要帮忙，山羊伯伯说：真懂事！那这车白菜送给你们吧。",
+      "en": "The bunnies offer to help, and Uncle Goat replies: 真懂事！那这车白菜送给你们吧."
+     }
+    },
+    {
+     "id": "zx:L04-D5-02-3",
+     "left": "谢谢您！",
+     "key": 1,
+     "explanation": {
+      "zh": "道谢的回答是：不客气。",
+      "en": "The reply to thanks: 不客气."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D5-03",
+   "day": "星期五",
+   "page": 28,
+   "ex": 3,
+   "type": "match",
+   "title": "根据句子选择正确的图片",
+   "title_en": "Choose the correct pictures for the sentences",
+   "note": {
+    "zh": "四张图在练习册第28页，标着A、B、C、D。先点句子，再点它说的那张图。课本已填好第（1）句：B。",
+    "en": "The four pictures are on workbook p. 28, lettered A to D. Tap a sentence, then the picture it describes. The book has filled in sentence (1): B."
+   },
+   "left": [
+    "小鸟飞向天空。",
+    "妈妈听我唱歌。",
+    "我比弟弟大三岁。",
+    "草地上有一只羊。"
+   ],
+   "right": [
+    "图A",
+    "图B",
+    "图C",
+    "图D"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L04-D5-03-1",
+     "left": "小鸟飞向天空。",
+     "key": 1,
+     "explanation": {
+      "zh": "小鸟和云——图B，课本给的例子。",
+      "en": "The bird among the clouds — picture B, the book's own example."
+     }
+    },
+    {
+     "id": "zx:L04-D5-03-2",
+     "left": "妈妈听我唱歌。",
+     "key": 2,
+     "explanation": {
+      "zh": "妈妈听孩子唱歌——图C。",
+      "en": "A mother listening to her child sing — picture C."
+     }
+    },
+    {
+     "id": "zx:L04-D5-03-3",
+     "left": "我比弟弟大三岁。",
+     "key": 3,
+     "explanation": {
+      "zh": "一大一小两个孩子——图D。",
+      "en": "An older and a younger boy — picture D."
+     }
+    },
+    {
+     "id": "zx:L04-D5-03-4",
+     "left": "草地上有一只羊。",
+     "key": 0,
+     "explanation": {
+      "zh": "草地上的羊——图A。",
+      "en": "The sheep on the grass — picture A."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D5-04",
+   "day": "星期五",
+   "page": 29,
+   "ex": 4,
+   "type": "speak",
+   "title": "父母读给孩子听，听后一起说一说感想",
+   "title_en": "Ask your parents to read, listen and tell what you think",
+   "question": {
+    "zh": "听了《北风和太阳》，你有什么感想？",
+    "en": "After hearing 北风和太阳, what do you think?"
+   },
+   "note": {
+    "zh": "请爸爸妈妈读练习册第29–30页的《北风和太阳》给你听。听完说说你的感想，录下来，再请他们点一下\"家长已听\"。",
+    "en": "Have a parent read 北风和太阳 on workbook pp. 29–30 to you. Then say what you think and it is recorded; have them tap Listened."
+   }
+  },
+  {
+   "id": "zx:L04-D5-05",
+   "day": "星期五",
+   "page": 30,
+   "ex": 5,
+   "type": "free",
+   "title": "写一写家人或你的爱好和特长（四十字以上）",
+   "title_en": "Write about the hobbies and talents of your family members or yourself, with more than 40 characters",
+   "note": {
+    "zh": "例：我喜欢踢足球。妈妈喜欢弹钢琴。……",
+    "en": "Example: 我喜欢踢足球。妈妈喜欢弹钢琴。…"
+   },
+   "items": [
+    {
+     "id": "zx:L04-D5-05-1",
+     "prompt": "写一写家人或你的爱好和特长（四十字以上）。",
+     "prompt_en": "Write about your family's hobbies and talents, or your own (more than 40 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

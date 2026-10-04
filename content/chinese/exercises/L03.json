@@ -1,0 +1,1106 @@
+{
+ "lesson": "L03",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》",
+ "file_note": "The workbook's exercises for 第三课, typed from 练习册A pp. 16–29 (PDF index = printed + 4, verified on p. 16). Same shapes as L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; the four-choice exercises are `blocks` naming zh-word items. Left out because no type fits, with their keys so a type can be added: 星期二 练习2 (p. 19–20, choose the word for a picture, two options each: (1) 石桥 (2) 狮子 (3) 站立 (4) 绿草); 星期三 练习2 (p. 22, color the correct word, two options each: (1) 终于 (2) 中心 (3) 生动 (4) 景色 (5) 栏杆); 星期四 练习2 (p. 24–25, answer by choosing A or B: (1) A 我去了北京颐和园 (2) A 有昆明湖、十七孔桥和长廊 (3) B 因为有十七个桥洞 (4) B 登上万寿山); 星期四 练习4 (p. 26, draw a sketch map of the visit — a drawing, not writing). A two-choice `pick` type with the book's own options per item would take the first three. 星期五 练习3 (pp. 27–28, 读一读《故宫》, a passage of the workbook's own) is left out: the site holds no text of the book, by the owner's decision of 2 October (docs/chinese.md § 8); she reads it from the workbook, and a reading of it can be recorded under 阅读 once a note assigns it.",
+ "blocks": [
+  {
+   "id": "zb:L03-D1",
+   "day": "星期一",
+   "page": 18,
+   "ex": 5,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L03-01",
+    "zc:L03-02",
+    "zc:L03-03",
+    "zc:L03-04"
+   ]
+  },
+  {
+   "id": "zb:L03-D4",
+   "day": "星期四",
+   "page": 24,
+   "ex": 1,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L03-05",
+    "zc:L03-06",
+    "zc:L03-07",
+    "zc:L03-08",
+    "zc:L03-09"
+   ],
+   "scope_note": "The book offers five words (景色 小岛 长廊 生动 石柱) for the five blanks of one passage. Each item carries four of them — the one left off is the word the sentence's grammar already rules out — so the task she faces is the book's: which of the bank fills this blank."
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L03-D1-01w",
+   "day": "星期一",
+   "page": 16,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看旁边的词想字，用笔写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "The word beside the box tells you the character; write it with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L03-D1-01w-1",
+     "py": "yí",
+     "context": "＿和园",
+     "key": "颐",
+     "explanation": {
+      "zh": "颐和园：yí。",
+      "en": "颐和园 — yí, the Summer Palace."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01w-2",
+     "py": "jiǔ",
+     "context": "很＿",
+     "key": "久",
+     "explanation": {
+      "zh": "很久：jiǔ。",
+      "en": "很久 — jiǔ, a long time."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01w-3",
+     "py": "zhàn",
+     "context": "＿着",
+     "key": "站",
+     "explanation": {
+      "zh": "站着：zhàn。",
+      "en": "站着 — zhàn, standing."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01w-4",
+     "py": "qiáo",
+     "context": "小＿",
+     "key": "桥",
+     "explanation": {
+      "zh": "小桥：qiáo。",
+      "en": "小桥 — qiáo, a small bridge."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01w-5",
+     "py": "láng",
+     "context": "长＿",
+     "key": "廊",
+     "explanation": {
+      "zh": "长廊：láng。",
+      "en": "长廊 — láng, the long corridor."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01w-6",
+     "py": "yǎn",
+     "context": "＿睛",
+     "key": "眼",
+     "explanation": {
+      "zh": "眼睛：yǎn。",
+      "en": "眼睛 — yǎn, eye."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01w-7",
+     "py": "shòu",
+     "context": "长＿",
+     "key": "寿",
+     "explanation": {
+      "zh": "长寿：shòu。",
+      "en": "长寿 — shòu, long life."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01w-8",
+     "py": "shōu",
+     "context": "＿到",
+     "key": "收",
+     "explanation": {
+      "zh": "收到：shōu。",
+      "en": "收到 — shōu, receive."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D1-01s",
+   "day": "星期一",
+   "page": 16,
+   "ex": 1,
+   "type": "sort",
+   "title": "左右结构、半包围结构，还是独体字？",
+   "title_en": "Left–right, half-enclosed, or a single-body character?",
+   "scope_note": "The book lists eight characters under three structures. 寿 is left out of the sorting: dictionaries file it as 上下结构, a group the book does not offer here, so which of the three the book intends cannot be read off the page. A wrong key is worse than a missing item. 寿 is still written in zx:L03-D1-01w.",
+   "groups": [
+    "左右结构",
+    "半包围结构",
+    "独体字"
+   ],
+   "items": [
+    {
+     "id": "zx:L03-D1-01s-1",
+     "text": "颐",
+     "key": 0,
+     "explanation": {
+      "zh": "臣在左、页在右：左右结构。",
+      "en": "臣 on the left, 页 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01s-2",
+     "text": "久",
+     "key": 2,
+     "explanation": {
+      "zh": "久不能拆成两部分：独体字。",
+      "en": "久 cannot be split into parts: a single-body character."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01s-3",
+     "text": "站",
+     "key": 0,
+     "explanation": {
+      "zh": "立在左、占在右：左右结构。",
+      "en": "立 on the left, 占 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01s-4",
+     "text": "桥",
+     "key": 0,
+     "explanation": {
+      "zh": "木在左、乔在右：左右结构。",
+      "en": "木 on the left, 乔 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01s-5",
+     "text": "廊",
+     "key": 1,
+     "explanation": {
+      "zh": "广从上面和左面包住郎：半包围结构。",
+      "en": "广 wraps 郎 from the top and the left: half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01s-6",
+     "text": "眼",
+     "key": 0,
+     "explanation": {
+      "zh": "目在左、艮在右：左右结构。",
+      "en": "目 on the left, 艮 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L03-D1-01s-7",
+     "text": "收",
+     "key": 0,
+     "explanation": {
+      "zh": "丩在左、攵在右：左右结构。",
+      "en": "丩 on the left, 攵 on the right: left–right."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D1-02",
+   "day": "星期一",
+   "page": 17,
+   "ex": 2,
+   "type": "write",
+   "title": "根据图片提示写汉字",
+   "title_en": "Use the picture clues to write characters",
+   "outline": false,
+   "note": {
+    "zh": "图在练习册第17页，四张：左上、右上、左下、右下。看图和拼音，写出那个字。",
+    "en": "The four pictures are on workbook p. 17: top left, top right, bottom left, bottom right. Look at the picture and the pinyin, and write the character."
+   },
+   "items": [
+    {
+     "id": "zx:L03-D1-02-1",
+     "py": "jiǎo",
+     "context": "图①（左上）",
+     "key": "脚",
+     "explanation": {
+      "zh": "图上是两只脚：脚 jiǎo。",
+      "en": "The picture shows two feet: 脚 jiǎo."
+     }
+    },
+    {
+     "id": "zx:L03-D1-02-2",
+     "py": "qiáo",
+     "context": "图②（右上）",
+     "key": "桥",
+     "explanation": {
+      "zh": "图上是一座有很多桥洞的桥：桥 qiáo。",
+      "en": "The picture shows a bridge with many arches: 桥 qiáo."
+     }
+    },
+    {
+     "id": "zx:L03-D1-02-3",
+     "py": "shī",
+     "context": "图③（左下）",
+     "key": "狮",
+     "explanation": {
+      "zh": "图上是石狮子：狮 shī。",
+      "en": "The picture shows a stone lion: 狮 shī."
+     }
+    },
+    {
+     "id": "zx:L03-D1-02-4",
+     "py": "yǎn",
+     "context": "图④（右下）",
+     "key": "眼",
+     "explanation": {
+      "zh": "图上是一只眼睛：眼 yǎn。",
+      "en": "The picture shows an eye: 眼 yǎn."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D1-03",
+   "day": "星期一",
+   "page": 17,
+   "ex": 3,
+   "type": "match",
+   "title": "连一连，写一写",
+   "title_en": "Match and write",
+   "note": {
+    "zh": "先点上面的部件，再点下面能和它合成字的那一半。课本已连好一组：立—占。",
+    "en": "Tap a part on the top row, then the half below that makes a character with it. The book has drawn one line already: 立—占."
+   },
+   "left": [
+    "氵",
+    "木",
+    "广",
+    "立"
+   ],
+   "right": [
+    "占",
+    "同",
+    "乔",
+    "郎"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L03-D1-03-1",
+     "left": "氵",
+     "key": 1,
+     "word": "洞",
+     "explanation": {
+      "zh": "氵和同合成\"洞\"。",
+      "en": "氵 and 同 make 洞."
+     }
+    },
+    {
+     "id": "zx:L03-D1-03-2",
+     "left": "木",
+     "key": 2,
+     "word": "桥",
+     "explanation": {
+      "zh": "木和乔合成\"桥\"。",
+      "en": "木 and 乔 make 桥."
+     }
+    },
+    {
+     "id": "zx:L03-D1-03-3",
+     "left": "广",
+     "key": 3,
+     "word": "廊",
+     "explanation": {
+      "zh": "广和郎合成\"廊\"。",
+      "en": "广 and 郎 make 廊."
+     }
+    },
+    {
+     "id": "zx:L03-D1-03-4",
+     "left": "立",
+     "key": 0,
+     "word": "站",
+     "explanation": {
+      "zh": "立和占合成\"站\"——课本给的例子。",
+      "en": "立 and 占 make 站 — the book's own example."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D1-03w",
+   "day": "星期一",
+   "page": 17,
+   "ex": 3,
+   "type": "write",
+   "title": "连一连，写一写：把字写出来",
+   "title_en": "Match and write: write the characters",
+   "outline": false,
+   "items": [
+    {
+     "id": "zx:L03-D1-03w-1",
+     "parts": "立＋占",
+     "key": "站",
+     "explanation": {
+      "zh": "立在左，占在右：站。",
+      "en": "立 on the left, 占 on the right: 站."
+     }
+    },
+    {
+     "id": "zx:L03-D1-03w-2",
+     "parts": "氵＋同",
+     "key": "洞",
+     "explanation": {
+      "zh": "氵在左，同在右：洞。",
+      "en": "氵 on the left, 同 on the right: 洞."
+     }
+    },
+    {
+     "id": "zx:L03-D1-03w-3",
+     "parts": "木＋乔",
+     "key": "桥",
+     "explanation": {
+      "zh": "木在左，乔在右：桥。",
+      "en": "木 on the left, 乔 on the right: 桥."
+     }
+    },
+    {
+     "id": "zx:L03-D1-03w-4",
+     "parts": "广＋郎",
+     "key": "廊",
+     "explanation": {
+      "zh": "广在上面和左面，郎在里面：廊。",
+      "en": "广 over the top and down the left, 郎 inside: 廊."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D1-04",
+   "day": "星期一",
+   "page": 18,
+   "ex": 4,
+   "type": "free",
+   "title": "读一读，组词语",
+   "title_en": "Read and form words",
+   "note": {
+    "zh": "两个字读音相近，各组一个词。",
+    "en": "The two sound alike; make one word with each."
+   },
+   "items": [
+    {
+     "id": "zx:L03-D1-04-1",
+     "prompt": "美／没",
+     "prompt_en": "美 / 没",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L03-D1-04-2",
+     "prompt": "登／灯",
+     "prompt_en": "登 / 灯",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L03-D1-04-3",
+     "prompt": "左／作",
+     "prompt_en": "左 / 作",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L03-D1-04-4",
+     "prompt": "景／进",
+     "prompt_en": "景 / 进",
+     "blanks": 2,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D2-01",
+   "day": "星期二",
+   "page": 19,
+   "ex": 1,
+   "type": "free",
+   "title": "根据拼音写词语，并填在合适的句子中",
+   "title_en": "Write the words below Pinyin and fill in the appropriate sentences",
+   "note": {
+    "zh": "五个拼音：zhōngxīn　jǐngsè　lǜsè　zhōngyú　xiǎodǎo。想出是哪五个词，把合适的那个写进句子的格子里；第（2）句要填两个。",
+    "en": "Five pinyin words: zhōngxīn, jǐngsè, lǜsè, zhōngyú, xiǎodǎo. Work out the five words and write the one that fits into each sentence's cells; sentence (2) takes two."
+   },
+   "items": [
+    {
+     "id": "zx:L03-D2-01-1",
+     "prompt": "（1）公园的＿＿可真美啊！",
+     "prompt_en": "(1) 公园的＿＿可真美啊！",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L03-D2-01-2",
+     "prompt": "（2）你快看，湖＿＿还有一个＿＿！",
+     "prompt_en": "(2) 你快看，湖＿＿还有一个＿＿！ (two words)",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L03-D2-01-3",
+     "prompt": "（3）小草是＿＿的。",
+     "prompt_en": "(3) 小草是＿＿的。",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L03-D2-01-4",
+     "prompt": "（4）这次作文比赛，我＿＿取得了第一名。",
+     "prompt_en": "(4) 这次作文比赛，我＿＿取得了第一名。",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D2-03",
+   "day": "星期二",
+   "page": 20,
+   "ex": 3,
+   "type": "free",
+   "title": "照例子，用\"终于\"完成句子",
+   "title_en": "Follow the example to complete the sentences with \"zhōngyú\"",
+   "items": [
+    {
+     "id": "zx:L03-D2-03-1",
+     "prompt": "例：今年寒假，我终于来到了向往已久的颐和园。（1）＿＿，＿＿终于＿＿。",
+     "prompt_en": "Example: 今年寒假，我终于来到了向往已久的颐和园。 (1) …，…终于…。",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L03-D2-03-2",
+     "prompt": "（2）＿＿，＿＿终于＿＿。",
+     "prompt_en": "(2) …，…终于…。",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L03-D2-03-3",
+     "prompt": "（3）＿＿，＿＿终于＿＿。",
+     "prompt_en": "(3) …，…终于…。",
+     "blanks": 1,
+     "cells": 20
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D2-04",
+   "day": "星期二",
+   "page": 20,
+   "ex": 4,
+   "type": "order",
+   "title": "连词成句",
+   "title_en": "Write the words in the correct order to make sentences",
+   "items": [
+    {
+     "id": "zx:L03-D2-04-1",
+     "pieces": [
+      "颐和园",
+      "了",
+      "终于",
+      "我",
+      "来到"
+     ],
+     "key": [
+      3,
+      2,
+      4,
+      1,
+      0
+     ],
+     "explanation": {
+      "zh": "正确的顺序：我终于来到了颐和园。",
+      "en": "In order: 我终于来到了颐和园 — I finally arrived at the Summer Palace."
+     }
+    },
+    {
+     "id": "zx:L03-D2-04-2",
+     "pieces": [
+      "景色",
+      "的",
+      "美丽",
+      "颐和园",
+      "十分"
+     ],
+     "key": [
+      3,
+      1,
+      0,
+      4,
+      2
+     ],
+     "explanation": {
+      "zh": "正确的顺序：颐和园的景色十分美丽。",
+      "en": "In order: 颐和园的景色十分美丽 — the Summer Palace's scenery is very beautiful."
+     }
+    },
+    {
+     "id": "zx:L03-D2-04-3",
+     "pieces": [
+      "中心",
+      "湖",
+      "小岛",
+      "个",
+      "有"
+     ],
+     "key": [
+      1,
+      0,
+      4,
+      3,
+      2
+     ],
+     "explanation": {
+      "zh": "正确的顺序：湖中心有个小岛。",
+      "en": "In order: 湖中心有个小岛 — in the middle of the lake there is an island."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D2-05",
+   "day": "星期二",
+   "page": 21,
+   "ex": 5,
+   "type": "free",
+   "title": "请用中文写出你周末想要去的五个地方",
+   "title_en": "List five places you want to visit on weekends in Chinese",
+   "note": {
+    "zh": "例：体育活动中心。",
+    "en": "Example: 体育活动中心."
+   },
+   "items": [
+    {
+     "id": "zx:L03-D2-05-1",
+     "prompt": "1．第一个地方",
+     "prompt_en": "1. the first place",
+     "blanks": 1,
+     "cells": 8
+    },
+    {
+     "id": "zx:L03-D2-05-2",
+     "prompt": "2．第二个地方",
+     "prompt_en": "2. the second place",
+     "blanks": 1,
+     "cells": 8
+    },
+    {
+     "id": "zx:L03-D2-05-3",
+     "prompt": "3．第三个地方",
+     "prompt_en": "3. the third place",
+     "blanks": 1,
+     "cells": 8
+    },
+    {
+     "id": "zx:L03-D2-05-4",
+     "prompt": "4．第四个地方",
+     "prompt_en": "4. the fourth place",
+     "blanks": 1,
+     "cells": 8
+    },
+    {
+     "id": "zx:L03-D2-05-5",
+     "prompt": "5．第五个地方",
+     "prompt_en": "5. the fifth place",
+     "blanks": 1,
+     "cells": 8
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D3-01",
+   "day": "星期三",
+   "page": 21,
+   "ex": 1,
+   "type": "read",
+   "title": "读一读",
+   "title_en": "Read aloud",
+   "note": {
+    "zh": "读出来，录下来就行，不打分。对照在批改的时候看。",
+    "en": "Just read it aloud; it is recorded, not scored. The comparison is for the evaluation."
+   },
+   "text": "中心 湖中心 广场中心 文化中心\n十分美丽 十分生动 十分可爱 十分难忘\n绿色 红色 白色 蓝色\n小桥 孔桥 桥洞 一座桥"
+  },
+  {
+   "id": "zx:L03-D3-03",
+   "day": "星期三",
+   "page": 22,
+   "ex": 3,
+   "type": "match",
+   "title": "根据句子选择正确的图片",
+   "title_en": "Choose the correct pictures for the sentences",
+   "note": {
+    "zh": "四张图在练习册第22页，标着A、B、C、D。先点句子，再点它说的那张图。",
+    "en": "The four pictures are on workbook p. 22, lettered A to D. Tap a sentence, then the picture it describes."
+   },
+   "left": [
+    "今年寒假，我终于来到了向往已久的颐和园。",
+    "从湖边到湖中心的小岛，要走过十七孔桥。",
+    "桥两边的石柱上有很多小石狮子。",
+    "走在著名的长廊上，绿色的柱子，红色的栏杆，一眼望不到头。"
+   ],
+   "right": [
+    "图A",
+    "图B",
+    "图C",
+    "图D"
+   ],
+   "pairs": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L03-D3-03-1",
+     "left": "今年寒假，我终于来到了向往已久的颐和园。",
+     "key": 3,
+     "explanation": {
+      "zh": "来到颐和园——图D是挂着\"颐和园\"牌子的大门。",
+      "en": "Arriving at the Summer Palace — picture D is the gate with the 颐和园 plaque."
+     }
+    },
+    {
+     "id": "zx:L03-D3-03-2",
+     "left": "从湖边到湖中心的小岛，要走过十七孔桥。",
+     "key": 2,
+     "explanation": {
+      "zh": "十七孔桥——图C是有很多桥洞的长石桥。",
+      "en": "The Seventeen-Arch Bridge — picture C is the long stone bridge with many arches."
+     }
+    },
+    {
+     "id": "zx:L03-D3-03-3",
+     "left": "桥两边的石柱上有很多小石狮子。",
+     "key": 0,
+     "explanation": {
+      "zh": "石柱上的小石狮子——图A。",
+      "en": "The little stone lions on the pillars — picture A."
+     }
+    },
+    {
+     "id": "zx:L03-D3-03-4",
+     "left": "走在著名的长廊上，绿色的柱子，红色的栏杆，一眼望不到头。",
+     "key": 1,
+     "explanation": {
+      "zh": "长廊，绿柱子红栏杆——图B。",
+      "en": "The long corridor with green pillars and red railings — picture B."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D3-04",
+   "day": "星期三",
+   "page": 23,
+   "ex": 4,
+   "type": "free",
+   "title": "读课文，回答问题",
+   "title_en": "Read the text and answer the questions",
+   "items": [
+    {
+     "id": "zx:L03-D3-04-1",
+     "prompt": "（1）今年寒假，\"我\"去了哪里？",
+     "prompt_en": "(1) Where did the writer go this winter vacation?",
+     "blanks": 1,
+     "cells": 24
+    },
+    {
+     "id": "zx:L03-D3-04-2",
+     "prompt": "（2）\"我\"从东门进去，看见了什么？",
+     "prompt_en": "(2) Going in by the east gate, what did the writer see?",
+     "blanks": 1,
+     "cells": 24
+    },
+    {
+     "id": "zx:L03-D3-04-3",
+     "prompt": "（3）湖中心有什么？",
+     "prompt_en": "(3) What is in the middle of the lake?",
+     "blanks": 1,
+     "cells": 24
+    },
+    {
+     "id": "zx:L03-D3-04-4",
+     "prompt": "（4）十七孔桥两边的石柱上有什么？",
+     "prompt_en": "(4) What is on the stone pillars at the two sides of the Seventeen-Arch Bridge?",
+     "blanks": 1,
+     "cells": 24
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D4-03",
+   "day": "星期四",
+   "page": 25,
+   "ex": 3,
+   "type": "slots",
+   "title": "选择相应的语句补全对话",
+   "title_en": "Choose the correct expressions to complete the dialogue",
+   "note": {
+    "zh": "对话里缺了四句，看练习册第25页的地图选。",
+    "en": "Four lines are missing; use the map on workbook p. 25 to choose."
+   },
+   "options": [
+    "请问商场怎么走",
+    "您好",
+    "谢谢您",
+    "你先向前走，第一个路口左转"
+   ],
+   "items": [
+    {
+     "id": "zx:L03-D4-03-1",
+     "before": "大卫：______，我想问一下，去学校怎么走？",
+     "slot": "大卫",
+     "key": 1,
+     "explanation": {
+      "zh": "开口问路先打招呼：您好，我想问一下……",
+      "en": "You greet before you ask the way: 您好，我想问一下…"
+     }
+    },
+    {
+     "id": "zx:L03-D4-03-2",
+     "before": "老王：我看看啊！我们在这里……　大卫：对。　老王：我知道了。______",
+     "slot": "老王",
+     "key": 3,
+     "explanation": {
+      "zh": "老王告诉他去学校的路：你先向前走，第一个路口左转。地图上红线就是这么走的。",
+      "en": "Lao Wang gives the way to the school: go straight first, then turn left at the first crossing — the red line on the map."
+     }
+    },
+    {
+     "id": "zx:L03-D4-03-3",
+     "before": "大卫：好的。我还想买点儿东西，______？",
+     "slot": "大卫",
+     "key": 0,
+     "explanation": {
+      "zh": "想买东西，就问商场怎么走。",
+      "en": "He wants to buy something, so he asks the way to the mall: 请问商场怎么走？"
+     }
+    },
+    {
+     "id": "zx:L03-D4-03-4",
+     "before": "老王：一直向前走就可以了。",
+     "slot": "大卫",
+     "key": 2,
+     "explanation": {
+      "zh": "问完路要道谢：谢谢您。",
+      "en": "After being shown the way, you thank the person: 谢谢您。"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D5-01",
+   "day": "星期五",
+   "page": 26,
+   "ex": 1,
+   "type": "tf",
+   "title": "听一听，根据问题判断句子正误",
+   "title_en": "Listen and decide whether the sentences are true or false",
+   "note": {
+    "zh": "请爸爸妈妈读一读练习册第82页第3课的听力文本（或放录音），听完再判断对错。",
+    "en": "Ask a parent to read the Lesson 3 listening script on workbook p. 82 (or play the recording), then mark each sentence."
+   },
+   "script_note": "The dialogue, typed from the appendix 听力文本 for 第3课 on 练习册A p. 82, so a parent can read it aloud; the publisher's recording is a download from jnupress.com. The site does not render this field yet. The dialogue itself is on 练习册A p. 82 (附录 听力文本) for a parent to read aloud; it is not kept here, under the same hold as every text of the book.",
+   "items": [
+    {
+     "id": "zx:L03-D5-01-1",
+     "text": "今天天气不好。",
+     "key": false,
+     "explanation": {
+      "zh": "男生说：今天天气很好。",
+      "en": "The boy says 今天天气很好 — the weather is good."
+     }
+    },
+    {
+     "id": "zx:L03-D5-01-2",
+     "text": "男生想要去公园野餐。",
+     "key": true,
+     "explanation": {
+      "zh": "男生说：我们去公园野餐吧！",
+      "en": "The boy suggests it: 我们去公园野餐吧！"
+     }
+    },
+    {
+     "id": "zx:L03-D5-01-3",
+     "text": "他们没有去公园野餐，因为中午太热了。",
+     "key": true,
+     "explanation": {
+      "zh": "女生说：好是好，但是中午太热了！所以改去看电影。",
+      "en": "The girl says 中午太热了 — it is too hot at noon — so they change the plan to a movie."
+     }
+    },
+    {
+     "id": "zx:L03-D5-01-4",
+     "text": "他们可能会去看电影。",
+     "key": true,
+     "explanation": {
+      "zh": "男生说去看电影，女生说好啊，先去看看有没有票。",
+      "en": "The boy proposes a movie and the girl agrees, if there are tickets."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D5-02",
+   "day": "星期五",
+   "page": 27,
+   "ex": 2,
+   "type": "match",
+   "title": "选词填空（1）：完、玩、晚",
+   "title_en": "Choose the right words to fill in the blanks (1)",
+   "note": {
+    "zh": "三个字读音相近，每句用一个。点句子，再点填进去的字。",
+    "en": "Three characters that sound alike, one per sentence. Tap a sentence, then the character that goes in it."
+   },
+   "left": [
+    "爸爸，我想和你一起______游戏。",
+    "这么______了，你要去哪里啊？",
+    "朵朵，你写______作业了吗？"
+   ],
+   "right": [
+    "完",
+    "玩",
+    "晚"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L03-D5-02-1",
+     "left": "爸爸，我想和你一起______游戏。",
+     "key": 1,
+     "explanation": {
+      "zh": "玩游戏：玩 wán。",
+      "en": "玩游戏 — play a game: 玩."
+     }
+    },
+    {
+     "id": "zx:L03-D5-02-2",
+     "left": "这么______了，你要去哪里啊？",
+     "key": 2,
+     "explanation": {
+      "zh": "这么晚了：晚 wǎn。",
+      "en": "这么晚了 — it is so late: 晚."
+     }
+    },
+    {
+     "id": "zx:L03-D5-02-3",
+     "left": "朵朵，你写______作业了吗？",
+     "key": 0,
+     "explanation": {
+      "zh": "写完作业：完 wán，做完了。",
+      "en": "写完作业 — finished the homework: 完."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D5-02b",
+   "day": "星期五",
+   "page": 27,
+   "ex": 2,
+   "type": "match",
+   "title": "选词填空（2）：坐、左、做",
+   "title_en": "Choose the right words to fill in the blanks (2)",
+   "left": [
+    "书包在电脑的______边。",
+    "快______下来，现在上课了。",
+    "你知道应该怎么______了吗？"
+   ],
+   "right": [
+    "坐",
+    "左",
+    "做"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L03-D5-02b-1",
+     "left": "书包在电脑的______边。",
+     "key": 1,
+     "explanation": {
+      "zh": "左边：左 zuǒ。",
+      "en": "左边 — the left side: 左."
+     }
+    },
+    {
+     "id": "zx:L03-D5-02b-2",
+     "left": "快______下来，现在上课了。",
+     "key": 0,
+     "explanation": {
+      "zh": "坐下来：坐 zuò。",
+      "en": "坐下来 — sit down: 坐."
+     }
+    },
+    {
+     "id": "zx:L03-D5-02b-3",
+     "left": "你知道应该怎么______了吗？",
+     "key": 2,
+     "explanation": {
+      "zh": "怎么做：做 zuò，做事情。",
+      "en": "怎么做 — how to do it: 做."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D5-02c",
+   "day": "星期五",
+   "page": 27,
+   "ex": 2,
+   "type": "match",
+   "title": "选词填空（3）：狮、是、师",
+   "title_en": "Choose the right words to fill in the blanks (3)",
+   "left": [
+    "这位______我的妈妈。",
+    "动物园里的______子好可爱啊！",
+    "我的爸爸是一名老______。"
+   ],
+   "right": [
+    "狮",
+    "是",
+    "师"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L03-D5-02c-1",
+     "left": "这位______我的妈妈。",
+     "key": 1,
+     "explanation": {
+      "zh": "这位是我的妈妈：是 shì。",
+      "en": "这位是我的妈妈 — this is my mother: 是."
+     }
+    },
+    {
+     "id": "zx:L03-D5-02c-2",
+     "left": "动物园里的______子好可爱啊！",
+     "key": 0,
+     "explanation": {
+      "zh": "狮子：狮 shī。",
+      "en": "狮子 — lion: 狮."
+     }
+    },
+    {
+     "id": "zx:L03-D5-02c-3",
+     "left": "我的爸爸是一名老______。",
+     "key": 2,
+     "explanation": {
+      "zh": "老师：师 shī。",
+      "en": "老师 — teacher: 师."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D5-04",
+   "day": "星期五",
+   "page": 29,
+   "ex": 4,
+   "type": "free",
+   "title": "介绍一个你最感兴趣的景点（四十字以上）",
+   "title_en": "Write about a scenic spot that interests you the most, with more than 40 characters",
+   "note": {
+    "zh": "提示：（1）你最想去的地方叫什么名字？（2）那个地方有什么景点？（3）有什么吸引你的地方？（4）你想和哪些人一起去？",
+    "en": "Prompts: (1) What is the place you most want to visit called? (2) What is there to see? (3) What draws you to it? (4) Who would you go with?"
+   },
+   "items": [
+    {
+     "id": "zx:L03-D5-04-1",
+     "prompt": "写一写这个景点（四十字以上）。",
+     "prompt_en": "Write about the place (more than 40 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

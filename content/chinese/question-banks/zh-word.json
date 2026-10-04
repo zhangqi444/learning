@@ -444,6 +444,584 @@
     "C": "\"得\"接在动词后面说结果，像\"过得去\"，\"美丽\"不是动词。",
     "D": "\"了\"说做完了，这里没有什么做完的事——花朵就在那里。"
    }
+  },
+  {
+   "id": "zc:L03-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：石柱上的小石狮子非常______。",
+   "choices": {
+    "A": "中心",
+    "B": "景色",
+    "C": "生动",
+    "D": "美丽"
+   },
+   "correct": "C",
+   "explanation": "生动 means lifelike, as if alive. The text says it of the little stone lions on the bridge: 它们都很生动，十分可爱.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》 星期一，练习5（printed p.18）",
+   "form": "L03",
+   "lesson": "L03",
+   "why": {
+    "A": "中心 means center, the middle of a place; a lion cannot be 'very center'.",
+    "B": "景色 means scenery, the view of a whole place; one small lion is not a view, and 非常 needs a describing word.",
+    "D": "美丽 (beautiful) would read, but the sentence is the text's own line about the lions, and there they are 生动; in this exercise 美丽 is the word for the flowers, each word fitting one blank."
+   },
+   "prompt_en": "Fill the blank: 石柱上的小石狮子非常______。",
+   "explanation_zh": "\"生动\"是像活的一样。课文就是这么说桥上的小石狮子的：它们都很生动，十分可爱。",
+   "why_zh": {
+    "A": "\"中心\"是中间的地方，石狮子不能\"非常中心\"。",
+    "B": "\"景色\"是一整个地方的风景，一只小狮子不是风景；\"非常\"后面要跟形容词。",
+    "D": "\"美丽\"读得通，可这句是课文说石狮子的话——它们都很生动；这道题里\"美丽\"是说花的，四个词各填一空。"
+   },
+   "content_hash": "70c162c7ce24507a"
+  },
+  {
+   "id": "zc:L03-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：北京颐和园的______可真好看啊！",
+   "choices": {
+    "A": "美丽",
+    "B": "景色",
+    "C": "生动",
+    "D": "中心"
+   },
+   "correct": "B",
+   "explanation": "景色 is scenery, the view. After 颐和园的 the sentence needs the thing that is good to look at, and the text ends on it: 颐和园到处都有美丽的景色.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》 星期一，练习5（printed p.18）",
+   "form": "L03",
+   "lesson": "L03",
+   "why": {
+    "A": "美丽 (beautiful) is a describing word; after 的 the blank needs a noun — the thing that looks good.",
+    "C": "生动 (lifelike) describes a picture or a telling and is a describing word; the blank needs a noun.",
+    "D": "中心 is the center, a spot; 好看 (good to look at) is said of what you see, not of a position."
+   },
+   "prompt_en": "Fill the blank: 北京颐和园的______可真好看啊！",
+   "explanation_zh": "\"景色\"是风景。\"颐和园的\"后面要跟一样好看的东西，课文结尾就是：颐和园到处都有美丽的景色。",
+   "why_zh": {
+    "A": "\"美丽\"是形容词，\"的\"后面要跟名词——好看的那样东西。",
+    "C": "\"生动\"说画或讲课像活的一样，也是形容词；这里要填名词。",
+    "D": "\"中心\"是中间那个地方，\"好看\"说的是看到的东西，不是一个位置。"
+   },
+   "content_hash": "3c6dd9f70ca0c690"
+  },
+  {
+   "id": "zc:L03-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：草地上有很多______的花。",
+   "choices": {
+    "A": "美丽",
+    "B": "中心",
+    "C": "景色",
+    "D": "生动"
+   },
+   "correct": "A",
+   "explanation": "美丽 means beautiful, and it sits in front of 的花 the way 美丽的小岛 does in the text.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》 星期一，练习5（printed p.18）",
+   "form": "L03",
+   "lesson": "L03",
+   "why": {
+    "B": "中心 is the center of a place; 很多中心的花 would be flowers of the center, and these are all over the grass.",
+    "C": "景色 is scenery, the whole view; it is not a quality one flower has.",
+    "D": "生动 is for things that seem alive in a picture or a story — a painted shrimp, a lively lesson — not for real flowers."
+   },
+   "prompt_en": "Fill the blank: 草地上有很多______的花。",
+   "explanation_zh": "\"美丽\"是漂亮，放在\"的花\"前面，就像课文里的\"美丽的小岛\"。",
+   "why_zh": {
+    "B": "\"中心\"是中间的地方，\"很多中心的花\"不通，花是长在草地上到处都有的。",
+    "C": "\"景色\"是一整片风景，不是一朵花的样子。",
+    "D": "\"生动\"说画里的虾、讲的课像活的一样，不说真的花。"
+   },
+   "content_hash": "4ec5d027853e335a"
+  },
+  {
+   "id": "zc:L03-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：广场的______有一群人正在跳舞。",
+   "choices": {
+    "A": "生动",
+    "B": "景色",
+    "C": "美丽",
+    "D": "中心"
+   },
+   "correct": "D",
+   "explanation": "中心 means center. People dance in a place, and 广场的中心 is the middle of the square — like 湖中心 in the text.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》 星期一，练习5（printed p.18）",
+   "form": "L03",
+   "lesson": "L03",
+   "why": {
+    "A": "生动 (lifelike) is a describing word and cannot be the place where people dance.",
+    "B": "景色 is scenery, something you look at; people dance in a spot on the square, not in its view.",
+    "C": "美丽 (beautiful) is a describing word; 广场的______ needs a place — a noun."
+   },
+   "prompt_en": "Fill the blank: 广场的______有一群人正在跳舞。",
+   "explanation_zh": "\"中心\"是中间。跳舞要在一个地方，\"广场的中心\"就是广场中间，像课文里的\"湖中心\"。",
+   "why_zh": {
+    "A": "\"生动\"是形容词，不能当跳舞的地方。",
+    "B": "\"景色\"是看的风景，人是在广场的一个地方跳舞，不是在风景里。",
+    "C": "\"美丽\"是形容词，\"广场的\"后面要跟一个地方。"
+   },
+   "content_hash": "01d428d62bbf1c40"
+  },
+  {
+   "id": "zc:L03-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：走进颐和园的东门，就能见到昆明湖。湖中心有个美丽的______。",
+   "choices": {
+    "A": "景色",
+    "B": "小岛",
+    "C": "长廊",
+    "D": "石柱"
+   },
+   "correct": "B",
+   "explanation": "小岛 is a small island. The text says what is in the middle of the lake: 湖中心有个美丽的小岛.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》 星期四，练习1（printed p.24）",
+   "form": "L03",
+   "lesson": "L03",
+   "why": {
+    "A": "景色 is scenery; 个 counts a thing, and the thing in the middle of the lake is an island.",
+    "C": "长廊, the long corridor, comes after the lake in the text, at the foot of 万寿山 — not in the water.",
+    "D": "石柱, the stone pillars, stand on the two sides of the bridge, not in the lake's center."
+   },
+   "prompt_en": "Fill the blank: 走进颐和园的东门，就能见到昆明湖。湖中心有个美丽的______。",
+   "explanation_zh": "\"小岛\"是湖里的小陆地。课文说湖中心有什么：湖中心有个美丽的小岛。",
+   "why_zh": {
+    "A": "\"景色\"是风景，\"个\"要数一样东西，湖中心的东西是小岛。",
+    "C": "\"长廊\"在课文里是走完湖以后的，在万寿山脚下，不在水里。",
+    "D": "\"石柱\"在桥两边，不在湖中心。"
+   },
+   "content_hash": "d307ca5d40bcbbc0"
+  },
+  {
+   "id": "zc:L03-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：从湖边到湖中心的小岛，要走过十七孔桥。桥两边的______上有很多小石狮子。",
+   "choices": {
+    "A": "小岛",
+    "B": "石柱",
+    "C": "长廊",
+    "D": "景色"
+   },
+   "correct": "B",
+   "explanation": "石柱 means stone pillars. The lions stand on them: 桥两边的石柱上有很多小石狮子.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》 星期四，练习1（printed p.24）",
+   "form": "L03",
+   "lesson": "L03",
+   "why": {
+    "A": "小岛 is the island in the lake; the lions stand at the two sides of the bridge, on its pillars.",
+    "C": "长廊 comes later in the text, after the bridge; what stands at the bridge's sides is 石柱.",
+    "D": "景色 is scenery; a lion cannot stand on a view, and 上 needs a solid thing."
+   },
+   "prompt_en": "Fill the blank: 从湖边到湖中心的小岛，要走过十七孔桥。桥两边的______上有很多小石狮子。",
+   "explanation_zh": "\"石柱\"是石头柱子。小石狮子就在上面：桥两边的石柱上有很多小石狮子。",
+   "why_zh": {
+    "A": "\"小岛\"在湖中心，小狮子在桥两边的柱子上。",
+    "C": "\"长廊\"是课文里过了桥以后才到的，桥两边立着的是石柱。",
+    "D": "\"景色\"是风景，狮子不能站在风景\"上\"。"
+   },
+   "content_hash": "91a882171b23dae8"
+  },
+  {
+   "id": "zc:L03-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：桥两边的石柱上有很多小石狮子。它们都很______，十分可爱。",
+   "choices": {
+    "A": "生动",
+    "B": "景色",
+    "C": "石柱",
+    "D": "小岛"
+   },
+   "correct": "A",
+   "explanation": "生动 means lifelike. 很 needs a describing word, and the text says exactly this of the lions: 它们都很生动，十分可爱.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》 星期四，练习1（printed p.24）",
+   "form": "L03",
+   "lesson": "L03",
+   "why": {
+    "B": "景色 is a thing — scenery — and 很 needs a describing word; 很景色 does not work.",
+    "C": "石柱 is a thing, the pillars the lions stand on; it cannot follow 很.",
+    "D": "小岛 is a thing, the island; it cannot follow 很."
+   },
+   "prompt_en": "Fill the blank: 桥两边的石柱上有很多小石狮子。它们都很______，十分可爱。",
+   "explanation_zh": "\"生动\"是像活的一样。\"很\"后面要跟形容词，课文说小狮子就是这句：它们都很生动，十分可爱。",
+   "why_zh": {
+    "B": "\"景色\"是名词，\"很\"后面要跟形容词，\"很景色\"不通。",
+    "C": "\"石柱\"是东西，是狮子站的柱子，不能放在\"很\"后面。",
+    "D": "\"小岛\"是东西，不能放在\"很\"后面。"
+   },
+   "content_hash": "ce9d68111c76a4a1"
+  },
+  {
+   "id": "zc:L03-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：走在著名的长廊上，一眼望不到头。走完______，登上万寿山，颐和园的景色尽收眼底。",
+   "choices": {
+    "A": "石柱",
+    "B": "小岛",
+    "C": "长廊",
+    "D": "生动"
+   },
+   "correct": "C",
+   "explanation": "长廊 is the long corridor. You walk to the end of it and reach the hill: 走完长廊，就来到了万寿山脚下.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》 星期四，练习1（printed p.24）",
+   "form": "L03",
+   "lesson": "L03",
+   "why": {
+    "A": "石柱 is a pillar; you cannot 走完 (walk to the end of) a pillar.",
+    "B": "小岛 is the island in the lake, reached over the bridge; what you walk through before the hill is the corridor.",
+    "D": "生动 is a describing word; 走完 needs a place you can walk through."
+   },
+   "prompt_en": "Fill the blank: 走在著名的长廊上，一眼望不到头。走完______，登上万寿山，颐和园的景色尽收眼底。",
+   "explanation_zh": "\"长廊\"是长长的走廊。走完它就到山脚下了：走完长廊，就来到了万寿山脚下。",
+   "why_zh": {
+    "A": "\"石柱\"是柱子，柱子没法\"走完\"。",
+    "B": "\"小岛\"在湖中心，过桥才到；上山前走完的是长廊。",
+    "D": "\"生动\"是形容词，\"走完\"后面要跟能走的地方。"
+   },
+   "content_hash": "9133e09d0224bd0a"
+  },
+  {
+   "id": "zc:L03-09",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：颐和园到处都有美丽的______，让人十分难忘。",
+   "choices": {
+    "A": "长廊",
+    "B": "生动",
+    "C": "景色",
+    "D": "小岛"
+   },
+   "correct": "C",
+   "explanation": "景色 means scenery. The text's last line: 颐和园到处都有美丽的景色，让人十分难忘.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》 星期四，练习1（printed p.24）",
+   "form": "L03",
+   "lesson": "L03",
+   "why": {
+    "A": "长廊 is one corridor; 到处 (everywhere) wants something found all over the park.",
+    "B": "生动 is a describing word; 美丽的 needs a noun after it.",
+    "D": "小岛 is one island in the lake, not islands everywhere."
+   },
+   "prompt_en": "Fill the blank: 颐和园到处都有美丽的______，让人十分难忘。",
+   "explanation_zh": "\"景色\"是风景。课文最后一句：颐和园到处都有美丽的景色，让人十分难忘。",
+   "why_zh": {
+    "A": "\"长廊\"只有一条，\"到处\"要的是园子里到处都有的东西。",
+    "B": "\"生动\"是形容词，\"美丽的\"后面要跟名词。",
+    "D": "\"小岛\"只有湖中心一个，不是到处都有。"
+   },
+   "content_hash": "9b36b80911d7df54"
+  },
+  {
+   "id": "zc:L04-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：他告诉了我一件有意思的______。",
+   "choices": {
+    "A": "抬头",
+    "B": "事情",
+    "C": "旁边",
+    "D": "茂盛"
+   },
+   "correct": "B",
+   "explanation": "事情 means a matter, something that happened. 一件 counts matters, and that is what one person tells another — 一件有意思的事情.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》 星期二，练习3（printed p.20）",
+   "form": "L04",
+   "lesson": "L04",
+   "why": {
+    "A": "抬头 is an action, raising your head; you cannot be told a head-raise, and 一件 does not count actions.",
+    "C": "旁边 means beside, a place; after 一件有意思的 the sentence needs the thing he told.",
+    "D": "茂盛 (lush) describes leaves and trees, and it is a describing word, not something to be told."
+   },
+   "prompt_en": "Fill the blank: 他告诉了我一件有意思的______。",
+   "explanation_zh": "\"事情\"是发生的事。\"一件\"数的是事情，告诉别人的也是事情——一件有意思的事情。",
+   "why_zh": {
+    "A": "\"抬头\"是一个动作，不能被\"告诉\"，\"一件\"也不数动作。",
+    "C": "\"旁边\"是一个位置，\"一件有意思的\"后面要跟他告诉我的那件事。",
+    "D": "\"茂盛\"说树叶长得多，是形容词，不是能告诉人的事。"
+   },
+   "content_hash": "476879db95161534"
+  },
+  {
+   "id": "zc:L04-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：我站在妈妈的______。",
+   "choices": {
+    "A": "事情",
+    "B": "抬头",
+    "C": "茂盛",
+    "D": "旁边"
+   },
+   "correct": "D",
+   "explanation": "旁边 means beside. 站在……的 needs a place, and the picture shows the girl at her mother's side — 我站在妈妈的旁边.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》 星期二，练习3（printed p.20）",
+   "form": "L04",
+   "lesson": "L04",
+   "why": {
+    "A": "事情 is a matter, something that happens; you cannot stand in a matter.",
+    "B": "抬头 is an action; after 妈妈的 the sentence needs where I stand.",
+    "C": "茂盛 describes plants growing thickly; it is not a place."
+   },
+   "prompt_en": "Fill the blank: 我站在妈妈的______。",
+   "explanation_zh": "\"旁边\"是靠着的地方。\"站在……的\"后面要跟一个位置，图上小女孩就站在妈妈身边——我站在妈妈的旁边。",
+   "why_zh": {
+    "A": "\"事情\"是发生的事，人不能站在事情里。",
+    "B": "\"抬头\"是动作，\"妈妈的\"后面要跟我站的位置。",
+    "C": "\"茂盛\"说草木长得好，不是位置。"
+   },
+   "content_hash": "359201926f7f6207"
+  },
+  {
+   "id": "zc:L04-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：这里的树长得真______！",
+   "choices": {
+    "A": "茂盛",
+    "B": "事情",
+    "C": "旁边",
+    "D": "抬头"
+   },
+   "correct": "A",
+   "explanation": "茂盛 means lush, growing thick and full. 长得真 asks how the trees grow, as the text says of the garden's trees — 茂盛的枝叶.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》 星期二，练习3（printed p.20）",
+   "form": "L04",
+   "lesson": "L04",
+   "why": {
+    "B": "事情 is a noun, a matter; 真 needs a describing word.",
+    "C": "旁边 is a place; 长得真 asks what the trees look like, not where they are.",
+    "D": "抬头 is raising one's head; a tree has no head to raise, and 真 wants a quality."
+   },
+   "prompt_en": "Fill the blank: 这里的树长得真______！",
+   "explanation_zh": "\"茂盛\"是长得又多又好。\"长得真\"问的是树长得怎么样，课文也这么说园子里的树——茂盛的枝叶。",
+   "why_zh": {
+    "B": "\"事情\"是名词，\"真\"后面要跟形容词。",
+    "C": "\"旁边\"是位置，\"长得真\"问的是树的样子，不是在哪儿。",
+    "D": "\"抬头\"是人的动作，树没有头可抬，\"真\"后面要跟形容词。"
+   },
+   "content_hash": "09fa55984ffc6775"
+  },
+  {
+   "id": "zc:L04-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：我站在窗边______看，夜空中有许多美丽的小星星。",
+   "choices": {
+    "A": "旁边",
+    "B": "茂盛",
+    "C": "抬头",
+    "D": "事情"
+   },
+   "correct": "C",
+   "explanation": "抬头 means to lift your head. The stars are up in the night sky, so you look up — 抬头看.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》 星期二，练习3（printed p.20）",
+   "form": "L04",
+   "lesson": "L04",
+   "why": {
+    "A": "旁边 is a place and would need 在 before it; between 站在窗边 and 看 the sentence needs what I do to see the sky.",
+    "B": "茂盛 describes thick leaves; it has nothing to do with looking at stars.",
+    "D": "事情 is a noun, a matter; the blank needs an action done before 看."
+   },
+   "prompt_en": "Fill the blank: 我站在窗边______看，夜空中有许多美丽的小星星。",
+   "explanation_zh": "\"抬头\"是把头抬起来。星星在夜空里，要往上看——抬头看。",
+   "why_zh": {
+    "A": "\"旁边\"是位置，前面还得有\"在\"；\"站在窗边\"和\"看\"中间要填看天的动作。",
+    "B": "\"茂盛\"说树叶多，和看星星没关系。",
+    "D": "\"事情\"是名词，这里要填\"看\"前面的动作。"
+   },
+   "content_hash": "009c1af9ca933d27"
+  },
+  {
+   "id": "zc:L04-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：骆驼长得高，一______就吃到了树叶。",
+   "choices": {
+    "A": "抬头",
+    "B": "进去",
+    "C": "又窄又矮",
+    "D": "脖子"
+   },
+   "correct": "A",
+   "explanation": "抬头 is lifting the head. The camel is tall, so one lift of the head reaches the leaves — the text's own line: 骆驼一抬头就吃到了树叶.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》 星期四，练习2（printed p.25）",
+   "form": "L04",
+   "lesson": "L04",
+   "why": {
+    "B": "进去 means go in; the camel is outside the wall and eats by lifting its head, not by going in.",
+    "C": "又窄又矮 (narrow and low) describes the door; it is not something the camel does.",
+    "D": "脖子 is a neck, a thing; after 一 the sentence needs an action done once."
+   },
+   "prompt_en": "Fill the blank: 骆驼长得高，一______就吃到了树叶。",
+   "explanation_zh": "\"抬头\"是把头抬起来。骆驼高，一抬头就够到树叶了——课文原句：骆驼一抬头就吃到了树叶。",
+   "why_zh": {
+    "B": "\"进去\"是走进去，骆驼在墙外，是抬头吃到的，不是进去吃。",
+    "C": "\"又窄又矮\"说的是门，不是骆驼做的事。",
+    "D": "\"脖子\"是东西，\"一\"后面要跟一个动作。"
+   },
+   "content_hash": "8804c75d92d168ac"
+  },
+  {
+   "id": "zc:L04-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：羊长得矮，伸长______也吃不到树叶。",
+   "choices": {
+    "A": "进去",
+    "B": "又窄又矮",
+    "C": "脖子",
+    "D": "抬头"
+   },
+   "correct": "C",
+   "explanation": "脖子 is the neck. 伸长 (stretch out) needs a body part, and the text says 脖子伸得老长，还是吃不着.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》 星期四，练习2（printed p.25）",
+   "form": "L04",
+   "lesson": "L04",
+   "why": {
+    "A": "进去 is going in; you cannot stretch it.",
+    "B": "又窄又矮 describes the door; nothing narrow and low gets stretched here.",
+    "D": "抬头 is already a whole action; 伸长 needs the part of the body being stretched."
+   },
+   "prompt_en": "Fill the blank: 羊长得矮，伸长______也吃不到树叶。",
+   "explanation_zh": "\"脖子\"就是颈。\"伸长\"后面要跟身体的一部分，课文说：脖子伸得老长，还是吃不着。",
+   "why_zh": {
+    "A": "\"进去\"是动作，不能\"伸长\"。",
+    "B": "\"又窄又矮\"说的是门，这里没有又窄又矮的东西可以伸长。",
+    "D": "\"抬头\"本身就是一个动作，\"伸长\"后面要跟伸长的身体部位。"
+   },
+   "content_hash": "e1ed2cf54a7db2d4"
+  },
+  {
+   "id": "zc:L04-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：但是，羊可以走进______的门，骆驼却钻不进去。",
+   "choices": {
+    "A": "脖子",
+    "B": "抬头",
+    "C": "又窄又矮",
+    "D": "进去"
+   },
+   "correct": "C",
+   "explanation": "又窄又矮 means narrow and low. Before 的门 the sentence needs words that describe the door, and that is how the text describes it: 又窄又矮的门.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》 星期四，练习2（printed p.25）",
+   "form": "L04",
+   "lesson": "L04",
+   "why": {
+    "A": "脖子的门 would be a neck's door; the blank describes what the door is like.",
+    "B": "抬头 is an action, raising the head; it cannot describe a door.",
+    "D": "进去 is an action, and 走进 already says going in; what is missing is what the door is like."
+   },
+   "prompt_en": "Fill the blank: 但是，羊可以走进______的门，骆驼却钻不进去。",
+   "explanation_zh": "\"又窄又矮\"说门不宽也不高。\"的门\"前面要填说门的词，课文就是这么说的：又窄又矮的门。",
+   "why_zh": {
+    "A": "\"脖子的门\"不通，这里要填门是什么样的。",
+    "B": "\"抬头\"是动作，不能说门。",
+    "D": "\"进去\"是动作，\"走进\"已经说了进去，缺的是门的样子。"
+   },
+   "content_hash": "1acde76ba1c24750"
+  },
+  {
+   "id": "zc:L04-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.03",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：羊可以走进又窄又矮的门，骆驼却钻不______。",
+   "choices": {
+    "A": "又窄又矮",
+    "B": "脖子",
+    "C": "进去",
+    "D": "抬头"
+   },
+   "correct": "C",
+   "explanation": "进去 means get in. 钻不进去 is cannot squeeze in — the text's words for the camel at the door: 怎么也钻不进去.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》 星期四，练习2（printed p.25）",
+   "form": "L04",
+   "lesson": "L04",
+   "why": {
+    "A": "又窄又矮 describes the door, not whether the camel gets through it.",
+    "B": "钻不脖子 means nothing; after 钻不 comes the result — in or not.",
+    "D": "抬头 is a different action, lifting the head; after 钻不 comes whether the squeeze got through."
+   },
+   "prompt_en": "Fill the blank: 羊可以走进又窄又矮的门，骆驼却钻不______。",
+   "explanation_zh": "\"进去\"是进到里面。\"钻不进去\"就是钻不进门——课文说骆驼：怎么也钻不进去。",
+   "why_zh": {
+    "A": "\"又窄又矮\"说的是门，不是骆驼钻没钻进去。",
+    "B": "\"钻不脖子\"不通，\"钻不\"后面要跟结果——进去没有。",
+    "D": "\"抬头\"是另一个动作，\"钻不\"后面要说钻的结果。"
+   },
+   "content_hash": "bcbd40cdfa9ed846"
   }
  ]
 }

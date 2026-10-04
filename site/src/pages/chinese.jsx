@@ -386,7 +386,7 @@ export function Lesson({ id }) {
           <CardTitle>{t(`第${l.no}课`, `Lesson ${l.no}`)} · {t(l.title, l.title_en)}</CardTitle>
           <CardDescription>{t("课文", "Text")} p.{l.pages["课文"]} · {t("生字", "Characters")} p.{l.pages["生字·词语·句子"]} · {t("阅读", "Reading")} p.{l.pages["阅读"]}</CardDescription>
         </CardHeader>
-        {l["课文"].text ? null : <CardContent className="text-muted-foreground text-sm">{t("课文请看课本。", "The text is read from the book, not from here.")}</CardContent>}
+        <CardContent className="flex flex-col gap-2">{l["课文"].text ? null : <span className="text-muted-foreground text-sm">{t("课文请看课本。", "The text is read from the book, not from here.")}</span>}<LessonTabs lesson={id} path={(x) => `/chinese/l/${x}`} /></CardContent>
       </Card>
       <Card>
         <CardHeader><CardTitle>{t("生字", "New characters")}</CardTitle><CardDescription>{tf(l["生字"].where)} · {t("会写的字会来找你——点「写」，默写一个试试。", "A character you can write comes to you — tap Write and write one from memory.")}</CardDescription></CardHeader>
@@ -496,7 +496,7 @@ export function Dictation({ set }) {
           <CardDescription>{t(task.what, task.what_en)}</CardDescription>
           <CardAction><Badge variant="outline" className="tabular-nums"><span data-testid="zh-rated">{rated}</span>/{total}{rated ? ` · ${t("对", "right")} ${right}` : ""}</Badge></CardAction>
         </CardHeader>
-        <CardContent className="text-muted-foreground text-sm">{tf(task.rule)}</CardContent>
+        <CardContent className="flex flex-col gap-2 text-sm"><span className="text-muted-foreground">{tf(task.rule)}</span><LessonTabs lesson={note.lesson} path={(x) => `/chinese/dictation/${x}`} /></CardContent>
       </Card>
       {Object.keys(task.words).map((section) => (
         <Card key={section}>
@@ -648,6 +648,7 @@ export function ReadAloud({ set }) {
         <CardContent className="flex flex-col gap-2 text-sm">
           <p className="text-muted-foreground">{t(`翻开${readWhere(task)}，对着书朗读；读完请按停止。录好了可以再听一遍。`, `Open the book to ${readWhere(task)} and read from it; press Stop at the end. Then you can listen to it again.`)}</p>
           {mode === "recording" ? <p className="font-medium" data-testid="zh-recording">{t(`正在录音 · ${sec} 秒`, `Recording · ${sec} s`)}</p> : null}
+          <LessonTabs lesson={note.lesson} path={(x) => `/chinese/read/${x}`} />
         </CardContent>
       </Card>
       {/* After recording: her recording, to listen to again — and nothing else.

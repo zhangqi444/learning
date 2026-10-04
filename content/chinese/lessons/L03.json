@@ -1,0 +1,413 @@
+{
+ "id": "L03",
+ "no": 3,
+ "title": "颐和园",
+ "title_en": "The Summer Palace",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "22–23",
+  "生字·词语·句子": "24",
+  "课堂练习": "25–28",
+  "阅读": "29–31"
+ },
+ "pages_note": "Read off the 目录 (教材 PDF index 11–12) and confirmed on each rendered page: 第三课 runs pp. 22–31, 综合练习（一） starts p. 32. 课堂练习 is pp. 25–28 (描一描写一写 25, 读一读/用一用 26, 扩展与替换/想一想 27, 对话/课堂游戏 28); the 阅读 text is pp. 29–30 with its 想一想 and 日积月累 on p. 31.",
+ "课文": {
+  "where": {
+   "zh": "课本第22–23页",
+   "en": "Textbook pp. 22–23"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第24页",
+   "en": "Textbook p. 24"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book",
+  "items": [
+   {
+    "zi": "颐",
+    "py": "yí",
+    "gloss": {
+     "zh": "颐和园的\"颐\"",
+     "en": "as in 颐和园, the Summer Palace"
+    }
+   },
+   {
+    "zi": "园",
+    "py": "yuán",
+    "gloss": {
+     "zh": "种花、种树或玩的地方",
+     "en": "garden, park"
+    }
+   },
+   {
+    "zi": "久",
+    "py": "jiǔ",
+    "gloss": {
+     "zh": "时间长",
+     "en": "a long time"
+    }
+   },
+   {
+    "zi": "站",
+    "py": "zhàn",
+    "gloss": {
+     "zh": "立着，不坐也不躺",
+     "en": "stand"
+    }
+   },
+   {
+    "zi": "底",
+    "py": "dǐ",
+    "gloss": {
+     "zh": "最下面的地方",
+     "en": "bottom"
+    }
+   },
+   {
+    "zi": "岛",
+    "py": "dǎo",
+    "gloss": {
+     "zh": "四面是水的一块陆地",
+     "en": "island"
+    }
+   },
+   {
+    "zi": "桥",
+    "py": "qiáo",
+    "gloss": {
+     "zh": "架在水上让人走过去的东西",
+     "en": "bridge"
+    }
+   },
+   {
+    "zi": "洞",
+    "py": "dòng",
+    "gloss": {
+     "zh": "东西中间空出来的地方",
+     "en": "hole, opening"
+    }
+   },
+   {
+    "zi": "孔",
+    "py": "kǒng",
+    "gloss": {
+     "zh": "小洞",
+     "en": "a small hole; an arch of a bridge"
+    }
+   },
+   {
+    "zi": "柱",
+    "py": "zhù",
+    "gloss": {
+     "zh": "直立着撑住房子的长条",
+     "en": "pillar, column"
+    }
+   },
+   {
+    "zi": "狮",
+    "py": "shī",
+    "gloss": {
+     "zh": "狮子",
+     "en": "lion"
+    }
+   },
+   {
+    "zi": "分",
+    "py": "fēn",
+    "gloss": {
+     "zh": "分开；十分就是\"很\"",
+     "en": "divide; 十分 means very"
+    }
+   },
+   {
+    "zi": "廊",
+    "py": "láng",
+    "gloss": {
+     "zh": "有顶的长长的过道",
+     "en": "corridor, covered walkway"
+    }
+   },
+   {
+    "zi": "眼",
+    "py": "yǎn",
+    "gloss": {
+     "zh": "眼睛",
+     "en": "eye"
+    }
+   },
+   {
+    "zi": "万",
+    "py": "wàn",
+    "gloss": {
+     "zh": "一千个十",
+     "en": "ten thousand"
+    }
+   },
+   {
+    "zi": "寿",
+    "py": "shòu",
+    "gloss": {
+     "zh": "活得长；万寿山的\"寿\"",
+     "en": "long life; as in 万寿山"
+    }
+   },
+   {
+    "zi": "脚",
+    "py": "jiǎo",
+    "gloss": {
+     "zh": "腿最下面走路用的部分；山脚是山最下面",
+     "en": "foot; 山脚 is the foot of a hill"
+    }
+   },
+   {
+    "zi": "收",
+    "py": "shōu",
+    "gloss": {
+     "zh": "把东西拿进来、放到一起",
+     "en": "gather in, collect"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "立",
+    "zi": "站"
+   },
+   {
+    "bu": "寸",
+    "zi": "寿"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第24页",
+   "en": "Textbook p. 24"
+  },
+  "items": [
+   {
+    "w": "中心",
+    "py": "zhōngxīn"
+   },
+   {
+    "w": "美丽",
+    "py": "měilì"
+   },
+   {
+    "w": "生动",
+    "py": "shēngdòng"
+   },
+   {
+    "w": "十分",
+    "py": "shífēn"
+   },
+   {
+    "w": "栏杆",
+    "py": "lángān"
+   },
+   {
+    "w": "景色",
+    "py": "jǐngsè"
+   }
+  ]
+ },
+ "专有名词": {
+  "where": {
+   "zh": "课本第24页",
+   "en": "Textbook p. 24"
+  },
+  "section_note": "A section L05 does not have: the book prints 专有名词 (Proper nouns) between 词语 and 句子 on p. 24, with the pinyin capitalised as a name. Kept as the book has it; the lesson page may ignore it.",
+  "items": [
+   {
+    "w": "颐和园",
+    "py": "Yíhé Yuán"
+   },
+   {
+    "w": "昆明湖",
+    "py": "Kūnmíng Hú"
+   },
+   {
+    "w": "十七孔桥",
+    "py": "Shíqī-kǒng Qiáo"
+   },
+   {
+    "w": "万寿山",
+    "py": "Wànshòu Shān"
+   }
+  ]
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第24页",
+   "en": "Textbook p. 24"
+  },
+  "zh": "今年寒假，我终于来到了向往已久的颐和园。",
+  "py": "jīn nián hán jià, wǒ zhōng yú lái dào le xiàng wǎng yǐ jiǔ de yí hé yuán."
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第27页 扩展与替换",
+   "en": "Textbook p. 27, Expand and substitute"
+  },
+  "pattern": "……终于……",
+  "ladder": [
+   "终于",
+   "终于来到了",
+   "终于来到了向往已久的颐和园。",
+   "我终于来到了向往已久的颐和园。",
+   "今年寒假，我终于来到了向往已久的颐和园。"
+  ],
+  "substitutions": {
+   "frame": [
+    "今年寒假，我",
+    "终于",
+    "来到了向往已久的颐和园。"
+   ],
+   "rows": [
+    [
+     "去年冬天，妈妈",
+     "回到了北京"
+    ],
+    [
+     "一个小时后，雨",
+     "停了"
+    ],
+    [
+     "去年寒假，我",
+     "看到了雪"
+    ]
+   ]
+  },
+  "substitutions_note": "The blue 替换 table under the ladder on p. 27: the sentence split around 终于, then three rows that swap the two outer parts. L05's file has no such key because it was not carried over; added here as the book prints it."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第26页",
+   "en": "Textbook p. 26"
+  },
+  "rows": [
+   [
+    "颐和园",
+    "公园",
+    "家园",
+    "校园",
+    "乐园"
+   ],
+   [
+    "向往已久",
+    "很久",
+    "不久",
+    "多久",
+    "好久",
+    "长久"
+   ],
+   [
+    "站着",
+    "站起来",
+    "站立",
+    "湖底",
+    "水底",
+    "底下"
+   ],
+   [
+    "小岛",
+    "小桥",
+    "孔桥",
+    "一座桥"
+   ],
+   [
+    "桥洞",
+    "地洞",
+    "山洞",
+    "一个洞"
+   ],
+   [
+    "小孔",
+    "鼻孔",
+    "柱子",
+    "石柱",
+    "木柱"
+   ],
+   [
+    "狮子",
+    "十分",
+    "分数",
+    "一百分"
+   ],
+   [
+    "长廊",
+    "走廊",
+    "眼睛",
+    "眼前",
+    "看一眼"
+   ],
+   [
+    "万寿山",
+    "一万",
+    "长寿"
+   ],
+   [
+    "脚下",
+    "山脚",
+    "收下",
+    "收到",
+    "尽收眼底"
+   ]
+  ],
+  "page_break_note": "all ten rows are on p. 26, above 用一用"
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第26页",
+   "en": "Textbook p. 26"
+  },
+  "rows": [
+   [
+    "湖中心",
+    "岛中心",
+    "在大厅的中心"
+   ],
+   [
+    "美丽的公园",
+    "美丽的景色",
+    "美丽的彩虹"
+   ],
+   [
+    "生动的山水画",
+    "讲课讲得很生动",
+    "这些虾画得很生动"
+   ],
+   [
+    "十分可爱",
+    "十分美丽",
+    "十分高兴"
+   ],
+   [
+    "石栏杆",
+    "木栏杆",
+    "景色真美",
+    "夜晚的景色"
+   ]
+  ],
+  "rows_note": "The book prints 这些虾画得很生动 on its own line under the two other 生动 phrases; it is the same word's row, so it is kept with them. 彩虹 carries the pinyin cǎi hóng above it in the book."
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第29–30页",
+   "en": "Textbook pp. 29–30"
+  },
+  "title": "逛地坛庙会",
+  "title_en": "Visiting Ditan Temple Fair",
+  "sidebar": [
+   "民俗：民间的风俗习惯。",
+   "人山人海：形容人非常多。",
+   "彩色：多种颜色。",
+   "英武：英俊威武。（英武的警察　英武的士兵）"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The margin prints ★ before each gloss; 英武's gloss is followed by two example phrases on their own lines, kept here in brackets. p. 31 carries the reading's 想一想，说一说 (three questions) and 日积月累 (知者乐水，仁者乐山。——《论语》), neither reproduced."
+ }
+}

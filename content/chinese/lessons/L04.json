@@ -1,0 +1,412 @@
+{
+ "id": "L04",
+ "no": 4,
+ "title": "骆驼和羊",
+ "title_en": "A Camel and a Sheep",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "36–38",
+  "生字·词语·句子": "39",
+  "课堂练习": "40–43",
+  "阅读": "44–47"
+ },
+ "pages_note": "Read off the 目录 (教材 PDF index 12) and confirmed on each rendered page: 第四课 runs pp. 36–47, 第五课 starts p. 48. 课堂练习 is pp. 40–43 (描一描写一写 40, 读一读/用一用 41, 扩展与替换/想一想 42, 对话/课堂游戏 43); the 阅读 text is pp. 44–47 with its 想一想 and 日积月累 at the foot of p. 47.",
+ "课文": {
+  "where": {
+   "zh": "课本第36–38页",
+   "en": "Textbook pp. 36–38"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第39页",
+   "en": "Textbook p. 39"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. The book marks 驼 tuó in the list; in 骆驼 it is read light, luòtuo, as the text's pinyin shows.",
+  "items": [
+   {
+    "zi": "骆",
+    "py": "luò",
+    "gloss": {
+     "zh": "骆驼的\"骆\"",
+     "en": "as in 骆驼, camel"
+    }
+   },
+   {
+    "zi": "驼",
+    "py": "tuó",
+    "gloss": {
+     "zh": "骆驼的\"驼\"",
+     "en": "as in 骆驼, camel"
+    }
+   },
+   {
+    "zi": "矮",
+    "py": "ǎi",
+    "gloss": {
+     "zh": "个子不高，跟\"高\"相对",
+     "en": "short (in height)"
+    }
+   },
+   {
+    "zi": "件",
+    "py": "jiàn",
+    "gloss": {
+     "zh": "量词：一件事情、一件衣服",
+     "en": "measure word: a matter, a piece of clothing"
+    }
+   },
+   {
+    "zi": "比",
+    "py": "bǐ",
+    "gloss": {
+     "zh": "把两个东西放在一起看谁大、谁高",
+     "en": "compare; than"
+    }
+   },
+   {
+    "zi": "俩",
+    "py": "liǎ",
+    "gloss": {
+     "zh": "两个（人）",
+     "en": "the two of them"
+    }
+   },
+   {
+    "zi": "扒",
+    "py": "bā",
+    "gloss": {
+     "zh": "用手抓住、趴在上面",
+     "en": "hold on to, cling to"
+    }
+   },
+   {
+    "zi": "肯",
+    "py": "kěn",
+    "gloss": {
+     "zh": "愿意",
+     "en": "be willing to"
+    }
+   },
+   {
+    "zi": "输",
+    "py": "shū",
+    "gloss": {
+     "zh": "比赛没有赢",
+     "en": "lose (a contest)"
+    }
+   },
+   {
+    "zi": "窄",
+    "py": "zhǎi",
+    "gloss": {
+     "zh": "不宽",
+     "en": "narrow"
+    }
+   },
+   {
+    "zi": "跪",
+    "py": "guì",
+    "gloss": {
+     "zh": "两个膝盖着地",
+     "en": "kneel"
+    }
+   },
+   {
+    "zi": "钻",
+    "py": "zuān",
+    "gloss": {
+     "zh": "从小的地方穿过去",
+     "en": "squeeze through, bore into"
+    }
+   },
+   {
+    "zi": "找",
+    "py": "zhǎo",
+    "gloss": {
+     "zh": "去寻",
+     "en": "look for; go to (someone)"
+    }
+   },
+   {
+    "zi": "评",
+    "py": "píng",
+    "gloss": {
+     "zh": "说出谁对谁错",
+     "en": "judge, comment"
+    }
+   },
+   {
+    "zi": "短",
+    "py": "duǎn",
+    "gloss": {
+     "zh": "不长",
+     "en": "short (in length)"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "马",
+    "zi": "骆"
+   },
+   {
+    "bu": "矢",
+    "zi": "矮"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第39页",
+   "en": "Textbook p. 39"
+  },
+  "items": [
+   {
+    "w": "事情",
+    "py": "shìqing"
+   },
+   {
+    "w": "证明",
+    "py": "zhèngmíng"
+   },
+   {
+    "w": "旁边",
+    "py": "pángbiān"
+   },
+   {
+    "w": "围墙",
+    "py": "wéiqiáng"
+   },
+   {
+    "w": "茂盛",
+    "py": "màoshèng"
+   },
+   {
+    "w": "枝叶",
+    "py": "zhīyè"
+   },
+   {
+    "w": "抬头",
+    "py": "táitóu"
+   },
+   {
+    "w": "脖子",
+    "py": "bózi"
+   },
+   {
+    "w": "摇头",
+    "py": "yáotóu"
+   },
+   {
+    "w": "大模大样",
+    "py": "dàmú-dàyàng"
+   },
+   {
+    "w": "进去",
+    "py": "jìnqù"
+   },
+   {
+    "w": "自己",
+    "py": "zìjǐ"
+   },
+   {
+    "w": "长处",
+    "py": "chángchù"
+   },
+   {
+    "w": "短处",
+    "py": "duǎnchù"
+   }
+  ]
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第39页",
+   "en": "Textbook p. 39"
+  },
+  "zh": "高比矮好。",
+  "py": "gāo bǐ ǎi hǎo."
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第42页 扩展与替换",
+   "en": "Textbook p. 42, Expand and substitute"
+  },
+  "pattern": "……比……好",
+  "ladder": [
+   "比",
+   "比矮好",
+   "高比矮好。"
+  ],
+  "substitutions": {
+   "frame": [
+    "高",
+    "比",
+    "矮",
+    "好。"
+   ],
+   "rows": [
+    [
+     "西瓜",
+     "苹果",
+     "大"
+    ],
+    [
+     "妈妈",
+     "我",
+     "高"
+    ],
+    [
+     "弟弟",
+     "我",
+     "矮"
+    ]
+   ]
+  },
+  "substitutions_note": "The blue 替换 table under the ladder on p. 42: 高 比 矮 好 with the three underlined words swapped row by row. Added as the book prints it, as in L03."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第41页",
+   "en": "Textbook p. 41"
+  },
+  "rows": [
+   [
+    "骆驼",
+    "矮小",
+    "矮个儿",
+    "高矮",
+    "七个小矮人"
+   ],
+   [
+    "一件事情",
+    "一件衣服",
+    "事件"
+   ],
+   [
+    "比一比",
+    "比赛",
+    "我俩",
+    "你俩",
+    "他们俩"
+   ],
+   [
+    "扒着",
+    "扒车",
+    "肯定",
+    "不肯"
+   ],
+   [
+    "认输",
+    "服输",
+    "窄小",
+    "窄窄的小路",
+    "窄胡同"
+   ],
+   [
+    "跪下",
+    "跪坐"
+   ],
+   [
+    "钻进去",
+    "钻不进去",
+    "钻山洞"
+   ],
+   [
+    "找人",
+    "找朋友",
+    "找东西"
+   ],
+   [
+    "批评",
+    "评分",
+    "评评理"
+   ],
+   [
+    "长短",
+    "短处",
+    "短跑"
+   ]
+  ],
+  "page_break_note": "all ten rows are on p. 41, above 用一用"
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第41页",
+   "en": "Textbook p. 41"
+  },
+  "rows": [
+   [
+    "一件事情",
+    "什么事情",
+    "这件事情"
+   ],
+   [
+    "可以证明",
+    "证明一下"
+   ],
+   [
+    "我的旁边",
+    "图书馆旁边",
+    "学校旁边"
+   ],
+   [
+    "围墙里",
+    "围墙外"
+   ],
+   [
+    "茂盛的叶子",
+    "长得很茂盛",
+    "枝叶茂盛"
+   ],
+   [
+    "抬头看着星星",
+    "抬起头来",
+    "把头抬起来"
+   ],
+   [
+    "我的脖子",
+    "鸭脖子",
+    "脖子长",
+    "脖子短"
+   ],
+   [
+    "摇摇头",
+    "摇了摇头",
+    "摇了一下头"
+   ],
+   [
+    "大模大样地走",
+    "走进去",
+    "走进教室去"
+   ],
+   [
+    "自己的事情",
+    "我自己",
+    "让他自己做"
+   ],
+   [
+    "找找自己的短处"
+   ]
+  ]
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第44–47页",
+   "en": "Textbook pp. 44–47"
+  },
+  "title": "小白兔和小灰兔",
+  "title_en": "The White Bunny and the Grey Bunny",
+  "sidebar": [
+   "帮忙（帮一下忙　帮帮忙　帮他的忙）",
+   "表示（表示欢迎　表示反对）",
+   "播种：播撒种子。",
+   "施肥：给植物上肥料。"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The margin prints ★ before each entry; 帮忙 and 表示 carry example phrases under them rather than a gloss, kept here in brackets. p. 47 ends with the reading's 想一想，说一说 (three questions) and 日积月累 (夫尺有所短，寸有所长，物有所不足。——（战国）屈原), neither reproduced. The book's English title spells Grey as printed."
+ }
+}

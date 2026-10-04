@@ -23,8 +23,8 @@
   },
   "练习册B": {
    "pages": 90,
-   "pdf_offset": null,
-   "pages_note": "in hand, not yet read"
+   "pdf_offset": 5,
+   "pages_note": "printed page + 5 = PDF page; verified on printed p. 16 (3 October). 练习册B holds the even lessons (2·4·6·8·10·12), 练习册A the odd ones; pp. 82–83 of both are 附录 听力文本, not an answer key — there is none."
   }
  },
  "source_note": "The three PDFs are on the owner's Mac (~/Downloads) and in the Drive folder beside progress.json. They are scans with no text layer; pages are rendered with ImageMagick + Ghostscript and read as images. Nothing is OCRed."

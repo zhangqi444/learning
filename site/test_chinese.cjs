@@ -497,7 +497,9 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   const shelf = await pg.$$eval('[data-testid=zi-card]', (n) => n.map((e) => e.dataset.char + ':' + e.dataset.stage));
   check('the shelf holds exactly the characters she has met, at their brightness', shelf.length === 7 && ['喝', '伯', '深', '突', '松', '定', '鼠'].every((c) => shelf.includes(c + ':Steady')) && !shelf.some((s) => /^[浅正淹]/.test(s)), shelf.join(' '));
   const shelfBadge = /· characters[\s\S]*?(\d+) \/ (\d+)/.exec((await pg.textContent('[data-testid=collections]')).replace(/\s+/g, ' '));
-  check('and the count is the Radiant ones over the lesson\'s ten, not what is drawn', !!shelfBadge && shelfBadge[1] === '0' && shelfBadge[2] === '10', shelfBadge ? shelfBadge[0].slice(-12) : 'no badge');
+  // over every character the book teaches so far — the 生字 of every lesson in the bundle (43 with 第三、四、五课), not only the lesson she is on
+  const glimTotal = Object.values(bundle.zh.lessons).reduce((a, l) => a + l['生字'].items.length, 0);
+  check('and the count is the Radiant ones over every character the book teaches, not what is drawn', !!shelfBadge && shelfBadge[1] === '0' && shelfBadge[2] === String(glimTotal), shelfBadge ? shelfBadge[0].slice(-12) : 'no badge');
   await resetNotes(); await pg.click('[data-testid=zi-card][data-char="鼠"] [data-testid=hear-glim]');
   check('tapping a character\'s cat plays its call', isCall(await notes()));
   // -- free writing: kept as a PNG and as strokes in her Drive, awaiting review
