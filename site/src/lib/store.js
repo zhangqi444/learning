@@ -384,10 +384,25 @@ export const Store = {
         // OfflineMock). Two devices that each typed one in would otherwise lose the
         // older one to last-write-wins; the log is unioned instead, so no entry is
         // ever dropped and the newest per section is what the page shows.
-        if (slice === "mocks" && ls[k] && Array.isArray(rs[k].entries) && Array.isArray(ls[k].entries)) {
-          const newer = ts(rs[k].at) > ts(ls[k].at) ? rs[k] : ls[k], byId = {}
-          for (const e of [...ls[k].entries, ...rs[k].entries]) if (e && e.id) byId[e.id] = e
-          ls[k] = { ...newer, entries: Object.values(byId).sort((a, b) => ts(a.at) - ts(b.at)) }
+        // The rest of such a paper's record is merged by the part, not by the
+        // record: its shape (`def`), its PDF (`file`) and its link each keep the
+        // newer of the two copies by their own time, and the skill a parent gave a
+        // miss (`tags`) and her redone ticks (`redone`) are merged question by
+        // question. Otherwise a PDF attached on the laptop would be lost to a tick
+        // made on the iPad a minute later, because that record is "newer".
+        if (slice === "mocks" && ls[k] && (rs[k].offline || ls[k].offline || (Array.isArray(rs[k].entries) && Array.isArray(ls[k].entries)))) {
+          const L = ls[k], R = rs[k], newer = ts(R.at) > ts(L.at) ? R : L, byId = {}
+          for (const e of [...(Array.isArray(L.entries) ? L.entries : []), ...(Array.isArray(R.entries) ? R.entries : [])]) if (e && e.id) byId[e.id] = e
+          const later = (a, b) => (!a ? b : !b ? a : ts(b.at) > ts(a.at) ? b : a)
+          const out = { ...newer, entries: Object.values(byId).sort((a, b) => ts(a.at) - ts(b.at)) }
+          for (const f of ["def", "file", "link"]) { const v = later(L[f], R[f]); if (v) out[f] = v }
+          for (const f of ["tags", "redone"]) {
+            if (!L[f] && !R[f]) continue
+            const o = { ...(L[f] || {}) }
+            for (const q of Object.keys(R[f] || {})) o[q] = later(o[q], R[f][q])
+            out[f] = o
+          }
+          ls[k] = out
           continue
         }
         if (!ls[k] || ts(rs[k].at) > ts(ls[k].at)) ls[k] = rs[k]
@@ -539,6 +554,20 @@ export const Store = {
     return this.api("https://www.googleapis.com/upload/drive/v3/files?uploadType=multipart&fields=id",
       { method: "POST", headers: { "Content-Type": `multipart/related; boundary=${boundary}` }, body })
       .then((r) => r.json()).then((f) => f.id || null).catch(() => null)
+  },
+  /** A file too big for one multipart request — Drive takes up to 5 MB that way,
+   *  and a practice test's PDF is often more. Resumable: open a session with the
+   *  metadata, then send the bytes to the address Drive hands back. Resolves to the
+   *  file id, or null, so the caller can say so and offer a link instead. */
+  uploadLarge(name, blob, mime) {
+    if (!DRIVE_ENABLED || !this.folderId) return Promise.resolve(null)
+    const type = mime || blob.type || "application/octet-stream"
+    const meta = { name, mimeType: type, parents: [this.folderId] }
+    return this.api("https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&fields=id",
+      { method: "POST", headers: { "Content-Type": "application/json; charset=UTF-8", "X-Upload-Content-Type": type, "X-Upload-Content-Length": String(blob.size) }, body: JSON.stringify(meta) })
+      .then((r) => r.headers.get("Location"))
+      .then((loc) => (loc ? fetch(loc, { method: "PUT", headers: { "Content-Type": type }, body: blob }).then((r) => (r.ok ? r.json() : null)) : null))
+      .then((f) => (f && f.id) || null).catch(() => null)
   },
   /** An object URL for a recording kept in Drive, or null. The caller revokes it. */
   mediaUrl(id) {

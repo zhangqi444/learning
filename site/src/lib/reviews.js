@@ -8,6 +8,7 @@
 import { D } from "@/lib/content"
 import { t as pick } from "@/lib/lang"
 import { Store, ts } from "@/lib/store"
+import { offlinePaper, paperSkillOptions } from "@/lib/engine"
 
 export const REVIEW_VERSION = 1
 const LIST = ["strengths", "suggestions"]
@@ -98,8 +99,8 @@ export function decodePayload(s) {
 export function paperFromPayload(obj) {
   const p = obj && obj.paper
   if (!p || typeof p !== "object") return null
-  const form = (D.offlineMocks || []).find((f) => f.id === p.form)
-  if (!form) throw new Error(`No paper called ${p.form || "(none)"} is listed on the site.`)
+  const form = offlinePaper(p.form)
+  if (!form) throw new Error(`No paper called ${p.form || "(none)"} is on her list. Add it on the Mock exams page first.`)
   if (!/^\d{4}-\d{2}-\d{2}$/.test(p.sat || "")) throw new Error("The paper's date must be written as YYYY-MM-DD.")
   const scores = {}, missed = {}
   for (const s of form.sections.filter((x) => x.n)) {
@@ -111,10 +112,24 @@ export function paperFromPayload(obj) {
       missed[s.id] = [...new Set(m)].sort((a, b) => a - b)
     }
   }
-  if (!Object.keys(scores).length && !Object.keys(missed).length) throw new Error("The link names the paper but carries no scores.")
-  const key = JSON.stringify({ form: form.id, sat: p.sat, scores, missed })
+  // `tags`: a skill for a missed question, by section and number — {"QR": {"12": "Data reasoning"}}.
+  // Only the bank's own skill names are taken, so each one has questions to ask.
+  const tags = {}
+  for (const [sec, m] of Object.entries(p.tags || {})) {
+    const s = form.sections.find((x) => x.id === sec)
+    if (!s || !m || typeof m !== "object") throw new Error(`The link tags a section the paper does not have: ${sec}.`)
+    const ok = new Set(paperSkillOptions(sec))
+    for (const [n, sk] of Object.entries(m)) {
+      const k = Number(n)
+      if (!Number.isInteger(k) || k < 1 || k > s.n) throw new Error(`${s.name} has no question ${n}.`)
+      if (!ok.has(sk)) throw new Error(`"${sk}" is not a skill the practice bank has for ${s.name}.`)
+      tags[`${sec}:${k}`] = sk
+    }
+  }
+  if (!Object.keys(scores).length && !Object.keys(missed).length && !Object.keys(tags).length) throw new Error("The link names the paper but carries no scores.")
+  const key = JSON.stringify({ form: form.id, sat: p.sat, scores, missed, tags })
   let h = 0; for (let i = 0; i < key.length; i++) h = (Math.imul(31, h) + key.charCodeAt(i)) | 0
-  return { form, sat: p.sat, scores, missed, by: typeof p.by === "string" ? p.by.slice(0, 80) : "", id: `link:${form.id}:${p.sat}:${(h >>> 0).toString(36)}` }
+  return { form, sat: p.sat, scores, missed, tags, by: typeof p.by === "string" ? p.by.slice(0, 80) : "", id: `link:${form.id}:${p.sat}:${(h >>> 0).toString(36)}` }
 }
 /** The paper result in a pasted link or JSON, or null if it is not one. */
 export function parsePaperImport(text) {

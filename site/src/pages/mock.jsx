@@ -1,10 +1,10 @@
 import * as React from "react"
-import { AlertTriangle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, FileText, Flag, PenLine, Play, RotateCcw, Save, Send, Swords, Timer } from "lucide-react"
+import { AlertTriangle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, ExternalLink, FilePlus, FileText, Flag, Link2, PenLine, Play, RotateCcw, Save, Send, Swords, Timer, Trash2, Upload } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { W } from "@/lib/world"
 import { go } from "@/lib/router"
-import { Store, useStore } from "@/lib/store"
+import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
@@ -22,7 +22,7 @@ import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { learnName } from "@/lib/aops"
 import { LearnCard } from "@/components/learn-card"
-import { STANINE, mockBand, mockNextSteps, offlineResult, recordMockForm, recordOfflineMisses, skillOf } from "@/lib/engine"
+import { ISEE_LOWER_SECTIONS, STANINE, createOfflinePaper, markRedone, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
 
 /* ---------- state helpers ---------- */
 export function mockState(form) { return Store.s.mocks[form] || { sections: {} } }
@@ -73,13 +73,13 @@ export function MockList() {
             </Card>
           )
         })}
-        {(D.offlineMocks || []).map((m) => {
+        {offlinePapers().map((m) => {
           const sc = offlineScores(m.id), k = Object.keys(sc.by).length
           return (
             <Card key={m.id} className="gap-3 py-5" data-testid={`offline-card-${m.id}`}>
               <CardHeader className="px-5">
                 <CardTitle className="flex items-center gap-2"><FileText className="text-primary size-4 shrink-0" />{m.name}</CardTitle>
-                <CardDescription>{m.blurb}</CardDescription>
+                <CardDescription>{m.blurb || (m.source ? m.source : "A paper sat on paper, added from this page.")}</CardDescription>
                 <CardAction>
                   {k === m.sections.length ? <Badge variant="outline" className="tabular-nums">{sc.right}/{sc.n}</Badge> : k ? <Badge variant="outline">{k}/{m.sections.length} sections</Badge> : <Badge variant="outline">On paper</Badge>}
                 </CardAction>
@@ -91,7 +91,24 @@ export function MockList() {
             </Card>
           )
         })}
+        <Card className="gap-3 border-dashed py-5" data-testid="paper-add-card">
+          <CardHeader className="px-5">
+            <CardTitle className="flex items-center gap-2"><FilePlus className="text-primary size-4 shrink-0" />Add a paper sat on paper</CardTitle>
+            <CardDescription>A practice test from a book or a website. Attach its PDF or a link, then enter her scores and the questions she missed: the misses come back in review and the paper counts in the score band.</CardDescription>
+          </CardHeader>
+          <CardContent className="px-5">
+            <Button size="sm" variant="outline" onClick={() => go("/mock/add")} data-testid="paper-add-open"><FilePlus /> Add a paper</Button>
+          </CardContent>
+        </Card>
       </div>
+      {(() => {
+        const gone = offlinePapers({ removed: true }).filter((p) => p.own && p.removed)
+        return gone.length ? (
+          <p className="text-muted-foreground text-xs" data-testid="papers-removed">
+            Removed: {gone.map((p, i) => <React.Fragment key={p.id}>{i ? ", " : ""}<button type="button" className="underline underline-offset-2" onClick={() => go("/mock/" + p.id)}>{p.name}</button></React.Fragment>)} — open one to put it back.
+          </p>
+        ) : null
+      })()}
     </div>
   )
 }
@@ -113,7 +130,7 @@ export function MockList() {
  * readiness and recent accuracy; and the question numbers she missed, typed in
  * per section, become review anchors (lib/engine.js, recordOfflineMisses). It
  * stays out of the Den and the rewards, which count papers sat here. */
-export function offlineDef(id) { return (D.offlineMocks || []).find((m) => m.id === id) }
+export function offlineDef(id) { return offlinePaper(id) }
 export function offlineScores(id) { return offlineResult(id) || { by: {}, missed: {}, right: 0, n: 0, entries: [], sat: null, at: null, complete: false } }
 function todayKey() { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` }
 function fmtDay(key) { return key ? new Date(key + "T12:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "" }
@@ -174,7 +191,7 @@ export function OfflineMock({ form }) {
         <CardHeader>
           <CardDescription className="flex items-center gap-2"><FileText className="size-4" /> {W.longNight} · on paper</CardDescription>
           <CardTitle className="text-2xl font-semibold tracking-tight">{m.name}</CardTitle>
-          <CardDescription>{m.blurb}</CardDescription>
+          <CardDescription>{m.blurb || "A paper sat on paper, added from the Mock exams page."}</CardDescription>
           <CardAction className="min-w-0">
             {all ? (
               <div className="text-right" data-testid="offline-total">
@@ -186,10 +203,21 @@ export function OfflineMock({ form }) {
         </CardHeader>
         <CardContent className="text-muted-foreground flex flex-col gap-1 text-sm">
           <div data-testid="offline-howto">Taken offline: the booklet and the answer sheet are the paper, so there is no timer and no questions on this page. Time each section yourself, as the book says.</div>
-          <div><span className="text-foreground font-medium">Source:</span> {m.source}.</div>
-          <div><span className="text-foreground font-medium">File:</span> {m.file}{m.key ? "" : " — it has no answer key, so mark it with the key in the book"}.</div>
+          {m.source ? <div><span className="text-foreground font-medium">Source:</span> {m.source}.</div> : null}
+          {m.file && !m.own ? <div><span className="text-foreground font-medium">File:</span> {m.file}{m.key ? "" : " — it has no answer key, so mark it with the key in the book"}.</div> : null}
         </CardContent>
       </Card>
+
+      {m.removed ? (
+        <Card className="border-warning gap-2 py-4" data-testid="paper-removed">
+          <CardContent className="flex flex-wrap items-center gap-3 px-5 text-sm">
+            <span>This paper is off the list and out of the score band. Her results are still in her record.</span>
+            <Button size="sm" variant="outline" onClick={() => removePaper(form, false)} data-testid="paper-restore"><RotateCcw /> Put it back</Button>
+          </CardContent>
+        </Card>
+      ) : null}
+
+      <PaperFileCard p={m} />
 
       <Card className="gap-2 py-5">
         <CardHeader className="px-5">
@@ -219,6 +247,8 @@ export function OfflineMock({ form }) {
           <p className="text-muted-foreground mt-3 text-xs">{total} questions in all. {sc.sat ? `Taken ${fmtDay(sc.sat)}. ` : ""}Once every section is in, this paper counts in the score band and in readiness like a paper sat here, and each question she missed sends two of its kind into the review pile.</p>
         </CardContent>
       </Card>
+
+      <PaperMissesCard p={m} sc={sc} />
 
       <Card className="gap-4 py-5">
         <CardHeader className="px-5">
@@ -250,7 +280,244 @@ export function OfflineMock({ form }) {
             <Button onClick={save} data-testid="offline-save"><Save /> Save results</Button>
             {msg ? <span className={cn("text-sm", msg.err ? "text-destructive" : "text-muted-foreground")} data-testid="offline-msg">{msg.text}</span> : null}
           </div>
+          {m.own && !m.removed ? <div><Button size="sm" variant="ghost" className="text-muted-foreground" onClick={() => { if (confirm(`Take "${m.name}" off the list and out of the score band? Her results stay in her record, and it can be put back.`)) removePaper(form, true) }} data-testid="paper-remove"><Trash2 /> Remove this paper</Button></div> : null}
           {sc.entries.length ? <p className="text-muted-foreground text-xs" data-testid="offline-log" data-n={sc.entries.length}>{sc.entries.length === 1 ? "One entry" : `${sc.entries.length} entries`} in her record · last saved {fmtDate(sc.at)}</p> : null}
+        </CardContent>
+      </Card>
+    </div>
+  )
+}
+
+/* ---------- the paper itself: its PDF or a link ----------
+ *
+ * The questions are the book's, so they are never copied into the site: a PDF goes
+ * into her own Google Drive folder — the app's scope is drive.file, so it can see
+ * that file and nothing else of hers — and the page links to it there. A link is
+ * kept as typed. Either is in her record only, private to her account. */
+const MULTIPART_MAX = 4.5 * 1024 * 1024   // Drive takes up to 5 MB in one multipart request
+async function uploadPaperPdf(id, file) {
+  const up = file.size > MULTIPART_MAX ? Store.uploadLarge : Store.uploadMedia
+  const fid = await up.call(Store, file.name || "paper.pdf", file, "application/pdf")
+  if (fid) setPaperFile(id, { id: fid, name: file.name, size: file.size })
+  return fid
+}
+const isPdf = (f) => f && (f.type === "application/pdf" || /\.pdf$/i.test(f.name || ""))
+const mb = (n) => (n / (1024 * 1024)).toFixed(n < 10 * 1024 * 1024 ? 1 : 0) + " MB"
+
+function PaperFileCard({ p }) {
+  useStore()
+  const rec = p.rec || {}
+  const file = rec.file && rec.file.id ? rec.file : null
+  const link = rec.link && rec.link.url ? rec.link : null
+  const [url, setUrl] = React.useState("")
+  const [busy, setBusy] = React.useState(false)
+  const [msg, setMsg] = React.useState(null)
+  const [shown, setShown] = React.useState(null)
+  React.useEffect(() => () => { if (shown) URL.revokeObjectURL(shown) }, [shown])
+  const canUpload = DRIVE_ENABLED && !!Store.folderId
+  async function onFile(e) {
+    const f = e.target.files && e.target.files[0]
+    e.target.value = ""
+    if (!f) return
+    if (!isPdf(f)) return setMsg({ err: true, text: "That is not a PDF." })
+    setBusy(true); setMsg({ err: false, text: `Uploading ${f.name} (${mb(f.size)}) to her Google Drive…` })
+    const ok = await uploadPaperPdf(p.id, f)
+    setBusy(false)
+    setMsg(ok ? { err: false, text: "The PDF is in her Google Drive folder." } : { err: true, text: "The upload did not go through. Try again, or put the file in her Google Drive yourself and paste its link." })
+  }
+  function saveLink() {
+    const u = url.trim()
+    if (!/^https?:\/\/\S+$/i.test(u)) return setMsg({ err: true, text: "A link starts with https://" })
+    setPaperLink(p.id, u); setUrl(""); setMsg({ err: false, text: "Link saved." })
+  }
+  async function showHere() {
+    setBusy(true)
+    const u = await Store.mediaUrl(file.id)
+    setBusy(false)
+    if (u) setShown(u); else setMsg({ err: true, text: "Could not load the PDF from Drive. Open it in Drive instead." })
+  }
+  return (
+    <Card className="gap-3 py-5" data-testid="paper-file">
+      <CardHeader className="px-5">
+        <CardTitle>The paper</CardTitle>
+        <CardDescription>The questions stay in the PDF or behind the link: they are never copied into the site. A PDF goes into her own Google Drive folder, private to her account.</CardDescription>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-3 px-5">
+        {file ? (
+          <div className="flex flex-wrap items-center gap-2 text-sm" data-testid="paper-pdf" data-file={file.id}>
+            <FileText className="text-muted-foreground size-4" /><span className="font-medium">{file.name}</span>{file.size ? <span className="text-muted-foreground tabular-nums">{mb(file.size)}</span> : null}
+            <Button asChild size="sm" variant="outline"><a href={`https://drive.google.com/file/d/${file.id}/view`} target="_blank" rel="noreferrer" data-testid="paper-pdf-open"><ExternalLink /> Open the PDF</a></Button>
+            <Button size="sm" variant="ghost" onClick={showHere} disabled={busy} data-testid="paper-pdf-show">Show it here</Button>
+            <Button size="sm" variant="ghost" className="text-muted-foreground" onClick={() => { if (confirm("Take the PDF off this paper? It stays in her Google Drive.")) setPaperFile(p.id, null) }}>Detach</Button>
+          </div>
+        ) : null}
+        {link ? (
+          <div className="flex flex-wrap items-center gap-2 text-sm" data-testid="paper-link">
+            <Link2 className="text-muted-foreground size-4" /><span className="max-w-full truncate">{link.url}</span>
+            <Button asChild size="sm" variant="outline"><a href={link.url} target="_blank" rel="noreferrer" data-testid="paper-link-open"><ExternalLink /> Open the link</a></Button>
+            <Button size="sm" variant="ghost" className="text-muted-foreground" onClick={() => setPaperLink(p.id, null)}>Remove link</Button>
+          </div>
+        ) : null}
+        {shown ? <iframe src={shown} title={p.name} className="h-[70vh] w-full rounded-md border" data-testid="paper-pdf-frame" /> : null}
+        <div className="flex flex-wrap items-end gap-3">
+          {canUpload ? (
+            <label className="flex flex-col gap-1.5">
+              <span className="text-muted-foreground text-xs">{file ? "Replace the PDF" : "Upload the PDF"}</span>
+              <span className={cn("border-input hover:bg-accent inline-flex h-9 cursor-pointer items-center gap-2 rounded-md border px-3 text-sm", busy && "pointer-events-none opacity-60")}>
+                <Upload className="size-4" /> Choose a PDF
+                <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={onFile} data-testid="paper-pdf-input" />
+              </span>
+            </label>
+          ) : <span className="text-muted-foreground text-xs">Sign in with Google to upload a PDF into her Drive.</span>}
+          <div className="flex min-w-56 flex-1 flex-col gap-1.5">
+            <Label htmlFor="paper-url" className="text-muted-foreground text-xs">{link ? "Change the link" : "Or paste a link"}</Label>
+            <div className="flex gap-2">
+              <Input id="paper-url" value={url} onChange={(e) => { setUrl(e.target.value); setMsg(null) }} placeholder="https://…" data-testid="paper-url" />
+              <Button size="sm" variant="outline" className="h-9" onClick={saveLink} disabled={!url.trim()} data-testid="paper-url-save">Save link</Button>
+            </div>
+          </div>
+        </div>
+        {msg ? <p className={cn("text-sm", msg.err ? "text-destructive" : "text-muted-foreground")} data-testid="paper-file-msg">{msg.text}</p> : null}
+      </CardContent>
+    </Card>
+  )
+}
+
+/* ---------- the questions she missed ----------
+ *
+ * Each missed number, filed under a skill — the paper's own map, Verbal's two parts
+ * by position, or a parent's pick here — so a review can ask two questions of ours
+ * on it; and a tick for redoing it from the booklet, which is the only place the
+ * question itself is. A miss nobody has filed yet waits here and is never dropped. */
+function PaperMissesCard({ p, sc }) {
+  useStore()
+  const rows = []
+  for (const s of p.sections || []) for (const n of ((sc.missed || {})[s.id] || { nums: [] }).nums) rows.push({ s, n, sk: paperSkill(p, s.id, n), redone: paperRedone(p, s.id, n) })
+  if (!rows.length) return null
+  const done = rows.filter((r) => r.redone).length, unfiled = rows.filter((r) => !r.sk).length
+  return (
+    <Card className="gap-3 py-5" data-testid="paper-misses" data-n={rows.length} data-redone={done} data-unfiled={unfiled}>
+      <CardHeader className="px-5">
+        <CardTitle>The questions she missed</CardTitle>
+        <CardDescription>
+          {done} of {rows.length} redone from the booklet{unfiled ? ` · ${unfiled} still need a skill before review can ask about them` : " · each one sends two questions of its skill into review"}.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4 px-5">
+        {(p.sections || []).map((s) => {
+          const mine = rows.filter((r) => r.s.id === s.id)
+          if (!mine.length) return null
+          const opts = paperSkillOptions(s.id)
+          return (
+            <div key={s.id} className="flex flex-col gap-1.5" data-testid="paper-miss-section" data-sec={s.id}>
+              <div className="text-sm font-medium">{s.name}</div>
+              <ul className="divide-y rounded-md border">
+                {mine.map((r) => (
+                  <li key={r.n} className="flex flex-wrap items-center gap-x-3 gap-y-1.5 px-3 py-2 text-sm" data-testid="paper-miss" data-sec={s.id} data-n={r.n} data-skill={r.sk || ""} data-redone={r.redone ? "1" : "0"}>
+                    <span className="w-14 shrink-0 font-medium tabular-nums">Q{r.n}</span>
+                    <select aria-label={`Skill for ${s.name} question ${r.n}`} value={r.sk || ""} onChange={(e) => tagPaperMiss(p.id, s.id, r.n, e.target.value || null)} data-testid="paper-miss-skill"
+                      className={cn("border-input dark:bg-input/30 h-8 min-w-44 flex-1 rounded-md border bg-transparent px-2 text-sm", !r.sk && "border-warning text-muted-foreground")}>
+                      <option value="">Needs a skill…</option>
+                      {opts.map((o) => <option key={o} value={o}>{o}</option>)}
+                      {r.sk && !opts.includes(r.sk) ? <option value={r.sk}>{r.sk}</option> : null}
+                    </select>
+                    <label className="flex shrink-0 items-center gap-2">
+                      <input type="checkbox" className="accent-primary size-4" checked={r.redone} onChange={(e) => markRedone(p.id, s.id, r.n, e.target.checked)} data-testid="paper-miss-redone" />
+                      <span className="text-muted-foreground">Redone from the booklet</span>
+                    </label>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        })}
+      </CardContent>
+    </Card>
+  )
+}
+
+/* ---------- adding a paper ---------- */
+export function AddPaper() {
+  useStore()
+  const [name, setName] = React.useState("")
+  const [source, setSource] = React.useState("")
+  const [link, setLink] = React.useState("")
+  const [file, setFile] = React.useState(null)
+  const [counts, setCounts] = React.useState(() => Object.fromEntries(ISEE_LOWER_SECTIONS.map((s) => [s.id, String(s.n)])))
+  const [syn, setSyn] = React.useState("17")
+  const [busy, setBusy] = React.useState(false)
+  const [msg, setMsg] = React.useState(null)
+  const canUpload = DRIVE_ENABLED && !!Store.folderId
+  async function save() {
+    const errs = [], url = link.trim()
+    if (!name.trim()) errs.push("Give the paper a name")
+    if (url && !/^https?:\/\/\S+$/i.test(url)) errs.push("A link starts with https://")
+    if (file && !isPdf(file)) errs.push("The file must be a PDF")
+    const sections = ISEE_LOWER_SECTIONS.map((s) => ({ ...s, n: Number(counts[s.id]) }))
+    if (sections.some((s) => !Number.isInteger(s.n) || s.n < 1 || s.n > 80)) errs.push("Each section needs a number of questions from 1 to 80")
+    const vr = sections.find((s) => s.id === "VR"), sy = Number(syn)
+    if (!Number.isInteger(sy) || sy < 0 || sy > vr.n) errs.push(`Synonyms are questions 1 to a number from 0 to ${vr.n || 0}`)
+    if (errs.length) return setMsg({ err: true, text: errs.join(". ") + "." })
+    setBusy(true)
+    const id = createOfflinePaper({ name, source, sections, synonyms: sy, link: url || null })
+    if (file) {
+      setMsg({ err: false, text: `Uploading ${file.name} (${mb(file.size)}) to her Google Drive…` })
+      await uploadPaperPdf(id, file)   // the paper's page says if it did not arrive, and offers to try again
+    }
+    go("/mock/" + id)
+  }
+  return (
+    <div className="mx-auto flex w-full max-w-2xl flex-col gap-4" data-testid="paper-add">
+      <Card className="from-primary/5 to-card bg-gradient-to-t gap-3">
+        <CardHeader>
+          <CardDescription className="flex items-center gap-2"><FilePlus className="size-4" /> Mock exams</CardDescription>
+          <CardTitle className="text-2xl font-semibold tracking-tight">Add a paper sat on paper</CardTitle>
+          <CardDescription>A practice test she sits away from the site, from a book or a website. The site keeps the paper's shape, her scores and the questions she missed. The questions themselves stay in the PDF or behind the link.</CardDescription>
+        </CardHeader>
+      </Card>
+      <Card className="gap-4 py-5">
+        <CardContent className="flex flex-col gap-4 px-5">
+          <div className="flex flex-col gap-1.5">
+            <Label htmlFor="pa-name">Name</Label>
+            <Input id="pa-name" value={name} onChange={(e) => { setName(e.target.value); setMsg(null) }} placeholder="e.g. Test Innovators practice test 2" data-testid="paper-add-name" />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <Label htmlFor="pa-source">Where it is from <span className="text-muted-foreground font-normal">(optional)</span></Label>
+            <Input id="pa-source" value={source} onChange={(e) => setSource(e.target.value)} placeholder="the book or website" data-testid="paper-add-source" />
+          </div>
+          <div className="grid grid-cols-1 gap-3 @md/main:grid-cols-2">
+            <label className="flex flex-col gap-1.5">
+              <span className="text-sm font-medium">The PDF <span className="text-muted-foreground font-normal">(optional)</span></span>
+              {canUpload ? (
+                <input type="file" accept="application/pdf,.pdf" onChange={(e) => { setFile((e.target.files && e.target.files[0]) || null); setMsg(null) }} className="text-sm file:mr-3 file:rounded-md file:border file:border-input file:bg-transparent file:px-3 file:py-1.5" data-testid="paper-add-file" />
+              ) : <span className="text-muted-foreground text-sm">Sign in with Google to upload a PDF into her Drive.</span>}
+            </label>
+            <div className="flex flex-col gap-1.5">
+              <Label htmlFor="pa-link">Or a link <span className="text-muted-foreground font-normal">(optional)</span></Label>
+              <Input id="pa-link" value={link} onChange={(e) => { setLink(e.target.value); setMsg(null) }} placeholder="https://…" data-testid="paper-add-link" />
+            </div>
+          </div>
+          <div className="flex flex-col gap-2">
+            <div className="text-sm font-medium">Questions in each section <span className="text-muted-foreground font-normal">· ISEE Lower Level unless the paper differs</span></div>
+            <div className="grid grid-cols-2 items-end gap-3 @md/main:grid-cols-4">
+              {ISEE_LOWER_SECTIONS.map((s) => (
+                <div key={s.id} className="flex flex-col gap-1">
+                  <Label htmlFor={`pa-n-${s.id}`} className="text-muted-foreground text-xs">{s.name}</Label>
+                  <Input id={`pa-n-${s.id}`} inputMode="numeric" value={counts[s.id]} onChange={(e) => { const v = e.target.value; setCounts((c) => ({ ...c, [s.id]: v })); setMsg(null) }} className="tabular-nums" data-testid={`paper-add-n-${s.id}`} />
+                </div>
+              ))}
+            </div>
+            <div className="flex flex-wrap items-center gap-2 text-sm">
+              <Label htmlFor="pa-syn" className="text-muted-foreground font-normal">In Verbal, the synonyms are questions 1 to</Label>
+              <Input id="pa-syn" inputMode="numeric" value={syn} onChange={(e) => { setSyn(e.target.value); setMsg(null) }} className="h-8 w-16 tabular-nums" data-testid="paper-add-syn" />
+              <span className="text-muted-foreground">and the rest are sentence completions.</span>
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <Button onClick={save} disabled={busy} data-testid="paper-add-save"><FilePlus /> Add the paper</Button>
+            <Button variant="outline" onClick={() => go("/mock")}>Cancel</Button>
+            {msg ? <span className={cn("text-sm", msg.err ? "text-destructive" : "text-muted-foreground")} data-testid="paper-add-msg">{msg.text}</span> : null}
+          </div>
         </CardContent>
       </Card>
     </div>

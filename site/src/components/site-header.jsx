@@ -7,6 +7,7 @@ import { go, splitCat } from "@/lib/router"
 import { zhCrumbs } from "@/pages/chinese"
 import { setLang, t, useLang } from "@/lib/lang"
 import { importIsZh } from "@/lib/reviews"
+import { offlinePaper } from "@/lib/engine"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { DriveChip } from "@zhangqi444/ui/app/drive-chip"
 import { SiteHeaderTemplate } from "@zhangqi444/ui/app/site-header"
@@ -60,8 +61,9 @@ function crumbs(route, zhImport) {
     out.push({ label: "Mock exams", path: "/mock" })
     const m = a && D.mocks.find((x) => x.id === a)
     if (m) out.push({ label: m.name, path: "/mock/" + a })
-    const off = a && !m && (D.offlineMocks || []).find((x) => x.id === a)
+    const off = a && !m && a !== "add" && offlinePaper(a)
     if (off) out.push({ label: off.name, path: "/mock/" + a })
+    if (a === "add") out.push({ label: "Add a paper", path: "/mock/add" })
     if (m && b) out.push({ label: b === "corrections" ? "Corrections" : (m.sections.find((x) => x.id === b) || {}).name || b, path: `/mock/${a}/${b}` })
   } else if (top === "calendar") {
     out.push({ label: "Calendar", path: "/calendar" })

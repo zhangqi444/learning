@@ -78,18 +78,20 @@ function index() {
 }
 /** Where a question id lives: its subject and the question itself (sets, mocks, or a generated word question). */
 /* A miss on a paper sat on paper (pages/mock.jsx, OfflineMock). No question of
- * ours exists for it — only its number, and the skill the paper's map gives that
- * number (content/offline_mocks.json, `skills`). The pseudo item carries that
- * skill and no choices: a review asks two questions of ours in its place and can
- * never serve it (reviewItems). */
+ * ours exists for it — only its number, and the skill it is filed under
+ * (paperSkill). The pseudo item carries that skill and no choices: a review asks
+ * two questions of ours in its place and can never serve it (reviewItems). A miss
+ * with no skill yet, or on a paper that has been removed, resolves to nothing, so
+ * its anchor waits out of sight with its schedule intact until it has one again. */
 function offlineItem(id) {
   const m = /^off:([^:]+):([A-Z]{2}):(\d+)$/.exec(id)
   if (!m) return null
-  const form = (D.offlineMocks || []).find((f) => f.id === m[1])
-  const sec = form && (form.sections || []).find((x) => x.id === m[2])
-  const n = Number(m[3]), sk = sec && Array.isArray(sec.skills) ? sec.skills[n - 1] : null
+  const p = offlinePaper(m[1])
+  if (!p || p.removed) return null
+  const sec = (p.sections || []).find((x) => x.id === m[2])
+  const n = Number(m[3]), sk = sec ? paperSkill(p, m[2], n) : null
   if (!sk) return null
-  return { sub: SEC2SUB[m[2]] || "vr", src: "offline", form: m[1], it: { id, sk, q: `${form.name} · ${sec.name} question ${n}`, c: [], k: null } }
+  return { sub: SEC2SUB[m[2]] || "vr", src: "offline", form: m[1], it: { id, sk, q: `${p.name} · ${sec.name} question ${n}`, c: [], k: null } }
 }
 export function findItem(id) {
   if (typeof id !== "string") return null
@@ -226,7 +228,7 @@ export function backfill() {
   let n = Object.keys(add).length + rescueWordSides()
   // A paper's misses typed in on another device arrive through the merge; the
   // review anchors for them are made here, so both devices hold the same pile.
-  for (const f of D.offlineMocks || []) n += recordOfflineMisses(f.id)
+  for (const f of offlinePapers({ removed: true })) n += recordOfflineMisses(f.id)
   return n
 }
 
@@ -881,8 +883,105 @@ export function wordQuizItems(wk, onlyDue = false) {
  *  OfflineMock), the question numbers she missed where a parent typed them in,
  *  and whether every section is in. Entries are an append-only log; the newest
  *  word on a section wins. */
+/** The ISEE Lower Level layout a paper added by a parent starts from: the real
+ *  paper's four scored sections and their times (ERB; the same shape as
+ *  content/offline_mocks.json), with Verbal's synonyms as questions 1–17. The
+ *  counts can be changed when the paper is added, for a paper that differs. */
+export const ISEE_LOWER_SECTIONS = [
+  { id: "VR", name: "Verbal Reasoning", n: 34, min: 20 },
+  { id: "QR", name: "Quantitative Reasoning", n: 38, min: 35 },
+  { id: "RC", name: "Reading Comprehension", n: 25, min: 25 },
+  { id: "MA", name: "Mathematics Achievement", n: 30, min: 30 },
+]
+/** Every paper sat on paper: the ones the site ships (content/offline_mocks.json,
+ *  with a question→skill map read off the paper) and the ones a parent added from
+ *  the Mock exams page, whose shape lives in her own record (`mocks[id].def`) and
+ *  never in the site's content — a published paper is a copyrighted book, and her
+ *  record is private to her Google account. A removed paper is left out unless
+ *  asked for; its results stay in her record either way. */
+export function offlinePapers({ removed = false } = {}) {
+  const recs = (Store.s && Store.s.mocks) || {}, out = []
+  for (const f of D.offlineMocks || []) out.push({ ...f, own: false, rec: recs[f.id] || {} })
+  for (const [id, r] of Object.entries(recs)) {
+    if (!r || !r.offline || !r.def || typeof r.def !== "object" || out.some((x) => x.id === id)) continue
+    if (r.def.removed && !removed) continue
+    out.push({ ...r.def, id, own: true, essay: r.def.essay || { min: 30 }, rec: r })
+  }
+  return out
+}
+export function offlinePaper(id) { return offlinePapers({ removed: true }).find((p) => p.id === id) || null }
+/** The skill a missed question on a paper is filed under: a parent's choice on the
+ *  paper's page first, then the paper's own question map, then — for Verbal, whose
+ *  two parts are fixed by position — Synonyms up to the paper's split and Sentence
+ *  completion after it. Null when nobody has said; the miss then waits, listed on
+ *  the paper's page as needing a skill, and is never dropped. */
+export function paperSkill(p, secId, n) {
+  if (!p) return null
+  const tag = ((p.rec && p.rec.tags) || {})[`${secId}:${n}`]
+  if (tag && tag.sk) return tag.sk
+  const sec = (p.sections || []).find((x) => x.id === secId)
+  if (!sec) return null
+  if (Array.isArray(sec.skills) && sec.skills[n - 1]) return sec.skills[n - 1]
+  if (secId === "VR" && Number.isInteger(sec.synonyms)) return n <= sec.synonyms ? "Synonyms" : "Sentence completion"
+  return null
+}
+/** The skills a miss in a section can be filed under: the practice bank's own,
+ *  so every one of them has questions for a review to ask. */
+export function paperSkillOptions(secId) {
+  if (secId === "VR") return ["Synonyms", "Sentence completion"]
+  const sub = SEC2SUB[secId]
+  return sub ? Object.keys(skillTable(sub)).sort((a, b) => a.localeCompare(b)) : []
+}
+/** A paper a parent adds. Returns its id. The id is the moment it was made, so two
+ *  devices adding papers at once cannot collide, and it never looks like a form
+ *  the site ships. */
+export function createOfflinePaper({ name, source = "", sections = ISEE_LOWER_SECTIONS, synonyms = 17, link = null }) {
+  const at = nowIso(), id = "P" + Date.now().toString(36).toUpperCase()
+  const def = {
+    name: String(name || "").trim().slice(0, 80) || "A paper sat on paper",
+    source: String(source || "").trim().slice(0, 200),
+    sections: sections.map((s) => ({ id: s.id, name: s.name, n: s.n, min: s.min, ...(s.id === "VR" ? { synonyms: Math.max(0, Math.min(s.n, synonyms)) } : {}) })),
+    essay: { min: 30 }, createdAt: at, at,
+  }
+  Store.setSlice("mocks", id, () => ({ offline: true, def, entries: [], ...(link ? { link: { url: link, at } } : {}) }))
+  return id
+}
+/** Attach a paper's PDF (a file in her Drive folder, by id) or a link to it, or take
+ *  either off with null. Each carries its own `at`, so an attachment made on one
+ *  device is not lost to an unrelated edit made on another (Store.merge). */
+export function setPaperFile(id, file) {
+  const at = nowIso()
+  Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, file: file ? { id: file.id, name: String(file.name || "paper.pdf").slice(0, 120), size: file.size || 0, at } : { id: null, at } }))
+}
+export function setPaperLink(id, url) {
+  const at = nowIso()
+  Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, link: { url: url || null, at } }))
+}
+/** File one missed question under a skill (or clear it with null), and make its
+ *  review anchor now that it has one. */
+export function tagPaperMiss(id, secId, n, sk) {
+  const at = nowIso()
+  Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, tags: { ...(c.tags || {}), [`${secId}:${n}`]: { sk: sk || null, at } } }))
+  return recordOfflineMisses(id)
+}
+/** She redid a missed question from the booklet itself — the one thing the site
+ *  cannot ask her, because the question is not on the site. Her work, so each tick
+ *  keeps its own time and merges per question. */
+export function markRedone(id, secId, n, done) {
+  const at = nowIso()
+  Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, redone: { ...(c.redone || {}), [`${secId}:${n}`]: { done: !!done, at } } }))
+}
+export function paperRedone(p, secId, n) { const r = ((p && p.rec && p.rec.redone) || {})[`${secId}:${n}`]; return !!(r && r.done) }
+/** Take a paper a parent added off the list and out of the score band, or put it
+ *  back. Nothing she did on it is deleted: the results stay in her record and the
+ *  anchors for its misses wait, out of sight, in case it comes back. */
+export function removePaper(id, removed = true) {
+  const at = nowIso()
+  Store.setSlice("mocks", id, (c) => (c.def ? { ...c, def: { ...c.def, removed: removed ? at : null, at } } : c))
+}
+
 export function offlineResult(form) {
-  const m = (D.offlineMocks || []).find((x) => x.id === form), st = (Store.s.mocks || {})[form] || {}
+  const m = offlinePaper(form), st = (Store.s.mocks || {})[form] || {}
   if (!m) return null
   const entries = Array.isArray(st.entries) ? [...st.entries].sort((a, b) => String(a.at).localeCompare(String(b.at))) : []
   const by = {}, missed = {}
@@ -931,13 +1030,15 @@ export function recordOfflineMisses(form) {
  *  results page and an import link (pages/import.jsx), so a result arrives the same
  *  way whichever door it came in by. An entry that carries an `id` already in the
  *  log is not added twice: opening the same link again changes nothing. */
-export function addOfflineEntry(form, { sat, scores = {}, missed = {}, id, via } = {}) {
-  if (!(D.offlineMocks || []).some((f) => f.id === form)) return { added: false, anchors: 0 }
+export function addOfflineEntry(form, { sat, scores = {}, missed = {}, id, via, tags = null } = {}) {
+  if (!offlinePaper(form)) return { added: false, anchors: 0 }
   const cur = (Store.s.mocks || {})[form] || {}
   if (id && Array.isArray(cur.entries) && cur.entries.some((e) => e && e.id === id)) return { added: false, anchors: recordOfflineMisses(form) }
   const at = nowIso()
   const entry = { id: id || at + ":" + Math.random().toString(36).slice(2, 8), at, sat, scores, ...(Object.keys(missed).length ? { missed } : {}), ...(via ? { via } : {}) }
-  Store.setSlice("mocks", form, (c) => ({ ...c, offline: true, entries: [...(Array.isArray(c.entries) ? c.entries : []), entry] }))
+  // `tags`: "QR:12" → a skill, for a link that files the misses as it adds them
+  const tagged = tags && Object.keys(tags).length ? Object.fromEntries(Object.entries(tags).map(([k, sk]) => [k, { sk, at }])) : null
+  Store.setSlice("mocks", form, (c) => ({ ...c, offline: true, entries: [...(Array.isArray(c.entries) ? c.entries : []), entry], ...(tagged ? { tags: { ...(c.tags || {}), ...tagged } } : {}) }))
   return { added: true, anchors: recordOfflineMisses(form) }
 }
 
@@ -969,7 +1070,7 @@ export function mockBand(asOf) {
   // sat it (by the moment of entry, when that is the same day) and read through
   // the same stanine table; it has no blanks or times to report. `offline` marks it
   // for the readers that count only the papers sat here (lib/rewards.js).
-  for (const f of D.offlineMocks || []) {
+  for (const f of offlinePapers()) {
     const o = offlineResult(f.id)
     if (!o || !o.complete) continue
     const at = o.sat && o.at && dayKey(o.at) === o.sat ? o.at : o.sat ? o.sat + "T12:00:00" : o.at

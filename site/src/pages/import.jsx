@@ -26,7 +26,7 @@ export function Import({ payload }) {
     try { return { map: parseImport(payload) } } catch (e) { return { err: e.message } }
   }, [payload])
   function addPaper(paper) {
-    addOfflineEntry(paper.form.id, { sat: paper.sat, scores: paper.scores, missed: paper.missed, id: paper.id, via: "link" })
+    addOfflineEntry(paper.form.id, { sat: paper.sat, scores: paper.scores, missed: paper.missed, tags: paper.tags, id: paper.id, via: "link" })
     go("/mock/" + paper.form.id)
   }
 

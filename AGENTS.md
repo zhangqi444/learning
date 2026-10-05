@@ -402,22 +402,34 @@ of an outside paper goes there, not in `docs/`.
 The scores are learner input (hard rule 1). They live in her Drive record under `mocks.TPR` as an
 append-only log of entries — `{id, at, sat, scores: {VR: n, …}}` — the newest entry naming a
 section is what the page shows, and `Store.merge` unions the log across devices instead of letting
-last-write-wins drop the older copy. No schema bump: it rides in the existing `mocks` slice.
+last-write-wins drop the older copy. No schema bump: it rides in the existing `mocks` slice, as do a paper's `def`, `file`, `link`,
+`tags` and `redone` (below).
 
-**It does not feed readiness, the band, the Den or the rewards**, because the docs above decide
-what a mock contributes only for the four papers the site times and marks, and nobody has decided
-the same for a paper marked at home. It is kept out by shape, not by a flag: the record has no
-`sections`, which is what `mockBand()`, `backfill()`, `eachTimestamp()` and the Den's `mockLight()`
-read, and the form sits in `D.offlineMocks`, not `D.mocks`. A check in `test_features.cjs`
-compares the readiness card, its parts and the band card before and after a full set of scores
-is entered. **Proposal for the owner**, not built: if it should count, the least surprising way
-is to let `mockBand()` read a fully-entered offline paper as one more finished mock dated by its
-`sat` day — so it becomes the "latest mock" for the 20-point part and adds its sections to
-recent accuracy — while still giving it no activity day, points or Den light, since the date is
-typed by a parent rather than recorded by a sitting. The case against: a published book's paper
-is not calibrated against the site's four, and a hand-marked raw score cannot be checked. The
-page shows raw and percent only, without the ≈stanine the site's own papers get, for the same
-reason.
+**What it feeds, since the owner's ruling of 4 October 2026.** Once every section is in, a paper
+counts in the score band, in the readiness card's "Mock exams" part and in recent accuracy, dated by
+the day she sat it (`mockBand()` lists it beside the site's papers with `offline: true`). It gives
+no activity day, points or Den light — `lib/rewards.js` counts only papers sat here — because its
+date is typed by a parent rather than recorded by a sitting. The page shows raw and percent only.
+The question numbers she missed become review anchors (`off:<paper>:<section>:<n>`), each filed
+under a skill, so a miss on paper sends two of the site's own questions on that skill into review.
+
+**Any paper can be added by a parent (5 October 2026).** The owner asked to "allow the user to
+attach offline mock test … track the wrong questions, scores, progress … upload pdf or provide
+link". `/mock/add` takes a name, a PDF or a link, and the section counts (ISEE Lower Level unless
+the paper differs, with Verbal's synonyms as questions 1–17). Such a paper's shape lives in her
+record, `mocks[P…].def`, never in `content/`: a published paper is a copyrighted book, and her
+record is private to her Google account. A PDF goes into her own Drive folder (`Store.uploadMedia`,
+or `uploadLarge`'s resumable session above Drive's 5 MB multipart limit), which the app's
+`drive.file` scope lets it read back and nothing else of hers; the page opens it in Drive's viewer.
+Each miss is filed under a skill — a parent's pick on the paper's page (`tags`), else the paper's
+own map (`skills`, for the papers the site ships), else Verbal by position — and a miss nobody has
+filed waits on the page, listed, and is never dropped. A tick records that she redid the question
+from the booklet (`redone`), the one thing the site cannot ask her. `Store.merge` merges such a
+record by the part: `def`, `file` and `link` keep the newer copy by their own time, and `tags` and
+`redone` merge question by question, so a PDF attached on one device is not lost to a tick made on
+another. Removing a paper hides it from the list and the band and hides its anchors; nothing she
+did on it is deleted, and it can be put back. `tools/paper_link.py` makes an import link for any
+paper's results, skills included.
 
 ## The game
 

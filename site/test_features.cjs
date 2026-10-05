@@ -695,6 +695,95 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.evaluate((p) => { location.hash = '#/import/' + p; }, paperLink);
   await pg.waitForSelector('[data-testid=paper-add]'); await pg.click('[data-testid=paper-add]'); await pg.waitForSelector('[data-testid=offline-save]');
   check('and the same link opened twice adds nothing', (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).mocks.TPR.entries.length)) === nEntries);
+
+  /* A paper a parent adds (pages/mock.jsx, AddPaper) — the owner's ask of 5 October
+     2026: "allow the user to attach offline mock test … track the wrong questions,
+     scores, progress … upload pdf or provide link". Its shape, a link or a PDF in
+     her own Drive folder, the scores, each missed question filed under a skill, and
+     a tick for redoing it from the booklet: all in her record, none of it in the
+     site's content. Ends removed, so the band checks further down still read two. */
+  console.log('== a paper added by a parent');
+  const today = (() => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`; })();
+  await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=paper-add-open]');
+  await pg.click('[data-testid=paper-add-open]'); await pg.waitForSelector('[data-testid=paper-add]');
+  await pg.screenshot({ path: 'shot-paper-add.png', fullPage: true });
+  await pg.click('[data-testid=paper-add-save]');
+  check('a paper needs a name before it is added', /Give the paper a name/.test(await pg.textContent('[data-testid=paper-add-msg]')));
+  await pg.fill('[data-testid=paper-add-name]', 'Workbook practice test A');
+  await pg.fill('[data-testid=paper-add-link]', 'https://example.com/test-a.pdf');
+  await pg.click('[data-testid=paper-add-save]');
+  await pg.waitForSelector('[data-testid=paper-file]');
+  const newId = await pg.evaluate(() => location.hash.split('/').pop());
+  check('it is added and opens on its own page, carrying its link',
+    /^P[0-9A-Z]+$/.test(newId) && (await pg.getAttribute('[data-testid=paper-link-open]', 'href')) === 'https://example.com/test-a.pdf', newId);
+  const pdfBytes = (n) => Buffer.concat([Buffer.from('%PDF-1.4\n'), Buffer.alloc(n, 32), Buffer.from('\n%%EOF\n')]);
+  await pg.setInputFiles('[data-testid=paper-pdf-input]', { name: 'test-a.pdf', mimeType: 'application/pdf', buffer: pdfBytes(2000) });
+  await pg.waitForSelector('[data-testid=paper-pdf]');
+  const smallPdf = await pg.$eval('[data-testid=paper-pdf]', (e) => e.dataset.file);
+  check('a PDF goes into her Drive folder as a PDF, and the page opens it there',
+    /^media\d+$/.test(smallPdf) && ((drive.media || {})[smallPdf] || {}).mime === 'application/pdf'
+    && (await pg.getAttribute('[data-testid=paper-pdf-open]', 'href')) === `https://drive.google.com/file/d/${smallPdf}/view`, JSON.stringify((drive.media || {})[smallPdf] || null));
+  await pg.setInputFiles('[data-testid=paper-pdf-input]', { name: 'test-a-full.pdf', mimeType: 'application/pdf', buffer: pdfBytes(5 * 1024 * 1024) });
+  await pg.waitForFunction((old) => { const e = document.querySelector('[data-testid=paper-pdf]'); return !!e && e.dataset.file !== old; }, smallPdf, { timeout: 30000 }).catch(() => {});
+  const bigPdf = await pg.$eval('[data-testid=paper-pdf]', (e) => e.dataset.file);
+  check('a PDF over Drive\'s 5 MB multipart limit goes up in a resumable session',
+    bigPdf !== smallPdf && !!((drive.media || {})[bigPdf] || {}).resumable && drive.media[bigPdf].size > 5 * 1024 * 1024, JSON.stringify((drive.media || {})[bigPdf] || null));
+  for (const [sec, v] of Object.entries({ VR: '32', QR: '35', RC: '23', MA: '27' })) await pg.fill(`[data-testid=offline-in-${sec}]`, v);
+  await pg.fill('[data-testid=offline-missed-VR]', '3, 20');
+  await pg.fill('[data-testid=offline-missed-QR]', '5, 9, 30');
+  await pg.fill('[data-testid=offline-sat]', today);
+  await pg.click('[data-testid=offline-save]');
+  await pg.waitForSelector('[data-testid=paper-misses]');
+  const missAttr = (sec, n, a) => pg.$eval(`[data-testid=paper-miss][data-sec=${sec}][data-n="${n}"]`, (e, a) => e.dataset[a], a);
+  check('Verbal misses are filed by position: synonyms first, sentence completions after',
+    (await missAttr('VR', 3, 'skill')) === 'Synonyms' && (await missAttr('VR', 20, 'skill')) === 'Sentence completion');
+  check('a miss with no skill yet waits on the page, named, never dropped',
+    (await pg.$eval('[data-testid=paper-misses]', (e) => e.dataset.unfiled)) === '3' && /3 still need a skill/.test(await pg.textContent('[data-testid=paper-misses]')));
+  await pg.selectOption('[data-testid=paper-miss][data-sec=QR][data-n="5"] [data-testid=paper-miss-skill]', 'Fractions');
+  await pg.waitForFunction(() => (document.querySelector('[data-testid=paper-misses]') || {}).dataset && document.querySelector('[data-testid=paper-misses]').dataset.unfiled === '2');
+  const anchorsNow = await pg.evaluate((id) => Object.keys(JSON.parse(localStorage.getItem('isee.v1')).items || {}).filter((k) => k.startsWith(`off:${id}:`)).sort(), newId);
+  check('filed under a skill, a miss joins the review pile; one not yet filed does not',
+    anchorsNow.join(',') === [`off:${newId}:QR:5`, `off:${newId}:VR:20`, `off:${newId}:VR:3`].sort().join(','), anchorsNow.join(','));
+  await pg.click('[data-testid=paper-miss][data-sec=VR][data-n="3"] [data-testid=paper-miss-redone]');
+  await pg.waitForFunction(() => (document.querySelector('[data-testid=paper-misses]') || { dataset: {} }).dataset.redone === '1');
+  await pg.screenshot({ path: 'shot-paper.png', fullPage: true });
+  await pg.setViewportSize({ width: 390, height: 844 }); await pg.emulateMedia({ colorScheme: 'dark' });
+  await pg.waitForTimeout(300); await pg.screenshot({ path: 'shot-paper-phone-dark.png', fullPage: true });
+  await pg.emulateMedia({ colorScheme: 'light' }); await pg.setViewportSize({ width: 1280, height: 900 });
+  // Another device filed QR 9 and ticked VR 20 on a copy that never saw the tick
+  // here, and is older as a whole: both sides' work has to survive the merge.
+  const remoteRec = () => { try { return (JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]).mocks || {})[newId] || null; } catch { return null; } };
+  const reached = await until(() => { const r = remoteRec(); return r && r.redone && r.redone['VR:3'] && r.redone['VR:3'].done ? r : null; });
+  check('the paper, its file and its ticks reach her record in Drive', !!reached && !!reached.def && !!reached.file && reached.def.name === 'Workbook practice test A');
+  {
+    const j = JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]);
+    const later = new Date(Date.now() + 3600e3).toISOString(), r = j.mocks[newId];
+    r.tags = { ...(r.tags || {}), 'QR:9': { sk: 'Data reasoning', at: later } };
+    r.redone = { 'VR:20': { done: true, at: later } };
+    r.at = new Date(Date.now() - 3600e3).toISOString();
+    drive.body = JSON.stringify(j);
+  }
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=paper-misses]');
+  await pg.waitForFunction(() => (document.querySelector('[data-testid=paper-misses]') || { dataset: {} }).dataset.redone === '2', null, { timeout: 15000 }).catch(() => {});
+  check('a tick and a skill from another device merge in beside the ones made here, question by question',
+    (await missAttr('VR', 3, 'redone')) === '1' && (await missAttr('VR', 20, 'redone')) === '1' && (await missAttr('QR', 9, 'skill')) === 'Data reasoning' && (await missAttr('QR', 5, 'skill')) === 'Fractions',
+    `VR3 ${await missAttr('VR', 3, 'redone')} VR20 ${await missAttr('VR', 20, 'redone')} QR9 ${await missAttr('QR', 9, 'skill')} QR5 ${await missAttr('QR', 5, 'skill')}`);
+  await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
+  check('with every section in, the paper is listed and counts in the score band',
+    !!(await pg.$(`[data-testid=offline-card-${newId}]`)) && /Workbook practice test A/.test(await pg.textContent('[data-testid=band-card]')));
+  await pg.evaluate((id) => { location.hash = '#/mock/' + id; }, newId); await pg.waitForSelector('[data-testid=paper-remove]');
+  await pg.click('[data-testid=paper-remove]'); await pg.waitForSelector('[data-testid=paper-removed]');
+  await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
+  check('removed, it leaves the list and the band, and her results stay in her record',
+    !(await pg.$(`[data-testid=offline-card-${newId}]`)) && !/Workbook practice test A/.test(await pg.textContent('[data-testid=band-card]'))
+    && /Workbook practice test A/.test(await pg.textContent('[data-testid=papers-removed]'))
+    && (await pg.evaluate((id) => JSON.parse(localStorage.getItem('isee.v1')).mocks[id].entries.length, newId)) === 1);
+  await pg.click('[data-testid=papers-removed] button'); await pg.waitForSelector('[data-testid=paper-restore]');
+  await pg.click('[data-testid=paper-restore]');
+  await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
+  check('and it can be put back', !!(await pg.$(`[data-testid=offline-card-${newId}]`)));
+  await pg.evaluate((id) => { location.hash = '#/mock/' + id; }, newId); await pg.waitForSelector('[data-testid=paper-remove]');
+  await pg.click('[data-testid=paper-remove]'); await pg.waitForSelector('[data-testid=paper-removed]');
   // The remote goes back to the copy from before the stub's edits; the next save
   // merges the rest of the log into it.
   drive.body = offStash;
@@ -2163,7 +2252,11 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
    * wrote evidence that fed nothing — a cluster word she got wrong never came
    * back — and the checklist row read the same line before and after. */
   console.log('== the Wordwood actually records the walk');
-  await pg.evaluate(async () => {
+  // Through setLs, not a bare evaluate: the page's own flush can land between this
+  // edit and the reload and save the store back without it, which left W2 with no
+  // rated words and no gate to cast — a 30-second timeout on 5 October with nothing
+  // in the diff near the wood (CLAUDE.md, "A check that reads a Drive status").
+  const wwSeeded = await setLs(pg, async () => {
     const bundle = await (await fetch('./content/bundle.json')).json();
     const s = JSON.parse(localStorage.getItem('isee.v1') || '{}');
     s.precision = s.precision || {};
@@ -2171,7 +2264,8 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     for (const e of (bundle.precision.W2.words || [])) w[e.word] = { text: 'in my own words: ' + e.word, conf: 2, at: '2026-09-08T10:00:00.000Z' };
     s.precision.W2 = { words: w, submitted: true, submittedAt: '2026-09-08T10:00:00.000Z', at: '2026-09-08T10:00:00.000Z' };
     localStorage.setItem('isee.v1', JSON.stringify(s));
-  });
+  }, () => { const s = JSON.parse(localStorage.getItem('isee.v1') || '{}'); const p = s.precision && s.precision.W2; return !!(p && p.submitted && Object.keys(p.words || {}).length); });
+  check('the W2 words are rated, and stay rated past the page\'s own save', wwSeeded === true);
   await pg.reload({ waitUntil: 'networkidle' });
   /* Earlier sections have already walked the wood, so measure the delta — and
      measure it in ATTEMPTS, not in ids that are new. Counting new ids quietly

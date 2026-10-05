@@ -49,6 +49,24 @@ async function stubGoogle(ctx) {
       const id = drive.folders[name] || ('folder' + (Object.keys(drive.folders).length + 1));
       drive.folders[name] = id; drive.folder = id; return json({ id });
     }
+    // A resumable upload (Store.uploadLarge, for a PDF over 5 MB): the session is
+    // opened with the metadata alone, Drive answers with an address in Location, and
+    // the bytes go there in a PUT. Before the multipart branch, which would read
+    // the metadata-only POST as a progress.json upload and clobber the record.
+    if (/upload\/drive\/v3\/files\?.*uploadType=resumable/.test(u) && m === 'POST') {
+      const meta = JSON.parse(r.request().postData() || '{}');
+      drive.sessions = drive.sessions || {};
+      const sid = 'sess' + (Object.keys(drive.sessions).length + 1);
+      drive.sessions[sid] = meta;
+      return r.fulfill({ status: 200, headers: { 'access-control-allow-origin': '*', 'access-control-expose-headers': 'Location', location: 'https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable&upload_id=' + sid }, contentType: 'application/json', body: '{}' });
+    }
+    if (/upload_id=sess\d+/.test(u) && m === 'PUT') {
+      const sid = (u.match(/upload_id=(sess\d+)/) || [])[1], meta = (drive.sessions || {})[sid] || {};
+      drive.media = drive.media || {};
+      const id = 'media' + (Object.keys(drive.media).length + 1);
+      drive.media[id] = { name: meta.name, mime: meta.mimeType, size: (r.request().postDataBuffer() || Buffer.alloc(0)).length, parent: (meta.parents || [])[0] || drive.folder, resumable: true };
+      return json({ id });
+    }
     if (/upload\/drive\/v3\/files\?/.test(u) && m === 'POST') {
       const body = r.request().postData() || '';
       // A recording is its own file beside progress.json (lib/reading.js), sent
@@ -56,11 +74,16 @@ async function stubGoogle(ctx) {
       // parsed for it. Kept apart here so a test that records does not overwrite
       // the record the other checks read back, and so a reading can be fetched.
       const ct = (r.request().headers()['content-type'] || '');
-      const meta = /boundary=learningmedia/.test(ct) ? { name: 'recording', mimeType: 'audio/mp4' } : JSON.parse((body.split('\r\n\r\n')[1] || '{}').split('\r\n--')[0] || '{}');
+      // The metadata part of a binary multipart is plain JSON, so it can be read off
+      // the raw bytes: a PDF is then recorded as a PDF, not as a recording.
+      let meta = { name: 'recording', mimeType: 'audio/mp4' };
+      if (/boundary=learningmedia/.test(ct)) {
+        try { const txt = (r.request().postDataBuffer() || Buffer.alloc(0)).toString('latin1'); meta = { ...meta, ...JSON.parse(txt.split('\r\n\r\n')[1].split('\r\n--')[0]) }; } catch { /* keep the recording default */ }
+      } else meta = JSON.parse((body.split('\r\n\r\n')[1] || '{}').split('\r\n--')[0] || '{}');
       if (meta.name && meta.name !== 'progress.json') {
         drive.media = drive.media || {};
         const id = 'media' + (Object.keys(drive.media).length + 1);
-        drive.media[id] = { name: meta.name, mime: meta.mimeType, size: body.length, parent: (meta.parents || [])[0] || drive.folder };
+        drive.media[id] = { name: meta.name, mime: meta.mimeType, size: (r.request().postDataBuffer() || Buffer.alloc(0)).length || body.length, parent: (meta.parents || [])[0] || drive.folder };
         return json({ id });
       }
       drive.file = 'file1'; drive.body = body;

@@ -140,6 +140,10 @@ the marked sheet says:
  "missed": {"VR": [5, 7], "QR": [12], "RC": [17], "MA": [3]}}
 ```
 
+It may also carry `"tags": {"QR": {"12": "Data reasoning"}}`, filing a missed question under one
+of the practice bank's skills so review can ask about it. `form` is a paper the site ships or one a
+parent added on the Mock exams page (its id, `P…`, is in its page's address).
+
 `python3 tools/paper_link.py result.json` checks it against the paper's sections, warns
 where the circled count and the score disagree, and prints the import link. Opened on
 her signed-in device it previews each section, and Add puts the entry in her record and
