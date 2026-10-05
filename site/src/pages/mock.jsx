@@ -1,5 +1,5 @@
 import * as React from "react"
-import { AlertTriangle, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, ExternalLink, FilePlus, FileText, Flag, Link2, PenLine, Play, RotateCcw, Save, Send, Swords, Timer, Trash2, Upload } from "lucide-react"
+import { AlertTriangle, Camera, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, ExternalLink, FilePlus, FileText, Flag, ImageIcon, Link2, PenLine, Play, RotateCcw, Save, Send, Swords, Timer, Trash2, Upload } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { W } from "@/lib/world"
@@ -22,7 +22,7 @@ import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { learnName } from "@/lib/aops"
 import { LearnCard } from "@/components/learn-card"
-import { ISEE_LOWER_SECTIONS, STANINE, createOfflinePaper, markRedone, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
+import { ISEE_LOWER_SECTIONS, STANINE, addPaperSheet, createOfflinePaper, markRedone, paperSheets, removePaperSheet, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
 
 /* ---------- state helpers ---------- */
 export function mockState(form) { return Store.s.mocks[form] || { sections: {} } }
@@ -218,6 +218,7 @@ export function OfflineMock({ form }) {
       ) : null}
 
       <PaperFileCard p={m} />
+      <PaperSheetsCard p={m} />
 
       <Card className="gap-2 py-5">
         <CardHeader className="px-5">
@@ -378,6 +379,80 @@ function PaperFileCard({ p }) {
           </div>
         </div>
         {msg ? <p className={cn("text-sm", msg.err ? "text-destructive" : "text-muted-foreground")} data-testid="paper-file-msg">{msg.text}</p> : null}
+      </CardContent>
+    </Card>
+  )
+}
+
+/* ---------- the marked answer sheet ----------
+ *
+ * Photos or screenshots of the sheet once it is marked, kept in her Drive folder.
+ * The site cannot read them; the paper-results skill can, and sends the scores,
+ * the missed numbers and their skills back as one link (docs/review.md). */
+function SheetThumb({ sheet, onRemove }) {
+  const [src, setSrc] = React.useState(null)
+  const [broken, setBroken] = React.useState(false)
+  React.useEffect(() => {
+    let url = null, live = true
+    Store.mediaUrl(sheet.id).then((u) => { url = u; if (live) setSrc(u); else if (u) URL.revokeObjectURL(u) })
+    return () => { live = false; if (url) URL.revokeObjectURL(url) }
+  }, [sheet.id])
+  return (
+    <li className="flex w-40 flex-col gap-1.5" data-testid="paper-sheet" data-file={sheet.id}>
+      <a href={`https://drive.google.com/file/d/${sheet.id}/view`} target="_blank" rel="noreferrer" className="bg-muted/40 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-md border" title="Open in Google Drive">
+        {src && !broken ? <img src={src} alt={sheet.name} className="h-full w-full object-cover" onError={() => setBroken(true)} /> : <ImageIcon className="text-muted-foreground size-8" />}
+      </a>
+      <div className="flex items-center justify-between gap-1 text-xs">
+        <span className="text-muted-foreground truncate" title={sheet.name}>{sheet.name}</span>
+        <button type="button" className="text-muted-foreground hover:text-destructive shrink-0" onClick={onRemove} aria-label={`Remove ${sheet.name}`} data-testid="paper-sheet-remove"><Trash2 className="size-3.5" /></button>
+      </div>
+    </li>
+  )
+}
+function PaperSheetsCard({ p }) {
+  useStore()
+  const sheets = paperSheets(p)
+  const [busy, setBusy] = React.useState(false)
+  const [msg, setMsg] = React.useState(null)
+  const canUpload = DRIVE_ENABLED && !!Store.folderId
+  if (!canUpload && !sheets.length) return null
+  async function onFiles(e) {
+    const list = [...(e.target.files || [])]
+    e.target.value = ""
+    if (!list.length) return
+    const bad = list.filter((f) => !/^image\//.test(f.type || "") && !/\.(jpe?g|png|heic|heif|webp|gif)$/i.test(f.name || ""))
+    if (bad.length) return setMsg({ err: true, text: `${bad.map((f) => f.name).join(", ")} ${bad.length === 1 ? "is" : "are"} not a photo.` })
+    setBusy(true); setMsg({ err: false, text: `Uploading ${list.length === 1 ? list[0].name : list.length + " photos"} to her Google Drive…` })
+    let ok = 0
+    for (const f of list) {
+      const up = f.size > MULTIPART_MAX ? Store.uploadLarge : Store.uploadMedia
+      const fid = await up.call(Store, f.name || "sheet.jpg", f, f.type || "image/jpeg")
+      if (fid) { addPaperSheet(p.id, { id: fid, name: f.name, size: f.size }); ok++ }
+    }
+    setBusy(false)
+    setMsg(ok === list.length ? { err: false, text: ok === 1 ? "The photo is in her Google Drive folder." : `${ok} photos are in her Google Drive folder.` } : { err: true, text: `${list.length - ok} of ${list.length} did not upload. Try those again.` })
+  }
+  return (
+    <Card className="gap-3 py-5" data-testid="paper-sheets" data-n={sheets.length}>
+      <CardHeader className="px-5">
+        <CardTitle className="flex items-center gap-2"><Camera className="size-4" /> The marked answer sheet</CardTitle>
+        <CardDescription>Photos or screenshots of the sheet once it is marked, kept in her own Google Drive folder. The site cannot read a photo by itself. Claude can: ask it to mark this paper, and it sends the scores, the missed questions and their skills back as one link to open here.</CardDescription>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-3 px-5">
+        {sheets.length ? (
+          <ul className="flex flex-wrap gap-3">
+            {sheets.map((sh) => <SheetThumb key={sh.id} sheet={sh} onRemove={() => { if (confirm(`Take ${sh.name} off this paper? It stays in her Google Drive.`)) { removePaperSheet(p.id, sh.id); setMsg(null) } }} />)}
+          </ul>
+        ) : null}
+        {canUpload ? (
+          <label className="flex flex-col gap-1.5 self-start">
+            <span className={cn("border-input hover:bg-accent inline-flex h-9 cursor-pointer items-center gap-2 rounded-md border px-3 text-sm", busy && "pointer-events-none opacity-60")}>
+              <Upload className="size-4" /> {sheets.length ? "Add more photos" : "Add photos of the sheet"}
+              <input type="file" accept="image/*,.heic,.heif" multiple className="sr-only" onChange={onFiles} data-testid="paper-sheet-input" />
+            </span>
+          </label>
+        ) : null}
+        {msg ? <p className={cn("text-sm", msg.err ? "text-destructive" : "text-muted-foreground")} data-testid="paper-sheet-msg">{msg.text}</p> : null}
       </CardContent>
     </Card>
   )

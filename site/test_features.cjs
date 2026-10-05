@@ -728,6 +728,17 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const bigPdf = await pg.$eval('[data-testid=paper-pdf]', (e) => e.dataset.file);
   check('a PDF over Drive\'s 5 MB multipart limit goes up in a resumable session',
     bigPdf !== smallPdf && !!((drive.media || {})[bigPdf] || {}).resumable && drive.media[bigPdf].size > 5 * 1024 * 1024, JSON.stringify((drive.media || {})[bigPdf] || null));
+  // A photo of the marked sheet goes beside the PDF, as a photo, and can be taken off again.
+  const png1x1 = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==', 'base64');
+  await pg.setInputFiles('[data-testid=paper-sheet-input]', [{ name: 'sheet-1.png', mimeType: 'image/png', buffer: png1x1 }, { name: 'sheet-2.png', mimeType: 'image/png', buffer: png1x1 }]);
+  await pg.waitForFunction(() => document.querySelectorAll('[data-testid=paper-sheet]').length === 2, null, { timeout: 15000 }).catch(() => {});
+  const sheetIds = await pg.$$eval('[data-testid=paper-sheet]', (n) => n.map((e) => e.dataset.file));
+  check('photos of the marked sheet go into her Drive folder as photos, beside the PDF',
+    sheetIds.length === 2 && sheetIds.every((id) => ((drive.media || {})[id] || {}).mime === 'image/png'), JSON.stringify(sheetIds.map((id) => (drive.media || {})[id] || null)));
+  await pg.click('[data-testid=paper-sheet] >> nth=0 >> [data-testid=paper-sheet-remove]');
+  await pg.waitForFunction(() => document.querySelectorAll('[data-testid=paper-sheet]').length === 1);
+  check('and one can be taken off again, the other kept',
+    (await pg.evaluate((id) => Object.values(JSON.parse(localStorage.getItem('isee.v1')).mocks[id].sheets || {}).filter((x) => !x.removed).length, newId)) === 1);
   for (const [sec, v] of Object.entries({ VR: '32', QR: '35', RC: '23', MA: '27' })) await pg.fill(`[data-testid=offline-in-${sec}]`, v);
   await pg.fill('[data-testid=offline-missed-VR]', '3, 20');
   await pg.fill('[data-testid=offline-missed-QR]', '5, 9, 30');

@@ -134,7 +134,8 @@ review can carry follow-up `actions` that become rows on a named week's
 checklist. A Google Doc copy goes in the Drive folder. Contract:
 [docs/review.md](docs/review.md); workflows: `.claude/skills/essay-review/` for
 one essay, `.claude/skills/progress-digest/` for a week or month — the latter is
-what the scheduled Routines run. Reviews are written to Sheila, never grade-like,
+what the scheduled Routines run — and `.claude/skills/paper-results/` for the marked
+sheet of a paper sat on paper. Reviews are written to Sheila, never grade-like,
 and never deleted by the app.
 
 ## Data model
@@ -429,7 +430,10 @@ record by the part: `def`, `file` and `link` keep the newer copy by their own ti
 `redone` merge question by question, so a PDF attached on one device is not lost to a tick made on
 another. Removing a paper hides it from the list and the band and hides its anchors; nothing she
 did on it is deleted, and it can be put back. `tools/paper_link.py` makes an import link for any
-paper's results, skills included.
+paper's results, skills included. A parent can also add photos or screenshots of the
+marked sheet on the paper's page (`sheets`, merged photo by photo); the site cannot read
+them, having no server, so `.claude/skills/paper-results/` reads them and hands back
+that link.
 
 ## The game
 

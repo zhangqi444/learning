@@ -2,6 +2,7 @@
 """Turn a marked paper's results into an import link.
 
     python3 tools/paper_link.py result.json
+    python3 tools/paper_link.py --skills        # the skills a miss can be filed under, by section
 
 result.json:
     {"form": "TPR", "sat": "2026-10-04", "by": "Dad",
@@ -29,6 +30,19 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SITE = "https://learning.sheilazhang.org/"
 
+def bank_skills():
+    """The skills a miss can be filed under: the practice bank's own (lib/engine.js,
+    paperSkillOptions) — Verbal's two parts, and every `skill` a bank item carries."""
+    sub = {"QR": "qr", "MA": "ma", "RC": "rc"}
+    bank = {k: set() for k in sub}
+    for fp in sorted((ROOT / "content" / "question-banks").glob("*.json")):
+        if fp.name.startswith("mock-"): continue
+        for it in json.loads(fp.read_text())["items"]:
+            for k, v in sub.items():
+                if fp.name.startswith(v + "-") and it.get("skill"): bank[k].add(it["skill"])
+    bank["VR"] = {"Synonyms", "Sentence completion"}
+    return bank
+
 def main(path):
     r = json.loads(Path(path).read_text())
     forms = {f["id"]: f for f in json.loads((ROOT / "content" / "offline_mocks.json").read_text())["forms"]}
@@ -49,16 +63,7 @@ def main(path):
         sc = (r.get("scores") or {}).get(k)
         if sc is not None and secs[k]["n"] - sc != len(set(v)):
             print(f"warning: {secs[k]['name']} lists {len(set(v))} missed, but {sc} right of {secs[k]['n']} leaves {secs[k]['n'] - sc}", file=sys.stderr)
-    # The skills a miss can be filed under are the practice bank's own (lib/engine.js,
-    # paperSkillOptions): Verbal's two parts, and every `skill` a bank item carries.
-    sub = {"QR": "qr", "MA": "ma", "RC": "rc"}
-    bank = {k: set() for k in sub}
-    for fp in sorted((ROOT / "content" / "question-banks").glob("*.json")):
-        if fp.name.startswith("mock-"): continue
-        for it in json.loads(fp.read_text())["items"]:
-            for k, v in sub.items():
-                if fp.name.startswith(v + "-") and it.get("skill"): bank[k].add(it["skill"])
-    bank["VR"] = {"Synonyms", "Sentence completion"}
+    bank = bank_skills()
     for k, m in (r.get("tags") or {}).items():
         if k not in secs: sys.exit(f"tags name a section the paper does not have: {k}")
         for n, sk in m.items():
@@ -70,4 +75,7 @@ def main(path):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2: sys.exit(__doc__)
-    main(sys.argv[1])
+    if sys.argv[1] == "--skills":
+        for k, v in bank_skills().items(): print(f"{k}: {', '.join(sorted(v))}")
+    else:
+        main(sys.argv[1])

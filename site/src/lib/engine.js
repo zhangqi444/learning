@@ -972,6 +972,23 @@ export function markRedone(id, secId, n, done) {
   Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, redone: { ...(c.redone || {}), [`${secId}:${n}`]: { done: !!done, at } } }))
 }
 export function paperRedone(p, secId, n) { const r = ((p && p.rec && p.rec.redone) || {})[`${secId}:${n}`]; return !!(r && r.done) }
+/** A photo or screenshot of the marked answer sheet, kept in her Drive folder
+ *  beside the paper's PDF. The site cannot read it — it has no server, and a
+ *  browser cannot be trusted to read circled bubbles — so it is there for a parent
+ *  to look back at and for Claude to read: the paper-results skill takes the scores
+ *  and the circled numbers off it and hands them back as one import link. Each
+ *  photo merges on its own, so two devices adding photos keep both. */
+export function addPaperSheet(id, file) {
+  const at = nowIso()
+  Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, sheets: { ...(c.sheets || {}), [file.id]: { id: file.id, name: String(file.name || "sheet").slice(0, 120), size: file.size || 0, addedAt: at, at } } }))
+}
+export function removePaperSheet(id, fid) {
+  const at = nowIso()
+  Store.setSlice("mocks", id, (c) => ({ ...c, sheets: { ...(c.sheets || {}), [fid]: { ...((c.sheets || {})[fid] || { id: fid }), removed: at, at } } }))
+}
+export function paperSheets(p) {
+  return Object.values((p && p.rec && p.rec.sheets) || {}).filter((x) => x && x.id && !x.removed).sort((a, b) => ts(a.addedAt) - ts(b.addedAt))
+}
 /** Take a paper a parent added off the list and out of the score band, or put it
  *  back. Nothing she did on it is deleted: the results stay in her record and the
  *  anchors for its misses wait, out of sight, in case it comes back. */

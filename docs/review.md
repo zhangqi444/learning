@@ -111,9 +111,11 @@ connector Claude reads must be that same account, or the file is invisible to it
 
 ## Running a review with Claude
 
-Two repo skills: `.claude/skills/essay-review/` for one essay,
+Repo skills: `.claude/skills/essay-review/` for one essay,
 `.claude/skills/progress-digest/` for a week or a month (the one the scheduled
-Routines run).
+Routines run), `.claude/skills/chinese-review/` for a week of Chinese homework, and
+`.claude/skills/paper-results/` for a paper sat on paper — it reads the photos of the
+marked sheet a parent adds on the paper's page and hands back the results link below.
 In short: find the essay (in `progress.json` under `essays[wk]` / `mocks[form].essay`,
 or in the **Sheila ISEE Essay** workbook for weeks done on paper or in Sheets), read
 the week's prompt, focus and rubric from `content/essay.json`, write the review to
@@ -143,6 +145,11 @@ the marked sheet says:
 It may also carry `"tags": {"QR": {"12": "Data reasoning"}}`, filing a missed question under one
 of the practice bank's skills so review can ask about it. `form` is a paper the site ships or one a
 parent added on the Mock exams page (its id, `P…`, is in its page's address).
+
+A parent can add photos or screenshots of the marked sheet on the paper's page; they go
+into her Drive folder beside the PDF (`mocks[<form>].sheets`). The site cannot read them
+— it has no server — so `.claude/skills/paper-results/` does: it reads the sheet, files
+each miss under a skill from the paper's PDF, and writes this JSON.
 
 `python3 tools/paper_link.py result.json` checks it against the paper's sections, warns
 where the circled count and the score disagree, and prints the import link. Opened on
