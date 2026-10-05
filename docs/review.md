@@ -127,3 +127,21 @@ copy to the Drive folder, and hand the link to the parent to open.
 - Merge: last write wins by `at` per key, like the other keyed slices.
 - `test_drive.cjs` covers a review arriving from Drive and surviving a local save;
   `test_features.cjs` covers the import link, the paste box and the unread markers.
+
+## A paper's results
+
+A paper sat on paper away from the site (AGENTS.md, "A paper sat on paper") can be
+entered by link rather than typed. The link carries no question and no key, only what
+the marked sheet says:
+
+```json
+{"form": "TPR", "sat": "2026-10-04", "by": "Dad",
+ "scores": {"VR": 24, "QR": 28, "RC": 21, "MA": 17},
+ "missed": {"VR": [5, 7], "QR": [12], "RC": [17], "MA": [3]}}
+```
+
+`python3 tools/paper_link.py result.json` checks it against the paper's sections, warns
+where the circled count and the score disagree, and prints the import link. Opened on
+her signed-in device it previews each section, and Add puts the entry in her record and
+the missed numbers into her review pile. The same link opened twice adds nothing.
+

@@ -376,7 +376,11 @@ Once every section is in, `mockBand` lists it beside the site's papers, dated by
 it, so it reaches the band, readiness and recent accuracy (not the Den or the rewards, which count
 papers sat here); and the question numbers a parent types in as missed become review anchors
 through the paper's question→skill map (`skills` in `content/offline_mocks.json`,
-`recordOfflineMisses`). How it got here:
+`recordOfflineMisses`). The results can arrive as one link instead of being typed:
+`tools/paper_link.py` turns the scores and the circled numbers into an import link, the
+import page previews it, and Add puts it in her record as an entry (`addOfflineEntry`,
+the same function the results page uses); the same link opened twice adds nothing. How
+it got here:
 On 4 October 2026 the owner added a paper she sits offline: the Princeton Review's "Lower Level
 ISEE Practice Test" (Chapter 14 of its ISEE prep book, © 2024 TPR Education IP Holdings; the PDF is
 `ISEE_Lower_Level_Practice_Test_2024.3.pdf` in the family's Drive). It has the real Lower Level

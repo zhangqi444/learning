@@ -926,6 +926,21 @@ export function recordOfflineMisses(form) {
   return Object.keys(map).length
 }
 
+/** Add one entry to a paper's log — the scores and the missed question numbers
+ *  marked on the sheet — and make the review anchors for its misses. Shared by the
+ *  results page and an import link (pages/import.jsx), so a result arrives the same
+ *  way whichever door it came in by. An entry that carries an `id` already in the
+ *  log is not added twice: opening the same link again changes nothing. */
+export function addOfflineEntry(form, { sat, scores = {}, missed = {}, id, via } = {}) {
+  if (!(D.offlineMocks || []).some((f) => f.id === form)) return { added: false, anchors: 0 }
+  const cur = (Store.s.mocks || {})[form] || {}
+  if (id && Array.isArray(cur.entries) && cur.entries.some((e) => e && e.id === id)) return { added: false, anchors: recordOfflineMisses(form) }
+  const at = nowIso()
+  const entry = { id: id || at + ":" + Math.random().toString(36).slice(2, 8), at, sat, scores, ...(Object.keys(missed).length ? { missed } : {}), ...(via ? { via } : {}) }
+  Store.setSlice("mocks", form, (c) => ({ ...c, offline: true, entries: [...(Array.isArray(c.entries) ? c.entries : []), entry] }))
+  return { added: true, anchors: recordOfflineMisses(form) }
+}
+
 /* ---------- mocks: next steps & score band ---------- */
 export const STANINE = (pct) => pct >= 92 ? 9 : pct >= 85 ? 8 : pct >= 76 ? 7 : pct >= 66 ? 6 : pct >= 55 ? 5 : pct >= 44 ? 4 : pct >= 33 ? 3 : pct >= 22 ? 2 : 1
 function mockDone(form) {

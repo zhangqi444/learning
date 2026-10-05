@@ -678,6 +678,23 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const stillDue = await pg.evaluate((ids) => { const s = JSON.parse(localStorage.getItem('isee.v1')); return ids.filter((k) => s.items[k] && s.items[k].due).length; }, snapDue);
   check('the rest of the pile is put back as it was, and stays put after the page saves', restored === true && stillDue === snapDue.length, `${stillDue} of ${snapDue.length} due again`);
   await pg.screenshot({ path: 'shot-offline.png', fullPage: false });
+  /* A marked paper's results in one link (tools/paper_link.py), so the scores and
+     the circled numbers reach her record without being typed in: the link previews
+     each section, Add puts it in her record on the paper's page, and the same link
+     opened twice adds nothing. */
+  const paperLink = Buffer.from(JSON.stringify({ paper: { form: 'TPR', sat: '2026-10-03', by: 'Dad', scores: { RC: 22 }, missed: { RC: [17, 18, 23] } } })).toString('base64url');
+  await pg.evaluate((p) => { location.hash = '#/import/' + p; }, paperLink);
+  await pg.waitForSelector('[data-testid=paper-preview]');
+  const pv = (await pg.textContent('[data-testid=paper-preview]')).replace(/\s+/g, ' ');
+  check('a paper result link previews its scores and the circled numbers', /Princeton Review practice test/.test(pv) && /22\/25/.test(pv) && /Missed 17, 18, 23/.test(pv), pv.slice(0, 160));
+  await pg.click('[data-testid=paper-add]');
+  await pg.waitForSelector('[data-testid=offline-save]');
+  const rcRow = await pg.textContent('[data-testid=offline-row][data-sec=RC]');
+  check("and Add puts them in her record, on the paper's page", /22\/25/.test(rcRow) && /Missed 17, 18, 23/.test(rcRow), rcRow);
+  const nEntries = await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).mocks.TPR.entries.length);
+  await pg.evaluate((p) => { location.hash = '#/import/' + p; }, paperLink);
+  await pg.waitForSelector('[data-testid=paper-add]'); await pg.click('[data-testid=paper-add]'); await pg.waitForSelector('[data-testid=offline-save]');
+  check('and the same link opened twice adds nothing', (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).mocks.TPR.entries.length)) === nEntries);
   // The remote goes back to the copy from before the stub's edits; the next save
   // merges the rest of the log into it.
   drive.body = offStash;

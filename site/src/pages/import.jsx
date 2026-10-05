@@ -3,7 +3,8 @@ import { ChevronRight, Inbox, MessageSquareText } from "lucide-react"
 
 import { fmtDate } from "@/lib/content"
 import { t, useLang } from "@/lib/lang"
-import { addReviews, parseImport, reviewPath, reviewTargetLabel } from "@/lib/reviews"
+import { addReviews, parseImport, parsePaperImport, reviewPath, reviewTargetLabel } from "@/lib/reviews"
+import { addOfflineEntry } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { Button } from "@zhangqi444/ui/ui/button"
@@ -20,8 +21,14 @@ export function Import({ payload }) {
   const [added, setAdded] = React.useState(null)
   const fromLink = React.useMemo(() => {
     if (!payload) return null
+    // A paper's results first: they are not a review and have no summary to show.
+    try { const paper = parsePaperImport(payload); if (paper) return { paper } } catch (e) { return { err: e.message } }
     try { return { map: parseImport(payload) } } catch (e) { return { err: e.message } }
   }, [payload])
+  function addPaper(paper) {
+    addOfflineEntry(paper.form.id, { sat: paper.sat, scores: paper.scores, missed: paper.missed, id: paper.id, via: "link" })
+    go("/mock/" + paper.form.id)
+  }
 
   function add(map) {
     const list = Object.values(map)
@@ -30,7 +37,7 @@ export function Import({ payload }) {
     if (list.length === 1) go(reviewPath(list[0]))
   }
   function addPasted() {
-    try { add(parseImport(text)) } catch (e) { setErr(e.message) }
+    try { const paper = parsePaperImport(text); if (paper) return addPaper(paper); add(parseImport(text)) } catch (e) { setErr(e.message) }
   }
   const preview = fromLink && fromLink.map ? Object.values(fromLink.map) : []
   /* A link of Chinese reviews, and nothing else, makes this a Chinese page:
@@ -52,6 +59,29 @@ export function Import({ payload }) {
         </CardHeader>
       </Card>
 
+      {fromLink && fromLink.paper ? (
+        <Card className="gap-4" data-testid="paper-preview">
+          <CardHeader>
+            <CardTitle>{fromLink.paper.form.name}: results</CardTitle>
+            <CardDescription>Sat on {fmtDate(fromLink.paper.sat + "T12:00:00")}{fromLink.paper.by ? ` · marked by ${fromLink.paper.by}` : ""}. Check the numbers against the marked sheet, then add them.</CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-col gap-3">
+            <ul className="divide-y rounded-md border">
+              {fromLink.paper.form.sections.filter((s) => s.n).map((s) => {
+                const sc = fromLink.paper.scores[s.id], mi = fromLink.paper.missed[s.id]
+                return (
+                  <li key={s.id} className="flex flex-col gap-0.5 px-3 py-2 text-sm" data-testid="paper-row" data-sec={s.id}>
+                    <div className="flex items-center justify-between gap-2"><span className="font-medium">{s.name}</span><span className="tabular-nums">{sc != null ? `${sc}/${s.n}` : "—"}</span></div>
+                    {mi && mi.length ? <span className="text-muted-foreground text-xs">Missed {mi.join(", ")}{sc != null && s.n - sc !== mi.length ? ` · ${mi.length} listed, ${s.n - sc} by the score — check the sheet` : ""}</span> : null}
+                  </li>
+                )
+              })}
+            </ul>
+            <div><Button onClick={() => addPaper(fromLink.paper)} data-testid="paper-add"><Inbox /> Add to Sheila's record</Button></div>
+          </CardContent>
+        </Card>
+      ) : null}
+
       {added ? (
         <Card className="gap-3">
           <CardHeader><CardTitle>{s("已添加", "Added")}</CardTitle><CardDescription>{added.length === 1 ? (zh ? t("正在打开它批改的那一周。", "Opening the week it belongs to.") : "Opening the essay it belongs to.") : s(`添加了 ${added.length} 份批改。`, `${added.length} reviews added.`)}</CardDescription></CardHeader>
@@ -59,7 +89,7 @@ export function Import({ payload }) {
             {added.map((r) => <Button key={r.id} variant="outline" size="sm" onClick={() => go(reviewPath(r))}>{reviewTargetLabel(r)} <ChevronRight /></Button>)}
           </CardContent>
         </Card>
-      ) : preview.length ? (
+      ) : preview.length && !(fromLink && fromLink.paper) ? (
         <Card className="gap-4" data-testid="import-preview">
           <CardHeader>
             <CardTitle>{s(preview.length === 1 ? "这个链接里有一份批改" : `这个链接里有 ${preview.length} 份批改`, `${preview.length === 1 ? "One review" : `${preview.length} reviews`} in this link`)}</CardTitle>
@@ -79,7 +109,7 @@ export function Import({ payload }) {
         </Card>
       ) : null}
 
-      {!added ? (
+      {!added && !(fromLink && fromLink.paper) ? (
         <Card className="gap-4">
           <CardHeader>
             <CardTitle>{preview.length ? s("或者粘贴一份", "Or paste one") : s("粘贴批改", "Paste the review")}</CardTitle>

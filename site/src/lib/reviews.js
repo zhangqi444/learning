@@ -88,6 +88,45 @@ export function decodePayload(s) {
   const bytes = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i)
   return JSON.parse(new TextDecoder().decode(bytes))
 }
+/** A paper sat on paper, marked, in a link: `{ "paper": { "form": "TPR", "sat":
+ *  "2026-10-04", "scores": { "VR": 24, … }, "missed": { "VR": [5, 7, …], … } } }`.
+ *  Made by tools/paper_link.py from the marked sheet, so the scores and the circled
+ *  numbers reach her record without being typed in, and checked here against the
+ *  paper's own sections so a mistyped link cannot store a score above its size.
+ *  Returns null when the text is not a paper result; throws with a plain message
+ *  when it is one but something in it is wrong. */
+export function paperFromPayload(obj) {
+  const p = obj && obj.paper
+  if (!p || typeof p !== "object") return null
+  const form = (D.offlineMocks || []).find((f) => f.id === p.form)
+  if (!form) throw new Error(`No paper called ${p.form || "(none)"} is listed on the site.`)
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(p.sat || "")) throw new Error("The paper's date must be written as YYYY-MM-DD.")
+  const scores = {}, missed = {}
+  for (const s of form.sections.filter((x) => x.n)) {
+    const v = (p.scores || {})[s.id]
+    if (v != null) { if (!Number.isInteger(v) || v < 0 || v > s.n) throw new Error(`${s.name} must be a whole number from 0 to ${s.n}.`); scores[s.id] = v }
+    const m = (p.missed || {})[s.id]
+    if (m != null) {
+      if (!Array.isArray(m) || m.some((k) => !Number.isInteger(k) || k < 1 || k > s.n)) throw new Error(`${s.name} missed questions must be numbers from 1 to ${s.n}.`)
+      missed[s.id] = [...new Set(m)].sort((a, b) => a - b)
+    }
+  }
+  if (!Object.keys(scores).length && !Object.keys(missed).length) throw new Error("The link names the paper but carries no scores.")
+  const key = JSON.stringify({ form: form.id, sat: p.sat, scores, missed })
+  let h = 0; for (let i = 0; i < key.length; i++) h = (Math.imul(31, h) + key.charCodeAt(i)) | 0
+  return { form, sat: p.sat, scores, missed, by: typeof p.by === "string" ? p.by.slice(0, 80) : "", id: `link:${form.id}:${p.sat}:${(h >>> 0).toString(36)}` }
+}
+/** The paper result in a pasted link or JSON, or null if it is not one. */
+export function parsePaperImport(text) {
+  const t = (text || "").trim()
+  if (!t) return null
+  let obj
+  try {
+    if (t.startsWith("{")) obj = JSON.parse(t)
+    else { const m = t.match(/(?:#\/import\/)?([A-Za-z0-9_-]{16,})\s*$/); if (!m) return null; obj = decodePayload(m[1]) }
+  } catch { return null }
+  return paperFromPayload(obj)
+}
 /** Accepts pasted JSON or a pasted import link / payload. Throws with a plain message. */
 export function parseImport(text) {
   const t = (text || "").trim()
