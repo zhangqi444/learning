@@ -379,7 +379,9 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
       if (ok) right++; else wrong.push(q.id)
       const ms = spent.current[j] || 0
       times[q.id] = ms
-      entries.push({ id: q.id, ok, ms, pick: picks[j] == null ? null : LTR[picks[j]] })
+      // `for` is set when the pile served this question in place of one she
+      // missed, so the answer advances that item too — see recordAttempts.
+      entries.push({ id: q.id, ok, ms, pick: picks[j] == null ? null : LTR[picks[j]], for: q.standsFor || null })
       const s = subOf(q, subHint); bySub[s] = bySub[s] || { right: 0, n: 0 }; bySub[s].n++; if (ok) bySub[s].right++
     })
     const at = new Date().toISOString()
@@ -744,6 +746,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                 className={cn("text-center leading-relaxed font-medium", rune.kind === "rune" ? "text-2xl font-extrabold tracking-tight" : "text-lg")}
                 data-testid="question"
                 data-qid={it.id}
+                data-stands-for={it.standsFor || undefined}
               >
                 {rune.text}
               </p>
@@ -751,7 +754,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             </div>
           ) : (
             <>
-              <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id}>{qOf(it)}</p>
+              <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id} data-stands-for={it.standsFor || undefined}>{qOf(it)}</p>
               {it.f ? <Figure f={it.f} /> : null}
               {/* A Chinese prompt is the book's own wording; the other language is a
                   translation she can ask for, the way the book glosses its headings. */}

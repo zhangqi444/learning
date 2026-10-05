@@ -93,6 +93,14 @@ it right on two *different* days retires it, with one check-in three weeks later
 in a corrections pass immediately after seeing the key do not count as evidence — but a
 *different* question on the same skill does, because she has not been shown its answer.
 
+**And the return is that different question.** The pile asks the skill, not the item: a missed
+question comes back as another question on the same skill, picked for the day, and answering it
+moves the original along. Only the 21-day check-in asks the question she actually got wrong. This
+is the one thing the pile must never go back on — serving the stored item meant both of the
+correct answers that retire a miss could be given from memory of the reveal she had just read, so
+the pile could be cleared without the knowledge. Precision words never had the fault: a word's
+question is rebuilt from the day's seed, so the word comes back and the question is new.
+
 **The mastery ladder.** Not started → Started → Needs work → Familiar → Proficient → Mastered.
 A skill with fewer than three questions attempted is capped at Started, so the ladder cannot
 brighten on thin evidence. Reaching Mastered takes **two** of its questions answered correctly in

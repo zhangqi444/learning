@@ -84,18 +84,31 @@ export function findItem(id) {
 }
 
 /* ---------- writers ---------- */
-/** Record a batch of answers. entries: [{id, ok, ms, pick}]. ctx: set | review | mixed | mock | vocab | corr. */
+/** Record a batch of answers. entries: [{id, ok, ms, pick, for}]. ctx: set | review | mixed | mock | vocab | corr.
+ *
+ *  `for` is what makes the review pile teach instead of drill. A question she
+ *  missed comes back as a DIFFERENT question on the same skill (see
+ *  `reviewStandIn`), so one answer has to land in two places: on the question she
+ *  actually answered, under this run's ctx, and on the one it stood in for, as an
+ *  `again` — already this file's word for a different question on the same skill
+ *  whose key she has not been shown. The schedule moves on both.
+ *
+ *  Without that second write the stand-in was a detour. `recordAttempts` advances
+ *  the item that was answered, so a sibling answered right left the original
+ *  holding its due date, and the pile served the identical question on day 1,
+ *  day 4 and at the check-in — both of the correct answers that retire a miss
+ *  given from memory of the key she had just been shown. */
 export function recordAttempts(entries, ctx) {
   const now = nowIso(), map = {}
-  for (const e of entries) {
-    if (!e || !e.id) continue
-    const prev = rec(e.id) || { hist: [] }
-    const r = { ...prev, hist: [...(prev.hist || []), { at: now, ok: !!e.ok, ms: Math.round(e.ms || 0), ctx, pick: e.pick || null }].slice(-40) }
-    if (LEARN_CTX[ctx]) {
+  const take = (id) => map[id] || rec(id) || { hist: [] }   // one batch may touch an id twice
+  function write(id, entry, kctx) {
+    const prev = take(id)
+    const r = { ...prev, hist: [...(prev.hist || []), entry].slice(-40) }
+    if (LEARN_CTX[kctx]) {
       const last = (prev.hist || [])[prev.hist.length - 1]
       const sameDay = last && dayKey(last.at) === dayKey(now)
       const inPile = !!(prev.due && !prev.cleared)
-      if (!e.ok) {
+      if (!entry.ok) {
         r.step = 0; r.streak = 0; r.due = plusDays(now, INTERVALS[0]); r.cleared = null; r.lastMiss = now
         r.misses = (prev.misses || 0) + 1
       } else if (inPile) {
@@ -106,11 +119,17 @@ export function recordAttempts(entries, ctx) {
         }
       } else if (prev.cleared && prev.due) {
         r.due = null; r.checkins = (prev.checkins || 0) + 1   // passed the check-in
-      } else if (ctx === "vocab" && !prev.cleared) {
+      } else if (kctx === "vocab" && !prev.cleared) {
         r.cleared = now; r.due = plusDays(now, WORD_BRUSHUP_DAYS)   // a word answered right gets one brush-up
       }
     }
-    map[e.id] = r
+    map[id] = r
+  }
+  for (const e of entries) {
+    if (!e || !e.id) continue
+    const base = { at: now, ok: !!e.ok, ms: Math.round(e.ms || 0), pick: e.pick || null }
+    write(e.id, { ...base, ctx }, ctx)
+    if (e.for && e.for !== e.id) write(e.for, { ...base, ctx: "again", via: e.id }, "again")
   }
   if (Object.keys(map).length) Store.setMany("items", map)
 }
@@ -281,6 +300,67 @@ export function reviewQueue(sub, cat = "isee") {
   }
   for (const k of Object.keys(out)) out[k].sort((a, b) => a.due - b.due)
   return out
+}
+/** The question the pile should actually ask for a due item — a different one on
+ *  the same skill, or null to ask the item itself.
+ *
+ *  The pile used to hand back the stored item, so a missed question was served
+ *  verbatim on day 1, day 4 and again at the check-in: same stem, same four
+ *  options, the key in the same position. Both of the correct answers that retire
+ *  a miss could be given from memory of the reveal she had just read, which makes
+ *  the pile a memory test for the answer rather than practice of the skill.
+ *  Precision words never had this problem — `wordQuestion` is keyed to
+ *  `todayKey()`, so a word that comes back is a freshly built question about the
+ *  same word — and this is the same idea for the 1,002 bank questions.
+ *
+ *  Keyed to the day for the same reason the word quiz is: the set a run serves has
+ *  to be stable while she is in it, because `sigOf` discards a resumed draft whose
+ *  questions have changed underneath it, and a pile that reshuffled on every
+ *  render would throw away her answers.
+ *
+ *  Three things it refuses to do:
+ *  - **A word is left alone.** It is already rebuilt daily, and the word IS the
+ *    thing to know; swapping in a different word would be changing the subject.
+ *  - **Nothing already waiting is borrowed.** A stand-in is drawn only from items
+ *    with no live due date, so one failure cannot plant a second entry in the pile
+ *    and the pile cannot grow by being worked.
+ *  - **A failed stand-in converges on the real question.** If the last `again` on
+ *    this item was wrong, she gets the item itself next time, with its own
+ *    explanation — twice round the same skill without success is the point to stop
+ *    varying the question and look at the one she actually missed. */
+export function reviewStandIn(id, seed = todayKey()) {
+  const hit = findItem(id)
+  if (!hit || !hit.it || hit.src === "word") return null
+  const r = rec(id), hs = (r && r.hist) || []
+  for (let i = hs.length - 1; i >= 0; i--) if (hs[i].ctx === "again") { if (!hs[i].ok) return null; break }
+  const raw = skillOf(hit.sub, hit.it)
+  const sk = skillTable(hit.sub)[raw] ? raw : (learnName(raw) || raw)
+  const where = [hit.sub, ...ORDER.filter((x) => x !== hit.sub)]
+    .find((x) => ((skillTable(x)[sk] || {}).ids || []).length > (x === hit.sub ? 1 : 0))
+  if (!where) return null
+  const items = Store.s.items || {}
+  const free = ((skillTable(where)[sk] || {}).ids || [])
+    .filter((x) => x !== id)
+    .filter((x) => { const o = items[x]; return !(o && o.due && !o.cleared) })
+  if (!free.length) return null
+  const at = (x) => { const o = items[x]; const h = (o && o.hist) || []; return h.length ? ts(h[h.length - 1].at) : 0 }
+  const unseen = free.filter((x) => !at(x))
+  const pool = unseen.length ? unseen : free
+  const pick = pool[Math.floor(hash(seed + id) * pool.length)]
+  const row = index()[pick]
+  return row && row.it ? { ...row.it, standsFor: id } : null
+}
+
+/** What a review run serves: the queue, with every due question replaced by a
+ *  different question on its skill. The check-in is deliberately the exception —
+ *  by then she has answered the skill right twice on questions whose keys she had
+ *  not seen, and three weeks later the useful question is the one she actually got
+ *  wrong. Scheduled items substitute too: "Everything" is practice, not a test of
+ *  whether she remembers a particular page. */
+export function reviewItems(sub, mode, cat = "isee") {
+  const q = reviewQueue(sub, cat)
+  const rows = mode === "checkin" ? q.checkin : mode === "all" ? [...q.due, ...q.scheduled] : q.due
+  return rows.map((row) => (row.rec && row.rec.cleared ? row.it : reviewStandIn(row.id) || row.it))
 }
 /** Misses in the queue broken down by cause (untagged counted separately). */
 export function causeBreakdown(rows) {

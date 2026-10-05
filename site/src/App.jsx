@@ -1,7 +1,7 @@
 import * as React from "react"
 
 import { D, SUBJ, parseSetId, setId, setsFor } from "@/lib/content"
-import { anotherLike, reviewQueue, wordQuizItems } from "@/lib/engine"
+import { anotherLike, reviewItems, wordQuizItems } from "@/lib/engine"
 import { go, lastCat, rememberCat, splitCat, useRoute } from "@/lib/router"
 import { ChineseScreen } from "@/pages/chinese"
 import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
@@ -30,11 +30,7 @@ import { DriveSettings } from "@/pages/drive"
 
 /** The queue is read once on mount, so finishing the run (which reschedules every item) keeps the score screen up. */
 function ReviewRun({ sub, mode }) {
-  const items = React.useMemo(() => {
-    const q = reviewQueue(sub)
-    const rows = mode === "checkin" ? q.checkin : mode === "all" ? [...q.due, ...q.scheduled] : q.due
-    return rows.map((x) => x.it)
-  }, [sub, mode])
+  const items = React.useMemo(() => reviewItems(sub, mode), [sub, mode])
   if (!items.length) return <Review />
   return <Runner items={items} custom ctx="review" resume={`review:${sub}:${mode || "due"}`} sub={sub} title={`${SUBJ[sub].name} · ${mode === "checkin" ? "Check-in" : "Review"}`} exitPath="/review" exitLabel="Back to review" />
 }

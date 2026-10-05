@@ -40,7 +40,7 @@ async function runThrough(pg, pick, max = 60) {
  * shelf stays off", which failed about one full run in three while passing
  * every time the suite was run on its own. Write, read back, and only carry on
  * once it has held — past the writer's own window, see setLs. */
-async function setLs(pg, mutate, read, ms = 12000) {
+async function setLs(pg, mutate, read, ms = 12000, arg) {
   // "Held" means held past the store's longest save debounce — 1200 ms in
   // lib/store.js — not read back once. A read that held at 400 ms could still
   // be overwritten by a flush the page had scheduled before the edit, and that
@@ -52,10 +52,10 @@ async function setLs(pg, mutate, read, ms = 12000) {
   const HOLD = 1600;
   let last = null;
   for (let waited = 0; waited < ms; ) {
-    await pg.evaluate(mutate);
+    await pg.evaluate(mutate, arg);
     for (let held = 0; held < HOLD; held += 400) {
       await pg.waitForTimeout(400); waited += 400;
-      last = await pg.evaluate(read);
+      last = await pg.evaluate(read, arg);
       if (last !== true) break;
     }
     if (last === true) return true;
@@ -1135,6 +1135,90 @@ async function setLs(pg, mutate, read, ms = 12000) {
   check('review answers recorded: right ones step forward, wrong ones reset', afterRv.n >= 1 && afterRv.stepped + afterRv.reset === afterRv.n, JSON.stringify(afterRv));
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('text=Review');
   check('review page shows scheduled items after a pass', /scheduled/.test(await body(pg)));
+
+  /* The pile has to re-practise the SKILL, not re-ask the question.
+   *
+   * It used to hand back the stored item, so a missed question came round
+   * verbatim on day 1, day 4 and at the check-in — same stem, same four options,
+   * the key in the same position — and both of the correct answers that retire a
+   * miss could be given from memory of the reveal she had just read. The pile was
+   * a memory test for the answer. Precision words never had the fault, because
+   * wordQuestion is keyed to todayKey() and rebuilds; this is the same idea for
+   * the 1,002 bank questions, and this check is what stops it regressing to the
+   * stored item, which no existing assertion would have noticed.
+   *
+   * It asserts the RELATIONSHIP rather than controlling which item is due, and
+   * that is deliberate. Two earlier versions tried to seed one known miss and
+   * both failed while the feature worked: the first wrote localStorage raw and
+   * the page's own flush saved over it inside a second, and the second held the
+   * write through setLs and then lost it to applySeed, which re-creates the
+   * migrated records on every load and is documented as doing so. The pile's own
+   * output is the honest fixture — whatever is due, the question served for it
+   * must not be the question itself. */
+  console.log('== a missed question comes back as a different question on its skill');
+  await pg.evaluate(() => { location.hash = '#/review/qr'; });
+  const servedEl = await pg.waitForSelector('[data-testid=question]').catch(() => null);
+  const servedPair = servedEl ? await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null })) : null;
+  check('the pile serves a stand-in, not the question she missed',
+    !!servedPair && !!servedPair.standsFor && servedPair.standsFor !== servedPair.qid,
+    servedPair ? `${servedPair.standsFor} -> ${servedPair.qid}` : 'no question served');
+  const sameSkill = servedPair && servedPair.standsFor ? await pg.evaluate(async (o) => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const find = (id) => { for (const s of Object.keys(b.subjects)) { const q = b.subjects[s].find((x) => x.id === id); if (q) return q } return null };
+    const a = find(o.standsFor), c = find(o.qid);
+    return a && c ? { a: a.sk, c: c.sk, same: (a.sk || '') === (c.sk || '') } : null;
+  }, servedPair) : null;
+  check('and the stand-in is on the same skill as the miss',
+    !!sameSkill && sameSkill.same, sameSkill ? `${sameSkill.a} / ${sameSkill.c}` : 'could not resolve both');
+
+  /* Answering it has to move the MISS along, or the stand-in is a detour:
+     recordAttempts advances the item that was answered, so without the `for`
+     link the original kept its due date and came back verbatim anyway. Answered
+     correctly on purpose — a wrong answer resets the original instead. */
+  const servedKey = servedPair ? await pg.evaluate(async (qid) => {
+    const b = await (await fetch('content/bundle.json')).json();
+    for (const s of Object.keys(b.subjects)) { const q = b.subjects[s].find((x) => x.id === qid); if (q) return q.k; }
+    return null;
+  }, servedPair.qid) : null;
+  if (servedKey) {
+    await pg.click(`[data-testid=choice] >> nth=${'ABCD'.indexOf(servedKey)}`);
+    await pg.click('[data-testid=next]');
+    await pg.waitForTimeout(400);
+  }
+  const credited = servedPair ? await pg.evaluate((o) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const orig = s.items[o.standsFor] || {};
+    const again = (orig.hist || []).filter((h) => h.ctx === 'again');
+    return { step: orig.step, again: again.length, via: again.length ? again[again.length - 1].via : null, due: orig.due || null };
+  }, servedPair) : null;
+  check('answering the stand-in credits the miss it stood in for',
+    !!credited && credited.again >= 1 && credited.via === servedPair.qid,
+    credited ? `again x${credited.again} via ${credited.via} · step ${credited.step}` : 'nothing recorded');
+
+  /* The check-in is the one return that asks the real thing. By then she has
+     answered the skill right twice on questions whose keys she had not seen, and
+     three weeks later the useful question is the one she actually got wrong. */
+  const checkinSeeded = await setLs(pg,
+    () => {
+      const s = JSON.parse(localStorage.getItem('isee.v1'));
+      const id = Object.keys(s.items).find((k) => /^QR-/.test(k) && (s.items[k].hist || []).length);
+      if (!id) return;
+      const now = new Date(Date.now() - 1000).toISOString();
+      s.items[id] = { ...s.items[id], cleared: now, due: now, step: 2 };
+      localStorage.setItem('isee.v1', JSON.stringify(s));
+      sessionStorage.setItem('checkinId', id);
+    },
+    () => { const id = sessionStorage.getItem('checkinId'); if (!id) return false; const r = JSON.parse(localStorage.getItem('isee.v1')).items[id]; return !!(r && r.cleared && r.due); });
+  const checkinId = await pg.evaluate(() => sessionStorage.getItem('checkinId'));
+  // The reload is the point: the page holds the whole store in memory, so an
+  // edit that only reached localStorage is invisible to the route until it is
+  // read back. setLs holds it past the flush window; this is what picks it up.
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/review/qr/checkin'; });
+  await pg.waitForSelector('[data-testid=question]');
+  const atCheckin = await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null }));
+  check('the check-in asks the real question, never a stand-in',
+    checkinSeeded && !atCheckin.standsFor, `${atCheckin.qid} (seeded ${checkinId}) standsFor=${atCheckin.standsFor}`);
   // mixed set
   await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=mixed-start]');
   check('mixed set previews all four subjects', /Verbal · \d/.test(await body(pg)) && /Reading · \d/.test(await body(pg)));
