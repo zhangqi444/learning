@@ -622,14 +622,63 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.waitForSelector('[data-testid=offline-total]');
   check('with all four in, the paper totals its raw score', /98 \/ 127/.test((await pg.textContent('[data-testid=offline-total]')).replace(/\s+/g, ' ')));
   await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
-  check('the band card is untouched by it', (await pg.textContent('[data-testid=band-card]')).replace(/\s+/g, ' ') === bandBefore && !/Princeton/.test(bandBefore));
+  // Since 4 October 2026 the paper counts once every section is in (the owner's
+  // ruling; AGENTS.md "A paper sat on paper"): it joins the band and readiness.
+  const bandNow = (await pg.textContent('[data-testid=band-card]')).replace(/\s+/g, ' ');
+  check('with every section in, the band card carries the paper', bandNow !== bandBefore && /Princeton Review practice test/.test(bandNow) && !/Princeton/.test(bandBefore), bandNow.slice(0, 160));
   check('and the list shows its total', /98\/127/.test(await pg.textContent('[data-testid=offline-card-TPR]')));
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('[data-testid=score-parts]');
   const readyAfter = (await pg.textContent('[data-testid=readiness]')).replace(/\s+/g, ' ');
   const partsAfter = (await pg.textContent('[data-testid=score-parts]')).replace(/\s+/g, ' ');
-  check('and readiness is unchanged by it, every part', readyAfter === readyBefore && partsAfter === partsBefore, readyAfter === readyBefore ? 'same' : `${readyBefore.slice(0, 80)} → ${readyAfter.slice(0, 80)}`);
-  // The record stays: it has no `sections`, so nothing after this reads it. The
-  // remote goes back to the copy from before the stub's edits; the next save
+  check('and readiness moves with it', readyAfter !== readyBefore || partsAfter !== partsBefore, `${readyBefore.slice(0, 80)} → ${readyAfter.slice(0, 80)}`);
+  /* The circled numbers on the marked sheet. Each becomes a review anchor on the
+     skill the paper's map gives it, due the day after she sat it; a review then
+     asks two different questions of ours for each, and never the anchor, which
+     has no question behind it. The rest of the pile is set aside for the run
+     (snapshot in localStorage, restored after) so the run is these three alone. */
+  await pg.evaluate(() => { location.hash = '#/mock/TPR'; }); await pg.waitForSelector('[data-testid=offline-save]');
+  await pg.fill('[data-testid=offline-missed-QR]', '12, 17, 23');
+  await pg.click('[data-testid=offline-save]');
+  await pg.waitForSelector('[data-testid=offline-missed]');
+  check('the questions she missed are kept with the paper and join the review pile',
+    /Missed 12, 17, 23/.test(await pg.textContent('[data-testid=offline-row][data-sec=QR]')) && /joined the review pile/.test(await pg.textContent('[data-testid=offline-msg]')), await pg.textContent('[data-testid=offline-msg]'));
+  const anchors = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return Object.keys(s.items || {}).filter((k) => k.startsWith('off:TPR:QR:')).sort(); });
+  check('each is an anchor of its own', anchors.join(',') === 'off:TPR:QR:12,off:TPR:QR:17,off:TPR:QR:23', anchors.join(','));
+  const narrowed = await setLs(pg, () => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    if (!localStorage.getItem('test.itemsnap')) localStorage.setItem('test.itemsnap', JSON.stringify(Object.fromEntries(Object.entries(s.items || {}).map(([k, r]) => [k, { due: (r && r.due) || null, cleared: (r && r.cleared) || null }]))));
+    for (const [k, r] of Object.entries(s.items || {})) if (!k.startsWith('off:TPR:QR:') && r && r.due) { r.due = null; r.cleared = r.cleared || new Date().toISOString(); }
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, () => { const s = JSON.parse(localStorage.getItem('isee.v1')); return Object.entries(s.items || {}).every(([k, r]) => k.startsWith('off:TPR:QR:') || !r || !r.due); });
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.evaluate(() => { location.hash = '#/review/qr'; }); await pg.waitForSelector('[data-testid=question]');
+  const offRun = [];
+  for (let k = 0; k < 10 && (await pg.$('[data-testid=question]')); k++) {
+    offRun.push(await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null })));
+    const before = await pg.textContent('[data-testid=counter]');
+    await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]');
+    await pg.waitForFunction((b) => { const c = document.querySelector('[data-testid=counter]'); return !c || c.textContent !== b || !!document.querySelector('[data-testid=score]'); }, before, { timeout: 15000 });
+  }
+  check('three missed questions on paper become six different questions in review, two for each, none of them the paper\'s',
+    narrowed === true && offRun.length === 6 && new Set(offRun.map((x) => x.qid)).size === 6 && offRun.every((x) => x.qid && !x.qid.startsWith('off:') && anchors.includes(x.standsFor))
+    && anchors.every((a) => offRun.filter((x) => x.standsFor === a).length === 2), JSON.stringify(offRun));
+  const viaAfter = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return Object.keys(s.items).filter((k) => k.startsWith('off:TPR:QR:')).map((k) => (s.items[k].hist || []).filter((h) => h.ctx === 'again').length); });
+  check('and each anchor is credited with both of its answers', viaAfter.length === 3 && viaAfter.every((v) => v === 2), JSON.stringify(viaAfter));
+  const restored = await setLs(pg, () => {
+    const s = JSON.parse(localStorage.getItem('isee.v1')), snap = JSON.parse(localStorage.getItem('test.itemsnap') || '{}');
+    for (const [k, v] of Object.entries(snap)) if (!k.startsWith('off:') && s.items[k]) { s.items[k].due = v.due; s.items[k].cleared = v.cleared; }
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, () => { const s = JSON.parse(localStorage.getItem('isee.v1')), snap = JSON.parse(localStorage.getItem('test.itemsnap') || '{}'); return Object.entries(snap).every(([k, v]) => k.startsWith('off:') || !s.items[k] || (s.items[k].due || null) === v.due); });
+  // The page still holds the narrowed pile in memory and would save it back over
+  // the restore at its next flush; a reload makes the restored copy the page's own.
+  const snapDue = await pg.evaluate(() => { const snap = JSON.parse(localStorage.getItem('test.itemsnap') || '{}'); return Object.entries(snap).filter(([k, v]) => !k.startsWith('off:') && v.due).map(([k]) => k); });
+  await pg.evaluate(() => localStorage.removeItem('test.itemsnap'));
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/mock/TPR'; }); await pg.waitForSelector('[data-testid=offline-save]');
+  await pg.waitForTimeout(1600);
+  const stillDue = await pg.evaluate((ids) => { const s = JSON.parse(localStorage.getItem('isee.v1')); return ids.filter((k) => s.items[k] && s.items[k].due).length; }, snapDue);
+  check('the rest of the pile is put back as it was, and stays put after the page saves', restored === true && stillDue === snapDue.length, `${stillDue} of ${snapDue.length} due again`);
+  await pg.screenshot({ path: 'shot-offline.png', fullPage: false });
+  // The remote goes back to the copy from before the stub's edits; the next save
   // merges the rest of the log into it.
   drive.body = offStash;
   await pg.evaluate(() => { location.hash = '#/mock/DGN'; }); await pg.waitForSelector('[data-testid=mock-corrections]');
@@ -1104,7 +1153,9 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     `${(await pg.$$('[data-testid=glim]')).length} cats on the page, none kneading`);
   check('score page lists the six parts with weights', (await pg.$eval('[data-testid=score-parts]', (e) => e.children.length)) === 6 && (await pg.$('[data-testid=streak]')) !== null && /% of the score/.test(await body(pg)));
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=today]');
-  check('mock band on the dashboard after one mock', /Latest mock ≈ stanine \d/.test(await body(pg)));
+  // Two papers by now: the diagnostic sat here, and the paper sat on paper, which
+  // counts in the band once every section is in (the owner's ruling, 4 October 2026).
+  check('mock band on the dashboard, counting the paper sat on paper', /Estimated stanine \d(–\d)? from 2 mocks/.test(await body(pg)));
   // a fresh set with timing, pacing mode and cause tags
   await pg.evaluate(() => { location.hash = '#/run/rc/W3/0'; }); await pg.waitForSelector('[data-testid=choice]');
   await pg.click('[data-testid=pacing-toggle]'); await pg.waitForSelector('[data-testid=soft-timer]');
@@ -1131,8 +1182,24 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.click('[data-testid=start-review-vr]'); await pg.waitForSelector('[data-testid=choice]');
   await runThrough(pg, 1);
   await pg.waitForSelector('[data-testid=score]');
-  const afterRv = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); const recs = Object.values(s.items).filter((r) => (r.hist || []).some((h) => h.ctx === 'review')); return { n: recs.length, stepped: recs.filter((r) => r.step >= 1).length, reset: recs.filter((r) => r.step === 0 && r.due).length }; });
-  check('review answers recorded: right ones step forward, wrong ones reset', afterRv.n >= 1 && afterRv.stepped + afterRv.reset === afterRv.n, JSON.stringify(afterRv));
+  /* Since 4 October 2026 a review asks two other questions in a miss's place
+     (lib/engine.js, reviewItems), so most of what is answered here was never in
+     the pile: a stand-in answered right has nothing to step — the miss it stood
+     in for is what moves, through `for`. What must hold: every wrong answer is a
+     miss of its own, every precision word answered right steps forward (a word
+     is asked as itself), and the misses were credited through their stand-ins. */
+  const afterRv = await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const lastOf = (r, ctx) => { const h = (r.hist || []).filter((x) => x.ctx === ctx); return h[h.length - 1]; };
+    const answered = Object.entries(s.items).filter(([, r]) => lastOf(r, 'review'));
+    const wrong = answered.filter(([, r]) => !lastOf(r, 'review').ok);
+    const words = answered.filter(([k, r]) => k.startsWith('w:') && lastOf(r, 'review').ok);
+    const credited = Object.values(s.items).filter((r) => { const a = lastOf(r, 'again'); return a && a.via; });
+    return { n: answered.length, wrong: wrong.length, wrongReset: wrong.filter(([, r]) => r.step === 0 && r.due).length,
+      words: words.length, wordsStepped: words.filter(([, r]) => r.step >= 1 || (r.cleared && r.due)).length, credited: credited.length };
+  });
+  check('review answers recorded: a wrong answer is a miss of its own, a right word steps forward, the misses are credited through their stand-ins',
+    afterRv.n >= 1 && afterRv.wrongReset === afterRv.wrong && afterRv.wordsStepped === afterRv.words && afterRv.credited >= 1, JSON.stringify(afterRv));
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('text=Review');
   check('review page shows scheduled items after a pass', /scheduled/.test(await body(pg)));
 
@@ -1171,33 +1238,43 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   check('and the stand-in is on the same skill as the miss',
     !!sameSkill && sameSkill.same, sameSkill ? `${sameSkill.a} / ${sameSkill.c}` : 'could not resolve both');
 
-  /* Answering it has to move the MISS along, or the stand-in is a detour:
+  /* Answering them has to move the MISS along, or the stand-ins are a detour:
      recordAttempts advances the item that was answered, so without the `for`
-     link the original kept its due date and came back verbatim anyway. Answered
-     correctly on purpose — a wrong answer resets the original instead. */
-  const servedKey = servedPair ? await pg.evaluate(async (qid) => {
+     link the original kept its due date and came back verbatim anyway. Two
+     different questions are asked for each miss (REVIEW_PER_MISS, the owner's
+     "double the workload"), and the run records only when it ends, so every
+     question in it is answered — correctly, keys read from the bundle. */
+  const bundleKey = (qid) => pg.evaluate(async (qid) => {
     const b = await (await fetch('content/bundle.json')).json();
     for (const s of Object.keys(b.subjects)) { const q = b.subjects[s].find((x) => x.id === qid); if (q) return q.k; }
+    for (const f of Object.values(b.mockItems)) for (const arr of Object.values(f)) { const q = arr.find((x) => x.id === qid); if (q) return q.k; }
     return null;
-  }, servedPair.qid) : null;
-  if (servedKey) {
-    await pg.click(`[data-testid=choice] >> nth=${'ABCD'.indexOf(servedKey)}`);
+  }, qid);
+  const servedFor = [];
+  for (let k = 0; k < 80 && servedPair && (await pg.$('[data-testid=question]')); k++) {
+    const cur = await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null }));
+    if (cur.standsFor === servedPair.standsFor) servedFor.push(cur.qid);
+    const key = await bundleKey(cur.qid);
+    const before = await pg.textContent('[data-testid=counter]');
+    await pg.click(`[data-testid=choice] >> nth=${Math.max(0, 'ABCD'.indexOf(key || 'A'))}`);
     await pg.click('[data-testid=next]');
-    await pg.waitForTimeout(400);
+    await pg.waitForFunction((b) => { const c = document.querySelector('[data-testid=counter]'); return !c || c.textContent !== b || !!document.querySelector('[data-testid=score]'); }, before, { timeout: 15000 });
   }
   const credited = servedPair ? await pg.evaluate((o) => {
     const s = JSON.parse(localStorage.getItem('isee.v1'));
     const orig = s.items[o.standsFor] || {};
     const again = (orig.hist || []).filter((h) => h.ctx === 'again');
-    return { step: orig.step, again: again.length, via: again.length ? again[again.length - 1].via : null, due: orig.due || null };
+    return { step: orig.step, again: again.length, vias: again.map((h) => h.via), due: orig.due || null };
   }, servedPair) : null;
-  check('answering the stand-in credits the miss it stood in for',
-    !!credited && credited.again >= 1 && credited.via === servedPair.qid,
-    credited ? `again x${credited.again} via ${credited.via} · step ${credited.step}` : 'nothing recorded');
+  check('two different questions are asked for the miss, never the miss itself',
+    servedFor.length === 2 && new Set(servedFor).size === 2 && !servedFor.includes(servedPair.standsFor), JSON.stringify(servedFor));
+  check('and answering them credits the miss they stood in for',
+    !!credited && credited.again >= 2 && servedFor.every((q) => credited.vias.includes(q)),
+    credited ? `again x${credited.again} via ${credited.vias.join(',')} · step ${credited.step}` : 'nothing recorded');
 
-  /* The check-in is the one return that asks the real thing. By then she has
-     answered the skill right twice on questions whose keys she had not seen, and
-     three weeks later the useful question is the one she actually got wrong. */
+  /* The check-in asks two different questions too. By the owner's rule of
+     4 October 2026 the question she got wrong is not asked again at any point —
+     only when the bank holds nothing else on its skill. */
   const checkinSeeded = await setLs(pg,
     () => {
       const s = JSON.parse(localStorage.getItem('isee.v1'));
@@ -1217,8 +1294,8 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.evaluate(() => { location.hash = '#/review/qr/checkin'; });
   await pg.waitForSelector('[data-testid=question]');
   const atCheckin = await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null }));
-  check('the check-in asks the real question, never a stand-in',
-    checkinSeeded && !atCheckin.standsFor, `${atCheckin.qid} (seeded ${checkinId}) standsFor=${atCheckin.standsFor}`);
+  check('the check-in asks a different question too, never the one she missed',
+    checkinSeeded && !!atCheckin.standsFor && atCheckin.standsFor !== atCheckin.qid, `${atCheckin.qid} (seeded ${checkinId}) standsFor=${atCheckin.standsFor}`);
   // mixed set
   await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=mixed-start]');
   check('mixed set previews all four subjects', /Verbal · \d/.test(await body(pg)) && /Reading · \d/.test(await body(pg)));

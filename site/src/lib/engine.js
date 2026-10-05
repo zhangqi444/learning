@@ -77,9 +77,24 @@ function index() {
   return IDX
 }
 /** Where a question id lives: its subject and the question itself (sets, mocks, or a generated word question). */
+/* A miss on a paper sat on paper (pages/mock.jsx, OfflineMock). No question of
+ * ours exists for it — only its number, and the skill the paper's map gives that
+ * number (content/offline_mocks.json, `skills`). The pseudo item carries that
+ * skill and no choices: a review asks two questions of ours in its place and can
+ * never serve it (reviewItems). */
+function offlineItem(id) {
+  const m = /^off:([^:]+):([A-Z]{2}):(\d+)$/.exec(id)
+  if (!m) return null
+  const form = (D.offlineMocks || []).find((f) => f.id === m[1])
+  const sec = form && (form.sections || []).find((x) => x.id === m[2])
+  const n = Number(m[3]), sk = sec && Array.isArray(sec.skills) ? sec.skills[n - 1] : null
+  if (!sk) return null
+  return { sub: SEC2SUB[m[2]] || "vr", src: "offline", form: m[1], it: { id, sk, q: `${form.name} · ${sec.name} question ${n}`, c: [], k: null } }
+}
 export function findItem(id) {
   if (typeof id !== "string") return null
   if (id.startsWith("w:")) { const q = wordQuestion(id.slice(2)); return q ? { sub: "vr", it: q, src: "word" } : null }
+  if (id.startsWith("off:")) return offlineItem(id)
   return index()[id] || null
 }
 
@@ -208,7 +223,11 @@ export function backfill() {
     }
   }
   if (Object.keys(add).length) Store.setMany("items", add, { stamp: false })
-  return Object.keys(add).length + rescueWordSides()
+  let n = Object.keys(add).length + rescueWordSides()
+  // A paper's misses typed in on another device arrive through the merge; the
+  // review anchors for them are made here, so both devices hold the same pile.
+  for (const f of D.offlineMocks || []) n += recordOfflineMisses(f.id)
+  return n
 }
 
 /** Sides of a cluster entry that have no entry of their own — "elaborate" out of
@@ -301,66 +320,73 @@ export function reviewQueue(sub, cat = "isee") {
   for (const k of Object.keys(out)) out[k].sort((a, b) => a.due - b.due)
   return out
 }
-/** The question the pile should actually ask for a due item — a different one on
- *  the same skill, or null to ask the item itself.
+/** How many different questions a review asks for each miss. The owner, 4 October
+ *  2026: "to the wrong questions, you should add more in the future review. and the
+ *  review should not do the same questions. should do different questions. you
+ *  should double the workload." */
+export const REVIEW_PER_MISS = 2
+/** Up to `n` questions to ask in place of a missed one: the same skill, never the
+ *  missed question itself.
  *
- *  The pile used to hand back the stored item, so a missed question was served
- *  verbatim on day 1, day 4 and again at the check-in: same stem, same four
- *  options, the key in the same position. Both of the correct answers that retire
- *  a miss could be given from memory of the reveal she had just read, which makes
- *  the pile a memory test for the answer rather than practice of the skill.
- *  Precision words never had this problem — `wordQuestion` is keyed to
- *  `todayKey()`, so a word that comes back is a freshly built question about the
- *  same word — and this is the same idea for the 1,002 bank questions.
+ *  The pile used to hand back the stored item, so a missed question came round
+ *  verbatim on day 1, day 4 and at the check-in — same stem, same four options,
+ *  the key in the same position — and both of the correct answers that retire a
+ *  miss could be given from memory of the reveal she had just read. Precision
+ *  words never had the fault, because `wordQuestion` rebuilds from the day's seed.
  *
- *  Keyed to the day for the same reason the word quiz is: the set a run serves has
- *  to be stable while she is in it, because `sigOf` discards a resumed draft whose
- *  questions have changed underneath it, and a pile that reshuffled on every
- *  render would throw away her answers.
- *
- *  Three things it refuses to do:
- *  - **A word is left alone.** It is already rebuilt daily, and the word IS the
- *    thing to know; swapping in a different word would be changing the subject.
- *  - **Nothing already waiting is borrowed.** A stand-in is drawn only from items
- *    with no live due date, so one failure cannot plant a second entry in the pile
- *    and the pile cannot grow by being worked.
- *  - **A failed stand-in converges on the real question.** If the last `again` on
- *    this item was wrong, she gets the item itself next time, with its own
- *    explanation — twice round the same skill without success is the point to stop
- *    varying the question and look at the one she actually missed. */
-export function reviewStandIn(id, seed = todayKey()) {
+ *  Unseen questions first, in an order keyed to the day, so a run is stable while
+ *  she is in it — `sigOf` throws away a resumed draft whose questions changed
+ *  underneath it — and fresh the next day; then the ones she has not touched for
+ *  longest. Nothing already waiting in the pile is borrowed, nor anything in
+ *  `exclude` (the rest of the queue, and what this run has already chosen), so
+ *  working the pile cannot plant a second entry in it. The skill is looked up the
+ *  way Try another does: its own subject's name first, then the lesson name a
+ *  paper's tag maps to, then the same name in another subject's bank — the papers
+ *  file exponents and multiples under Mathematics, the bank under Quantitative. */
+export function reviewStandIns(id, n = REVIEW_PER_MISS, exclude = [], seed = todayKey()) {
   const hit = findItem(id)
-  if (!hit || !hit.it || hit.src === "word") return null
-  const r = rec(id), hs = (r && r.hist) || []
-  for (let i = hs.length - 1; i >= 0; i--) if (hs[i].ctx === "again") { if (!hs[i].ok) return null; break }
+  if (!hit || !hit.it || hit.src === "word") return []
   const raw = skillOf(hit.sub, hit.it)
-  const sk = skillTable(hit.sub)[raw] ? raw : (learnName(raw) || raw)
-  const where = [hit.sub, ...ORDER.filter((x) => x !== hit.sub)]
-    .find((x) => ((skillTable(x)[sk] || {}).ids || []).length > (x === hit.sub ? 1 : 0))
-  if (!where) return null
-  const items = Store.s.items || {}
-  const free = ((skillTable(where)[sk] || {}).ids || [])
-    .filter((x) => x !== id)
-    .filter((x) => { const o = items[x]; return !(o && o.due && !o.cleared) })
-  if (!free.length) return null
+  const names = [...new Set([skillTable(hit.sub)[raw] ? raw : null, learnName(raw), raw].filter(Boolean))]
+  const items = Store.s.items || {}, skip = new Set([id, ...exclude])
+  const free = (x) => { if (skip.has(x)) return false; const o = items[x]; return !(o && o.due && !o.cleared) }
+  let pool = []
+  for (const nm of names) {
+    const where = [hit.sub, ...ORDER.filter((x) => x !== hit.sub)].find((x) => ((skillTable(x)[nm] || {}).ids || []).some(free))
+    if (where) { pool = skillTable(where)[nm].ids.filter(free); break }
+  }
+  if (!pool.length) return []
   const at = (x) => { const o = items[x]; const h = (o && o.hist) || []; return h.length ? ts(h[h.length - 1].at) : 0 }
-  const unseen = free.filter((x) => !at(x))
-  const pool = unseen.length ? unseen : free
-  const pick = pool[Math.floor(hash(seed + id) * pool.length)]
-  const row = index()[pick]
-  return row && row.it ? { ...row.it, standsFor: id } : null
+  const unseen = pool.filter((x) => !at(x)).map((x) => [hash(seed + id + x), x]).sort((p, q) => p[0] - q[0]).map((p) => p[1])
+  const seen = pool.filter((x) => at(x)).sort((p, q) => at(p) - at(q))
+  const byId = index()
+  return [...unseen, ...seen].slice(0, n).map((x) => (byId[x] && byId[x].it ? { ...byId[x].it, standsFor: id } : null)).filter(Boolean)
 }
+export function reviewStandIn(id, seed = todayKey()) { return reviewStandIns(id, 1, [], seed)[0] || null }
 
-/** What a review run serves: the queue, with every due question replaced by a
- *  different question on its skill. The check-in is deliberately the exception —
- *  by then she has answered the skill right twice on questions whose keys she had
- *  not seen, and three weeks later the useful question is the one she actually got
- *  wrong. Scheduled items substitute too: "Everything" is practice, not a test of
- *  whether she remembers a particular page. */
+/** What a review run serves: for every question in the queue, REVIEW_PER_MISS
+ *  different questions on its skill, each carrying `standsFor` so the answer also
+ *  moves the miss (recordAttempts, `for`). Both have to be right for the miss to
+ *  step forward — one right and one wrong on the same day is a miss, by the
+ *  same-day rule recordAttempts already keeps — and a wrong one is recorded as a
+ *  miss of its own, which is where the extra work comes from. The check-in asks
+ *  two different questions too: by the owner's rule the question she got wrong is
+ *  not asked again, at any point, unless the bank holds nothing else on its skill.
+ *  A paper's miss with nothing to stand in for it is left out rather than shown,
+ *  because there is no question of ours behind it to show. Precision words keep
+ *  their own rebuilt question, and a Chinese miss is its own page's business. */
 export function reviewItems(sub, mode, cat = "isee") {
   const q = reviewQueue(sub, cat)
   const rows = mode === "checkin" ? q.checkin : mode === "all" ? [...q.due, ...q.scheduled] : q.due
-  return rows.map((row) => (row.rec && row.rec.cleared ? row.it : reviewStandIn(row.id) || row.it))
+  const inQueue = [...q.due, ...q.scheduled, ...q.checkin].map((x) => x.id)
+  const out = [], used = new Set()
+  for (const row of rows) {
+    if (row.src === "word" || isZh(row.sub)) { out.push(row.it); continue }
+    const sibs = reviewStandIns(row.id, REVIEW_PER_MISS, [...inQueue, ...used])
+    if (!sibs.length) { if (row.src !== "offline") out.push(row.it); continue }
+    for (const sb of sibs) { used.add(sb.id); out.push(sb) }
+  }
+  return out
 }
 /** Misses in the queue broken down by cause (untagged counted separately). */
 export function causeBreakdown(rows) {
@@ -385,6 +411,7 @@ export function missProfile(sub) {
 /* ---------- skills & mastery ---------- */
 export function skillOf(sub, it) {
   if (sub !== "vr") return it.sk || "General"
+  if (it.sk === "Synonyms" || it.sk === "Sentence completion") return it.sk   // a paper's miss names its skill; it has no prompt to read it from
   const q = it.q || ""
   return /most nearly means/i.test(q) ? "Synonyms" : /_{3,}/.test(q) ? "Sentence completion" : "Words in context"
 }
@@ -849,6 +876,56 @@ export function wordQuizItems(wk, onlyDue = false) {
   return rows.map((x) => wordQuestion(x.e.word)).filter(Boolean)
 }
 
+/* ---------- a paper sat on paper ---------- */
+/** The newest score per section of a paper sat offline (pages/mock.jsx,
+ *  OfflineMock), the question numbers she missed where a parent typed them in,
+ *  and whether every section is in. Entries are an append-only log; the newest
+ *  word on a section wins. */
+export function offlineResult(form) {
+  const m = (D.offlineMocks || []).find((x) => x.id === form), st = (Store.s.mocks || {})[form] || {}
+  if (!m) return null
+  const entries = Array.isArray(st.entries) ? [...st.entries].sort((a, b) => String(a.at).localeCompare(String(b.at))) : []
+  const by = {}, missed = {}
+  for (const e of entries) {
+    for (const [sec, right] of Object.entries(e.scores || {})) if (Number.isInteger(right)) by[sec] = { right, at: e.at, sat: e.sat }
+    for (const [sec, nums] of Object.entries(e.missed || {})) if (Array.isArray(nums)) missed[sec] = { nums: nums.map(Number).filter(Number.isInteger), at: e.at, sat: e.sat }
+  }
+  const secs = m.sections.filter((x) => x.n)
+  let right = 0, n = 0
+  for (const x of secs) if (by[x.id]) { right += by[x.id].right; n += x.n }
+  const last = entries[entries.length - 1]
+  return { m, by, missed, right, n, entries, sat: last ? last.sat : null, at: last ? last.at : null, complete: secs.every((x) => by[x.id]) }
+}
+/** The misses typed in from a paper sat on paper become anchors in the review
+ *  pile — one per question number, on the skill the paper's map gives it, due the
+ *  day after she sat it — so each one sends REVIEW_PER_MISS questions of ours into
+ *  her review. Idempotent and additive: the same numbers again change nothing; a
+ *  number dropped from a later entry takes its anchor out of the pile; a skill
+ *  with no question of ours to ask makes no anchor at all. */
+export function recordOfflineMisses(form) {
+  const o = offlineResult(form)
+  if (!o) return 0
+  const items = Store.s.items || {}, map = {}
+  for (const sec of o.m.sections.filter((x) => x.n)) {
+    const got = o.missed[sec.id]
+    if (!got) continue
+    const want = new Set(got.nums.filter((k) => k >= 1 && k <= sec.n))
+    const at = got.sat ? got.sat + "T12:00:00.000Z" : got.at || nowIso()
+    const prefix = `off:${form}:${sec.id}:`
+    for (const k of want) {
+      const id = prefix + k
+      if (items[id] || map[id] || !findItem(id) || !reviewStandIns(id, 1).length) continue
+      map[id] = { hist: [{ at, ok: false, ms: 0, ctx: "mock", pick: null }], at, step: 0, streak: 0, due: plusDays(at, 1), lastMiss: at, misses: 1 }
+    }
+    for (const id of Object.keys(items)) {
+      if (!id.startsWith(prefix) || want.has(Number(id.slice(prefix.length)))) continue
+      if (items[id] && items[id].due) map[id] = { ...items[id], due: null, cleared: items[id].cleared || nowIso() }
+    }
+  }
+  if (Object.keys(map).length) Store.setMany("items", map)
+  return Object.keys(map).length
+}
+
 /* ---------- mocks: next steps & score band ---------- */
 export const STANINE = (pct) => pct >= 92 ? 9 : pct >= 85 ? 8 : pct >= 76 ? 7 : pct >= 66 ? 6 : pct >= 55 ? 5 : pct >= 44 ? 4 : pct >= 33 ? 3 : pct >= 22 ? 2 : 1
 function mockDone(form) {
@@ -871,6 +948,25 @@ export function mockBand(asOf) {
     let right = 0, n = 0, stSum = 0
     for (const { s, r } of d.rows) { const pct = Math.round((r.right / s.n) * 100); sections[s.id] = { pct, st: STANINE(pct), right: r.right, n: s.n, blank: s.n - Object.keys(r.picks || {}).length, timeUsed: r.timeUsed || 0, min: s.min }; right += r.right; n += s.n; stSum += STANINE(pct) }
     mocks.push({ form: m.id, name: m.name, at, pct: Math.round((right / n) * 100), st: Math.round(stSum / d.rows.length), sections })
+  }
+  // A paper sat on paper counts once every section is in — the owner's decision of
+  // 4 October 2026 (AGENTS.md, "A paper sat on paper"). It is dated by the day she
+  // sat it (by the moment of entry, when that is the same day) and read through
+  // the same stanine table; it has no blanks or times to report. `offline` marks it
+  // for the readers that count only the papers sat here (lib/rewards.js).
+  for (const f of D.offlineMocks || []) {
+    const o = offlineResult(f.id)
+    if (!o || !o.complete) continue
+    const at = o.sat && o.at && dayKey(o.at) === o.sat ? o.at : o.sat ? o.sat + "T12:00:00" : o.at
+    if (asOf && ts(at) > asOf) continue
+    const sections = {}
+    let right = 0, n = 0, stSum = 0, k = 0
+    for (const x of f.sections.filter((y) => y.n)) {
+      const r = o.by[x.id], pct = Math.round((r.right / x.n) * 100)
+      sections[x.id] = { pct, st: STANINE(pct), right: r.right, n: x.n, blank: 0, timeUsed: 0 }
+      right += r.right; n += x.n; stSum += STANINE(pct); k++
+    }
+    mocks.push({ form: f.id, name: f.name, at, pct: Math.round((right / n) * 100), st: Math.round(stSum / k), sections, offline: true })
   }
   mocks.sort((a, b) => ts(a.at) - ts(b.at))
   const recent = mocks.slice(-3)

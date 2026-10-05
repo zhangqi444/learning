@@ -93,13 +93,15 @@ it right on two *different* days retires it, with one check-in three weeks later
 in a corrections pass immediately after seeing the key do not count as evidence — but a
 *different* question on the same skill does, because she has not been shown its answer.
 
-**And the return is that different question.** The pile asks the skill, not the item: a missed
-question comes back as another question on the same skill, picked for the day, and answering it
-moves the original along. Only the 21-day check-in asks the question she actually got wrong. This
-is the one thing the pile must never go back on — serving the stored item meant both of the
-correct answers that retire a miss could be given from memory of the reveal she had just read, so
-the pile could be cleared without the knowledge. Precision words never had the fault: a word's
-question is rebuilt from the day's seed, so the word comes back and the question is new.
+**And the return is two different questions.** The pile asks the skill, not the item: a missed
+question comes back as **two** other questions on the same skill, picked for the day, and both have
+to be right for the original to move along; a wrong one becomes a miss of its own. The question she
+got wrong is never asked again — not at a later review, not at the 21-day check-in — unless the
+bank holds nothing else on that skill. The owner set it on 4 October 2026: "the review should not do
+the same questions. should do different questions. you should double the workload." Serving the
+stored item meant both of the correct answers that retire a miss could be given from memory of the
+reveal she had just read. Precision words never had the fault: a word's question is rebuilt from
+the day's seed, so the word comes back and the question is new.
 
 **The mastery ladder.** Not started → Started → Needs work → Familiar → Proficient → Mastered.
 A skill with fewer than three questions attempted is capped at Started, so the ladder cannot

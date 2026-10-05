@@ -333,7 +333,13 @@ the exam's true proportions exactly, so shape exposure lives there and the pract
 to be weighted for teaching. Do not "rebalance" the bank toward the paper without the owner asking.
 
 **Spaced review is 1, 3, 7, 21 days** (`INTERVALS`), retiring on two correct answers on
-*different* days with a check-in at three weeks. The rule that carries the weight is which answers
+*different* days with a check-in at three weeks — and the review never re-asks the missed
+question: `reviewItems` serves `REVIEW_PER_MISS = 2` different questions of the same skill in its
+place (`reviewStandIns`), at every return including the check-in, and their answers move the miss
+through the entry's `for` (the owner, 4 October 2026: "the review should not do the same
+questions. should do different questions. you should double the workload"). A wrong one is a miss
+of its own. Precision words keep their own rebuilt question, and a Chinese miss is the Chinese
+review's business. The rule that carries the weight is which answers
 count as evidence: `LEARN_CTX` admits `set`, `review`, `mixed`, `mock`, `vocab` and `again`, and
 excludes `corr`. A corrections pass re-asks the question whose answer she has just been shown, so
 it proves nothing; `again` asks a *different* question on the same skill, so it proves something.
@@ -365,7 +371,12 @@ own week (Oct 19–25), and the Fall season closes Nov 30, which puts Mock 3 (No
 side of it. Before changing any mock date, read `calendar.events` and `calendar.monthly` and work
 out which sitting the schedule is actually serving.
 
-**A paper sat on paper is listed, kept, and left outside the number — until the owner rules.**
+**A paper sat on paper is listed, kept, and — since the owner ruled on 4 October 2026 — counted.**
+Once every section is in, `mockBand` lists it beside the site's papers, dated by the day she sat
+it, so it reaches the band, readiness and recent accuracy (not the Den or the rewards, which count
+papers sat here); and the question numbers a parent types in as missed become review anchors
+through the paper's question→skill map (`skills` in `content/offline_mocks.json`,
+`recordOfflineMisses`). How it got here:
 On 4 October 2026 the owner added a paper she sits offline: the Princeton Review's "Lower Level
 ISEE Practice Test" (Chapter 14 of its ISEE prep book, © 2024 TPR Education IP Holdings; the PDF is
 `ISEE_Lower_Level_Practice_Test_2024.3.pdf` in the family's Drive). It has the real Lower Level

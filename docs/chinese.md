@@ -180,7 +180,9 @@ the engine is not ISEE-shaped. `recordAttempts`, `INTERVALS`, `LEARN_CTX`,
 it, unchanged.
 
 **Shared, as-is:** the spaced schedule (1, 3, 7, 21 days, retiring on two correct
-answers on different days with a three-week check-in); the mastery ladder, including
+answers on different days with a three-week check-in — though not the ISEE rule that a
+review asks two different questions in the miss's place: a 生字 is its own skill, so the
+Chinese review asks for the character again); the mastery ladder, including
 its refusal to brighten on thin evidence; `chunk()` and `SETSIZE = 12`, so a sitting
 stays a sitting in both halves of the site; the runner; the corrections pass; `why`
 on every wrong choice; the Den and Hum; the badges.

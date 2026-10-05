@@ -160,7 +160,9 @@ Pure functions over `Store.s` and the bundle, plus three writers
   seeing the answer) does not.
 - **Spaced review**: a miss is due tomorrow; each later correct answer on a
   *different day* advances through intervals of 1, 3, 7, 21 days; two steps clear
-  it from the pile with one check-in three weeks later. Vocabulary rated 1 or 2
+  it from the pile with one check-in three weeks later. A review never asks the
+  missed question itself: it asks two different questions of the same skill
+  (`reviewItems`, `reviewStandIns`), whose answers move the miss through `for`. Vocabulary rated 1 or 2
   in the precision review is scheduled the same way.
 - **Error tags**: each miss can carry a cause (`know`, `misread`, `careless`,
   `rushed`) and a confidence flag. These feed the review page's breakdown and

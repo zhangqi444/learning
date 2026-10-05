@@ -47,10 +47,12 @@ function weeksSwept() {
 }
 function essaysDone() { return Object.values(Store.s.essays || {}).filter((e) => e && e.completedAt).length }
 function precisionSubmitted() { return Object.values(Store.s.precision || {}).filter((p) => p && p.submittedAt).length }
-function mocksDone() { return mockBand().n }
+// Papers sat here only: a paper marked at the kitchen table counts in the band and
+// readiness (the owner's decision, 4 October 2026), not in the game.
+function mocksDone() { return mockBand().mocks.filter((m) => !m.offline).length }
 function bestMockSection() {
   let best = 0
-  for (const m of mockBand().mocks) for (const s of Object.values(m.sections)) best = Math.max(best, s.pct)
+  for (const m of mockBand().mocks) if (!m.offline) for (const s of Object.values(m.sections)) best = Math.max(best, s.pct)
   return best
 }
 function masteredSkills() { return ORDER.reduce((n, s) => n + masteryOf(s).mastered, 0) }

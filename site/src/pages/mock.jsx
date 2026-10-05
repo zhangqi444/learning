@@ -22,7 +22,7 @@ import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { learnName } from "@/lib/aops"
 import { LearnCard } from "@/components/learn-card"
-import { STANINE, mockBand, mockNextSteps, recordMockForm, skillOf } from "@/lib/engine"
+import { STANINE, mockBand, mockNextSteps, offlineResult, recordMockForm, recordOfflineMisses, skillOf } from "@/lib/engine"
 
 /* ---------- state helpers ---------- */
 export function mockState(form) { return Store.s.mocks[form] || { sections: {} } }
@@ -108,21 +108,13 @@ export function MockList() {
  * over: each save appends an entry, the newest entry that names a section is
  * what the page shows, and Store.merge unions the log across devices.
  *
- * Deliberately outside mockBand(), readiness(), the Den and the rewards: the
- * record has no `sections`, which is the shape every one of those reads. Whether
- * a paper marked at home should move the readiness number is the owner's call
- * (AGENTS.md, "A paper sat on paper"), and until it is made it does not. */
+ * Since the owner's decision of 4 October 2026 it counts: once every section is
+ * in, mockBand() lists it beside the site's papers, so it reaches the band,
+ * readiness and recent accuracy; and the question numbers she missed, typed in
+ * per section, become review anchors (lib/engine.js, recordOfflineMisses). It
+ * stays out of the Den and the rewards, which count papers sat here. */
 export function offlineDef(id) { return (D.offlineMocks || []).find((m) => m.id === id) }
-export function offlineScores(id) {
-  const m = offlineDef(id), st = (Store.s.mocks || {})[id] || {}
-  const entries = Array.isArray(st.entries) ? [...st.entries].sort((a, b) => String(a.at).localeCompare(String(b.at))) : []
-  const by = {}
-  for (const e of entries) for (const [sec, right] of Object.entries(e.scores || {})) if (Number.isInteger(right)) by[sec] = { right, at: e.at, sat: e.sat }
-  let right = 0, n = 0
-  for (const s of (m ? m.sections : [])) if (by[s.id]) { right += by[s.id].right; n += s.n }
-  const last = entries[entries.length - 1]
-  return { by, right, n, entries, sat: last ? last.sat : null, at: last ? last.at : null }
-}
+export function offlineScores(id) { return offlineResult(id) || { by: {}, missed: {}, right: 0, n: 0, entries: [], sat: null, at: null, complete: false } }
 function todayKey() { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}` }
 function fmtDay(key) { return key ? new Date(key + "T12:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" }) : "" }
 
@@ -132,6 +124,9 @@ export function OfflineMock({ form }) {
   const sc = offlineScores(form)
   const [vals, setVals] = React.useState(() => Object.fromEntries((m ? m.sections : []).map((s) => [s.id, sc.by[s.id] ? String(sc.by[s.id].right) : ""])))
   const [sat, setSat] = React.useState(sc.sat || todayKey())
+  // The circled numbers on the marked sheet, per section. Each becomes a review
+  // anchor on the skill the paper's map gives it (lib/engine.js, recordOfflineMisses).
+  const [missedIn, setMissedIn] = React.useState(() => Object.fromEntries((m ? m.sections : []).map((s) => [s.id, sc.missed[s.id] ? sc.missed[s.id].nums.join(", ") : ""])))
   const [msg, setMsg] = React.useState(null)
   // A result that arrives from another device after the page opened fills an
   // empty box, so the next save does not read it as a blank; a box with
@@ -145,20 +140,32 @@ export function OfflineMock({ form }) {
   const all = Object.keys(sc.by).length === m.sections.length
 
   function save() {
-    const scores = {}, bad = []
+    const scores = {}, missed = {}, bad = [], notes = []
     for (const s of m.sections) {
       const v = (vals[s.id] || "").trim()
-      if (v === "") continue
-      const k = Number(v)
-      if (!/^\d+$/.test(v) || k > s.n) { bad.push(`${s.name} must be a whole number from 0 to ${s.n}`); continue }
-      if (!sc.by[s.id] || sc.by[s.id].right !== k || sc.sat !== sat) scores[s.id] = k
+      let k = null
+      if (v !== "") {
+        k = Number(v)
+        if (!/^\d+$/.test(v) || k > s.n) { bad.push(`${s.name} must be a whole number from 0 to ${s.n}`); continue }
+        if (!sc.by[s.id] || sc.by[s.id].right !== k || sc.sat !== sat) scores[s.id] = k
+      }
+      const mv = (missedIn[s.id] || "").trim()
+      if (mv !== "") {
+        const nums = [...new Set(mv.split(/[\s,;]+/).filter(Boolean).map(Number))]
+        if (nums.some((x) => !Number.isInteger(x) || x < 1 || x > s.n)) { bad.push(`${s.name} missed questions must be numbers from 1 to ${s.n}`); continue }
+        nums.sort((p, q) => p - q)
+        if (nums.join(",") !== (sc.missed[s.id] ? sc.missed[s.id].nums.join(",") : "")) missed[s.id] = nums
+        const right = k != null ? k : sc.by[s.id] ? sc.by[s.id].right : null
+        if (right != null && s.n - right !== nums.length) notes.push(`${s.name} lists ${nums.length} missed, but ${right} right of ${s.n} leaves ${s.n - right}`)
+      }
     }
     if (bad.length) { setMsg({ err: true, text: bad.join(". ") + "." }); return }
-    if (!Object.keys(scores).length) { setMsg({ err: true, text: "Nothing new to save — type the number right in at least one section." }); return }
+    if (!Object.keys(scores).length && !Object.keys(missed).length) { setMsg({ err: true, text: "Nothing new to save — type the number right in at least one section, or the questions she missed." }); return }
     const at = new Date().toISOString()
-    const entry = { id: at + ":" + Math.random().toString(36).slice(2, 8), at, sat, scores }
+    const entry = { id: at + ":" + Math.random().toString(36).slice(2, 8), at, sat, scores, ...(Object.keys(missed).length ? { missed } : {}) }
     Store.setSlice("mocks", form, (cur) => ({ ...cur, offline: true, entries: [...(Array.isArray(cur.entries) ? cur.entries : []), entry] }))
-    setMsg({ err: false, text: "Saved to her record." })
+    const anchors = recordOfflineMisses(form)
+    setMsg({ err: false, text: "Saved to her record." + (anchors ? ` ${anchors} missed question${anchors === 1 ? "" : "s"} joined the review pile.` : "") + (notes.length ? ` Check: ${notes.join("; ")}.` : "") })
   }
 
   return (
@@ -193,11 +200,11 @@ export function OfflineMock({ form }) {
             <TableHeader><TableRow><TableHead>Section</TableHead><TableHead className="text-right">Raw</TableHead><TableHead className="text-right">Percent</TableHead></TableRow></TableHeader>
             <TableBody>
               {m.sections.map((s) => {
-                const r = sc.by[s.id]
+                const r = sc.by[s.id], mi = (sc.missed || {})[s.id]
                 return (
                   <TableRow key={s.id} data-testid="offline-row" data-sec={s.id} data-shape={`${s.n}/${s.min}`}>
                     <TableCell className="whitespace-normal"><div className="font-medium">{s.name}</div><div className="text-muted-foreground text-xs tabular-nums">{s.n} questions · {s.min} min</div></TableCell>
-                    <TableCell className="text-right tabular-nums" data-testid="offline-raw">{r ? `${r.right}/${s.n}` : "—"}</TableCell>
+                    <TableCell className="text-right tabular-nums" data-testid="offline-raw">{r ? `${r.right}/${s.n}` : "—"}{mi && mi.nums.length ? <div className="text-muted-foreground text-xs whitespace-normal" data-testid="offline-missed">Missed {mi.nums.join(", ")}</div> : null}</TableCell>
                     <TableCell className="text-right tabular-nums">{r ? `${Math.round((r.right / s.n) * 100)}%` : "—"}</TableCell>
                   </TableRow>
                 )
@@ -209,7 +216,7 @@ export function OfflineMock({ form }) {
               </TableRow>
             </TableBody>
           </Table>
-          <p className="text-muted-foreground mt-3 text-xs">{total} questions in all. {sc.sat ? `Taken ${fmtDay(sc.sat)}. ` : ""}This paper sits beside the readiness number and the score band, not inside them.</p>
+          <p className="text-muted-foreground mt-3 text-xs">{total} questions in all. {sc.sat ? `Taken ${fmtDay(sc.sat)}. ` : ""}Once every section is in, this paper counts in the score band and in readiness like a paper sat here, and each question she missed sends two of its kind into the review pile.</p>
         </CardContent>
       </Card>
 
@@ -224,6 +231,14 @@ export function OfflineMock({ form }) {
               <div key={s.id} className="flex flex-col gap-1.5">
                 <Label htmlFor={`off-${s.id}`} className="text-muted-foreground text-xs">{s.name} <span className="tabular-nums">(of {s.n})</span></Label>
                 <Input id={`off-${s.id}`} inputMode="numeric" value={vals[s.id] || ""} onChange={(e) => { const v = e.target.value; setVals((x) => ({ ...x, [s.id]: v })); setMsg(null) }} placeholder="—" className="tabular-nums" data-testid={`offline-in-${s.id}`} />
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 gap-3 @md/main:grid-cols-2 @3xl/main:grid-cols-4">
+            {m.sections.map((s) => (
+              <div key={s.id} className="flex flex-col gap-1.5">
+                <Label htmlFor={`off-missed-${s.id}`} className="text-muted-foreground text-xs">{s.name} · questions missed</Label>
+                <Input id={`off-missed-${s.id}`} inputMode="numeric" value={missedIn[s.id] || ""} onChange={(e) => { const v = e.target.value; setMissedIn((x) => ({ ...x, [s.id]: v })); setMsg(null) }} placeholder="e.g. 3, 7, 12" className="tabular-nums" data-testid={`offline-missed-${s.id}`} />
               </div>
             ))}
           </div>

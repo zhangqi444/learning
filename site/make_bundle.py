@@ -73,11 +73,11 @@ for fid,name,blurb,label,start,ekey,split in FORMS:
     secs.append({'id':'BREAK2','name':'Break','min':10,'part':'B'})
     secs.append({'id':'ESSAY','name':'Essay','min':30,'part':'B','prompt':mock_essays[ekey]})
     out['mocks'].append({'id':fid,'name':name,'blurb':blurb,'label':label,'start':start,'split':split,'sections':secs})
-# A paper sat offline: its structure and source only, never its questions or key —
-# it is a published, copyrighted book, and this repository is public. It sits in a
-# key of its own rather than in `mocks`, because everything that reads `mocks` —
-# the band, readiness, backfill, the Den, the rewards — would otherwise count a
-# result nobody has decided should count (AGENTS.md, "A paper sat on paper").
+# A paper sat offline: its structure, its source and a question→skill map, never
+# its questions or key — it is a published, copyrighted book, and this repository
+# is public. It sits in a key of its own rather than in `mocks` because it has no
+# questions to run; the engine reads it on purpose where it counts (mockBand,
+# recordOfflineMisses), since the owner ruled on 4 October 2026 that it does.
 # The question→skill map a paper carries (`skills`) is data the page uses; a
 # `_note` beside it is for the next author and is stripped like every other.
 def _strip_note_keys(o):

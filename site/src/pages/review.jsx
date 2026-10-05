@@ -43,7 +43,7 @@ export function Review() {
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-semibold tracking-tight">Review</h1>
         <p className="text-muted-foreground max-w-prose text-sm">
-          A {W.cat} whose name you got wrong does not run away. It comes and sits outside — after {INTERVALS[0]} day, then {INTERVALS[1]}, then a week — waiting to be called again. It will not ask you the same question twice: each time, it asks something else that needs the same thing you missed. Get it right on two different days and it moves in for good, with one look-in three weeks later — and that last one is the question you actually got wrong. Words you rated shaky are out there too. Missing something is not a debt; it is how the world knows who to send back to you.
+          A {W.cat} whose name you got wrong does not run away. It comes and sits outside — after {INTERVALS[0]} day, then {INTERVALS[1]}, then a week — waiting to be called again. It will not ask you the same question again: each time, it asks two others that need the same thing you missed. Get both right on two different days and it moves in for good, with one look-in three weeks later. Words you rated shaky are out there too. Missing something is not a debt; it is how the world knows who to send back to you.
         </p>
       </div>
 
