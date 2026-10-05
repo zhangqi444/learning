@@ -133,8 +133,8 @@ copy to the Drive folder, and hand the link to the parent to open.
 ## A paper's results
 
 A paper sat on paper away from the site (AGENTS.md, "A paper sat on paper") can be
-entered by link rather than typed. The link carries no question and no key, only what
-the marked sheet says:
+entered by link rather than typed. The link carries no question, only what the marked
+sheet says — and, if the marker says it, what went wrong (below):
 
 ```json
 {"form": "TPR", "sat": "2026-10-04", "by": "Dad",
@@ -145,6 +145,16 @@ the marked sheet says:
 It may also carry `"tags": {"QR": {"12": "Data reasoning"}}`, filing a missed question under one
 of the practice bank's skills so review can ask about it. `form` is a paper the site ships or one a
 parent added on the Mock exams page (its id, `P…`, is in its page's address).
+
+And it may carry what went wrong, which the paper's page shows above and under the misses:
+
+```json
+"notes": {"QR": {"23": {"pick": "C", "key": "B", "why": "Asked which is NOT equal to 16, she chose one that is."}}},
+"analysis": ["Five misses turn on NOT, EXCEPT or CANNOT; each answer is right without the twist."]
+```
+
+`pick` and `key` are letters; `why` is the marker's own words, never the question's text.
+A link with notes and no scores adds the notes to results already in, and no entry.
 
 A parent can add a scan or photos of the marked sheet on the paper's page; they go into
 her Drive folder beside the paper's own PDF or photos (`mocks[<form>].sheets` and `pages`). The site cannot read them

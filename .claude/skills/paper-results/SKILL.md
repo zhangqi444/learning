@@ -9,9 +9,11 @@ The contract is `docs/review.md` § "A paper's results", and what a paper feeds 
 AGENTS.md § "A paper sat on paper". The site keeps the paper's shape, her scores and
 the numbers she missed; the questions stay in the book.
 
-**The book is copyrighted.** Nothing of its questions, its answer key or its pages
-goes into the repository, the link or what you tell the parent — only the numbers on
-her sheet and the name of the skill each missed question tests.
+**The book is copyrighted.** Nothing of its text — a question, its choices written out,
+a passage, a page — goes into the repository, the link or what you tell the parent.
+The link carries the numbers on her sheet, the skill each miss tests, and what went
+wrong in your own words with the letters she chose and the right ones; it lands in
+her private record, never the repository.
 
 ## 1. Find the paper and its sheet
 
@@ -68,7 +70,22 @@ site's own questions on it.
   Without the paper, file nothing: the parent can pick a skill per miss on the
   paper's page, and a miss with no skill waits there rather than being guessed.
 
-## 4. Make the link
+## 4. Say what went wrong
+
+The paper's page shows this, so write it into `result.json` rather than a document
+(the owner, 5 October 2026: "I need the things in the website"). With the paper
+attached, read each missed question and her bubble, and give:
+
+- `notes` — per miss, `{"pick": "C", "key": "B", "why": "…"}`: the letter she chose, the
+  right one, and one or two sentences on the mistake, **in your own words** — what she
+  did, not what the question says. A word or a number is fine; the question's sentence,
+  its choices written out, or a passage is not.
+- `analysis` — three to six lines on what the misses have in common: a trap that
+  recurs, a figure misread the same way, a skill that went wrong in both sections.
+
+Without the paper, leave both out.
+
+## 5. Make the link
 
 Write `result.json` (in the scratchpad, never the repo):
 
@@ -76,7 +93,9 @@ Write `result.json` (in the scratchpad, never the repo):
 {"form": "P…", "sat": "YYYY-MM-DD", "by": "Claude, asked by <parent>",
  "scores": {"VR": 30, "QR": 33, "RC": 22, "MA": 25},
  "missed": {"VR": [5, 7, 9, 10], "QR": [12, 17], "RC": [17, 18, 23], "MA": [3, 4, 5]},
- "tags":   {"QR": {"12": "Data reasoning", "17": "Decimals"}}}
+ "tags":   {"QR": {"12": "Data reasoning", "17": "Decimals"}},
+ "notes":  {"QR": {"12": {"pick": "A", "key": "C", "why": "Left out a circle the region needed."}}},
+ "analysis": ["Both Venn diagrams went wrong the same way."]}
 ```
 
 `sat` is the day she sat it — ask if it is not on the sheet or in the chat.
@@ -86,6 +105,7 @@ python3 tools/paper_link.py result.json        # checks it, warns on any count t
 ```
 
 Give the parent the link and three or four lines: the score per section, how many
-misses went under each skill, and anything you could not read or that disagreed.
+misses went under each skill, and anything you could not read or that disagreed. The
+analysis belongs on the site, through the link — not in a separate document.
 They open the link on her signed-in device, check the preview, and press Add; the
 same link opened twice adds nothing.

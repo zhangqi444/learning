@@ -972,6 +972,24 @@ export function markRedone(id, secId, n, done) {
   Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, redone: { ...(c.redone || {}), [`${secId}:${n}`]: { done: !!done, at } } }))
 }
 export function paperRedone(p, secId, n) { const r = ((p && p.rec && p.rec.redone) || {})[`${secId}:${n}`]; return !!(r && r.done) }
+/** What went wrong on a paper, from whoever marked it — the paper-results skill,
+ *  through the results link. Per missed question a line on the mistake, with the
+ *  letter she chose and the right one (`notes`, "QR:23" → {pick, key, why}); for the
+ *  paper, a few lines on what the misses have in common (`analysis`). Always in the
+ *  marker's own words, never the book's: the question itself stays in the booklet.
+ *  Kept in her record only, like the rest of the paper; each note keeps its own time
+ *  and merges per question (Store.merge). */
+export function setPaperNotes(id, { notes = {}, analysis = [], by = "" } = {}) {
+  const at = nowIso()
+  const stamped = Object.fromEntries(Object.entries(notes).map(([k, v]) => [k, { ...v, at }]))
+  Store.setSlice("mocks", id, (c) => ({
+    ...c, offline: true,
+    ...(Object.keys(stamped).length ? { notes: { ...(c.notes || {}), ...stamped } } : {}),
+    ...(analysis.length ? { analysis: { points: analysis, by: by || "", at } } : {}),
+  }))
+}
+export function paperNote(p, secId, n) { const r = ((p && p.rec && p.rec.notes) || {})[`${secId}:${n}`]; return r && r.why ? r : null }
+export function paperAnalysis(p) { const a = p && p.rec && p.rec.analysis; return a && Array.isArray(a.points) && a.points.length ? a : null }
 /** What is attached to a paper, each a PDF or a photo, kept in her Drive folder:
  *  the paper itself (`pages` — a PDF, or a photo of each page of a booklet) and
  *  the marked answer sheet (`sheets` — a scan, or photos once it is marked). The

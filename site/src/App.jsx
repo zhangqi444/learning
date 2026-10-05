@@ -49,12 +49,15 @@ function VocabRun({ wk }) {
  *  from the one she was working in. */
 function AgainRun({ id, from }) {
   const next = React.useMemo(() => anotherLike(id), [id])
+  // A paper sat on paper sends a miss here from its own page (pages/mock.jsx), and
+  // that page is where she goes back to.
+  const paper = !!from && !!offlinePaper(from)
   const back = React.useMemo(() => {
     if (!from) return next ? `/s/${next.sub}` : "/"
-    if (D.mocks.some((m) => m.id === from)) return `/mock/${from}`
+    if (paper || D.mocks.some((m) => m.id === from)) return `/mock/${from}`
     const { sub, wk, n } = parseSetId(from)
     return SUBJ[sub] && wk ? `/run/${sub}/${wk}/${n}` : "/"
-  }, [from, next])
+  }, [from, next, paper])
   if (!next) {
     return (
       <div className="mx-auto mt-10 flex max-w-md flex-col gap-3 rounded-xl border bg-card p-6 text-center">
@@ -73,7 +76,7 @@ function AgainRun({ id, from }) {
       sub={next.sub}
       title={`Another ${next.sk} question`}
       exitPath={back}
-      exitLabel="Back to the set"
+      exitLabel={paper ? "Back to the paper" : "Back to the set"}
       /* so a second "try another" from here still knows the set she came out of */
       backTo={from}
     />

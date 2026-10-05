@@ -8,7 +8,9 @@ result.json:
     {"form": "TPR", "sat": "2026-10-04", "by": "Dad",
      "scores": {"VR": 24, "QR": 28, "RC": 21, "MA": 17},
      "missed": {"VR": [5, 7], "QR": [12], "RC": [17], "MA": [3]},
-     "tags":   {"QR": {"12": "Data reasoning"}}}
+     "tags":   {"QR": {"12": "Data reasoning"}},
+     "notes":  {"QR": {"12": {"pick": "A", "key": "C", "why": "Left out a circle the region needed."}}},
+     "analysis": ["Both Venn diagrams went wrong the same way."]}
 
 `form` is a paper the site ships (content/offline_mocks.json) or one a parent added on
 the Mock exams page — its id is on its page's address, /mock/P…, and it is checked
@@ -16,10 +18,13 @@ against the ISEE Lower Level layout. `tags` files a missed question under one of
 practice bank's skills, so review can ask about it; a paper the site ships already
 has its own map, and Verbal is filed by position.
 
-The paper is a published book, so nothing of its questions or key goes in: only the
-number right per section and the question numbers circled as missed. This checks
-them against the paper's own sections in content/offline_mocks.json, warns where
-the circled count disagrees with the score, and prints
+`notes` says what went wrong on a miss — the letter she chose, the right one, and a
+line on the mistake — and `analysis` a few lines on what the misses have in common;
+both show on the paper's page. The paper is a published book, so nothing of its text
+goes in: the notes are in the marker's own words, and the question stays in the
+booklet. This checks it all against the paper's own sections in
+content/offline_mocks.json, warns where the circled count disagrees with the score,
+and prints
 https://learning.sheilazhang.org/#/import/<payload>. Opened on her signed-in
 device, the link previews the results and, on Add, puts them in her record — the
 missed numbers become review anchors (site/src/lib/engine.js, recordOfflineMisses).
@@ -69,7 +74,19 @@ def main(path):
         for n, sk in m.items():
             if not str(n).isdigit() or not 1 <= int(n) <= secs[k]["n"]: sys.exit(f"tags {k} has no question {n}")
             if sk not in bank[k]: sys.exit(f"tags {k} {n}: {sk!r} is not one of the practice bank's skills for that section")
-    payload = {"paper": {k: r[k] for k in ("form", "sat", "scores", "missed", "tags", "by") if k in r}}
+    for k, m in (r.get("notes") or {}).items():
+        if k not in secs: sys.exit(f"notes name a section the paper does not have: {k}")
+        for n, v in m.items():
+            if not str(n).isdigit() or not 1 <= int(n) <= secs[k]["n"]: sys.exit(f"notes {k} has no question {n}")
+            if not isinstance(v, dict) or not str(v.get("why", "")).strip(): sys.exit(f"notes {k} {n}: a note needs a `why`")
+            if len(v["why"]) > 400: sys.exit(f"notes {k} {n}: keep the why under 400 characters")
+            for f in ("pick", "key"):
+                if v.get(f) is not None and v[f] not in list("ABCDE"): sys.exit(f"notes {k} {n}: {f} must be a letter A–E")
+            if int(n) not in set((r.get("missed") or {}).get(k, [int(n)])): print(f"warning: a note on {k} {n}, which is not among the missed", file=sys.stderr)
+    an = r.get("analysis")
+    if an is not None and (not isinstance(an, list) or not all(isinstance(x, str) and x.strip() and len(x) <= 500 for x in an) or len(an) > 10):
+        sys.exit("analysis must be a list of up to 10 lines, each under 500 characters")
+    payload = {"paper": {k: r[k] for k in ("form", "sat", "scores", "missed", "tags", "notes", "analysis", "by") if k in r}}
     raw = json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode()
     print(SITE + "#/import/" + base64.urlsafe_b64encode(raw).decode().rstrip("="))
 

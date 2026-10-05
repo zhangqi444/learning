@@ -4,7 +4,7 @@ import { ChevronRight, Inbox, MessageSquareText } from "lucide-react"
 import { fmtDate } from "@/lib/content"
 import { t, useLang } from "@/lib/lang"
 import { addReviews, parseImport, parsePaperImport, reviewPath, reviewTargetLabel } from "@/lib/reviews"
-import { addOfflineEntry } from "@/lib/engine"
+import { addOfflineEntry, setPaperNotes } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { Button } from "@zhangqi444/ui/ui/button"
@@ -26,7 +26,10 @@ export function Import({ payload }) {
     try { return { map: parseImport(payload) } } catch (e) { return { err: e.message } }
   }, [payload])
   function addPaper(paper) {
-    addOfflineEntry(paper.form.id, { sat: paper.sat, scores: paper.scores, missed: paper.missed, tags: paper.tags, id: paper.id, via: "link" })
+    // A link may carry only what went wrong, for results already in: no entry for that.
+    if (Object.keys(paper.scores).length || Object.keys(paper.missed).length || Object.keys(paper.tags).length)
+      addOfflineEntry(paper.form.id, { sat: paper.sat, scores: paper.scores, missed: paper.missed, tags: paper.tags, id: paper.id, via: "link" })
+    if (Object.keys(paper.notes).length || paper.analysis.length) setPaperNotes(paper.form.id, { notes: paper.notes, analysis: paper.analysis, by: paper.by })
     go("/mock/" + paper.form.id)
   }
 
@@ -48,9 +51,19 @@ export function Import({ payload }) {
   const zh = shown.length > 0 && shown.every((r) => r.target.kind === "zh")
   const s = (zhText, en) => (zh ? t(zhText, en) : en)
   const mirrored = DRIVE_ENABLED && store.s.driveGranted
+  const paperIn = fromLink && fromLink.paper
 
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-4">
+      {paperIn ? (
+        <Card className="from-primary/5 to-card bg-gradient-to-t gap-3">
+          <CardHeader>
+            <CardDescription className="flex items-center gap-2"><Inbox className="size-4" /> Add a paper's results</CardDescription>
+            <CardTitle className="text-2xl font-semibold tracking-tight">Results from a paper sat on paper</CardTitle>
+            <CardDescription>They are kept with her progress{mirrored ? " and mirrored to Google Drive" : ""}, and show on the paper's page.</CardDescription>
+          </CardHeader>
+        </Card>
+      ) : (
       <Card className="from-primary/5 to-card bg-gradient-to-t gap-3">
         <CardHeader>
           <CardDescription className="flex items-center gap-2"><Inbox className="size-4" /> {s("添加批改", "Add a review")}</CardDescription>
@@ -58,6 +71,7 @@ export function Import({ payload }) {
           <CardDescription>{zh ? t(`会和她的记录保存在一起${mirrored ? "，并同步到 Google Drive" : ""}，显示在它批改的那一周下面。`, `It is kept with her progress${mirrored ? " and mirrored to Google Drive" : ""}, and shows on the week it is about.`) : `It is kept with her progress${mirrored ? " and mirrored to Google Drive" : ""}, and shows on the essay it is about.`}</CardDescription>
         </CardHeader>
       </Card>
+      )}
 
       {fromLink && fromLink.paper ? (
         <Card className="gap-4" data-testid="paper-preview">
@@ -77,6 +91,11 @@ export function Import({ payload }) {
                 )
               })}
             </ul>
+            {Object.keys(fromLink.paper.notes).length || fromLink.paper.analysis.length ? (
+              <p className="text-muted-foreground text-sm" data-testid="paper-preview-notes" data-n={Object.keys(fromLink.paper.notes).length}>
+                It also says what went wrong{Object.keys(fromLink.paper.notes).length ? ` on ${Object.keys(fromLink.paper.notes).length} question${Object.keys(fromLink.paper.notes).length === 1 ? "" : "s"}` : ""}{fromLink.paper.analysis.length ? `${Object.keys(fromLink.paper.notes).length ? "," : ""} and what the misses have in common` : ""}. It shows on the paper's page.
+              </p>
+            ) : null}
             <div><Button onClick={() => addPaper(fromLink.paper)} data-testid="paper-add"><Inbox /> Add to Sheila's record</Button></div>
           </CardContent>
         </Card>

@@ -435,7 +435,14 @@ did on it is deleted, and it can be put back. `tools/paper_link.py` makes an imp
 paper's results, skills included. A parent can also add a scan or photos of the
 marked sheet on the paper's page (`sheets`); the site cannot read
 them, having no server, so `.claude/skills/paper-results/` reads them and hands back
-that link.
+that link. The link can also carry what went wrong — the owner, 5 October 2026: "I need
+the things in the website", not a document beside it. Each miss gets a line (`notes`:
+the letter she chose, the right one, and the mistake) and the paper a few lines on what
+the misses have in common (`analysis`); the paper's page shows both, and each miss has
+Try one like it, a question of ours on its skill through `/again`. They are in the
+marker's own words and never the book's text: the questions stay in the booklet, which
+copyright requires, and the notes stay in her record. `notes` merge question by
+question; `analysis` keeps the newer copy.
 
 ## The game
 

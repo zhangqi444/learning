@@ -682,15 +682,38 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      the circled numbers reach her record without being typed in: the link previews
      each section, Add puts it in her record on the paper's page, and the same link
      opened twice adds nothing. */
-  const paperLink = Buffer.from(JSON.stringify({ paper: { form: 'TPR', sat: '2026-10-03', by: 'Dad', scores: { RC: 22 }, missed: { RC: [17, 18, 23] } } })).toString('base64url');
+  const paperLink = Buffer.from(JSON.stringify({ paper: { form: 'TPR', sat: '2026-10-03', by: 'Dad', scores: { RC: 22 }, missed: { RC: [17, 18, 23] },
+    notes: { RC: { 17: { pick: 'D', key: 'C', why: 'Took the everyday sense of the word, not the one the line uses.' }, 18: { why: 'Chose a reason the passage never gives.' } } },
+    analysis: ['Two of the three are inferences on one passage.', 'Each wrong answer borrows a word from the passage.'] } })).toString('base64url');
   await pg.evaluate((p) => { location.hash = '#/import/' + p; }, paperLink);
   await pg.waitForSelector('[data-testid=paper-preview]');
   const pv = (await pg.textContent('[data-testid=paper-preview]')).replace(/\s+/g, ' ');
   check('a paper result link previews its scores and the circled numbers', /Princeton Review practice test/.test(pv) && /22\/25/.test(pv) && /Missed 17, 18, 23/.test(pv), pv.slice(0, 160));
+  check('and says it carries what went wrong', /what went wrong on 2 questions, and what the misses have in common/.test(pv), pv.slice(-200));
   await pg.click('[data-testid=paper-add]');
   await pg.waitForSelector('[data-testid=offline-save]');
   const rcRow = await pg.textContent('[data-testid=offline-row][data-sec=RC]');
   check("and Add puts them in her record, on the paper's page", /22\/25/.test(rcRow) && /Missed 17, 18, 23/.test(rcRow), rcRow);
+  /* What went wrong, from whoever marked it (the owner, 5 October 2026: "I need the
+     things in the website"): the lines on the paper above the misses, and each
+     miss's own line under it, with the letter she chose and the right one. A miss
+     the marker said nothing about shows nothing. */
+  const pts = await pg.$$eval('[data-testid=paper-analysis-point]', (els) => els.map((e) => e.textContent.trim()));
+  check('what the misses have in common shows on the paper, in the marker\'s words', pts.length === 2 && /inferences on one passage/.test(pts[0]), JSON.stringify(pts));
+  const note17 = (await pg.textContent('[data-testid=paper-miss][data-sec=RC][data-n="17"] [data-testid=paper-miss-note]').catch(() => '')).replace(/\s+/g, ' ');
+  check('and each miss carries its own line: her letter, the right one, and why', /Chose D · Answer C/.test(note17) && /everyday sense/.test(note17)
+    && /reason the passage never gives/.test(await pg.textContent('[data-testid=paper-miss][data-sec=RC][data-n="18"]'))
+    && !(await pg.$('[data-testid=paper-miss][data-sec=RC][data-n="23"] [data-testid=paper-miss-note]')), note17);
+  /* Try one like it: a question of ours on the miss's skill, now, from the paper's
+     page — never the paper's own, which is not on the site — and back to the paper. */
+  await pg.click('[data-testid=paper-miss][data-sec=RC][data-n="17"] [data-testid=paper-miss-try]');
+  await pg.waitForSelector('[data-testid=question]');
+  const likeQ = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid || '');
+  check('Try one like it asks a question of ours on the same skill', !!likeQ && !likeQ.startsWith('off:') && /#\/again\/off:TPR:RC:17\/TPR$/.test(await pg.evaluate(() => location.hash)), likeQ);
+  await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]');
+  await pg.waitForSelector('text=Back to the paper'); await pg.click('text=Back to the paper');
+  await pg.waitForSelector('[data-testid=offline-save]');
+  check('and it ends back on the paper', /#\/mock\/TPR$/.test(await pg.evaluate(() => location.hash)));
   const nEntries = await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).mocks.TPR.entries.length);
   await pg.evaluate((p) => { location.hash = '#/import/' + p; }, paperLink);
   await pg.waitForSelector('[data-testid=paper-add]'); await pg.click('[data-testid=paper-add]'); await pg.waitForSelector('[data-testid=offline-save]');
@@ -766,6 +789,15 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     anchorsNow.join(',') === [`off:${newId}:QR:5`, `off:${newId}:VR:20`, `off:${newId}:VR:3`].sort().join(','), anchorsNow.join(','));
   await pg.click('[data-testid=paper-miss][data-sec=VR][data-n="3"] [data-testid=paper-miss-redone]');
   await pg.waitForFunction(() => (document.querySelector('[data-testid=paper-misses]') || { dataset: {} }).dataset.redone === '1');
+  // A link that carries only what went wrong, for results already in: the note
+  // lands on its miss, and no second entry is added.
+  const notesOnly = Buffer.from(JSON.stringify({ paper: { form: newId, sat: today, notes: { QR: { 5: { pick: 'B', key: 'D', why: 'Compared the tops of the fractions only.' } } } } })).toString('base64url');
+  await pg.evaluate((p) => { location.hash = '#/import/' + p; }, notesOnly);
+  await pg.waitForSelector('[data-testid=paper-add]'); await pg.click('[data-testid=paper-add]');
+  await pg.waitForSelector('[data-testid=paper-miss][data-sec=QR][data-n="5"] [data-testid=paper-miss-note]');
+  check('a link with only notes puts them on the misses and adds no entry',
+    /Chose B · Answer D/.test(await pg.textContent('[data-testid=paper-miss][data-sec=QR][data-n="5"]'))
+    && (await pg.evaluate((id) => JSON.parse(localStorage.getItem('isee.v1')).mocks[id].entries.length, newId)) === 1);
   await pg.screenshot({ path: 'shot-paper.png', fullPage: true });
   await pg.setViewportSize({ width: 390, height: 844 }); await pg.emulateMedia({ colorScheme: 'dark' });
   await pg.waitForTimeout(300); await pg.screenshot({ path: 'shot-paper-phone-dark.png', fullPage: true });
@@ -773,20 +805,22 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   // Another device filed QR 9 and ticked VR 20 on a copy that never saw the tick
   // here, and is older as a whole: both sides' work has to survive the merge.
   const remoteRec = () => { try { return (JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]).mocks || {})[newId] || null; } catch { return null; } };
-  const reached = await until(() => { const r = remoteRec(); return r && r.redone && r.redone['VR:3'] && r.redone['VR:3'].done ? r : null; });
-  check('the paper, its files and its ticks reach her record in Drive', !!reached && !!reached.def && Object.keys(reached.pages || {}).length === 4 && reached.def.name === 'Workbook practice test A');
+  const reached = await until(() => { const r = remoteRec(); return r && r.redone && r.redone['VR:3'] && r.redone['VR:3'].done && r.notes && r.notes['QR:5'] ? r : null; });
+  check('the paper, its files, its ticks and its notes reach her record in Drive', !!reached && !!reached.def && Object.keys(reached.pages || {}).length === 4 && reached.def.name === 'Workbook practice test A');
   {
     const j = JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]);
     const later = new Date(Date.now() + 3600e3).toISOString(), r = j.mocks[newId];
     r.tags = { ...(r.tags || {}), 'QR:9': { sk: 'Data reasoning', at: later } };
     r.redone = { 'VR:20': { done: true, at: later } };
+    r.notes = { 'QR:9': { why: 'A note made on the other device.', at: later } };
     r.at = new Date(Date.now() - 3600e3).toISOString();
     drive.body = JSON.stringify(j);
   }
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=paper-misses]');
   await pg.waitForFunction(() => (document.querySelector('[data-testid=paper-misses]') || { dataset: {} }).dataset.redone === '2', null, { timeout: 15000 }).catch(() => {});
-  check('a tick and a skill from another device merge in beside the ones made here, question by question',
-    (await missAttr('VR', 3, 'redone')) === '1' && (await missAttr('VR', 20, 'redone')) === '1' && (await missAttr('QR', 9, 'skill')) === 'Data reasoning' && (await missAttr('QR', 5, 'skill')) === 'Fractions',
+  check('a tick, a skill and a note from another device merge in beside the ones made here, question by question',
+    (await missAttr('VR', 3, 'redone')) === '1' && (await missAttr('VR', 20, 'redone')) === '1' && (await missAttr('QR', 9, 'skill')) === 'Data reasoning' && (await missAttr('QR', 5, 'skill')) === 'Fractions'
+    && (await missAttr('QR', 9, 'note')) === '1' && (await missAttr('QR', 5, 'note')) === '1',
     `VR3 ${await missAttr('VR', 3, 'redone')} VR20 ${await missAttr('VR', 20, 'redone')} QR9 ${await missAttr('QR', 9, 'skill')} QR5 ${await missAttr('QR', 5, 'skill')}`);
   await pg.evaluate(() => { location.hash = '#/mock'; }); await pg.waitForSelector('[data-testid=band-card]');
   check('with every section in, the paper is listed and counts in the score band',

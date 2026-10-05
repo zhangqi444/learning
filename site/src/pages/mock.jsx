@@ -22,7 +22,7 @@ import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { learnName } from "@/lib/aops"
 import { LearnCard } from "@/components/learn-card"
-import { ISEE_LOWER_SECTIONS, STANINE, addPaperAttachment, createOfflinePaper, markRedone, paperAttachments, removePaperAttachment, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
+import { ISEE_LOWER_SECTIONS, STANINE, addPaperAttachment, createOfflinePaper, markRedone, paperAnalysis, paperAttachments, paperNote, removePaperAttachment, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
 
 /* ---------- state helpers ---------- */
 export function mockState(form) { return Store.s.mocks[form] || { sections: {} } }
@@ -249,6 +249,7 @@ export function OfflineMock({ form }) {
         </CardContent>
       </Card>
 
+      <PaperAnalysisCard p={m} />
       <PaperMissesCard p={m} sc={sc} />
 
       <Card className="gap-4 py-5">
@@ -442,24 +443,52 @@ function PaperSheetsCard({ p }) {
   )
 }
 
+/* ---------- what the misses say ----------
+ *
+ * Whoever marked the paper — the paper-results skill, through the results link —
+ * says what went wrong: a few lines here on what the misses have in common, and a
+ * line on each miss in the card below. In the marker's own words, because the
+ * questions stay in the booklet; kept in her record, private to her account. */
+function PaperAnalysisCard({ p }) {
+  useStore()
+  const a = paperAnalysis(p)
+  if (!a) return null
+  return (
+    <Card className="gap-3 py-5" data-testid="paper-analysis" data-n={a.points.length}>
+      <CardHeader className="px-5">
+        <CardTitle>What the misses say</CardTitle>
+        <CardDescription>What they have in common{a.by ? `, from ${a.by}` : ""}{a.at ? ` · ${fmtDate(a.at)}` : ""}. Each question has its own line below.</CardDescription>
+      </CardHeader>
+      <CardContent className="px-5">
+        <ol className="flex list-decimal flex-col gap-2 pl-5 text-sm">
+          {a.points.map((x, i) => <li key={i} data-testid="paper-analysis-point">{x}</li>)}
+        </ol>
+      </CardContent>
+    </Card>
+  )
+}
+
 /* ---------- the questions she missed ----------
  *
  * Each missed number, filed under a skill — the paper's own map, Verbal's two parts
  * by position, or a parent's pick here — so a review can ask two questions of ours
- * on it; and a tick for redoing it from the booklet, which is the only place the
- * question itself is. A miss nobody has filed yet waits here and is never dropped. */
+ * on it; what went wrong on it, when the marker said; one question of ours on the
+ * same skill to try now; and a tick for redoing it from the booklet, which is the
+ * only place the question itself is. A miss nobody has filed yet waits here and is
+ * never dropped. */
 function PaperMissesCard({ p, sc }) {
   useStore()
   const rows = []
-  for (const s of p.sections || []) for (const n of ((sc.missed || {})[s.id] || { nums: [] }).nums) rows.push({ s, n, sk: paperSkill(p, s.id, n), redone: paperRedone(p, s.id, n) })
+  for (const s of p.sections || []) for (const n of ((sc.missed || {})[s.id] || { nums: [] }).nums) rows.push({ s, n, sk: paperSkill(p, s.id, n), redone: paperRedone(p, s.id, n), note: paperNote(p, s.id, n) })
   if (!rows.length) return null
-  const done = rows.filter((r) => r.redone).length, unfiled = rows.filter((r) => !r.sk).length
+  const done = rows.filter((r) => r.redone).length, unfiled = rows.filter((r) => !r.sk).length, noted = rows.filter((r) => r.note).length
   return (
-    <Card className="gap-3 py-5" data-testid="paper-misses" data-n={rows.length} data-redone={done} data-unfiled={unfiled}>
+    <Card className="gap-3 py-5" data-testid="paper-misses" data-n={rows.length} data-redone={done} data-unfiled={unfiled} data-noted={noted}>
       <CardHeader className="px-5">
         <CardTitle>The questions she missed</CardTitle>
         <CardDescription>
           {done} of {rows.length} redone from the booklet{unfiled ? ` · ${unfiled} still need a skill before review can ask about them` : " · each one sends two questions of its skill into review"}.
+          {noted ? " Under each, what went wrong; Try one like it asks a question of ours on the same skill now." : ""}
         </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4 px-5">
@@ -472,7 +501,7 @@ function PaperMissesCard({ p, sc }) {
               <div className="text-sm font-medium">{s.name}</div>
               <ul className="divide-y rounded-md border">
                 {mine.map((r) => (
-                  <li key={r.n} className="flex flex-wrap items-center gap-x-3 gap-y-1.5 px-3 py-2 text-sm" data-testid="paper-miss" data-sec={s.id} data-n={r.n} data-skill={r.sk || ""} data-redone={r.redone ? "1" : "0"}>
+                  <li key={r.n} className="flex flex-wrap items-center gap-x-3 gap-y-1.5 px-3 py-2 text-sm" data-testid="paper-miss" data-sec={s.id} data-n={r.n} data-skill={r.sk || ""} data-redone={r.redone ? "1" : "0"} data-note={r.note ? "1" : "0"}>
                     <span className="w-14 shrink-0 font-medium tabular-nums">Q{r.n}</span>
                     <select aria-label={`Skill for ${s.name} question ${r.n}`} value={r.sk || ""} onChange={(e) => tagPaperMiss(p.id, s.id, r.n, e.target.value || null)} data-testid="paper-miss-skill"
                       className={cn("border-input dark:bg-input/30 h-8 min-w-44 flex-1 rounded-md border bg-transparent px-2 text-sm", !r.sk && "border-warning text-muted-foreground")}>
@@ -480,10 +509,23 @@ function PaperMissesCard({ p, sc }) {
                       {opts.map((o) => <option key={o} value={o}>{o}</option>)}
                       {r.sk && !opts.includes(r.sk) ? <option value={r.sk}>{r.sk}</option> : null}
                     </select>
-                    <label className="flex shrink-0 items-center gap-2">
+                    {r.sk ? (
+                      <Button size="sm" variant="outline" className="order-2 h-8 shrink-0" onClick={() => go(`/again/off:${p.id}:${s.id}:${r.n}/${p.id}`)} data-testid="paper-miss-try">
+                        <RotateCcw /> Try one like it
+                      </Button>
+                    ) : null}
+                    <label className="order-2 flex shrink-0 items-center gap-2">
                       <input type="checkbox" className="accent-primary size-4" checked={r.redone} onChange={(e) => markRedone(p.id, s.id, r.n, e.target.checked)} data-testid="paper-miss-redone" />
                       <span className="text-muted-foreground">Redone from the booklet</span>
                     </label>
+                    {r.note ? (
+                      // On a narrow page it comes straight after the number and the skill;
+                      // once the controls fit beside them, it goes underneath.
+                      <p className="text-muted-foreground order-1 basis-full @3xl/main:order-3" data-testid="paper-miss-note">
+                        {r.note.pick || r.note.key ? <span className="text-foreground mr-2 font-medium tabular-nums" data-testid="paper-miss-letters">{[r.note.pick ? `Chose ${r.note.pick}` : "", r.note.key ? `Answer ${r.note.key}` : ""].filter(Boolean).join(" · ")}</span> : null}
+                        {r.note.why}
+                      </p>
+                    ) : null}
                   </li>
                 ))}
               </ul>

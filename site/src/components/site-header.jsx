@@ -6,7 +6,7 @@ import { W } from "@/lib/world"
 import { go, splitCat } from "@/lib/router"
 import { zhCrumbs } from "@/pages/chinese"
 import { setLang, t, useLang } from "@/lib/lang"
-import { importIsZh } from "@/lib/reviews"
+import { importIsZh, parsePaperImport } from "@/lib/reviews"
 import { offlinePaper } from "@/lib/engine"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
 import { DriveChip } from "@zhangqi444/ui/app/drive-chip"
@@ -79,8 +79,17 @@ function crumbs(route, zhImport) {
   } else if (top === "drive") {
     out.push({ label: "Drive settings", path: "/drive" })
   } else if (top === "import") {
-    out.push({ label: "Essay", path: "/essay" })
-    out.push({ label: "Add a review", path: "/import" })
+    // A paper's results come in by the same door as an essay review, and belong to the paper.
+    let paper = null
+    try { paper = a ? parsePaperImport(a) : null } catch { paper = null }
+    if (paper) {
+      out.push({ label: "Mock exams", path: "/mock" })
+      out.push({ label: paper.form.name, path: "/mock/" + paper.form.id })
+      out.push({ label: "Add results", path: "/import/" + a })
+    } else {
+      out.push({ label: "Essay", path: "/essay" })
+      out.push({ label: "Add a review", path: "/import" })
+    }
   }
   return out
 }

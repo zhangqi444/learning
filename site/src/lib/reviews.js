@@ -90,7 +90,8 @@ export function decodePayload(s) {
   return JSON.parse(new TextDecoder().decode(bytes))
 }
 /** A paper sat on paper, marked, in a link: `{ "paper": { "form": "TPR", "sat":
- *  "2026-10-04", "scores": { "VR": 24, … }, "missed": { "VR": [5, 7, …], … } } }`.
+ *  "2026-10-04", "scores": { "VR": 24, … }, "missed": { "VR": [5, 7, …], … } } }`,
+ *  and optionally `notes` and `analysis` — what went wrong, per miss and across them.
  *  Made by tools/paper_link.py from the marked sheet, so the scores and the circled
  *  numbers reach her record without being typed in, and checked here against the
  *  paper's own sections so a mistyped link cannot store a score above its size.
@@ -126,10 +127,30 @@ export function paperFromPayload(obj) {
       tags[`${sec}:${k}`] = sk
     }
   }
-  if (!Object.keys(scores).length && !Object.keys(missed).length && !Object.keys(tags).length) throw new Error("The link names the paper but carries no scores.")
+  // `notes`: what went wrong on a miss, in the marker's own words, with the letter she
+  // chose and the right one — {"QR": {"23": {"pick": "C", "key": "B", "why": "…"}}}.
+  // `analysis`: a few lines on what the misses have in common. Neither carries the
+  // book's text; both stay in her record (lib/engine.js, setPaperNotes).
+  const notes = {}
+  for (const [sec, m] of Object.entries(p.notes || {})) {
+    const s = form.sections.find((x) => x.id === sec)
+    if (!s || !m || typeof m !== "object") throw new Error(`The link has notes on a section the paper does not have: ${sec}.`)
+    for (const [n, v] of Object.entries(m)) {
+      const k = Number(n)
+      if (!Number.isInteger(k) || k < 1 || k > s.n) throw new Error(`${s.name} has no question ${n}.`)
+      if (!v || typeof v !== "object" || typeof v.why !== "string" || !v.why.trim()) throw new Error(`The note on ${s.name} question ${n} says nothing.`)
+      for (const f of ["pick", "key"]) if (v[f] != null && !/^[A-E]$/.test(v[f])) throw new Error(`The note on ${s.name} question ${n} gives "${v[f]}" as a choice; a choice is a letter from A to E.`)
+      notes[`${sec}:${k}`] = { why: v.why.trim().slice(0, 400), ...(v.pick ? { pick: v.pick } : {}), ...(v.key ? { key: v.key } : {}) }
+    }
+  }
+  if (p.analysis != null && !Array.isArray(p.analysis)) throw new Error("The link's analysis must be a list of lines.")
+  const analysis = (p.analysis || []).filter((x) => typeof x === "string" && x.trim()).map((x) => x.trim().slice(0, 500)).slice(0, 10)
+  if (!Object.keys(scores).length && !Object.keys(missed).length && !Object.keys(tags).length && !Object.keys(notes).length && !analysis.length) throw new Error("The link names the paper but carries no scores.")
+  // The entry's id is made from the results alone, so the same results arriving again
+  // with notes — a second link from the same marking — add the notes, not a second entry.
   const key = JSON.stringify({ form: form.id, sat: p.sat, scores, missed, tags })
   let h = 0; for (let i = 0; i < key.length; i++) h = (Math.imul(31, h) + key.charCodeAt(i)) | 0
-  return { form, sat: p.sat, scores, missed, tags, by: typeof p.by === "string" ? p.by.slice(0, 80) : "", id: `link:${form.id}:${p.sat}:${(h >>> 0).toString(36)}` }
+  return { form, sat: p.sat, scores, missed, tags, notes, analysis, by: typeof p.by === "string" ? p.by.slice(0, 80) : "", id: `link:${form.id}:${p.sat}:${(h >>> 0).toString(36)}` }
 }
 /** The paper result in a pasted link or JSON, or null if it is not one. */
 export function parsePaperImport(text) {

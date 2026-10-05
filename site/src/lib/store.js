@@ -387,16 +387,18 @@ export const Store = {
         // The rest of such a paper's record is merged by the part, not by the
         // record: its shape (`def`), its PDF (`file`) and its link each keep the
         // newer of the two copies by their own time, and the skill a parent gave a
-        // miss (`tags`) and her redone ticks (`redone`) are merged question by
-        // question. Otherwise a PDF attached on the laptop would be lost to a tick
+        // miss (`tags`), her redone ticks (`redone`) and the marker's line on each
+        // miss (`notes`) are merged question by question; the marker's lines on the
+        // whole paper (`analysis`) keep the newer copy, as the link does.
+        // Otherwise a PDF attached on the laptop would be lost to a tick
         // made on the iPad a minute later, because that record is "newer".
         if (slice === "mocks" && ls[k] && (rs[k].offline || ls[k].offline || (Array.isArray(rs[k].entries) && Array.isArray(ls[k].entries)))) {
           const L = ls[k], R = rs[k], newer = ts(R.at) > ts(L.at) ? R : L, byId = {}
           for (const e of [...(Array.isArray(L.entries) ? L.entries : []), ...(Array.isArray(R.entries) ? R.entries : [])]) if (e && e.id) byId[e.id] = e
           const later = (a, b) => (!a ? b : !b ? a : ts(b.at) > ts(a.at) ? b : a)
           const out = { ...newer, entries: Object.values(byId).sort((a, b) => ts(a.at) - ts(b.at)) }
-          for (const f of ["def", "file", "link"]) { const v = later(L[f], R[f]); if (v) out[f] = v }
-          for (const f of ["tags", "redone", "sheets", "pages"]) {
+          for (const f of ["def", "file", "link", "analysis"]) { const v = later(L[f], R[f]); if (v) out[f] = v }
+          for (const f of ["tags", "redone", "sheets", "pages", "notes"]) {
             if (!L[f] && !R[f]) continue
             const o = { ...(L[f] || {}) }
             for (const q of Object.keys(R[f] || {})) o[q] = later(o[q], R[f][q])
