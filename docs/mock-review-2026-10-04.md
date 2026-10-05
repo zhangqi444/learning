@@ -416,3 +416,40 @@ papers were one file. The bundle came out byte-identical across the split.
 **Still open:** Mock 2 (sat 2–8 November) and Mock 3 to the same spec, by the same
 contract; the weekly banks; and a read of Mock 1 by someone who did not write it before
 19 October.
+
+## Part 4 — Mock 2 (5 October)
+
+Rewritten to the same contract as Mock 1, by four authors, with each author's draft
+checked through the repository's validator holding Mock 2 to the spec, and every
+math key re-solved from its prompt and figure. The point of this part is the last
+column: the two papers are now one instrument.
+
+| | Mock 2 before | Mock 2 after | Mock 1 |
+|---|---|---|---|
+| Items read off a figure, QR · MA | 0 · 0 | 23 · 16 | 21 · 17 |
+| Synonym headword Zipf median | 3.45 | 3.35 | 3.37 |
+| Phrase completions | 0 | 5 | 5 |
+| Passage length, words | 216–228 | 329–338 | 327–337 |
+| Passage Flesch–Kincaid | 5.6–9.0 | 5.8–6.7 | 5.8–6.9 |
+| Stems citing a line | 8 (as paragraph tags) | 9 | 10 |
+| Choice sets in the official order, of those it can reach | 19 of 108 | 119 of 119 | 106 of 106 |
+| Difficulty tags, E · M · H | 27 · 79 · 21 | 44 · 57 · 26 | 44 · 57 · 26 |
+| Biography | none | Louis Braille, sourced to the Library of Congress and the Musée Louis Braille | Mary Anning |
+
+Two things were found on the way that a single author could not have seen:
+
+- **Sections written in parallel landed on the same scenarios in one paper** — two
+  birdhouse symmetry questions, two swim-lap means, two L-shaped floor areas, a bird
+  feeder twice, marbles twice. The integration now compares a paper's sections with
+  each other as well as with the other papers, and the Quantitative section was
+  reworked until none remained; Mock 3's two math authors get separate scenario
+  themes from the start.
+- **Every figure is looked at, not only tested.** A script screenshots each figure
+  item as the app draws it into a contact sheet. It caught a side label drawn on top
+  of an L-shape's notch, a spinner pointer through a colour name, and a long label
+  cut off at the edge of the drawing. The renderer now places each label on the
+  outside of its own side, shortens the pointer, sizes its margin to the longest
+  label, and can draw a fold as a dashed side.
+
+**Still open:** Mock 3 (sat 23–29 November) to the same contract; the weekly banks;
+and a read of Mocks 1 and 2 by someone who did not write them.

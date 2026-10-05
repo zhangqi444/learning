@@ -176,7 +176,8 @@ An item carries its picture as a small declarative `figure` — table, bar, line
 pictograph, numberline, grid, polygon, venn, spinner, clock, shaded, cubes — whose
 schema is `tools/itemspec.py` (`FIGURES`) and whose drawing is
 `site/src/components/figure.jsx`. The stem introduces the figure; the figure holds
-the data.
+the data. A polygon marks its right angles, places each side's label outside that
+side, and can draw a fold as a dashed side (`dashed`), which the stem then names.
 
 A passage written to this spec carries `lines: true` and is authored line by line:
 a newline ends a line, a blank line ends a paragraph, lines run to about 56

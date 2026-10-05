@@ -194,10 +194,15 @@ function Polygon({ f }) {
   const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1])
   const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys)
   const span = Math.max(maxX - minX, maxY - minY, 1)
-  const S = 300 / span, pad = 48
+  // room for the widest label beside an upright side, so a long one ("4 cm, fold")
+  // is not cut off at the edge of the drawing
+  const longest = Math.max(0, ...(f.labels || []).map((lb) => String(lb.text).length))
+  const S = 300 / span, pad = Math.max(56, 26 + longest * 7.6)
   const W = (maxX - minX) * S + pad * 2, H = (maxY - minY) * S + pad * 2
   const x = (v) => pad + (v - minX) * S, y = (v) => pad + (maxY - v) * S
-  const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2
+  // Which way round the outline runs (shoelace sign, y up): a label goes on the
+  // OUTSIDE of its own side, and which side is outside depends on it.
+  const ccw = pts.reduce((a2, p, i) => { const q = pts[(i + 1) % pts.length]; return a2 + (p[0] * q[1] - q[0] * p[1]) }, 0) > 0
   return (
     <Frame type="polygon" title={f.title} viewBox={`0 0 ${W} ${H}`} max={Math.min(440, W)}>
       {f.grid ? Array.from({ length: span + 1 }).map((_, k) => (
@@ -206,7 +211,18 @@ function Polygon({ f }) {
           <line x1={x(minX)} x2={x(maxX)} y1={y(minY + k)} y2={y(minY + k)} stroke={SOFT} strokeWidth={0.4} />
         </g>
       )) : null}
+      {/* the outline, then any side listed in `dashed` drawn over it as a fold
+          line: the background colour first to break the solid edge, then dashes */}
       <polygon points={pts.map(([px, py]) => `${x(px)},${y(py)}`).join(" ")} fill={f.shade ? FILL : "none"} fillOpacity={f.shade ? 0.18 : 0} stroke={INK} strokeWidth={2} />
+      {(f.dashed || []).map((si) => {
+        const a = pts[si % pts.length], b = pts[(si + 1) % pts.length]
+        return (
+          <g key={"d" + si} data-dashed={si}>
+            <line x1={x(a[0])} y1={y(a[1])} x2={x(b[0])} y2={y(b[1])} stroke="var(--card)" strokeWidth={4} />
+            <line x1={x(a[0])} y1={y(a[1])} x2={x(b[0])} y2={y(b[1])} stroke={INK} strokeWidth={2} strokeDasharray="7 5" />
+          </g>
+        )
+      })}
       {(f.right || []).map((vi) => {
         const a = pts[(vi + pts.length - 1) % pts.length], b = pts[vi], c = pts[(vi + 1) % pts.length]
         const u = [a[0] - b[0], a[1] - b[1]], v = [c[0] - b[0], c[1] - b[1]]
@@ -217,9 +233,15 @@ function Polygon({ f }) {
       {(f.labels || []).map((lb, k) => {
         const a = pts[lb.side % pts.length], b = pts[(lb.side + 1) % pts.length]
         const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2
-        // push the label outward from the figure's centre
-        const ox = mx - cx, oy = my - cy, n = Math.hypot(ox, oy) || 1
-        return <T key={k} x={x(mx) + (ox / n) * 22} y={y(my) - (oy / n) * 22} weight={500}>{lb.text}</T>
+        /* Off the side along its own outward normal — (dy, −dx) for an outline
+           that runs counter-clockwise — never away from the figure's centre: on
+           the inside edges of an L the centre is on the wrong side, and a label
+           pushed that way was drawn on top of the outline (Mock 1, MA-023). A
+           label beside an upright side needs half its own width of room. */
+        const dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy) || 1
+        const nx = (ccw ? dy : -dy) / len, ny = (ccw ? -dx : dx) / len
+        const off = 12 + Math.abs(nx) * String(lb.text).length * 3.8 + Math.abs(ny) * 4
+        return <T key={k} x={x(mx) + nx * off} y={y(my) - ny * off} weight={500}>{lb.text}</T>
       })}
     </Frame>
   )
@@ -263,9 +285,14 @@ function Spinner({ f }) {
   return (
     <Frame type="spinner" title={f.title} viewBox={`0 0 ${W} ${H}`} max={300}>
       {arcs.map((a, i) => <path key={i} d={a.d} fill={FILL} fillOpacity={0.08 + (i % 3) * 0.1} stroke={INK} strokeWidth={1.5} data-size={a.s.size || 1} />)}
-      {arcs.map((a, i) => <T key={"l" + i} x={a.lx} y={a.ly} weight={500}>{a.s.label}</T>)}
-      <line x1={cx} y1={cy} x2={cx + r * 0.75} y2={cy - r * 0.35} stroke={INK} strokeWidth={3} strokeLinecap="round" />
+      {/* The pointer stops short of the ring the colour names sit on, and the
+          names are drawn after it: a pointer through "Blue" made the name hard
+          to read on the one figure where the names are the question (Mock 1, MA-029). */}
+      {(() => { const pa = -0.44, L = r * 0.4, tx = cx + L * Math.cos(pa), ty = cy + L * Math.sin(pa), hx = Math.cos(pa), hy = Math.sin(pa)
+        return <g><line x1={cx} y1={cy} x2={tx - hx * 6} y2={ty - hy * 6} stroke={INK} strokeWidth={3} strokeLinecap="round" />
+          <polygon points={`${tx},${ty} ${tx - hx * 11 - hy * 6},${ty - hy * 11 + hx * 6} ${tx - hx * 11 + hy * 6},${ty - hy * 11 - hx * 6}`} fill={INK} /></g> })()}
       <circle cx={cx} cy={cy} r={6} fill={INK} />
+      {arcs.map((a, i) => <T key={"l" + i} x={a.lx} y={a.ly} weight={500}>{a.s.label}</T>)}
     </Frame>
   )
 }

@@ -26,7 +26,7 @@ from fractions import Fraction
 from math import gcd
 
 L = 'ABCD'
-OFFICIAL_FORMS = {'M01'}
+OFFICIAL_FORMS = {'M01', 'M02'}
 
 # ---- reading a choice as a number ------------------------------------------------
 # Enough of the ways a Lower Level answer is written to put a set in order:
@@ -135,7 +135,7 @@ FIGURES = {
     'pictograph': {'req': ['rows', 'unit'], 'opt': ['title']},
     'numberline': {'req': ['min', 'max', 'step'], 'opt': ['points', 'labelEvery']},
     'grid':       {'req': ['xmax', 'ymax'], 'opt': ['points', 'polygon', 'quadrants', 'title']},
-    'polygon':    {'req': ['points'], 'opt': ['labels', 'right', 'grid', 'shade', 'title']},
+    'polygon':    {'req': ['points'], 'opt': ['labels', 'right', 'dashed', 'grid', 'shade', 'title']},
     'venn':       {'req': ['left', 'right'], 'opt': ['counts', 'items', 'outside', 'title']},
     'spinner':    {'req': ['sectors'], 'opt': ['title']},
     'clock':      {'req': ['h', 'm'], 'opt': ['title']},
@@ -209,6 +209,8 @@ def figure_errors(it):
         for lb in f.get('labels', []):
             if not (isinstance(lb, dict) and isinstance(lb.get('side'), int) and _label_ok(lb.get('text'))):
                 out.append(f'{i}: each polygon label is {{side, text}}'); break
+        if 'dashed' in f and not (isinstance(f['dashed'], list) and all(isinstance(v, int) and 0 <= v < len(pts) for v in f['dashed'])):
+            out.append(f'{i}: figure.dashed lists side numbers (side i joins point i to i+1) drawn as a dashed line — a fold')
         if 'right' in f and not (isinstance(f['right'], list) and all(isinstance(v, int) for v in f['right'])):
             out.append(f'{i}: figure.right lists vertex numbers that get a right-angle mark')
     elif t == 'venn':
