@@ -26,7 +26,7 @@ from fractions import Fraction
 from math import gcd
 
 L = 'ABCD'
-OFFICIAL_FORMS = {'M01', 'M02'}
+OFFICIAL_FORMS = {'M01', 'M02', 'M03'}
 
 # ---- reading a choice as a number ------------------------------------------------
 # Enough of the ways a Lower Level answer is written to put a set in order:
@@ -134,7 +134,7 @@ FIGURES = {
     'line':       {'req': ['points'], 'opt': ['title', 'x', 'y', 'step', 'max']},
     'pictograph': {'req': ['rows', 'unit'], 'opt': ['title']},
     'numberline': {'req': ['min', 'max', 'step'], 'opt': ['points', 'labelEvery']},
-    'grid':       {'req': ['xmax', 'ymax'], 'opt': ['points', 'polygon', 'quadrants', 'title']},
+    'grid':       {'req': ['xmax', 'ymax'], 'opt': ['points', 'polygon', 'lines', 'quadrants', 'title']},
     'polygon':    {'req': ['points'], 'opt': ['labels', 'right', 'dashed', 'grid', 'shade', 'title']},
     'venn':       {'req': ['left', 'right'], 'opt': ['counts', 'items', 'outside', 'title']},
     'spinner':    {'req': ['sectors'], 'opt': ['title']},
@@ -200,6 +200,8 @@ def figure_errors(it):
         for p in f.get('points', []):
             if not (isinstance(p, dict) and _is_num(p.get('x')) and _is_num(p.get('y')) and _label_ok(p.get('label', 'P'))):
                 out.append(f'{i}: each grid point is {{x, y, label}}'); break
+        if 'lines' in f and not (isinstance(f['lines'], list) and 1 <= len(f['lines']) <= 3 and all(isinstance(l, list) and len(l) == 2 and all(isinstance(q, list) and len(q) == 2 and all(_is_num(v) for v in q) for q in l) for l in f['lines'])):
+            out.append(f'{i}: figure.lines is a list of 1–3 dashed segments, each [[x1, y1], [x2, y2]]')
         if 'polygon' in f and not (isinstance(f['polygon'], list) and 3 <= len(f['polygon']) <= 8 and all(isinstance(q, list) and len(q) == 2 and all(_is_num(v) for v in q) for q in f['polygon'])):
             out.append(f'{i}: figure.polygon is a list of 3–8 [x, y] pairs')
     elif t == 'polygon':

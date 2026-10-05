@@ -119,7 +119,10 @@ function Pictograph({ f }) {
           <g key={i} data-count={row.count}>
             <T x={labelW - 10} y={cy} anchor="end">{row.label}</T>
             {Array.from({ length: full }).map((_, k) => <circle key={k} cx={labelW + 6 + r + k * gap} cy={cy} r={r} fill={FILL} />)}
-            {half ? <path d={`M ${labelW + 6 + full * gap} ${cy - r} A ${r} ${r} 0 0 0 ${labelW + 6 + full * gap} ${cy + r} Z`} fill={FILL} /> : null}
+            {/* the left half of the symbol in the NEXT slot, flat side to the right —
+                drawn at the slot's centre, not at its left edge, or it overlaps the
+                whole symbol before it and 2½ reads as 2 (found on the contact sheet) */}
+            {half ? <path d={`M ${labelW + 6 + r + full * gap} ${cy - r} A ${r} ${r} 0 0 0 ${labelW + 6 + r + full * gap} ${cy + r} Z`} fill={FILL} data-half="1" /> : null}
           </g>
         )
       })}
@@ -177,6 +180,7 @@ function Grid({ f }) {
       {Array.from({ length: xmax - xmin + 1 }).map((_, k) => { const v = xmin + k; return v === 0 ? null : <T key={"xl" + k} x={x(v)} y={y(0) + 12} size={10} fill={SOFT}>{v}</T> })}
       {Array.from({ length: ymax - ymin + 1 }).map((_, k) => { const v = ymin + k; return v === 0 ? null : <T key={"yl" + k} x={x(0) - 10} y={y(v)} size={10} fill={SOFT} anchor="end">{v}</T> })}
       <T x={x(0) - 8} y={y(0) + 10} size={10} fill={SOFT} anchor="end">0</T>
+      {(f.lines || []).map(([[x1, y1], [x2, y2]], k) => <line key={"ln" + k} x1={x(x1)} y1={y(y1)} x2={x(x2)} y2={y(y2)} stroke={INK} strokeWidth={2} strokeDasharray="7 5" data-line={k} />)}
       {pts.length ? <polygon points={pts.map(([px, py]) => `${x(px)},${y(py)}`).join(" ")} fill={FILL} fillOpacity={0.18} stroke={FILL} strokeWidth={2} /> : null}
       {(f.points || []).map((p, k) => (
         <g key={k} data-x={p.x} data-y={p.y}>

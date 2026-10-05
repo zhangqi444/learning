@@ -453,3 +453,43 @@ Two things were found on the way that a single author could not have seen:
 
 **Still open:** Mock 3 (sat 23–29 November) to the same contract; the weekly banks;
 and a read of Mocks 1 and 2 by someone who did not write them.
+
+## Part 5 — Mock 3, and the three papers as one instrument (5 October)
+
+| | Mock 3 before | Mock 3 after | Mock 2 | Mock 1 |
+|---|---|---|---|---|
+| Items read off a figure, QR · MA | 0 · 0 | 22 · 16 | 23 · 16 | 21 · 17 |
+| Synonym headword Zipf median | 3.24 | 3.35 | 3.35 | 3.37 |
+| Phrase completions | 1 | 5 | 5 | 5 |
+| Passage length, words | 124–164 | 328–332 | 329–338 | 327–337 |
+| Passage Flesch–Kincaid | 8.3–10.9 | 6.0–6.6 | 5.8–6.7 | 5.8–6.9 |
+| Stems citing a line | 4 (as sentence tags) | 9 | 9 | 10 |
+| Choice sets in the official order, of those it can reach | 31 of 113 | 114 of 114 | 119 of 119 | 106 of 106 |
+| Difficulty tags, E · M · H | 32 · 73 · 22 | 44 · 57 · 26 | 44 · 57 · 26 | 44 · 57 · 26 |
+| Biography | none (an invented history) | Nellie Bly, sourced to her own 1890 book and PBS | Louis Braille | Mary Anning |
+
+The three papers she sits before the test now measure the same on every line, which is
+what makes a change from one to the next hers rather than the paper's. All three are
+in `OFFICIAL_FORMS`; the diagnostic stays as she sat it.
+
+What Mock 3 added to how a paper is made:
+
+- **Divide the scenarios and the names before writing.** Each section had its own
+  themes and its own initials; the paper came back with no two items sharing a
+  scenario and no name in two sections, where Mock 2 had needed eight rewrites.
+- **A blind second reader on every section.** The verbal author's blind reader found
+  two second answers (*translate* beside *decipher*, *crack* beside *break*), a set
+  whose answer was the odd one out, and two shortcuts that never failed across the
+  section: a choice that looks like the headword is never right, and when two choices
+  are opposites one of them is the key. Mock 3 now has three keys that look like their
+  headword and three opposite pairs that leave the key out. By the look-alike measure
+  Mock 2 has 7 of 17 synonyms with a look-alike wrong choice and Mock 1 has 3; neither
+  has had a blind read yet.
+- **The contact sheet catches what a test cannot.** This time it found that a half
+  symbol in a pictograph was drawn overlapping the whole one before it, so 2½ read as
+  2 — on every pictograph with a half in all three papers, including the two already
+  live. The half now sits in its own place. Grids can also draw a dashed line, so a
+  flip over a line shows the line instead of describing it.
+
+**Still open:** a blind read of Mocks 1 and 2, verbal first; the weekly banks to the
+same spec.
