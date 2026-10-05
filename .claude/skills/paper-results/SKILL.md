@@ -23,10 +23,11 @@ A record with `offline: true` is a paper sat on paper:
   `content/offline_mocks.json`. A paper a parent added has an id `P…` (the end of its
   page's address, `/mock/P…`) and carries its own shape in `def`: `name`, `sections`
   (`id`, `name`, `n`, `min`) and, on Verbal, `synonyms` — the last synonym question.
-- `sheets` — `{fileId: {id, name, addedAt, removed?}}` — photos of the marked sheet,
-  in the same Drive folder as `progress.json` ("Sheila ISEE Practice"). Skip any with
-  `removed`.
-- `file` — the paper's PDF in her Drive, if attached; `link` — a link to it.
+- `sheets` — `{fileId: {id, name, mime, addedAt, removed?}}` — the marked sheet, as a
+  scanned PDF or photos, in the same Drive folder as `progress.json` ("Sheila ISEE
+  Practice"). Skip any with `removed`.
+- `pages` — the paper itself, the same shape: a PDF, or a photo of each page. An older
+  record may instead carry one PDF as `file`. `link` — a link to the paper.
 - `entries` — results already entered; `tags` — skills a parent already picked.
 
 Mark the paper the parent names; if they do not name one, the one with the newest
@@ -36,10 +37,10 @@ found, say which account the connector sees and stop.
 
 ## 2. Read the sheet
 
-Download each photo (`download_file_content`), decode it to a file, and **look at
-it** — convert a HEIC first (`sips -s format jpeg in.heic --out in.jpg`), and crop
-each section at full resolution before reading it; a downscaled whole page loses
-the circles. For each section take:
+Download each file (`download_file_content`), decode it, and **look at it** —
+render a PDF to images first (`magick -density 200 sheet.pdf sheet-%02d.png`),
+convert a HEIC (`sips -s format jpeg in.heic --out in.jpg`), and crop each section
+at full resolution before reading it; a downscaled whole page loses the circles. For each section take:
 
 - the total written on it, if there is one;
 - every question number marked wrong — circled, crossed or ticked as wrong, however
@@ -57,7 +58,7 @@ site's own questions on it.
 - **TPR:** `content/offline_mocks.json` already maps every question. Nothing to do.
 - **Verbal** on any paper: filed by position (synonyms up to `synonyms`, sentence
   completions after). Nothing to do unless the paper is laid out differently.
-- **Everything else:** if the paper's PDF is attached (`file`) or linked, read each
+- **Everything else:** if the paper is attached (`pages`, or an older `file`) or linked, read each
   missed question there and choose the skill it tests from the bank's own list:
 
   ```bash

@@ -146,8 +146,8 @@ It may also carry `"tags": {"QR": {"12": "Data reasoning"}}`, filing a missed qu
 of the practice bank's skills so review can ask about it. `form` is a paper the site ships or one a
 parent added on the Mock exams page (its id, `P…`, is in its page's address).
 
-A parent can add photos or screenshots of the marked sheet on the paper's page; they go
-into her Drive folder beside the PDF (`mocks[<form>].sheets`). The site cannot read them
+A parent can add a scan or photos of the marked sheet on the paper's page; they go into
+her Drive folder beside the paper's own PDF or photos (`mocks[<form>].sheets` and `pages`). The site cannot read them
 — it has no server — so `.claude/skills/paper-results/` does: it reads the sheet, files
 each miss under a skill from the paper's PDF, and writes this JSON.
 

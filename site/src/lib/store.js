@@ -396,7 +396,7 @@ export const Store = {
           const later = (a, b) => (!a ? b : !b ? a : ts(b.at) > ts(a.at) ? b : a)
           const out = { ...newer, entries: Object.values(byId).sort((a, b) => ts(a.at) - ts(b.at)) }
           for (const f of ["def", "file", "link"]) { const v = later(L[f], R[f]); if (v) out[f] = v }
-          for (const f of ["tags", "redone", "sheets"]) {
+          for (const f of ["tags", "redone", "sheets", "pages"]) {
             if (!L[f] && !R[f]) continue
             const o = { ...(L[f] || {}) }
             for (const q of Object.keys(R[f] || {})) o[q] = later(o[q], R[f][q])

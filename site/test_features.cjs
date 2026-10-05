@@ -717,28 +717,37 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   check('it is added and opens on its own page, carrying its link',
     /^P[0-9A-Z]+$/.test(newId) && (await pg.getAttribute('[data-testid=paper-link-open]', 'href')) === 'https://example.com/test-a.pdf', newId);
   const pdfBytes = (n) => Buffer.concat([Buffer.from('%PDF-1.4\n'), Buffer.alloc(n, 32), Buffer.from('\n%%EOF\n')]);
-  await pg.setInputFiles('[data-testid=paper-pdf-input]', { name: 'test-a.pdf', mimeType: 'application/pdf', buffer: pdfBytes(2000) });
-  await pg.waitForSelector('[data-testid=paper-pdf]');
-  const smallPdf = await pg.$eval('[data-testid=paper-pdf]', (e) => e.dataset.file);
-  check('a PDF goes into her Drive folder as a PDF, and the page opens it there',
-    /^media\d+$/.test(smallPdf) && ((drive.media || {})[smallPdf] || {}).mime === 'application/pdf'
-    && (await pg.getAttribute('[data-testid=paper-pdf-open]', 'href')) === `https://drive.google.com/file/d/${smallPdf}/view`, JSON.stringify((drive.media || {})[smallPdf] || null));
-  await pg.setInputFiles('[data-testid=paper-pdf-input]', { name: 'test-a-full.pdf', mimeType: 'application/pdf', buffer: pdfBytes(5 * 1024 * 1024) });
-  await pg.waitForFunction((old) => { const e = document.querySelector('[data-testid=paper-pdf]'); return !!e && e.dataset.file !== old; }, smallPdf, { timeout: 30000 }).catch(() => {});
-  const bigPdf = await pg.$eval('[data-testid=paper-pdf]', (e) => e.dataset.file);
-  check('a PDF over Drive\'s 5 MB multipart limit goes up in a resumable session',
-    bigPdf !== smallPdf && !!((drive.media || {})[bigPdf] || {}).resumable && drive.media[bigPdf].size > 5 * 1024 * 1024, JSON.stringify((drive.media || {})[bigPdf] || null));
-  // A photo of the marked sheet goes beside the PDF, as a photo, and can be taken off again.
   const png1x1 = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==', 'base64');
-  await pg.setInputFiles('[data-testid=paper-sheet-input]', [{ name: 'sheet-1.png', mimeType: 'image/png', buffer: png1x1 }, { name: 'sheet-2.png', mimeType: 'image/png', buffer: png1x1 }]);
-  await pg.waitForFunction(() => document.querySelectorAll('[data-testid=paper-sheet]').length === 2, null, { timeout: 15000 }).catch(() => {});
-  const sheetIds = await pg.$$eval('[data-testid=paper-sheet]', (n) => n.map((e) => e.dataset.file));
-  check('photos of the marked sheet go into her Drive folder as photos, beside the PDF',
-    sheetIds.length === 2 && sheetIds.every((id) => ((drive.media || {})[id] || {}).mime === 'image/png'), JSON.stringify(sheetIds.map((id) => (drive.media || {})[id] || null)));
-  await pg.click('[data-testid=paper-sheet] >> nth=0 >> [data-testid=paper-sheet-remove]');
-  await pg.waitForFunction(() => document.querySelectorAll('[data-testid=paper-sheet]').length === 1);
+  const tiles = (t) => pg.$$eval(`[data-testid=${t}-item]`, (n) => n.map((e) => ({ id: e.dataset.file, kind: e.dataset.kind })));
+  const waitTiles = (t, k) => pg.waitForFunction(([t, k]) => document.querySelectorAll(`[data-testid=${t}-item]`).length === k, [t, k], { timeout: 30000 }).catch(() => {});
+  // The paper: a PDF, a second one over Drive's 5 MB multipart limit, and a photo of a page.
+  await pg.setInputFiles('[data-testid=paper-pages-input]', { name: 'test-a.pdf', mimeType: 'application/pdf', buffer: pdfBytes(2000) });
+  await waitTiles('paper-pages', 1);
+  const [smallPdf] = await tiles('paper-pages');
+  check('the paper as a PDF goes into her Drive folder as a PDF, and opens there',
+    !!smallPdf && smallPdf.kind === 'pdf' && ((drive.media || {})[smallPdf.id] || {}).mime === 'application/pdf'
+    && (await pg.getAttribute('[data-testid=paper-pages-open]', 'href')) === `https://drive.google.com/file/d/${smallPdf.id}/view`, JSON.stringify(smallPdf ? (drive.media || {})[smallPdf.id] : null));
+  await pg.setInputFiles('[data-testid=paper-pages-input]', { name: 'test-a-full.pdf', mimeType: 'application/pdf', buffer: pdfBytes(5 * 1024 * 1024) });
+  await waitTiles('paper-pages', 2);
+  const bigPdf = (await tiles('paper-pages')).find((t) => t.id !== smallPdf.id) || {};
+  check('a PDF over Drive\'s 5 MB multipart limit goes up in a resumable session',
+    !!((drive.media || {})[bigPdf.id] || {}).resumable && drive.media[bigPdf.id].size > 5 * 1024 * 1024, JSON.stringify((drive.media || {})[bigPdf.id] || null));
+  await pg.setInputFiles('[data-testid=paper-pages-input]', [{ name: 'page-1.png', mimeType: 'image/png', buffer: png1x1 }, { name: 'page-2.png', mimeType: 'image/png', buffer: png1x1 }]);
+  await waitTiles('paper-pages', 4);
+  const pageKinds = (await tiles('paper-pages')).map((t) => t.kind).join(',');
+  check('or as photos of its pages, several at once', pageKinds === 'pdf,pdf,image,image', pageKinds);
+  // The marked sheet: a scan or photos, and one can be taken off again.
+  await pg.setInputFiles('[data-testid=paper-sheets-input]', [{ name: 'sheet-1.png', mimeType: 'image/png', buffer: png1x1 }, { name: 'sheet-scan.pdf', mimeType: 'application/pdf', buffer: pdfBytes(1500) }]);
+  await waitTiles('paper-sheets', 2);
+  const sheetTiles = await tiles('paper-sheets');
+  check('the marked sheet goes in as a photo or a scanned PDF, into her Drive folder',
+    sheetTiles.map((t) => t.kind).join(',') === 'image,pdf' && sheetTiles.every((t) => ((drive.media || {})[t.id] || {}).mime === (t.kind === 'pdf' ? 'application/pdf' : 'image/png')), JSON.stringify(sheetTiles));
+  await pg.click('[data-testid=paper-sheets-item] >> nth=0 >> [data-testid=paper-sheets-remove]');
+  await waitTiles('paper-sheets', 1);
   check('and one can be taken off again, the other kept',
     (await pg.evaluate((id) => Object.values(JSON.parse(localStorage.getItem('isee.v1')).mocks[id].sheets || {}).filter((x) => !x.removed).length, newId)) === 1);
+  const notAccepted = await pg.evaluate(() => document.querySelector('[data-testid=paper-sheets-input]').accept);
+  check('both take a PDF or a photo', /application\/pdf/.test(notAccepted) && /image\/\*/.test(notAccepted) && (await pg.evaluate(() => document.querySelector('[data-testid=paper-pages-input]').multiple)), notAccepted);
   for (const [sec, v] of Object.entries({ VR: '32', QR: '35', RC: '23', MA: '27' })) await pg.fill(`[data-testid=offline-in-${sec}]`, v);
   await pg.fill('[data-testid=offline-missed-VR]', '3, 20');
   await pg.fill('[data-testid=offline-missed-QR]', '5, 9, 30');
@@ -765,7 +774,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   // here, and is older as a whole: both sides' work has to survive the merge.
   const remoteRec = () => { try { return (JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]).mocks || {})[newId] || null; } catch { return null; } };
   const reached = await until(() => { const r = remoteRec(); return r && r.redone && r.redone['VR:3'] && r.redone['VR:3'].done ? r : null; });
-  check('the paper, its file and its ticks reach her record in Drive', !!reached && !!reached.def && !!reached.file && reached.def.name === 'Workbook practice test A');
+  check('the paper, its files and its ticks reach her record in Drive', !!reached && !!reached.def && Object.keys(reached.pages || {}).length === 4 && reached.def.name === 'Workbook practice test A');
   {
     const j = JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]);
     const later = new Date(Date.now() + 3600e3).toISOString(), r = j.mocks[newId];

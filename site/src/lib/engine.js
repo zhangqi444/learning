@@ -972,22 +972,32 @@ export function markRedone(id, secId, n, done) {
   Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, redone: { ...(c.redone || {}), [`${secId}:${n}`]: { done: !!done, at } } }))
 }
 export function paperRedone(p, secId, n) { const r = ((p && p.rec && p.rec.redone) || {})[`${secId}:${n}`]; return !!(r && r.done) }
-/** A photo or screenshot of the marked answer sheet, kept in her Drive folder
- *  beside the paper's PDF. The site cannot read it — it has no server, and a
- *  browser cannot be trusted to read circled bubbles — so it is there for a parent
- *  to look back at and for Claude to read: the paper-results skill takes the scores
- *  and the circled numbers off it and hands them back as one import link. Each
- *  photo merges on its own, so two devices adding photos keep both. */
-export function addPaperSheet(id, file) {
+/** What is attached to a paper, each a PDF or a photo, kept in her Drive folder:
+ *  the paper itself (`pages` — a PDF, or a photo of each page of a booklet) and
+ *  the marked answer sheet (`sheets` — a scan, or photos once it is marked). The
+ *  site shows them and cannot read them: it has no server, and a browser cannot be
+ *  trusted to read circled bubbles. They are there for a parent to look back at
+ *  and for Claude to read — the paper-results skill takes the scores and the
+ *  circled numbers off a sheet and hands them back as one import link. Each file
+ *  merges on its own (Store.merge), so two devices adding files keep both. */
+export const PAPER_FIELDS = ["pages", "sheets"]
+export function addPaperAttachment(id, field, file) {
+  if (!PAPER_FIELDS.includes(field)) return
   const at = nowIso()
-  Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, sheets: { ...(c.sheets || {}), [file.id]: { id: file.id, name: String(file.name || "sheet").slice(0, 120), size: file.size || 0, addedAt: at, at } } }))
+  Store.setSlice("mocks", id, (c) => ({ ...c, offline: true, [field]: { ...(c[field] || {}), [file.id]: { id: file.id, name: String(file.name || "file").slice(0, 120), size: file.size || 0, mime: file.mime || "", addedAt: at, at } } }))
 }
-export function removePaperSheet(id, fid) {
+export function removePaperAttachment(id, field, fid) {
+  const rec = (Store.s.mocks || {})[id] || {}
+  if (field === "pages" && rec.file && rec.file.id === fid) return setPaperFile(id, null)   // the single PDF the first version kept
   const at = nowIso()
-  Store.setSlice("mocks", id, (c) => ({ ...c, sheets: { ...(c.sheets || {}), [fid]: { ...((c.sheets || {})[fid] || { id: fid }), removed: at, at } } }))
+  Store.setSlice("mocks", id, (c) => ({ ...c, [field]: { ...(c[field] || {}), [fid]: { ...((c[field] || {})[fid] || { id: fid }), removed: at, at } } }))
 }
-export function paperSheets(p) {
-  return Object.values((p && p.rec && p.rec.sheets) || {}).filter((x) => x && x.id && !x.removed).sort((a, b) => ts(a.addedAt) - ts(b.addedAt))
+export function paperAttachments(p, field) {
+  const rec = (p && p.rec) || {}
+  const out = Object.values(rec[field] || {}).filter((x) => x && x.id && !x.removed)
+  // The first version of this page kept one PDF as `file`; it is listed with the paper's own files.
+  if (field === "pages" && rec.file && rec.file.id && !out.some((x) => x.id === rec.file.id)) out.push({ ...rec.file, mime: "application/pdf", addedAt: rec.file.at })
+  return out.sort((x, y) => ts(x.addedAt) - ts(y.addedAt))
 }
 /** Take a paper a parent added off the list and out of the score band, or put it
  *  back. Nothing she did on it is deleted: the results stay in her record and the

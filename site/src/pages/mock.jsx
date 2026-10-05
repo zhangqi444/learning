@@ -22,7 +22,7 @@ import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { learnName } from "@/lib/aops"
 import { LearnCard } from "@/components/learn-card"
-import { ISEE_LOWER_SECTIONS, STANINE, addPaperSheet, createOfflinePaper, markRedone, paperSheets, removePaperSheet, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
+import { ISEE_LOWER_SECTIONS, STANINE, addPaperAttachment, createOfflinePaper, markRedone, paperAttachments, removePaperAttachment, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
 
 /* ---------- state helpers ---------- */
 export function mockState(form) { return Store.s.mocks[form] || { sections: {} } }
@@ -289,69 +289,119 @@ export function OfflineMock({ form }) {
   )
 }
 
-/* ---------- the paper itself: its PDF or a link ----------
+/* ---------- what is attached to a paper ----------
  *
- * The questions are the book's, so they are never copied into the site: a PDF goes
- * into her own Google Drive folder — the app's scope is drive.file, so it can see
- * that file and nothing else of hers — and the page links to it there. A link is
- * kept as typed. Either is in her record only, private to her account. */
+ * The paper itself and the marked answer sheet, each as a PDF or as photos — a
+ * booklet is usually photographed page by page, and a sheet scanned or snapped.
+ * The questions are the book's, so they are never copied into the site: every
+ * file goes into her own Google Drive folder — the app's scope is drive.file, so it
+ * can see those files and nothing else of hers — and opens there. All of it is in
+ * her record only, private to her account. */
 const MULTIPART_MAX = 4.5 * 1024 * 1024   // Drive takes up to 5 MB in one multipart request
-async function uploadPaperPdf(id, file) {
-  const up = file.size > MULTIPART_MAX ? Store.uploadLarge : Store.uploadMedia
-  const fid = await up.call(Store, file.name || "paper.pdf", file, "application/pdf")
-  if (fid) setPaperFile(id, { id: fid, name: file.name, size: file.size })
-  return fid
-}
-const isPdf = (f) => f && (f.type === "application/pdf" || /\.pdf$/i.test(f.name || ""))
+const ACCEPT = "application/pdf,.pdf,image/*,.heic,.heif"
+const isPdf = (f) => !!f && (f.type === "application/pdf" || f.mime === "application/pdf" || /\.pdf$/i.test(f.name || ""))
+const isImage = (f) => !!f && (/^image\//.test(f.type || f.mime || "") || /\.(jpe?g|png|heic|heif|webp|gif)$/i.test(f.name || ""))
+const notPaperFiles = (files) => files.filter((f) => !isPdf(f) && !isImage(f))
 const mb = (n) => (n / (1024 * 1024)).toFixed(n < 10 * 1024 * 1024 ? 1 : 0) + " MB"
+/** Upload files to her Drive folder and attach each to the paper. Resolves to how many arrived. */
+async function attachPaperFiles(id, field, files) {
+  let ok = 0
+  for (const f of files) {
+    const mime = isPdf(f) ? "application/pdf" : f.type || "image/jpeg"
+    const up = f.size > MULTIPART_MAX ? Store.uploadLarge : Store.uploadMedia
+    const fid = await up.call(Store, f.name || (isPdf(f) ? "paper.pdf" : "page.jpg"), f, mime)
+    if (fid) { addPaperAttachment(id, field, { id: fid, name: f.name, size: f.size, mime }); ok++ }
+  }
+  return ok
+}
+
+function AttachmentTile({ att, onRemove, testid }) {
+  const pdf = isPdf(att)
+  const [src, setSrc] = React.useState(null)
+  const [broken, setBroken] = React.useState(false)
+  React.useEffect(() => {
+    if (pdf) return undefined
+    let url = null, live = true
+    Store.mediaUrl(att.id).then((u) => { url = u; if (live) setSrc(u); else if (u) URL.revokeObjectURL(u) })
+    return () => { live = false; if (url) URL.revokeObjectURL(url) }
+  }, [att.id, pdf])
+  return (
+    <li className="flex w-36 flex-col gap-1.5" data-testid={`${testid}-item`} data-file={att.id} data-kind={pdf ? "pdf" : "image"}>
+      <a href={`https://drive.google.com/file/d/${att.id}/view`} target="_blank" rel="noreferrer" title="Open in Google Drive" data-testid={`${testid}-open`}
+        className="bg-muted/40 hover:bg-muted flex aspect-[3/4] flex-col items-center justify-center gap-1 overflow-hidden rounded-md border">
+        {pdf ? (
+          <><FileText className="text-muted-foreground size-8" /><span className="text-muted-foreground text-xs font-medium tabular-nums">PDF{att.size ? ` · ${mb(att.size)}` : ""}</span></>
+        ) : src && !broken ? <img src={src} alt={att.name} className="h-full w-full object-cover" onError={() => setBroken(true)} /> : <ImageIcon className="text-muted-foreground size-8" />}
+      </a>
+      <div className="flex items-center justify-between gap-1 text-xs">
+        <span className="text-muted-foreground truncate" title={att.name}>{att.name}</span>
+        <button type="button" className="text-muted-foreground hover:text-destructive shrink-0" onClick={onRemove} aria-label={`Remove ${att.name}`} data-testid={`${testid}-remove`}><Trash2 className="size-3.5" /></button>
+      </div>
+    </li>
+  )
+}
+
+/** The files on one side of a paper — the paper itself, or the marked sheet — and a
+ *  control to add more: PDFs or photos, several at a time. */
+function AttachmentList({ p, field, testid, addLabel }) {
+  useStore()
+  const list = paperAttachments(p, field)
+  const [busy, setBusy] = React.useState(false)
+  const [msg, setMsg] = React.useState(null)
+  const canUpload = DRIVE_ENABLED && !!Store.folderId
+  async function onFiles(e) {
+    const files = [...(e.target.files || [])]
+    e.target.value = ""
+    if (!files.length) return
+    const bad = notPaperFiles(files)
+    if (bad.length) return setMsg({ err: true, text: `${bad.map((f) => f.name).join(", ")}: only a PDF or a photo can be added.` })
+    setBusy(true)
+    setMsg({ err: false, text: `Uploading ${files.length === 1 ? `${files[0].name} (${mb(files[0].size)})` : `${files.length} files`} to her Google Drive…` })
+    const ok = await attachPaperFiles(p.id, field, files)
+    setBusy(false)
+    setMsg(ok === files.length
+      ? { err: false, text: ok === 1 ? "It is in her Google Drive folder." : `All ${ok} are in her Google Drive folder.` }
+      : { err: true, text: `${files.length - ok} of ${files.length} did not upload. Try those again, or put them in her Google Drive yourself and paste a link.` })
+  }
+  return (
+    <div className="flex flex-col gap-3" data-testid={testid} data-n={list.length}>
+      {list.length ? (
+        <ul className="flex flex-wrap gap-3">
+          {list.map((x) => <AttachmentTile key={x.id} att={x} testid={testid} onRemove={() => { if (confirm(`Take ${x.name} off this paper? It stays in her Google Drive.`)) { removePaperAttachment(p.id, field, x.id); setMsg(null) } }} />)}
+        </ul>
+      ) : null}
+      {canUpload ? (
+        <label className="flex flex-col gap-1.5 self-start">
+          <span className={cn("border-input hover:bg-accent inline-flex h-9 cursor-pointer items-center gap-2 rounded-md border px-3 text-sm", busy && "pointer-events-none opacity-60")}>
+            <Upload className="size-4" /> {list.length ? "Add more" : addLabel}
+            <input type="file" accept={ACCEPT} multiple className="sr-only" onChange={onFiles} data-testid={`${testid}-input`} />
+          </span>
+          <span className="text-muted-foreground text-xs">A PDF or photos — several at once is fine.</span>
+        </label>
+      ) : <span className="text-muted-foreground text-xs">Sign in with Google to upload files into her Drive.</span>}
+      {msg ? <p className={cn("text-sm", msg.err ? "text-destructive" : "text-muted-foreground")} data-testid={`${testid}-msg`}>{msg.text}</p> : null}
+    </div>
+  )
+}
 
 function PaperFileCard({ p }) {
   useStore()
-  const rec = p.rec || {}
-  const file = rec.file && rec.file.id ? rec.file : null
-  const link = rec.link && rec.link.url ? rec.link : null
+  const link = p.rec && p.rec.link && p.rec.link.url ? p.rec.link : null
   const [url, setUrl] = React.useState("")
-  const [busy, setBusy] = React.useState(false)
   const [msg, setMsg] = React.useState(null)
-  const [shown, setShown] = React.useState(null)
-  React.useEffect(() => () => { if (shown) URL.revokeObjectURL(shown) }, [shown])
-  const canUpload = DRIVE_ENABLED && !!Store.folderId
-  async function onFile(e) {
-    const f = e.target.files && e.target.files[0]
-    e.target.value = ""
-    if (!f) return
-    if (!isPdf(f)) return setMsg({ err: true, text: "That is not a PDF." })
-    setBusy(true); setMsg({ err: false, text: `Uploading ${f.name} (${mb(f.size)}) to her Google Drive…` })
-    const ok = await uploadPaperPdf(p.id, f)
-    setBusy(false)
-    setMsg(ok ? { err: false, text: "The PDF is in her Google Drive folder." } : { err: true, text: "The upload did not go through. Try again, or put the file in her Google Drive yourself and paste its link." })
-  }
   function saveLink() {
     const u = url.trim()
     if (!/^https?:\/\/\S+$/i.test(u)) return setMsg({ err: true, text: "A link starts with https://" })
     setPaperLink(p.id, u); setUrl(""); setMsg({ err: false, text: "Link saved." })
   }
-  async function showHere() {
-    setBusy(true)
-    const u = await Store.mediaUrl(file.id)
-    setBusy(false)
-    if (u) setShown(u); else setMsg({ err: true, text: "Could not load the PDF from Drive. Open it in Drive instead." })
-  }
   return (
     <Card className="gap-3 py-5" data-testid="paper-file">
       <CardHeader className="px-5">
         <CardTitle>The paper</CardTitle>
-        <CardDescription>The questions stay in the PDF or behind the link: they are never copied into the site. A PDF goes into her own Google Drive folder, private to her account.</CardDescription>
+        <CardDescription>The paper as a PDF or photos of its pages, or a link to it. The questions stay there: they are never copied into the site. Files go into her own Google Drive folder, private to her account.</CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-3 px-5">
-        {file ? (
-          <div className="flex flex-wrap items-center gap-2 text-sm" data-testid="paper-pdf" data-file={file.id}>
-            <FileText className="text-muted-foreground size-4" /><span className="font-medium">{file.name}</span>{file.size ? <span className="text-muted-foreground tabular-nums">{mb(file.size)}</span> : null}
-            <Button asChild size="sm" variant="outline"><a href={`https://drive.google.com/file/d/${file.id}/view`} target="_blank" rel="noreferrer" data-testid="paper-pdf-open"><ExternalLink /> Open the PDF</a></Button>
-            <Button size="sm" variant="ghost" onClick={showHere} disabled={busy} data-testid="paper-pdf-show">Show it here</Button>
-            <Button size="sm" variant="ghost" className="text-muted-foreground" onClick={() => { if (confirm("Take the PDF off this paper? It stays in her Google Drive.")) setPaperFile(p.id, null) }}>Detach</Button>
-          </div>
-        ) : null}
+      <CardContent className="flex flex-col gap-4 px-5">
+        <AttachmentList p={p} field="pages" testid="paper-pages" addLabel="Add the PDF or photos" />
         {link ? (
           <div className="flex flex-wrap items-center gap-2 text-sm" data-testid="paper-link">
             <Link2 className="text-muted-foreground size-4" /><span className="max-w-full truncate">{link.url}</span>
@@ -359,23 +409,11 @@ function PaperFileCard({ p }) {
             <Button size="sm" variant="ghost" className="text-muted-foreground" onClick={() => setPaperLink(p.id, null)}>Remove link</Button>
           </div>
         ) : null}
-        {shown ? <iframe src={shown} title={p.name} className="h-[70vh] w-full rounded-md border" data-testid="paper-pdf-frame" /> : null}
-        <div className="flex flex-wrap items-end gap-3">
-          {canUpload ? (
-            <label className="flex flex-col gap-1.5">
-              <span className="text-muted-foreground text-xs">{file ? "Replace the PDF" : "Upload the PDF"}</span>
-              <span className={cn("border-input hover:bg-accent inline-flex h-9 cursor-pointer items-center gap-2 rounded-md border px-3 text-sm", busy && "pointer-events-none opacity-60")}>
-                <Upload className="size-4" /> Choose a PDF
-                <input type="file" accept="application/pdf,.pdf" className="sr-only" onChange={onFile} data-testid="paper-pdf-input" />
-              </span>
-            </label>
-          ) : <span className="text-muted-foreground text-xs">Sign in with Google to upload a PDF into her Drive.</span>}
-          <div className="flex min-w-56 flex-1 flex-col gap-1.5">
-            <Label htmlFor="paper-url" className="text-muted-foreground text-xs">{link ? "Change the link" : "Or paste a link"}</Label>
-            <div className="flex gap-2">
-              <Input id="paper-url" value={url} onChange={(e) => { setUrl(e.target.value); setMsg(null) }} placeholder="https://…" data-testid="paper-url" />
-              <Button size="sm" variant="outline" className="h-9" onClick={saveLink} disabled={!url.trim()} data-testid="paper-url-save">Save link</Button>
-            </div>
+        <div className="flex min-w-56 flex-col gap-1.5">
+          <Label htmlFor="paper-url" className="text-muted-foreground text-xs">{link ? "Change the link" : "Or paste a link"}</Label>
+          <div className="flex gap-2">
+            <Input id="paper-url" value={url} onChange={(e) => { setUrl(e.target.value); setMsg(null) }} placeholder="https://…" data-testid="paper-url" />
+            <Button size="sm" variant="outline" className="h-9" onClick={saveLink} disabled={!url.trim()} data-testid="paper-url-save">Save link</Button>
           </div>
         </div>
         {msg ? <p className={cn("text-sm", msg.err ? "text-destructive" : "text-muted-foreground")} data-testid="paper-file-msg">{msg.text}</p> : null}
@@ -386,74 +424,20 @@ function PaperFileCard({ p }) {
 
 /* ---------- the marked answer sheet ----------
  *
- * Photos or screenshots of the sheet once it is marked, kept in her Drive folder.
- * The site cannot read them; the paper-results skill can, and sends the scores,
- * the missed numbers and their skills back as one link (docs/review.md). */
-function SheetThumb({ sheet, onRemove }) {
-  const [src, setSrc] = React.useState(null)
-  const [broken, setBroken] = React.useState(false)
-  React.useEffect(() => {
-    let url = null, live = true
-    Store.mediaUrl(sheet.id).then((u) => { url = u; if (live) setSrc(u); else if (u) URL.revokeObjectURL(u) })
-    return () => { live = false; if (url) URL.revokeObjectURL(url) }
-  }, [sheet.id])
-  return (
-    <li className="flex w-40 flex-col gap-1.5" data-testid="paper-sheet" data-file={sheet.id}>
-      <a href={`https://drive.google.com/file/d/${sheet.id}/view`} target="_blank" rel="noreferrer" className="bg-muted/40 flex aspect-[3/4] items-center justify-center overflow-hidden rounded-md border" title="Open in Google Drive">
-        {src && !broken ? <img src={src} alt={sheet.name} className="h-full w-full object-cover" onError={() => setBroken(true)} /> : <ImageIcon className="text-muted-foreground size-8" />}
-      </a>
-      <div className="flex items-center justify-between gap-1 text-xs">
-        <span className="text-muted-foreground truncate" title={sheet.name}>{sheet.name}</span>
-        <button type="button" className="text-muted-foreground hover:text-destructive shrink-0" onClick={onRemove} aria-label={`Remove ${sheet.name}`} data-testid="paper-sheet-remove"><Trash2 className="size-3.5" /></button>
-      </div>
-    </li>
-  )
-}
+ * A scan or photos of the sheet once it is marked. The site cannot read them; the
+ * paper-results skill can, and sends the scores, the missed numbers and their
+ * skills back as one link (docs/review.md). */
 function PaperSheetsCard({ p }) {
   useStore()
-  const sheets = paperSheets(p)
-  const [busy, setBusy] = React.useState(false)
-  const [msg, setMsg] = React.useState(null)
   const canUpload = DRIVE_ENABLED && !!Store.folderId
-  if (!canUpload && !sheets.length) return null
-  async function onFiles(e) {
-    const list = [...(e.target.files || [])]
-    e.target.value = ""
-    if (!list.length) return
-    const bad = list.filter((f) => !/^image\//.test(f.type || "") && !/\.(jpe?g|png|heic|heif|webp|gif)$/i.test(f.name || ""))
-    if (bad.length) return setMsg({ err: true, text: `${bad.map((f) => f.name).join(", ")} ${bad.length === 1 ? "is" : "are"} not a photo.` })
-    setBusy(true); setMsg({ err: false, text: `Uploading ${list.length === 1 ? list[0].name : list.length + " photos"} to her Google Drive…` })
-    let ok = 0
-    for (const f of list) {
-      const up = f.size > MULTIPART_MAX ? Store.uploadLarge : Store.uploadMedia
-      const fid = await up.call(Store, f.name || "sheet.jpg", f, f.type || "image/jpeg")
-      if (fid) { addPaperSheet(p.id, { id: fid, name: f.name, size: f.size }); ok++ }
-    }
-    setBusy(false)
-    setMsg(ok === list.length ? { err: false, text: ok === 1 ? "The photo is in her Google Drive folder." : `${ok} photos are in her Google Drive folder.` } : { err: true, text: `${list.length - ok} of ${list.length} did not upload. Try those again.` })
-  }
+  if (!canUpload && !paperAttachments(p, "sheets").length) return null
   return (
-    <Card className="gap-3 py-5" data-testid="paper-sheets" data-n={sheets.length}>
+    <Card className="gap-3 py-5" data-testid="paper-sheet-card">
       <CardHeader className="px-5">
         <CardTitle className="flex items-center gap-2"><Camera className="size-4" /> The marked answer sheet</CardTitle>
-        <CardDescription>Photos or screenshots of the sheet once it is marked, kept in her own Google Drive folder. The site cannot read a photo by itself. Claude can: ask it to mark this paper, and it sends the scores, the missed questions and their skills back as one link to open here.</CardDescription>
+        <CardDescription>A scan or photos of the sheet once it is marked, kept in her own Google Drive folder. The site cannot read them by itself. Claude can: ask it to mark this paper, and it sends the scores, the missed questions and their skills back as one link to open here.</CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-3 px-5">
-        {sheets.length ? (
-          <ul className="flex flex-wrap gap-3">
-            {sheets.map((sh) => <SheetThumb key={sh.id} sheet={sh} onRemove={() => { if (confirm(`Take ${sh.name} off this paper? It stays in her Google Drive.`)) { removePaperSheet(p.id, sh.id); setMsg(null) } }} />)}
-          </ul>
-        ) : null}
-        {canUpload ? (
-          <label className="flex flex-col gap-1.5 self-start">
-            <span className={cn("border-input hover:bg-accent inline-flex h-9 cursor-pointer items-center gap-2 rounded-md border px-3 text-sm", busy && "pointer-events-none opacity-60")}>
-              <Upload className="size-4" /> {sheets.length ? "Add more photos" : "Add photos of the sheet"}
-              <input type="file" accept="image/*,.heic,.heif" multiple className="sr-only" onChange={onFiles} data-testid="paper-sheet-input" />
-            </span>
-          </label>
-        ) : null}
-        {msg ? <p className={cn("text-sm", msg.err ? "text-destructive" : "text-muted-foreground")} data-testid="paper-sheet-msg">{msg.text}</p> : null}
-      </CardContent>
+      <CardContent className="px-5"><AttachmentList p={p} field="sheets" testid="paper-sheets" addLabel="Add the scan or photos" /></CardContent>
     </Card>
   )
 }
@@ -517,7 +501,7 @@ export function AddPaper() {
   const [name, setName] = React.useState("")
   const [source, setSource] = React.useState("")
   const [link, setLink] = React.useState("")
-  const [file, setFile] = React.useState(null)
+  const [files, setFiles] = React.useState([])
   const [counts, setCounts] = React.useState(() => Object.fromEntries(ISEE_LOWER_SECTIONS.map((s) => [s.id, String(s.n)])))
   const [syn, setSyn] = React.useState("17")
   const [busy, setBusy] = React.useState(false)
@@ -527,7 +511,7 @@ export function AddPaper() {
     const errs = [], url = link.trim()
     if (!name.trim()) errs.push("Give the paper a name")
     if (url && !/^https?:\/\/\S+$/i.test(url)) errs.push("A link starts with https://")
-    if (file && !isPdf(file)) errs.push("The file must be a PDF")
+    if (notPaperFiles(files).length) errs.push("Only a PDF or photos can be added")
     const sections = ISEE_LOWER_SECTIONS.map((s) => ({ ...s, n: Number(counts[s.id]) }))
     if (sections.some((s) => !Number.isInteger(s.n) || s.n < 1 || s.n > 80)) errs.push("Each section needs a number of questions from 1 to 80")
     const vr = sections.find((s) => s.id === "VR"), sy = Number(syn)
@@ -535,9 +519,9 @@ export function AddPaper() {
     if (errs.length) return setMsg({ err: true, text: errs.join(". ") + "." })
     setBusy(true)
     const id = createOfflinePaper({ name, source, sections, synonyms: sy, link: url || null })
-    if (file) {
-      setMsg({ err: false, text: `Uploading ${file.name} (${mb(file.size)}) to her Google Drive…` })
-      await uploadPaperPdf(id, file)   // the paper's page says if it did not arrive, and offers to try again
+    if (files.length) {
+      setMsg({ err: false, text: `Uploading ${files.length === 1 ? files[0].name : files.length + " files"} to her Google Drive…` })
+      await attachPaperFiles(id, "pages", files)   // the paper's page shows what arrived, and takes more
     }
     go("/mock/" + id)
   }
@@ -562,10 +546,10 @@ export function AddPaper() {
           </div>
           <div className="grid grid-cols-1 gap-3 @md/main:grid-cols-2">
             <label className="flex flex-col gap-1.5">
-              <span className="text-sm font-medium">The PDF <span className="text-muted-foreground font-normal">(optional)</span></span>
+              <span className="text-sm font-medium">The paper: a PDF or photos <span className="text-muted-foreground font-normal">(optional)</span></span>
               {canUpload ? (
-                <input type="file" accept="application/pdf,.pdf" onChange={(e) => { setFile((e.target.files && e.target.files[0]) || null); setMsg(null) }} className="text-sm file:mr-3 file:rounded-md file:border file:border-input file:bg-transparent file:px-3 file:py-1.5" data-testid="paper-add-file" />
-              ) : <span className="text-muted-foreground text-sm">Sign in with Google to upload a PDF into her Drive.</span>}
+                <input type="file" accept={ACCEPT} multiple onChange={(e) => { setFiles([...(e.target.files || [])]); setMsg(null) }} className="text-sm file:mr-3 file:rounded-md file:border file:border-input file:bg-transparent file:px-3 file:py-1.5" data-testid="paper-add-file" />
+              ) : <span className="text-muted-foreground text-sm">Sign in with Google to upload files into her Drive.</span>}
             </label>
             <div className="flex flex-col gap-1.5">
               <Label htmlFor="pa-link">Or a link <span className="text-muted-foreground font-normal">(optional)</span></Label>
