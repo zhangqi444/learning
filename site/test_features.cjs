@@ -2532,6 +2532,62 @@ async function setLs(pg, mutate, read, ms = 12000) {
     && (await pg.$('[data-testid=choice][data-state=checked]')) === null,
     (await pg.textContent('[data-testid=counter]')).trim());
 
+  /* The two formats of the real paper the site could not show until 4 October
+     2026: a passage with numbered lines, and a question read off a figure
+     (docs/isee-item-spec.md). Found from the bundle rather than by id, so the
+     check follows whichever form carries them, and it fails outright when none
+     does — a spec no form is written to is a spec nobody follows. The raw
+     `[¶1]`/`[S3]` authoring tags that Mock 2 and Mock 3 printed on her screen for
+     a month are asserted absent here, on the page, not only in the file. */
+  console.log('== numbered lines and figures');
+  const spec = await pg.evaluate(async () => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const out = { passage: null, figure: null, tagged: [] };
+    const lineCount = (x) => x.trim().split(/\n\s*\n/).filter((p) => p.trim()).reduce((n, p) => n + p.split('\n').length, 0);
+    for (const form of Object.keys(b.mockItems)) for (const sec of Object.keys(b.mockItems[form])) b.mockItems[form][sec].forEach((q, i) => {
+      const p = q.p && b.passages[q.p];
+      if (!out.passage && p && p.l) out.passage = { form, sec, i, id: q.p, lines: lineCount(p.x) };
+      if (!out.figure && q.f) out.figure = { form, sec, i, type: q.f.type };
+      if (p && /\[(¶|S)\d+\]/.test(p.x)) out.tagged.push(q.p);
+    });
+    return out;
+  });
+  check('some mock passage is line-numbered and some mock item carries a figure', !!spec.passage && !!spec.figure, JSON.stringify({ p: spec.passage, f: spec.figure }));
+  check('no mock passage carries an authoring tag', spec.tagged.length === 0, [...new Set(spec.tagged)].join(','));
+  const openAt = async ({ form, sec, i }) => {
+    await pg.evaluate(({ form, sec }) => {
+      const s = JSON.parse(localStorage.getItem('isee.v1'));
+      s.mocks[form] = s.mocks[form] || { sections: {} }; s.mocks[form].sections = s.mocks[form].sections || {};
+      s.mocks[form].sections[sec] = { started: Date.now() - 60000, endsAt: Date.now() + 20 * 60000, picks: {}, flags: {}, times: {} };
+      localStorage.setItem('isee.v1', JSON.stringify(s)); location.hash = `#/mock/${form}/${sec}`;
+    }, { form, sec });
+    await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=mock-timer]');
+    await pg.click('text=All questions'); await pg.click(`[data-testid=mock-jump][data-i="${i}"]`);
+    await pg.waitForSelector('[data-testid=question]');
+  };
+  if (spec.passage) {
+    await openAt(spec.passage);
+    await pg.waitForSelector('[data-testid=passage][data-lines]');
+    const nLines = (await pg.$$('[data-testid=passage-line]')).length;
+    const firstN = await pg.$eval('[data-testid=passage-line]', (e) => e.dataset.n);
+    check('the passage prints every authored line with its number, from 1', nLines === spec.passage.lines && firstN === '1', `${nLines} lines on screen, ${spec.passage.lines} authored, first numbered ${firstN}`);
+    check('and nothing on the page is an authoring tag', !/\[(¶|S)\d+\]/.test(await body(pg)));
+  }
+  if (spec.figure) {
+    await openAt(spec.figure);
+    await pg.waitForSelector('[data-testid=figure]');
+    const fig = await pg.$eval('[data-testid=figure]', (e) => ({ type: e.dataset.type, drawn: !!(e.querySelector('svg') || e.querySelector('table')) }));
+    check('the figure is drawn under the question, of the type the item declares', fig.type === spec.figure.type && fig.drawn, JSON.stringify(fig));
+    await pg.screenshot({ path: 'shot-figure.png', fullPage: false });
+    // The verification habit's other two looks, taken here so they exist on every
+    // run: phone width, and dark mode, where an SVG drawn in hard-coded colours
+    // would vanish into the background.
+    await pg.setViewportSize({ width: 390, height: 844 }); await pg.emulateMedia({ colorScheme: 'dark' });
+    await pg.waitForTimeout(300); await pg.screenshot({ path: 'shot-figure-phone-dark.png', fullPage: false });
+    if (spec.passage) { await openAt(spec.passage); await pg.waitForSelector('[data-testid=passage][data-lines]'); await pg.screenshot({ path: 'shot-passage-phone-dark.png', fullPage: false }); }
+    await pg.emulateMedia({ colorScheme: 'light' }); await pg.setViewportSize({ width: 1280, height: 900 });
+  }
+
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });
   await b.close(); srv.close();

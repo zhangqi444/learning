@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Generate site/content/bundle.json from the repo content banks."""
-import json, re, os
+import glob, json, re, os
 BANKS={'vr':['vr-september.json','vr-weeks5-8.json'],'qr':['qr-september.json','qr-weeks5-8.json'],
        'ma':['ma-september.json','ma-weeks5-8.json'],'rc':['rc-september.json','rc-weeks5-8.json']}
 out={'version':'2026.09.01','subjects':{},'passages':{}}
@@ -18,12 +18,22 @@ for sub,files in BANKS.items():
             # actually did. Only carried when authored, so the bundle does not
             # grow an empty key on 1,300 questions.
             if it.get('why'): q['y']=it['why']
+            # The picture a question is read off (tools/itemspec.py FIGURES;
+            # drawn by site/src/components/figure.jsx). Carried only when authored.
+            if it.get('figure'): q['f']=it['figure']
             items.append(q)
     items.sort(key=lambda i:(int(i['w'][1:]), i['id']))
     out['subjects'][sub]=items
+# `l` marks a passage authored line by line (tools/itemspec.py, passage_lines):
+# the page numbers its lines the way the ISEE booklet does, and its questions
+# may say "line 14". A passage without it prints as paragraphs, as before.
+def passage_out(p):
+    o={'t':p.get('title',''),'x':p['text']}
+    if p.get('lines'): o['l']=True
+    return o
 for f in ['rc-september-passages.json','rc-weeks5-8-passages.json']:
     for p in json.load(open(f'content/passages/{f}'))['items']:
-        out['passages'][p['id']]={'t':p.get('title',''),'x':p['text']}
+        out['passages'][p['id']]=passage_out(p)
 out['weeks']=[{'w':'W1','label':'Aug 31 – Sep 6'},{'w':'W2','label':'Sep 7 – 13'},
  {'w':'W3','label':'Sep 14 – 20'},{'w':'W4','label':'Sep 28 – Oct 4'},
  {'w':'W5','label':'Oct 5 – 11'},{'w':'W6','label':'Oct 12 – 18'},
@@ -36,10 +46,13 @@ out['breaks']=[{'label':'Sep 21 – 27','what':'Split baseline mock'},
 # ---- Session 1 precision review (VR), essay programme, mocks, calendar ----
 out['precision']=json.load(open('content/precision.json'))
 out['essay']=json.load(open('content/essay.json'))
-mock_bank=json.load(open('content/question-banks/mock.json'))['items']
+# One file per form (the owner's ask, 4 October 2026: a paper is a file, so a rework
+# replaces one file and its diff reads as one paper), and the passages the same way.
+mock_bank=[i for f in sorted(glob.glob('content/question-banks/mock-*.json')) for i in json.load(open(f))['items']]
 mock_essays=json.load(open('content/mock_essays.json'))
-for p in json.load(open('content/passages/mock-passages.json'))['items']:
-    out['passages'][p['id']]={'t':p.get('title',''),'x':p['text']}
+for f in sorted(glob.glob('content/passages/mock-*-passages.json')):
+    for p in json.load(open(f))['items']:
+        out['passages'][p['id']]=passage_out(p)
 FORMS=[('DGN','Split diagnostic','Baseline, split across two sittings: Part A = VR + QR, Part B = RC + MA + Essay','Sep 21 – 27','2026-09-21','DIAGNOSTIC',True),
        ('M01','Mock 1','Full length, one sitting, after the first four-week cycle','Oct 19 – 25','2026-10-19','MOCK 1',False),
        ('M02','Mock 2','Full length, one sitting, after the second four-week cycle','Nov 2 – 8','2026-11-02','MOCK 2',False),
@@ -54,7 +67,7 @@ for fid,name,blurb,label,start,ekey,split in FORMS:
         assert len(its)==n,(fid,sid,len(its))
         out['mockItems'][fid][sid]=[{**{'id':i['id'],'sk':i.get('skill',''),'d':i.get('difficulty',''),'q':i['prompt'],
             'c':[i['choices'][k] for k in 'ABCD'],'k':i['correct'],'e':i.get('explanation',''),'p':i.get('passage_id','')},
-            **({'y':i['why']} if i.get('why') else {})} for i in its]
+            **({'y':i['why']} if i.get('why') else {}), **({'f':i['figure']} if i.get('figure') else {})} for i in its]
         secs.append({'id':sid,'name':sname,'n':n,'min':mins,'part':'A' if sid in ('VR','QR') else 'B'})
     secs.insert(2,{'id':'BREAK1','name':'Break','min':10,'part':'A'})
     secs.append({'id':'BREAK2','name':'Break','min':10,'part':'B'})
@@ -65,7 +78,13 @@ for fid,name,blurb,label,start,ekey,split in FORMS:
 # key of its own rather than in `mocks`, because everything that reads `mocks` —
 # the band, readiness, backfill, the Den, the rewards — would otherwise count a
 # result nobody has decided should count (AGENTS.md, "A paper sat on paper").
-out['offlineMocks']=json.load(open('content/offline_mocks.json'))['forms']
+# The question→skill map a paper carries (`skills`) is data the page uses; a
+# `_note` beside it is for the next author and is stripped like every other.
+def _strip_note_keys(o):
+    if isinstance(o,dict): return {k:_strip_note_keys(v) for k,v in o.items() if not k.endswith('_note')}
+    if isinstance(o,list): return [_strip_note_keys(v) for v in o]
+    return o
+out['offlineMocks']=_strip_note_keys(json.load(open('content/offline_mocks.json'))['forms'])
 for f in out['offlineMocks']:
     assert f['id'] not in {x[0] for x in FORMS},f['id']
     assert [(s['id'],s['n'],s['min']) for s in f['sections']]==[(a,n,m) for a,_,n,m in SECTIONS],f['id']

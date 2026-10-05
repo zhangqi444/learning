@@ -1,0 +1,4213 @@
+{
+  "bank": "mock",
+  "form": "M01",
+  "schema_version": "1.0",
+  "content_version": "2026.10.04",
+  "items": [
+    {
+      "id": "M01-VR-001",
+      "subject": "VR",
+      "skill": "synonym—verb",
+      "difficulty": "E",
+      "prompt": "DEVOUR most nearly means:",
+      "choices": {
+        "A": "chew",
+        "B": "eat",
+        "C": "swallow",
+        "D": "taste"
+      },
+      "correct": "B",
+      "explanation": "To devour is to eat something quickly and hungrily, the way a starving dog finishes its dinner in seconds. Eat is the plain word for it.",
+      "misconceptions": "picks one step of eating (chew, swallow) for the whole; taste is the opposite amount",
+      "why": {
+        "A": "Chew is one step of eating—grinding food with the teeth—so it names a part of the act, not the whole hungry rush of devouring.",
+        "C": "Swallow is the other step of eating, getting the food down; it is a piece of devouring, not its meaning.",
+        "D": "Taste is to try a small amount of something, close to the opposite of gulping all of it down."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "fa8716b45c3a6550"
+    },
+    {
+      "id": "M01-VR-002",
+      "subject": "VR",
+      "skill": "synonym—verb",
+      "difficulty": "E",
+      "prompt": "HOIST most nearly means:",
+      "choices": {
+        "A": "haul",
+        "B": "lift",
+        "C": "lower",
+        "D": "tie"
+      },
+      "correct": "B",
+      "explanation": "To hoist is to raise something up, often with a rope or a pulley: a crew hoists a sail, a scout hoists the flag.",
+      "misconceptions": "haul moves a load along, not up; lower is the opposite; tie comes from the rope",
+      "why": {
+        "A": "Haul means to pull or drag something heavy along, usually across the ground; it moves a load, but not upward.",
+        "C": "Lower is the opposite motion: a flag is hoisted up the pole in the morning and lowered at night.",
+        "D": "Tie comes from the rope: ropes are what you hoist with, but tying fastens something in place; it does not raise it."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "62da044e429392d3"
+    },
+    {
+      "id": "M01-VR-003",
+      "subject": "VR",
+      "skill": "synonym—verb",
+      "difficulty": "E",
+      "prompt": "CONQUER most nearly means:",
+      "choices": {
+        "A": "defeat",
+        "B": "defend",
+        "C": "invade",
+        "D": "surrender"
+      },
+      "correct": "A",
+      "explanation": "To conquer is to defeat an enemy and take control of its people or land by force.",
+      "misconceptions": "picks another war word: invade (entering), defend (the other side), surrender (the loser)",
+      "why": {
+        "B": "Defend is to protect a place against an attack—the other side of the battle from conquering it.",
+        "C": "Invade means to enter a place by force; an army can invade a country and still fail to conquer it.",
+        "D": "Surrender is to give up, which is what the conquered side does, not the conqueror."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "0c86ce258cc4efff"
+    },
+    {
+      "id": "M01-VR-004",
+      "subject": "VR",
+      "skill": "synonym—adjective",
+      "difficulty": "E",
+      "prompt": "DENSE most nearly means:",
+      "choices": {
+        "A": "dark",
+        "B": "deep",
+        "C": "thick",
+        "D": "wide"
+      },
+      "correct": "C",
+      "explanation": "Dense means closely packed, with little space between the parts: a dense forest has trees growing thickly together, and dense fog is hard to see through.",
+      "misconceptions": "dark is a result of density, not its meaning; deep and wide are other measurements",
+      "why": {
+        "A": "Dark describes how little light there is; a dense forest is often dark, but that is a result of the crowding, not the meaning of the word.",
+        "B": "Deep measures how far down or how far in something goes, not how tightly it is packed.",
+        "D": "Wide measures how far across something stretches, not how crowded it is."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "0a7efaa2e89e4c07"
+    },
+    {
+      "id": "M01-VR-005",
+      "subject": "VR",
+      "skill": "synonym—noun",
+      "difficulty": "E",
+      "prompt": "TRIUMPH most nearly means:",
+      "choices": {
+        "A": "battle",
+        "B": "contest",
+        "C": "prize",
+        "D": "victory"
+      },
+      "correct": "D",
+      "explanation": "A triumph is a great victory or success—the kind that is celebrated.",
+      "misconceptions": "battle and contest are the event, prize is the reward; only victory is the outcome",
+      "why": {
+        "A": "Battle is the fight itself, which can end in a triumph or in a defeat.",
+        "B": "Contest is the competition; a triumph is how one ends, not the event.",
+        "C": "Prize is what a winner is handed afterward, not the winning itself."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "1b3e4f4de532b16c"
+    },
+    {
+      "id": "M01-VR-006",
+      "subject": "VR",
+      "skill": "synonym—adjective",
+      "difficulty": "M",
+      "prompt": "FRIGID most nearly means:",
+      "choices": {
+        "A": "cold",
+        "B": "damp",
+        "C": "foggy",
+        "D": "windy"
+      },
+      "correct": "A",
+      "explanation": "Frigid means extremely cold, as in a frigid January morning; the word is a cousin of refrigerator.",
+      "misconceptions": "picks another weather word: damp, foggy, windy",
+      "why": {
+        "B": "Damp means slightly wet; winter air can be frigid and perfectly dry.",
+        "C": "Foggy is about mist hanging in the air, a different kind of weather altogether.",
+        "D": "Windy describes moving air; wind can make a day feel colder, but frigid names the cold itself."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "ae9e83e32a234931"
+    },
+    {
+      "id": "M01-VR-007",
+      "subject": "VR",
+      "skill": "synonym—adjective",
+      "difficulty": "M",
+      "prompt": "TART most nearly means:",
+      "choices": {
+        "A": "salty",
+        "B": "sour",
+        "C": "spicy",
+        "D": "sweet"
+      },
+      "correct": "B",
+      "explanation": "Tart means sharply sour, like a lemon or an apple picked too early.",
+      "misconceptions": "picks another taste; sweet is the trap, because a tart from a bakery is sweet",
+      "why": {
+        "A": "Salty is a different taste, the one that comes from salt, not the sharp bite of a lemon.",
+        "C": "Spicy is the hot burn of pepper, not the sharpness of unripe fruit.",
+        "D": "Sweet is the opposite taste—and the pastry called a tart is sweet, which is the trap in this word."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "9417df565de705b1"
+    },
+    {
+      "id": "M01-VR-008",
+      "subject": "VR",
+      "skill": "synonym—adverb",
+      "difficulty": "M",
+      "prompt": "SELDOM most nearly means:",
+      "choices": {
+        "A": "always",
+        "B": "never",
+        "C": "often",
+        "D": "rarely"
+      },
+      "correct": "D",
+      "explanation": "Seldom means not often—hardly ever. Snow seldom falls in the desert.",
+      "misconceptions": "never overshoots the meaning; often and always are the opposite end",
+      "why": {
+        "A": "Always is the far opposite end of how often something happens.",
+        "B": "Never goes one step too far: something that seldom happens still happens once in a while.",
+        "C": "Often is the opposite of seldom."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "3cde424b4c8cc051"
+    },
+    {
+      "id": "M01-VR-009",
+      "subject": "VR",
+      "skill": "synonym—adjective",
+      "difficulty": "M",
+      "prompt": "VALIANT most nearly means:",
+      "choices": {
+        "A": "brave",
+        "B": "noble",
+        "C": "proud",
+        "D": "violent"
+      },
+      "correct": "A",
+      "explanation": "Valiant means showing great courage, as in a valiant rescue or a valiant effort.",
+      "misconceptions": "noble and proud travel with knights but are not courage; violent is a sound-alike",
+      "why": {
+        "B": "Noble means of high character or high rank; knights were called noble, so the words travel together, but noble is not about courage.",
+        "C": "Proud is how a person feels about themselves; a valiant act may make someone proud, but pride is not the meaning.",
+        "D": "Violent looks and sounds a little like valiant, and both can describe a fight, but violent means using force to hurt, not brave."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "4fe2adf8afc4e038"
+    },
+    {
+      "id": "M01-VR-010",
+      "subject": "VR",
+      "skill": "synonym—noun",
+      "difficulty": "M",
+      "prompt": "MISHAP most nearly means:",
+      "choices": {
+        "A": "accident",
+        "B": "mess",
+        "C": "mistake",
+        "D": "surprise"
+      },
+      "correct": "A",
+      "explanation": "A mishap is an unlucky accident, usually a small one—a dropped tray, a bus missed by a minute.",
+      "misconceptions": "mistake confuses bad luck with a wrong choice; mess is the result; surprise can be good",
+      "why": {
+        "B": "Mess is what a mishap may leave behind on the floor, not the unlucky event itself.",
+        "C": "Mistake is a wrong action or wrong answer that a person makes; a mishap is a stroke of bad luck that nobody chose.",
+        "D": "Surprise is anything unexpected, good or bad; a mishap is unlucky by definition."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "0bf339b17ad7a943"
+    },
+    {
+      "id": "M01-VR-011",
+      "subject": "VR",
+      "skill": "synonym—verb",
+      "difficulty": "M",
+      "prompt": "SUMMON most nearly means:",
+      "choices": {
+        "A": "call",
+        "B": "dismiss",
+        "C": "greet",
+        "D": "send"
+      },
+      "correct": "A",
+      "explanation": "To summon is to call someone to come, usually with authority: a judge summons a witness, and the bell summons students to class.",
+      "misconceptions": "dismiss and send move people away; greet is what happens after they arrive",
+      "why": {
+        "B": "Dismiss is the opposite—to send people away once they are no longer needed.",
+        "C": "Greet is what happens after someone arrives; summoning is the call that brings them.",
+        "D": "Send moves someone away from you; to summon is to bring someone to you."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "80f03e33e367530b"
+    },
+    {
+      "id": "M01-VR-012",
+      "subject": "VR",
+      "skill": "synonym—verb",
+      "difficulty": "M",
+      "prompt": "THRIVE most nearly means:",
+      "choices": {
+        "A": "fail",
+        "B": "struggle",
+        "C": "succeed",
+        "D": "survive"
+      },
+      "correct": "C",
+      "explanation": "To thrive is to grow or develop well—to flourish, as a plant thrives in rich soil or a business thrives in a busy town.",
+      "misconceptions": "survive stops short of thriving; struggle and fail are the opposite",
+      "why": {
+        "A": "Fail is the opposite of thriving.",
+        "B": "Struggle means to have a hard time; a plant that struggles is the reverse of one that thrives.",
+        "D": "Survive means only to stay alive; a plant can survive a drought without thriving, so the word stops short."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "825d931a28c97c7a"
+    },
+    {
+      "id": "M01-VR-013",
+      "subject": "VR",
+      "skill": "synonym—adjective",
+      "difficulty": "M",
+      "prompt": "ADEQUATE most nearly means:",
+      "choices": {
+        "A": "enough",
+        "B": "extra",
+        "C": "perfect",
+        "D": "plenty"
+      },
+      "correct": "A",
+      "explanation": "Adequate means enough to meet a need—satisfactory, and no more than that.",
+      "misconceptions": "plenty and extra overshoot; perfect is higher praise than adequate gives",
+      "why": {
+        "B": "Extra means more than what is needed, where adequate means just what is needed.",
+        "C": "Perfect means without a single fault; adequate is lower praise—it means good enough.",
+        "D": "Plenty means a large, generous amount, more than enough."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "3ab6843a9d1da96b"
+    },
+    {
+      "id": "M01-VR-014",
+      "subject": "VR",
+      "skill": "synonym—noun",
+      "difficulty": "H",
+      "prompt": "AILMENT most nearly means:",
+      "choices": {
+        "A": "cure",
+        "B": "illness",
+        "C": "injury",
+        "D": "medicine"
+      },
+      "correct": "B",
+      "explanation": "An ailment is an illness, especially a mild or lingering one—a cold, a cough, an aching back. The word comes from ail, to be unwell.",
+      "misconceptions": "cure and medicine are what treats an ailment; injury is harm from outside, not sickness",
+      "why": {
+        "A": "Cure is what ends an ailment—the other side of it.",
+        "C": "Injury is harm from an outside cause, such as a fall or a cut; an ailment is a sickness within the body itself.",
+        "D": "Medicine is what treats an ailment, not the ailment."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "e232b7dd7a862524"
+    },
+    {
+      "id": "M01-VR-015",
+      "subject": "VR",
+      "skill": "synonym—noun",
+      "difficulty": "H",
+      "prompt": "OMEN most nearly means:",
+      "choices": {
+        "A": "curse",
+        "B": "dream",
+        "C": "sign",
+        "D": "wish"
+      },
+      "correct": "C",
+      "explanation": "An omen is a sign of something to come, good or bad—a red sky at dawn that sailors took as a warning of storms.",
+      "misconceptions": "curse causes harm rather than hinting at it; dream and wish are about the future but are not signs",
+      "why": {
+        "A": "Curse is a wish for harm to fall on someone; an omen does not cause anything, it only hints at what is coming.",
+        "B": "Dream is something seen in sleep; people once searched their dreams for omens, but the dream is not the omen.",
+        "D": "Wish is what a person hopes will happen; an omen is a hint of what will happen whether anyone hopes for it or not."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "56d8f4d2ac490b3c"
+    },
+    {
+      "id": "M01-VR-016",
+      "subject": "VR",
+      "skill": "synonym—verb",
+      "difficulty": "H",
+      "prompt": "COAX most nearly means:",
+      "choices": {
+        "A": "comfort",
+        "B": "command",
+        "C": "persuade",
+        "D": "tease"
+      },
+      "correct": "C",
+      "explanation": "To coax is to persuade someone gently and patiently, with kind words or small rewards—coaxing a shy kitten out from under the bed.",
+      "misconceptions": "comfort shares the gentle tone but talks no one into anything; command is the opposite manner; tease is a poke",
+      "why": {
+        "A": "Comfort is to ease the sadness of someone who is upset—the same gentle tone as coaxing, but no one is being talked into anything.",
+        "B": "Command means to order someone to do something; coaxing is the opposite in manner—soft where a command is firm.",
+        "D": "Tease means to make fun of someone or pester them playfully; coaxing is gentle, and teasing is a poke."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "5dd6d514575f1d8e"
+    },
+    {
+      "id": "M01-VR-017",
+      "subject": "VR",
+      "skill": "synonym—adverb",
+      "difficulty": "H",
+      "prompt": "CHIEFLY most nearly means:",
+      "choices": {
+        "A": "bravely",
+        "B": "finally",
+        "C": "mainly",
+        "D": "nearly"
+      },
+      "correct": "C",
+      "explanation": "Chiefly means mainly or mostly—for the most part. The chief part of something is its main part.",
+      "misconceptions": "bravely pictures a chief as a bold leader; finally is about time; nearly is almost rather than mostly",
+      "why": {
+        "A": "Bravely comes from picturing a chief as a bold leader; the adverb has nothing to do with courage.",
+        "B": "Finally means at last—it is about time, not about amount.",
+        "D": "Nearly means almost; something that is chiefly true is mostly true, not almost true."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "5ce860ea8a3f91eb"
+    },
+    {
+      "id": "M01-VR-018",
+      "subject": "VR",
+      "skill": "sentence completion—cause clue",
+      "difficulty": "E",
+      "prompt": "Since the old wooden bridge was built to carry only people on foot, a sign at each end ____ cars and trucks.",
+      "choices": {
+        "A": "allows",
+        "B": "forbids",
+        "C": "slows",
+        "D": "welcomes"
+      },
+      "correct": "B",
+      "explanation": "Since gives the reason: a bridge meant only for walkers cannot take vehicles, so the sign must keep cars and trucks off—it forbids them.",
+      "misconceptions": "reads the clue backward (allows, welcomes); picks a speed-limit sign (slows)",
+      "why": {
+        "A": "Allows turns the clue around: if the bridge carries only people on foot, the sign cannot be letting vehicles on.",
+        "C": "Slows is what a speed-limit sign does; it treats the bridge as safe for careful driving when the sentence says it is for walkers only.",
+        "D": "Welcomes is the reverse of what a foot-traffic-only bridge needs its sign to do."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "46f813eee943c58b"
+    },
+    {
+      "id": "M01-VR-019",
+      "subject": "VR",
+      "skill": "sentence completion—contrast clue",
+      "difficulty": "E",
+      "prompt": "Although the final rehearsal of the school play had been full of mistakes, the opening-night performance was ____.",
+      "choices": {
+        "A": "flawless",
+        "B": "lively",
+        "C": "loud",
+        "D": "sloppy"
+      },
+      "correct": "A",
+      "explanation": "Although sets up a reversal: a rehearsal full of mistakes leads us to expect a bad performance, so the night itself must have been the opposite—flawless.",
+      "misconceptions": "ignores although and continues the mistakes (sloppy); picks a pleasant stage word that does not answer the contrast (lively, loud)",
+      "why": {
+        "B": "Lively is a pleasant thing to say about a performance, but a lively show can still be full of mistakes, so it does not answer the although.",
+        "C": "Loud describes the volume of the night, which has nothing to do with whether the mistakes were gone.",
+        "D": "Sloppy carries the mistakes of the rehearsal straight into the performance, which is what although tells us did not happen."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "3d28e9b443b6c477"
+    },
+    {
+      "id": "M01-VR-020",
+      "subject": "VR",
+      "skill": "sentence completion—contrast clue",
+      "difficulty": "E",
+      "prompt": "Although the sea appears motionless from the beach, strong ____ beneath its surface can pull a swimmer far from shore.",
+      "choices": {
+        "A": "currents",
+        "B": "ripples",
+        "C": "waves",
+        "D": "winds"
+      },
+      "correct": "A",
+      "explanation": "Although contrasts the still-looking surface with something moving underneath it; the only thing that flows beneath the surface and pulls a swimmer along is a current.",
+      "misconceptions": "picks surface movement (waves, ripples) that would be visible; picks air instead of water (winds)",
+      "why": {
+        "B": "Ripples are tiny movements on top of the water, far too small to pull anyone anywhere, and they would show on the surface the sentence calls motionless.",
+        "C": "Waves rise on the surface where they can be seen, so they cannot be the hidden force beneath a sea that looks motionless.",
+        "D": "Winds blow through the air above the water, not beneath its surface."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "839692bcd7aa0fce"
+    },
+    {
+      "id": "M01-VR-021",
+      "subject": "VR",
+      "skill": "sentence completion—cause clue",
+      "difficulty": "E",
+      "prompt": "The climbers set out before dawn so that they could stand on the ____ of the mountain before the afternoon storms arrived.",
+      "choices": {
+        "A": "base",
+        "B": "slope",
+        "C": "summit",
+        "D": "trail"
+      },
+      "correct": "C",
+      "explanation": "So that gives the purpose of the early start: the one place that takes all morning to reach is the top of the mountain, its summit.",
+      "misconceptions": "picks a part of the mountain that needs no early start (base, trail, slope)",
+      "why": {
+        "A": "Base is the bottom of the mountain, where the climbers already were when they set out; it takes no early start to stand there.",
+        "B": "Slope is the side of the mountain, which the climbers are on from the first step; nothing about it explains leaving before dawn.",
+        "D": "Trail is the path they walk, under their feet the whole way, not a goal to reach before the storms."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "833b79e057f20642"
+    },
+    {
+      "id": "M01-VR-022",
+      "subject": "VR",
+      "skill": "sentence completion—definition clue",
+      "difficulty": "E",
+      "prompt": "Frogs spend the first part of their lives in water and the rest mostly on land, which is why scientists classify them as ____.",
+      "choices": {
+        "A": "amphibians",
+        "B": "insects",
+        "C": "mammals",
+        "D": "reptiles"
+      },
+      "correct": "A",
+      "explanation": "The sentence defines the word before it names it: an animal that lives first in water and then on land is an amphibian, from a Greek word meaning both kinds of life.",
+      "misconceptions": "reptiles is the common mix-up for frogs; insects and mammals are other animal classes that do not fit the two-part life",
+      "why": {
+        "B": "Insects have six legs and a hard outer shell; nothing in the sentence points to them, and a frog is not one.",
+        "C": "Mammals are warm-blooded animals with fur that feed their young milk, and they do not begin life in water the way frogs do.",
+        "D": "Reptiles is the usual mix-up, because snakes and lizards also have scaly-looking skin, but reptiles hatch on land and stay there; the water-then-land life is what makes a frog an amphibian."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "f814e310a7a7600b"
+    },
+    {
+      "id": "M01-VR-023",
+      "subject": "VR",
+      "skill": "sentence completion—definition clue",
+      "difficulty": "M",
+      "prompt": "Bats, owls, and raccoons are ____ animals: they rest during the day and become active after dark.",
+      "choices": {
+        "A": "furry",
+        "B": "migratory",
+        "C": "nocturnal",
+        "D": "playful"
+      },
+      "correct": "C",
+      "explanation": "The colon introduces the definition: animals that sleep by day and move about at night are nocturnal, from the Latin word for night.",
+      "misconceptions": "picks a true-sounding fact about some of the animals (furry) or another kind of animal behavior (migratory, playful) instead of the behavior the colon defines",
+      "why": {
+        "A": "Furry fits bats and raccoons but not owls, and it describes their coats, not the day-and-night habit the colon spells out.",
+        "B": "Migratory animals travel long distances with the seasons; that is a different habit from resting by day and waking at night.",
+        "D": "Playful describes a mood, not a schedule; the sentence is about when these animals are active."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "a8f0493a57b36060"
+    },
+    {
+      "id": "M01-VR-024",
+      "subject": "VR",
+      "skill": "sentence completion—example clue",
+      "difficulty": "M",
+      "prompt": "The traveling exhibit filled the library’s hall with ____ from many lands: a clay vase, a carved wooden mask, a woven blanket.",
+      "choices": {
+        "A": "artifacts",
+        "B": "fossils",
+        "C": "maps",
+        "D": "paintings"
+      },
+      "correct": "A",
+      "explanation": "The examples after the colon decide it: a vase, a mask, and a blanket are handmade objects from past cultures, which is what artifacts means.",
+      "misconceptions": "picks another thing a museum shows (paintings, fossils, maps) that the three examples are not",
+      "why": {
+        "B": "Fossils are the remains of ancient plants and animals preserved in rock; a vase, a mask, and a blanket were made by people.",
+        "C": "Maps show places; none of the three examples is a map.",
+        "D": "Paintings is what an exhibit usually brings to mind, but a vase, a mask, and a blanket are not paintings—they are objects."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "7a113d183fd889e8"
+    },
+    {
+      "id": "M01-VR-025",
+      "subject": "VR",
+      "skill": "sentence completion—contrast clue",
+      "difficulty": "M",
+      "prompt": "While a steel bolt sinks the moment it touches water, a cork is ____ enough to float.",
+      "choices": {
+        "A": "buoyant",
+        "B": "firm",
+        "C": "rough",
+        "D": "solid"
+      },
+      "correct": "A",
+      "explanation": "While sets the sinking bolt against the floating cork, so the blank must name the quality that lets something float: buoyant.",
+      "misconceptions": "picks a strength word (firm, solid) as if sturdiness kept things afloat; rough describes texture",
+      "why": {
+        "B": "Firm means not easily bent or pressed; a steel bolt is firmer than a cork and sinks anyway, so firmness is not what floats.",
+        "C": "Rough describes the texture of the surface, which has nothing to do with sinking or floating.",
+        "D": "Solid means not hollow or not liquid; the bolt is solid too, and it sinks, so solid cannot be what keeps the cork up."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "226b6fb701cfe4c3"
+    },
+    {
+      "id": "M01-VR-026",
+      "subject": "VR",
+      "skill": "sentence completion—cause clue",
+      "difficulty": "M",
+      "prompt": "Because the castle’s outer wall was several feet thick, attackers found it nearly impossible to ____.",
+      "choices": {
+        "A": "climb",
+        "B": "defend",
+        "C": "penetrate",
+        "D": "surround"
+      },
+      "correct": "C",
+      "explanation": "Because links the thickness of the wall to what it prevented: a wall several feet thick cannot be broken through, so the attackers could not penetrate it.",
+      "misconceptions": "picks the wrong property of a wall (thick is not tall, so climb does not follow); surround depends on size, not thickness; defend is the other side",
+      "why": {
+        "A": "Climb is defeated by a wall that is tall, not one that is thick; the sentence gives the thickness as the reason.",
+        "B": "Defend is what the people inside the castle do; attackers are not trying to defend the wall.",
+        "D": "Surround depends on how far around the wall runs, and a thick wall is no harder to circle than a thin one."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "4b462eec5777ecc4"
+    },
+    {
+      "id": "M01-VR-027",
+      "subject": "VR",
+      "skill": "sentence completion—example clue",
+      "difficulty": "M",
+      "prompt": "After the storm, Wren walked the beach picking up the ____ that the waves had left behind—broken boards, tangled rope, and pieces of a wooden dock.",
+      "choices": {
+        "A": "debris",
+        "B": "footprints",
+        "C": "puddles",
+        "D": "seaweed"
+      },
+      "correct": "A",
+      "explanation": "The list after the dash gives the meaning: broken boards, rope, and pieces of a dock are scattered wreckage, which is what debris means.",
+      "misconceptions": "picks another thing found on a beach after a storm (seaweed, puddles, footprints) that the list is not",
+      "why": {
+        "B": "Footprints cannot be picked up, and boards and rope are not footprints.",
+        "C": "Puddles are pools of water left on the sand; the sentence lists solid things she is picking up.",
+        "D": "Seaweed is what the sea usually leaves on a beach, but the list names broken pieces of things people built, not plants."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "f7a758e1c90b782f"
+    },
+    {
+      "id": "M01-VR-028",
+      "subject": "VR",
+      "skill": "sentence completion—cause clue",
+      "difficulty": "H",
+      "prompt": "The town council moved its meeting to the school gym because the usual room could not ____ such a large crowd.",
+      "choices": {
+        "A": "accommodate",
+        "B": "attract",
+        "C": "control",
+        "D": "impress"
+      },
+      "correct": "A",
+      "explanation": "Because gives the reason for moving: the usual room did not have space for everyone, so it could not accommodate the crowd—hold it comfortably.",
+      "misconceptions": "picks a verb about the crowd’s behavior (control) or feelings (impress, attract) instead of the room’s size",
+      "why": {
+        "B": "Attract means to draw people in; the crowd had already come—too many of them—so attracting was not the room’s problem.",
+        "C": "Control is about managing how a crowd behaves, which a room cannot do; the sentence is about how many people fit.",
+        "D": "Impress means to make people admire something, and nobody moves a meeting because a room is not impressive enough."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "e437dca63d692d7c"
+    },
+    {
+      "id": "M01-VR-029",
+      "subject": "VR",
+      "skill": "sentence completion—contrast clue",
+      "difficulty": "H",
+      "prompt": "Unlike the ____ letters of a printed page, handwriting changes from one person to the next.",
+      "choices": {
+        "A": "curly",
+        "B": "fancy",
+        "C": "slanted",
+        "D": "uniform"
+      },
+      "correct": "D",
+      "explanation": "Unlike demands the opposite of changing from person to person: printed letters are all the same, which is what uniform means when it describes things rather than clothing.",
+      "misconceptions": "picks a word that describes letters (curly, fancy, slanted) without answering the contrast with handwriting that changes",
+      "why": {
+        "A": "Curly describes the shape of some lettering, but curly letters could still differ from one page to the next, so it draws no contrast with changing handwriting.",
+        "B": "Fancy letters can vary as much as plain ones; the sentence needs the quality of always being the same.",
+        "C": "Slanted is how italic letters lean, and handwriting slants too, so it is not what sets print apart."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "b274de8576fa3625"
+    },
+    {
+      "id": "M01-VR-030",
+      "subject": "VR",
+      "skill": "phrase completion—contrast clue",
+      "difficulty": "E",
+      "prompt": "Unlike the oak, which drops its leaves every autumn, the pine ____.",
+      "choices": {
+        "A": "has rough bark",
+        "B": "grows in sandy soil",
+        "C": "is home to many birds",
+        "D": "stays green all year long"
+      },
+      "correct": "D",
+      "explanation": "Unlike sets up an opposite: the oak loses its leaves each year, so the pine must do the reverse and keep its needles, staying green all year.",
+      "misconceptions": "picks a true-sounding fact about pines that is not the opposite of dropping leaves",
+      "why": {
+        "A": "Has rough bark describes the pine without answering unlike; oaks have rough bark too.",
+        "B": "Grows in sandy soil is a fact about where a pine lives, not the opposite of dropping leaves, which is what unlike asks for.",
+        "C": "Is home to many birds could be said of the oak just as well, so it draws no contrast between the two trees."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "e94f687b4b7c8df8"
+    },
+    {
+      "id": "M01-VR-031",
+      "subject": "VR",
+      "skill": "phrase completion—cause clue",
+      "difficulty": "M",
+      "prompt": "Because sailors long ago had no instruments to show where their ship was, they ____.",
+      "choices": {
+        "A": "steered by the stars",
+        "B": "built their ships of oak",
+        "C": "traded goods at every port",
+        "D": "painted their ships bright colors"
+      },
+      "correct": "A",
+      "explanation": "Because promises a result of having no instruments: with nothing to show their position, sailors found it from the sky, steering by the stars.",
+      "misconceptions": "picks something sailors did anyway (trading, painting, building) that does not follow from lacking instruments",
+      "why": {
+        "B": "Built their ships of oak is about what the ship was made from, which has nothing to do with knowing where the ship was.",
+        "C": "Traded goods at every port is something sailors did whether or not they had instruments; it is not a result of lacking them.",
+        "D": "Painted their ships bright colors would help other people see the ship, not help the sailors know where they were."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "65807fdbaaca089a"
+    },
+    {
+      "id": "M01-VR-032",
+      "subject": "VR",
+      "skill": "phrase completion—contrast clue",
+      "difficulty": "M",
+      "prompt": "The sculptor usually worked in marble, but for the garden fountain she ____.",
+      "choices": {
+        "A": "carved a figure of a heron",
+        "B": "used bronze instead of stone",
+        "C": "polished every surface by hand",
+        "D": "worked on it for several months"
+      },
+      "correct": "B",
+      "explanation": "But signals a change from her usual marble, so the ending must name something different—a figure made of bronze instead of stone.",
+      "misconceptions": "picks an action she could do in marble too (carving, polishing, taking months), so the but has nothing to turn on",
+      "why": {
+        "A": "Carved a figure of a heron names a subject she could carve in marble as easily as anything else, so it changes nothing the but could point to.",
+        "C": "Polished every surface by hand is finishing work she would do on marble as well; there is no contrast in it.",
+        "D": "Worked on it for several months tells how long the job took, not what was different about it; marble takes months too."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "fabd2a0d4fcbf32d"
+    },
+    {
+      "id": "M01-VR-033",
+      "subject": "VR",
+      "skill": "phrase completion—contrast clue",
+      "difficulty": "E",
+      "prompt": "Many people long ago never traveled more than a few miles from home, while others ____.",
+      "choices": {
+        "A": "stayed in one house all their lives",
+        "B": "crossed oceans to settle in new lands",
+        "C": "farmed the land their parents had farmed",
+        "D": "married neighbors they had known as children"
+      },
+      "correct": "B",
+      "explanation": "While sets the others against the people who never traveled, so the ending must describe the opposite—going far away, across oceans to new lands.",
+      "misconceptions": "picks another picture of a life spent at home, repeating the first half instead of contrasting with it",
+      "why": {
+        "A": "Stayed in one house all their lives describes the same stay-at-home people, so it repeats the first half of the sentence instead of contrasting with it.",
+        "C": "Farmed the land their parents had farmed also keeps people where they were born; it is the same side of the contrast.",
+        "D": "Married neighbors they had known as children is one more picture of a life spent close to home."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "c0c1f9449896f333"
+    },
+    {
+      "id": "M01-VR-034",
+      "subject": "VR",
+      "skill": "phrase completion—contrast clue",
+      "difficulty": "H",
+      "prompt": "Although the recipe said the cake would need an hour in the oven, Jonah ____.",
+      "choices": {
+        "A": "measured the flour carefully",
+        "B": "set a timer for one full hour",
+        "C": "took it out after forty minutes",
+        "D": "greased the pan before pouring the batter"
+      },
+      "correct": "C",
+      "explanation": "Although means Jonah did not follow the hour the recipe gave, so the ending must go against it—taking the cake out after only forty minutes.",
+      "misconceptions": "picks an ordinary baking step that agrees with the recipe or has nothing to do with the time, so although has nothing to work against",
+      "why": {
+        "A": "Measured the flour carefully is a step that has nothing to do with the baking time the although points at.",
+        "B": "Set a timer for one full hour follows the recipe’s hour exactly, which is agreement, and although needs disagreement.",
+        "D": "Greased the pan before pouring the batter is ordinary preparation, not a break from the recipe’s hour."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "705a0449798e2ae4"
+    },
+    {
+      "id": "M01-QR-001",
+      "subject": "QR",
+      "skill": "numbers and operations—choosing the operation",
+      "difficulty": "E",
+      "prompt": "Dev buys 3 packs of pencils with 8 pencils in each pack, then gives 5 pencils to his cousin. Which number sentence shows how many pencils Dev has left?",
+      "choices": {
+        "A": "3 + 8 − 5",
+        "B": "3 × 8 − 5",
+        "C": "3 × 8 + 5",
+        "D": "3 × (8 − 5)"
+      },
+      "correct": "B",
+      "explanation": "Three packs of 8 pencils is 3 × 8 pencils, and giving 5 away takes 5 off, so the sentence is 3 × 8 − 5.",
+      "misconceptions": "adds the packs to the pencils per pack; adds the pencils given away; subtracts 5 from every pack",
+      "why": {
+        "A": "3 + 8 − 5 adds the number of packs to the pencils in one pack; 3 packs of 8 pencils means 3 × 8.",
+        "C": "3 × 8 + 5 adds the 5 pencils Dev gave away instead of taking them off.",
+        "D": "3 × (8 − 5) takes 5 pencils out of every pack, but Dev gave away 5 pencils in all."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "450c9b5d8241da60"
+    },
+    {
+      "id": "M01-QR-002",
+      "subject": "QR",
+      "skill": "data and probability—reading a bar graph",
+      "difficulty": "E",
+      "prompt": "The graph shows the favorite pet of each student in Ms. Okafor's class. How many students chose a pet other than a dog?",
+      "figure": {
+        "type": "bar",
+        "title": "Favorite pets",
+        "x": "Pet",
+        "y": "Students",
+        "step": 1,
+        "bars": [
+          {
+            "label": "Dog",
+            "value": 9
+          },
+          {
+            "label": "Cat",
+            "value": 7
+          },
+          {
+            "label": "Fish",
+            "value": 4
+          },
+          {
+            "label": "Bird",
+            "value": 2
+          }
+        ]
+      },
+      "choices": {
+        "A": "6",
+        "B": "9",
+        "C": "11",
+        "D": "13"
+      },
+      "correct": "D",
+      "explanation": "The cat, fish, and bird bars reach 7, 4, and 2, and 7 + 4 + 2 = 13.",
+      "misconceptions": "leaves out the cat bar; reads the dog bar; leaves out the bird bar",
+      "why": {
+        "A": "6 is 4 + 2, the fish and bird bars; the 7 students who chose a cat are left out.",
+        "B": "9 is the height of the dog bar, the one group the question leaves out.",
+        "C": "11 is 7 + 4, the cat and fish bars; the 2 students who chose a bird are left out."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "a6d8f031ac2fbd9d"
+    },
+    {
+      "id": "M01-QR-003",
+      "subject": "QR",
+      "skill": "numbers and operations—place value",
+      "difficulty": "E",
+      "prompt": "Ravi writes a four-digit number. It has a 4 in the thousands place and a 7 in the tens place. Which could be Ravi's number?",
+      "choices": {
+        "A": "4,517",
+        "B": "4,571",
+        "C": "4,715",
+        "D": "7,418"
+      },
+      "correct": "B",
+      "explanation": "The thousands place is the first digit and the tens place is the second digit from the right, so the number looks like 4 _ 7 _. Only 4,571 fits.",
+      "misconceptions": "puts the 7 in the ones place; puts the 7 in the hundreds place; swaps the 4 and the 7",
+      "why": {
+        "A": "4,517 puts the 7 in the ones place, the last digit, not the tens place.",
+        "C": "4,715 puts the 7 in the hundreds place; the tens place is the second digit from the right.",
+        "D": "7,418 swaps the two digits, putting the 7 in the thousands place and the 4 in the hundreds place."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "5f54dc8c5af54883"
+    },
+    {
+      "id": "M01-QR-004",
+      "subject": "QR",
+      "skill": "geometry—area by counting unit squares",
+      "difficulty": "E",
+      "prompt": "The figure is drawn on a grid of unit squares. What is the area of the figure, in square units?",
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            2
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "grid": true,
+        "right": [
+          0,
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "choices": {
+        "A": "10",
+        "B": "14",
+        "C": "18",
+        "D": "20"
+      },
+      "correct": "B",
+      "explanation": "Count the squares inside the figure: the bottom part has 5 × 2 = 10 squares and the upper part has 2 × 2 = 4 squares, and 10 + 4 = 14.",
+      "misconceptions": "counts only the lower rectangle; counts the unit lengths around the edge; counts the whole bounding rectangle",
+      "why": {
+        "A": "10 counts only the squares in the bottom part, 5 across and 2 up, and misses the 4 squares in the upper part.",
+        "C": "18 is the number of unit lengths around the outside of the figure — its perimeter — not the squares inside it.",
+        "D": "20 is 5 × 4, every square in the rectangle around the figure, including the 6 empty squares at the top right."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "0a8f8f514b347290"
+    },
+    {
+      "id": "M01-QR-005",
+      "subject": "QR",
+      "skill": "algebra—missing number in a number sentence",
+      "difficulty": "E",
+      "prompt": "Felix wrote the number sentence 9 × □ = 72. What number belongs in the box?",
+      "choices": {
+        "A": "7",
+        "B": "8",
+        "C": "63",
+        "D": "81"
+      },
+      "correct": "B",
+      "explanation": "The box holds the number of 9s that make 72. Since 9 × 8 = 72, the box holds 8.",
+      "misconceptions": "times-table slip; subtracts 9 from 72; adds 9 to 72",
+      "why": {
+        "A": "7 comes from a times-table slip: 9 × 7 is 63, not 72.",
+        "C": "63 is 72 − 9, subtracting instead of asking how many 9s make 72.",
+        "D": "81 is 72 + 9, adding the two numbers instead of dividing."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "7a9ded44250c4914"
+    },
+    {
+      "id": "M01-QR-006",
+      "subject": "QR",
+      "skill": "measurement—choosing a unit",
+      "difficulty": "E",
+      "prompt": "Which unit is the best choice for measuring the length of a school bus?",
+      "choices": {
+        "A": "centimeters",
+        "B": "kilometers",
+        "C": "meters",
+        "D": "millimeters"
+      },
+      "correct": "C",
+      "explanation": "A school bus is about 12 meters long, so meters give a handy number. Smaller units give numbers in the thousands and kilometers are for distances between places.",
+      "misconceptions": "picks a unit far too small; picks a unit far too large",
+      "why": {
+        "A": "centimeters would give a number over a thousand for a bus; they suit something the size of a book.",
+        "B": "kilometers measure the distance between towns; a whole bus is only a tiny part of one kilometer.",
+        "D": "millimeters are for tiny things, like the thickness of a coin."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "4f74a59813fb7a27"
+    },
+    {
+      "id": "M01-QR-007",
+      "subject": "QR",
+      "skill": "numbers and operations—estimating a product",
+      "difficulty": "E",
+      "prompt": "A theater has 28 rows of seats with 31 seats in each row. Which is the best estimate of the total number of seats?",
+      "choices": {
+        "A": "60",
+        "B": "600",
+        "C": "900",
+        "D": "9,000"
+      },
+      "correct": "C",
+      "explanation": "28 is close to 30 and 31 is close to 30, and 30 × 30 = 900.",
+      "misconceptions": "adds instead of multiplying; rounds 28 down to 20; place-value slip with the zeros",
+      "why": {
+        "A": "60 is about 28 + 31; the rows and the seats in each row should be multiplied, not added.",
+        "B": "600 is 20 × 30, rounding 28 down to 20; 28 is much closer to 30.",
+        "D": "9,000 is 30 × 300 — one zero too many; 30 × 30 is 900."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "fa7008183c2080e7"
+    },
+    {
+      "id": "M01-QR-008",
+      "subject": "QR",
+      "skill": "data and probability—reading a pictograph",
+      "difficulty": "E",
+      "prompt": "The pictograph shows the cans each class collected for a food drive. How many cans did Room 12 collect?",
+      "figure": {
+        "type": "pictograph",
+        "title": "Cans collected",
+        "unit": "= 10 cans",
+        "rows": [
+          {
+            "label": "Room 10",
+            "count": 4
+          },
+          {
+            "label": "Room 11",
+            "count": 2.5
+          },
+          {
+            "label": "Room 12",
+            "count": 3.5
+          },
+          {
+            "label": "Room 13",
+            "count": 5
+          }
+        ]
+      },
+      "choices": {
+        "A": "3",
+        "B": "30",
+        "C": "35",
+        "D": "40"
+      },
+      "correct": "C",
+      "explanation": "Room 12 has 3 whole symbols and a half symbol. Each whole symbol is 10 cans and the half is 5, so 30 + 5 = 35.",
+      "misconceptions": "counts symbols instead of cans; ignores the half symbol; counts the half symbol as a whole one",
+      "why": {
+        "A": "3 is the number of whole symbols in the row, not the number of cans they stand for.",
+        "B": "30 counts the three whole symbols as 10 cans each and leaves out the half symbol.",
+        "D": "40 counts the half symbol as a whole symbol worth 10 cans; a half symbol stands for 5."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "884fa917e59b123f"
+    },
+    {
+      "id": "M01-QR-009",
+      "subject": "QR",
+      "skill": "numbers and operations—money from a price list",
+      "difficulty": "E",
+      "prompt": "The table shows the prices at a school snack stand. Oscar buys two pretzels and one juice. How much does he spend in all?",
+      "figure": {
+        "type": "table",
+        "caption": "Snack stand prices",
+        "head": [
+          "Item",
+          "Price"
+        ],
+        "rows": [
+          [
+            "Pretzel",
+            "$1.25"
+          ],
+          [
+            "Juice",
+            "$1.50"
+          ],
+          [
+            "Apple",
+            "$0.75"
+          ],
+          [
+            "Muffin",
+            "$2.00"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "$2.75",
+        "B": "$4.00",
+        "C": "$4.25",
+        "D": "$5.50"
+      },
+      "correct": "B",
+      "explanation": "Two pretzels cost 2 × $1.25 = $2.50, and the juice adds $1.50, so he spends $4.00.",
+      "misconceptions": "counts one pretzel; switches the items; doubles both items",
+      "why": {
+        "A": "$2.75 is one pretzel and one juice, $1.25 + $1.50; the second pretzel is not counted.",
+        "C": "$4.25 is two juices and one pretzel, $3.00 + $1.25 — the items are switched.",
+        "D": "$5.50 doubles both items, 2 × ($1.25 + $1.50), as if Oscar bought two juices as well."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "c648cd1058871b35"
+    },
+    {
+      "id": "M01-QR-010",
+      "subject": "QR",
+      "skill": "algebra—finding the rule of an input/output table",
+      "difficulty": "M",
+      "prompt": "The table shows the inputs and outputs of a number machine. Which rule does the machine use?",
+      "figure": {
+        "type": "table",
+        "caption": "Number machine",
+        "head": [
+          "Input",
+          "Output"
+        ],
+        "rows": [
+          [
+            "3",
+            "11"
+          ],
+          [
+            "5",
+            "17"
+          ],
+          [
+            "8",
+            "26"
+          ],
+          [
+            "10",
+            "32"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "Add 8",
+        "B": "Multiply by 2, then add 5",
+        "C": "Multiply by 3, then add 2",
+        "D": "Multiply by 4, then subtract 1"
+      },
+      "correct": "C",
+      "explanation": "Test each rule on every row. Only \"multiply by 3, then add 2\" works for all of them: 3 × 3 + 2 = 11, 5 × 3 + 2 = 17, 8 × 3 + 2 = 26, and 10 × 3 + 2 = 32.",
+      "misconceptions": "checks the rule against the first row only",
+      "why": {
+        "A": "Add 8 fits only the first row: 5 + 8 is 13, but the table shows 17.",
+        "B": "Multiply by 2, then add 5 fits the first row only: 5 × 2 + 5 is 15, not 17.",
+        "D": "Multiply by 4, then subtract 1 fits the first row only: 5 × 4 − 1 is 19, not 17."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "1bdcef4387136c3c"
+    },
+    {
+      "id": "M01-QR-011",
+      "subject": "QR",
+      "skill": "numbers and operations—fraction of a shaded figure",
+      "difficulty": "E",
+      "prompt": "The figure shows a community garden divided into equal plots. The shaded plots are planted with tomatoes. What fraction of the garden is planted with tomatoes?",
+      "figure": {
+        "type": "shaded",
+        "shape": "grid",
+        "parts": 12,
+        "shaded": 4,
+        "cols": 4
+      },
+      "choices": {
+        "A": "1/4",
+        "B": "1/3",
+        "C": "1/2",
+        "D": "2/3"
+      },
+      "correct": "B",
+      "explanation": "There are 12 plots and 4 of them are shaded, so the fraction is 4/12, which is 1/3.",
+      "misconceptions": "writes 1 over the count of shaded plots; compares shaded with unshaded; names the unshaded part",
+      "why": {
+        "A": "1/4 writes 1 over the number of shaded plots, 4; a fraction compares the 4 shaded plots with all 12.",
+        "C": "1/2 compares the 4 shaded plots with the 8 unshaded ones instead of with the whole garden.",
+        "D": "2/3 is the part of the garden that is not shaded, 8 of the 12 plots."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "deaed2410aaa25eb"
+    },
+    {
+      "id": "M01-QR-012",
+      "subject": "QR",
+      "skill": "measurement—elapsed time from a clock",
+      "difficulty": "M",
+      "prompt": "The clock shows the time Jonah's soccer practice ended one afternoon. Practice lasted 1 hour 15 minutes. At what time did it start?",
+      "figure": {
+        "type": "clock",
+        "h": 4,
+        "m": 40
+      },
+      "choices": {
+        "A": "3:25 p.m.",
+        "B": "3:55 p.m.",
+        "C": "4:25 p.m.",
+        "D": "5:55 p.m."
+      },
+      "correct": "A",
+      "explanation": "The clock shows 4:40. Going back 1 hour gives 3:40, and going back 15 more minutes gives 3:25.",
+      "misconceptions": "adds the minutes while taking off the hour; takes off only the minutes; adds the time instead of going back",
+      "why": {
+        "B": "3:55 p.m. takes off the hour but adds the 15 minutes instead of taking them off too.",
+        "C": "4:25 p.m. takes off only the 15 minutes and forgets the hour.",
+        "D": "5:55 p.m. adds 1 hour 15 minutes to the clock time instead of going back from it."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "670cf2f86a646f03"
+    },
+    {
+      "id": "M01-QR-013",
+      "subject": "QR",
+      "skill": "geometry—counting cubes in a stack",
+      "difficulty": "M",
+      "prompt": "The figure shows a stack built from identical small cubes, with no gaps or hidden holes. How many cubes are in the stack?",
+      "figure": {
+        "type": "cubes",
+        "w": 3,
+        "d": 2,
+        "h": 2
+      },
+      "choices": {
+        "A": "6",
+        "B": "7",
+        "C": "10",
+        "D": "12"
+      },
+      "correct": "D",
+      "explanation": "The stack is 3 cubes wide, 2 cubes deep, and 2 cubes tall, so it holds 3 × 2 × 2 = 12 cubes.",
+      "misconceptions": "counts the front face only; adds the three edge lengths; counts only the cubes that show a face",
+      "why": {
+        "A": "6 is 3 × 2, the cubes on the front face only; there is a second layer of cubes behind them.",
+        "B": "7 is 3 + 2 + 2, the three edge lengths added instead of multiplied.",
+        "C": "10 counts only the cubes that show a face in the drawing; two cubes at the back of the bottom layer are hidden but still there."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "3cb950d2b07591d7"
+    },
+    {
+      "id": "M01-QR-014",
+      "subject": "QR",
+      "skill": "numbers and operations—matching a question to an operation",
+      "difficulty": "M",
+      "prompt": "Which question can be answered by finding 36 ÷ 4?",
+      "choices": {
+        "A": "Greta has 36 grapes and eats 4. How many grapes are left?",
+        "B": "Greta has 36 grapes and picks 4 more. How many grapes does she have now?",
+        "C": "Greta puts 36 grapes equally into 4 cups. How many grapes are in each cup?",
+        "D": "Greta fills 36 cups with 4 grapes in each cup. How many grapes does she use?"
+      },
+      "correct": "C",
+      "explanation": "Dividing shares a total equally into groups. Putting 36 grapes equally into 4 cups asks how many are in each cup, which is 36 ÷ 4.",
+      "misconceptions": "picks the take-away question; picks the adding question; picks the groups-of question",
+      "why": {
+        "A": "36 grapes with 4 eaten asks what is left, which is 36 − 4, a subtraction.",
+        "B": "36 grapes and 4 more asks for a total, which is 36 + 4, an addition.",
+        "D": "36 cups with 4 grapes in each asks for a total of 36 × 4 grapes, a multiplication."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "968fcf7c6e4594d3"
+    },
+    {
+      "id": "M01-QR-015",
+      "subject": "QR",
+      "skill": "data and probability—reading a Venn diagram",
+      "difficulty": "E",
+      "prompt": "The Venn diagram shows the pets of the students in Mr. Lindqvist's class. How many students have a dog?",
+      "figure": {
+        "type": "venn",
+        "left": "Has a cat",
+        "right": "Has a dog",
+        "counts": {
+          "left": 7,
+          "both": 4,
+          "right": 6,
+          "outside": 5
+        }
+      },
+      "choices": {
+        "A": "4",
+        "B": "6",
+        "C": "7",
+        "D": "10"
+      },
+      "correct": "D",
+      "explanation": "Everyone inside the dog circle has a dog: the 6 who have only a dog and the 4 who have both, so 6 + 4 = 10.",
+      "misconceptions": "reads only the overlap; reads only the dog-only region; reads the other circle",
+      "why": {
+        "A": "4 is only the students in the overlap, who have both a cat and a dog.",
+        "B": "6 is the students who have a dog but no cat; the 4 who have both have a dog too.",
+        "C": "7 is the students who have only a cat — the other circle."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "fbf145c8c1bdeb4c"
+    },
+    {
+      "id": "M01-QR-016",
+      "subject": "QR",
+      "skill": "numbers and operations—rounding to the nearest hundred",
+      "difficulty": "E",
+      "prompt": "Keiko is thinking of a number. Rounded to the nearest hundred, it is 600. Which could be Keiko's number?",
+      "choices": {
+        "A": "549",
+        "B": "562",
+        "C": "651",
+        "D": "695"
+      },
+      "correct": "B",
+      "explanation": "A number rounds to 600 when it is from 550 up to 649. Only 562 is in that range.",
+      "misconceptions": "rounds 549 up; looks at the ones digit instead of the tens digit; keeps the hundreds digit instead of rounding",
+      "why": {
+        "A": "549 rounds down to 500 because its tens digit is 4; it is closer to 500 than to 600.",
+        "C": "651 rounds up to 700: its tens digit is 5, which says to round up, even though it starts with 6.",
+        "D": "695 is in the six hundreds but is only 5 away from 700, so it rounds to 700."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "c280637de17d7250"
+    },
+    {
+      "id": "M01-QR-017",
+      "subject": "QR",
+      "skill": "algebra—extending a pattern",
+      "difficulty": "M",
+      "prompt": "The table shows how many tiles are in each stage of a pattern. If the pattern continues the same way, how many tiles will Stage 7 have?",
+      "figure": {
+        "type": "table",
+        "caption": "Tiles in a pattern",
+        "head": [
+          "Stage",
+          "Tiles"
+        ],
+        "rows": [
+          [
+            "1",
+            "4"
+          ],
+          [
+            "2",
+            "7"
+          ],
+          [
+            "3",
+            "10"
+          ],
+          [
+            "4",
+            "13"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "16",
+        "B": "19",
+        "C": "22",
+        "D": "28"
+      },
+      "correct": "C",
+      "explanation": "Each stage has 3 more tiles than the one before. Continuing from Stage 4: Stage 5 has 16, Stage 6 has 19, and Stage 7 has 22.",
+      "misconceptions": "stops the pattern early; multiplies the stage number by the first stage's count",
+      "why": {
+        "A": "16 is the number of tiles in Stage 5, two stages short of Stage 7.",
+        "B": "19 is the number of tiles in Stage 6; the count stops one stage early.",
+        "D": "28 is 4 × 7, as if every stage had 4 tiles for each stage number; the pattern adds 3 tiles each stage."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "7a0f59990311aab4"
+    },
+    {
+      "id": "M01-QR-018",
+      "subject": "QR",
+      "skill": "geometry—perimeter of a rectangle",
+      "difficulty": "M",
+      "prompt": "A rectangle has a perimeter of 20 centimeters. Which could be its length and width?",
+      "choices": {
+        "A": "2 cm and 10 cm",
+        "B": "4 cm and 5 cm",
+        "C": "4 cm and 6 cm",
+        "D": "10 cm and 10 cm"
+      },
+      "correct": "C",
+      "explanation": "The perimeter is the distance around all four sides: length + width + length + width. With 4 cm and 6 cm, that is 4 + 6 + 4 + 6 = 20 cm.",
+      "misconceptions": "multiplies the sides as for area; adds only two sides",
+      "why": {
+        "A": "2 cm and 10 cm multiply to 20, which would be the area; the perimeter would be 2 + 10 + 2 + 10, which is 24 cm.",
+        "B": "4 cm and 5 cm multiply to 20, the area, not the distance around; the perimeter would be 18 cm.",
+        "D": "10 cm and 10 cm add to 20, but that counts only two of the four sides; the perimeter would be 40 cm."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "1885e74fde7f3bbb"
+    },
+    {
+      "id": "M01-QR-019",
+      "subject": "QR",
+      "skill": "numbers and operations—fraction on a number line",
+      "difficulty": "M",
+      "prompt": "The number line shows the course of a 12-kilometer race. Point P marks where Hana is now. What fraction of the race has she finished?",
+      "figure": {
+        "type": "numberline",
+        "min": 0,
+        "max": 12,
+        "step": 1,
+        "labelEvery": 4,
+        "points": [
+          {
+            "at": 9,
+            "label": "P"
+          }
+        ]
+      },
+      "choices": {
+        "A": "1/4",
+        "B": "1/3",
+        "C": "2/3",
+        "D": "3/4"
+      },
+      "correct": "D",
+      "explanation": "P is one tick past 8, at 9 kilometers. She has run 9 of the 12 kilometers, and 9/12 is 3/4.",
+      "misconceptions": "names the part still to run; compares the part left with the part done; reads P as the labeled mark 8",
+      "why": {
+        "A": "1/4 is the part of the race still ahead of her, 3 of the 12 kilometers.",
+        "B": "1/3 compares the 3 kilometers left with the 9 she has run, instead of with the whole 12.",
+        "C": "2/3 reads P as 8, the last labeled mark, but P is one tick past 8, at 9."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "ebd34d2027283c92"
+    },
+    {
+      "id": "M01-QR-020",
+      "subject": "QR",
+      "skill": "data and probability—probability from a spinner",
+      "difficulty": "M",
+      "prompt": "The spinner is divided into the three sections shown. If the arrow is spun once, what is the probability that it lands on blue?",
+      "figure": {
+        "type": "spinner",
+        "sectors": [
+          {
+            "label": "Red",
+            "size": 2
+          },
+          {
+            "label": "Blue",
+            "size": 1
+          },
+          {
+            "label": "Green",
+            "size": 1
+          }
+        ]
+      },
+      "choices": {
+        "A": "1/4",
+        "B": "1/3",
+        "C": "1/2",
+        "D": "3/4"
+      },
+      "correct": "A",
+      "explanation": "The blue section is one quarter of the spinner — the red section is half and blue and green are a quarter each. So the chance of blue is 1/4.",
+      "misconceptions": "counts sections as if they were equal; gives the chance of red; gives the chance of not blue",
+      "why": {
+        "B": "1/3 counts three sections with one of them blue, as if the sections were equal; the red section is twice as big as the others.",
+        "C": "1/2 is the chance of red, the section that takes up half the spinner.",
+        "D": "3/4 is the chance of not landing on blue — red and green together."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "3e0d3574421737c4"
+    },
+    {
+      "id": "M01-QR-021",
+      "subject": "QR",
+      "skill": "measurement—converting units",
+      "difficulty": "M",
+      "prompt": "Lucia has a ribbon 3 meters long. She cuts it into pieces that are each 25 centimeters long. How many pieces does she get?",
+      "choices": {
+        "A": "4",
+        "B": "12",
+        "C": "75",
+        "D": "120"
+      },
+      "correct": "B",
+      "explanation": "3 meters is 300 centimeters, and 300 ÷ 25 = 12 pieces.",
+      "misconceptions": "uses only one meter; multiplies the two numbers in the question; uses 1,000 centimeters to a meter",
+      "why": {
+        "A": "4 is 100 ÷ 25, the pieces that come from just 1 meter of the 3.",
+        "C": "75 is 3 × 25, multiplying the two numbers in the question instead of changing meters to centimeters and dividing.",
+        "D": "120 is 3000 ÷ 25, as if a meter had 1,000 centimeters; a meter has 100."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "fc312c676f5c1c9f"
+    },
+    {
+      "id": "M01-QR-022",
+      "subject": "QR",
+      "skill": "algebra—writing an expression from words",
+      "difficulty": "M",
+      "prompt": "Simone is 3 years older than twice her brother's age. Her brother is b years old. Which expression shows Simone's age?",
+      "choices": {
+        "A": "2b − 3",
+        "B": "2b + 3",
+        "C": "3b + 2",
+        "D": "2(b + 3)"
+      },
+      "correct": "B",
+      "explanation": "Twice her brother's age is 2b, and 3 years older than that is 2b + 3.",
+      "misconceptions": "subtracts the 3; swaps the 2 and the 3; adds before doubling",
+      "why": {
+        "A": "2b − 3 would make Simone 3 years younger than twice her brother's age, not older.",
+        "C": "3b + 2 switches the two numbers: it triples the brother's age and adds 2.",
+        "D": "2(b + 3) adds the 3 years to the brother's age first and then doubles, so the extra years get doubled too."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "e6be41e343ce15c8"
+    },
+    {
+      "id": "M01-QR-023",
+      "subject": "QR",
+      "skill": "numbers and operations—percent of a shaded whole",
+      "difficulty": "M",
+      "prompt": "The bar in the figure is divided into equal parts. What percent of the bar is shaded?",
+      "figure": {
+        "type": "shaded",
+        "shape": "bar",
+        "parts": 5,
+        "shaded": 2
+      },
+      "choices": {
+        "A": "2%",
+        "B": "20%",
+        "C": "40%",
+        "D": "60%"
+      },
+      "correct": "C",
+      "explanation": "The bar has 5 equal parts, so each part is 100% ÷ 5 = 20%. Two parts are shaded, and 2 × 20% = 40%.",
+      "misconceptions": "writes the count of shaded parts as a percent; names one part only; names the unshaded part",
+      "why": {
+        "A": "2% is the number of shaded parts with a percent sign on it; each part is worth 20%, not 1%.",
+        "B": "20% is one part of the five, not the two parts that are shaded.",
+        "D": "60% is the part of the bar that is not shaded, 3 of the 5 parts."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "bbac134a8332a5f6"
+    },
+    {
+      "id": "M01-QR-024",
+      "subject": "QR",
+      "skill": "geometry—coordinates of a rectangle's vertex",
+      "difficulty": "M",
+      "prompt": "Three vertices of a rectangle are plotted on the grid. What are the coordinates of the fourth vertex?",
+      "figure": {
+        "type": "grid",
+        "xmax": 8,
+        "ymax": 6,
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "J"
+          },
+          {
+            "x": 6,
+            "y": 1,
+            "label": "K"
+          },
+          {
+            "x": 6,
+            "y": 4,
+            "label": "L"
+          }
+        ]
+      },
+      "choices": {
+        "A": "(1, 4)",
+        "B": "(1, 6)",
+        "C": "(4, 1)",
+        "D": "(4, 6)"
+      },
+      "correct": "A",
+      "explanation": "The fourth corner sits directly above J, at 1 across, and level with L, at 4 up, so it is at (1, 4).",
+      "misconceptions": "uses K's first coordinate as the height; swaps across and up; reverses L's coordinates",
+      "why": {
+        "B": "(1, 6) uses the 6 from point K as the height, but the top side of the rectangle is at 4 up, level with point L.",
+        "C": "(4, 1) swaps the two coordinates: 4 across and 1 up is on the bottom side, not at the top left corner.",
+        "D": "(4, 6) reverses the coordinates of point L, (6, 4), instead of finding the corner above J."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "ce3df0014e485e46"
+    },
+    {
+      "id": "M01-QR-025",
+      "subject": "QR",
+      "skill": "data and probability—median of a data set",
+      "difficulty": "M",
+      "prompt": "The graph shows the goals a soccer team scored in each of five games. What is the median number of goals?",
+      "figure": {
+        "type": "bar",
+        "title": "Goals scored",
+        "x": "Game",
+        "y": "Goals",
+        "step": 1,
+        "bars": [
+          {
+            "label": "Game 1",
+            "value": 5
+          },
+          {
+            "label": "Game 2",
+            "value": 2
+          },
+          {
+            "label": "Game 3",
+            "value": 8
+          },
+          {
+            "label": "Game 4",
+            "value": 3
+          },
+          {
+            "label": "Game 5",
+            "value": 2
+          }
+        ]
+      },
+      "choices": {
+        "A": "3",
+        "B": "4",
+        "C": "6",
+        "D": "8"
+      },
+      "correct": "A",
+      "explanation": "Read the bars and put the numbers in order: 2, 2, 3, 5, 8. The median is the middle number, 3.",
+      "misconceptions": "gives the mean; gives the range; takes the middle bar without ordering",
+      "why": {
+        "B": "4 is the mean: the 20 goals shared equally over the 5 games.",
+        "C": "6 is the range, the difference between the most goals in a game, 8, and the fewest, 2.",
+        "D": "8 is the middle bar as the games are drawn, Game 3; the median is the middle value after the numbers are put in order."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "9f9bb6cc8d81a992"
+    },
+    {
+      "id": "M01-QR-026",
+      "subject": "QR",
+      "skill": "numbers and operations—breaking a product apart",
+      "difficulty": "M",
+      "prompt": "Which expression has the same value as 6 × 23?",
+      "choices": {
+        "A": "6 × 20 + 3",
+        "B": "6 × 20 × 3",
+        "C": "6 × 2 + 6 × 3",
+        "D": "6 × 20 + 6 × 3"
+      },
+      "correct": "D",
+      "explanation": "23 is 20 + 3, so 6 groups of 23 are 6 groups of 20 and 6 groups of 3: 6 × 20 + 6 × 3.",
+      "misconceptions": "multiplies only the tens; multiplies the parts instead of adding the products; treats 23 as 2 + 3",
+      "why": {
+        "A": "6 × 20 + 3 multiplies only the 20 by 6; the 3 ones must be multiplied by 6 as well.",
+        "B": "6 × 20 × 3 multiplies the 20 and the 3 together instead of adding the two products; 20 × 3 is not 23.",
+        "C": "6 × 2 + 6 × 3 treats 23 as 2 + 3; 23 is 20 + 3."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "479e3b22329b6754"
+    },
+    {
+      "id": "M01-QR-027",
+      "subject": "QR",
+      "skill": "measurement—elapsed time from a schedule",
+      "difficulty": "M",
+      "prompt": "The table shows the schedule for a class field trip. How long were the students at the museum before lunch?",
+      "figure": {
+        "type": "table",
+        "caption": "Field trip schedule",
+        "head": [
+          "Time",
+          "Activity"
+        ],
+        "rows": [
+          [
+            "9:30 a.m.",
+            "Leave school"
+          ],
+          [
+            "10:15 a.m.",
+            "Arrive at museum"
+          ],
+          [
+            "12:45 p.m.",
+            "Eat lunch"
+          ],
+          [
+            "1:30 p.m.",
+            "Ride home"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "2 hours 30 minutes",
+        "B": "2 hours 45 minutes",
+        "C": "3 hours",
+        "D": "3 hours 15 minutes"
+      },
+      "correct": "A",
+      "explanation": "They arrived at 10:15 and ate lunch at 12:45. From 10:15 to 12:15 is 2 hours, and 12:15 to 12:45 is 30 more minutes.",
+      "misconceptions": "counts from 10 o'clock instead of a quarter past; counts the hour numbers instead of the hours between; starts from leaving school",
+      "why": {
+        "B": "2 hours 45 minutes counts from 10 o'clock to 12:45 and drops the 15 minutes after 10 that passed before the class arrived.",
+        "C": "3 hours counts the hour numbers 10, 11, and 12 as three whole hours, but the visit began a quarter past 10 and ended before 1.",
+        "D": "3 hours 15 minutes is the time from leaving school at 9:30 until lunch, not the time spent at the museum."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "e3e04363bf472b27"
+    },
+    {
+      "id": "M01-QR-028",
+      "subject": "QR",
+      "skill": "algebra—finding an unknown from two number sentences",
+      "difficulty": "M",
+      "prompt": "In these number sentences, the same shape always stands for the same number. △ + △ = 14 and △ + □ = 11. What number does □ stand for?",
+      "choices": {
+        "A": "4",
+        "B": "7",
+        "C": "11",
+        "D": "25"
+      },
+      "correct": "A",
+      "explanation": "Two triangles make 14, so one triangle is 7. Then 7 + □ = 11, so the square is 4.",
+      "misconceptions": "gives the triangle's value; reads the second total as the answer; adds the two totals",
+      "why": {
+        "B": "7 is the value of the triangle, half of 14; the question asks about the square.",
+        "C": "11 is the triangle and the square together, the total in the second number sentence, not the square alone.",
+        "D": "25 is 14 + 11, the two totals added together."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "0f7930c7664e8986"
+    },
+    {
+      "id": "M01-QR-029",
+      "subject": "QR",
+      "skill": "geometry—perimeter of a composite figure",
+      "difficulty": "H",
+      "prompt": "The figure shows the outline of a patio with four of its six sides labeled. Every side meets the next at a right angle. What is the perimeter of the patio?",
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            4,
+            3
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "right": [
+          0,
+          1,
+          2,
+          4,
+          5
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "8 cm"
+          },
+          {
+            "side": 1,
+            "text": "3 cm"
+          },
+          {
+            "side": 4,
+            "text": "4 cm"
+          },
+          {
+            "side": 5,
+            "text": "6 cm"
+          }
+        ]
+      },
+      "choices": {
+        "A": "14 cm",
+        "B": "21 cm",
+        "C": "28 cm",
+        "D": "36 cm"
+      },
+      "correct": "C",
+      "explanation": "The two unlabeled sides can be worked out: the short vertical side is 6 − 3 = 3 cm and the short horizontal side is 8 − 4 = 4 cm. So the perimeter is 8 + 3 + 4 + 3 + 4 + 6 = 28 cm, the same as the 8 by 6 rectangle around the patio.",
+      "misconceptions": "adds the two longest sides only; adds the labeled sides only; finds the area instead",
+      "why": {
+        "A": "14 cm is 8 + 6, the two longest sides only; the perimeter goes all the way around.",
+        "B": "21 cm is the four labeled sides added, 8 + 3 + 4 + 6; the two unlabeled sides add 3 + 4 = 7 cm more.",
+        "D": "36 cm is 8 × 3 + 4 × 3, the area in square centimeters, not the distance around."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "b86fe43b64a40172"
+    },
+    {
+      "id": "M01-QR-030",
+      "subject": "QR",
+      "skill": "numbers and operations—interpreting a remainder",
+      "difficulty": "M",
+      "prompt": "A ferry can carry 8 cars on each trip. There are 50 cars waiting to cross. What is the least number of trips the ferry must make to carry all of them?",
+      "choices": {
+        "A": "2",
+        "B": "6",
+        "C": "7",
+        "D": "48"
+      },
+      "correct": "C",
+      "explanation": "6 trips carry 6 × 8 = 48 cars, and 2 cars are still waiting, so a seventh trip is needed: 7 trips.",
+      "misconceptions": "gives the remainder; drops the remainder; gives the cars carried in six trips",
+      "why": {
+        "A": "2 is the remainder when 50 is divided by 8 — the cars left for the last trip, not the number of trips.",
+        "B": "6 trips carry only 48 cars; the 2 cars left over need a seventh trip.",
+        "D": "48 is 6 × 8, the cars carried in six full trips, not the number of trips."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "f3e5de0fe4294ba6"
+    },
+    {
+      "id": "M01-QR-031",
+      "subject": "QR",
+      "skill": "data and probability—probability of a simple event",
+      "difficulty": "H",
+      "prompt": "A box holds 12 crayons. Without looking, Anya picks one crayon. The probability that it is blue is 1 out of 3. How many blue crayons are in the box?",
+      "choices": {
+        "A": "1",
+        "B": "3",
+        "C": "4",
+        "D": "8"
+      },
+      "correct": "C",
+      "explanation": "1 out of 3 means that 1 in every 3 crayons is blue. 12 crayons make 4 groups of 3, so 4 crayons are blue.",
+      "misconceptions": "reads the top number of the probability as a count; reads the bottom number as a count; gives the crayons that are not blue",
+      "why": {
+        "A": "1 is the top number of the probability, not a count of crayons; 1 out of 3 means 1 in every 3 crayons is blue.",
+        "B": "3 is the bottom number of the probability; with 12 crayons, 1 out of 3 means 12 ÷ 3 of them are blue.",
+        "D": "8 is the number of crayons that are not blue, 12 − 4."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "4c8accac9815c551"
+    },
+    {
+      "id": "M01-QR-032",
+      "subject": "QR",
+      "skill": "measurement—estimating a length",
+      "difficulty": "E",
+      "prompt": "Which of these is closest to 1 meter long?",
+      "choices": {
+        "A": "a car",
+        "B": "a paper clip",
+        "C": "a soccer field",
+        "D": "a baseball bat"
+      },
+      "correct": "D",
+      "explanation": "A meter is about the distance from the floor to a doorknob. A baseball bat is close to that; the others are far shorter or far longer.",
+      "misconceptions": "picks something many meters long; picks something a few centimeters long",
+      "why": {
+        "A": "a car is about 4 or 5 meters long — several meter sticks end to end.",
+        "B": "a paper clip is about 3 centimeters long, only a small part of a meter.",
+        "C": "a soccer field is about 100 meters long."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "edb49cdfcca7996a"
+    },
+    {
+      "id": "M01-QR-033",
+      "subject": "QR",
+      "skill": "algebra—solving a two-step problem",
+      "difficulty": "H",
+      "prompt": "Three identical boxes of books and one 3-kilogram bag of magazines weigh 24 kilograms altogether. How much does one box of books weigh?",
+      "choices": {
+        "A": "7 kg",
+        "B": "8 kg",
+        "C": "9 kg",
+        "D": "21 kg"
+      },
+      "correct": "A",
+      "explanation": "Take off the bag first: 24 − 3 = 21 kilograms for the three boxes. Then share it among the three: 21 ÷ 3 = 7 kilograms each.",
+      "misconceptions": "ignores the bag; adds the bag instead of taking it off; forgets to share among the boxes",
+      "why": {
+        "B": "8 kg is 24 ÷ 3, as if the bag weighed nothing; the bag's 3 kilograms must come off first.",
+        "C": "9 kg is 27 ÷ 3, from adding the bag's 3 kilograms instead of taking them away.",
+        "D": "21 kg is the weight of the three boxes together, 24 − 3, before it is shared among the three boxes."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "858e3220e034f12b"
+    },
+    {
+      "id": "M01-QR-034",
+      "subject": "QR",
+      "skill": "numbers and operations—fractions of a set",
+      "difficulty": "H",
+      "prompt": "Mateo has 24 marbles. He gives 1/4 of them to his sister and 1/8 of them to a friend. How many marbles does he give away in all?",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "6",
+        "D": "9"
+      },
+      "correct": "D",
+      "explanation": "1/4 of 24 is 6 and 1/8 of 24 is 3, so he gives away 6 + 3 = 9 marbles.",
+      "misconceptions": "adds the denominators; adds tops and bottoms; stops after the sister's share",
+      "why": {
+        "A": "2 comes from adding the denominators 4 and 8 to make 1/12, and 1/12 of 24 is 2.",
+        "B": "4 comes from adding tops and bottoms, 1/4 + 1/8 as 2/12, and 2/12 of 24 is 4.",
+        "C": "6 is only the sister's share, 1/4 of 24; the friend's 3 marbles must be added on."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "b27b0ac9b087f122"
+    },
+    {
+      "id": "M01-QR-035",
+      "subject": "QR",
+      "skill": "geometry—lines of symmetry",
+      "difficulty": "H",
+      "prompt": "How many lines of symmetry does the figure have?",
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ]
+      },
+      "choices": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "4"
+      },
+      "correct": "A",
+      "explanation": "A line of symmetry is a fold that makes the two halves match exactly. Folding this slanted parallelogram along a diagonal or through its middle always leaves a corner sticking out, so it has no lines of symmetry.",
+      "misconceptions": "treats a diagonal as a fold line; counts both diagonals; treats the figure like a square",
+      "why": {
+        "B": "1 counts a diagonal as a fold line, but folding along a diagonal does not land one half exactly on the other.",
+        "C": "2 counts both diagonals as lines of symmetry; they cut the figure into matching triangles, but the halves do not fold onto each other.",
+        "D": "4 treats the figure like a square, with two midlines and two diagonals; a slanted parallelogram has none of these."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "983105dd4eec5416"
+    },
+    {
+      "id": "M01-QR-036",
+      "subject": "QR",
+      "skill": "data and probability—drawing a conclusion from a line graph",
+      "difficulty": "H",
+      "prompt": "The graph shows the temperature outside a school at five times during one day. Which statement is true?",
+      "figure": {
+        "type": "line",
+        "title": "Temperature during one day",
+        "x": "Time",
+        "y": "Degrees Fahrenheit",
+        "step": 10,
+        "max": 80,
+        "points": [
+          {
+            "label": "6 a.m.",
+            "value": 45
+          },
+          {
+            "label": "9 a.m.",
+            "value": 55
+          },
+          {
+            "label": "noon",
+            "value": 70
+          },
+          {
+            "label": "3 p.m.",
+            "value": 75
+          },
+          {
+            "label": "6 p.m.",
+            "value": 65
+          }
+        ]
+      },
+      "choices": {
+        "A": "It was warmest at noon.",
+        "B": "It was cooler at 6 p.m. than at 6 a.m.",
+        "C": "It rose more from 9 a.m. to noon than from noon to 3 p.m.",
+        "D": "It rose by the same amount from 6 a.m. to 9 a.m. as from noon to 3 p.m."
+      },
+      "correct": "C",
+      "explanation": "From 9 a.m. to noon the line climbs from 55°F to 70°F, a rise of 15 degrees; from noon to 3 p.m. it climbs only from 70°F to 75°F, a rise of 5 degrees.",
+      "misconceptions": "picks the wrong high point; compares the end points the wrong way round; judges the rises without reading the values",
+      "why": {
+        "A": "Warmest at noon reads the wrong peak: the highest point on the graph is 75°F at 3 p.m., not the 70°F at noon.",
+        "B": "At 6 p.m. it was 65°F, which is warmer than the 45°F at 6 a.m., not cooler.",
+        "D": "From 6 a.m. to 9 a.m. it rose 10 degrees, from 45°F to 55°F, but from noon to 3 p.m. it rose only 5 degrees, from 70°F to 75°F."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "6b7071ef0df9f0fa"
+    },
+    {
+      "id": "M01-QR-037",
+      "subject": "QR",
+      "skill": "algebra—continuing a pattern from a graph",
+      "difficulty": "H",
+      "prompt": "The graph shows what it costs to rent a kayak for 1, 2, 3, or 4 hours. If the pattern continues, how much will it cost to rent the kayak for 6 hours?",
+      "figure": {
+        "type": "line",
+        "title": "Kayak rental cost",
+        "x": "Hours",
+        "y": "Dollars",
+        "step": 4,
+        "points": [
+          {
+            "label": "1",
+            "value": 8
+          },
+          {
+            "label": "2",
+            "value": 12
+          },
+          {
+            "label": "3",
+            "value": 16
+          },
+          {
+            "label": "4",
+            "value": 20
+          }
+        ]
+      },
+      "choices": {
+        "A": "$24",
+        "B": "$28",
+        "C": "$32",
+        "D": "$48"
+      },
+      "correct": "B",
+      "explanation": "Each extra hour adds $4: the points rise from $8 to $12 to $16 to $20. Two more hours after the $20 for 4 hours gives $24 for 5 hours and $28 for 6 hours.",
+      "misconceptions": "stops at 5 hours; doubles the 3-hour cost; uses the first hour's price as the hourly rate",
+      "why": {
+        "A": "$24 is the cost for 5 hours — one more step of $4 — but the question asks about 6 hours.",
+        "C": "$32 is 2 × $16, doubling the 3-hour cost; the cost does not double when the hours double, because the first hour costs more than the others.",
+        "D": "$48 is 6 × $8, using the first hour's price as the price of every hour; each extra hour adds only $4."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "e55261297c331540"
+    },
+    {
+      "id": "M01-QR-038",
+      "subject": "QR",
+      "skill": "geometry—reasoning about perimeter",
+      "difficulty": "H",
+      "prompt": "The rectangle in the figure is made of two identical squares. Its perimeter is 36 cm. What is the side length of one square?",
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "grid": true,
+        "right": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "title": "Perimeter: 36 cm"
+      },
+      "choices": {
+        "A": "6 cm",
+        "B": "9 cm",
+        "C": "12 cm",
+        "D": "18 cm"
+      },
+      "correct": "A",
+      "explanation": "Going around the rectangle you pass 6 sides of a square: 2 along the top, 2 along the bottom, and 1 at each end. Six sides make 36 cm, so one side is 36 ÷ 6 = 6 cm.",
+      "misconceptions": "treats the rectangle as one square; gives the long side; halves the perimeter",
+      "why": {
+        "B": "9 cm is 36 ÷ 4, as if the whole rectangle were one square with four equal sides.",
+        "C": "12 cm is the long side of the rectangle, two squares end to end, not the side of one square.",
+        "D": "18 cm is 36 ÷ 2, the length and the width added together."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "c9714eea6c81c140"
+    },
+    {
+      "id": "M01-RC-001",
+      "subject": "RC",
+      "skill": "supporting ideas—detail",
+      "difficulty": "E",
+      "prompt": "According to the passage, where do monarchs from the West spend the winter?",
+      "choices": {
+        "A": "in fields in Canada",
+        "B": "on the California coast",
+        "C": "in the mountains of Mexico",
+        "D": "on the branches of oyamel firs"
+      },
+      "correct": "B",
+      "explanation": "Lines 15–17 say that monarchs from the West spend the winter on the California coast, resting in groves of pine, cypress, and eucalyptus trees.",
+      "misconceptions": "takes the eastern monarchs' winter home for the western ones; takes the end of the trip north for the winter home",
+      "why": {
+        "A": "Fields in Canada are where the butterflies arrive at the end of the trip north (line 33), the opposite end of the journey from their winter home.",
+        "C": "The mountains of Mexico are where the monarchs from the eastern part of the continent gather (lines 10–11); the question asks about the western ones.",
+        "D": "Oyamel firs are the trees the eastern monarchs cluster on in Mexico (lines 11–13), not the pines and cypresses of the California coast."
+      },
+      "passage_id": "M01-RC-P01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "671f72f039e891e8"
+    },
+    {
+      "id": "M01-RC-002",
+      "subject": "RC",
+      "skill": "vocabulary in context—word meaning",
+      "difficulty": "E",
+      "prompt": "In line 8, “cover” most nearly means",
+      "choices": {
+        "A": "hide",
+        "B": "protect",
+        "C": "travel",
+        "D": "wrap"
+      },
+      "correct": "C",
+      "explanation": "The sentence says the butterflies can cover 50 to 100 miles in a single day, so here cover means to travel across a distance.",
+      "misconceptions": "takes an everyday meaning of cover (hide, protect, wrap) instead of the one the miles call for",
+      "why": {
+        "A": "Hide is one meaning of cover, to put something out of sight, but the sentence counts miles in a day, a distance and not a hiding place.",
+        "B": "Protect is what a cover does for a plant or a pot, but the sentence is about how many miles the butterflies fly in a day, not about shelter.",
+        "D": "Wrap comes from picturing a cover as a blanket laid over something; the sentence is measuring how far the butterflies travel in a day."
+      },
+      "passage_id": "M01-RC-P01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "246bd132278970d0"
+    },
+    {
+      "id": "M01-RC-003",
+      "subject": "RC",
+      "skill": "main idea—central idea",
+      "difficulty": "M",
+      "prompt": "Which best expresses the main idea of the passage?",
+      "choices": {
+        "A": "A monarch born in early summer lives for just a few weeks.",
+        "B": "Monarch caterpillars depend on milkweed plants for their food.",
+        "C": "Scientists are not sure how monarchs know when it is time to leave.",
+        "D": "Monarchs make a long yearly journey that no single butterfly completes."
+      },
+      "correct": "D",
+      "explanation": "Every paragraph is about the journey: how far the monarchs fly, where they spend the winter, how long the traveling generation lives, and how three or four generations bring them north again.",
+      "misconceptions": "lifts one supporting detail as the whole; reads 'scientists think' as doubt",
+      "why": {
+        "A": "A monarch born in early summer living a few weeks is one fact from the third paragraph (lines 20–21), there to explain why the migrating generation is unusual, not the subject of the whole passage.",
+        "B": "Caterpillars depending on milkweed is a detail from the last paragraph (lines 29–30) about the trip north; it says nothing about the flight south or the winter in Mexico.",
+        "C": "Scientists being not sure comes from reading “Scientists think” (line 24) as doubt; the sentence gives their explanation, and it is one detail about timing, not what the passage is about."
+      },
+      "passage_id": "M01-RC-P01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "fa78c60d6afbeee7"
+    },
+    {
+      "id": "M01-RC-004",
+      "subject": "RC",
+      "skill": "organization/logic—function of a paragraph",
+      "difficulty": "M",
+      "prompt": "The last paragraph (lines 27–36) is mainly about",
+      "choices": {
+        "A": "how several generations share the trip north",
+        "B": "how monarchs survive the cold winter in Mexico",
+        "C": "why the fall generation lives for so much longer",
+        "D": "where the monarchs from the West spend the winter"
+      },
+      "correct": "A",
+      "explanation": "Lines 27–36 follow the monarchs north from Mexico: each generation flies a little farther and lays eggs, and three or four generations are needed to reach Canada.",
+      "misconceptions": "assigns the second or third paragraph's subject to the last one",
+      "why": {
+        "B": "Surviving the cold winter in Mexico comes from the second paragraph (lines 11–14), where the butterflies cluster on cool mountain trees; the last paragraph has already left Mexico.",
+        "C": "The fall generation living longer is what the third paragraph (lines 19–24) explains; the last paragraph is about the generations that follow it.",
+        "D": "The monarchs from the West wintering in California is a detail at the end of the second paragraph (lines 15–18), not the subject of the last one."
+      },
+      "passage_id": "M01-RC-P01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "510caf65d7cfb174"
+    },
+    {
+      "id": "M01-RC-005",
+      "subject": "RC",
+      "skill": "inference—drawing a conclusion",
+      "difficulty": "H",
+      "prompt": "It can be inferred from the passage that the monarchs arriving in Mexico each fall",
+      "choices": {
+        "A": "will live for just a few more weeks",
+        "B": "were born in Mexico the spring before",
+        "C": "are making their first trip to the south",
+        "D": "are the same butterflies that left in spring"
+      },
+      "correct": "C",
+      "explanation": "A summer monarch lives only a few weeks and no single butterfly makes the round trip (lines 20–21 and 27), so the butterflies reaching Mexico were born in the North that year and have never flown south before.",
+      "misconceptions": "gives the arriving butterflies a summer monarch's lifespan; ignores 'no single butterfly makes the whole round trip'",
+      "why": {
+        "A": "A few more weeks is the lifespan of a summer monarch (lines 20–21); the ones that reach Mexico are the long-lived generation that can last nine months (line 22).",
+        "B": "Born in Mexico the spring before comes from reading “the monarchs leave Mexico” (line 28) as if they had hatched there; those butterflies were born in the North the summer before, and it is their descendants that fly south in the fall.",
+        "D": "The same butterflies that left in spring is ruled out by line 27, “No single butterfly makes the whole round trip.”"
+      },
+      "passage_id": "M01-RC-P01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "ceaeff696142fc49"
+    },
+    {
+      "id": "M01-RC-006",
+      "subject": "RC",
+      "skill": "inference—drawing a conclusion",
+      "difficulty": "M",
+      "prompt": "The passage suggests that for Mary's family, collecting fossils was mainly",
+      "choices": {
+        "A": "a way to earn a living",
+        "B": "a hobby that was in fashion",
+        "C": "a way to become famous scientists",
+        "D": "a path into the Geological Society"
+      },
+      "correct": "A",
+      "explanation": "The family was poor and in debt after Richard died, Mary's mother encouraged her to keep selling what she found, and scientists bought her fossils (lines 11–13 and 29–30).",
+      "misconceptions": "takes the buyers' hobby for the sellers' reason; stretches 'treated as true experts'; reverses the Society's rule",
+      "why": {
+        "B": "A hobby in fashion is what fossil collecting was for the people who paid for curiosities (lines 9–10); for the Annings, who sold to them, it paid the family's debts.",
+        "C": "Becoming famous scientists stretches “treated as true experts” (lines 22–23); the passage says the scientists who wrote about her fossils left her name out (lines 29–31).",
+        "D": "A path into the Geological Society is the opposite of what happened: it did not allow women to join until 1908 (lines 31–32), long after Mary died."
+      },
+      "passage_id": "M01-RC-P02",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "ca384a19dd4c9261"
+    },
+    {
+      "id": "M01-RC-007",
+      "subject": "RC",
+      "skill": "supporting ideas—detail",
+      "difficulty": "E",
+      "prompt": "According to the passage, who found the fossil skull in 1811?",
+      "choices": {
+        "A": "her father",
+        "B": "her brother",
+        "C": "Mary herself",
+        "D": "a French scientist"
+      },
+      "correct": "B",
+      "explanation": "Lines 14–15 say that in the autumn of 1811 her brother Joseph found a strange fossil skull; Mary found the rest of the animal about a year later.",
+      "misconceptions": "gives the skull to the person who found the skeleton; gives it to the father who taught her; gives it to the scientist who saw a drawing",
+      "why": {
+        "A": "Her father is the one who taught Mary to find fossils (lines 6–8), but he died in 1810 (line 11), the year before the skull was found.",
+        "C": "Mary herself found the rest of the animal and dug out the skeleton about a year later (lines 15–17); the skull came first, and Joseph found it.",
+        "D": "A French scientist appears later, doubting a drawing of the plesiosaur (lines 20–21); he found nothing on the beach."
+      },
+      "passage_id": "M01-RC-P02",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "4e8e391969a694a3"
+    },
+    {
+      "id": "M01-RC-008",
+      "subject": "RC",
+      "skill": "main idea—primary subject",
+      "difficulty": "M",
+      "prompt": "The passage is primarily about",
+      "choices": {
+        "A": "how a poor girl became an expert on fossils",
+        "B": "the first flying reptile found outside Germany",
+        "C": "the history of the Geological Society of London",
+        "D": "how fossils formed in the cliffs beside Lyme Regis"
+      },
+      "correct": "A",
+      "explanation": "The passage follows Mary from a childhood selling fossils to pay her family's debts, through her great finds, to the respect she earned even when she was not given credit.",
+      "misconceptions": "takes one discovery or one sentence for the subject; expects the opening about the cliffs to be explained",
+      "why": {
+        "B": "The first flying reptile found outside Germany is one of Mary's discoveries (lines 23–25), a single detail in a passage about her whole life.",
+        "C": "The Geological Society of London appears in one sentence (lines 31–32), as an example of how women were kept out; the passage is about Mary, not the Society.",
+        "D": "How fossils formed in the cliffs is not explained anywhere; the first paragraph says only that the cliffs are packed with fossils, to set the scene for Mary's story."
+      },
+      "passage_id": "M01-RC-P02",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "daac1fcb2606f5d9"
+    },
+    {
+      "id": "M01-RC-009",
+      "subject": "RC",
+      "skill": "vocabulary in context—word meaning",
+      "difficulty": "E",
+      "prompt": "In line 22, “genuine” most nearly means",
+      "choices": {
+        "A": "ancient",
+        "B": "complete",
+        "C": "real",
+        "D": "valuable"
+      },
+      "correct": "C",
+      "explanation": "The French scientist first doubted that the skeleton was real; once he realized it was genuine, he accepted it, so genuine means real, not fake.",
+      "misconceptions": "reads a fossil's other qualities (ancient, complete, valuable) into a word about whether it was a fake",
+      "why": {
+        "A": "Ancient fits a fossil in general, but the scientist's doubt was about whether the skeleton was real, and genuine is the word that answers that doubt.",
+        "B": "Complete comes from “the first complete skeleton” three lines earlier (line 19); the question in line 21 is whether the find was real, not whether it was whole.",
+        "D": "Valuable comes from the fossils being sold (lines 8–10); the sentence is settling a doubt about whether the skeleton was real."
+      },
+      "passage_id": "M01-RC-P02",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "31150faf3642b76f"
+    },
+    {
+      "id": "M01-RC-010",
+      "subject": "RC",
+      "skill": "supporting ideas—detail",
+      "difficulty": "E",
+      "prompt": "According to the passage, the Geological Society of London",
+      "choices": {
+        "A": "bought many of Mary's fossils",
+        "B": "put up a statue of Mary in 2022",
+        "C": "sent scientists to study Lyme Regis",
+        "D": "did not allow women to join until 1908"
+      },
+      "correct": "D",
+      "explanation": "Lines 31–32 say the Geological Society of London did not allow women to join until 1908.",
+      "misconceptions": "credits the Society with what individual scientists, a visitor or the statue campaign did",
+      "why": {
+        "A": "Buying her fossils was done by individual scientists who then wrote about them (lines 29–30); the passage does not say the Society bought anything.",
+        "B": "The statue in 2022 came after a campaign led by an eleven-year-old girl (lines 33–35), not from the Society.",
+        "C": "Sending scientists is not in the passage; the French scientist studied a drawing (lines 20–21), and the visitor who wrote in her diary (lines 27–29) is not said to have been sent by anyone."
+      },
+      "passage_id": "M01-RC-P02",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "9c40f1f215da63c4"
+    },
+    {
+      "id": "M01-RC-011",
+      "subject": "RC",
+      "skill": "main idea—primary subject",
+      "difficulty": "E",
+      "prompt": "The passage is mainly about",
+      "choices": {
+        "A": "a visit to a very messy garage",
+        "B": "a girl who learns to make a footstep",
+        "C": "how the sounds in movies are made by hand",
+        "D": "the many uses of celery and coconut shells"
+      },
+      "correct": "C",
+      "explanation": "The passage shows a class learning how a sound artist makes the everyday sounds in a film, from footsteps in snow to a horse, by hand in a studio.",
+      "misconceptions": "takes the comparison to a garage literally; takes the closing example or the props for the subject",
+      "why": {
+        "A": "A messy garage is only what the studio looked like (line 8); the visit was about the sounds made inside it.",
+        "B": "A girl learning to make a footstep is how the passage ends (lines 31–33), one example of what the students tried, not the subject of the whole visit.",
+        "D": "Celery and coconut shells are two of the objects used for sounds (lines 21–22 and 25–26); the passage is about the sounds, not the objects."
+      },
+      "passage_id": "M01-RC-P03",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "a3a38cfe8d734edc"
+    },
+    {
+      "id": "M01-RC-012",
+      "subject": "RC",
+      "skill": "tone/style—figurative language",
+      "difficulty": "H",
+      "prompt": "When Ms. Castellano says, “Your ears believe whatever your eyes tell them” (lines 22–23), she means that",
+      "choices": {
+        "A": "people hear better when they can also see",
+        "B": "pictures matter more than sounds in a film",
+        "C": "a sound seems real when it matches the picture",
+        "D": "the students should watch the screen while they work"
+      },
+      "correct": "C",
+      "explanation": "She says it right after a bag of cornstarch sounded like snow and celery sounded like a branch: when a sound fits what the viewer sees, the viewer accepts it as real.",
+      "misconceptions": "reads the saying as being about sharp hearing, as ranking pictures over sound, or as an instruction",
+      "why": {
+        "A": "Hearing better reads the sentence as being about how sharp our ears are; it is about being fooled, since cornstarch passed for snow once the picture showed snow.",
+        "B": "Pictures mattering more takes the sentence as ranking the two; it is about how the two work together, with the picture making the sound believable.",
+        "D": "Watching the screen is what Mina does later (lines 32–33); the sentence is about an audience's ears and eyes, not instructions for the students."
+      },
+      "passage_id": "M01-RC-P03",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "0b9083b24989e5e7"
+    },
+    {
+      "id": "M01-RC-013",
+      "subject": "RC",
+      "skill": "supporting ideas—detail",
+      "difficulty": "E",
+      "prompt": "According to the passage, Ms. Castellano made the sound of footsteps in snow by",
+      "choices": {
+        "A": "snapping a stalk of celery",
+        "B": "walking in place on a plank",
+        "C": "galloping two coconut shells in a tray",
+        "D": "squeezing a bag of cornstarch in her fists"
+      },
+      "correct": "D",
+      "explanation": "Lines 18–20 say that for the footsteps in snow she squeezed a bag of cornstarch in her fists, and the crunch sounded real.",
+      "misconceptions": "takes the branch's sound, Mina's footstep or the boy's horse for the snow",
+      "why": {
+        "A": "Snapping celery was for the branch the woman broke from the tree (lines 21–22), not for her footsteps.",
+        "B": "Walking in place on a plank is how Mina finally made a footstep on wood at the end (lines 31–33), not how the snow was done.",
+        "C": "Galloping two coconut shells in a tray was a boy's way of making a horse (lines 25–26)."
+      },
+      "passage_id": "M01-RC-P03",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "8bd1e49f808c221b"
+    },
+    {
+      "id": "M01-RC-014",
+      "subject": "RC",
+      "skill": "vocabulary in context—word meaning",
+      "difficulty": "M",
+      "prompt": "In line 33, “fixed” most nearly means",
+      "choices": {
+        "A": "closed",
+        "B": "open",
+        "C": "repaired",
+        "D": "steady"
+      },
+      "correct": "D",
+      "explanation": "Mina kept her eyes on the screen without looking away while she stepped, so her eyes were fixed on it, held steady in one place.",
+      "misconceptions": "takes the everyday meaning of fixed (repaired); takes fixed as a description of open or closed eyes",
+      "why": {
+        "A": "Closed is the opposite of what Mina was doing; she had to watch the woman's steps on the screen to match them.",
+        "B": "Open describes eyes that are simply awake; fixed says more, that they stayed on one spot, the screen, without moving away.",
+        "C": "Repaired is the everyday meaning of fixed, as in fixing a bike, but eyes are not broken; here fixed means held steady on something."
+      },
+      "passage_id": "M01-RC-P03",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "117cd8efcc6e25db"
+    },
+    {
+      "id": "M01-RC-015",
+      "subject": "RC",
+      "skill": "inference—drawing a conclusion",
+      "difficulty": "M",
+      "prompt": "Several students glanced down at their own feet (lines 20–21) most likely because",
+      "choices": {
+        "A": "they were choosing shoes from the rack",
+        "B": "the crunch seemed to come from under them",
+        "C": "they were about to try the sound themselves",
+        "D": "Ms. Castellano had told them to watch their steps"
+      },
+      "correct": "B",
+      "explanation": "The crunch was “so real” (line 20) that for a moment the students checked whether the sound of snow had come from their own shoes.",
+      "misconceptions": "mixes in the rack of shoes, the students' turn, or the later advice about walking",
+      "why": {
+        "A": "Choosing shoes from the rack mixes in the rack of shoes in every size from the description of the studio (lines 9–10); nobody is said to pick out shoes.",
+        "C": "Trying the sound themselves comes next, in the fourth paragraph (line 24); at this moment they were still watching the artist.",
+        "D": "Watching their steps is advice Ms. Castellano gives later about how real people walk (lines 29–31), after the students had tried footsteps."
+      },
+      "passage_id": "M01-RC-P03",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "bcb8f0cbdbab37da"
+    },
+    {
+      "id": "M01-RC-016",
+      "subject": "RC",
+      "skill": "organization/logic—questions the passage answers",
+      "difficulty": "H",
+      "prompt": "The passage provides information to answer which question?",
+      "choices": {
+        "A": "Who started the first bike bus?",
+        "B": "How long does the ride to school take?",
+        "C": "How many riders came on the first morning?",
+        "D": "What time does the bike bus reach the school?"
+      },
+      "correct": "C",
+      "explanation": "Lines 15–17 say that on the first morning only four riders showed up; the passage never says who started the first bike bus, how long the ride takes, or when it reaches the school.",
+      "misconceptions": "takes a detail that is near an answer (a parent leads, a quarter to eight, rolls slowly) for the answer itself",
+      "why": {
+        "A": "Who started the first bike bus is tempting because a parent leads this one (line 5), but the passage never names a founder or says where the idea began.",
+        "B": "How long the ride takes is not given; the passage says the bus rolls slowly (lines 29–30) but gives no time for the trip.",
+        "D": "What time it reaches the school is not stated; a quarter to eight (line 1) is when the bus pulls up at one corner, not when it arrives at school."
+      },
+      "passage_id": "M01-RC-P04",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "8a98a91b2017bc5a"
+    },
+    {
+      "id": "M01-RC-017",
+      "subject": "RC",
+      "skill": "supporting ideas—detail",
+      "difficulty": "E",
+      "prompt": "According to the second paragraph (lines 6–14), the speaker on the leader's bike plays music so that",
+      "choices": {
+        "A": "people can hear it coming",
+        "B": "the riders keep a steady pace",
+        "C": "the riders know when to make a turn",
+        "D": "drivers will roll their windows down"
+      },
+      "correct": "A",
+      "explanation": "Lines 12–14 say the speaker plays music so the group can be heard coming before it can be seen.",
+      "misconceptions": "gives the music the job of the slow pace, the hand signals, or the drivers' later habit",
+      "why": {
+        "B": "The riders keeping a steady pace comes from the bus rolling slowly for the youngest legs (lines 29–30), which is the leader's doing, not the music's.",
+        "C": "The riders knowing when to turn is the job of the hand signal before every turn (lines 26–27), not the music.",
+        "D": "Drivers rolling their windows down (lines 21–22) is something they do to listen, in the third paragraph; the second paragraph says the music is there so the group can be heard coming."
+      },
+      "passage_id": "M01-RC-P04",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "2cf23b5ae204b7b2"
+    },
+    {
+      "id": "M01-RC-018",
+      "subject": "RC",
+      "skill": "inference—author's purpose",
+      "difficulty": "M",
+      "prompt": "The author mentions the bike rack (lines 32–34) most likely to show that",
+      "choices": {
+        "A": "the bus runs even on rainy mornings",
+        "B": "many more children now bike to school",
+        "C": "the riders arrive before the first bell",
+        "D": "the school should buy a bigger bike rack"
+      },
+      "correct": "B",
+      "explanation": "A rack that once held three or four bikes and is now full before the first bell shows how many children ride to school since the bike bus began.",
+      "misconceptions": "takes a neighboring detail (rain, the bell) for the point; draws a conclusion the passage never makes",
+      "why": {
+        "A": "Running on rainy mornings is said in line 31, but the rack is brought in after that to show the number of riders, not the weather.",
+        "C": "Arriving before the first bell is when the rack fills (lines 33–34); the point of the sentence is that it fills at all, when it once held three or four bikes.",
+        "D": "A bigger bike rack is a conclusion the passage never draws; the author compares the rack then and now to show the change in riders, not to ask for a new one."
+      },
+      "passage_id": "M01-RC-P04",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "ab80570f13292caf"
+    },
+    {
+      "id": "M01-RC-019",
+      "subject": "RC",
+      "skill": "main idea—central idea",
+      "difficulty": "M",
+      "prompt": "Which best states the main idea of the passage?",
+      "choices": {
+        "A": "A bike bus follows the same rules as a real bus does.",
+        "B": "A speaker on the leader's bike makes the group easy to hear.",
+        "C": "Children should not be allowed to bike alone across busy streets.",
+        "D": "A bike bus is a safe way for children to ride to school together."
+      },
+      "correct": "D",
+      "explanation": "Every paragraph describes the bike bus, how it works, how it grew, and why riding together lets children do what they could not do alone, so the passage is about the bike bus as a safe way to get to school.",
+      "misconceptions": "stretches the comparison to a real bus; lifts one detail or one reason as the whole",
+      "why": {
+        "A": "Following the rules of a real bus stretches the comparison in lines 6–8, where the leader keeps a route and stops like a bus; the passage is about the children riding, not bus rules.",
+        "B": "The speaker making the group easy to hear is one detail from the second paragraph (lines 12–14), not the idea the whole passage builds.",
+        "C": "Children not biking alone across busy streets comes from lines 24–26, which explain one thing the group makes possible; it is a reason the bike bus helps, not the main idea."
+      },
+      "passage_id": "M01-RC-P04",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "5b498a9d2500914d"
+    },
+    {
+      "id": "M01-RC-020",
+      "subject": "RC",
+      "skill": "tone/style—author's attitude",
+      "difficulty": "M",
+      "prompt": "The author's attitude toward the bike bus is best described as",
+      "choices": {
+        "A": "amused",
+        "B": "approving",
+        "C": "doubtful",
+        "D": "worried"
+      },
+      "correct": "B",
+      "explanation": "The author describes the bus warmly, with the waving leader, the growing line, drivers who roll their windows down to listen, and the full bike rack, and points out what it lets children do safely.",
+      "misconceptions": "mistakes playful details for a joke; reads the busy street and strict rules as alarm",
+      "why": {
+        "A": "Amused picks up the playful details, like a bus with no engine and wet socks, but the author treats the bike bus as a serious, good idea rather than a joke.",
+        "C": "Doubtful would need the author to question whether the bus works; instead the passage shows it growing from four riders to more than thirty.",
+        "D": "Worried comes from the busy street and the strict rules (lines 24–27), but those are given to show how the group keeps children safe, not to raise alarm."
+      },
+      "passage_id": "M01-RC-P04",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "1d90a2e45b6bd161"
+    },
+    {
+      "id": "M01-RC-021",
+      "subject": "RC",
+      "skill": "vocabulary in context—word meaning",
+      "difficulty": "M",
+      "prompt": "In line 9, “filed” most nearly means",
+      "choices": {
+        "A": "cut",
+        "B": "marched",
+        "C": "sorted",
+        "D": "stored"
+      },
+      "correct": "B",
+      "explanation": "The five hens went up the ramp one after another in a line, so filed means marched in single file.",
+      "misconceptions": "takes filed as what a metal file does or as filing papers",
+      "why": {
+        "A": "Cut is what a file does to a fingernail or a piece of metal, but the hens are moving up a ramp, not being shaped.",
+        "C": "Sorted comes from filing papers into folders; the sentence is about hens walking, one behind the other.",
+        "D": "Stored comes from putting papers away in a file; the hens are going up a ramp in a line, not being put away."
+      },
+      "passage_id": "M01-RC-P05",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "0d88d8ef6192626d"
+    },
+    {
+      "id": "M01-RC-022",
+      "subject": "RC",
+      "skill": "inference—drawing a conclusion",
+      "difficulty": "M",
+      "prompt": "It can be inferred that Wren brought a book on the third evening because she",
+      "choices": {
+        "A": "wanted Pepper to come and sit near her",
+        "B": "had finished the chores on the index card",
+        "C": "needed to look up how the hens should be cared for",
+        "D": "had decided to wait for dark instead of chasing Pepper"
+      },
+      "correct": "D",
+      "explanation": "On the first evening chasing failed and on the second the corn failed, but both times Pepper went in once it was dark; on the third evening Wren settles down early with a book and does not look at the hen, so she has chosen to wait.",
+      "misconceptions": "reads the hens at her shoes as her aim; takes the chores or the index card for the reason",
+      "why": {
+        "A": "Wanting Pepper near her comes from the hens pecking around her shoes (line 32), but Wren never once glanced at Pepper (lines 33–34); she was not trying to attract her.",
+        "B": "Finishing the chores may well be true, but it does not explain the book; she sat down before the sun had even reached the rooftops (lines 30–31), to pass the time until dark.",
+        "C": "Looking up how to care for hens would send her to the index card (lines 3–5), not a book of chapters; she reads one chapter, then another (lines 32–33)."
+      },
+      "passage_id": "M01-RC-P05",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "4369e6264b006fe2"
+    },
+    {
+      "id": "M01-RC-023",
+      "subject": "RC",
+      "skill": "supporting ideas—detail",
+      "difficulty": "E",
+      "prompt": "According to the passage, what did Wren use on the second evening to bring the hens in?",
+      "choices": {
+        "A": "a lilac bush",
+        "B": "a cup of corn",
+        "C": "an index card",
+        "D": "a chapter book"
+      },
+      "correct": "B",
+      "explanation": "Lines 24–25 say that on the second evening Wren rattled a handful of corn in a tin cup, and five hens came hurrying.",
+      "misconceptions": "takes an object from the first or third evening, or the instructions, for the second evening's method",
+      "why": {
+        "A": "The lilac bush is where Pepper hid on the first evening (line 16); Wren did not use it to call the hens.",
+        "C": "The index card held the instructions for the chores (lines 3–5); it had nothing to do with calling the hens in.",
+        "D": "A chapter book is what Wren brought on the third evening (lines 30–33), and she brought it to wait, not to bring the hens in."
+      },
+      "passage_id": "M01-RC-P05",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "ecadb9fd0caaefce"
+    },
+    {
+      "id": "M01-RC-024",
+      "subject": "RC",
+      "skill": "organization/logic—function of a paragraph",
+      "difficulty": "H",
+      "prompt": "The main purpose of the first paragraph (lines 1–8) is to",
+      "choices": {
+        "A": "describe what Pepper looks like",
+        "B": "show how the other five hens behaved",
+        "C": "warn that something might get in at night",
+        "D": "explain the responsibility Wren has taken on"
+      },
+      "correct": "D",
+      "explanation": "The first paragraph sets up the story: Mrs. Dombrowski is away, Wren is looking after the hens, and the index card and the warning explain why shutting the door at dusk matters.",
+      "misconceptions": "takes the second paragraph's content for the first; takes one sentence of the paragraph for its purpose",
+      "why": {
+        "A": "What Pepper looks like, a speckled brown hen, comes in the second paragraph (lines 11–12), after the job has been explained.",
+        "B": "How the other five hens behaved, filing up the ramp on their own, is in the second paragraph (lines 9–11), and it is there to make Pepper stand out.",
+        "C": "The warning about the night is one sentence in the paragraph (lines 7–8), there to show why the door matters; the paragraph as a whole is about Wren's job."
+      },
+      "passage_id": "M01-RC-P05",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "e62a3030aab15edd"
+    },
+    {
+      "id": "M01-RC-025",
+      "subject": "RC",
+      "skill": "main idea—central idea",
+      "difficulty": "H",
+      "prompt": "Which sentence best states the central idea of the story?",
+      "choices": {
+        "A": "Hens go inside as soon as the sun goes down.",
+        "B": "Wren finds that waiting works where chasing failed.",
+        "C": "Looking after six hens is too much work for one child.",
+        "D": "Pepper is a hen that enjoys being chased around the yard."
+      },
+      "correct": "B",
+      "explanation": "Chasing Pepper on the first evening and tempting her with corn on the second both fail, yet each night she goes in once it is dark; on the third evening Wren simply waits, and the latch slides home.",
+      "misconceptions": "overstates the trouble; guesses about the hen from the first evening; contradicts the hen's timing",
+      "why": {
+        "A": "Hens going in as soon as the sun goes down is contradicted by Pepper, who stays out until the first star each evening (lines 28 and 36–38).",
+        "C": "Too much work for one child overstates the trouble; five hens go in by themselves, and Wren manages the sixth by the third evening.",
+        "D": "Enjoying being chased is a guess about Pepper from the first evening (lines 15–18); on the second and third evenings nobody chases her and she still goes in at dark."
+      },
+      "passage_id": "M01-RC-P05",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M01",
+      "content_hash": "d70353059f72a29a"
+    },
+    {
+      "id": "M01-MA-001",
+      "subject": "MA",
+      "skill": "whole numbers—place value",
+      "difficulty": "E",
+      "prompt": "In the number 473,582, what is the value of the digit 7?",
+      "choices": {
+        "A": "7",
+        "B": "700",
+        "C": "7,000",
+        "D": "70,000"
+      },
+      "correct": "D",
+      "explanation": "Reading from the right, the places are ones, tens, hundreds, thousands, ten thousands. The 7 sits in the ten-thousands place, so it is worth 7 × 10,000 = 70,000.",
+      "misconceptions": "names the digit instead of its value; counts the places from the left; stops one place short",
+      "why": {
+        "A": "7 is the digit itself; the question asks what that digit is worth in its place, and its place is ten thousands.",
+        "B": "700 is what a 7 is worth in the hundreds place, which is where it lands if the places are counted from the left instead of from the right.",
+        "C": "7,000 is a 7 in the thousands place, one place to the right of where this 7 sits."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "e487b388de48bdac"
+    },
+    {
+      "id": "M01-MA-002",
+      "subject": "MA",
+      "skill": "whole numbers—standard form",
+      "difficulty": "E",
+      "prompt": "The population of Marisol's county was listed in words as three hundred thousand, five hundred eight. How is this number written in standard form?",
+      "choices": {
+        "A": "30,508",
+        "B": "300,058",
+        "C": "300,508",
+        "D": "300,580"
+      },
+      "correct": "C",
+      "explanation": "Three hundred thousand is 300,000 and five hundred eight is 508. Together they make 300,508, with a zero holding the tens place because there are no tens.",
+      "misconceptions": "drops a zero from the thousands; writes fifty-eight for five hundred eight; hears eight as eighty",
+      "why": {
+        "A": "30,508 has only two zeros after the 3, so it says thirty thousand, not three hundred thousand.",
+        "B": "300,058 puts 58 at the end, as if the number ended in fifty-eight instead of five hundred eight.",
+        "D": "300,580 ends in five hundred eighty; the 8 belongs in the ones place, with a zero in the tens."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "aa84fbe0e4a61d0e"
+    },
+    {
+      "id": "M01-MA-003",
+      "subject": "MA",
+      "skill": "whole numbers—addition with regrouping",
+      "difficulty": "M",
+      "prompt": "The table shows how many cans each grade collected for the food drive. How many cans did the three grades collect in all?",
+      "figure": {
+        "type": "table",
+        "caption": "Cans collected",
+        "head": [
+          "Grade",
+          "Cans"
+        ],
+        "rows": [
+          [
+            "Grade 3",
+            "1,478"
+          ],
+          [
+            "Grade 4",
+            "2,935"
+          ],
+          [
+            "Grade 5",
+            "1,687"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "4,622",
+        "B": "5,900",
+        "C": "6,000",
+        "D": "6,100"
+      },
+      "correct": "D",
+      "explanation": "Add the three rows: 1,478 + 2,935 = 4,413, and 4,413 + 1,687 = 6,100 cans.",
+      "misconceptions": "leaves out one grade; drops the carry from the tens; estimates with rounded numbers instead of adding",
+      "why": {
+        "A": "4,622 is 2,935 + 1,687, the total with Grade 3's cans left out.",
+        "B": "5,900 comes from forgetting the 2 carried out of the tens column: the hundreds then add to 19 instead of 21.",
+        "C": "6,000 is an estimate, 1,000 + 3,000 + 2,000 with each amount rounded to the nearest thousand, not the exact total."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "c0a858d92fb50e46"
+    },
+    {
+      "id": "M01-MA-004",
+      "subject": "MA",
+      "skill": "whole numbers—subtraction across zeros",
+      "difficulty": "E",
+      "prompt": "A parking garage has 4,000 spaces. One morning 2,358 of the spaces were filled. How many spaces were still empty?",
+      "choices": {
+        "A": "1,642",
+        "B": "1,652",
+        "C": "1,752",
+        "D": "2,642"
+      },
+      "correct": "A",
+      "explanation": "Subtract 2,358 from 4,000. Regroup 4,000 as 3 thousands, 9 hundreds, 9 tens, and 10 ones; then 10 − 8 = 2, 9 − 5 = 4, 9 − 3 = 6, and 3 − 2 = 1, which gives 1,642.",
+      "misconceptions": "takes from 10 instead of 9 in the tens; lends 10 to every column without reducing the next; keeps the thousands whole",
+      "why": {
+        "B": "1,652 takes 5 from 10 in the tens column instead of from 9, forgetting that the tens had already lent a ten to the ones.",
+        "C": "1,752 lends a 10 to every column without taking 1 away from the column to its left, so the tens and the hundreds both come out one too big.",
+        "D": "2,642 keeps all 4 thousands, forgetting that one of them was broken up into hundreds, tens, and ones for the regrouping."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2ce7ab8fef4ba4c8"
+    },
+    {
+      "id": "M01-MA-005",
+      "subject": "MA",
+      "skill": "whole numbers—multiplication",
+      "difficulty": "E",
+      "prompt": "A school orders 24 boxes of markers for the art room. Each box holds 36 markers. How many markers does the school order?",
+      "choices": {
+        "A": "60",
+        "B": "216",
+        "C": "744",
+        "D": "864"
+      },
+      "correct": "D",
+      "explanation": "Multiply 24 × 36. One way: 24 × 30 = 720 and 24 × 6 = 144, and 720 + 144 = 864 markers.",
+      "misconceptions": "adds instead of multiplying; forgets to shift the tens row; multiplies only the matching places",
+      "why": {
+        "A": "60 is 24 + 36, the two numbers added when the question needs 24 groups of 36.",
+        "B": "216 is 144 + 72: the row for the 3 tens was written straight under the row for the 6 ones instead of being moved one place to the left.",
+        "C": "744 is 720 + 24, multiplying 20 by 36 and 4 by 6 but never 4 by 30."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "196b65228cd9730f"
+    },
+    {
+      "id": "M01-MA-006",
+      "subject": "MA",
+      "skill": "whole numbers—division",
+      "difficulty": "H",
+      "prompt": "A print shop has 2,448 flyers to tie into bundles of 24. How many bundles can it make?",
+      "choices": {
+        "A": "12",
+        "B": "102",
+        "C": "112",
+        "D": "120"
+      },
+      "correct": "B",
+      "explanation": "Divide 2,448 by 24. 24 goes into 24 once, into 4 zero times, and into 48 twice, so the quotient is 102. Check: 24 × 102 = 2,448.",
+      "misconceptions": "leaves out the zero in the quotient; writes 1 where a 0 belongs; puts the zero at the end",
+      "why": {
+        "A": "12 is the quotient with its middle digit missing: 24 goes into 4 zero times, and that 0 has to be written down before the 8 is brought down.",
+        "C": "112 writes a 1 in the tens place, but 24 does not go into 4 even once, so that digit is 0.",
+        "D": "120 puts the zero at the end instead of in the middle, where the 4 came up short; 24 × 120 would be 2,880."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "5d958f565463725e"
+    },
+    {
+      "id": "M01-MA-007",
+      "subject": "MA",
+      "skill": "fractions, decimals and percents—fraction of a shaded model",
+      "difficulty": "E",
+      "prompt": "The grid is divided into equal squares. What fraction of the grid is shaded?",
+      "figure": {
+        "type": "shaded",
+        "shape": "grid",
+        "parts": 12,
+        "shaded": 9,
+        "cols": 4
+      },
+      "choices": {
+        "A": "1/4",
+        "B": "1/3",
+        "C": "2/3",
+        "D": "3/4"
+      },
+      "correct": "D",
+      "explanation": "There are 12 equal squares and 9 of them are shaded, so 9/12 of the grid is shaded. Dividing the top and the bottom by 3 gives 3/4.",
+      "misconceptions": "names the unshaded part; compares shaded with unshaded; counts rows instead of squares",
+      "why": {
+        "A": "1/4 is the unshaded part: 3 of the 12 squares are white, not shaded.",
+        "B": "1/3 compares the 3 white squares with the 9 shaded ones instead of with all 12 squares.",
+        "C": "2/3 counts rows: two rows are fully shaded out of three, but the third row has a shaded square in it as well."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8b4aad0228d11758"
+    },
+    {
+      "id": "M01-MA-008",
+      "subject": "MA",
+      "skill": "fractions, decimals and percents—mixed numbers on a number line",
+      "difficulty": "M",
+      "prompt": "Use the number line to answer the question. What number does point P show?",
+      "figure": {
+        "type": "numberline",
+        "min": 0,
+        "max": 2,
+        "step": 0.25,
+        "labelEvery": 4,
+        "points": [
+          {
+            "at": 1.75,
+            "label": "P"
+          }
+        ]
+      },
+      "choices": {
+        "A": "1 1/4",
+        "B": "1 1/2",
+        "C": "1 3/5",
+        "D": "1 3/4"
+      },
+      "correct": "D",
+      "explanation": "The space between 1 and 2 is cut into 4 equal parts, so each tick mark is 1/4. Point P is 3 ticks past 1, which is 1 3/4.",
+      "misconceptions": "counts tick marks instead of spaces and calls them fifths; counts from the wrong end; miscounts by one tick",
+      "why": {
+        "A": "1 1/4 is one tick past 1; point P is three ticks past 1, one tick before 2.",
+        "B": "1 1/2 is the tick halfway between 1 and 2; point P is one tick further along.",
+        "C": "1 3/5 comes from counting the 5 tick marks from 1 to 2 and calling each part a fifth; it is the 4 spaces between them that matter, so each part is a fourth."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "964cbb016b2d8d58"
+    },
+    {
+      "id": "M01-MA-009",
+      "subject": "MA",
+      "skill": "fractions, decimals and percents—money from a price list",
+      "difficulty": "M",
+      "prompt": "The table shows the prices at the school snack stand. Farah buys two muffins and a juice and pays with a $5 bill. How much change should she get?",
+      "figure": {
+        "type": "table",
+        "caption": "Snack stand prices",
+        "head": [
+          "Item",
+          "Price"
+        ],
+        "rows": [
+          [
+            "Muffin",
+            "$1.35"
+          ],
+          [
+            "Juice",
+            "$1.60"
+          ],
+          [
+            "Apple",
+            "$0.75"
+          ],
+          [
+            "Pretzel",
+            "$1.20"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "$0.70",
+        "B": "$1.70",
+        "C": "$2.05",
+        "D": "$4.30"
+      },
+      "correct": "A",
+      "explanation": "Two muffins cost 2 × $1.35 = $2.70, and with the juice the total is $2.70 + $1.60 = $4.30. From $5.00 that leaves $5.00 − $4.30 = $0.70.",
+      "misconceptions": "drops the carry when adding the prices; counts only one muffin; gives the total instead of the change",
+      "why": {
+        "B": "$1.70 is the change from $3.30, which is what $2.70 + $1.60 comes to if the carry from the tenths is dropped.",
+        "C": "$2.05 is the change after one muffin and a juice, $2.95; the second muffin was left out.",
+        "D": "$4.30 is the cost of the three items, not the change she gets back from $5."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "1f2fa09c610645aa"
+    },
+    {
+      "id": "M01-MA-010",
+      "subject": "MA",
+      "skill": "fractions, decimals and percents—adding fractions",
+      "difficulty": "H",
+      "prompt": "Noor's granola recipe uses 2/3 cup of oats and 3/4 cup of nuts. How many cups of oats and nuts does the recipe use altogether?",
+      "choices": {
+        "A": "5/12",
+        "B": "1/2",
+        "C": "5/7",
+        "D": "1 5/12"
+      },
+      "correct": "D",
+      "explanation": "Rewrite both fractions with twelfths: 2/3 = 8/12 and 3/4 = 9/12. Then 8/12 + 9/12 = 17/12, which is 1 5/12 cups.",
+      "misconceptions": "drops the whole cup from 17/12; multiplies instead of adding; adds the tops and the bottoms separately",
+      "why": {
+        "A": "5/12 is the part of 17/12 left after one whole cup is taken out, but the whole cup counts too.",
+        "B": "1/2 is 2/3 × 3/4, the two amounts multiplied instead of added.",
+        "C": "5/7 is 2 + 3 over 3 + 4, the tops added and the bottoms added, but fractions can only be added once they have the same bottom number."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "15e456686620456f"
+    },
+    {
+      "id": "M01-MA-011",
+      "subject": "MA",
+      "skill": "fractions, decimals and percents—subtracting decimals",
+      "difficulty": "M",
+      "prompt": "Elena has 3.5 meters of yarn. She uses 1.85 meters of it to make a scarf. How many meters of yarn does she have left?",
+      "choices": {
+        "A": "1.20",
+        "B": "1.65",
+        "C": "2.35",
+        "D": "2.65"
+      },
+      "correct": "B",
+      "explanation": "Write 3.5 as 3.50 so the decimal points line up, then subtract: 3.50 − 1.85 = 1.65 meters.",
+      "misconceptions": "lines up 3.5 as 3.05; takes the smaller digit from the larger in each column; forgets to reduce the 3 after regrouping",
+      "why": {
+        "A": "1.20 is 3.05 − 1.85, with the 5 of 3.5 pushed into the hundredths place; 3.5 means 3 and 5 tenths, so it is 3.50.",
+        "C": "2.35 takes the smaller digit from the larger in each column, 5 from 8 and 0 from 5, instead of regrouping.",
+        "D": "2.65 regroups a one into the tenths but leaves the 3 whole, as if nothing had been borrowed from the ones."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f1051bf7500ea794"
+    },
+    {
+      "id": "M01-MA-012",
+      "subject": "MA",
+      "skill": "fractions, decimals and percents—percent from a graph",
+      "difficulty": "H",
+      "prompt": "The graph shows how the students in Mr. Okafor's class get to school. What percent of the class rides the bus?",
+      "figure": {
+        "type": "bar",
+        "title": "How we get to school",
+        "y": "Students",
+        "bars": [
+          {
+            "label": "Walk",
+            "value": 7
+          },
+          {
+            "label": "Bus",
+            "value": 5
+          },
+          {
+            "label": "Car",
+            "value": 6
+          },
+          {
+            "label": "Bike",
+            "value": 2
+          }
+        ],
+        "step": 1
+      },
+      "choices": {
+        "A": "5%",
+        "B": "20%",
+        "C": "25%",
+        "D": "35%"
+      },
+      "correct": "C",
+      "explanation": "Add the bars to find the whole class: 7 + 5 + 6 + 2 = 20 students. The bus bar is 5 of those 20, and 5/20 = 1/4 = 25%.",
+      "misconceptions": "reads the bar height as the percent; turns the class size into the percent; reads the walk bar",
+      "why": {
+        "A": "5% is the number of bus riders read as a percent; 5 students out of 20 is a quarter of the class, which is 25%.",
+        "B": "20% is the size of the whole class written as a percent, not the share of it that rides the bus.",
+        "D": "35% is the walk bar's share: 7 out of 20 is 35%, but the question asks about the bus."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "1b94e0bb846d2223"
+    },
+    {
+      "id": "M01-MA-013",
+      "subject": "MA",
+      "skill": "fractions, decimals and percents—multiplying a decimal",
+      "difficulty": "E",
+      "prompt": "A bottle of juice holds 0.6 liter. How many liters of juice are in 8 of these bottles?",
+      "choices": {
+        "A": "0.48",
+        "B": "4.8",
+        "C": "8.6",
+        "D": "48"
+      },
+      "correct": "B",
+      "explanation": "Multiply 0.6 × 8. Since 6 × 8 = 48 and 0.6 has one decimal place, the product is 4.8 liters.",
+      "misconceptions": "places the decimal point two places in; adds instead of multiplying; drops the decimal point",
+      "why": {
+        "A": "0.48 puts the decimal point two places in, but 0.6 has only one decimal place, so the answer has one too.",
+        "C": "8.6 is 8 + 0.6, one bottle added to the number of bottles instead of 8 bottles multiplied.",
+        "D": "48 is 6 × 8 with the decimal point dropped; each bottle holds less than 1 liter, so 8 bottles hold less than 8 liters."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8b7377d9b06afadb"
+    },
+    {
+      "id": "M01-MA-014",
+      "subject": "MA",
+      "skill": "fractions, decimals and percents—fraction to decimal",
+      "difficulty": "M",
+      "prompt": "Anika made 7 of her 20 free throws at basketball practice. Which decimal shows the fraction of her free throws that she made?",
+      "choices": {
+        "A": "0.07",
+        "B": "0.35",
+        "C": "0.7",
+        "D": "3.5"
+      },
+      "correct": "B",
+      "explanation": "7 out of 20 is 7/20. Multiply the top and the bottom by 5 to get 35/100, which is 0.35.",
+      "misconceptions": "writes the numerator as hundredths; writes the numerator as tenths; divides by 2 instead of 20",
+      "why": {
+        "A": "0.07 is 7 hundredths, as if there had been 100 free throws; 7 out of 20 is 35 out of 100.",
+        "C": "0.7 is 7 tenths, as if there had been 10 free throws; 7 out of 20 is only 35 hundredths.",
+        "D": "3.5 is 7 ÷ 2, dividing by 2 instead of 20 and dropping the zero."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "fc84991298bb4159"
+    },
+    {
+      "id": "M01-MA-015",
+      "subject": "MA",
+      "skill": "algebra—input/output rule",
+      "difficulty": "M",
+      "prompt": "The number machine uses the same rule on every input number. The table shows some inputs and their outputs. What output does the machine give for an input of 12?",
+      "figure": {
+        "type": "table",
+        "caption": "Number machine",
+        "head": [
+          "Input",
+          "Output"
+        ],
+        "rows": [
+          [
+            "1",
+            "5"
+          ],
+          [
+            "4",
+            "17"
+          ],
+          [
+            "5",
+            "21"
+          ],
+          [
+            "8",
+            "33"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "45",
+        "B": "48",
+        "C": "49",
+        "D": "52"
+      },
+      "correct": "C",
+      "explanation": "Each output is 4 times the input plus 1: 4 × 1 + 1 = 5, 4 × 4 + 1 = 17, and so on. For an input of 12, that is 4 × 12 + 1 = 49.",
+      "misconceptions": "continues the output column by its last jump; multiplies without adding 1; adds 1 before multiplying",
+      "why": {
+        "A": "45 is 33 + 12, adding the last jump in the output column again; but the input jumps by 4 this time, from 8 to 12, not by 3 as it did from 5 to 8.",
+        "B": "48 is 4 × 12, the multiplying step with the 1 at the end forgotten.",
+        "D": "52 is 13 × 4: the 1 was added to the input before multiplying instead of to the result afterward."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "3b95191217ae2aba"
+    },
+    {
+      "id": "M01-MA-016",
+      "subject": "MA",
+      "skill": "algebra—equation from words",
+      "difficulty": "E",
+      "prompt": "Paulo had a bag of marbles. He gave 15 marbles to his sister and had 27 marbles left. If m stands for the number of marbles Paulo started with, which equation could be used to find m?",
+      "choices": {
+        "A": "m + 15 = 27",
+        "B": "m − 15 = 27",
+        "C": "15 − m = 27",
+        "D": "m + 27 = 15"
+      },
+      "correct": "B",
+      "explanation": "Paulo started with m marbles and gave 15 away, so m − 15 is what he had left, and that was 27. The equation is m − 15 = 27, and m is 42.",
+      "misconceptions": "adds the marbles given away; reverses the subtraction; puts the leftover marbles with the start",
+      "why": {
+        "A": "m + 15 = 27 says Paulo gained 15 marbles, but he gave 15 away, so the 15 is taken from m, not added to it.",
+        "C": "15 − m = 27 takes the starting number away from 15, but Paulo took 15 away from his starting number; and 15 minus anything cannot be 27.",
+        "D": "m + 27 = 15 adds the 27 marbles he kept to the ones he started with, but 27 is part of m, not something added to it."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "0a340efd027155c0"
+    },
+    {
+      "id": "M01-MA-017",
+      "subject": "MA",
+      "skill": "algebra—pattern from a graph",
+      "difficulty": "M",
+      "prompt": "The graph shows the height of Lucia's bean plant at the end of each week. If the plant keeps growing at the same rate, how tall will it be at the end of week 7?",
+      "figure": {
+        "type": "line",
+        "title": "Height of Lucia's plant",
+        "x": "Week",
+        "y": "Height (cm)",
+        "points": [
+          {
+            "label": "1",
+            "value": 10
+          },
+          {
+            "label": "2",
+            "value": 14
+          },
+          {
+            "label": "3",
+            "value": 18
+          },
+          {
+            "label": "4",
+            "value": 22
+          }
+        ],
+        "step": 2,
+        "max": 24
+      },
+      "choices": {
+        "A": "28 cm",
+        "B": "30 cm",
+        "C": "34 cm",
+        "D": "38 cm"
+      },
+      "correct": "C",
+      "explanation": "The plant grows 4 cm each week: 10, 14, 18, 22. Three more weeks after week 4 add 3 × 4 = 12 cm, so at the end of week 7 it is 22 + 12 = 34 cm tall.",
+      "misconceptions": "multiplies the rate by the week number without the starting height; stops a week early; goes a week too far",
+      "why": {
+        "A": "28 cm is 4 × 7, the weekly growth times the week number, which leaves out the height the plant already had in week 1.",
+        "B": "30 cm is the height at the end of week 6, one week short of the week asked about.",
+        "D": "38 cm is the height at the end of week 8, one week past the one asked about."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "c50f55b8a4f4d116"
+    },
+    {
+      "id": "M01-MA-018",
+      "subject": "MA",
+      "skill": "algebra—missing number",
+      "difficulty": "E",
+      "prompt": "If 48 ÷ □ = 6, what number does the box stand for?",
+      "choices": {
+        "A": "8",
+        "B": "42",
+        "C": "54",
+        "D": "288"
+      },
+      "correct": "A",
+      "explanation": "Ask: 48 divided by what number gives 6? Since 6 × 8 = 48, the box stands for 8.",
+      "misconceptions": "subtracts 6 from 48; adds 6 to 48; multiplies 48 by 6",
+      "why": {
+        "B": "42 is 48 − 6, taking away instead of asking what number 48 is divided by.",
+        "C": "54 is 48 + 6, adding instead of dividing.",
+        "D": "288 is 48 × 6, multiplying the two numbers instead of dividing 48 by 6 to find the box."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "17113ad4dd35eb60"
+    },
+    {
+      "id": "M01-MA-019",
+      "subject": "MA",
+      "skill": "geometry—coordinates",
+      "difficulty": "E",
+      "prompt": "Use the coordinate grid to answer the question. What are the coordinates of point K?",
+      "figure": {
+        "type": "grid",
+        "xmax": 8,
+        "ymax": 6,
+        "points": [
+          {
+            "x": 5,
+            "y": 2,
+            "label": "K"
+          },
+          {
+            "x": 2,
+            "y": 5,
+            "label": "J"
+          }
+        ]
+      },
+      "choices": {
+        "A": "(2, 5)",
+        "B": "(5, 2)",
+        "C": "(5, 3)",
+        "D": "(6, 2)"
+      },
+      "correct": "B",
+      "explanation": "Start at 0, go 5 units to the right along the bottom and 2 units up. Coordinates are written (right, up), so point K is at (5, 2).",
+      "misconceptions": "reads point J; writes the up number first; miscounts a unit",
+      "why": {
+        "A": "(2, 5) is point J, 2 to the right and 5 up; it is also what K becomes if the two numbers are written in the wrong order.",
+        "C": "(5, 3) is one unit too high; K sits on the line for 2, not 3.",
+        "D": "(6, 2) is one unit too far to the right; K is directly above the 5 on the bottom axis."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "15efea477644ef86"
+    },
+    {
+      "id": "M01-MA-020",
+      "subject": "MA",
+      "skill": "geometry—lines of symmetry",
+      "difficulty": "M",
+      "prompt": "The figure shows a rectangle. How many lines of symmetry does the rectangle have?",
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            3
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "6 cm"
+          },
+          {
+            "side": 1,
+            "text": "3 cm"
+          }
+        ],
+        "right": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "choices": {
+        "A": "0",
+        "B": "1",
+        "C": "2",
+        "D": "4"
+      },
+      "correct": "C",
+      "explanation": "A line of symmetry folds the shape exactly onto itself. A rectangle folds across its middle from side to side and from top to bottom, so it has 2 lines. Its diagonals do not work, because folding along one leaves the corners sticking out.",
+      "misconceptions": "counts the diagonals as lines of symmetry; finds only one fold; thinks a shape that is not a square has none",
+      "why": {
+        "A": "0 would mean no fold matches the rectangle onto itself, but a fold through the middle of the long sides does, and so does a fold through the middle of the short sides.",
+        "B": "1 counts only the fold across the middle from side to side and misses the fold from top to bottom.",
+        "D": "4 adds the two diagonals, but a rectangle folded along a diagonal does not line up unless it is a square."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8bd5f6b1544b6176"
+    },
+    {
+      "id": "M01-MA-021",
+      "subject": "MA",
+      "skill": "geometry—classifying quadrilaterals",
+      "difficulty": "M",
+      "prompt": "The figure shows quadrilateral PQRS on a coordinate grid. Which name best describes PQRS?",
+      "figure": {
+        "type": "grid",
+        "xmax": 9,
+        "ymax": 6,
+        "polygon": [
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "points": [
+          {
+            "x": 1,
+            "y": 1,
+            "label": "P"
+          },
+          {
+            "x": 6,
+            "y": 1,
+            "label": "Q"
+          },
+          {
+            "x": 8,
+            "y": 4,
+            "label": "R"
+          },
+          {
+            "x": 3,
+            "y": 4,
+            "label": "S"
+          }
+        ]
+      },
+      "choices": {
+        "A": "parallelogram",
+        "B": "rectangle",
+        "C": "rhombus",
+        "D": "trapezoid"
+      },
+      "correct": "A",
+      "explanation": "Side PQ runs along the grid from (1, 1) to (6, 1) and side SR runs from (3, 4) to (8, 4); both are flat and 5 units long, so they are parallel. Sides PS and QR both slant the same way, so they are parallel too. Two pairs of parallel sides and no square corners make a parallelogram.",
+      "misconceptions": "sees only one pair of parallel sides; treats the slanted corners as square corners; assumes all four sides are equal",
+      "why": {
+        "B": "rectangle needs four square corners, but the corners at P, Q, R, and S are slanted, not right angles.",
+        "C": "rhombus needs four sides of the same length, but PQ is 5 units long and the slanted side QR is shorter.",
+        "D": "trapezoid has only one pair of parallel sides; here PQ is parallel to SR and PS is also parallel to QR, so there are two pairs."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "9e86e35800ab06bd"
+    },
+    {
+      "id": "M01-MA-022",
+      "subject": "MA",
+      "skill": "geometry—faces of a solid",
+      "difficulty": "E",
+      "prompt": "A shoebox is shaped like a rectangular prism. How many faces does a rectangular prism have?",
+      "choices": {
+        "A": "4",
+        "B": "6",
+        "C": "8",
+        "D": "12"
+      },
+      "correct": "B",
+      "explanation": "A rectangular prism is a box shape. It has a top and a bottom, a front and a back, and a left side and a right side: 6 flat faces in all.",
+      "misconceptions": "counts only the sides and not the top and bottom; counts the corners; counts the edges",
+      "why": {
+        "A": "4 counts only the four sides around the box and forgets the top and the bottom.",
+        "C": "8 is the number of corners, or vertices, on a box, not the number of flat faces.",
+        "D": "12 is the number of edges, the straight lines where two faces meet."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "27a02981ce5f06f3"
+    },
+    {
+      "id": "M01-MA-023",
+      "subject": "MA",
+      "skill": "measurement—perimeter of a composite figure",
+      "difficulty": "H",
+      "prompt": "The figure shows the shape of Owen's garden, with some of the side lengths labeled. Every side meets the next at a right angle. What is the perimeter of the garden?",
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            5,
+            3
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "8 m"
+          },
+          {
+            "side": 1,
+            "text": "3 m"
+          },
+          {
+            "side": 2,
+            "text": "3 m"
+          },
+          {
+            "side": 5,
+            "text": "6 m"
+          }
+        ],
+        "right": [
+          0,
+          1,
+          2,
+          4,
+          5
+        ]
+      },
+      "choices": {
+        "A": "20 m",
+        "B": "25 m",
+        "C": "28 m",
+        "D": "48 m"
+      },
+      "correct": "C",
+      "explanation": "The two unlabeled sides can be worked out from the others: the short upright side is 6 − 3 = 3 m, and the top side is 8 − 3 = 5 m. Adding all six sides, 8 + 3 + 3 + 3 + 5 + 6 = 28 m.",
+      "misconceptions": "adds only the labeled sides; misses one of the unlabeled sides; multiplies 8 by 6 as if finding an area",
+      "why": {
+        "A": "20 m is 8 + 3 + 3 + 6, the four labeled sides only; the two unlabeled sides are part of the perimeter too.",
+        "B": "25 m leaves out the unlabeled upright side, which is 6 − 3 = 3 m long.",
+        "D": "48 m is 8 × 6, the area of a full 8-by-6 rectangle, not the distance around this shape."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2f710821fcdbb6bb"
+    },
+    {
+      "id": "M01-MA-024",
+      "subject": "MA",
+      "skill": "measurement—volume by counting cubes",
+      "difficulty": "M",
+      "prompt": "The figure shows a block built from small cubes. Each small cube has edges 1 centimeter long. What is the volume of the block?",
+      "figure": {
+        "type": "cubes",
+        "w": 4,
+        "d": 2,
+        "h": 3
+      },
+      "choices": {
+        "A": "9 cubic centimeters",
+        "B": "12 cubic centimeters",
+        "C": "24 cubic centimeters",
+        "D": "26 cubic centimeters"
+      },
+      "correct": "C",
+      "explanation": "The block is 4 cubes long, 2 cubes deep, and 3 cubes high. Each layer has 4 × 2 = 8 cubes and there are 3 layers, so 8 × 3 = 24 cubes, which is 24 cubic centimeters.",
+      "misconceptions": "adds the three dimensions; counts only the front face; counts every visible square as a cube",
+      "why": {
+        "A": "9 cubic centimeters is 4 + 2 + 3, the three measurements added instead of multiplied.",
+        "B": "12 cubic centimeters counts only the 4 × 3 cubes on the front face and forgets the layer behind it.",
+        "D": "26 cubic centimeters counts every small square that can be seen, 12 on the front, 8 on top, and 6 on the side, but some cubes are counted twice that way and the hidden ones not at all."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2c9ef4379655cfa0"
+    },
+    {
+      "id": "M01-MA-025",
+      "subject": "MA",
+      "skill": "measurement—elapsed time from a clock",
+      "difficulty": "H",
+      "prompt": "The clock shows the time Hana's swim practice started. Practice ended at 5:10 p.m. How long did the practice last?",
+      "figure": {
+        "type": "clock",
+        "h": 3,
+        "m": 45
+      },
+      "choices": {
+        "A": "1 hour 25 minutes",
+        "B": "1 hour 35 minutes",
+        "C": "2 hours 25 minutes",
+        "D": "2 hours 35 minutes"
+      },
+      "correct": "A",
+      "explanation": "The clock shows 3:45. From 3:45 to 4:45 is 1 hour, and from 4:45 to 5:10 is 25 more minutes, so practice lasted 1 hour 25 minutes.",
+      "misconceptions": "takes the smaller minutes from the larger; borrows an hour but then subtracts the wrong way; forgets to take the borrowed hour from the hours",
+      "why": {
+        "B": "1 hour 35 minutes takes an hour out of 5:10 but then finds 45 − 10 = 35 instead of 70 − 45 = 25.",
+        "C": "2 hours 25 minutes gets the 25 minutes right but counts 5 − 3 = 2 hours, forgetting that one of those hours was broken into minutes.",
+        "D": "2 hours 35 minutes is 5 − 3 hours and 45 − 10 minutes, each pair of numbers subtracted on its own with the smaller taken from the larger."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "04aab1809217dcfc"
+    },
+    {
+      "id": "M01-MA-026",
+      "subject": "MA",
+      "skill": "measurement—metric units",
+      "difficulty": "H",
+      "prompt": "A recipe calls for 1.5 liters of water. Jonah's measuring cup holds 250 milliliters. How many times must he fill the cup to measure out the water?",
+      "choices": {
+        "A": "4",
+        "B": "6",
+        "C": "60",
+        "D": "375"
+      },
+      "correct": "B",
+      "explanation": "1 liter is 1,000 milliliters, so 1.5 liters is 1,500 milliliters. Then 1,500 ÷ 250 = 6, because 250 × 6 = 1,500.",
+      "misconceptions": "uses 1 liter instead of 1.5; drops a zero from 250; multiplies instead of dividing",
+      "why": {
+        "A": "4 is 1,000 ÷ 250, the number of cups in 1 liter; the half liter still has to be measured.",
+        "C": "60 is 1,500 ÷ 25, with a zero dropped from the 250 milliliters the cup holds.",
+        "D": "375 is 1.5 × 250, multiplying when the question asks how many 250s fit into 1,500."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "e21b833b01a690ba"
+    },
+    {
+      "id": "M01-MA-027",
+      "subject": "MA",
+      "skill": "data and probability—reading a pictograph",
+      "difficulty": "M",
+      "prompt": "The pictograph shows how many books four students read in March. How many books did the four students read in all?",
+      "figure": {
+        "type": "pictograph",
+        "title": "Books read in March",
+        "unit": "= 4 books",
+        "rows": [
+          {
+            "label": "Tomas",
+            "count": 3.5
+          },
+          {
+            "label": "Greta",
+            "count": 2
+          },
+          {
+            "label": "Yusuf",
+            "count": 4
+          },
+          {
+            "label": "Clara",
+            "count": 1.5
+          }
+        ]
+      },
+      "choices": {
+        "A": "11",
+        "B": "40",
+        "C": "44",
+        "D": "48"
+      },
+      "correct": "C",
+      "explanation": "Each full circle stands for 4 books and a half circle for 2. Tomas read 14, Greta 8, Yusuf 16, and Clara 6, and 14 + 8 + 16 + 6 = 44 books.",
+      "misconceptions": "counts the symbols instead of the books; ignores the half symbols; counts half symbols as whole ones",
+      "why": {
+        "A": "11 is the number of circles and half circles drawn, not the number of books; each full circle stands for 4 books.",
+        "B": "40 is 10 × 4, counting only the whole circles and leaving out the two half circles, which stand for 2 books each.",
+        "D": "48 is 12 × 4, counting each half circle as a whole one; a half circle is only 2 books."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "34ef1f621d6995aa"
+    },
+    {
+      "id": "M01-MA-028",
+      "subject": "MA",
+      "skill": "data and probability—median from a table",
+      "difficulty": "M",
+      "prompt": "The table shows Ravi's scores on five spelling tests. What is the median of his scores?",
+      "figure": {
+        "type": "table",
+        "caption": "Ravi's spelling scores",
+        "head": [
+          "Test",
+          "Score"
+        ],
+        "rows": [
+          [
+            "1",
+            "16"
+          ],
+          [
+            "2",
+            "20"
+          ],
+          [
+            "3",
+            "15"
+          ],
+          [
+            "4",
+            "20"
+          ],
+          [
+            "5",
+            "19"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "15",
+        "B": "18",
+        "C": "19",
+        "D": "20"
+      },
+      "correct": "C",
+      "explanation": "Put the scores in order: 15, 16, 19, 20, 20. The median is the middle score, which is 19.",
+      "misconceptions": "takes the middle of the list without ordering it; gives the mean; gives the mode",
+      "why": {
+        "A": "15 is the middle number of the list as it is printed; the scores have to be put in order first.",
+        "B": "18 is the mean: the five scores add to 90, and 90 ÷ 5 = 18. The median is the middle score once they are in order.",
+        "D": "20 is the mode, the score that appears most often, not the middle score."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "652868a54c2a27d5"
+    },
+    {
+      "id": "M01-MA-029",
+      "subject": "MA",
+      "skill": "data and probability—probability from a spinner",
+      "difficulty": "M",
+      "prompt": "The spinner is divided into equal sections. If the spinner is spun once, what is the probability that it lands on blue?",
+      "figure": {
+        "type": "spinner",
+        "sectors": [
+          {
+            "label": "Red"
+          },
+          {
+            "label": "Blue"
+          },
+          {
+            "label": "Red"
+          },
+          {
+            "label": "Green"
+          },
+          {
+            "label": "Red"
+          },
+          {
+            "label": "Blue"
+          },
+          {
+            "label": "Yellow"
+          },
+          {
+            "label": "Blue"
+          }
+        ]
+      },
+      "choices": {
+        "A": "1/4",
+        "B": "3/8",
+        "C": "3/5",
+        "D": "5/8"
+      },
+      "correct": "B",
+      "explanation": "There are 8 equal sections and 3 of them are blue, so the probability of blue is 3 out of 8, or 3/8.",
+      "misconceptions": "counts colors instead of sections; compares blue with not-blue; gives the probability of not blue",
+      "why": {
+        "A": "1/4 counts the four colors and treats blue as one of four equal chances, but the colors do not cover equal numbers of sections.",
+        "C": "3/5 compares the 3 blue sections with the 5 that are not blue instead of with all 8 sections.",
+        "D": "5/8 is the probability of not landing on blue: 5 of the 8 sections are other colors."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2e72a354ba876a11"
+    },
+    {
+      "id": "M01-MA-030",
+      "subject": "MA",
+      "skill": "data and probability—range from a bar graph",
+      "difficulty": "M",
+      "prompt": "The graph shows how many goals each team scored this season. What is the range of the numbers of goals?",
+      "figure": {
+        "type": "bar",
+        "title": "Goals scored this season",
+        "y": "Goals",
+        "bars": [
+          {
+            "label": "Hawks",
+            "value": 12
+          },
+          {
+            "label": "Owls",
+            "value": 6
+          },
+          {
+            "label": "Foxes",
+            "value": 16
+          },
+          {
+            "label": "Bears",
+            "value": 10
+          }
+        ],
+        "step": 2
+      },
+      "choices": {
+        "A": "6",
+        "B": "10",
+        "C": "16",
+        "D": "22"
+      },
+      "correct": "B",
+      "explanation": "The range is the greatest value minus the least. The Foxes scored the most, 16, and the Owls the fewest, 6, so the range is 16 − 6 = 10.",
+      "misconceptions": "gives the least value; gives the greatest value; adds the greatest and least instead of subtracting",
+      "why": {
+        "A": "6 is the fewest goals, the Owls' bar, not the gap between the highest and lowest bars.",
+        "C": "16 is the most goals, the Foxes' bar; the range is how far that is above the lowest bar.",
+        "D": "22 is 16 + 6, the highest and lowest bars added together instead of subtracted."
+      },
+      "form": "M01",
+      "schema_version": "1.0",
+      "content_version": "2026.10.04",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "fcb11d0f494fd9fb"
+    }
+  ]
+}

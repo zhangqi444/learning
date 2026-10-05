@@ -17,6 +17,7 @@ import { Textarea } from "@zhangqi444/ui/ui/textarea"
 import { Input } from "@zhangqi444/ui/ui/input"
 import { Label } from "@zhangqi444/ui/ui/label"
 import { ActionBar, CauseTags, Choice, Passage, Runner } from "@/pages/runner"
+import { Figure } from "@/components/figure"
 import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { learnName } from "@/lib/aops"
@@ -523,6 +524,7 @@ function MissedBySkill({ misses, form }) {
                         <MissStage id={q.id} />
                       </div>
                       <p className="text-[15px] leading-snug font-medium">{q.q}</p>
+                      {q.f ? <Figure f={q.f} /> : null}
                       <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{pick ? `${pick}. ${q.c[LTR.indexOf(pick)]}` : "—"}</span></div>
                       <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
                       {/* What the choice she actually made really was, above the
@@ -674,6 +676,7 @@ export function MockSection({ form, sec }) {
           </div>
           {q.p ? <Passage id={q.p} /> : null}
           <p className="text-lg leading-snug font-medium" data-testid="question">{q.q}</p>
+          {q.f ? <Figure f={q.f} /> : null}
           <RadioGroup value={(r.picks || {})[i] || ""} onValueChange={pick} className="gap-2.5" aria-label="Answer choices">
             {q.c.map((c, k) => <Choice key={k} k={k} text={c} onSelect={(kk) => pick(LTR[kk])} />)}
           </RadioGroup>
@@ -684,7 +687,7 @@ export function MockSection({ form, sec }) {
         <Card className="py-4">
           <CardContent className="flex flex-wrap gap-1.5">
             {items.map((_, j) => (
-              <button key={j} type="button" onClick={() => goTo(j)}
+              <button key={j} type="button" onClick={() => goTo(j)} data-testid="mock-jump" data-i={j}
                 className={cn("size-8 rounded-md border text-xs font-semibold tabular-nums", j === i && "ring-ring/50 ring-[3px]", (r.picks || {})[j] ? "bg-primary text-primary-foreground border-primary" : "bg-card", (r.flags || {})[j] && "border-warning border-2")}>
                 {j + 1}
               </button>

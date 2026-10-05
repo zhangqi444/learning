@@ -74,7 +74,7 @@ def identities(target, pool, answer=None):
 
 def items():
     for f in sorted(glob.glob('content/question-banks/*.json')):
-        if os.path.basename(f) == 'mock.json':
+        if os.path.basename(f).startswith('mock-'):
             continue
         for it in json.load(open(f))['items']:
             yield it

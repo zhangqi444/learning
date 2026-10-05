@@ -82,12 +82,15 @@ for sheet, code in FORM.items():
         mock_items.append(item(iid, k[2], k[3], k[4], ws.cell(r, 5).value,
                                [ws.cell(r, c).value for c in range(6, 10)],
                                k[5], k[6], k[7], k[8], code))
-log.append(write(f'{OUT}/question-banks/mock.json',
-                 dict(bank='mock', schema_version=SCHEMA_VERSION,
-                      content_version=CONTENT_VERSION, items=mock_items)))
-log.append(write(f'{OUT}/passages/mock-passages.json',
-                 dict(bank='mock', schema_version=SCHEMA_VERSION,
-                      content_version=CONTENT_VERSION, items=passages)))
+# One file per form, as the tree is laid out now (4 October 2026): a paper is a
+# file, so a rework replaces one file and its diff reads as one paper.
+for _form in sorted({it['form'] for it in mock_items}):
+    log.append(write(f'{OUT}/question-banks/mock-{_form}.json',
+                     dict(bank='mock', form=_form, schema_version=SCHEMA_VERSION,
+                          content_version=CONTENT_VERSION, items=[it for it in mock_items if it['form'] == _form])))
+    log.append(write(f'{OUT}/passages/mock-{_form}-passages.json',
+                     dict(bank='mock', form=_form, schema_version=SCHEMA_VERSION,
+                          content_version=CONTENT_VERSION, items=[p for p in passages if p.get('form') == _form])))
 
 # ---------------- MA ----------------
 wb = load('ma', ['rand_ma.json'])

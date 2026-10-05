@@ -1,0 +1,3335 @@
+{
+  "bank": "mock",
+  "form": "DGN",
+  "schema_version": "1.0",
+  "content_version": "2026.09.01",
+  "items": [
+    {
+      "id": "DGN-VR-001",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "ABUNDANT most nearly means:",
+      "choices": {
+        "A": "costly",
+        "B": "narrow",
+        "C": "hidden",
+        "D": "plentiful"
+      },
+      "correct": "D",
+      "explanation": "Abundant means existing in a large supply; the other choices describe visibility, width, or price.",
+      "misconceptions": "sound-alike guess; ignores part of speech",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "040beaf6c63b7618",
+      "why": {
+        "A": "Costly means expensive. A thing can be plentiful and cheap — a glut usually is.",
+        "B": "Narrow means small from side to side, a matter of width rather than of how much there is.",
+        "C": "Hidden means out of sight. Something abundant is in large supply whether or not you can see it."
+      }
+    },
+    {
+      "id": "DGN-VR-002",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "CAUTIOUS most nearly means:",
+      "choices": {
+        "A": "cheerful",
+        "B": "noisy",
+        "C": "certain",
+        "D": "careful"
+      },
+      "correct": "D",
+      "explanation": "A cautious person acts carefully to avoid danger or error; cheerful, noisy, and certain do not express care.",
+      "misconceptions": "chooses positive tone; confuses confidence with care",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "ce943f276863431d",
+      "why": {
+        "A": "Cheerful means in good spirits; you can be cheerful and reckless at the same time.",
+        "B": "Noisy means loud. A cautious person is often quiet, but quietness is not what the word means.",
+        "C": "Certain means sure. Being cautious is nearer the opposite — you take care because you are not sure."
+      }
+    },
+    {
+      "id": "DGN-VR-003",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "DURABLE most nearly means:",
+      "choices": {
+        "A": "flexible",
+        "B": "long-lasting",
+        "C": "colorful",
+        "D": "unfinished"
+      },
+      "correct": "B",
+      "explanation": "Something durable resists wear and lasts; flexibility or color does not guarantee durability.",
+      "misconceptions": "related-feature guess; prefix ignored",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "c99d6d4e9bf6c335",
+      "why": {
+        "A": "Flexible means it bends without breaking. That can help a thing last, but plenty of durable things are rigid.",
+        "C": "Colorful means full of color, which says nothing about how long something survives.",
+        "D": "Unfinished means not completed. Durable is about standing up to wear, not about being done."
+      }
+    },
+    {
+      "id": "DGN-VR-004",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "EAGER most nearly means:",
+      "choices": {
+        "A": "enthusiastic",
+        "B": "polite",
+        "C": "patient",
+        "D": "confused"
+      },
+      "correct": "A",
+      "explanation": "Eager describes strong interest or enthusiasm to act; patience can accompany eagerness but is not its meaning.",
+      "misconceptions": "tone-only guess; near-context substitution",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "438965faf0536a2f",
+      "why": {
+        "B": "Polite means well-mannered; a person can be eager and rude at once.",
+        "C": "Patient means willing to wait — nearly the opposite, since an eager person can hardly wait.",
+        "D": "Confused means unable to understand, which has nothing to do with keenness to act."
+      }
+    },
+    {
+      "id": "DGN-VR-005",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "FRAGILE most nearly means:",
+      "choices": {
+        "A": "unusually small",
+        "B": "recently made",
+        "C": "carefully packed",
+        "D": "easily broken"
+      },
+      "correct": "D",
+      "explanation": "Fragile means easily damaged or broken; packing is a response to fragility, not a synonym.",
+      "misconceptions": "cause-effect reversal; size assumption",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "8b85385293ffdd53",
+      "why": {
+        "A": "Unusually small is about size. Large things break easily too: a pane of glass is fragile and wide.",
+        "B": "Recently made is about age. A new thing can be tough and an old thing sturdy.",
+        "C": "Carefully packed is what you do because something is fragile, not what the word means."
+      }
+    },
+    {
+      "id": "DGN-VR-006",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "GLOOMY most nearly means:",
+      "choices": {
+        "A": "stormy",
+        "B": "crowded",
+        "C": "sad",
+        "D": "silent"
+      },
+      "correct": "C",
+      "explanation": "Gloomy can describe a sad mood; stormy may create gloom but is not equivalent in meaning.",
+      "misconceptions": "context association; mood-weather confusion",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "5683bd7391dbd713",
+      "why": {
+        "A": "Stormy describes the weather. Storms can make a day gloomy, but the word names the mood, not the rain.",
+        "B": "Crowded means full of people, which says nothing about mood.",
+        "D": "Silent means without sound. A gloomy room may be quiet, but quiet rooms are often cheerful."
+      }
+    },
+    {
+      "id": "DGN-VR-007",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—verb precision",
+      "difficulty": "M",
+      "prompt": "HINDER most nearly means:",
+      "choices": {
+        "A": "repair",
+        "B": "obstruct",
+        "C": "request",
+        "D": "observe"
+      },
+      "correct": "B",
+      "explanation": "To hinder is to slow or obstruct progress; the other verbs do not express interference.",
+      "misconceptions": "unfamiliar-word guess; part-of-speech drift",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "0b559b4d1a105130",
+      "why": {
+        "A": "Repair means to mend. Hindering is the opposite sort of act — it gets in the way.",
+        "C": "Request means to ask for something.",
+        "D": "Observe means to watch, and watching someone work does not slow them down."
+      }
+    },
+    {
+      "id": "DGN-VR-008",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—verb precision",
+      "difficulty": "E",
+      "prompt": "IMITATE most nearly means:",
+      "choices": {
+        "A": "copy",
+        "B": "explain",
+        "C": "admire",
+        "D": "invent"
+      },
+      "correct": "A",
+      "explanation": "To imitate is to copy someone's action, sound, or style; admiration does not require copying.",
+      "misconceptions": "related-action guess; reverses create/copy",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "c9583a311b23cf7f",
+      "why": {
+        "B": "Explain means to make something clear in words, not to reproduce it.",
+        "C": "Admire means to think well of. You can admire someone without copying anything they do.",
+        "D": "Invent means to make something new — the opposite of copying what already exists."
+      }
+    },
+    {
+      "id": "DGN-VR-009",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "JOLLY most nearly means:",
+      "choices": {
+        "A": "wise",
+        "B": "tidy",
+        "C": "merry",
+        "D": "tired"
+      },
+      "correct": "C",
+      "explanation": "Jolly means cheerful or merry; the distractors describe energy, order, or judgment.",
+      "misconceptions": "broad positive-word guess; sound cue",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "0b6af42f52b4ab66",
+      "why": {
+        "A": "Wise means having good judgment, which has nothing to do with cheerfulness.",
+        "B": "Tidy means neat and in order.",
+        "D": "Tired means in need of rest. A jolly person is lively, closer to the opposite."
+      }
+    },
+    {
+      "id": "DGN-VR-010",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "KEEN most nearly means:",
+      "choices": {
+        "A": "ordinary",
+        "B": "sharp",
+        "C": "distant",
+        "D": "gentle"
+      },
+      "correct": "B",
+      "explanation": "Keen can mean sharp, as in a keen edge or keen mind; none of the other choices matches that sense.",
+      "misconceptions": "misses multiple meaning; connotation guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "e23219f8cb6f6b03",
+      "why": {
+        "A": "Ordinary means usual or unremarkable — nearly the opposite of a keen mind.",
+        "C": "Distant means far off.",
+        "D": "Gentle means mild or soft in manner, whereas keen is sharp."
+      }
+    },
+    {
+      "id": "DGN-VR-011",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "MODEST most nearly means:",
+      "choices": {
+        "A": "awkward",
+        "B": "expensive",
+        "C": "exact",
+        "D": "humble"
+      },
+      "correct": "D",
+      "explanation": "A modest person is humble and does not boast; the other adjectives describe unrelated qualities.",
+      "misconceptions": "confuses modest price sense; tone-only guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "59111f0e3f11dc8f",
+      "why": {
+        "A": "Awkward means clumsy or uncomfortable. A modest person may be perfectly at ease.",
+        "B": "Expensive means costing a lot; modest can describe a small amount but never a large one.",
+        "C": "Exact means precise, which is about accuracy rather than about how a person speaks of themselves."
+      }
+    },
+    {
+      "id": "DGN-VR-012",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "NIMBLE most nearly means:",
+      "choices": {
+        "A": "peaceful",
+        "B": "agile",
+        "C": "enormous",
+        "D": "honest"
+      },
+      "correct": "B",
+      "explanation": "Nimble means quick and light in movement or thought, which is closest to agile.",
+      "misconceptions": "unfamiliar-word guess; chooses personality trait",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "701c6d177b6c3a30",
+      "why": {
+        "A": "Peaceful means calm and free of conflict, not quick on your feet.",
+        "C": "Enormous means very large. Size is not what nimble measures, and large things are rarely nimble.",
+        "D": "Honest means truthful."
+      }
+    },
+    {
+      "id": "DGN-VR-013",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "ORDINARY most nearly means:",
+      "choices": {
+        "A": "common",
+        "B": "complete",
+        "C": "quiet",
+        "D": "valuable"
+      },
+      "correct": "A",
+      "explanation": "Ordinary means common or not unusual; value, completeness, and sound are separate ideas.",
+      "misconceptions": "neutral-tone confusion; context-free guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "406b8ad18514470f",
+      "why": {
+        "B": "Complete means whole, with nothing missing.",
+        "C": "Quiet means making little sound.",
+        "D": "Valuable means worth a lot — often the opposite of ordinary, since it is rare things that command a price."
+      }
+    },
+    {
+      "id": "DGN-VR-014",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "PECULIAR most nearly means:",
+      "choices": {
+        "A": "ancient",
+        "B": "helpful",
+        "C": "smooth",
+        "D": "strange"
+      },
+      "correct": "D",
+      "explanation": "Peculiar most often means strange or unusual; the other choices do not express oddness.",
+      "misconceptions": "confuses particular/peculiar; sound association",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "20d487f79500109d",
+      "why": {
+        "A": "Ancient means very old, and old things can be perfectly unremarkable.",
+        "B": "Helpful means giving useful assistance.",
+        "C": "Smooth means even to the touch."
+      }
+    },
+    {
+      "id": "DGN-VR-015",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "RAPID most nearly means:",
+      "choices": {
+        "A": "fast",
+        "B": "steady",
+        "C": "early",
+        "D": "brief"
+      },
+      "correct": "A",
+      "explanation": "Rapid means fast in speed; early concerns time of arrival and brief concerns duration.",
+      "misconceptions": "time-word substitution; related but not equivalent",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "1e7f68e6d89182da",
+      "why": {
+        "B": "Steady means even and unchanging in pace, which can be slow.",
+        "C": "Early is about when something happens, not how fast it goes.",
+        "D": "Brief means lasting a short time. A rapid thing is often brief, but a slow thing can be brief too."
+      }
+    },
+    {
+      "id": "DGN-VR-016",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "SCARCE most nearly means:",
+      "choices": {
+        "A": "desired",
+        "B": "damaged",
+        "C": "rare",
+        "D": "divided"
+      },
+      "correct": "C",
+      "explanation": "Scarce means in short supply or rare; being desired may result from scarcity but is not the meaning.",
+      "misconceptions": "cause-effect reversal; negative-tone guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "f7f2999c30392195",
+      "why": {
+        "A": "Desired means wanted. Scarcity often makes a thing wanted, but the word describes how little of it there is.",
+        "B": "Damaged means harmed or broken.",
+        "D": "Divided means split into parts."
+      }
+    },
+    {
+      "id": "DGN-VR-017",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "VIVID most nearly means:",
+      "choices": {
+        "A": "empty",
+        "B": "distant",
+        "C": "calm",
+        "D": "bright"
+      },
+      "correct": "D",
+      "explanation": "Vivid describes something bright, clear, or intensely lifelike; the other words do not convey intensity.",
+      "misconceptions": "visual-context guess; weak synonym",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "bc30f58eafb50792",
+      "why": {
+        "A": "Empty means containing nothing.",
+        "B": "Distant means far away. A vivid memory can be of something long ago, which is nearly the reverse.",
+        "C": "Calm means quiet and untroubled, whereas vivid is about intensity."
+      }
+    },
+    {
+      "id": "DGN-VR-018",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—context contrast",
+      "difficulty": "E",
+      "prompt": "Because the path was covered with ice, Lena walked ____ instead of rushing.",
+      "choices": {
+        "A": "slowly",
+        "B": "blindly",
+        "C": "proudly",
+        "D": "gracefully"
+      },
+      "correct": "A",
+      "explanation": "Ice creates a slipping risk, so walking slowly instead of rushing is the safe response; proudly, gracefully, and blindly do not address the danger.",
+      "misconceptions": "ignores because; chooses attitude word",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "00f20922b6f902e9",
+      "why": {
+        "B": "Blindly means without looking. Ice calls for care, not for shutting your eyes, and nothing here says she could not see.",
+        "C": "Proudly describes how she felt about herself, which the ice has no bearing on.",
+        "D": "Gracefully describes how the walking looked. The sentence contrasts with rushing, so it wants a word about speed."
+      }
+    },
+    {
+      "id": "DGN-VR-019",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—cause and effect",
+      "difficulty": "E",
+      "prompt": "The puppy was so ____ that it greeted every visitor with a wagging tail.",
+      "choices": {
+        "A": "sleepy",
+        "B": "timid",
+        "C": "friendly",
+        "D": "hungry"
+      },
+      "correct": "C",
+      "explanation": "Greeting every visitor warmly is evidence that the puppy is friendly; timid and sleepy conflict with the action.",
+      "misconceptions": "pet stereotype; ignores behavioral evidence",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "1b66fd8cb64a7159",
+      "why": {
+        "A": "Sleepy would not have the puppy greeting anyone; the wagging tail is evidence of the opposite.",
+        "B": "Timid means shy of strangers, which is the reverse of greeting every visitor.",
+        "D": "Hungry might explain interest in someone carrying food, not a welcome for everyone."
+      }
+    },
+    {
+      "id": "DGN-VR-020",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—logical fit",
+      "difficulty": "M",
+      "prompt": "To keep the surprise party secret, Omar gave only a ____ answer when his sister asked about Saturday.",
+      "choices": {
+        "A": "musical",
+        "B": "truthful",
+        "C": "lengthy",
+        "D": "vague"
+      },
+      "correct": "D",
+      "explanation": "A vague answer leaves out details and helps preserve a secret; a lengthy answer would risk revealing more.",
+      "misconceptions": "assumes secrecy means falsehood; ignores clue secret",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "b43c402da6bd7a72",
+      "why": {
+        "A": "Musical describes sound, not how much an answer gives away.",
+        "B": "Truthful answers can give a secret away; the sentence needs a word for saying little.",
+        "C": "Lengthy means long, and a long answer risks letting more slip out."
+      }
+    },
+    {
+      "id": "DGN-VR-021",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—definition clue",
+      "difficulty": "E",
+      "prompt": "The glass was transparent, so we could see ____ it.",
+      "choices": {
+        "A": "through",
+        "B": "beside",
+        "C": "above",
+        "D": "around"
+      },
+      "correct": "A",
+      "explanation": "Transparent means allowing light and images to pass through; the sentence directly supplies that spatial relationship.",
+      "misconceptions": "preposition guess; definition clue missed",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "d0fbbd5c1686de91",
+      "why": {
+        "B": "Beside means next to it, which any object allows whether or not it is see-through.",
+        "C": "Above means over it.",
+        "D": "Around means past its edges — what you do with something you cannot see through."
+      }
+    },
+    {
+      "id": "DGN-VR-022",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—comparison",
+      "difficulty": "M",
+      "prompt": "Unlike the bustling market, the small courtyard was ____ and still.",
+      "choices": {
+        "A": "tranquil",
+        "B": "private",
+        "C": "bright",
+        "D": "narrow"
+      },
+      "correct": "A",
+      "explanation": "Unlike signals a contrast with bustling; tranquil means calm and matches still.",
+      "misconceptions": "ignores contrast marker; chooses plausible setting detail",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "e30722fcb8d5f817",
+      "why": {
+        "B": "Private means not open to others. A market can be private and a courtyard public; the contrast here is with bustle.",
+        "C": "Bright is about light, not about noise or movement.",
+        "D": "Narrow is about width. The sentence pairs the word with still, so it wants calm."
+      }
+    },
+    {
+      "id": "DGN-VR-023",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—purpose",
+      "difficulty": "E",
+      "prompt": "The coach repeated the directions to ____ that every player understood the drill.",
+      "choices": {
+        "A": "pretend",
+        "B": "ensure",
+        "C": "wonder",
+        "D": "doubt"
+      },
+      "correct": "B",
+      "explanation": "Repetition serves to ensure, or make certain, that players understand; doubt and wonder oppose that purpose.",
+      "misconceptions": "purpose relationship missed; negative-word attraction",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "069eeefa99ddd598",
+      "why": {
+        "A": "Pretend means to act as if something were true, which is not why anyone repeats directions.",
+        "C": "Wonder means to be curious. Repeating is how you remove the wondering, not how you create it.",
+        "D": "Doubt is what the coach is trying to get rid of."
+      }
+    },
+    {
+      "id": "DGN-VR-024",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—tone",
+      "difficulty": "M",
+      "prompt": "Although Priya lost the first round, her ____ attitude helped her practice for the next match.",
+      "choices": {
+        "A": "bitter",
+        "B": "careless",
+        "C": "puzzled",
+        "D": "resilient"
+      },
+      "correct": "D",
+      "explanation": "Resilient describes recovering from a setback and continuing to work; the other attitudes would not support renewed practice.",
+      "misconceptions": "focuses on loss; ignores helped",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "052518449778409d",
+      "why": {
+        "A": "Bitter means resentful, which would work against going back to practice.",
+        "B": "Careless means not taking care, and careless practice would not have helped her either.",
+        "C": "Puzzled means confused, and confusion does not explain why she kept working."
+      }
+    },
+    {
+      "id": "DGN-VR-025",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—precise verb",
+      "difficulty": "M",
+      "prompt": "The museum guide asked visitors to ____ the ancient bowl without touching it.",
+      "choices": {
+        "A": "polish",
+        "B": "examine",
+        "C": "replace",
+        "D": "borrow"
+      },
+      "correct": "B",
+      "explanation": "Visitors can examine an object visually without touching it; the other actions require handling or removal.",
+      "misconceptions": "ignores without touching; museum-context guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "0df0d8351e2cebbb",
+      "why": {
+        "A": "Polishing means rubbing it, which is touching.",
+        "C": "Replace means putting it back or swapping it, and both need hands.",
+        "D": "Borrow means taking it away."
+      }
+    },
+    {
+      "id": "DGN-VR-026",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—cause and effect",
+      "difficulty": "E",
+      "prompt": "After hours of steady rain, the shallow creek began to ____.",
+      "choices": {
+        "A": "overflow",
+        "B": "freeze",
+        "C": "vanish",
+        "D": "sparkle"
+      },
+      "correct": "A",
+      "explanation": "Sustained rain adds water, so a shallow creek may overflow; the other changes are not caused by rain in this context.",
+      "misconceptions": "weather association; reverses effect",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "5b771c484990cac6",
+      "why": {
+        "B": "Freeze needs cold, which the sentence never mentions.",
+        "C": "Vanish would mean losing water, and rain adds it.",
+        "D": "Sparkle describes how the creek looks, not what hours of rain do to it."
+      }
+    },
+    {
+      "id": "DGN-VR-027",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—contrast",
+      "difficulty": "M",
+      "prompt": "The first map was confusing, but the revised version was clear and ____.",
+      "choices": {
+        "A": "distant",
+        "B": "useful",
+        "C": "ornate",
+        "D": "fragile"
+      },
+      "correct": "B",
+      "explanation": "But contrasts the confusing map with a clear, useful one; ornate does not necessarily improve function.",
+      "misconceptions": "ignores contrast; chooses visual feature",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "76b6e17c00f09ebd",
+      "why": {
+        "A": "Distant means far away, which is not something a map gets improved into.",
+        "C": "Ornate means heavily decorated, and decoration can make a map harder to read rather than clearer.",
+        "D": "Fragile means easily damaged, which is about the paper rather than the map's clarity."
+      }
+    },
+    {
+      "id": "DGN-VR-028",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—sequence logic",
+      "difficulty": "M",
+      "prompt": "Before making a final choice, the committee agreed to ____ all three proposals.",
+      "choices": {
+        "A": "divide",
+        "B": "hide",
+        "C": "evaluate",
+        "D": "repeat"
+      },
+      "correct": "C",
+      "explanation": "A committee logically evaluates proposals before choosing; hiding, repeating, or dividing them does not support a decision.",
+      "misconceptions": "decision-process gap; familiar-verb guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "9dd0e2e160554992",
+      "why": {
+        "A": "Dividing the proposals splits them up; it does not help the committee judge between them.",
+        "B": "Hiding them would make a choice impossible.",
+        "D": "Repeating them adds nothing new to judge by."
+      }
+    },
+    {
+      "id": "DGN-VR-029",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—degree",
+      "difficulty": "E",
+      "prompt": "The lantern gave only a ____ glow, barely lighting the doorway.",
+      "choices": {
+        "A": "steady",
+        "B": "golden",
+        "C": "faint",
+        "D": "sudden"
+      },
+      "correct": "C",
+      "explanation": "Barely lighting provides a degree clue that the glow was faint; color and steadiness do not indicate low brightness.",
+      "misconceptions": "chooses imagery; degree clue missed",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "01ade22050646a27",
+      "why": {
+        "A": "Steady is about whether the glow flickers, not about how weak it is.",
+        "B": "Golden is a color, and a golden glow can be blazing.",
+        "D": "Sudden is about when it began."
+      }
+    },
+    {
+      "id": "DGN-VR-030",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—character inference",
+      "difficulty": "M",
+      "prompt": "Even when no one was watching, Mateo returned the extra change because he was ____.",
+      "choices": {
+        "A": "shy",
+        "B": "honest",
+        "C": "curious",
+        "D": "clever"
+      },
+      "correct": "B",
+      "explanation": "Returning money that is not his demonstrates honesty; curiosity, shyness, and cleverness do not explain the ethical choice.",
+      "misconceptions": "positive-trait guessing; ignores moral evidence",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "3f869d13b89407e4",
+      "why": {
+        "A": "Shy means uneasy with people, which does not explain returning money.",
+        "C": "Curious means wanting to know things.",
+        "D": "Clever means quick-witted, and keeping the change would have been no less clever."
+      }
+    },
+    {
+      "id": "DGN-VR-031",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—context definition",
+      "difficulty": "M",
+      "prompt": "The instructions were so ____ that every step could be understood in only one way.",
+      "choices": {
+        "A": "lengthy",
+        "B": "formal",
+        "C": "precise",
+        "D": "familiar"
+      },
+      "correct": "C",
+      "explanation": "Precise instructions are exact and unambiguous, matching the clue understood in only one way.",
+      "misconceptions": "formality-clarity confusion; length-clarity confusion",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "2e078b41b2790598",
+      "why": {
+        "A": "Lengthy means long, and long instructions can still be read two ways.",
+        "B": "Formal is about the style of the language, not about how exact it is.",
+        "D": "Familiar means already known, which does not make a step unambiguous."
+      }
+    },
+    {
+      "id": "DGN-VR-032",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—cause and effect",
+      "difficulty": "H",
+      "prompt": "The scientist treated the surprising result as ____ until a second experiment confirmed it.",
+      "choices": {
+        "A": "final",
+        "B": "accurate",
+        "C": "uncertain",
+        "D": "valuable"
+      },
+      "correct": "C",
+      "explanation": "Before confirmation, a surprising result should be considered uncertain; calling it final or accurate would skip the needed second test.",
+      "misconceptions": "assumes surprising means valuable; ignores until",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "f720695133b82adc",
+      "why": {
+        "A": "Final would mean the matter is settled, and then no second experiment would be needed.",
+        "B": "Accurate claims the result is right, which is exactly what has not been checked yet.",
+        "D": "Valuable says the result matters, not whether it can be trusted."
+      }
+    },
+    {
+      "id": "DGN-VR-033",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—contrast",
+      "difficulty": "M",
+      "prompt": "The old backpack looked worn, yet its straps remained ____.",
+      "choices": {
+        "A": "faded",
+        "B": "sturdy",
+        "C": "dusty",
+        "D": "narrow"
+      },
+      "correct": "B",
+      "explanation": "Yet signals that despite a worn appearance, the straps were still sturdy; faded and dusty repeat rather than contrast the wear.",
+      "misconceptions": "ignores yet; surface-detail attraction",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "9f0859f1da2d8615",
+      "why": {
+        "A": "Faded repeats the wear rather than contrasting with it, and yet asks for a contrast.",
+        "C": "Dusty also goes with looking worn.",
+        "D": "Narrow is about width, which the sentence never raises."
+      }
+    },
+    {
+      "id": "DGN-VR-034",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—purpose and register",
+      "difficulty": "H",
+      "prompt": "The speaker used a brief example to ____ an idea that had seemed complicated.",
+      "choices": {
+        "A": "clarify",
+        "B": "postpone",
+        "C": "challenge",
+        "D": "memorize"
+      },
+      "correct": "A",
+      "explanation": "A well-chosen example can clarify, or make clear, a complicated idea; the other verbs do not express explanation.",
+      "misconceptions": "confuses learn with explain; ignores purpose clue",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "e63bcd9a26c2eae2",
+      "why": {
+        "B": "Postpone means to put off until later, which an example does not do to an idea.",
+        "C": "Challenge means to dispute. The example is there to help, not to argue.",
+        "D": "Memorize is something the listener might do afterwards, not what the example does to the idea."
+      }
+    },
+    {
+      "id": "DGN-QR-001",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "numerical pattern—growing differences",
+      "difficulty": "M",
+      "prompt": "What number comes next in 5, 8, 14, 23, 35, ...?",
+      "choices": {
+        "A": "50",
+        "B": "47",
+        "C": "53",
+        "D": "44"
+      },
+      "correct": "A",
+      "explanation": "The increases are 3, 6, 9, and 12; the next increase is 15, so 35 + 15 = 50.",
+      "misconceptions": "repeats last difference; assumes constant ratio",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "a4bf784b94bbacce",
+      "why": {
+        "B": "47 is 35 + 12, repeating the last increase; each increase grows by 3, so the next is 15.",
+        "C": "53 is 35 + 18, growing the increase by 6; the increases go up by 3 each time.",
+        "D": "44 is 35 + 9, an increase from two steps back."
+      }
+    },
+    {
+      "id": "DGN-QR-002",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "proportional reasoning—unit rate",
+      "difficulty": "M",
+      "prompt": "Seven admission tickets cost $31.50. At the same rate, how much do five tickets cost?",
+      "choices": {
+        "A": "$20.50",
+        "B": "$21.00",
+        "C": "$18.00",
+        "D": "$22.50"
+      },
+      "correct": "D",
+      "explanation": "One ticket costs $31.50 ÷ 7 = $4.50; five cost 5 × $4.50 = $22.50.",
+      "misconceptions": "subtracts two ticket dollars; divides by five first",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "0c0473c347e8647b",
+      "why": {
+        "A": "20.50 would make one ticket $4.10; $31.50 ÷ 7 is $4.50, so five come to $22.50.",
+        "B": "21.00 would make one ticket $4.20; $31.50 ÷ 7 is $4.50.",
+        "C": "18.00 is 4 × $4.50, the price of four tickets rather than five."
+      }
+    },
+    {
+      "id": "DGN-QR-003",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "fraction reasoning—remaining part",
+      "difficulty": "M",
+      "prompt": "A hiker completes 3/8 of a trail before lunch and 1/4 after lunch. What fraction remains?",
+      "choices": {
+        "A": "5/8",
+        "B": "1/8",
+        "C": "3/8",
+        "D": "1/2"
+      },
+      "correct": "C",
+      "explanation": "3/8 + 1/4 = 3/8 + 2/8 = 5/8 completed, leaving 3/8.",
+      "misconceptions": "subtracts unlike denominators; reports completed fraction",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "14ff3789082d2325",
+      "why": {
+        "A": "5/8 is the part already walked, not the part left.",
+        "B": "1/8 comes from 3/8 − 1/4; the two walked parts are added, and only then taken from the whole.",
+        "D": "1/2 is what would remain if 1/4 were 1/8; 1/4 is 2/8, so 5/8 is done and 3/8 is left."
+      }
+    },
+    {
+      "id": "DGN-QR-004",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "ratio—part from total",
+      "difficulty": "M",
+      "prompt": "Green and gold beads are in a ratio of 5:3. If there are 48 beads, how many are gold?",
+      "choices": {
+        "A": "15",
+        "B": "32",
+        "C": "30",
+        "D": "18"
+      },
+      "correct": "D",
+      "explanation": "Eight equal parts make 48, so each part is 6; gold is 3 × 6 = 18.",
+      "misconceptions": "uses 3/5 of total; selects green count",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "b8bccfabe9265cb2",
+      "why": {
+        "A": "15 is 5 × 3, multiplying the two ratio numbers together; each part is 48 ÷ 8 = 6.",
+        "B": "32 is neither share; the eight parts make 48, so each is 6 — 30 green and 18 gold.",
+        "C": "30 is 5 × 6, the green beads; gold is the 3 parts."
+      }
+    },
+    {
+      "id": "DGN-QR-005",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "logical estimation—fraction benchmark",
+      "difficulty": "E",
+      "prompt": "Which value is closest to 1/2?",
+      "choices": {
+        "A": "5/11",
+        "B": "7/8",
+        "C": "2/3",
+        "D": "3/10"
+      },
+      "correct": "A",
+      "explanation": "5/11 is about 0.455, only about 0.045 from 0.5; the other values are farther away.",
+      "misconceptions": "compares denominators only; chooses familiar equivalent",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "f47e8d241d7716cb",
+      "why": {
+        "B": "7/8 is 0.875, about 0.375 away from 0.5.",
+        "C": "2/3 is about 0.667, roughly 0.167 away; 5/11 is about 0.045 away.",
+        "D": "3/10 is 0.3, two tenths below 0.5."
+      }
+    },
+    {
+      "id": "DGN-QR-006",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "multistep rate reasoning",
+      "difficulty": "M",
+      "prompt": "A machine packs 84 boxes in 6 minutes at a steady rate. How many boxes does it pack in 9 minutes?",
+      "choices": {
+        "A": "119",
+        "B": "126",
+        "C": "120",
+        "D": "112"
+      },
+      "correct": "B",
+      "explanation": "The rate is 84 ÷ 6 = 14 boxes per minute; 14 × 9 = 126.",
+      "misconceptions": "adds three boxes; multiplies 84 by 9",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "ff4ea3d9baf894a7",
+      "why": {
+        "A": "119 is not 9 × 14; the rate is 84 ÷ 6 = 14 boxes a minute, so nine minutes give 126.",
+        "C": "120 falls six short of 14 × 9.",
+        "D": "112 is 14 × 8, eight minutes rather than nine."
+      }
+    },
+    {
+      "id": "DGN-QR-007",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "number properties—divisibility",
+      "difficulty": "E",
+      "prompt": "Which number is divisible by both 4 and 9?",
+      "choices": {
+        "A": "84",
+        "B": "72",
+        "C": "63",
+        "D": "54"
+      },
+      "correct": "B",
+      "explanation": "72 ÷ 4 = 18 and 72 ÷ 9 = 8; each other choice fails one of the tests.",
+      "misconceptions": "checks only one divisor; confuses factor with multiple",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "402c4bca72749a75",
+      "why": {
+        "A": "84 divides by 4 but not by 9 — its digits add to 12, which is not a multiple of 9.",
+        "C": "63 divides by 9 but not by 4; it is odd.",
+        "D": "54 divides by 9 but not by 4 — half of 54 is 27, which is odd."
+      }
+    },
+    {
+      "id": "DGN-QR-008",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "algebraic reasoning—balance",
+      "difficulty": "M",
+      "prompt": "A number is multiplied by 4, then 7 is added. The result is 35. What is the number?",
+      "choices": {
+        "A": "7",
+        "B": "5",
+        "C": "8",
+        "D": "11"
+      },
+      "correct": "A",
+      "explanation": "Undo the addition: 35 − 7 = 28; then 28 ÷ 4 = 7.",
+      "misconceptions": "performs operations forward on 35; subtracts 4 and 7",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "7c614901ac1f5ddf",
+      "why": {
+        "B": "5 does not check: 4 × 5 + 7 = 27, not 35.",
+        "C": "8 does not check either: 4 × 8 + 7 = 39.",
+        "D": "11 gives 4 × 11 + 7 = 51, far past 35; undo the + 7 first, then the × 4."
+      }
+    },
+    {
+      "id": "DGN-QR-009",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "data reasoning—mean and total",
+      "difficulty": "M",
+      "prompt": "Four quiz scores have a mean of 18. The first three total 49. What is the fourth score?",
+      "choices": {
+        "A": "19",
+        "B": "21",
+        "C": "25",
+        "D": "23"
+      },
+      "correct": "D",
+      "explanation": "A mean of 18 for four scores gives a total of 72; 72 − 49 = 23.",
+      "misconceptions": "divides 49 by three; subtracts mean from subtotal",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "3d1613e1507df615",
+      "why": {
+        "A": "19 leaves the four scores totalling 68; a mean of 18 needs 4 × 18 = 72.",
+        "B": "21 leaves a total of 70, two short of the 72 four scores averaging 18 must reach.",
+        "C": "25 leaves a total of 74, two over; 72 − 49 = 23."
+      }
+    },
+    {
+      "id": "DGN-QR-010",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "spatial reasoning—perimeter constraint",
+      "difficulty": "M",
+      "prompt": "A rectangle has perimeter 34 units and length 11 units. What is its width?",
+      "choices": {
+        "A": "6",
+        "B": "5",
+        "C": "7",
+        "D": "11"
+      },
+      "correct": "A",
+      "explanation": "2(11 + width) = 34, so 11 + width = 17 and width = 6.",
+      "misconceptions": "subtracts length once; confuses perimeter with area",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "6758ad19b51f5c8f",
+      "why": {
+        "B": "5 leaves a perimeter of 2 × (11 + 5) = 32, not 34.",
+        "C": "7 gives 2 × (11 + 7) = 36, two too many.",
+        "D": "11 repeats the length; half the perimeter is 17, and 17 − 11 = 6."
+      }
+    },
+    {
+      "id": "DGN-QR-011",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "probability—complement",
+      "difficulty": "M",
+      "prompt": "A bag has 4 orange, 3 purple, and 5 white counters. What is the probability of selecting a counter that is not white?",
+      "choices": {
+        "A": "2/3",
+        "B": "3/4",
+        "C": "7/12",
+        "D": "5/12"
+      },
+      "correct": "C",
+      "explanation": "Seven of the 12 counters are orange or purple, so the probability is 7/12.",
+      "misconceptions": "selects white probability; ignores one nonwhite color",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "3446a72991d7ed9f",
+      "why": {
+        "A": "2/3 is 8/12, one counter too many; the orange and purple together are 7.",
+        "B": "3/4 is 9/12, which counts nine; only 7 of the 12 are not white.",
+        "D": "5/12 is the probability of white — the one color to avoid."
+      }
+    },
+    {
+      "id": "DGN-QR-012",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "coordinate reasoning—translation",
+      "difficulty": "E",
+      "prompt": "Point R is at (−3, 5). It moves 6 units right and 4 units down. Where does it end?",
+      "choices": {
+        "A": "(3, 9)",
+        "B": "(−7, 11)",
+        "C": "(−9, 1)",
+        "D": "(3, 1)"
+      },
+      "correct": "D",
+      "explanation": "Moving right adds 6 to x, giving 3; moving down subtracts 4 from y, giving 1.",
+      "misconceptions": "reverses signs; swaps x and y",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "5f8609bc11e9af03",
+      "why": {
+        "A": "(3, 9) adds the 4 to y instead of subtracting it; moving down takes 5 to 1.",
+        "B": "(−7, 11) uses the 4 on x and the 6 on y, and both in the wrong direction.",
+        "C": "(−9, 1) subtracts 6 from x; moving right adds, taking −3 to 3."
+      }
+    },
+    {
+      "id": "DGN-QR-013",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "percent reasoning—reverse percent",
+      "difficulty": "H",
+      "prompt": "Twenty percent of a number is 14. What is the number?",
+      "choices": {
+        "A": "60",
+        "B": "84",
+        "C": "56",
+        "D": "70"
+      },
+      "correct": "D",
+      "explanation": "If 20% is one fifth, the whole is 14 × 5 = 70.",
+      "misconceptions": "finds 20% of 14; adds 20 to 14",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "05662181974ad4a0",
+      "why": {
+        "A": "60 would make 20% equal 12, not 14.",
+        "B": "84 would make 20% equal 16.8.",
+        "C": "56 is 14 × 4; one fifth means multiplying by 5."
+      }
+    },
+    {
+      "id": "DGN-QR-014",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "scale reasoning",
+      "difficulty": "M",
+      "prompt": "On a plan, 3 centimeters represent 12 meters. How many meters does 8 centimeters represent?",
+      "choices": {
+        "A": "24",
+        "B": "32",
+        "C": "30",
+        "D": "28"
+      },
+      "correct": "B",
+      "explanation": "The scale is 4 meters per centimeter; 8 centimeters represent 8 × 4 = 32 meters.",
+      "misconceptions": "adds scale numbers; uses 12/8",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "afe50001c6d4168b",
+      "why": {
+        "A": "24 is 8 × 3, multiplying by the centimeters on the plan instead of by the 4 meters each one stands for.",
+        "C": "30 falls two short of 8 × 4.",
+        "D": "28 is 8 × 3.5; the scale is 12 ÷ 3 = 4 meters per centimeter."
+      }
+    },
+    {
+      "id": "DGN-QR-015",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "fraction division—interpretation",
+      "difficulty": "M",
+      "prompt": "How many 3/10-liter portions can be filled from 2 1/10 liters?",
+      "choices": {
+        "A": "9",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "correct": "C",
+      "explanation": "2 1/10 = 21/10, and (21/10) ÷ (3/10) = 7.",
+      "misconceptions": "divides denominators; ignores mixed-number conversion",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "6c1b70e871eb863e",
+      "why": {
+        "A": "9 portions would need 2.7 liters; there are 2.1.",
+        "B": "6 portions use 1.8 liters, leaving 0.3 — enough for one more.",
+        "D": "8 portions would need 2.4 liters, more than the 2.1 available."
+      }
+    },
+    {
+      "id": "DGN-QR-016",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "logic—ordering constraints",
+      "difficulty": "H",
+      "prompt": "Ana finished before Bo. Bo finished before Cy. Which statement must be true?",
+      "choices": {
+        "A": "Bo finished last",
+        "B": "Ana finished before Cy",
+        "C": "Cy finished before Ana",
+        "D": "Ana and Cy tied"
+      },
+      "correct": "B",
+      "explanation": "The chain Ana before Bo before Cy guarantees Ana finished before Cy.",
+      "misconceptions": "reverses order; treats before as adjacent only",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "50bc45291398facc",
+      "why": {
+        "A": "Bo finished before Cy, so Bo is not last.",
+        "C": "The chain runs Ana, then Bo, then Cy, which puts Cy last rather than first.",
+        "D": "Nothing in the chain allows a tie: Ana is ahead of Bo, who is ahead of Cy."
+      }
+    },
+    {
+      "id": "DGN-QR-017",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "numerical pattern—recursive rule",
+      "difficulty": "M",
+      "prompt": "A pattern begins 3, 7, 15, 31. Each term is found by using the same rule. What is the next term?",
+      "choices": {
+        "A": "63",
+        "B": "47",
+        "C": "64",
+        "D": "55"
+      },
+      "correct": "A",
+      "explanation": "Each term is twice the previous term plus 1; 31 × 2 + 1 = 63.",
+      "misconceptions": "adds consecutive even numbers; doubles without adding one",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "332fba12beed0445",
+      "why": {
+        "B": "47 is 31 + 16, repeating the last difference instead of doubling it; the differences run 4, 8, 16, then 32, and 31 + 32 = 63.",
+        "C": "64 is 31 × 2 + 2; the rule adds 1, not 2.",
+        "D": "55 is neither twice 31 plus 1 nor a continuation of the differences."
+      }
+    },
+    {
+      "id": "DGN-QR-018",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "rate comparison",
+      "difficulty": "H",
+      "prompt": "Team X paints 15 panels in 6 hours. Team Y paints 18 panels in 9 hours. Which statement is true?",
+      "choices": {
+        "A": "They work at the same rate",
+        "B": "Team X is faster by 1/2 panel per hour",
+        "C": "Team Y is faster by 1 panel per hour",
+        "D": "Team Y is faster by 1/2 panel per hour"
+      },
+      "correct": "B",
+      "explanation": "X paints 2.5 panels per hour and Y paints 2 panels per hour, so X is faster by 0.5.",
+      "misconceptions": "compares totals only; compares times only",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "66bc908e85306bd7",
+      "why": {
+        "A": "The rates are not equal: 15 ÷ 6 = 2.5 panels an hour and 18 ÷ 9 = 2.",
+        "C": "1 panel an hour is too big a gap and points the wrong way; X paints 2.5 and Y paints 2.",
+        "D": "1/2 a panel is the right gap the wrong way round: X paints 2.5 an hour and Y paints 2."
+      }
+    },
+    {
+      "id": "DGN-QR-019",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "number sense—fraction comparison",
+      "difficulty": "M",
+      "prompt": "Which fraction is greatest?",
+      "choices": {
+        "A": "5/8",
+        "B": "9/16",
+        "C": "2/3",
+        "D": "7/12"
+      },
+      "correct": "C",
+      "explanation": "2/3 is about 0.667, greater than 5/8 = 0.625, 7/12 ≈ 0.583, and 9/16 = 0.5625.",
+      "misconceptions": "denominator-only comparison; benchmark error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "4b1a32cc0e2f5dfc",
+      "why": {
+        "A": "5/8 is 0.625, just below 2/3's 0.667.",
+        "B": "9/16 is 0.5625, the smallest of the four.",
+        "D": "7/12 is about 0.583, below both 5/8 and 2/3."
+      }
+    },
+    {
+      "id": "DGN-QR-020",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "measurement reasoning—elapsed time",
+      "difficulty": "M",
+      "prompt": "A rehearsal starts at 2:47 p.m. and lasts 1 hour 38 minutes. When does it end?",
+      "choices": {
+        "A": "3:25 p.m.",
+        "B": "4:35 p.m.",
+        "C": "4:25 p.m.",
+        "D": "4:15 p.m."
+      },
+      "correct": "C",
+      "explanation": "Adding 1 hour gives 3:47, then 38 minutes gives 4:25 p.m.",
+      "misconceptions": "adds minutes only and forgets the hour; adds minutes past 60 without carrying",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "57e15fde887556a8",
+      "why": {
+        "A": "3:25 is 2:47 plus only the 38 minutes; the hour of the rehearsal has not been added yet.",
+        "B": "4:35 adds 48 minutes to 3:47 rather than 38.",
+        "D": "4:15 adds only 28 minutes past 3:47."
+      }
+    },
+    {
+      "id": "DGN-QR-021",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "data reasoning—median with unknown",
+      "difficulty": "H",
+      "prompt": "The ordered list is 4, 9, x, 17, 21, and its median is 13. What is x?",
+      "choices": {
+        "A": "12",
+        "B": "13",
+        "C": "14",
+        "D": "11"
+      },
+      "correct": "B",
+      "explanation": "With five ordered values, the middle value is the median, so x = 13.",
+      "misconceptions": "averages 9 and 17; ignores ordered-list condition",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "aa020e99368d31f3",
+      "why": {
+        "A": "12 would put the median at 12; x sits in the middle of the five, so it is the median itself.",
+        "C": "14 would make the median 14; the middle of five ordered values is the third one.",
+        "D": "11 would make the median 11, not 13."
+      }
+    },
+    {
+      "id": "DGN-QR-022",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "geometric scaling—area",
+      "difficulty": "M",
+      "prompt": "A square's side length is tripled. How does its area change?",
+      "choices": {
+        "A": "It increases by 6 square units",
+        "B": "It triples",
+        "C": "It becomes 6 times as large",
+        "D": "It becomes 9 times as large"
+      },
+      "correct": "D",
+      "explanation": "Area depends on side squared; (3s)^2 = 9s^2.",
+      "misconceptions": "applies linear scale to area; assumes fixed increase",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "c729fa3dcd7d2375",
+      "why": {
+        "A": "Area does not change by adding a fixed amount; tripling the side multiplies it.",
+        "B": "Tripling the side triples each direction, and area uses both: (3s)² = 9s².",
+        "C": "6 times comes from 3 + 3; the two tripled directions multiply, which gives 9."
+      }
+    },
+    {
+      "id": "DGN-QR-023",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "integer reasoning—temperature change",
+      "difficulty": "M",
+      "prompt": "The temperature rises from −6°C to 5°C. By how many degrees does it rise?",
+      "choices": {
+        "A": "1°C",
+        "B": "12°C",
+        "C": "11°C",
+        "D": "6°C"
+      },
+      "correct": "C",
+      "explanation": "From −6 to 0 is 6 degrees and from 0 to 5 is 5 more, totaling 11.",
+      "misconceptions": "subtracts absolute values; ignores zero crossing",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "803f5eb8cf674343",
+      "why": {
+        "A": "1 is 6 − 5, taking the two numbers the wrong way round; the rise crosses zero, so the two distances add.",
+        "B": "12 is 6 + 6, as if the rise went from −6 up to 6.",
+        "D": "6 is only the climb up to zero; there are 5 more degrees after that."
+      }
+    },
+    {
+      "id": "DGN-QR-024",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "combinatorial reasoning—organized counting",
+      "difficulty": "M",
+      "prompt": "A café offers 3 soups and 4 sandwiches. How many different soup-and-sandwich pairs are possible?",
+      "choices": {
+        "A": "16",
+        "B": "12",
+        "C": "24",
+        "D": "7"
+      },
+      "correct": "B",
+      "explanation": "Each of 3 soups can pair with each of 4 sandwiches, giving 3 × 4 = 12 pairs.",
+      "misconceptions": "adds options; double-counts order",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "21734d1ed49488fe",
+      "why": {
+        "A": "16 is 4 × 4; there are 3 soups, not 4.",
+        "C": "24 is 3 × 4 × 2, doubling pairs that have already been counted once.",
+        "D": "7 is 3 + 4, adding the two lists; pairing multiplies them."
+      }
+    },
+    {
+      "id": "DGN-QR-025",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "proportional reasoning—mixture",
+      "difficulty": "H",
+      "prompt": "Red and white paint are mixed in a 2:7 ratio. If 36 cups are mixed, how many cups are red?",
+      "choices": {
+        "A": "28",
+        "B": "6",
+        "C": "8",
+        "D": "7"
+      },
+      "correct": "C",
+      "explanation": "Nine parts total make 36, so each part is 4 cups; red is 2 × 4 = 8 cups.",
+      "misconceptions": "uses 2/7 of total; chooses white amount",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "8774d8af6f9430b4",
+      "why": {
+        "A": "28 is 7 × 4, the white share.",
+        "B": "6 would make each part 3 and the whole mix 27 cups; 36 ÷ 9 = 4, so red is 2 × 4 = 8.",
+        "D": "7 is one of the ratio numbers, not a count of cups."
+      }
+    },
+    {
+      "id": "DGN-QR-026",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "work-rate reasoning",
+      "difficulty": "H",
+      "prompt": "Three identical printers produce 180 pages in 4 minutes. At the same rate, how many pages do two printers produce in 6 minutes?",
+      "choices": {
+        "A": "180",
+        "B": "160",
+        "C": "150",
+        "D": "120"
+      },
+      "correct": "A",
+      "explanation": "Each printer makes 180 ÷ 3 ÷ 4 = 15 pages per minute; 2 × 6 × 15 = 180.",
+      "misconceptions": "scales only printers; scales only time",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "5ccf6b937be495d4",
+      "why": {
+        "B": "160 is not 2 × 6 × 15; each printer makes 180 ÷ 3 ÷ 4 = 15 pages a minute.",
+        "C": "150 is 10 × 15, ten printer-minutes; two printers for six minutes is twelve.",
+        "D": "120 is 8 × 15, eight printer-minutes rather than twelve."
+      }
+    },
+    {
+      "id": "DGN-QR-027",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "number properties—remainders",
+      "difficulty": "M",
+      "prompt": "What is the remainder when 197 is divided by 8?",
+      "choices": {
+        "A": "3",
+        "B": "5",
+        "C": "7",
+        "D": "4"
+      },
+      "correct": "B",
+      "explanation": "8 × 24 = 192, and 197 − 192 = 5.",
+      "misconceptions": "uses quotient; subtracts from next multiple",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "bcfbbb75d2f930c1",
+      "why": {
+        "A": "3 is not what is left over: 8 × 24 = 192, and 197 − 192 = 5.",
+        "C": "7 is more than the remainder; 197 − 192 = 5.",
+        "D": "4 is one short of the remainder, which is 5."
+      }
+    },
+    {
+      "id": "DGN-QR-028",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "algebraic reasoning—two-step relation",
+      "difficulty": "M",
+      "prompt": "Mira has 5 fewer stickers than twice Leo's 14 stickers. How many stickers does Mira have?",
+      "choices": {
+        "A": "23",
+        "B": "28",
+        "C": "33",
+        "D": "18"
+      },
+      "correct": "A",
+      "explanation": "Twice 14 is 28, and 5 fewer is 28 − 5 = 23.",
+      "misconceptions": "subtracts before doubling; treats fewer as addition",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "4f4808cbd1b60c58",
+      "why": {
+        "B": "28 is twice 14 and stops there; 5 fewer makes 23.",
+        "C": "33 is 28 + 5, adding the 5 instead of taking it away.",
+        "D": "18 is not 2 × 14 − 5; doubling 14 gives 28, and 28 − 5 = 23."
+      }
+    },
+    {
+      "id": "DGN-QR-029",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "estimation—compatible numbers",
+      "difficulty": "E",
+      "prompt": "Which is the best estimate of 398 × 21?",
+      "choices": {
+        "A": "10,000",
+        "B": "4,000",
+        "C": "6,000",
+        "D": "8,000"
+      },
+      "correct": "D",
+      "explanation": "Round 398 to 400 and 21 to 20; 400 × 20 = 8,000.",
+      "misconceptions": "adds rounded values; place-value error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "0bf3bb2b44f0d696",
+      "why": {
+        "A": "10,000 rounds 398 up to 500; it is far closer to 400.",
+        "B": "4,000 is 400 × 10; 21 rounds to 20, not 10.",
+        "C": "6,000 would need 398 to be near 300; 400 × 20 is 8,000."
+      }
+    },
+    {
+      "id": "DGN-QR-030",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "set logic—overlap",
+      "difficulty": "H",
+      "prompt": "In a club, 18 members play chess, 12 play checkers, and 5 play both. How many play at least one of the games?",
+      "choices": {
+        "A": "20",
+        "B": "30",
+        "C": "25",
+        "D": "35"
+      },
+      "correct": "C",
+      "explanation": "The overlap was counted twice, so 18 + 12 − 5 = 25.",
+      "misconceptions": "double-counts overlap; subtracts overlap twice",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "19cf03e451149c30",
+      "why": {
+        "A": "20 subtracts the overlap twice, 18 + 12 − 5 − 5; it comes off once.",
+        "B": "30 is 18 + 12, counting the 5 who play both twice.",
+        "D": "35 is 18 + 12 + 5, adding the overlap instead of removing it."
+      }
+    },
+    {
+      "id": "DGN-QR-031",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "fraction reasoning—part of remainder",
+      "difficulty": "H",
+      "prompt": "A tank is 2/5 full. After 18 liters are added, it is 7/10 full. What is the tank's capacity?",
+      "choices": {
+        "A": "36 L",
+        "B": "60 L",
+        "C": "90 L",
+        "D": "45 L"
+      },
+      "correct": "B",
+      "explanation": "The increase is 7/10 − 2/5 = 3/10 of capacity; if 3/10 is 18, the whole is 60 liters.",
+      "misconceptions": "treats 18 as remaining amount; adds denominators",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "89848012fad0376f",
+      "why": {
+        "A": "36 would make 3/10 of the tank 10.8 liters, not 18.",
+        "C": "90 would make 3/10 equal 27 liters.",
+        "D": "45 would make 3/10 equal 13.5 liters."
+      }
+    },
+    {
+      "id": "DGN-QR-032",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "logical reasoning—counterexample",
+      "difficulty": "H",
+      "prompt": "Which example shows that “all multiples of 4 are multiples of 8” is false?",
+      "choices": {
+        "A": "16",
+        "B": "12",
+        "C": "8",
+        "D": "24"
+      },
+      "correct": "B",
+      "explanation": "12 is a multiple of 4 but not of 8, so it is a counterexample.",
+      "misconceptions": "selects example satisfying both; confuses factor and multiple",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "a98a434fc00b3bfd",
+      "why": {
+        "A": "16 is a multiple of both 4 and 8, so it agrees with the claim rather than breaking it.",
+        "C": "8 is a multiple of both as well, so it cannot be the counterexample.",
+        "D": "24 is a multiple of 4 and of 8, so it fits the claim too."
+      }
+    },
+    {
+      "id": "DGN-QR-033",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "data reasoning—weighted average",
+      "difficulty": "H",
+      "prompt": "A basket has three 2-pound bags and two 5-pound bags. What is the mean weight of the five bags?",
+      "choices": {
+        "A": "3.5 lb",
+        "B": "2.8 lb",
+        "C": "3.0 lb",
+        "D": "3.2 lb"
+      },
+      "correct": "D",
+      "explanation": "Total weight is 3 × 2 + 2 × 5 = 16 pounds; 16 ÷ 5 = 3.2 pounds.",
+      "misconceptions": "averages 2 and 5 only; divides by two bag types",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "4000e401c1b8e06b",
+      "why": {
+        "A": "3.5 is the mean of 2 and 5, not of the five bags; three weigh 2 pounds and two weigh 5.",
+        "B": "2.8 would need the bags to total 14 pounds; they total 3 × 2 + 2 × 5 = 16.",
+        "C": "3.0 would need a total of 15 pounds; it is 16, and 16 ÷ 5 = 3.2."
+      }
+    },
+    {
+      "id": "DGN-QR-034",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "spatial reasoning—volume constraint",
+      "difficulty": "M",
+      "prompt": "A rectangular box has volume 168 cubic units, length 7, and width 4. What is its height?",
+      "choices": {
+        "A": "6",
+        "B": "4",
+        "C": "7",
+        "D": "5"
+      },
+      "correct": "A",
+      "explanation": "Height = 168 ÷ (7 × 4) = 168 ÷ 28 = 6.",
+      "misconceptions": "divides by one dimension; adds dimensions",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "8882980f3e14328c",
+      "why": {
+        "B": "4 gives 7 × 4 × 4 = 112, not 168.",
+        "C": "7 repeats the length; 168 ÷ 28 = 6.",
+        "D": "5 gives 7 × 4 × 5 = 140."
+      }
+    },
+    {
+      "id": "DGN-QR-035",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "percent reasoning—discount",
+      "difficulty": "M",
+      "prompt": "A $45 game is discounted by 20%. What is the sale price?",
+      "choices": {
+        "A": "$40",
+        "B": "$25",
+        "C": "$9",
+        "D": "$36"
+      },
+      "correct": "D",
+      "explanation": "The discount is 0.20 × 45 = $9, so the price is $45 − $9 = $36.",
+      "misconceptions": "reports discount; subtracts 20 dollars",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "80419f61568d4633",
+      "why": {
+        "A": "40 takes off 5 rather than 20% of 45, which is 9.",
+        "B": "25 is not 45 less a fifth of itself; 20% of 45 is 9, leaving 36.",
+        "C": "9 is the discount itself, not the price after it."
+      }
+    },
+    {
+      "id": "DGN-QR-036",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "logical reasoning—equivalent expressions",
+      "difficulty": "M",
+      "prompt": "Which expression always has the same value as 6(n + 3)?",
+      "choices": {
+        "A": "18n",
+        "B": "9n",
+        "C": "6n + 18",
+        "D": "6n + 3"
+      },
+      "correct": "C",
+      "explanation": "Distribute 6 to both terms: 6n + 6 × 3 = 6n + 18.",
+      "misconceptions": "distributes to first term only; combines unlike terms",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "70c2af00806327d2",
+      "why": {
+        "A": "18n multiplies the n by 18; only the 3 gets multiplied by 6.",
+        "B": "9n adds the 6 and the 3 and hangs an n on the result; the two terms stay apart.",
+        "D": "6n + 3 distributes the 6 to the n but not to the 3, and 6 × 3 = 18."
+      }
+    },
+    {
+      "id": "DGN-QR-037",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "geometry reasoning—angle relationships",
+      "difficulty": "M",
+      "prompt": "Two angles form a straight line. One angle is 68°. What is the other angle?",
+      "choices": {
+        "A": "112°",
+        "B": "122°",
+        "C": "108°",
+        "D": "102°"
+      },
+      "correct": "A",
+      "explanation": "Angles on a straight line total 180°, and 180 − 68 = 112°.",
+      "misconceptions": "subtracts from 90; arithmetic error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "9b01f53ddf417b09",
+      "why": {
+        "B": "122 subtracts 58 from 180; the angle given is 68.",
+        "C": "108 subtracts 72; 180 − 68 = 112.",
+        "D": "102 falls ten short of 180 − 68."
+      }
+    },
+    {
+      "id": "DGN-QR-038",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "multistep fraction rate",
+      "difficulty": "H",
+      "prompt": "A cyclist travels 7 1/2 miles in 1/2 hour. At the same rate, how far will the cyclist travel in 1 1/5 hours?",
+      "choices": {
+        "A": "18 miles",
+        "B": "12 miles",
+        "C": "16 miles",
+        "D": "15 miles"
+      },
+      "correct": "A",
+      "explanation": "The rate is 7.5 ÷ 0.5 = 15 miles per hour; 15 × 1.2 = 18 miles.",
+      "misconceptions": "multiplies distances directly; ignores half-hour rate",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "90b9ce267ce99f72",
+      "why": {
+        "B": "12 is not 15 × 1.2; the rate is 7.5 ÷ 0.5 = 15 miles an hour.",
+        "C": "16 falls two short of 15 × 1.2.",
+        "D": "15 is one hour's distance; the ride lasts 1 1/5 hours."
+      }
+    },
+    {
+      "id": "DGN-RC-001",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "main idea",
+      "difficulty": "M",
+      "prompt": "What is the passage mainly about?",
+      "choices": {
+        "A": "Household glue sold in stores is made from barnacle cement.",
+        "B": "Barnacles damage every ship hull they fasten themselves to.",
+        "C": "Barnacle cement inspired a new adhesive for wet surfaces.",
+        "D": "Doctors now close most wounds without using any stitches."
+      },
+      "correct": "C",
+      "explanation": "The passage centers on observing how barnacles bond underwater and adapting that principle into a new adhesive; the other choices exaggerate or contradict details.",
+      "misconceptions": "selects minor detail; overgeneralizes future use",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P01",
+      "form": "DGN",
+      "content_hash": "5840c7f5640d921c",
+      "why": {
+        "A": "The team designed a new material copying what barnacle proteins do; it did not collect barnacle cement, and nothing here is sold in shops.",
+        "B": "Barnacles fasten to ship hulls, which is how engineers came to study them. Damage is never mentioned.",
+        "D": "A future version might help doctors use fewer stitches. That is a possibility ahead, not something happening now."
+      }
+    },
+    {
+      "id": "DGN-RC-002",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail",
+      "difficulty": "E",
+      "prompt": "According to the passage, what does barnacle cement do just before its bond forms?",
+      "choices": {
+        "A": "It pushes water away with an oily substance.",
+        "B": "It is identical to ordinary glue sold in stores.",
+        "C": "It changes salt water into fresh water.",
+        "D": "It becomes hard only in bright afternoon sunlight."
+      },
+      "correct": "A",
+      "explanation": "The passage says the cement first releases an oily substance that pushes water away from the surface, and then the proteins form the bond.",
+      "misconceptions": "invents scientific effect; confuses copy with identity",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P01",
+      "form": "DGN",
+      "content_hash": "46f19a710e42c0e6",
+      "why": {
+        "B": "Identical to ordinary glue is the opposite of the point: ordinary glue performs poorly in moving salt water.",
+        "C": "Changing salt water into fresh water is not something the passage says; the cement moves water aside, it does not change it.",
+        "D": "Bright afternoon sunlight appears nowhere in the passage; the bond forms underwater."
+      }
+    },
+    {
+      "id": "DGN-RC-003",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "inference",
+      "difficulty": "M",
+      "prompt": "Why would an adhesive that works on wet surfaces interest doctors?",
+      "choices": {
+        "A": "It would make hospital rooms look cleaner and neater.",
+        "B": "It might hold moist body tissue together.",
+        "C": "It would dry a wound completely before sealing it.",
+        "D": "It would prevent injuries from happening at all."
+      },
+      "correct": "B",
+      "explanation": "The wound example and wet-surface focus support the inference that the adhesive could bond moist tissue.",
+      "misconceptions": "literalizes water removal; makes absolute claim",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P01",
+      "form": "DGN",
+      "content_hash": "3d172ae75e6b1f9d",
+      "why": {
+        "A": "How a room looks has nothing to do with an adhesive that works while wet.",
+        "C": "The whole value is bonding without drying the surface first; drying it would remove the advantage.",
+        "D": "An adhesive closes a wound that already exists. Preventing injury is a different job."
+      }
+    },
+    {
+      "id": "DGN-RC-004",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "vocabulary in context",
+      "difficulty": "M",
+      "prompt": "In the final sentence, “underlying” most nearly means:",
+      "choices": {
+        "A": "difficult to measure",
+        "B": "basic and supporting",
+        "C": "physically buried",
+        "D": "recently discovered"
+      },
+      "correct": "B",
+      "explanation": "The underlying principle is the basic idea beneath the visible feature, not something literally underground.",
+      "misconceptions": "chooses literal spatial meaning; confuses new with basic",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P01",
+      "form": "DGN",
+      "content_hash": "21fc59cd104c93a0",
+      "why": {
+        "A": "Nothing in the sentence is about measurement being difficult.",
+        "C": "This is the literal sense. The principle lies beneath the visible feature as the idea behind it, not under the ground.",
+        "D": "The principle has just been described, but the word says where it sits in the explanation, not when it was found."
+      }
+    },
+    {
+      "id": "DGN-RC-005",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "text structure",
+      "difficulty": "M",
+      "prompt": "How is the passage mainly organized?",
+      "choices": {
+        "A": "It presents a problem, a natural feature, and a possible use.",
+        "B": "It lists many kinds of sea animals from smallest to largest.",
+        "C": "It argues that nature is always wiser than human technology.",
+        "D": "It gives step-by-step directions for making glue at home."
+      },
+      "correct": "A",
+      "explanation": "The author moves from underwater bonding, to the barnacle feature, to engineered and medical applications.",
+      "misconceptions": "mistakes explanation for procedure; overstates comparison",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P01",
+      "form": "DGN",
+      "content_hash": "5f7cdb3b7519839f",
+      "why": {
+        "B": "Only one animal appears, the barnacle, and nothing is ordered by size.",
+        "C": "The passage adapts one useful feature. It never claims nature beats human technology in general.",
+        "D": "No instructions are given; the tests are described, not taught."
+      }
+    },
+    {
+      "id": "DGN-RC-006",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "character motivation",
+      "difficulty": "M",
+      "prompt": "Why does Nia almost stay silent?",
+      "choices": {
+        "A": "She thinks a helper is not supposed to speak up.",
+        "B": "She is afraid the customer will scold her.",
+        "C": "She wants the clock to stay broken a while longer.",
+        "D": "She does not notice anything unusual in the case."
+      },
+      "correct": "A",
+      "explanation": "The sentence “after all, she was only the helper” reveals her doubt about speaking beyond her assigned role.",
+      "misconceptions": "invents fear; ignores internal thought",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P02",
+      "form": "DGN",
+      "content_hash": "f10019e63f5c9faa",
+      "why": {
+        "B": "The customer is not in the room when Nia hesitates, and no scolding is mentioned anywhere.",
+        "C": "She points out the scratch, which is the opposite of wanting the clock left broken.",
+        "D": "She had already noticed the lever brushing the wheel. Noticing is exactly what she does."
+      }
+    },
+    {
+      "id": "DGN-RC-007",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail",
+      "difficulty": "E",
+      "prompt": "What clue does Nia point out?",
+      "choices": {
+        "A": "A crack across the clock face",
+        "B": "A bright scratch on a lever",
+        "C": "A loose bell inside the wooden case",
+        "D": "A missing screw under the table"
+      },
+      "correct": "B",
+      "explanation": "The passage explicitly identifies a bright scratch where the lever brushed the wheel.",
+      "misconceptions": "selects plausible repair detail; relies on clock knowledge",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P02",
+      "form": "DGN",
+      "content_hash": "39d6f4406be0c0c2",
+      "why": {
+        "A": "No crack appears. What Nia sees is a mark on the lever inside the case.",
+        "C": "The clock chimes thirteen times rather than sounding wrong, and no bell is described as loose.",
+        "D": "Nia is allowed to sort screws, but no screw is missing."
+      }
+    },
+    {
+      "id": "DGN-RC-008",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "inference—character trait",
+      "difficulty": "M",
+      "prompt": "Which trait most helps Nia solve the problem?",
+      "choices": {
+        "A": "physical strength",
+        "B": "attentiveness",
+        "C": "hasty guessing",
+        "D": "impatience"
+      },
+      "correct": "B",
+      "explanation": "Nia notices the lever and scratch, so attentiveness is the trait supported by the text.",
+      "misconceptions": "confuses speaking with boldness; chooses generic positive trait",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P02",
+      "form": "DGN",
+      "content_hash": "fbdccb3aa150a85b",
+      "why": {
+        "A": "Nothing she does needs strength; she watches and points.",
+        "C": "The last sentence says the opposite — guessing quickly would not keep her the new task.",
+        "D": "She almost stays silent rather than rushing in, and her reward is a task that asks her to describe before touching."
+      }
+    },
+    {
+      "id": "DGN-RC-009",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "theme",
+      "difficulty": "H",
+      "prompt": "Which statement best expresses a theme of the passage?",
+      "choices": {
+        "A": "Adults should repair broken objects without any help.",
+        "B": "Difficult work should be completed as quickly as possible.",
+        "C": "A job is worth doing only when it is exciting and new.",
+        "D": "Careful observation can earn trust and responsibility."
+      },
+      "correct": "D",
+      "explanation": "Nia's observation solves the problem and earns a more demanding learning task; the ending warns against quick guessing.",
+      "misconceptions": "focuses on repair setting; reverses ending lesson",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P02",
+      "form": "DGN",
+      "content_hash": "8b6c34e76a2a0b8d",
+      "why": {
+        "A": "Her uncle takes her help and then gives her more responsibility for it.",
+        "B": "Speed is what the ending warns against: guessing quickly would not keep the task.",
+        "C": "Nia had been sorting screws and polishing cases, and the passage treats that patience as what earned her the next step."
+      }
+    },
+    {
+      "id": "DGN-RC-010",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "author craft—ending",
+      "difficulty": "M",
+      "prompt": "Why does the author mention that “guessing quickly would not keep” the new task?",
+      "choices": {
+        "A": "To explain why the alarm clock on the bench is broken",
+        "B": "To show that keeping trust depends on thoughtful work",
+        "C": "To suggest that her uncle dislikes being asked questions",
+        "D": "To show that Nia plans to leave the repair shop soon"
+      },
+      "correct": "B",
+      "explanation": "The final contrast shows Nia knows she must continue observing and reasoning carefully to keep earning responsibility.",
+      "misconceptions": "treats figurative keep literally; invents uncle's attitude",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P02",
+      "form": "DGN",
+      "content_hash": "a4f73da1f868657b",
+      "why": {
+        "A": "The alarm clock is broken so that she has something to study; the sentence is about her, not about it.",
+        "C": "Her uncle asks her to describe what each part might do, which invites questions rather than refusing them.",
+        "D": "Nothing suggests she is leaving; she has just been given more to do."
+      }
+    },
+    {
+      "id": "DGN-RC-011",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "main idea",
+      "difficulty": "M",
+      "prompt": "What is the passage mainly explaining?",
+      "choices": {
+        "A": "Why copying a book by hand always introduced errors",
+        "B": "How to repair stains in valuable old books",
+        "C": "How marks in old books reveal readers' responses",
+        "D": "Why readers today should write notes in every book"
+      },
+      "correct": "C",
+      "explanation": "The passage describes several kinds of marginal evidence and explains their value and limits for historians.",
+      "misconceptions": "selects opening detail; turns description into advice",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P03",
+      "form": "DGN",
+      "content_hash": "e502450e87003adf",
+      "why": {
+        "A": "A reader correcting a copying error is one example among several, not what the passage is about.",
+        "B": "A stain is treated as evidence of frequent use. Repairing it is never discussed.",
+        "D": "The passage explains what old notes tell historians. It gives no advice to readers now."
+      }
+    },
+    {
+      "id": "DGN-RC-012",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail",
+      "difficulty": "E",
+      "prompt": "According to the passage, what might a reader write in a margin?",
+      "choices": {
+        "A": "The price of every book in the library",
+        "B": "Instructions for making paper by hand",
+        "C": "A definition of an unfamiliar word",
+        "D": "A list of books that were never written"
+      },
+      "correct": "C",
+      "explanation": "Defining unfamiliar words is one of the explicit examples given.",
+      "misconceptions": "chooses historically plausible detail; misses direct evidence",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P03",
+      "form": "DGN",
+      "content_hash": "d368be15c870a143",
+      "why": {
+        "A": "Prices never appear. The examples are corrections, definitions and arguments with the author.",
+        "B": "Paper-making is not mentioned; copying by hand is.",
+        "D": "Books that were never written could not be read or annotated."
+      }
+    },
+    {
+      "id": "DGN-RC-013",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "vocabulary in context",
+      "difficulty": "M",
+      "prompt": "As used in the passage, “encounters” most nearly means:",
+      "choices": {
+        "A": "heated arguments",
+        "B": "sudden discoveries",
+        "C": "unlucky accidents",
+        "D": "experiences"
+      },
+      "correct": "D",
+      "explanation": "Individual encounters with words are readers' experiences of meeting and reacting to the text.",
+      "misconceptions": "chooses dramatic meaning; confuses result with experience",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P03",
+      "form": "DGN",
+      "content_hash": "1f08832dde851aaf",
+      "why": {
+        "A": "Arguing with an author is one kind of note, but the word covers all the reactions described, the calm ones included.",
+        "B": "Nothing about these meetings is sudden; the conversation is called slow.",
+        "C": "It means a reader meeting the words, not something unlucky happening."
+      }
+    },
+    {
+      "id": "DGN-RC-014",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "author's caution",
+      "difficulty": "M",
+      "prompt": "Why does the author say the evidence must be interpreted cautiously?",
+      "choices": {
+        "A": "Margin notes were always added by the book's author.",
+        "B": "Historians are rarely permitted to handle old books.",
+        "C": "All old books contain false information.",
+        "D": "A mark's writer and meaning may be uncertain."
+      },
+      "correct": "D",
+      "explanation": "The passage directly notes that writers may be unknown and marks may have multiple explanations.",
+      "misconceptions": "converts uncertainty to falsehood; confuses reader with author",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P03",
+      "form": "DGN",
+      "content_hash": "11f0b6bf7ef4591f",
+      "why": {
+        "A": "The passage says a note's writer may be unknown, which is the opposite of always knowing it was the author.",
+        "B": "Historians are described as valuing and interpreting these notes, so they clearly reach them.",
+        "C": "The caution is about reading the marks, not about the books being untrue."
+      }
+    },
+    {
+      "id": "DGN-RC-015",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "text evidence—analogy",
+      "difficulty": "H",
+      "prompt": "The phrase “a slow conversation across years” refers to:",
+      "choices": {
+        "A": "later readers replying to earlier readers' notes",
+        "B": "scribes talking about how to copy a page",
+        "C": "historians reading old books aloud to one another",
+        "D": "authors meeting their readers in person years later"
+      },
+      "correct": "A",
+      "explanation": "The surrounding sentences describe readers leaving notes and later readers replying, which resembles a delayed conversation.",
+      "misconceptions": "interprets metaphor literally; chooses copying context",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P03",
+      "form": "DGN",
+      "content_hash": "63c17d145dfe2999",
+      "why": {
+        "B": "The conversation is between readers in the margins, not between the people copying the text.",
+        "C": "Historians interpret the notes later; they are not the ones talking.",
+        "D": "The exchange happens on the page across years, which is why it is called slow."
+      }
+    },
+    {
+      "id": "DGN-RC-016",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "cause and effect",
+      "difficulty": "E",
+      "prompt": "Why can a dark roof become especially hot?",
+      "choices": {
+        "A": "It produces electricity during the hot afternoon.",
+        "B": "It blocks all of the moving air above the street.",
+        "C": "It absorbs much of the sunlight that hits it.",
+        "D": "It is always built from dark heat-absorbing pavement."
+      },
+      "correct": "C",
+      "explanation": "The first two sentences state that dark roofs absorb sunlight and release the energy as heat.",
+      "misconceptions": "invents mechanism; confuses roof with street",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P04",
+      "form": "DGN",
+      "content_hash": "db927d59e15c39e9",
+      "why": {
+        "A": "No electricity appears. The roof absorbs sunlight and later gives that energy off as heat.",
+        "B": "Ventilation is one of the other methods mentioned, but a dark roof is never described as blocking air.",
+        "D": "Pavement is named separately, as something parks could replace."
+      }
+    },
+    {
+      "id": "DGN-RC-017",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail",
+      "difficulty": "E",
+      "prompt": "What happened in the trial of coated buildings?",
+      "choices": {
+        "A": "Their roofs never required maintenance afterward.",
+        "B": "They became warmer than the buildings around them.",
+        "C": "Their winter heating needs disappeared completely.",
+        "D": "They used less air-conditioning in the hottest hours."
+      },
+      "correct": "D",
+      "explanation": "The passage explicitly reports reduced air-conditioning use during hot hours.",
+      "misconceptions": "turns reduction into elimination; reverses result",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P04",
+      "form": "DGN",
+      "content_hash": "1a3380bd8c4fe30c",
+      "why": {
+        "A": "Maintenance is listed among the things that affect whether a coating is useful, not something the trial removed.",
+        "B": "Pale coatings reflect more sunlight, so the coated buildings were cooler rather than warmer.",
+        "C": "Winter heating needs are raised as a reason a coating may not suit a place; they do not vanish."
+      }
+    },
+    {
+      "id": "DGN-RC-018",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "author's viewpoint",
+      "difficulty": "M",
+      "prompt": "Which statement best describes the author's view of cool roofs?",
+      "choices": {
+        "A": "They are useless in every climate and on every roof.",
+        "B": "They solve the urban heat island problem by themselves.",
+        "C": "They can help, but only as part of a local, mixed plan.",
+        "D": "They should replace shade trees and neighborhood parks."
+      },
+      "correct": "C",
+      "explanation": "The author presents a benefit, several limitations, and a combined local approach.",
+      "misconceptions": "chooses extreme position; ignores qualification",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P04",
+      "form": "DGN",
+      "content_hash": "bd4a3f531e880ea0",
+      "why": {
+        "A": "One trial found coated buildings needed less air-conditioning, so the author grants a real benefit.",
+        "B": "The passage says plainly that cool roofs are not a complete solution.",
+        "D": "Trees and parks are offered alongside coatings, as part of the mix."
+      }
+    },
+    {
+      "id": "DGN-RC-019",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "vocabulary in context",
+      "difficulty": "M",
+      "prompt": "In the last sentence, “universal” most nearly means:",
+      "choices": {
+        "A": "cheap to apply",
+        "B": "based on science",
+        "C": "suitable everywhere",
+        "D": "lasting a short time"
+      },
+      "correct": "C",
+      "explanation": "A universal answer would apply everywhere; the passage argues that local conditions matter.",
+      "misconceptions": "confuses broad with scientific; ignores contrast",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P04",
+      "form": "DGN",
+      "content_hash": "3d58a81581d1bfc8",
+      "why": {
+        "A": "Cost is never discussed.",
+        "B": "The author is in favor of local measurement, so being based on science is not what is being warned against.",
+        "D": "How long a coating lasts is a maintenance question; the word here is about where it works."
+      }
+    },
+    {
+      "id": "DGN-RC-020",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "text structure",
+      "difficulty": "H",
+      "prompt": "How does the author develop the discussion?",
+      "choices": {
+        "A": "By presenting a problem, one response, and then its limits",
+        "B": "By giving step-by-step instructions for painting a roof",
+        "C": "By listing roof colors in order of their popularity",
+        "D": "By comparing two cities and declaring one the winner"
+      },
+      "correct": "A",
+      "explanation": "The sequence is heat-island cause, cool-roof evidence, then limits and complementary methods.",
+      "misconceptions": "mistakes explanation for directions; misses qualification",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P04",
+      "form": "DGN",
+      "content_hash": "5b303a13b10835f0",
+      "why": {
+        "B": "Nothing here tells you how to paint anything.",
+        "C": "Only dark and pale roofs come up, and not in any order of popularity.",
+        "D": "Some cities are mentioned together, but no two are compared and no winner is named."
+      }
+    },
+    {
+      "id": "DGN-RC-021",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "main idea",
+      "difficulty": "M",
+      "prompt": "What is the main idea of the passage?",
+      "choices": {
+        "A": "Audiences prefer music that contains no rests at all.",
+        "B": "Conductors should tap the beat during every performance.",
+        "C": "Loud passages are always harder to play than quiet ones.",
+        "D": "Musicians must count and practice silence in a piece."
+      },
+      "correct": "D",
+      "explanation": "The rehearsal problem and solution both show that measured silence requires active, shared counting.",
+      "misconceptions": "focuses on loud opening; mistakes practice tool for performance rule",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P05",
+      "form": "DGN",
+      "content_hash": "b62725df52868d6f",
+      "why": {
+        "A": "The passage argues a rest does real work — building expectation, separating ideas, giving a melody room.",
+        "B": "Tapping is a rehearsal method; the audience would hear no tapping.",
+        "C": "The loudest section was not the problem. Three beats of silence were."
+      }
+    },
+    {
+      "id": "DGN-RC-022",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail",
+      "difficulty": "E",
+      "prompt": "What caused the players to enter at different times?",
+      "choices": {
+        "A": "Some players stopped counting during the rest.",
+        "B": "The melody was written too high for the players.",
+        "C": "The conductor changed the speed of the music.",
+        "D": "The audience began tapping along with the beat."
+      },
+      "correct": "A",
+      "explanation": "The passage directly states that several players treated the rest as a chance to stop counting.",
+      "misconceptions": "invents tempo change; reverses who tapped",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P05",
+      "form": "DGN",
+      "content_hash": "8f03de56ab75cb37",
+      "why": {
+        "B": "The pitch of the melody is never raised as a difficulty.",
+        "C": "The tempo does not change; the players stop counting through a rest.",
+        "D": "The students tap in rehearsal, where there is no audience."
+      }
+    },
+    {
+      "id": "DGN-RC-023",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "inference",
+      "difficulty": "M",
+      "prompt": "Why will the audience not hear the students tapping?",
+      "choices": {
+        "A": "The tapping is far too soft for anyone to hear.",
+        "B": "The orchestra will remove the silent measure.",
+        "C": "The audience will arrive after that section ends.",
+        "D": "Tapping is a rehearsal method, not a performance step."
+      },
+      "correct": "D",
+      "explanation": "The conductor uses tapping to teach internal counting; the final lines say listeners hear its result, not the tapping itself.",
+      "misconceptions": "assumes inaudibility; confuses practice with revision",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P05",
+      "form": "DGN",
+      "content_hash": "a5f27e37b6313f21",
+      "why": {
+        "A": "Loudness is not the reason. The tapping simply is not part of the performance.",
+        "B": "The silent measure is the part they practice most carefully; it stays.",
+        "C": "Nothing is said about when the audience arrives."
+      }
+    },
+    {
+      "id": "DGN-RC-024",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "figurative language",
+      "difficulty": "M",
+      "prompt": "What does “give a melody room to breathe” suggest?",
+      "choices": {
+        "A": "A melody is a living creature that must breathe air.",
+        "B": "A rest creates space that makes musical ideas clearer.",
+        "C": "Musicians should breathe only during silent measures.",
+        "D": "The concert hall needs more fresh air for the players."
+      },
+      "correct": "B",
+      "explanation": "The phrase figuratively describes how a pause separates or highlights musical ideas.",
+      "misconceptions": "literal interpretation; chooses physical room meaning",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P05",
+      "form": "DGN",
+      "content_hash": "409bda17dfd52658",
+      "why": {
+        "A": "This reads the phrase literally; it is a figure of speech about space between ideas.",
+        "C": "Wind players breathe throughout. The phrase is about the music, not the players' lungs.",
+        "D": "The air in the hall is not the subject."
+      }
+    },
+    {
+      "id": "DGN-RC-025",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "theme",
+      "difficulty": "H",
+      "prompt": "Which broader lesson is best supported by the passage?",
+      "choices": {
+        "A": "An unnoticed part of a process may need careful work.",
+        "B": "Large groups learn best when no one is guiding them.",
+        "C": "Speed matters far more than accuracy in group work.",
+        "D": "Only actions that can be seen contribute to success."
+      },
+      "correct": "A",
+      "explanation": "The silent, unheard counting work is essential to the successful entrance, supporting the broader lesson.",
+      "misconceptions": "overfocuses on music; reverses evidence",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "DGN-RC-P05",
+      "form": "DGN",
+      "content_hash": "97e403f5e5141b9a",
+      "why": {
+        "B": "The conductor is the one who asks them to tap, and that guidance is what fixes it.",
+        "C": "The fast passages were already fine. What needed work was getting the quiet measure exactly right.",
+        "D": "The counting is unheard and unseen, and it is what makes the entrance work — the passage says the reverse."
+      }
+    },
+    {
+      "id": "DGN-MA-001",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "whole-number addition",
+      "difficulty": "E",
+      "prompt": "What is 3,684 + 2,957?",
+      "choices": {
+        "A": "6,741",
+        "B": "6,631",
+        "C": "6,641",
+        "D": "6,531"
+      },
+      "correct": "C",
+      "explanation": "Add by place value: 3,684 + 2,957 = 6,641.",
+      "misconceptions": "regrouping error; place-value slip",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "48ffd8a3b2daa479",
+      "why": {
+        "A": "6,741 is 100 more than the sum; the tens column makes 8 + 5 + 1 = 14, which carries one hundred, not two.",
+        "B": "6,631 is 10 short; the units make 4 + 7 = 11, so a ten carries into the tens column and its digit is 4, not 3.",
+        "D": "6,531 loses both carries — the ten out of 4 + 7 and the hundred out of 8 + 5 + 1 — which costs 110."
+      }
+    },
+    {
+      "id": "DGN-MA-002",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "whole-number subtraction",
+      "difficulty": "E",
+      "prompt": "What is 8,000 − 3,476?",
+      "choices": {
+        "A": "4,524",
+        "B": "5,476",
+        "C": "5,524",
+        "D": "4,624"
+      },
+      "correct": "A",
+      "explanation": "Regroup across the zeros; 8,000 − 3,476 = 4,524.",
+      "misconceptions": "zero-regrouping error; subtracts smaller digits from larger",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "3b9fb8b5bbc0eeab",
+      "why": {
+        "B": "5,476 takes the smaller digit from the larger in each column — 6, 7, 4 — instead of regrouping across the three zeros.",
+        "C": "5,524 has the last three digits right but keeps 8 − 3 in the thousands; the regrouping already spent one thousand, so it is 7 − 3.",
+        "D": "4,624 is 100 too many; after the regrouping the hundreds column is 9 − 4 = 5, not 10 − 4."
+      }
+    },
+    {
+      "id": "DGN-MA-003",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "multiplication",
+      "difficulty": "E",
+      "prompt": "What is 47 × 26?",
+      "choices": {
+        "A": "1,272",
+        "B": "1,222",
+        "C": "1,122",
+        "D": "1,302"
+      },
+      "correct": "B",
+      "explanation": "47 × 26 = 47 × 20 + 47 × 6 = 940 + 282 = 1,222.",
+      "misconceptions": "partial-product error; adds factors",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "59c5b0e018ec9316",
+      "why": {
+        "A": "1,272 is 50 more than 47 × 26; work the partial products separately, 47 × 20 = 940 and 47 × 6 = 282.",
+        "C": "1,122 adds 47 × 20 = 940 to 7 × 26 = 182, taking one partial product from splitting 26 and the other from splitting 47.",
+        "D": "1,302 is 80 more than 47 × 26; the other split checks it — 40 × 26 = 1,040 plus 7 × 26 = 182."
+      }
+    },
+    {
+      "id": "DGN-MA-004",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "division",
+      "difficulty": "E",
+      "prompt": "What is 1,764 ÷ 21?",
+      "choices": {
+        "A": "84",
+        "B": "78",
+        "C": "74",
+        "D": "86"
+      },
+      "correct": "A",
+      "explanation": "21 × 84 = 1,764.",
+      "misconceptions": "quotient estimation error; multiplication fact error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "50e3b4fba44fb673",
+      "why": {
+        "B": "78 is too small: 21 × 78 = 1,638, which is 126 under 1,764.",
+        "C": "74 is smaller still: 21 × 74 = 1,554. Multiplying your answer back by 21 catches this.",
+        "D": "86 overshoots: 21 × 86 = 1,806, which is 42 over 1,764."
+      }
+    },
+    {
+      "id": "DGN-MA-005",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "fraction addition",
+      "difficulty": "M",
+      "prompt": "What is 5/12 + 1/3?",
+      "choices": {
+        "A": "7/12",
+        "B": "2/5",
+        "C": "1/2",
+        "D": "3/4"
+      },
+      "correct": "D",
+      "explanation": "1/3 = 4/12, so 5/12 + 4/12 = 9/12 = 3/4.",
+      "misconceptions": "adds numerators and denominators; adds numerators without converting",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "dd564c38e13d5b2f",
+      "why": {
+        "A": "7/12 is two twelfths short; 1/3 is 4/12, so 5/12 + 4/12 = 9/12.",
+        "B": "2/5 adds tops and bottoms separately, 6/15; the denominators have to match before anything is added.",
+        "C": "1/2 is 6/12, which treats 1/3 as 1/12; it is 4/12."
+      }
+    },
+    {
+      "id": "DGN-MA-006",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "fraction subtraction",
+      "difficulty": "M",
+      "prompt": "What is 7/8 − 5/12?",
+      "choices": {
+        "A": "13/24",
+        "B": "2/5",
+        "C": "11/24",
+        "D": "1/3"
+      },
+      "correct": "C",
+      "explanation": "7/8 = 21/24 and 5/12 = 10/24; the difference is 11/24.",
+      "misconceptions": "subtracts denominators; uses noncommon denominator",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "f5b9c4ef8b4fb2b7",
+      "why": {
+        "A": "13/24 is two twenty-fourths too big; 7/8 is 21/24 and 5/12 is 10/24, leaving 11/24.",
+        "B": "2/5 is not a twenty-fourth at all; put both fractions over 24 first, where 7/8 is 21/24 and 5/12 is 10/24.",
+        "D": "1/3 is 8/24, three twenty-fourths under the difference."
+      }
+    },
+    {
+      "id": "DGN-MA-007",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "fraction multiplication",
+      "difficulty": "M",
+      "prompt": "What is 4/9 × 3/8?",
+      "choices": {
+        "A": "1/6",
+        "B": "1/3",
+        "C": "7/17",
+        "D": "3/8"
+      },
+      "correct": "A",
+      "explanation": "Multiply and simplify: 12/72 = 1/6.",
+      "misconceptions": "adds fractions; cross-multiplies",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "11ceea5f608bff7c",
+      "why": {
+        "B": "1/3 is double the product; 4/9 × 3/8 is 12/72, which simplifies to 1/6.",
+        "C": "7/17 adds instead of multiplying, 4 + 3 over 9 + 8.",
+        "D": "3/8 is one of the two fractions left untouched; 4/9 of 3/8 is smaller than either of them."
+      }
+    },
+    {
+      "id": "DGN-MA-008",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "fraction division",
+      "difficulty": "M",
+      "prompt": "What is 1 1/2 ÷ 3/5?",
+      "choices": {
+        "A": "3 1/5",
+        "B": "9/10",
+        "C": "1 9/10",
+        "D": "2 1/2"
+      },
+      "correct": "D",
+      "explanation": "3/2 ÷ 3/5 = 3/2 × 5/3 = 5/2 = 2 1/2.",
+      "misconceptions": "multiplies without reciprocal; mishandles mixed number",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "c73644a3aec951f5",
+      "why": {
+        "A": "3 1/5 overshoots. 1 1/2 is 3/2, and 3/2 ÷ 3/5 means 3/2 × 5/3 = 15/6 = 5/2.",
+        "B": "9/10 multiplies instead of dividing, 3/2 × 3/5; dividing by 3/5 means multiplying by 5/3.",
+        "C": "1 9/10 is 19/10, short of the 5/2 the division gives; turn 1 1/2 into 3/2 first."
+      }
+    },
+    {
+      "id": "DGN-MA-009",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "decimal addition",
+      "difficulty": "E",
+      "prompt": "What is 12.68 + 4.907?",
+      "choices": {
+        "A": "17.577",
+        "B": "17.587",
+        "C": "16.587",
+        "D": "17.487"
+      },
+      "correct": "B",
+      "explanation": "Align decimal points: 12.680 + 4.907 = 17.587.",
+      "misconceptions": "misaligns decimal places; regrouping error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "7ce0b56e9dbb62f4",
+      "why": {
+        "A": "17.577 falls 0.01 short; lined up as 12.680 + 4.907, the hundredths are 8 + 0 = 8.",
+        "C": "16.587 keeps 12 + 4 = 16 and misses the carry out of the tenths: 6 + 9 = 15, so one whole carries and the answer starts 17.",
+        "D": "17.487 falls 0.1 short; the tenths are 6 + 9 = 15, leaving 5 once the whole has carried."
+      }
+    },
+    {
+      "id": "DGN-MA-010",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "decimal multiplication",
+      "difficulty": "M",
+      "prompt": "What is 3.6 × 1.25?",
+      "choices": {
+        "A": "4.05",
+        "B": "4.5",
+        "C": "45",
+        "D": "3.75"
+      },
+      "correct": "B",
+      "explanation": "1.25 × 36 = 45, then place one decimal digit: 4.5.",
+      "misconceptions": "decimal-placement error; adds factors",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "e2b51f3daa01f161",
+      "why": {
+        "A": "4.05 falls 0.45 short; 1.25 × 36 = 45, and 3.6 carries one decimal place, so 4.5.",
+        "C": "45 is 1.25 × 36 with the decimal point never put back; 3.6 is a tenth of 36, so the product is a tenth of 45.",
+        "D": "3.75 is 3 × 1.25, which drops the 0.6; all of 3.6 has to be multiplied."
+      }
+    },
+    {
+      "id": "DGN-MA-011",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "decimal division",
+      "difficulty": "M",
+      "prompt": "What is 9.24 ÷ 0.7?",
+      "choices": {
+        "A": "13.2",
+        "B": "1.32",
+        "C": "13.02",
+        "D": "132"
+      },
+      "correct": "A",
+      "explanation": "Multiply both numbers by 10: 92.4 ÷ 7 = 13.2.",
+      "misconceptions": "moves one decimal only; divides by seven without scaling",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "fc248ccc2cc6eb97",
+      "why": {
+        "B": "1.32 is a tenth of the quotient; multiplying both numbers by 10 gives 92.4 ÷ 7 = 13.2.",
+        "C": "13.02 has a stray zero in the tenths: 7 goes into 92.4 thirteen times with 1.4 left, and 1.4 ÷ 7 = 0.2.",
+        "D": "132 is ten times too big — 0.7 × 13 is already 9.1, nearly the whole 9.24."
+      }
+    },
+    {
+      "id": "DGN-MA-012",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "percent of a quantity",
+      "difficulty": "E",
+      "prompt": "What is 35% of 240?",
+      "choices": {
+        "A": "72",
+        "B": "84",
+        "C": "96",
+        "D": "80"
+      },
+      "correct": "B",
+      "explanation": "30% of 240 is 72 and 5% is 12; together they equal 84.",
+      "misconceptions": "finds 35% of 24; adds 35 to 240",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "1712301bcc61656e",
+      "why": {
+        "A": "72 is 30% of 240 and stops there; the remaining 5% is 12 more.",
+        "C": "96 is 40% of 240, one step too far.",
+        "D": "80 is a third of 240, and 35% is a little more than a third."
+      }
+    },
+    {
+      "id": "DGN-MA-013",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "order of operations",
+      "difficulty": "M",
+      "prompt": "What is 18 − 2(5 + 1)?",
+      "choices": {
+        "A": "8",
+        "B": "10",
+        "C": "4",
+        "D": "6"
+      },
+      "correct": "D",
+      "explanation": "Parentheses first: 5 + 1 = 6; then 2 × 6 = 12; 18 − 12 = 6.",
+      "misconceptions": "subtracts before multiplying; ignores parentheses",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "801f47095ba2861e",
+      "why": {
+        "A": "8 is 18 − 2 × 5, which leaves the + 1 inside the brackets out; 5 + 1 = 6 happens first.",
+        "B": "10 is 18 − 2 − 6, subtracting the 2 and the bracket separately instead of multiplying them together.",
+        "C": "4 is 16 − 12: the 2 comes off the 18 first and is then used again in 2 × 6, so it counts twice."
+      }
+    },
+    {
+      "id": "DGN-MA-014",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "exponent evaluation",
+      "difficulty": "E",
+      "prompt": "What is 3^4?",
+      "choices": {
+        "A": "27",
+        "B": "12",
+        "C": "81",
+        "D": "64"
+      },
+      "correct": "C",
+      "explanation": "3^4 = 3 × 3 × 3 × 3 = 81.",
+      "misconceptions": "multiplies base by exponent; uses 4 cubed",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "90b438adb7d2689d",
+      "why": {
+        "A": "27 is 3 × 3 × 3, only three threes; 3^4 uses four of them.",
+        "B": "12 is 3 × 4, multiplying the base by the exponent instead of using 3 as a factor four times.",
+        "D": "64 is 4 × 4 × 4 — the base and the exponent swapped. Here 3 is the factor and 4 is how many times."
+      }
+    },
+    {
+      "id": "DGN-MA-015",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "factors—greatest common factor",
+      "difficulty": "M",
+      "prompt": "What is the greatest common factor of 42 and 70?",
+      "choices": {
+        "A": "2",
+        "B": "21",
+        "C": "28",
+        "D": "14"
+      },
+      "correct": "D",
+      "explanation": "Factors common to both include 1, 2, 7, and 14; the greatest is 14.",
+      "misconceptions": "chooses least common multiple; stops at 7",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "2fd8710d60e6265d",
+      "why": {
+        "A": "2 is a common factor but not the greatest; 7 divides both as well, and 2 × 7 = 14.",
+        "B": "21 divides 42 but not 70, so it is not a common factor at all.",
+        "C": "28 divides neither 42 nor 70; the factors the two share are 1, 2, 7 and 14."
+      }
+    },
+    {
+      "id": "DGN-MA-016",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "multiples—least common multiple",
+      "difficulty": "M",
+      "prompt": "What is the least common multiple of 9 and 12?",
+      "choices": {
+        "A": "18",
+        "B": "108",
+        "C": "24",
+        "D": "36"
+      },
+      "correct": "D",
+      "explanation": "Multiples first shared are 36, 72, ...; the least is 36.",
+      "misconceptions": "multiplies automatically; chooses greatest common factor",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "046f844d1a09c812",
+      "why": {
+        "A": "18 is a multiple of 9 but not of 12, which goes 12, 24, 36.",
+        "B": "108 is 9 × 12, a common multiple but not the least; 36 comes first.",
+        "C": "24 is a multiple of 12 but not of 9, which goes 9, 18, 27, 36."
+      }
+    },
+    {
+      "id": "DGN-MA-017",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "algebra—one-step equation",
+      "difficulty": "E",
+      "prompt": "If y/6 = 11, what is y?",
+      "choices": {
+        "A": "77",
+        "B": "17",
+        "C": "66",
+        "D": "55"
+      },
+      "correct": "C",
+      "explanation": "Multiply both sides by 6: y = 11 × 6 = 66.",
+      "misconceptions": "adds six; divides eleven by six",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "f17f819d3839f46a",
+      "why": {
+        "A": "77 is 11 × 7, not 11 × 6; the 6 under the y is what has to be undone.",
+        "B": "17 is 11 + 6, adding the 6 instead of multiplying by it.",
+        "D": "55 is 11 × 5. Multiplying both sides by 6 gives 66."
+      }
+    },
+    {
+      "id": "DGN-MA-018",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "algebra—two-step equation",
+      "difficulty": "M",
+      "prompt": "Solve 5x − 8 = 37.",
+      "choices": {
+        "A": "11",
+        "B": "9",
+        "C": "7",
+        "D": "5.8"
+      },
+      "correct": "B",
+      "explanation": "Add 8 to get 5x = 45, then divide by 5: x = 9.",
+      "misconceptions": "divides before undoing subtraction; subtracts eight",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "31176a4f03ab1b23",
+      "why": {
+        "A": "11 does not check: 5 × 11 − 8 = 47, not 37.",
+        "C": "7 does not check either: 5 × 7 − 8 = 27, ten short of 37.",
+        "D": "5.8 comes from subtracting the 8 instead of adding it, 29 ÷ 5; moving the − 8 across makes 5x = 45."
+      }
+    },
+    {
+      "id": "DGN-MA-019",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "expression evaluation",
+      "difficulty": "E",
+      "prompt": "What is 2a^2 + 3 when a = 4?",
+      "choices": {
+        "A": "11",
+        "B": "67",
+        "C": "19",
+        "D": "35"
+      },
+      "correct": "D",
+      "explanation": "2(4^2) + 3 = 2(16) + 3 = 35.",
+      "misconceptions": "squares 2a; evaluates 2×4 then squares",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "2565927eb86ef12f",
+      "why": {
+        "A": "11 is 2 × 4 + 3, multiplying before squaring; the exponent belongs to the a alone.",
+        "B": "67 squares the 2a together, (2 × 4)² + 3 = 64 + 3; only the a is squared.",
+        "C": "19 comes from taking 4² as 8 — doubling instead of squaring. 4² is 16, so 2 × 16 + 3 = 35."
+      }
+    },
+    {
+      "id": "DGN-MA-020",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "coordinate plane—reflection",
+      "difficulty": "M",
+      "prompt": "What is the reflection of (−5, 2) across the x-axis?",
+      "choices": {
+        "A": "(−5, −2)",
+        "B": "(5, −2)",
+        "C": "(−2, 5)",
+        "D": "(5, 2)"
+      },
+      "correct": "A",
+      "explanation": "Reflection across the x-axis keeps x and changes the sign of y.",
+      "misconceptions": "reflects across y-axis; swaps coordinates",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "2456dfd652e0cb53",
+      "why": {
+        "B": "(5, −2) flips both signs; reflecting across the x-axis leaves x at −5 and changes only the y.",
+        "C": "(−2, 5) swaps the two coordinates; a reflection across the x-axis keeps x where it is.",
+        "D": "(5, 2) changes the sign of x and leaves y alone, which is a reflection across the y-axis."
+      }
+    },
+    {
+      "id": "DGN-MA-021",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "rectangle area",
+      "difficulty": "E",
+      "prompt": "A rectangle is 13 meters long and 7 meters wide. What is its area?",
+      "choices": {
+        "A": "40 m²",
+        "B": "91 m²",
+        "C": "182 m²",
+        "D": "78 m²"
+      },
+      "correct": "B",
+      "explanation": "Area = length × width = 13 × 7 = 91 square meters.",
+      "misconceptions": "finds perimeter; doubles product",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "d413fe951fd2b6b9",
+      "why": {
+        "A": "40 is 2 × (13 + 7), the perimeter; area multiplies the two sides together.",
+        "C": "182 is 13 × 7 × 2, the area counted twice.",
+        "D": "78 is 13 × 6; the width is 7 meters, so it is 13 × 7."
+      }
+    },
+    {
+      "id": "DGN-MA-022",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "triangle area",
+      "difficulty": "M",
+      "prompt": "A triangle has base 15 cm and height 8 cm. What is its area?",
+      "choices": {
+        "A": "60 cm²",
+        "B": "120 cm²",
+        "C": "23 cm²",
+        "D": "46 cm²"
+      },
+      "correct": "A",
+      "explanation": "Area = 1/2 × 15 × 8 = 60 square centimeters.",
+      "misconceptions": "omits one-half; adds dimensions",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "0bce7e45b895e529",
+      "why": {
+        "B": "120 is 15 × 8, the whole rectangle around the triangle; a triangle is half of it.",
+        "C": "23 is 15 + 8, adding the base and height instead of multiplying and halving.",
+        "D": "46 is 2 × (15 + 8), a perimeter; area needs 1/2 × 15 × 8."
+      }
+    },
+    {
+      "id": "DGN-MA-023",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "square perimeter",
+      "difficulty": "M",
+      "prompt": "The perimeter of a square photo frame is 56 cm. What is the length of one side?",
+      "choices": {
+        "A": "28 cm",
+        "B": "14 cm",
+        "C": "16 cm",
+        "D": "52 cm"
+      },
+      "correct": "B",
+      "explanation": "A square has four equal sides, so each side is 56 ÷ 4 = 14 cm.",
+      "misconceptions": "divides perimeter by 2; subtracts instead of dividing",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "114309b03ac8c395",
+      "why": {
+        "A": "28 is 56 ÷ 2, which counts only two sides; a square has four.",
+        "C": "16 divides the 40 and then appends the leftover 6 (10 + 6); the whole 56 goes into the division, giving 14.",
+        "D": "52 subtracts 4 instead of dividing by 4."
+      }
+    },
+    {
+      "id": "DGN-MA-024",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "rectangular-prism volume",
+      "difficulty": "E",
+      "prompt": "What is the volume of a rectangular prism measuring 9 cm by 5 cm by 4 cm?",
+      "choices": {
+        "A": "180 cm³",
+        "B": "200 cm³",
+        "C": "160 cm³",
+        "D": "90 cm³"
+      },
+      "correct": "A",
+      "explanation": "Volume = 9 × 5 × 4 = 180 cubic centimeters.",
+      "misconceptions": "adds dimensions; omits one dimension",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "b3b105e43e592024",
+      "why": {
+        "B": "200 is not 9 × 5 × 4; multiplying the three out gives 180.",
+        "C": "160 is 8 × 5 × 4, with the 9 taken as 8.",
+        "D": "90 is half the volume — 9 × 5 = 45 and then 45 × 2 rather than 45 × 4."
+      }
+    },
+    {
+      "id": "DGN-MA-025",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "angle measure—triangle",
+      "difficulty": "M",
+      "prompt": "A triangle has angles of 37° and 68°. What is the third angle?",
+      "choices": {
+        "A": "65°",
+        "B": "85°",
+        "C": "70°",
+        "D": "75°"
+      },
+      "correct": "D",
+      "explanation": "Triangle angles total 180°; 180 − 37 − 68 = 75°.",
+      "misconceptions": "subtracts from 90; arithmetic slip",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "889101a5df03fe2a",
+      "why": {
+        "A": "65 is ten short: 37 + 68 = 105, and 180 − 105 = 75.",
+        "B": "85 is ten over; the two known angles add to 105, not 95.",
+        "C": "70 subtracts 110 from 180; 37 + 68 is 105, which leaves 75."
+      }
+    },
+    {
+      "id": "DGN-MA-026",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "unit conversion—length",
+      "difficulty": "E",
+      "prompt": "How many centimeters are in 2.35 meters?",
+      "choices": {
+        "A": "23.5",
+        "B": "2,350",
+        "C": "235",
+        "D": "0.0235"
+      },
+      "correct": "C",
+      "explanation": "One meter is 100 centimeters, so 2.35 × 100 = 235.",
+      "misconceptions": "divides by 100; wrong decimal direction",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "2e39288c78832311",
+      "why": {
+        "A": "23.5 multiplies by 10; a meter holds 100 centimeters.",
+        "B": "2,350 multiplies by 1,000, which turns meters into millimeters.",
+        "D": "0.0235 divides by 100 instead of multiplying; centimeters are smaller than meters, so the number gets bigger."
+      }
+    },
+    {
+      "id": "DGN-MA-027",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "elapsed time",
+      "difficulty": "M",
+      "prompt": "How much time passes from 9:38 a.m. to 11:05 a.m.?",
+      "choices": {
+        "A": "1 hour 27 minutes",
+        "B": "1 hour 33 minutes",
+        "C": "1 hour 17 minutes",
+        "D": "2 hours 27 minutes"
+      },
+      "correct": "A",
+      "explanation": "From 9:38 to 10:38 is 1 hour, then to 11:05 is 27 minutes.",
+      "misconceptions": "subtracts minute digits directly; counts endpoints",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "166ff84e7139ecf9",
+      "why": {
+        "B": "1 hour 33 minutes subtracts the minutes the wrong way round, 38 − 5; borrowing an hour gives 65 − 38 = 27.",
+        "C": "1 hour 17 minutes falls ten short; 10:38 to 11:05 is 27 minutes.",
+        "D": "2 hours 27 minutes counts an extra hour; 9:38 to 11:05 passes 10:38 only once."
+      }
+    },
+    {
+      "id": "DGN-MA-028",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "mean",
+      "difficulty": "E",
+      "prompt": "What is the mean of 14, 19, 21, and 26?",
+      "choices": {
+        "A": "19",
+        "B": "20",
+        "C": "18",
+        "D": "21"
+      },
+      "correct": "B",
+      "explanation": "The total is 80, and 80 ÷ 4 = 20.",
+      "misconceptions": "chooses median; divides by wrong count",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "ab55d49bc15e2417",
+      "why": {
+        "A": "19 is one of the four numbers, not their average; they total 80, and 80 ÷ 4 = 20.",
+        "C": "18 would need a total of 72; 14 + 19 + 21 + 26 is 80.",
+        "D": "21 is one of the four numbers again, and 21 × 4 = 84, more than the 80 they total."
+      }
+    },
+    {
+      "id": "DGN-MA-029",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "probability—simple event",
+      "difficulty": "E",
+      "prompt": "A fair spinner has 10 equal sections numbered 1 through 10. What is the probability of landing on a multiple of 3?",
+      "choices": {
+        "A": "1/2",
+        "B": "1/5",
+        "C": "3/10",
+        "D": "2/5"
+      },
+      "correct": "C",
+      "explanation": "The multiples of 3 are 3, 6, and 9, so 3 of 10 outcomes are favorable.",
+      "misconceptions": "counts 10 as multiple; uses denominator three",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "82c1b4609c39b753",
+      "why": {
+        "A": "1/2 is 5/10, which counts five favorable numbers; the multiples of 3 up to 10 are 3, 6 and 9.",
+        "B": "1/5 is 2/10, counting only two multiples of 3; there are three.",
+        "D": "2/5 is 4/10, which counts a fourth multiple of 3; the next one after 9 is 12, past the spinner."
+      }
+    },
+    {
+      "id": "DGN-MA-030",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "data interpretation—range",
+      "difficulty": "E",
+      "prompt": "What is the range of 23, 31, 18, 27, and 35?",
+      "choices": {
+        "A": "53",
+        "B": "12",
+        "C": "17",
+        "D": "13"
+      },
+      "correct": "C",
+      "explanation": "Range = greatest − least = 35 − 18 = 17.",
+      "misconceptions": "adds extremes; chooses number of values",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "DGN",
+      "content_hash": "8a729b81b6bb51e3",
+      "why": {
+        "A": "53 is 35 + 18, adding the greatest and least instead of subtracting.",
+        "B": "12 is not the spread from 18 to 35; the range is 35 − 18 = 17.",
+        "D": "13 is 31 − 18, using 31 rather than the greatest value, 35."
+      }
+    }
+  ]
+}

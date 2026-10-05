@@ -215,6 +215,21 @@ npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63
   `test_chinese.cjs` reads the title with the rest of the chrome, which is how
   the next one shows up as a red line instead of a screenshot.
 
+- **Adding a form to `OFFICIAL_FORMS` turns the gate red until the whole form
+  complies, and that is the point.** `tools/itemspec.py` holds the forms the
+  validator holds to the official choice order, the 190–340-word band and
+  line-numbered passages. It is a per-form list, not a per-item flag, because a
+  balanced-letter form was shuffled on purpose and a half-converted one teaches a
+  child nothing. The shuffle-cycle check is skipped for those forms deliberately:
+  an order the alphabet decides cannot be cyclic. Do not "fix" a red gate by taking
+  the form off the list; rewrite the items, or leave the form off until they are.
+- **A reading stem that says "line 14" is checked against line 14.** Numbered
+  passages are split by `passage_lines()` in the validator and by `NumberedLines`
+  in the runner with the same rule — newline ends a line, blank line ends a
+  paragraph — so the two never disagree about which words are on a line. Re-wrap a
+  passage and every line number its questions cite moves; run the validator, which
+  names each stem whose quoted word is no longer on its line.
+
 ## Verification habit
 
 Screenshot the page you changed — desktop, phone width, and dark mode — and look

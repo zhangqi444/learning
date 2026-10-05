@@ -19,6 +19,7 @@ import { ScrollArea } from "@zhangqi444/ui/ui/scroll-area"
 import { Tooltip, TooltipContent, TooltipTrigger } from "@zhangqi444/ui/ui/tooltip"
 import { Burst, useCountUp } from "@/components/burst"
 import { Gate, inscribe, strip } from "@/components/gate"
+import { Figure } from "@/components/figure"
 import { Glim, hearProps } from "@/components/glim"
 import { PromotionReport } from "@/components/promotion"
 import { MissProgress, MissStage } from "@/components/miss-status"
@@ -65,14 +66,48 @@ export function firstOfPassage(items, i) {
   return true
 }
 
+/* A line-numbered passage, the way the ISEE booklet prints one: every line
+ * numbered from 1 in the margin, so a question can say "line 14" and mean the
+ * same words the page shows. The text is authored line by line — a newline
+ * ends a line, a blank line ends a paragraph — and tools/itemspec.py splits it
+ * exactly as this does, which is what lets the validator check that a stem's
+ * "line 14" quotes a word that is on line 14. On a narrow screen a long line
+ * wraps under its one number; it is still the line the question named. */
+export function NumberedLines({ text }) {
+  let n = 0
+  const paras = String(text).trim().split(/\n\s*\n/).filter((p) => p.trim())
+  return paras.map((para, pi) => (
+    <div key={pi} className="flex flex-col">
+      {para.split("\n").map((line, li) => {
+        n += 1
+        return (
+          <div key={li} className="flex gap-3" data-testid="passage-line" data-n={n}>
+            <span className="text-muted-foreground w-6 shrink-0 text-right text-xs leading-7 tabular-nums select-none" aria-hidden="true">{n}</span>
+            {/* A hanging indent: on a phone a booklet line is wider than the
+                column and wraps, and the wrapped half has to read as the same
+                numbered line, not as the next one. Paragraphs are told apart by
+                the gap between them rather than a first-line indent. */}
+            <span className="-indent-5 pl-5 leading-7">{line.trim()}</span>
+          </div>
+        )
+      })}
+    </div>
+  ))
+}
+
 export function Passage({ id }) {
   const p = D.passages[id]
   if (!p) return null
+  // A numbered passage is a full column of the booklet, so it gets the taller
+  // box; the short weekly passages keep the one they had.
+  const box = p.l
+    ? "max-h-[26rem] [&>[data-radix-scroll-area-viewport]]:max-h-[26rem]"
+    : "max-h-64 [&>[data-radix-scroll-area-viewport]]:max-h-64"
   return (
-    <ScrollArea className="bg-muted/40 max-h-64 rounded-lg border [&>[data-radix-scroll-area-viewport]]:max-h-64" data-testid="passage">
+    <ScrollArea className={cn("bg-muted/40 rounded-lg border", box)} data-testid="passage" data-lines={p.l ? "1" : undefined}>
       <div className="flex flex-col gap-3 p-4 text-[15px] leading-7">
         {p.t ? <h3 className="text-base font-semibold">{p.t}</h3> : null}
-        {p.x.split(/\n+/).map((para, k) => <p key={k}>{para}</p>)}
+        {p.l ? <NumberedLines text={p.x} /> : p.x.split(/\n+/).map((para, k) => <p key={k}>{para}</p>)}
       </div>
     </ScrollArea>
   )
@@ -717,6 +752,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
           ) : (
             <>
               <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id}>{qOf(it)}</p>
+              {it.f ? <Figure f={it.f} /> : null}
               {/* A Chinese prompt is the book's own wording; the other language is a
                   translation she can ask for, the way the book glosses its headings. */}
               {qOther(it) ? <EnglishLine key={getLang()} text={qOther(it)} /> : null}

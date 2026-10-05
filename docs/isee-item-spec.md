@@ -131,6 +131,70 @@ one thing she would change about her community and why; the Princeton Review's,
 what her perfect vacation would be. Not a multi-part checklist of what the essay
 must contain.
 
+## Calibration targets, measured 4 October 2026
+
+The item-level review (`docs/mock-review-2026-10-04.md`, Part 2) measured the two
+references and the site's forms. These are the numbers a form is written to, and
+the authoring script prints them so a writer sees them before the gate does:
+
+| | Target | Why |
+|---|---|---|
+| Synonym headwords, `wordfreq` Zipf | median 3.3–3.4, range about 2.8–4.2, at most three above 4.0 | ERB's practice test 3.37, the Princeton Review 3.30; M01 was 3.79 and M03 3.24 |
+| Key against headword | key plainer (higher Zipf) on nearly every item | both references |
+| Parts of speech in synonyms | about 6 verbs, 5 adjectives, 4 nouns, 2 adverbs in 17 | ERB 6/4/3/2; the site had 57 adjectives in 68 |
+| Phrase completions | 5 of 17, last in Part Two | ERB 5 of 15, Princeton Review 4 of 17 |
+| Passage length | 190–340 words, every one | ERB 190–335 |
+| Passage readability | Flesch–Kincaid 5.5–7.5, 11–17 words a sentence | three of ERB's four at 5.5–7.1; the site had four passages at grade 10–11 |
+| Question order within a set | varies from set to set | ERB; the site had one fixed order in 20 of 20 sets |
+| Stems citing a line | about a third | ERB 8 of 20, Princeton Review 9 of 25 |
+| Figures | QR about half, MA about 40% | ERB 18 of 35 and 10 of 25 |
+| Time | QR about 40 s an item, MA about 50 s | the reviewers' estimates against 55 and 60 allowed |
+
+## Writing a wrong choice
+
+Every wrong choice is a place a child arrives by a nameable error, and its `why`
+names that error: "30 is 10 × 3, the area, not the perimeter." A `why` that only
+back-checks ("30 is too big; 2 × 13 is 26") teaches nothing, and half the old
+mock items had one. Three further rules from the review:
+
+- **The trap must not give the key.** When the mean equals the median, when the
+  largest numerator is also the largest fraction, when the last digit is the
+  remainder, the item cannot catch the error it was written for. Change a number.
+- **No format cues.** The key is never the only decimal, the only fraction in
+  lowest terms, the only choice written in primes, the only phrase among words;
+  fractions are always printed in lowest terms; a number in the stem is never the
+  key.
+- **Reading distractors are anchored in the passage** — a plausible misreading, a
+  detail from the wrong paragraph, a true statement that does not answer the
+  question. An absolute (*always, never, every, only*) is not filler; a child who
+  has learned to strike absolutes should get nothing for it. A passage does not
+  end on a stated lesson that the main-idea item can lift.
+
+## Figures and line numbers
+
+An item carries its picture as a small declarative `figure` — table, bar, line,
+pictograph, numberline, grid, polygon, venn, spinner, clock, shaded, cubes — whose
+schema is `tools/itemspec.py` (`FIGURES`) and whose drawing is
+`site/src/components/figure.jsx`. The stem introduces the figure; the figure holds
+the data.
+
+A passage written to this spec carries `lines: true` and is authored line by line:
+a newline ends a line, a blank line ends a paragraph, lines run to about 56
+characters like the booklet column. The page numbers every line from 1
+(`NumberedLines` in `site/src/pages/runner.jsx`), and the validator checks that a
+stem citing "line 14" quotes a word that is on line 14. Nothing else may appear
+in a passage's text: the `[¶n]` and `[Sn]` tags Mock 2 and Mock 3 once carried
+printed on her screen until the review caught them.
+
+## Which forms are held to this
+
+`OFFICIAL_FORMS` in `tools/itemspec.py` lists the forms the validator holds to the
+official choice order, the passage band and the line numbers. A form is added when
+it is rewritten whole, never half-converted: a balanced-letter form was shuffled
+on purpose, and a child who has met one shuffled set learns nothing from the rest
+being in order. Adding a form turns the gate red until every item of it complies,
+which is the point.
+
 ## Forms are parallel
 
 A mock is only useful as a measurement if the next one is the same paper with

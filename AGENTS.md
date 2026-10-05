@@ -258,7 +258,14 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
   the topics that are out of scope. Until 4 October 2026 there was no such spec;
   the banks were written to a general idea of the test, and
   docs/mock-review-2026-10-04.md measures where that drifted. A rule in the spec
-  cites ERB or the Princeton Review, never memory.
+  cites ERB or the Princeton Review, never memory. The parts a machine can check
+  live in `tools/itemspec.py` and gate in the validator: the official choice
+  order on the forms listed in `OFFICIAL_FORMS`, the `figure` schema an item may
+  carry (drawn by `site/src/components/figure.jsx`), and the shape of a
+  line-numbered passage (`lines: true`; the page numbers every line and a stem's
+  "line 14" is checked against line 14). A mock form is one file —
+  `content/question-banks/mock-<form>.json` with `content/passages/mock-<form>-passages.json`
+  — so a rework replaces one file and its diff reads as one paper.
 - **Chinese content carries both languages, by construction** — the owner's
   ask, 1 October 2026: "make sure all your content is in 2 languages". Every
   field a Chinese page prints exists in both: on a bank item `prompt`/`prompt_en`,
@@ -370,6 +377,12 @@ parent once the paper is marked. **Its questions, its key and its essay prompt a
 repository**: it is a published, copyrighted book and this repository is public, the same reasoning
 docs/chinese.md § 8 gives for the textbook's text. `make_bundle.py` asserts the form's sections
 equal the real paper's, so a typo in a count cannot land.
+
+The owner confirmed the boundary on 4 October 2026: the paper's questions and her results are
+created in Google Drive, never here. The marked answer sheet was read off a photo and the
+write-up — section scores, the circled misses, the skill behind each miss, what to practise — is a
+Google Doc in the app's own Drive folder, "Sheila ISEE Practice", beside her record. An evaluation
+of an outside paper goes there, not in `docs/`.
 
 The scores are learner input (hard rule 1). They live in her Drive record under `mocks.TPR` as an
 append-only log of entries — `{id, at, sat, scores: {VR: n, …}}` — the newest entry naming a
@@ -498,7 +511,7 @@ below with the reason it was wrong.
   trap, which is a head start on the sentence and is not itself shown to her
   anywhere. All 508 mock items carry one too, in prose rather than as a tag.
 
-Re-derive these over `content/question-banks/*.json` minus `mock.json`, and count
+Re-derive these over `content/question-banks/*.json` minus the `mock-*.json` papers, and count
 "names a letter" with the pattern in `tools/audit.py` so the next reader is not
 measuring a different thing. **Every QR and MA explanation — 480 of 480 — now
 names no choice by letter**, which matters because the choices are reordered when

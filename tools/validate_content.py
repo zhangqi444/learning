@@ -232,6 +232,10 @@ for _sk,_v in ZH_SKILLS.items(): errs+=both_errors({'name':_v}, 'name', f'{ZH_SK
 # ---- prose may not name a choice by its letter -------------------------------
 # See tools/letters.py for the forms and why each one is there.
 from letters import letter_errors, self_test
+# The spec's machine-checkable rules — the official choice order on the forms held
+# to it, the figure schema, line-numbered passages — in tools/itemspec.py, shared
+# with the authoring scripts so a writer sees the gate's failure and not a paraphrase.
+from itemspec import OFFICIAL_FORMS, order_errors, figure_errors, passage_errors, citation_errors
 
 errs += self_test()          # the detector is checked before the content is
 # ISEE's banks and, beside them rather than inside them, the Chinese ones
@@ -239,12 +243,13 @@ errs += self_test()          # the detector is checked before the content is
 BANK_DIRS=['content/question-banks','content/chinese/question-banks']
 def bank_files():
     return [f'{d}/{f}' for d in BANK_DIRS if os.path.isdir(d) for f in sorted(os.listdir(d)) if f.endswith('.json')]
-pass_ids=set(); passage_text={}
+pass_ids=set(); passage_text={}; passage_rec={}
 for f in os.listdir('content/passages'):
     for p in json.load(open(f'content/passages/{f}'))['items']:
         pass_ids.add(p['id'])
-        passage_text[p['id']]=str(p.get('text') or '')
+        passage_text[p['id']]=str(p.get('text') or ''); passage_rec[p['id']]=p
         if not p.get('text') or len(str(p['text']))<100: errs.append(f'{p["id"]}: passage text missing/short')
+        errs += passage_errors(p)
 
 seen=set()
 for f in bank_files():
@@ -287,6 +292,9 @@ for f in bank_files():
         errs += zh_item_errors(it)
         errs += trap_errors(it, passage_text)
         errs += spelling_errors(it)
+        errs += order_errors(it)
+        errs += figure_errors(it)
+        errs += citation_errors(it, passage_rec.get(it.get('passage_id') or ''))
 
 # ---- the workbook's closed exercises (content/chinese/exercises) -------------
 # Not four-choice, so none of the rules above fit them; each type has its own
@@ -479,6 +487,10 @@ for f in bank_files():
     g=collections.defaultdict(list)
     for it in d['items']: g[(it.get('form') or '-', it['subject'])].append(it['correct'])
     for k,v in g.items():
+        # A form in the official order cannot be cyclic by construction — the key
+        # falls where the alphabet or the number line puts it — and that order is
+        # the whole point of the form, so the shuffle check does not apply to it.
+        if k[0] in OFFICIAL_FORMS: continue
         s=''.join(v)
         if len(s)<8: continue
         st=L.index(s[0]); exp=''.join(L[(st+i)%4] for i in range(len(s)))
@@ -489,5 +501,5 @@ print(f'items validated: {total}')
 print(f'passages: {len(pass_ids)}')
 print(f'warnings: {len(warns)}')
 print(f'ERRORS: {len(errs)}')
-for e in errs[:20]: print('  !',e)
+for e in errs[:(None if os.environ.get('VALIDATE_ALL') else 20)]: print('  !',e)   # VALIDATE_ALL=1 prints every error, for an author working through a list
 sys.exit(1 if errs else 0)

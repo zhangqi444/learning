@@ -1,0 +1,3335 @@
+{
+  "bank": "mock",
+  "form": "M02",
+  "schema_version": "1.0",
+  "content_version": "2026.09.01",
+  "items": [
+    {
+      "id": "M02-VR-001",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "ADEPT most nearly means:",
+      "choices": {
+        "A": "famous",
+        "B": "patient",
+        "C": "skillful",
+        "D": "cheerful"
+      },
+      "correct": "C",
+      "explanation": "Adept means highly skillful; patient, famous, and cheerful describe unrelated qualities.",
+      "misconceptions": "broad-positive-word guess; ignores exact meaning",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "3d8cabecfc6d439a",
+      "why": {
+        "A": "Famous means widely known; a person can be highly skilled and unknown.",
+        "B": "Patient means willing to wait.",
+        "D": "Cheerful means in good spirits."
+      }
+    },
+    {
+      "id": "M02-VR-002",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "DOCILE most nearly means:",
+      "choices": {
+        "A": "obedient",
+        "B": "restless",
+        "C": "noisy",
+        "D": "ancient"
+      },
+      "correct": "A",
+      "explanation": "Docile means calm and willing to be taught or guided, closest to obedient; restless is nearly opposite, while ancient and noisy are unrelated.",
+      "misconceptions": "negative-tone guess; part-of-speech drift",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "0e8ccffda06bfce1",
+      "why": {
+        "B": "Restless means unable to settle — nearly the opposite of docile.",
+        "C": "Noisy means loud.",
+        "D": "Ancient means very old."
+      }
+    },
+    {
+      "id": "M02-VR-003",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "CANDID most nearly means:",
+      "choices": {
+        "A": "humorous",
+        "B": "prepared",
+        "C": "frank",
+        "D": "shy"
+      },
+      "correct": "C",
+      "explanation": "Candid means frank and truthful, saying plainly what you think; shyness, preparation, and humor do not require that.",
+      "misconceptions": "tone-only guess; confuses friendly with frank",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "dfec010773797a51",
+      "why": {
+        "A": "Humorous means funny, and a candid remark is often anything but.",
+        "B": "Prepared means ready in advance, whereas candour is usually unrehearsed.",
+        "D": "Shy means uneasy with people — nearly the opposite of speaking plainly."
+      }
+    },
+    {
+      "id": "M02-VR-004",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "DILIGENT most nearly means:",
+      "choices": {
+        "A": "silent",
+        "B": "hardworking",
+        "C": "fortunate",
+        "D": "ordinary"
+      },
+      "correct": "B",
+      "explanation": "A diligent person works carefully and persistently; the other choices describe luck, sound, or commonness.",
+      "misconceptions": "generic-positive guess; context association",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "d6260b1b1585b195",
+      "why": {
+        "A": "Silent means making no sound; a diligent worker may chatter all day.",
+        "C": "Fortunate means lucky, which is the opposite sort of explanation for getting things done.",
+        "D": "Ordinary means usual or unremarkable."
+      }
+    },
+    {
+      "id": "M02-VR-005",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "ELABORATE most nearly means:",
+      "choices": {
+        "A": "accidental",
+        "B": "detailed",
+        "C": "unfinished",
+        "D": "ancient"
+      },
+      "correct": "B",
+      "explanation": "Elaborate means detailed or carefully developed; age, completion, and intent are separate traits.",
+      "misconceptions": "confuses elaborate with old-fashioned; surface-feature guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "9711188c9597d01d",
+      "why": {
+        "A": "Accidental means unplanned, and something elaborate takes planning.",
+        "C": "Unfinished means not completed, whereas an elaborate thing is usually finished with care.",
+        "D": "Ancient means very old."
+      }
+    },
+    {
+      "id": "M02-VR-006",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "FEEBLE most nearly means:",
+      "choices": {
+        "A": "foolish",
+        "B": "noisy",
+        "C": "narrow",
+        "D": "weak"
+      },
+      "correct": "D",
+      "explanation": "Feeble means lacking strength, or weak; noisy, foolish, and narrow do not express low strength.",
+      "misconceptions": "negative-tone guessing; sound-alike guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "c5ecb126355e8866",
+      "why": {
+        "A": "Foolish means unwise, which is about judgment rather than strength.",
+        "B": "Noisy means loud; a feeble voice is quiet, but the word itself means lacking strength.",
+        "C": "Narrow is about width."
+      }
+    },
+    {
+      "id": "M02-VR-007",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "GRACIOUS most nearly means:",
+      "choices": {
+        "A": "exact",
+        "B": "courteous",
+        "C": "puzzled",
+        "D": "wealthy"
+      },
+      "correct": "B",
+      "explanation": "Gracious means courteous and considerate; the distractors concern understanding, wealth, or precision.",
+      "misconceptions": "confuses grace with elegance only; broad-positive guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "e646694691521338",
+      "why": {
+        "A": "Exact means precise.",
+        "C": "Puzzled means confused.",
+        "D": "Wealthy means having a lot of money, and a gracious host need not be rich."
+      }
+    },
+    {
+      "id": "M02-VR-008",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "HAZARDOUS most nearly means:",
+      "choices": {
+        "A": "exciting",
+        "B": "hidden",
+        "C": "unusual",
+        "D": "dangerous"
+      },
+      "correct": "D",
+      "explanation": "Hazardous means dangerous or risky; something may be exciting, hidden, or unusual without being unsafe.",
+      "misconceptions": "excitement-risk confusion; context association",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "f7195434248abea2",
+      "why": {
+        "A": "Exciting means thrilling, and a hazard can be dull and still be a hazard.",
+        "B": "Hidden means out of sight; a danger in plain view is no less dangerous.",
+        "C": "Unusual means rare, and some hazards are very common indeed."
+      }
+    },
+    {
+      "id": "M02-VR-009",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "IMMENSE most nearly means:",
+      "choices": {
+        "A": "distant",
+        "B": "empty",
+        "C": "enormous",
+        "D": "heavy"
+      },
+      "correct": "C",
+      "explanation": "Immense means extremely large; weight, distance, and emptiness are not measures of overall size.",
+      "misconceptions": "related-dimension guess; intensity missed",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "f037a739d86302ee",
+      "why": {
+        "A": "Distant means far away, which is about position rather than size.",
+        "B": "Empty means containing nothing; an immense hall can be packed.",
+        "D": "Heavy means weighing a lot, and an immense cloud weighs very little."
+      }
+    },
+    {
+      "id": "M02-VR-010",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—verb precision",
+      "difficulty": "M",
+      "prompt": "LINGER most nearly means:",
+      "choices": {
+        "A": "argue",
+        "B": "remain",
+        "C": "tremble",
+        "D": "hurry"
+      },
+      "correct": "B",
+      "explanation": "To linger is to remain longer than expected; hurrying is nearly opposite, while arguing and trembling are unrelated.",
+      "misconceptions": "unfamiliar-word guess; verb-tone guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "a36b14588bc8f633",
+      "why": {
+        "A": "Argue means to disagree in words.",
+        "C": "Tremble means to shake.",
+        "D": "Hurry means to move fast — the opposite of staying on."
+      }
+    },
+    {
+      "id": "M02-VR-011",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "MUNDANE most nearly means:",
+      "choices": {
+        "A": "messy",
+        "B": "modern",
+        "C": "everyday",
+        "D": "difficult"
+      },
+      "correct": "C",
+      "explanation": "Mundane means everyday and unexciting; difficulty, newness, and disorder are separate ideas.",
+      "misconceptions": "confuses mundane with modern; negative-tone guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "d9d16095e1d530b3",
+      "why": {
+        "A": "Messy means untidy, and a mundane task can be perfectly neat.",
+        "B": "Modern means of the present time; mundane things have always been mundane.",
+        "D": "Difficult means hard, whereas mundane suggests the everyday."
+      }
+    },
+    {
+      "id": "M02-VR-012",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "E",
+      "prompt": "NOTABLE most nearly means:",
+      "choices": {
+        "A": "remarkable",
+        "B": "polite",
+        "C": "readable",
+        "D": "secret"
+      },
+      "correct": "A",
+      "explanation": "Notable means worthy of attention, or remarkable; the distractors are unrelated surface qualities.",
+      "misconceptions": "note/read association; broad-positive guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "0cf341c9d309258d",
+      "why": {
+        "B": "Polite means well-mannered.",
+        "C": "Readable means easy to read.",
+        "D": "Secret means kept hidden — nearly the opposite of worth noticing."
+      }
+    },
+    {
+      "id": "M02-VR-013",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "H",
+      "prompt": "OBSCURE most nearly means:",
+      "choices": {
+        "A": "polished",
+        "B": "narrow",
+        "C": "cheerful",
+        "D": "unclear"
+      },
+      "correct": "D",
+      "explanation": "Obscure can mean unclear or not easily understood; cheerfulness, polish, and width do not match that sense.",
+      "misconceptions": "uses only hidden-from-view sense; chooses physical descriptor",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "4722ddf34ecad9af",
+      "why": {
+        "A": "Polished means smooth or refined, which is closer to clear than to unclear.",
+        "B": "Narrow is about width.",
+        "C": "Cheerful means in good spirits."
+      }
+    },
+    {
+      "id": "M02-VR-014",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "PRUDENT most nearly means:",
+      "choices": {
+        "A": "curious",
+        "B": "generous",
+        "C": "strong",
+        "D": "wise"
+      },
+      "correct": "D",
+      "explanation": "Prudent means showing wise, careful judgment; curiosity, strength, and generosity do not necessarily involve caution.",
+      "misconceptions": "generic-positive guess; confuses kindness with judgment",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "ee9a0792a65b9374",
+      "why": {
+        "A": "Curious means wanting to know things, which can lead you into risk rather than away from it.",
+        "B": "Generous means giving.",
+        "C": "Strong means physically powerful."
+      }
+    },
+    {
+      "id": "M02-VR-015",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "RELUCTANT most nearly means:",
+      "choices": {
+        "A": "unwilling",
+        "B": "ready",
+        "C": "unable",
+        "D": "confused"
+      },
+      "correct": "A",
+      "explanation": "Reluctant means hesitant or unwilling; being unable is different from not wanting to act.",
+      "misconceptions": "ability-willingness confusion; ignores connotation",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "ce34e600403b91c7",
+      "why": {
+        "B": "Ready means prepared and willing, which is the opposite.",
+        "C": "Unable means not capable; a reluctant person can do the thing and would rather not.",
+        "D": "Confused means unable to understand."
+      }
+    },
+    {
+      "id": "M02-VR-016",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—adjective precision",
+      "difficulty": "M",
+      "prompt": "SPARSE most nearly means:",
+      "choices": {
+        "A": "pale",
+        "B": "scattered",
+        "C": "level",
+        "D": "soft"
+      },
+      "correct": "B",
+      "explanation": "Sparse means thinly scattered or not dense; texture, flatness, and color do not express low density.",
+      "misconceptions": "vague-visual guess; confuses sparse with pale",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "c7ef4f4697885bc3",
+      "why": {
+        "A": "Pale is about color.",
+        "C": "Level means flat and even.",
+        "D": "Soft is about texture, while sparse is about how thinly something is spread."
+      }
+    },
+    {
+      "id": "M02-VR-017",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "synonym—verb precision",
+      "difficulty": "M",
+      "prompt": "VERIFY most nearly means:",
+      "choices": {
+        "A": "confirm",
+        "B": "announce",
+        "C": "compare",
+        "D": "arrange"
+      },
+      "correct": "A",
+      "explanation": "To verify is to confirm that something is true or accurate; arranging, announcing, or merely comparing does not establish truth.",
+      "misconceptions": "process-result confusion; chooses related checking action",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "7c33bbc52bc84bb4",
+      "why": {
+        "B": "Announce means to make public, which can be done without checking anything.",
+        "C": "Compare means to set side by side; comparing may be part of verifying, but not the whole of it.",
+        "D": "Arrange means to put in order."
+      }
+    },
+    {
+      "id": "M02-VR-018",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—purpose",
+      "difficulty": "E",
+      "prompt": "The gardener spread straw around the young plants to ____ the soil from drying too quickly.",
+      "choices": {
+        "A": "prevent",
+        "B": "loosen",
+        "C": "decorate",
+        "D": "measure"
+      },
+      "correct": "A",
+      "explanation": "Straw can prevent rapid drying by slowing evaporation; loosening, measuring, and decorating do not fit the stated purpose.",
+      "misconceptions": "garden-context association; ignores infinitive purpose",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "cd402493e9c8f598",
+      "why": {
+        "B": "Loosen means to make less tight, and the sentence needs a word that stops the drying.",
+        "C": "Decorate is about appearance, not about keeping moisture in.",
+        "D": "Measure means to find the size of, and measuring would not slow the drying."
+      }
+    },
+    {
+      "id": "M02-VR-019",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—contrast",
+      "difficulty": "M",
+      "prompt": "Although the directions seemed ____, following them produced a complicated paper sculpture.",
+      "choices": {
+        "A": "secret",
+        "B": "lengthy",
+        "C": "careless",
+        "D": "simple"
+      },
+      "correct": "D",
+      "explanation": "Although signals contrast between simple directions and a complicated result; the other choices do not create that clear contrast.",
+      "misconceptions": "ignores although; repeats negative tone",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "937fc6c9a846a82b",
+      "why": {
+        "A": "Secret does not contrast with complicated, and the directions were plainly followed.",
+        "B": "Lengthy goes with complicated rather than against it, and Although asks for a contrast.",
+        "C": "Careless directions would not produce a sculpture at all."
+      }
+    },
+    {
+      "id": "M02-VR-020",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—cause and effect",
+      "difficulty": "E",
+      "prompt": "The creek was unusually ____ after the storm, so the hikers used the bridge instead of stepping across.",
+      "choices": {
+        "A": "swollen",
+        "B": "calm",
+        "C": "shallow",
+        "D": "clear"
+      },
+      "correct": "A",
+      "explanation": "Storm water can make a creek swollen and unsafe to step across; clear, shallow, or calm water would not explain using the bridge.",
+      "misconceptions": "weather-word association; ignores consequence",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "a3cdf8301da65749",
+      "why": {
+        "B": "Calm water would not send the hikers to the bridge.",
+        "C": "Shallow water is what you can step across, which is exactly what they avoided.",
+        "D": "Clear is about how the water looks, not how much of it there is."
+      }
+    },
+    {
+      "id": "M02-VR-021",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—cause and effect",
+      "difficulty": "M",
+      "prompt": "Because the two accounts ____ each other, the reporter checked which one was accurate.",
+      "choices": {
+        "A": "contradicted",
+        "B": "completed",
+        "C": "entertained",
+        "D": "copied"
+      },
+      "correct": "A",
+      "explanation": "Accounts that contradict each other cannot both be accurate in the same way, so checking is logical; entertaining, copying, or completing one another would not create the stated uncertainty.",
+      "misconceptions": "ignores because; treats different accounts as copies",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "54d1dc7483a378cf",
+      "why": {
+        "B": "Accounts that completed each other would agree, leaving nothing to check.",
+        "C": "Entertained is about being amusing.",
+        "D": "Copied accounts would say the same thing, so neither could be the wrong one."
+      }
+    },
+    {
+      "id": "M02-VR-022",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—precise adjective",
+      "difficulty": "M",
+      "prompt": "The watchmaker needed a ____ tool that could lift a gear no wider than a grain of rice.",
+      "choices": {
+        "A": "familiar",
+        "B": "delicate",
+        "C": "heavy",
+        "D": "expensive"
+      },
+      "correct": "B",
+      "explanation": "A tiny gear requires a delicate, precise tool; weight, familiarity, and price do not show suitability for fine work.",
+      "misconceptions": "assumes costly means precise; size clue missed",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "4c467ef6723b7bbc",
+      "why": {
+        "A": "Familiar means already known, which says nothing about handling something tiny.",
+        "C": "Heavy is the wrong direction for lifting a gear no wider than a grain of rice.",
+        "D": "Expensive is about price, and the sentence is about what the tool has to do."
+      }
+    },
+    {
+      "id": "M02-VR-023",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—character inference",
+      "difficulty": "M",
+      "prompt": "Nia listened to both sides of the disagreement before deciding, showing that she was ____.",
+      "choices": {
+        "A": "impatient",
+        "B": "inventive",
+        "C": "timid",
+        "D": "fair-minded"
+      },
+      "correct": "D",
+      "explanation": "Hearing both sides before judging demonstrates fairness; inventiveness and timidity are irrelevant, and impatience conflicts with listening.",
+      "misconceptions": "generic-positive trait; overlooks behavior evidence",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "978c3d58b9098705",
+      "why": {
+        "A": "Impatient would mean cutting one side off.",
+        "B": "Inventive is about coming up with new ideas, not about hearing both sides.",
+        "C": "Timid means easily frightened, which does not explain reaching a decision."
+      }
+    },
+    {
+      "id": "M02-VR-024",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—sequence logic",
+      "difficulty": "E",
+      "prompt": "Before planting the seeds, Raul ____ the rows with small wooden stakes.",
+      "choices": {
+        "A": "harvested",
+        "B": "watered",
+        "C": "marked",
+        "D": "erased"
+      },
+      "correct": "C",
+      "explanation": "Marking rows logically happens before planting; harvesting comes later, while watering or erasing does not establish locations.",
+      "misconceptions": "farm-sequence confusion; familiar-action guess",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "767ea3060287708e",
+      "why": {
+        "A": "Harvesting comes at the end, and the seeds are not yet in the ground.",
+        "B": "Watering is done with water, not with wooden stakes.",
+        "D": "Erased means rubbed out, and there is nothing there yet to remove."
+      }
+    },
+    {
+      "id": "M02-VR-025",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—tone and register",
+      "difficulty": "H",
+      "prompt": "The principal's reminder was ____ rather than accusing; it focused on the rule, not on blaming anyone.",
+      "choices": {
+        "A": "impatient",
+        "B": "indirect",
+        "C": "neutral",
+        "D": "humorous"
+      },
+      "correct": "C",
+      "explanation": "A neutral reminder avoids accusation and blame; impatience, humor, and indirectness are not established by the clues.",
+      "misconceptions": "assumes nonaccusing means indirect; tone clue missed",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "f70090696ded464e",
+      "why": {
+        "A": "Impatient describes a mood, and the sentence contrasts with accusing.",
+        "B": "Indirect means not saying a thing plainly, and this reminder stated the rule plainly.",
+        "D": "Humorous means funny, which is not the opposite of accusing."
+      }
+    },
+    {
+      "id": "M02-VR-026",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—context definition",
+      "difficulty": "M",
+      "prompt": "The old diary was ____, with several pages missing and others too faded to read.",
+      "choices": {
+        "A": "valuable",
+        "B": "incomplete",
+        "C": "private",
+        "D": "leather-bound"
+      },
+      "correct": "B",
+      "explanation": "Missing and unreadable pages make the record incomplete; value, privacy, and binding do not address lost content.",
+      "misconceptions": "object-detail attraction; ignores examples",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "3b3f2417d5bac13f",
+      "why": {
+        "A": "Valuable is about worth, and what the sentence gives is missing and faded pages.",
+        "C": "Private means not shared; a diary is private whether or not its pages survive.",
+        "D": "Leather-bound describes the cover, not what is inside it."
+      }
+    },
+    {
+      "id": "M02-VR-027",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—cause and effect",
+      "difficulty": "E",
+      "prompt": "When clouds covered the sun, the temperature began to ____.",
+      "choices": {
+        "A": "shine",
+        "B": "drop",
+        "C": "pause",
+        "D": "expand"
+      },
+      "correct": "B",
+      "explanation": "Less direct sunlight can cause temperature to drop; the other verbs do not sensibly describe temperature in this context.",
+      "misconceptions": "weather association; verb-object mismatch",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "0b4f0706534acc63",
+      "why": {
+        "A": "Shine is what the sun does, not something a temperature does.",
+        "C": "Pause means to stop for a moment, and a temperature does not pause when the light is cut off.",
+        "D": "Expand means to grow bigger in size."
+      }
+    },
+    {
+      "id": "M02-VR-028",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—purpose",
+      "difficulty": "M",
+      "prompt": "The committee invited a soil expert to ____ whether the vacant lot could support a garden.",
+      "choices": {
+        "A": "assess",
+        "B": "remember",
+        "C": "celebrate",
+        "D": "promise"
+      },
+      "correct": "A",
+      "explanation": "An expert can assess, or evaluate, the soil's suitability; celebrating, promising, and remembering do not answer the question.",
+      "misconceptions": "expert-context guessing; purpose clue missed",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "a80807aa54cae965",
+      "why": {
+        "B": "Remember means to recall, and this question has not been answered before.",
+        "C": "Celebrate would come after a decision.",
+        "D": "Promise would commit to an answer before anyone had looked."
+      }
+    },
+    {
+      "id": "M02-VR-029",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—degree",
+      "difficulty": "M",
+      "prompt": "The scratch was so ____ that it disappeared after one light coat of polish.",
+      "choices": {
+        "A": "minor",
+        "B": "recent",
+        "C": "crooked",
+        "D": "shiny"
+      },
+      "correct": "A",
+      "explanation": "Easy removal with one light coat shows the scratch was minor; its shape, age, or shine does not explain the result.",
+      "misconceptions": "surface-detail guess; degree clue missed",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "7d815f6d616962c0",
+      "why": {
+        "B": "Recent is about when it happened; an old scratch can be just as shallow.",
+        "C": "Crooked describes the shape of the line, not how deep it goes.",
+        "D": "Shiny describes the polish rather than the scratch."
+      }
+    },
+    {
+      "id": "M02-VR-030",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—contrast",
+      "difficulty": "M",
+      "prompt": "The twins look nearly identical, but their interests are quite ____.",
+      "choices": {
+        "A": "serious",
+        "B": "practical",
+        "C": "popular",
+        "D": "distinct"
+      },
+      "correct": "D",
+      "explanation": "But contrasts similar appearance with distinct, or different, interests; the other adjectives do not establish difference.",
+      "misconceptions": "ignores contrast marker; chooses plausible trait",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "36d9456c8cb73dea",
+      "why": {
+        "A": "Serious does not contrast with looking identical.",
+        "B": "Practical describes a kind of interest, not a difference between two people's.",
+        "C": "Popular is about what others think of them."
+      }
+    },
+    {
+      "id": "M02-VR-031",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—logical fit",
+      "difficulty": "H",
+      "prompt": "The ____ cook turned yesterday's rice and a few leftover vegetables into a delicious soup.",
+      "choices": {
+        "A": "forgetful",
+        "B": "resourceful",
+        "C": "athletic",
+        "D": "gentle"
+      },
+      "correct": "B",
+      "explanation": "Turning leftovers into a good meal shows a resourceful cook; gentle, forgetful, and athletic do not explain making much from little.",
+      "misconceptions": "confuses summary with inference; ignores rather than",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "88ec56a9d757ba66",
+      "why": {
+        "A": "Forgetful would not turn yesterday's leftovers into soup.",
+        "C": "Athletic is about the body, not about making do with what is there.",
+        "D": "Gentle is about manner."
+      }
+    },
+    {
+      "id": "M02-VR-032",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—idiomatic precision",
+      "difficulty": "M",
+      "prompt": "The new schedule will ____ effect on Monday, when the buses begin arriving earlier.",
+      "choices": {
+        "A": "make",
+        "B": "hold",
+        "C": "turn",
+        "D": "take"
+      },
+      "correct": "D",
+      "explanation": "“Take effect” is the correct idiom for beginning to operate; the other verbs do not form the standard expression.",
+      "misconceptions": "literal-verb substitution; ignores idiom",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "83e9f5c6fba03743",
+      "why": {
+        "A": "You make a change, but a schedule takes effect; the phrase is a fixed one.",
+        "B": "Hold does not pair with effect in this way.",
+        "C": "Turn does not pair with effect either."
+      }
+    },
+    {
+      "id": "M02-VR-033",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—comparison",
+      "difficulty": "M",
+      "prompt": "Compared with the rough first draft, the final poster looked ____.",
+      "choices": {
+        "A": "ordinary",
+        "B": "accidental",
+        "C": "polished",
+        "D": "temporary"
+      },
+      "correct": "C",
+      "explanation": "Revision makes a final product polished; the other choices do not logically contrast with a rough draft.",
+      "misconceptions": "draft/final label guessing; contrast clue missed",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "0c6f108d3b728ea0",
+      "why": {
+        "A": "Ordinary does not contrast with rough.",
+        "B": "Accidental means unplanned, and the final poster is the planned one.",
+        "D": "Temporary is about how long a thing lasts."
+      }
+    },
+    {
+      "id": "M02-VR-034",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "VR",
+      "skill": "sentence completion—purpose and precision",
+      "difficulty": "H",
+      "prompt": "The historian included two letters from the period to ____ her claim about daily life.",
+      "choices": {
+        "A": "postpone",
+        "B": "shorten",
+        "C": "support",
+        "D": "disguise"
+      },
+      "correct": "C",
+      "explanation": "Period letters provide evidence that can support a historical claim; postponing, shortening, or disguising does not use evidence logically.",
+      "misconceptions": "source-purpose confusion; chooses process verb",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "019ee0e626e33553",
+      "why": {
+        "A": "Postpone means to put off; evidence does not delay a claim.",
+        "B": "Shorten is about length.",
+        "D": "Disguise means to hide, and a historian includes letters to show her reasoning."
+      }
+    },
+    {
+      "id": "M02-QR-001",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "proportional reasoning—unit rate comparison",
+      "difficulty": "M",
+      "prompt": "A scooter travels 42 miles on 3 gallons of fuel. A small cart travels 65 miles on 5 gallons. How many more miles per gallon does the scooter travel?",
+      "choices": {
+        "A": "2 miles per gallon",
+        "B": "1 mile per gallon",
+        "C": "13 miles per gallon",
+        "D": "14 miles per gallon"
+      },
+      "correct": "B",
+      "explanation": "The rates are 14 and 13 miles per gallon, so the scooter travels 1 more; 13 and 14 are the individual rates, and 2 comes from subtracting the gallons rather than the rates.",
+      "misconceptions": "compares total miles; reports one rate",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "cb4cba5a6deead1d",
+      "why": {
+        "A": "2 subtracts the gallons, 5 − 3, instead of the rates.",
+        "C": "13 is the cart's own rate, 65 ÷ 5.",
+        "D": "14 is the scooter's own rate, 42 ÷ 3."
+      }
+    },
+    {
+      "id": "M02-QR-002",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "fraction reasoning—remaining portion",
+      "difficulty": "M",
+      "prompt": "A mural crew paints 2/7 of a wall Monday and 3/14 Tuesday. What fraction of the wall remains unpainted?",
+      "choices": {
+        "A": "1/14",
+        "B": "5/14",
+        "C": "4/7",
+        "D": "1/2"
+      },
+      "correct": "D",
+      "explanation": "Painted = 4/14 + 3/14 = 7/14, leaving 7/14 = 1/2; the other fractions come from subtracting or stopping too early.",
+      "misconceptions": "adds denominators; reports painted fraction incorrectly",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "ee08815d14988446",
+      "why": {
+        "A": "1/14 subtracts 3/14 from 4/14; the two painted parts are added, then taken from the whole.",
+        "B": "5/14 is not the remainder; 4/14 + 3/14 = 7/14 painted, which leaves 7/14.",
+        "C": "4/7 leaves one fourteenth too much; the crew painted 7/14."
+      }
+    },
+    {
+      "id": "M02-QR-003",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "numerical pattern—growing differences",
+      "difficulty": "M",
+      "prompt": "A theater adds seats to four rehearsal rows in this pattern: 11, 15, 22, 32. If the increases grow by 3 each time, how many seats are in the next row?",
+      "choices": {
+        "A": "45",
+        "B": "42",
+        "C": "43",
+        "D": "46"
+      },
+      "correct": "A",
+      "explanation": "The increases are 4, 7, and 10, so the next is 13; 32 + 13 = 45. The other choices use a wrong next increase.",
+      "misconceptions": "repeats last difference; assumes constant rate",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "af1b69e0fc67179f",
+      "why": {
+        "B": "42 is 32 + 10, repeating the last increase; each one grows by 3, so the next is 13.",
+        "C": "43 is 32 + 11, and the increases run 4, 7, 10, then 13.",
+        "D": "46 is 32 + 14, growing the increase by 4 instead of 3."
+      }
+    },
+    {
+      "id": "M02-QR-004",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "ratio—part from total",
+      "difficulty": "M",
+      "prompt": "A trail mix uses raisins and seeds in a ratio of 5:4. A 72-ounce batch contains how many ounces of seeds?",
+      "choices": {
+        "A": "20",
+        "B": "36",
+        "C": "32",
+        "D": "40"
+      },
+      "correct": "C",
+      "explanation": "Nine parts equal 72, so each part is 8; seeds are 4 × 8 = 32.",
+      "misconceptions": "uses 4/5 of total; selects other ratio part",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "e2f3a2813e7d77e8",
+      "why": {
+        "B": "36 halves the total; the 72 ounces split into nine parts, not two.",
+        "D": "40 is 5 × 8, the raisin share; the question asks for the seeds, which are 4 parts.",
+        "A": "20 would need each part to be 5 ounces, which makes the batch 45 rather than 72."
+      }
+    },
+    {
+      "id": "M02-QR-005",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "percent reasoning—reverse percent",
+      "difficulty": "H",
+      "prompt": "A library shelf is 60% full when it holds 48 books. How many books fit when the shelf is completely full?",
+      "choices": {
+        "A": "72",
+        "B": "76",
+        "C": "78",
+        "D": "80"
+      },
+      "correct": "D",
+      "explanation": "If 48 is 60%, the whole is 48 ÷ 0.60 = 80; the distractors add a percentage or use an incorrect scale.",
+      "misconceptions": "adds 60% of 48; treats percent as a count",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "5414489fa592b563",
+      "why": {
+        "A": "72 would make 48 two thirds of the shelf rather than 60%.",
+        "B": "76 would put 48 at about 63%.",
+        "C": "78 would put 48 at about 62%."
+      }
+    },
+    {
+      "id": "M02-QR-006",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "probability—complement",
+      "difficulty": "E",
+      "prompt": "A spinner has 10 equal sections: 4 blue, 3 green, 2 yellow, and 1 red. What is the probability of not landing on blue?",
+      "choices": {
+        "A": "2/5",
+        "B": "3/5",
+        "C": "4/5",
+        "D": "7/10"
+      },
+      "correct": "B",
+      "explanation": "Six of ten sections are not blue, and 6/10 = 3/5; 2/5 is the blue probability, and 4/5 and 7/10 miscount the nonblue sections.",
+      "misconceptions": "gives target-color probability; forgets to simplify",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "22281b157504b4b9",
+      "why": {
+        "A": "2/5 is 4/10, the blue sections; the question asks about the other six.",
+        "C": "4/5 is 8/10, counting eight as not blue; there are six.",
+        "D": "7/10 counts seven; the four blue sections leave six of the ten."
+      }
+    },
+    {
+      "id": "M02-QR-007",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "algebraic reasoning—two-step equation",
+      "difficulty": "M",
+      "prompt": "A club pays a $6 setup fee plus $4 per badge. Its bill is $38. How many badges did it order?",
+      "choices": {
+        "A": "6",
+        "B": "7",
+        "C": "8",
+        "D": "11"
+      },
+      "correct": "C",
+      "explanation": "Subtract the $6 fee to get $32, then divide by $4 for 8 badges; 6 and 7 mishandle the fee, and 11 adds it instead of undoing it.",
+      "misconceptions": "divides total before removing fixed fee; adds quantities",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "0d8c5fc9b512eb73",
+      "why": {
+        "A": "6 badges cost 6 + 4 × 6 = $30, not $38.",
+        "B": "7 badges come to $34.",
+        "D": "11 adds the $6 fee before dividing, 44 ÷ 4; the fee comes off first."
+      }
+    },
+    {
+      "id": "M02-QR-008",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "data reasoning—mean from total",
+      "difficulty": "M",
+      "prompt": "Four water samples have an average volume of 26 milliliters. Three contain 21, 24, and 28 milliliters. What is the fourth volume?",
+      "choices": {
+        "A": "31 mL",
+        "B": "25 mL",
+        "C": "27 mL",
+        "D": "29 mL"
+      },
+      "correct": "A",
+      "explanation": "The total is 4 × 26 = 104; known volumes total 73, leaving 31. The others result from averaging only known values or subtracting incorrectly.",
+      "misconceptions": "treats mean as missing value; divides subtotal",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "b3a5cec7a6553333",
+      "why": {
+        "B": "25 would make the four total 98; an average of 26 needs 4 × 26 = 104.",
+        "C": "27 leaves a total of 100, four short of 104.",
+        "D": "29 leaves a total of 102."
+      }
+    },
+    {
+      "id": "M02-QR-009",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "estimation—compatible numbers",
+      "difficulty": "E",
+      "prompt": "A warehouse packs 4,116 pencils equally into 79 cartons. About how many pencils go in each carton?",
+      "choices": {
+        "A": "50",
+        "B": "500",
+        "C": "40",
+        "D": "60"
+      },
+      "correct": "A",
+      "explanation": "Use 4,000 ÷ 80 = 50; 500 is a place-value error, and 40 or 60 are poorer estimates.",
+      "misconceptions": "place-value error; rounds incompatibly",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "15ff5696c48595fd",
+      "why": {
+        "B": "500 is ten times too big; 80 × 50 = 4,000, close to 4,116.",
+        "C": "40 would give about 3,160, well under 4,116.",
+        "D": "60 would give about 4,740, overshooting it."
+      }
+    },
+    {
+      "id": "M02-QR-010",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "coordinate reasoning—translation",
+      "difficulty": "M",
+      "prompt": "A map marker at (−4, 2) moves 7 units east and 5 units north. What are its new coordinates?",
+      "choices": {
+        "A": "(−11, 7)",
+        "B": "(3, −3)",
+        "C": "(3, 7)",
+        "D": "(1, 9)"
+      },
+      "correct": "C",
+      "explanation": "East adds 7 to x and north adds 5 to y, giving (3, 7); the distractors reverse signs, directions, or coordinate changes.",
+      "misconceptions": "swaps axes; subtracts for positive direction",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "1156e395677caa05",
+      "why": {
+        "A": "(−11, 7) moves west instead of east; east adds 7 to −4, giving 3.",
+        "B": "(3, −3) moves south instead of north; north adds 5 to 2, giving 7.",
+        "D": "(1, 9) uses the 5 on x and the 7 on y, swapping the two moves."
+      }
+    },
+    {
+      "id": "M02-QR-011",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "geometry reasoning—perimeter constraint",
+      "difficulty": "M",
+      "prompt": "A rectangular pen has a perimeter of 46 meters and a width of 8 meters. What is its length?",
+      "choices": {
+        "A": "7 m",
+        "B": "19 m",
+        "C": "30 m",
+        "D": "15 m"
+      },
+      "correct": "D",
+      "explanation": "2(L + 8) = 46, so L + 8 = 23 and L = 15.",
+      "misconceptions": "subtracts width once; confuses half-perimeter",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "fc6dc587bb26c997",
+      "why": {
+        "A": "7 is 15 − 8, how much longer the length is than the width, not the length itself.",
+        "B": "19 takes the width off the whole perimeter and halves what is left, (46 − 8) ÷ 2; half the perimeter is 23, and the width comes off that.",
+        "C": "30 subtracts the width twice, 46 − 8 − 8; halving leaves one length and one width, so only one 8 comes off."
+      }
+    },
+    {
+      "id": "M02-QR-012",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "logical reasoning—ordering constraints",
+      "difficulty": "M",
+      "prompt": "Mei presents before Luis. Luis presents before Tori. Which statement must be true?",
+      "choices": {
+        "A": "Tori presents first.",
+        "B": "Mei presents before Tori.",
+        "C": "Luis presents last.",
+        "D": "Mei and Tori present together."
+      },
+      "correct": "B",
+      "explanation": "The chain Mei–Luis–Tori guarantees Mei is before Tori; the other choices reverse or contradict the order.",
+      "misconceptions": "reverses before; treats order as pairwise only",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "d6bc79fe75bd8ca1",
+      "why": {
+        "A": "Tori comes after Luis, who comes after Mei, so Tori cannot be first.",
+        "C": "Luis is before Tori, which makes Tori last rather than Luis.",
+        "D": "Nothing in the chain allows two of them at the same time."
+      }
+    },
+    {
+      "id": "M02-QR-013",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "fraction comparison—benchmark",
+      "difficulty": "M",
+      "prompt": "Four recipes use 2/3, 3/5, 5/8, and 7/12 cup of oil. Which amount is greatest?",
+      "choices": {
+        "A": "7/12",
+        "B": "3/5",
+        "C": "2/3",
+        "D": "5/8"
+      },
+      "correct": "C",
+      "explanation": "2/3 = 16/24 and 5/8 = 15/24, so 2/3 is more than 5/8; 3/5 is 0.6 and 7/12 is a little under 0.6, so both are smaller still.",
+      "misconceptions": "compares numerators only; assumes a smaller denominator means a larger fraction",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "f8ee6cadff3b066c",
+      "why": {
+        "A": "7/12 has the largest top number, but twelfths are small pieces; it is less than 3/5.",
+        "B": "3/5 has the smallest bottom number, but 3/5 = 0.6 is less than 2/3.",
+        "D": "5/8 = 15/24 is just under 2/3 = 16/24."
+      }
+    },
+    {
+      "id": "M02-QR-014",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "scale reasoning",
+      "difficulty": "M",
+      "prompt": "On a trail map, 2.5 centimeters represent 10 kilometers. How far does 7 centimeters represent?",
+      "choices": {
+        "A": "28 km",
+        "B": "17.5 km",
+        "C": "25 km",
+        "D": "35 km"
+      },
+      "correct": "A",
+      "explanation": "The scale is 4 km per cm, so 7 cm represents 28 km; 17.5 km comes from multiplying by 2.5, and 25 km and 35 km use incorrect scales.",
+      "misconceptions": "adds scale values; reverses ratio",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "7b64710182dd10d3",
+      "why": {
+        "B": "17.5 is 7 × 2.5, multiplying by the centimeters on the map instead of the 4 km each one stands for.",
+        "C": "25 would make the scale about 3.6 km per centimeter; it is 10 ÷ 2.5 = 4.",
+        "D": "35 is 7 × 5, and the scale is 4 km per centimeter."
+      }
+    },
+    {
+      "id": "M02-QR-015",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "probability—single draw (or event)",
+      "difficulty": "H",
+      "prompt": "A box holds 4 silver, 7 gold, and 9 copper coins. One coin is drawn at random. What is the probability that it is silver or gold?",
+      "choices": {
+        "A": "1/5",
+        "B": "7/20",
+        "C": "9/20",
+        "D": "11/20"
+      },
+      "correct": "D",
+      "explanation": "There are 4 + 7 + 9 = 20 coins, and 4 + 7 = 11 of them are silver or gold, so the probability is 11/20.",
+      "misconceptions": "uses one category only; picks the excluded category",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "c6b5bf29eafd4748",
+      "why": {
+        "A": "1/5 is 4/20, the silver coins alone; the draw counts silver or gold.",
+        "B": "7/20 is the gold coins alone; adding the 4 silver ones makes 11.",
+        "C": "9/20 is the copper coins — the one color the draw has to avoid."
+      }
+    },
+    {
+      "id": "M02-QR-016",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "combinatorial reasoning—fundamental counting",
+      "difficulty": "M",
+      "prompt": "A museum tour offers 3 start times and 4 route choices at each time. How many time-and-route combinations are possible?",
+      "choices": {
+        "A": "7",
+        "B": "12",
+        "C": "16",
+        "D": "24"
+      },
+      "correct": "B",
+      "explanation": "Each of 3 times pairs with 4 routes, so 3 × 4 = 12; 7 adds the categories, and 16 and 24 overcount.",
+      "misconceptions": "adds choices; counts route order",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "9c7c8064d52bf526",
+      "why": {
+        "A": "7 is 3 + 4, adding the two lists; pairing multiplies them.",
+        "C": "16 is 4 × 4, and there are 3 start times.",
+        "D": "24 is 3 × 4 × 2, doubling pairs that have already been counted."
+      }
+    },
+    {
+      "id": "M02-QR-017",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "rate reasoning—elapsed time",
+      "difficulty": "H",
+      "prompt": "A pump fills 18 liters every 4 minutes at a steady rate. How many liters does it fill in 14 minutes?",
+      "choices": {
+        "A": "54",
+        "B": "56",
+        "C": "60",
+        "D": "63"
+      },
+      "correct": "D",
+      "explanation": "The rate is 4.5 liters per minute; 4.5 × 14 = 63. The distractors scale only by whole 4-minute blocks or round the rate.",
+      "misconceptions": "ignores partial interval; adds instead of scales",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "c7fce0c930184f89",
+      "why": {
+        "A": "54 is 3 × 18, three whole four-minute blocks — 12 minutes rather than 14.",
+        "B": "56 is not 4.5 × 14; the rate is 18 ÷ 4 = 4.5 liters a minute.",
+        "C": "60 would need a rate of about 4.3 liters a minute; it is 4.5."
+      }
+    },
+    {
+      "id": "M02-QR-018",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "number properties—least common multiple",
+      "difficulty": "M",
+      "prompt": "Two display lights flash every 8 seconds and every 12 seconds. If they flash together now, after how many seconds will they next flash together?",
+      "choices": {
+        "A": "20",
+        "B": "48",
+        "C": "24",
+        "D": "96"
+      },
+      "correct": "C",
+      "explanation": "The least common multiple of 8 and 12 is 24; 20 adds the intervals, and 48 and 96 are larger common multiples rather than the next one.",
+      "misconceptions": "adds periods; finds product instead of LCM",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "1de15db267e8f19d",
+      "why": {
+        "A": "20 is 8 + 12, adding the intervals; what is wanted is the first moment both fit.",
+        "B": "48 is a common multiple of 8 and 12, but 24 comes first.",
+        "D": "96 is 8 × 12, a common multiple and the largest here; the least is 24."
+      }
+    },
+    {
+      "id": "M02-QR-019",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "work-backward reasoning—fraction remaining",
+      "difficulty": "H",
+      "prompt": "After donating 3/8 of a collection, Sam has 45 cards left. How many cards were in the collection at first?",
+      "choices": {
+        "A": "72",
+        "B": "60",
+        "C": "75",
+        "D": "120"
+      },
+      "correct": "A",
+      "explanation": "The 45 cards are 5/8 of the original, so 45 × 8/5 = 72; the others treat 45 as the donated part or add incorrectly.",
+      "misconceptions": "uses 3/8 instead of 5/8; adds fraction of remainder",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "dc05b2a04cb04f7d",
+      "why": {
+        "B": "60 would leave five eighths as 37.5 cards, not 45.",
+        "C": "75 would leave five eighths as about 47.",
+        "D": "120 treats the 45 as the 3/8 donated; they are the 5/8 left."
+      }
+    },
+    {
+      "id": "M02-QR-020",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "data reasoning—median after adding value",
+      "difficulty": "M",
+      "prompt": "The lap times are 31, 34, 36, 40, and 44 seconds. A sixth time of 50 seconds is added. What is the new median?",
+      "choices": {
+        "A": "36",
+        "B": "38",
+        "C": "39",
+        "D": "40"
+      },
+      "correct": "B",
+      "explanation": "With six times in order — 31, 34, 36, 40, 44, 50 — the median is halfway between the third and fourth: (36 + 40) ÷ 2 = 38.",
+      "misconceptions": "keeps the old median; takes the upper middle only; confuses mean and median",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "e1219fd995295fc0",
+      "why": {
+        "A": "36 was the median of the first five times; adding a sixth time moves the middle.",
+        "C": "39 is about the mean of the six times, 235 ÷ 6, not the middle value.",
+        "D": "40 is the upper of the two middle times; the median of six values is halfway between 36 and 40."
+      }
+    },
+    {
+      "id": "M02-QR-021",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "geometry reasoning—area change",
+      "difficulty": "H",
+      "prompt": "A rectangular banner is 6 feet by 10 feet. Its length is doubled while its width stays the same. How does its area change?",
+      "choices": {
+        "A": "It increases by 50%.",
+        "B": "It becomes four times as large.",
+        "C": "It increases by 10 square feet.",
+        "D": "It doubles."
+      },
+      "correct": "D",
+      "explanation": "Original area is 60 and new area is 120 square feet, so it doubles; fourfold growth would require doubling both dimensions.",
+      "misconceptions": "confuses linear and area scaling; adds dimension change",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "b6607a9a0974cc55",
+      "why": {
+        "A": "50% would be half again as much; doubling the length takes the area from 60 to 120.",
+        "B": "Four times as large needs both dimensions doubled, and only the length changes.",
+        "C": "10 square feet is a side length read as an area; the area gains 60 square feet."
+      }
+    },
+    {
+      "id": "M02-QR-022",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "integer reasoning—net change",
+      "difficulty": "E",
+      "prompt": "At dawn the temperature was −6°C. By noon it had risen 11 degrees. What was the noon temperature?",
+      "choices": {
+        "A": "5°C",
+        "B": "−17°C",
+        "C": "−5°C",
+        "D": "17°C"
+      },
+      "correct": "A",
+      "explanation": "−6 + 11 = 5.",
+      "misconceptions": "sign reversal; adds absolute values incorrectly",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "9aea79f80de18bbf",
+      "why": {
+        "B": "−17 subtracts the 11 instead of adding it; the temperature rose, so it moves up from −6.",
+        "C": "−5 is the right size with the wrong sign: rising 11 degrees from −6 passes zero and lands above it.",
+        "D": "17 is 6 + 11, which drops the minus on the dawn temperature."
+      }
+    },
+    {
+      "id": "M02-QR-023",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "set logic—overlap",
+      "difficulty": "H",
+      "prompt": "In a group of 32 students, 18 play an instrument, 15 sing, and 7 do both. How many do neither?",
+      "choices": {
+        "A": "4",
+        "B": "7",
+        "C": "6",
+        "D": "11"
+      },
+      "correct": "C",
+      "explanation": "At least one activity = 18 + 15 − 7 = 26, so neither = 32 − 26 = 6.",
+      "misconceptions": "double-counts overlap; reports both count",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "9b67906776f9f7a9",
+      "why": {
+        "A": "4 follows a slip in the total: 18 + 15 is 33, not 35, so 33 − 7 = 26 and 32 − 26 = 6.",
+        "B": "7 is the number doing both, which gets subtracted once; it is not the answer.",
+        "D": "11 is 18 − 7, the instrument-only group, not those doing neither."
+      }
+    },
+    {
+      "id": "M02-QR-024",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "logical reasoning—conditional classes",
+      "difficulty": "H",
+      "prompt": "Every student in the chess club is in fourth or fifth grade. No fourth grader is on the swim team. Ezra is in the chess club and on the swim team. Which statement must be true?",
+      "choices": {
+        "A": "Ezra is in fifth grade.",
+        "B": "Ezra is in fourth grade.",
+        "C": "Every fifth grader is in the chess club.",
+        "D": "No fifth grader is on the swim team."
+      },
+      "correct": "A",
+      "explanation": "The chess club puts Ezra in fourth or fifth grade, and the swim team rules out fourth, so he is in fifth.",
+      "misconceptions": "reverses an all statement; applies the fourth-grade rule to fifth graders",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "2e2efc8023cd43a4",
+      "why": {
+        "B": "Fourth graders are not on the swim team, and Ezra is, so he cannot be in fourth grade.",
+        "C": "Every chess club member being in fourth or fifth grade says nothing about every fifth grader.",
+        "D": "Ezra himself is a fifth grader on the swim team, so this cannot be true."
+      }
+    },
+    {
+      "id": "M02-QR-025",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "percent reasoning—successive change",
+      "difficulty": "H",
+      "prompt": "A $80 backpack is discounted 25%, then a $6 coupon is applied. What is the final price?",
+      "choices": {
+        "A": "$54",
+        "B": "$59",
+        "C": "$60",
+        "D": "$68"
+      },
+      "correct": "A",
+      "explanation": "A 25% discount removes $20, leaving $60; subtracting $6 gives $54. The distractors omit or misorder a reduction.",
+      "misconceptions": "subtracts 25 dollars; applies coupon as percent",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "383675f3aa34bcfb",
+      "why": {
+        "B": "59 is not $60 − $6; a quarter off $80 leaves $60, and the coupon takes $6 from that.",
+        "C": "60 is the price after the discount, with the coupon still to come off.",
+        "D": "68 is not the result of either order: 25% of $80 is $20, leaving $60, and $6 more leaves $54."
+      }
+    },
+    {
+      "id": "M02-QR-026",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "algebraic reasoning—equivalent expression",
+      "difficulty": "M",
+      "prompt": "A rental cost is described by 3(2h + 5) − 4. Which expression gives the same cost?",
+      "choices": {
+        "A": "6h + 1",
+        "B": "5h + 11",
+        "C": "6h + 15",
+        "D": "6h + 11"
+      },
+      "correct": "D",
+      "explanation": "Distribute to get 6h + 15, then subtract 4 for 6h + 11; the others fail to distribute or combine constants correctly.",
+      "misconceptions": "does not distribute; combines coefficient with constant",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "3095e8218d06d409",
+      "why": {
+        "A": "6h + 1 is not 15 − 4; distributing gives 6h + 15, and 15 − 4 = 11.",
+        "B": "5h + 11 has the constant right but never multiplies the 2h by 3, and 3 × 2h = 6h.",
+        "C": "6h + 15 distributes correctly and then forgets the − 4."
+      }
+    },
+    {
+      "id": "M02-QR-027",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "spatial reasoning—surface area",
+      "difficulty": "H",
+      "prompt": "A closed cube-shaped gift box has edges 4 inches long. How many square inches of paper cover its six faces exactly?",
+      "choices": {
+        "A": "24",
+        "B": "96",
+        "C": "64",
+        "D": "128"
+      },
+      "correct": "B",
+      "explanation": "Each face is 4 × 4 = 16 square inches; six faces total 96.",
+      "misconceptions": "computes volume; forgets six faces",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "78e93412a83e08c0",
+      "why": {
+        "A": "24 is 6 × 4, six edges rather than six faces; each face is 4 × 4 = 16.",
+        "C": "64 is 4 × 4 × 4, the volume of the box; paper covers the surface.",
+        "D": "128 is 16 × 8, counting eight faces; a cube has six."
+      }
+    },
+    {
+      "id": "M02-QR-028",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "numerical pattern—alternating operations",
+      "difficulty": "M",
+      "prompt": "A game score follows 4, 12, 15, 45, 48, ... by alternating two operations. What is the next score?",
+      "choices": {
+        "A": "51",
+        "B": "96",
+        "C": "144",
+        "D": "192"
+      },
+      "correct": "C",
+      "explanation": "The rule alternates ×3, +3; after 48, multiply by 3 to get 144. 51 repeats the +3, and 96 and 192 use wrong multipliers.",
+      "misconceptions": "continues last operation; assumes constant difference",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "289df0f6c76236a4",
+      "why": {
+        "A": "51 is 48 + 3, repeating the + 3; the rules alternate and × 3 is next.",
+        "B": "96 is 48 × 2, and the rule multiplies by 3.",
+        "D": "192 is 48 × 4."
+      }
+    },
+    {
+      "id": "M02-QR-029",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "fraction division—measurement interpretation",
+      "difficulty": "M",
+      "prompt": "A chef has 3 1/2 liters of soup and fills containers holding 1/4 liter each. How many full containers can be filled?",
+      "choices": {
+        "A": "7",
+        "B": "10",
+        "C": "12",
+        "D": "14"
+      },
+      "correct": "D",
+      "explanation": "3 1/2 = 14/4, so fourteen 1/4-liter containers can be filled; the distractors multiply or use only the whole-number part.",
+      "misconceptions": "multiplies by fraction; ignores mixed number",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "dd7ae4299a225a3f",
+      "why": {
+        "A": "7 counts halves rather than quarters; there are 14 quarter-liters in 3 1/2.",
+        "B": "10 is not 3 1/2 ÷ 1/4; 3 1/2 is 14/4.",
+        "C": "12 counts the three whole liters only and leaves the extra half out."
+      }
+    },
+    {
+      "id": "M02-QR-030",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "number properties—remainder",
+      "difficulty": "M",
+      "prompt": "A teacher arranges 286 tiles in rows of 9. How many tiles are left after making as many complete rows as possible?",
+      "choices": {
+        "A": "7",
+        "B": "5",
+        "C": "2",
+        "D": "8"
+      },
+      "correct": "A",
+      "explanation": "9 × 31 = 279, leaving 286 − 279 = 7; the other remainders come from nearby multiples or digit shortcuts.",
+      "misconceptions": "uses last digit; subtracts wrong multiple",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "ba68b9443c75d02a",
+      "why": {
+        "B": "5 is two short; 9 × 31 = 279, and 286 − 279 = 7.",
+        "C": "2 would need 284 to be a multiple of 9; 279 is the largest one below 286.",
+        "D": "8 is one over the remainder, which is 7."
+      }
+    },
+    {
+      "id": "M02-QR-031",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "data interpretation—range comparison",
+      "difficulty": "M",
+      "prompt": "Team Red's times are 12, 15, 15, 18, 20. Team Blue's are 10, 14, 16, 19, 22. How much greater is Team Blue's range?",
+      "choices": {
+        "A": "2",
+        "B": "8",
+        "C": "4",
+        "D": "12"
+      },
+      "correct": "C",
+      "explanation": "Red's range is 8 and Blue's is 12, a difference of 4.",
+      "misconceptions": "compares means; reports one range",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "dfb364744452efbc",
+      "why": {
+        "A": "2 compares the two fastest times, 12 and 10, rather than the ranges.",
+        "B": "8 is Red's range on its own; the question asks how much greater Blue's is.",
+        "D": "12 is Blue's range on its own, 22 − 10; Red's is 8, so the gap is 4."
+      }
+    },
+    {
+      "id": "M02-QR-032",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "geometry reasoning—angle relationships",
+      "difficulty": "M",
+      "prompt": "A straight path and a diagonal path meet, forming adjacent angles. One angle is 54°. What is the other angle?",
+      "choices": {
+        "A": "36°",
+        "B": "54°",
+        "C": "126°",
+        "D": "306°"
+      },
+      "correct": "C",
+      "explanation": "Adjacent angles on a straight line total 180°, so 180 − 54 = 126°.",
+      "misconceptions": "uses complementary angles; assumes adjacent means equal; uses a full turn",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "d908d9b1a245fec2",
+      "why": {
+        "A": "36° is 90 − 54, treating the straight line as a right angle.",
+        "B": "54° assumes the two angles are equal; they only share a side.",
+        "D": "306° takes the angle from a full turn of 360°, but a straight line is 180°."
+      }
+    },
+    {
+      "id": "M02-QR-033",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "density reasoning—unit comparison",
+      "difficulty": "H",
+      "prompt": "The first box holds 30 books on 5 shelves. The second box holds 42 books on 7 shelves. Which statement is true?",
+      "choices": {
+        "A": "The first box holds more per shelf.",
+        "B": "They hold the same number per shelf.",
+        "C": "The second box holds 2 more per shelf.",
+        "D": "The second box holds 12 more per shelf."
+      },
+      "correct": "B",
+      "explanation": "Both rates equal 6 books per shelf (30 ÷ 5 = 6 and 42 ÷ 7 = 6).",
+      "misconceptions": "compares totals only; subtracts books without normalizing",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "a150ff0d1ccca12b",
+      "why": {
+        "A": "Fewer shelves does not mean more on each: 30 ÷ 5 and 42 ÷ 7 both come to 6.",
+        "C": "2 is the difference in the number of shelves, 7 − 5, not a difference per shelf.",
+        "D": "12 is the difference in the totals, 42 − 30, which is not a per-shelf figure either."
+      }
+    },
+    {
+      "id": "M02-QR-034",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "percent reasoning—percent increase",
+      "difficulty": "H",
+      "prompt": "A reservoir rises from 120 centimeters to 150 centimeters. What is the percent increase?",
+      "choices": {
+        "A": "25%",
+        "B": "20%",
+        "C": "30%",
+        "D": "80%"
+      },
+      "correct": "A",
+      "explanation": "The increase is 30, and 30/120 = 25%.",
+      "misconceptions": "divides by final value; confuses absolute and percent change",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "b14dde4cd07b70d1",
+      "why": {
+        "B": "20% divides the 30 rise by the new 150; percent increase is measured against the starting 120.",
+        "C": "30% is the rise in centimeters read as a percent; 30 out of 120 is 25%.",
+        "D": "80% is 120 ÷ 150, the ratio the other way up."
+      }
+    },
+    {
+      "id": "M02-QR-035",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "estimation—between perfect squares",
+      "difficulty": "M",
+      "prompt": "A square rug has an area of 190 square feet. Its side length, in feet, is between which pair of consecutive whole numbers?",
+      "choices": {
+        "A": "9 and 10",
+        "B": "12 and 13",
+        "C": "14 and 15",
+        "D": "13 and 14"
+      },
+      "correct": "D",
+      "explanation": "13 × 13 = 169 and 14 × 14 = 196, and 169 < 190 < 196, so the side is between 13 and 14.",
+      "misconceptions": "halves instead of using squares; brackets off by one",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "c4eca92b96ea0f64",
+      "why": {
+        "A": "9 and 10 surround the square root of 95; halving the area is not the same as taking its root.",
+        "B": "12 and 13 stops at 12 × 12 = 144, which is below 190 — and so is 13 × 13 = 169, so the pair starts at 13.",
+        "C": "14 and 15 makes 14 the lower end, but 14 × 14 = 196 is already past 190, so 14 is the upper end."
+      }
+    },
+    {
+      "id": "M02-QR-036",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "multistep rate—distance",
+      "difficulty": "M",
+      "prompt": "A cyclist travels 18 miles per hour for 1 hour 40 minutes. How far does the cyclist travel?",
+      "choices": {
+        "A": "24 miles",
+        "B": "27 miles",
+        "C": "30 miles",
+        "D": "36 miles"
+      },
+      "correct": "C",
+      "explanation": "1 hour 40 minutes = 5/3 hours; 18 × 5/3 = 30. 24 miles treats 40 minutes as 1/3 hour, and 27 and 36 miles misconvert the time.",
+      "misconceptions": "decimal-time error; ignores extra minutes",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "56195cc792bf6385",
+      "why": {
+        "A": "24 treats 40 minutes as a third of an hour; it is two thirds, so 18 × 5/3 = 30.",
+        "B": "27 is 18 × 1.5, reading 40 minutes as half an hour.",
+        "D": "36 is 18 × 2, a full two hours."
+      }
+    },
+    {
+      "id": "M02-QR-037",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "combinatorial reasoning—restricted choice",
+      "difficulty": "H",
+      "prompt": "A badge can use one of 5 shapes and one of 3 colors, but the star shape cannot be green. How many allowed badges are possible?",
+      "choices": {
+        "A": "14",
+        "B": "8",
+        "C": "12",
+        "D": "15"
+      },
+      "correct": "A",
+      "explanation": "Normally 5 × 3 = 15 combinations; removing the one forbidden star-green pair leaves 14. The others remove too many or none.",
+      "misconceptions": "subtracts an entire category; adds choices",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "6b56954eb40fcd15",
+      "why": {
+        "B": "8 is 5 + 3, adding the two lists; pairing multiplies them.",
+        "C": "12 removes three combinations; only one, the green star, is ruled out.",
+        "D": "15 is the count before the forbidden pair is taken out."
+      }
+    },
+    {
+      "id": "M02-QR-038",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "QR",
+      "skill": "spatial reasoning—perimeter and laps",
+      "difficulty": "H",
+      "prompt": "A rectangular courtyard is 18 meters by 12 meters. A walker completes 3 laps around it. How far does the walker travel?",
+      "choices": {
+        "A": "90 m",
+        "B": "180 m",
+        "C": "648 m",
+        "D": "60 m"
+      },
+      "correct": "B",
+      "explanation": "One lap is 2(18 + 12) = 60 meters; three laps total 180.",
+      "misconceptions": "uses area; forgets number of laps",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "4fd690cfc58ba2a3",
+      "why": {
+        "A": "90 is 3 × 30, going round with only one long and one short side counted; a lap has two of each.",
+        "C": "648 is 18 × 12 × 3, the area three times over; a lap follows the edges.",
+        "D": "60 is one lap; the walker does three."
+      }
+    },
+    {
+      "id": "M02-RC-001",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "main idea—central lesson",
+      "difficulty": "M",
+      "prompt": "Which statement best explains what the students learned from the moth survey?",
+      "choices": {
+        "A": "Pond insects are always harder to photograph than meadow moths.",
+        "B": "Students should collect wildlife data in daylight, not at night.",
+        "C": "The brightest lamp is the most reliable way to count moths.",
+        "D": "Discovering an unfair condition helped students improve a survey."
+      },
+      "correct": "D",
+      "explanation": "The problem, the revision and the lesson are all in [¶2–¶4]. Saying pond insects are always harder to photograph makes a rule out of one detail; moving to daylight contradicts the night survey, which worked once the lamps matched; and the brightest lamp is the very condition that made the first comparison unfair.",
+      "misconceptions": "selects vivid detail; overgeneralizes",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P01",
+      "form": "M02",
+      "content_hash": "3193991a4223696b",
+      "why": {
+        "A": "[¶3] says several pond species were hard to see until they settled, which is one evening's observation rather than a rule about every pond insect.",
+        "B": "The night survey worked once the lamps matched; daylight is never suggested.",
+        "C": "The brighter lamp is what made the first comparison unfair — the problem, not the method."
+      }
+    },
+    {
+      "id": "M02-RC-002",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail—explicit evidence",
+      "difficulty": "E",
+      "prompt": "Why were the students unable to compare the first station counts fairly?",
+      "choices": {
+        "A": "Some teams forgot their notebooks and lost their counts.",
+        "B": "The teams used lamps of different brightness.",
+        "C": "The moths were released before anyone recorded the time.",
+        "D": "The pond station began counting an hour after the others."
+      },
+      "correct": "B",
+      "explanation": "[¶2] explicitly says Lena's brighter lamp could attract moths from farther away. Lost notebooks and a late start at the pond station are never stated, and releasing the moths before the time was recorded contradicts [¶1], where the students recorded the time before releasing each moth.",
+      "misconceptions": "invents missing information; confuses procedure with flaw",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P01",
+      "form": "M02",
+      "content_hash": "eb2ed52a5939ef2a",
+      "why": {
+        "A": "The students carried notebooks and recorded the time; none is lost.",
+        "C": "[¶1] has them record the time and then let each moth fly away, in that order.",
+        "D": "Both stations counted on the same moonless Friday, and no late start is mentioned."
+      }
+    },
+    {
+      "id": "M02-RC-003",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "inference—scientific reasoning",
+      "difficulty": "M",
+      "prompt": "What can be inferred about the identical lights used in the second count?",
+      "choices": {
+        "A": "They made location, rather than brightness, the meaningful difference.",
+        "B": "They guaranteed that every moth in the whole meadow was seen and counted.",
+        "C": "They caused every station to attract exactly the same kinds of moths.",
+        "D": "They made it unnecessary to photograph any of the visiting moths."
+      },
+      "correct": "A",
+      "explanation": "Controlling brightness lets location be compared more fairly, as [¶3–¶4] imply. Seeing every moth in the whole meadow and drawing exactly the same kinds of moths at every station are guarantees the passage does not support, and making photographs unnecessary is contradicted by the survey method.",
+      "misconceptions": "treats control as guarantee; misses variable isolation",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P01",
+      "form": "M02",
+      "content_hash": "efc355a3f33150f7",
+      "why": {
+        "B": "Identical lamps make the stations comparable; they cannot guarantee that nothing was missed.",
+        "C": "The pond station drew species with narrow wings and muted colors, so the stations still differed.",
+        "D": "Photographing each visitor is the method throughout, and nothing replaces it."
+      }
+    },
+    {
+      "id": "M02-RC-004",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "vocabulary in context—academic verb",
+      "difficulty": "M",
+      "prompt": "In line 20, “settled” most nearly means:",
+      "choices": {
+        "A": "paid a debt",
+        "B": "made a choice",
+        "C": "landed",
+        "D": "became calm"
+      },
+      "correct": "C",
+      "explanation": "The moths became visible when they landed on the sheet. Paying a debt, making a choice and becoming calm are all real meanings of settled, but none of them fits a moth arriving on a surface.",
+      "misconceptions": "chooses common alternate meaning; ignores subject",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P01",
+      "form": "M02",
+      "content_hash": "1ebaa214356e3e1e",
+      "why": {
+        "A": "Paying a debt is a real meaning of the word, but no money is involved here.",
+        "B": "Making a choice is another real meaning, and a moth choosing the sheet is not what the sentence describes.",
+        "D": "Becoming calm would be about the moth's mood; what the students could not see was the moth until it was on the sheet."
+      }
+    },
+    {
+      "id": "M02-RC-005",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "organization—problem and revision",
+      "difficulty": "M",
+      "prompt": "Which sequence best describes the development of the passage?",
+      "choices": {
+        "A": "A list of moth species is followed by a description of each kind.",
+        "B": "An investigation is described, a flaw noticed, the method improved.",
+        "C": "Two students argue about the count until a teacher settles it.",
+        "D": "A meadow and a pond are compared in each of the four seasons."
+      },
+      "correct": "B",
+      "explanation": "[¶1] begins the investigation, [¶2] identifies the flaw, and [¶3–¶4] describe the revision and lesson. The other structures are not present.",
+      "misconceptions": "mistakes setting contrast for structure; invents conflict",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P01",
+      "form": "M02",
+      "content_hash": "6e73a66f0c2cefb4",
+      "why": {
+        "A": "Only two kinds of moth are described at all, and then only in passing.",
+        "C": "Nobody argues and no teacher appears; Lena notices the problem and the team fixes it.",
+        "D": "The two counts happen a week apart, not across four seasons."
+      }
+    },
+    {
+      "id": "M02-RC-006",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "main idea—central idea",
+      "difficulty": "M",
+      "prompt": "Which choice best summarizes the discovery beneath Bellweather's steps?",
+      "choices": {
+        "A": "Why nineteenth-century buildings often had weak stone foundations",
+        "B": "How surveyors searched for buried treasure beneath old town halls",
+        "C": "How a town identified and preserved an old survey marker",
+        "D": "Why Bellweather replaced its town hall with a history museum"
+      },
+      "correct": "C",
+      "explanation": "The identification in [¶1–¶2] and the preservation in [¶3–¶4] are what the passage covers. Weak stone foundations never come up, [¶4] says the stone revealed no buried treasure, and the town hall is never replaced.",
+      "misconceptions": "focuses on setting; invents dramatic purpose",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P02",
+      "form": "M02",
+      "content_hash": "18db04453e6eb3fc",
+      "why": {
+        "A": "Foundations come up only because a new one had to be poured, and nothing says they were weak.",
+        "B": "[¶4] says the stone revealed no buried treasure.",
+        "D": "The town hall stays, with a glass panel built into its new landing."
+      }
+    },
+    {
+      "id": "M02-RC-007",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail—purpose",
+      "difficulty": "E",
+      "prompt": "According to the second paragraph (lines 7–13), why did surveyors place durable markers?",
+      "choices": {
+        "A": "To give later mapmakers fixed starting points",
+        "B": "To mark where public buildings should be constructed",
+        "C": "To decorate the open spaces around the town",
+        "D": "To warn people about tunnels running under the town"
+      },
+      "correct": "A",
+      "explanation": "[¶2] directly states that later mapmakers could begin from fixed points. Siting public buildings and warning about tunnels are not given as purposes—and [¶4] denies any tunnel—while decorating the open spaces repeats the residents' mistaken assumption in [¶1].",
+      "misconceptions": "confuses later building with original purpose; uses decorative assumption",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P02",
+      "form": "M02",
+      "content_hash": "5710a11c6c1e72e1",
+      "why": {
+        "B": "The town hall was built around the marker decades later, which is the reverse of the marker showing where to build.",
+        "C": "Decoration is what most residents assumed it was, and Imani suspected otherwise.",
+        "D": "[¶4] says there was no forgotten tunnel."
+      }
+    },
+    {
+      "id": "M02-RC-008",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "inference—author implication",
+      "difficulty": "M",
+      "prompt": "Why would moving the stone reduce its value as a survey record?",
+      "choices": {
+        "A": "Its carved 1882 date would become harder to read.",
+        "B": "The new glass panel would no longer fit the landing.",
+        "C": "The town hall would lose its front entrance and steps.",
+        "D": "Its exact position was the information it preserved."
+      },
+      "correct": "D",
+      "explanation": "[¶2–¶3] show that the marker's carefully measured location made it useful; moving it would destroy that evidence. The carved date, the glass panel and the front steps are all about appearance or construction, not surveying.",
+      "misconceptions": "treats artifact as text only; misses spatial evidence",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P02",
+      "form": "M02",
+      "content_hash": "5733876ba7956b36",
+      "why": {
+        "A": "Moving the stone would not touch the carving; what would be lost is where it stood.",
+        "B": "The panel was designed after the decision to leave the stone, so it is the solution rather than the reason.",
+        "C": "A new landing was built either way, so the entrance was never at risk."
+      }
+    },
+    {
+      "id": "M02-RC-009",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "vocabulary in context—nuance",
+      "difficulty": "M",
+      "prompt": "In line 22, “quieter” suggests that the stone's importance was:",
+      "choices": {
+        "A": "secret from all of the town's residents",
+        "B": "meaningful without being dramatic",
+        "C": "related to the silence of the building",
+        "D": "less useful than the workers believed"
+      },
+      "correct": "B",
+      "explanation": "[¶4] contrasts the marker with treasure and tunnels, so “quieter” means less dramatic but still meaningful.",
+      "misconceptions": "literal interpretation; assumes quiet means unimportant",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P02",
+      "form": "M02",
+      "content_hash": "d82957c805e9bfa6",
+      "why": {
+        "A": "Most residents assumed it was decoration, which is a wrong guess rather than a secret.",
+        "C": "No sound is described anywhere; the word is set against treasure and tunnels.",
+        "D": "[¶4] calls it a useful reference point that the town chose to keep."
+      }
+    },
+    {
+      "id": "M02-RC-010",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "tone—author attitude",
+      "difficulty": "M",
+      "prompt": "The author's attitude toward the town's solution is best described as:",
+      "choices": {
+        "A": "doubtful",
+        "B": "amused",
+        "C": "impatient",
+        "D": "approving"
+      },
+      "correct": "D",
+      "explanation": "[¶3–¶4] presents the glass panel as preserving both practical and historical value. Doubtful and impatient conflict with that praise, and no humor supports amused.",
+      "misconceptions": "neutral-reporting assumption; tone-word mismatch",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P02",
+      "form": "M02",
+      "content_hash": "6074d70e3484484f",
+      "why": {
+        "A": "The last paragraph says the town preserved both a reference point and a piece of its story, which is praise.",
+        "B": "Nothing in the passage is played for humour.",
+        "C": "The solution took an archivist, an engineer and a crew, and the passage describes that patiently."
+      }
+    },
+    {
+      "id": "M02-RC-011",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "main idea—character change",
+      "difficulty": "M",
+      "prompt": "Which statement best expresses the main idea?",
+      "choices": {
+        "A": "A brief conversation helps Mara see her nervousness and begin preparing.",
+        "B": "Mara decides that drawing pictures is easier than writing stories.",
+        "C": "A long train delay keeps Mara from reaching the festival on time.",
+        "D": "A stranger on the train persuades Mara to give away her story."
+      },
+      "correct": "A",
+      "explanation": "[¶2–¶4] shows the sketcher's comment helping Mara shift from avoidance to rehearsal. Nothing else on the list happens: she does not choose drawing over writing, the train is not delayed, and no stranger takes her story.",
+      "misconceptions": "substitutes another art form; invents plot event",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P03",
+      "form": "M02",
+      "content_hash": "7e22a63f18a83bf3",
+      "why": {
+        "B": "Mara says nothing about preferring drawing, and by the end she is reading her own paragraph aloud.",
+        "C": "The train reaches the festival town, and no delay is mentioned.",
+        "D": "The story stays in her hands; the man only turns his sketch toward her."
+      }
+    },
+    {
+      "id": "M02-RC-012",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail—character behavior",
+      "difficulty": "E",
+      "prompt": "Which action most clearly shows Mara avoiding practice at the beginning?",
+      "choices": {
+        "A": "She chose a window seat before the train left.",
+        "B": "She watched the sketcher's pencil move quickly.",
+        "C": "She reorganized her pencils instead of reading.",
+        "D": "She kept her story inside an envelope in her pocket."
+      },
+      "correct": "C",
+      "explanation": "[¶1] lists pencil organizing among distractions from the view and story. The window seat, the watching and the envelope in her pocket may all go with being nervous, but none of them replaces practice as clearly.",
+      "misconceptions": "picks any nervous detail; misses contrast with intended task",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P03",
+      "form": "M02",
+      "content_hash": "79f5dbf66fda8e26",
+      "why": {
+        "A": "Choosing the seat happens before the train leaves and avoids nothing.",
+        "B": "Watching the sketcher is what leads to the conversation that helps her.",
+        "D": "The envelope in her pocket is where the story lives; checking it twice is the avoidance, not keeping it there."
+      }
+    },
+    {
+      "id": "M02-RC-013",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "inference—figurative comparison",
+      "difficulty": "M",
+      "prompt": "What does Mara learn from watching the scenery in the fifth paragraph (lines 18–25)?",
+      "choices": {
+        "A": "The festival town is surrounded mostly by open farmland.",
+        "B": "Separate moments can still form a complete experience.",
+        "C": "Train travel moves too fast for careful observation.",
+        "D": "Reading aloud is easier outdoors than on a train."
+      },
+      "correct": "B",
+      "explanation": "The changing views “held together,” paralleling how selected moments can make a drawing or story. The open farmland is incidental, and neither the claim that train travel is too fast for careful observation nor the one about reading aloud outdoors is supported.",
+      "misconceptions": "stays literal; selects setting detail",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P03",
+      "form": "M02",
+      "content_hash": "dd066542aa182ea8",
+      "why": {
+        "A": "Farmhouses do flash past, but the passage uses them to make a point about the trip holding together.",
+        "C": "She does observe, and what she notices is that no single view lasts long and the trip still holds.",
+        "D": "She reads under her breath on the train, and nothing outdoors is compared with it."
+      }
+    },
+    {
+      "id": "M02-RC-014",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "vocabulary in context—figurative verb",
+      "difficulty": "M",
+      "prompt": "In line 13, “escape” suggests that Mara was holding the envelope:",
+      "choices": {
+        "A": "loosely",
+        "B": "carelessly",
+        "C": "secretly",
+        "D": "tightly"
+      },
+      "correct": "D",
+      "explanation": "If the envelope looked as though it might escape, Mara must have been gripping it tightly. Loosely and carelessly are the opposite, and secretly concerns visibility rather than grip.",
+      "misconceptions": "literalizes escape; confuses secrecy with tension",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P03",
+      "form": "M02",
+      "content_hash": "db55bf105efe08b5",
+      "why": {
+        "A": "Loosely is the opposite; an envelope held loosely would not look as though it might get away.",
+        "B": "Carelessly would suggest she did not mind losing it, and she checks it twice.",
+        "C": "Secretly is about who can see it, whereas the word here is about her grip."
+      }
+    },
+    {
+      "id": "M02-RC-015",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "tone—ending mood",
+      "difficulty": "M",
+      "prompt": "The mood at the end of the passage is best described as:",
+      "choices": {
+        "A": "deeply gloomy",
+        "B": "strange and mysterious",
+        "C": "quietly hopeful",
+        "D": "wildly excited"
+      },
+      "correct": "C",
+      "explanation": "Mara practices, reaches the town, and stops shaking in [¶4], showing calm improvement rather than gloom, mystery, or extreme excitement.",
+      "misconceptions": "overstates emotional change; carries opening mood forward",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P03",
+      "form": "M02",
+      "content_hash": "38a0a311b850e691",
+      "why": {
+        "A": "The paper no longer shook by the end, which is an improvement rather than a gloom.",
+        "B": "Nothing is left unexplained: a man sketches and Mara practises.",
+        "D": "She reads under her breath, which is quiet rather than wild."
+      }
+    },
+    {
+      "id": "M02-RC-016",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "main idea—problem and solution",
+      "difficulty": "M",
+      "prompt": "Which statement best summarizes Suri's solution and its result?",
+      "choices": {
+        "A": "Outdoor courts are better than halls for every dance rehearsal.",
+        "B": "A chalk diagram helped a choreographer plan movement before rehearsal.",
+        "C": "Rain forced the dance group to cancel its Saturday performance.",
+        "D": "The dancers invented a new game using colored chalk arrows."
+      },
+      "correct": "B",
+      "explanation": "The chalk diagram covers Suri's planning method and its result in [¶1–¶4]. Saying outdoor courts are better for every rehearsal overstates the method, and the cancelled performance and the invented chalk game contradict the events.",
+      "misconceptions": "overgeneralizes solution; mistakes diagram for final activity",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P04",
+      "form": "M02",
+      "content_hash": "b5601337d2ac46e5",
+      "why": {
+        "A": "[¶4] says the chalk did not replace rehearsal, so the court is not better for everything.",
+        "C": "Rain erased the drawing, but Suri had photographed it and Saturday's rehearsal went ahead.",
+        "D": "No game is invented; the arrows are a plan."
+      }
+    },
+    {
+      "id": "M02-RC-017",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail—limitation",
+      "difficulty": "E",
+      "prompt": "Which question could the chalk plan NOT answer?",
+      "choices": {
+        "A": "Where should each dancer begin the piece?",
+        "B": "Do two paths cross on the same count?",
+        "C": "Which routes show dancers moving backward?",
+        "D": "Does a lift feel safe to the dancers?"
+      },
+      "correct": "D",
+      "explanation": "[¶4] explicitly says the drawing could not show whether a lift felt safe. Where each dancer begins, whether two paths cross on the same count, and which routes run backward are exactly the spatial facts the circles, intersecting arrows and dotted lines represent.",
+      "misconceptions": "ignores stated limitation; assumes diagram replaces rehearsal",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P04",
+      "form": "M02",
+      "content_hash": "6dba0dae366660c4",
+      "why": {
+        "A": "The circles drawn on the pavement are the starting positions.",
+        "B": "The plan caught exactly that — two arrows meeting at the same place on the same count.",
+        "C": "White dotted lines showed the moments when dancers moved backward."
+      }
+    },
+    {
+      "id": "M02-RC-018",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "inference—resource management",
+      "difficulty": "M",
+      "prompt": "Why was saving hall time especially important?",
+      "choices": {
+        "A": "The hall was available only once a week.",
+        "B": "The box of sidewalk chalk was expensive.",
+        "C": "The dancers disliked rehearsing in the hall.",
+        "D": "The final performance had already taken place."
+      },
+      "correct": "A",
+      "explanation": "[¶1] says the hall was available only on Saturdays, so solving spatial problems beforehand protected limited rehearsal time. Nothing is said about the chalk being expensive or the dancers disliking the hall, and the performance is still ahead of them.",
+      "misconceptions": "invents preference; misses scheduling constraint",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P04",
+      "form": "M02",
+      "content_hash": "60f7a36736921724",
+      "why": {
+        "B": "A box of sidewalk chalk is mentioned without any price.",
+        "C": "Nothing is said about how the dancers felt about the hall.",
+        "D": "Saturday's rehearsal is still ahead when Suri draws the plan."
+      }
+    },
+    {
+      "id": "M02-RC-019",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "vocabulary in context—figurative language",
+      "difficulty": "M",
+      "prompt": "In line 24, “making invisible movement visible” means the chalk drawing:",
+      "choices": {
+        "A": "allowed dancers to move without being seen",
+        "B": "glowed when the hall lights were turned off",
+        "C": "represented planned motion on the ground",
+        "D": "recorded a finished performance"
+      },
+      "correct": "C",
+      "explanation": "The circles and arrows represented motion before it happened. Moving without being seen and glowing in the dark interpret “invisible” literally, and recording a finished performance confuses planning with recording.",
+      "misconceptions": "literal interpretation; sequence confusion",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P04",
+      "form": "M02",
+      "content_hash": "e1a69f2fc6220b1c",
+      "why": {
+        "A": "That reads invisible literally; it is the movement, not the dancers, that had nowhere to be seen.",
+        "B": "No glowing chalk appears, and the drawing was outdoors on pavement.",
+        "D": "The drawing came before the dancers arrived, so there was no performance to record."
+      }
+    },
+    {
+      "id": "M02-RC-020",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "organization—chronological process",
+      "difficulty": "M",
+      "prompt": "How does the author organize the middle of the passage?",
+      "choices": {
+        "A": "By comparing four different choreographers and their styles",
+        "B": "By describing the plan, the problem, and Suri's revision",
+        "C": "By listing the rules for using a public basketball court",
+        "D": "By arguing that dancers should always rehearse alone"
+      },
+      "correct": "B",
+      "explanation": "[¶2–¶3] moves from drawing the map to discovering a collision and revising a path. The other structures are absent.",
+      "misconceptions": "mistakes descriptive details for a list; overlooks sequence",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P04",
+      "form": "M02",
+      "content_hash": "7ba13f1f68982a9a",
+      "why": {
+        "A": "Only Suri appears in the passage.",
+        "C": "The court is where she works, and no rules for using it are given.",
+        "D": "[¶4] saves hall time for the problems only dancers can answer, which is the opposite of rehearsing alone."
+      }
+    },
+    {
+      "id": "M02-RC-021",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "main idea—central idea",
+      "difficulty": "M",
+      "prompt": "Which choice best connects the roof's function with the students' investigation?",
+      "choices": {
+        "A": "Students discover that every school bus shelter should be built of wood.",
+        "B": "A leaking shelter roof creates a safety problem for waiting students.",
+        "C": "A planted roof manages rainwater and teaches students about starting conditions.",
+        "D": "The environmental club replaces the school's bus shelter after three storms."
+      },
+      "correct": "C",
+      "explanation": "The planted-roof summary combines the roof's function [¶2] with the students' learning [¶3–¶4]. Building every shelter of wood and replacing the shelter are unsupported—the club measured rather than rebuilt—and the leaking roof mistakes delayed release for a leak.",
+      "misconceptions": "accepts first assumption; focuses on one material",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P05",
+      "form": "M02",
+      "content_hash": "ea0c3623f0155674",
+      "why": {
+        "A": "Wood never comes up; the roof is covered with shallow trays of low-growing plants.",
+        "B": "[¶2] says it was working as designed, so the dripping was not a leak.",
+        "D": "The club measures and then plans a comparison; it rebuilds nothing."
+      }
+    },
+    {
+      "id": "M02-RC-022",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "supporting detail—cause and effect",
+      "difficulty": "E",
+      "prompt": "Why did the largest storm not fill the barrel the most?",
+      "choices": {
+        "A": "Dry soil absorbed much of its rain.",
+        "B": "Students emptied the barrel during the storm.",
+        "C": "The plants blocked every drainage channel.",
+        "D": "Strong wind blew the barrel onto its side."
+      },
+      "correct": "A",
+      "explanation": "[¶3] states that dry conditions let the soil absorb much of the largest storm. Nobody empties the barrel, no drainage channel is blocked, and the barrel never falls over.",
+      "misconceptions": "invents events; ignores antecedent condition",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P05",
+      "form": "M02",
+      "content_hash": "8d5247bbc1a1ec5e",
+      "why": {
+        "B": "Nobody empties the barrel; the students measure what is in it after each storm.",
+        "C": "The channels released water slowly, which is how the roof is meant to work.",
+        "D": "Windy days are mentioned as what dried the soil, not as something that moved the barrel."
+      }
+    },
+    {
+      "id": "M02-RC-023",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "inference—experimental design",
+      "difficulty": "M",
+      "prompt": "Why will the club compare two shelters in spring?",
+      "choices": {
+        "A": "To determine which shelter has more students waiting beneath it",
+        "B": "To find out whether a bare metal roof can collect any rain",
+        "C": "To prove that the planted shelter never becomes warm in spring",
+        "D": "To isolate whether the planted roof is related to temperature"
+      },
+      "correct": "D",
+      "explanation": "Comparing planted and unplanted shelters provides a reference for the temperature question in [¶4]. Counting students and testing whether bare metal collects any rain ask different questions, and proving the planted shelter never becomes warm claims proof before evidence.",
+      "misconceptions": "confuses prediction with proof; misses comparison purpose",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P05",
+      "form": "M02",
+      "content_hash": "1e71016d649d6eea",
+      "why": {
+        "A": "How many students wait under each shelter has nothing to do with temperature.",
+        "B": "[¶2] already says a bare metal roof sends most water rushing off at once.",
+        "C": "The club predicts the planted roof may be cooler, and a prediction is not a proof."
+      }
+    },
+    {
+      "id": "M02-RC-024",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "vocabulary in context—technical noun",
+      "difficulty": "M",
+      "prompt": "In line 20, “runoff” most nearly means:",
+      "choices": {
+        "A": "soil carried away by strong wind",
+        "B": "water that flows off a surface",
+        "C": "plants spreading beyond a tray",
+        "D": "a test that ends too early"
+      },
+      "correct": "B",
+      "explanation": "The passage discusses rain leaving the roof through channels, so runoff is water flowing from a surface. Wind-blown soil, spreading plants and a test that ends early all miss the water-management context.",
+      "misconceptions": "uses everyday meaning of run off; confuses erosion with water flow",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P05",
+      "form": "M02",
+      "content_hash": "d6b5633989699507",
+      "why": {
+        "A": "Wind appears only as what dried the soil; this word is about water leaving a surface.",
+        "C": "The plants stay in their shallow trays throughout.",
+        "D": "Nothing ends early; three storms were measured."
+      }
+    },
+    {
+      "id": "M02-RC-025",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "RC",
+      "skill": "author purpose—explanation",
+      "difficulty": "M",
+      "prompt": "Why does the author include the students' future temperature study in the fourth paragraph (lines 21–27)?",
+      "choices": {
+        "A": "To show that recording conditions can guide a new investigation",
+        "B": "To prove that the school's rain barrel was installed incorrectly",
+        "C": "To introduce a disagreement between two student science clubs",
+        "D": "To explain why spring storms are heavier than winter storms"
+      },
+      "correct": "A",
+      "explanation": "[¶4] transfers the students' lesson about starting conditions to a new test.",
+      "misconceptions": "sees paragraph as unrelated; invents conflict",
+      "source": "Original content authored for Sheila ISEE",
+      "passage_id": "M02-RC-P05",
+      "form": "M02",
+      "content_hash": "6d2e8abc5bba2589",
+      "why": {
+        "B": "The barrel worked. What surprised the students was which storm filled it most.",
+        "C": "Only one club appears in the passage.",
+        "D": "Nothing compares spring storms with winter ones."
+      }
+    },
+    {
+      "id": "M02-MA-001",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "whole-number operations—addition",
+      "difficulty": "E",
+      "prompt": "A reading drive collected 4,608 books in spring and 2,795 in fall. How many books were collected altogether?",
+      "choices": {
+        "A": "7,403",
+        "B": "7,393",
+        "C": "6,403",
+        "D": "7,503"
+      },
+      "correct": "A",
+      "explanation": "4,608 + 2,795 = 7,403; 7,393 and 7,503 reflect carrying errors, and 6,403 drops one thousand.",
+      "misconceptions": "regrouping error; place-value omission",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "0b6392c995f5a2da",
+      "why": {
+        "B": "7,393 is 10 short: the units make 8 + 5 = 13, so a ten carries into 0 + 9 and that column reaches 10.",
+        "C": "6,403 is 1,000 short; the hundreds make 6 + 7 + 1 = 14, which carries a thousand into 4 + 2.",
+        "D": "7,503 is 100 over; the hundreds column comes to 14, leaving a 4."
+      }
+    },
+    {
+      "id": "M02-MA-002",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "fraction operations—unlike denominators",
+      "difficulty": "M",
+      "prompt": "What is 7/8 − 1/3?",
+      "choices": {
+        "A": "6/5",
+        "B": "5/8",
+        "C": "13/24",
+        "D": "4/5"
+      },
+      "correct": "C",
+      "explanation": "With denominator 24, 21/24 − 8/24 = 13/24.",
+      "misconceptions": "subtracts denominators; fails to find common denominator",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "97133ce5f9e85d0f",
+      "why": {
+        "A": "6/5 subtracts the denominators as well as the numerators, (7 − 1)/(8 − 3); once the denominators match, only the numerators are subtracted.",
+        "B": "5/8 keeps eighths and takes something other than 1/3 away from them; over 24, 1/3 is 8/24, not 2/24.",
+        "D": "4/5 uses a denominator that 8 and 3 do not share; the smallest they do share is 24."
+      }
+    },
+    {
+      "id": "M02-MA-003",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "decimal operations—multiplication",
+      "difficulty": "E",
+      "prompt": "Six identical notebooks cost $4.75 each. What is the total cost?",
+      "choices": {
+        "A": "$24.75",
+        "B": "$28.50",
+        "C": "$28.05",
+        "D": "$30.75"
+      },
+      "correct": "B",
+      "explanation": "4.75 × 6 = 28.50.",
+      "misconceptions": "decimal placement; repeated-addition error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "911763a3acb026c1",
+      "why": {
+        "A": "24.75 multiplies only the dollars, 4 × 6 = 24, and then puts the 75 cents back once instead of six times.",
+        "C": "28.05 has the dollars right and the cents digits swapped; 0.75 × 6 = 4.50, so the cents end in .50.",
+        "D": "30.75 rounds $4.75 up to $5 for $30 and then adds the 75 cents back — but rounding up had already added 25 cents six times."
+      }
+    },
+    {
+      "id": "M02-MA-004",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "whole-number operations—division",
+      "difficulty": "M",
+      "prompt": "A printer places 945 cards equally into 15 boxes. How many cards are in each box?",
+      "choices": {
+        "A": "53",
+        "B": "60",
+        "C": "65",
+        "D": "63"
+      },
+      "correct": "D",
+      "explanation": "945 ÷ 15 = 63 because 15 × 63 = 945; the other choices come from incomplete division or rounding.",
+      "misconceptions": "division regrouping; estimate used as exact answer",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "6d5f297844c11206",
+      "why": {
+        "A": "53 is ten too few: 15 × 53 = 795, a full 150 short of 945.",
+        "B": "60 gives 15 × 60 = 900, leaving 45 still to share — three more per box.",
+        "C": "65 overshoots: 15 × 65 = 975."
+      }
+    },
+    {
+      "id": "M02-MA-005",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "percent—finding a part",
+      "difficulty": "M",
+      "prompt": "A 160-page book has illustrations on 45% of its pages. How many pages have illustrations?",
+      "choices": {
+        "A": "56",
+        "B": "64",
+        "C": "72",
+        "D": "88"
+      },
+      "correct": "C",
+      "explanation": "45% of 160: 10% is 16, so 40% is 64 and 5% is 8, together 72.",
+      "misconceptions": "uses a nearby benchmark percent; finds the complement",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "a0afb9d5eabf4111",
+      "why": {
+        "A": "56 is 35% of 160, a nearby percent.",
+        "B": "64 is 40% of 160, rounding 45% down.",
+        "D": "88 is 55% of 160, the pages without illustrations."
+      }
+    },
+    {
+      "id": "M02-MA-006",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "number properties—greatest common factor",
+      "difficulty": "M",
+      "prompt": "What is the greatest common factor of 36 and 54?",
+      "choices": {
+        "A": "18",
+        "B": "9",
+        "C": "6",
+        "D": "108"
+      },
+      "correct": "A",
+      "explanation": "Common factors include 1, 2, 3, 6, 9, and 18; 18 is greatest. 9 and 6 are common but not greatest, and 108 is a multiple.",
+      "misconceptions": "stops at smaller factor; confuses factor and multiple",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "731482c4fc6dda57",
+      "why": {
+        "B": "9 is a common factor but not the greatest; 18 divides both numbers as well.",
+        "C": "6 is common and smaller still; 18 goes into 36 and 54 too.",
+        "D": "108 is a common multiple of 36 and 54, not a factor of either."
+      }
+    },
+    {
+      "id": "M02-MA-007",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "mixed-number addition",
+      "difficulty": "M",
+      "prompt": "What is 2 1/4 + 3 2/3?",
+      "choices": {
+        "A": "5 3/7",
+        "B": "6 1/12",
+        "C": "5 5/12",
+        "D": "5 11/12"
+      },
+      "correct": "D",
+      "explanation": "1/4 + 2/3 = 3/12 + 8/12 = 11/12, and whole parts total 5. The distractors add denominators or regroup incorrectly.",
+      "misconceptions": "adds denominators; unnecessary regrouping",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "50819970c1395e86",
+      "why": {
+        "A": "5 3/7 adds the tops and the bottoms of the fractions; quarters and thirds both go over 12 first.",
+        "B": "6 1/12 carries a whole that is not there: 3/12 + 8/12 = 11/12, still under 1.",
+        "C": "5 5/12 changes 1/4 to 3/12 but then adds 2/3 as if it were 2/12; 2/3 is 8/12."
+      }
+    },
+    {
+      "id": "M02-MA-008",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "decimal-fraction equivalence",
+      "difficulty": "E",
+      "prompt": "Which fraction is equal to 0.625?",
+      "choices": {
+        "A": "3/5",
+        "B": "5/8",
+        "C": "5/6",
+        "D": "625/10"
+      },
+      "correct": "B",
+      "explanation": "0.625 = 625/1000 = 5/8; 3/5 and 5/6 are nearby values, and 625/10 places the decimal incorrectly.",
+      "misconceptions": "denominator place-value error; chooses nearby familiar fraction",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "e72e85478ca4b6e0",
+      "why": {
+        "A": "3/5 is 0.6 — close, but 0.625 is 625/1000, which reduces to 5/8.",
+        "C": "5/6 is about 0.833, well above 0.625.",
+        "D": "625/10 is 62.5; three decimal places make 0.625 into 625/1000."
+      }
+    },
+    {
+      "id": "M02-MA-009",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "algebra—two-step equation",
+      "difficulty": "M",
+      "prompt": "Solve 5x + 7 = 42.",
+      "choices": {
+        "A": "5",
+        "B": "7",
+        "C": "9",
+        "D": "49/5"
+      },
+      "correct": "B",
+      "explanation": "Subtract 7 from both sides to get 5x = 35, then divide by 5 for x = 7.",
+      "misconceptions": "wrong inverse-operation order; treats constant as factor",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "ced5306da965e72e",
+      "why": {
+        "A": "5 divides 35 by the 7 rather than by the 5; the 5 is what multiplies x.",
+        "C": "9 follows from taking 42 − 7 as 45; it is 35, and 35 ÷ 5 = 7.",
+        "D": "49/5 adds the 7 to 42 instead of subtracting it; a + 7 moves across as − 7."
+      }
+    },
+    {
+      "id": "M02-MA-010",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "algebra—evaluate expression with exponent",
+      "difficulty": "M",
+      "prompt": "What is the value of 3x² − 5 when x = 4?",
+      "choices": {
+        "A": "19",
+        "B": "31",
+        "C": "37",
+        "D": "43"
+      },
+      "correct": "D",
+      "explanation": "4² = 16, then 3 × 16 − 5 = 43. 19 squares after multiplying incorrectly, and 31 and 37 reflect arithmetic errors.",
+      "misconceptions": "ignores exponent; performs subtraction too early",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "a24295273201c3ff",
+      "why": {
+        "A": "19 comes from taking 4² as 8 — doubling instead of squaring. 4² is 16, so 3 × 16 − 5 = 43.",
+        "B": "31 is not 3 × 16 − 5; squaring the 4 first gives 16, and 48 − 5 = 43.",
+        "C": "37 falls six short: 3 × 16 = 48, then take away 5."
+      }
+    },
+    {
+      "id": "M02-MA-011",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "algebra—distributive property",
+      "difficulty": "E",
+      "prompt": "Which expression is equivalent to 4(n + 5)?",
+      "choices": {
+        "A": "4n + 20",
+        "B": "4n + 5",
+        "C": "9n",
+        "D": "20n"
+      },
+      "correct": "A",
+      "explanation": "Multiply both terms inside by 4: 4 × n and 4 × 5, which is 4n + 20.",
+      "misconceptions": "partial distribution; combines a number and a variable",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "c7795d707c7c824e",
+      "why": {
+        "B": "4n + 5 multiplies only the n by 4; the 5 inside the parentheses is multiplied too.",
+        "C": "9n adds the 4 and the 5, but the 4 multiplies the whole bracket.",
+        "D": "20n multiplies 4 × 5 and attaches the n, as if the bracket were 5n."
+      }
+    },
+    {
+      "id": "M02-MA-012",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "algebra—one-step inequality",
+      "difficulty": "M",
+      "prompt": "Which inequality is equivalent to n/4 < 6?",
+      "choices": {
+        "A": "n < 2",
+        "B": "n > 24",
+        "C": "n < 24",
+        "D": "n > 10"
+      },
+      "correct": "C",
+      "explanation": "Multiplying both sides by positive 4 gives n < 24; n > 24 reverses the sign, and n < 2 and n > 10 use wrong operations.",
+      "misconceptions": "reverses inequality unnecessarily; divides instead of multiplies",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "aec0e890fb09e175",
+      "why": {
+        "A": "n < 2 divides where it should multiply; n/4 < 6 means n is under 4 × 6.",
+        "B": "n > 24 reverses the sign; multiplying both sides by a positive 4 leaves the direction alone.",
+        "D": "n > 10 reverses the sign and uses 4 + 6 rather than 4 × 6."
+      }
+    },
+    {
+      "id": "M02-MA-013",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "geometry—triangle angle sum",
+      "difficulty": "E",
+      "prompt": "Two angles of a triangle measure 48° and 67°. What is the third angle?",
+      "choices": {
+        "A": "55°",
+        "B": "61°",
+        "C": "63°",
+        "D": "65°"
+      },
+      "correct": "D",
+      "explanation": "Triangle angles total 180°; 180 − (48 + 67) = 65°. The distractors reflect addition or subtraction errors.",
+      "misconceptions": "uses wrong angle sum; arithmetic error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "36b6a739cd42bda5",
+      "why": {
+        "A": "55 subtracts 125 from 180; 48 + 67 is 115.",
+        "B": "61 falls four short: 180 − 115 = 65.",
+        "C": "63 is two short; the two known angles total 115, not 117."
+      }
+    },
+    {
+      "id": "M02-MA-014",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "geometry—area of parallelogram",
+      "difficulty": "M",
+      "prompt": "A parallelogram has a base of 13 cm and a perpendicular height of 8 cm. What is its area?",
+      "choices": {
+        "A": "42 cm²",
+        "B": "104 cm²",
+        "C": "84 cm²",
+        "D": "208 cm²"
+      },
+      "correct": "B",
+      "explanation": "Area = base × perpendicular height = 13 × 8 = 104 cm².",
+      "misconceptions": "uses slanted side; confuses area and perimeter",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "ef5efa18ae59c5a7",
+      "why": {
+        "A": "42 is 2 × (13 + 8), a perimeter; area multiplies the base by the height.",
+        "C": "84 is not 13 × 8; multiplying those out gives 104.",
+        "D": "208 is 13 × 8 × 2, the area counted twice; a parallelogram needs no doubling or halving."
+      }
+    },
+    {
+      "id": "M02-MA-015",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "geometry—radius and diameter",
+      "difficulty": "E",
+      "prompt": "A circular table has a diameter of 18 feet. What is its radius?",
+      "choices": {
+        "A": "36 ft",
+        "B": "18 ft",
+        "C": "9 ft",
+        "D": "6 ft"
+      },
+      "correct": "C",
+      "explanation": "Radius is half the diameter, so 18 ÷ 2 = 9 feet.",
+      "misconceptions": "swaps radius and diameter; applies wrong factor",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "5d24f48a055a0bd5",
+      "why": {
+        "A": "36 is 18 × 2, doubling the diameter instead of halving it.",
+        "B": "18 is the diameter itself; a radius reaches only from the centre to the edge.",
+        "D": "6 is 18 ÷ 3; a radius is half the diameter, not a third."
+      }
+    },
+    {
+      "id": "M02-MA-016",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "measurement—rectangular-prism volume",
+      "difficulty": "M",
+      "prompt": "A storage box is 7 feet long, 4 feet wide, and 3 feet high. What is its volume?",
+      "choices": {
+        "A": "84 ft³",
+        "B": "28 ft³",
+        "C": "42 ft³",
+        "D": "98 ft³"
+      },
+      "correct": "A",
+      "explanation": "Volume = 7 × 4 × 3 = 84 cubic feet. 28 ft³ multiplies only length and width (7 × 4), while 42 ft³ and 98 ft³ first add all three dimensions (7 + 4 + 3 = 14) and then multiply by the height (14 × 3 = 42) or the length (14 × 7 = 98) instead of multiplying all three dimensions.",
+      "misconceptions": "computes base area only; omits a dimension",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "7b8e843df87e8726",
+      "why": {
+        "B": "28 is 7 × 4, the floor of the box; volume multiplies that by the height of 3.",
+        "C": "42 is 14 × 3, adding the three dimensions (7 + 4 + 3) and then multiplying by the height.",
+        "D": "98 is 14 × 7, adding the three dimensions and then multiplying by the length."
+      }
+    },
+    {
+      "id": "M02-MA-017",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "measurement—metric conversion",
+      "difficulty": "E",
+      "prompt": "A ribbon is 3.6 meters long. How many centimeters long is it?",
+      "choices": {
+        "A": "3.6 cm",
+        "B": "36 cm",
+        "C": "360 cm",
+        "D": "36,000 cm"
+      },
+      "correct": "C",
+      "explanation": "One meter is 100 centimeters, so 3.6 × 100 = 360 cm.",
+      "misconceptions": "wrong metric place shift; unit-size confusion",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "91b82ecd7a0fb137",
+      "why": {
+        "A": "3.6 cm keeps the number and only changes the unit; a meter is 100 centimeters.",
+        "B": "36 cm multiplies by 10 instead of 100.",
+        "D": "36,000 cm multiplies by 10,000, two place shifts too many."
+      }
+    },
+    {
+      "id": "M02-MA-018",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "measurement—elapsed time",
+      "difficulty": "M",
+      "prompt": "A workshop begins at 3:40 p.m. and lasts 2 hours 35 minutes. When does it end?",
+      "choices": {
+        "A": "5:15 p.m.",
+        "B": "5:55 p.m.",
+        "C": "6:05 p.m.",
+        "D": "6:15 p.m."
+      },
+      "correct": "D",
+      "explanation": "3:40 + 2 hours = 5:40, plus 35 minutes = 6:15. The distractors omit time or fail to regroup 60 minutes.",
+      "misconceptions": "minute regrouping error; adds hour and minute parts separately",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "8a39f5a63d687ab7",
+      "why": {
+        "A": "5:15 adds 1 hour 35 rather than 2 hours 35.",
+        "B": "5:55 adds only 15 minutes past 5:40; there are 35 to add.",
+        "C": "6:05 adds 25 minutes past 5:40 rather than 35."
+      }
+    },
+    {
+      "id": "M02-MA-019",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "data—mean",
+      "difficulty": "E",
+      "prompt": "What is the mean of 12, 15, 17, 20, and 26?",
+      "choices": {
+        "A": "16",
+        "B": "17",
+        "C": "18",
+        "D": "19"
+      },
+      "correct": "C",
+      "explanation": "The sum is 90, and 90 ÷ 5 = 18.",
+      "misconceptions": "confuses mean and median; arithmetic error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "3ef1e0b4219a112c",
+      "why": {
+        "A": "16 would need a total of 80; the five numbers add to 90.",
+        "B": "17 is the middle number, the median, not the mean.",
+        "D": "19 would need a total of 95; the numbers add to 90."
+      }
+    },
+    {
+      "id": "M02-MA-020",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "probability—equally likely outcomes",
+      "difficulty": "E",
+      "prompt": "A fair spinner is numbered 1 through 8. What is the probability of spinning an even number?",
+      "choices": {
+        "A": "1/2",
+        "B": "1/4",
+        "C": "3/8",
+        "D": "5/8"
+      },
+      "correct": "A",
+      "explanation": "Four of eight outcomes—2, 4, 6, 8—are even, so 4/8 = 1/2. The distractors miscount favorable outcomes.",
+      "misconceptions": "counts prime numbers; forgets to simplify",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "0998f73f6f5fcaa4",
+      "why": {
+        "B": "1/4 counts two even numbers; from 1 to 8 there are four — 2, 4, 6 and 8.",
+        "C": "3/8 counts three; 8 itself is even, which makes four.",
+        "D": "5/8 counts five, one more than there are."
+      }
+    },
+    {
+      "id": "M02-MA-021",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "data—mode",
+      "difficulty": "M",
+      "prompt": "The number of minutes spent practicing over seven days was 18, 24, 18, 30, 21, 18, and 27. What is the mode?",
+      "choices": {
+        "A": "21",
+        "B": "24",
+        "C": "30",
+        "D": "18"
+      },
+      "correct": "D",
+      "explanation": "Eighteen appears three times, more than any other value. 21, 24 and 30 each appear once — the mode is the value that turns up most often, not the largest or the last.",
+      "misconceptions": "confuses mode with median or maximum; ignores frequency",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "0cfa7e047b7ec606",
+      "why": {
+        "A": "21 appears once, and the mode is the value that appears most often.",
+        "B": "24 also appears just once.",
+        "C": "30 is the largest value and appears once; the mode is about frequency, not size."
+      }
+    },
+    {
+      "id": "M02-MA-022",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "coordinate plane—quadrants",
+      "difficulty": "E",
+      "prompt": "In which quadrant is the point (−5, −2)?",
+      "choices": {
+        "A": "Quadrant I",
+        "B": "Quadrant II",
+        "C": "Quadrant III",
+        "D": "Quadrant IV"
+      },
+      "correct": "C",
+      "explanation": "A negative x-coordinate and negative y-coordinate place the point in Quadrant III. The others correspond to different sign pairs.",
+      "misconceptions": "swaps axes; quadrant-order confusion",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "fd9ab66919d29e16",
+      "why": {
+        "A": "Quadrant I has both coordinates positive.",
+        "B": "Quadrant II has a negative x and a positive y, and here y is −2.",
+        "D": "Quadrant IV has a positive x and a negative y, and here x is −5."
+      }
+    },
+    {
+      "id": "M02-MA-023",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "geometry—lines of symmetry",
+      "difficulty": "M",
+      "prompt": "How many lines of symmetry does a regular pentagon have?",
+      "choices": {
+        "A": "1",
+        "B": "5",
+        "C": "10",
+        "D": "0"
+      },
+      "correct": "B",
+      "explanation": "Each vertex-to-opposite-side-midpoint axis gives one line, for 5 total.",
+      "misconceptions": "confuses sides with pairs; assumes odd-sided shapes lack symmetry",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "22092ac66b27c58b",
+      "why": {
+        "A": "1 counts a single axis; a regular pentagon has one through each of its five vertices.",
+        "C": "10 counts every axis twice, once from the vertex and once from the midpoint, but it is the same line both ways.",
+        "D": "0 would be right for an irregular pentagon; a regular one has five equal sides and five axes."
+      }
+    },
+    {
+      "id": "M02-MA-024",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "geometry—composite area",
+      "difficulty": "H",
+      "prompt": "A 10-by-8-meter rectangular patio has a 3-by-2-meter rectangular garden removed from one corner. What is the remaining patio area?",
+      "choices": {
+        "A": "68 m²",
+        "B": "70 m²",
+        "C": "74 m²",
+        "D": "80 m²"
+      },
+      "correct": "C",
+      "explanation": "Full area is 80 m² and removed area is 6 m², leaving 74 m². 80 m² ignores the removal, and 68 m² and 70 m² subtract dimensions or the wrong area.",
+      "misconceptions": "subtracts lengths instead of areas; omits cutout",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "32a14a2dbbaa67d8",
+      "why": {
+        "A": "68 takes 12 away rather than 6; the garden is 3 × 2 = 6 square meters.",
+        "B": "70 takes 10 away, and the removed piece is 6 square meters.",
+        "D": "80 is the whole patio with nothing removed."
+      }
+    },
+    {
+      "id": "M02-MA-025",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "numerical expressions—order of operations",
+      "difficulty": "M",
+      "prompt": "What is 18 − 3(4) + 16 ÷ 4?",
+      "choices": {
+        "A": "10",
+        "B": "13",
+        "C": "19",
+        "D": "64"
+      },
+      "correct": "A",
+      "explanation": "Multiply and divide first: 18 − 12 + 4 = 10. 13 and 19 change the operation order, and 64 combines the numbers without precedence.",
+      "misconceptions": "works strictly left to right; ignores implied multiplication",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "5335119a0f4e3f4b",
+      "why": {
+        "B": "13 is not 18 − 12 + 4, which comes to 10.",
+        "C": "19 is what working strictly left to right gives — (18 − 3) × 4 = 60, then + 16 = 76, then ÷ 4 — instead of multiplying and dividing first.",
+        "D": "64 is 16 × 4; that term is divided, not multiplied."
+      }
+    },
+    {
+      "id": "M02-MA-026",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "number properties—prime factorization",
+      "difficulty": "H",
+      "prompt": "Which is the prime factorization of 180?",
+      "choices": {
+        "A": "2 × 3 × 30",
+        "B": "2² × 3² × 5",
+        "C": "2² × 45",
+        "D": "3² × 20"
+      },
+      "correct": "B",
+      "explanation": "180 = 4 × 45 = 2² × 3² × 5, and all factors are prime. 2 × 3 × 30, 2² × 45 and 3² × 20 each still leave a composite factor — 30, 45 and 20 — so none of them is a full prime factorization.",
+      "misconceptions": "stops factor tree early; omits repeated prime",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "a94c55a8c7718b74",
+      "why": {
+        "A": "2 × 3 × 30 does make 180, but 30 is not prime — it is 2 × 3 × 5.",
+        "C": "2² × 45 leaves 45, which is 3 × 3 × 5.",
+        "D": "3² × 20 leaves 20, which is 2 × 2 × 5."
+      }
+    },
+    {
+      "id": "M02-MA-027",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "fractions—fraction of a fraction in context",
+      "difficulty": "H",
+      "prompt": "A class uses 3/5 of 45 sheets of paper. Of the sheets used, 2/3 are blue. How many blue sheets are used?",
+      "choices": {
+        "A": "12",
+        "B": "15",
+        "C": "18",
+        "D": "27"
+      },
+      "correct": "C",
+      "explanation": "3/5 of 45 is 27, and 2/3 of 27 is 18. 27 stops after the first fraction, and 12 and 15 apply the fractions incorrectly.",
+      "misconceptions": "stops after first step; adds fractions",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "0d6dca104fc1a9a5",
+      "why": {
+        "A": "12 is neither step; 3/5 of 45 is 27, and 2/3 of 27 is 18.",
+        "B": "15 is not 2/3 of 27, which comes to 18.",
+        "D": "27 comes from taking 3/5 of 45 and stopping there; two thirds of those 27 are blue."
+      }
+    },
+    {
+      "id": "M02-MA-028",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "measurement—scale drawing conversion",
+      "difficulty": "H",
+      "prompt": "On a drawing, 1 centimeter represents 250 centimeters. A hallway measures 6 centimeters on the drawing. How long is the actual hallway in meters?",
+      "choices": {
+        "A": "1.5 m",
+        "B": "6.25 m",
+        "C": "150 m",
+        "D": "15 m"
+      },
+      "correct": "D",
+      "explanation": "6 × 250 = 1,500 cm = 15 m.",
+      "misconceptions": "scale multiplication error; cm-to-m conversion error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "abaa53cd1d954494",
+      "why": {
+        "A": "1.5 is out by a factor of ten; 1,500 centimeters is 15 meters.",
+        "C": "150 divides 1,500 by 10; a meter is 100 centimeters.",
+        "B": "6.25 is not 1,500 centimeters in meters; 6 × 250 = 1,500, and 1,500 ÷ 100 = 15."
+      }
+    },
+    {
+      "id": "M02-MA-029",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "data—fraction and percent",
+      "difficulty": "M",
+      "prompt": "Twelve of 30 survey responses chose option A. What percent chose option A?",
+      "choices": {
+        "A": "30%",
+        "B": "40%",
+        "C": "60%",
+        "D": "75%"
+      },
+      "correct": "B",
+      "explanation": "12/30 = 2/5 = 40%.",
+      "misconceptions": "denominator-as-percent; reverses selected and unselected",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "54abb8c004a041fd",
+      "why": {
+        "A": "30% is the number of responses, not a percentage of them; 12 out of 30 is 40%.",
+        "C": "60% is the 18 who chose something else; the question asks about the 12.",
+        "D": "75% is not 12 out of 30, which comes to 40%."
+      }
+    },
+    {
+      "id": "M02-MA-030",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "subject": "MA",
+      "skill": "rate—distance per unit time",
+      "difficulty": "M",
+      "prompt": "A train travels 156 miles in 3 hours at a constant speed. What is its speed?",
+      "choices": {
+        "A": "52 mph",
+        "B": "53 mph",
+        "C": "78 mph",
+        "D": "468 mph"
+      },
+      "correct": "A",
+      "explanation": "Speed = 156 ÷ 3 = 52 mph.",
+      "misconceptions": "wrong operation; arithmetic division error",
+      "source": "Original content authored for Sheila ISEE",
+      "form": "M02",
+      "content_hash": "91181d989efd140f",
+      "why": {
+        "B": "53 is one too many — 53 × 3 = 159, not 156.",
+        "C": "78 is 156 ÷ 2; the journey took 3 hours.",
+        "D": "468 is 156 × 3, multiplying the hours in instead of dividing them out."
+      }
+    }
+  ]
+}

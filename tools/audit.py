@@ -22,7 +22,7 @@ def load():
     practice, mock = [], []
     for f in sorted(glob.glob('content/question-banks/*.json')):
         for it in json.load(open(f))['items']:
-            (mock if os.path.basename(f) == 'mock.json' else practice).append(it)
+            (mock if os.path.basename(f).startswith('mock-') else practice).append(it)
     return practice, mock
 
 def norm(s):

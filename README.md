@@ -27,7 +27,7 @@ in `content/calendar*`, and the app's Calendar page is generated from it.
 | | count | where |
 |---|---|---|
 | Practice questions | **1,002** across 8 plan weeks | `content/question-banks/{vr,qr,rc,ma}-*.json` |
-| Mock questions | **508** across 4 papers of 127 | `content/question-banks/mock.json` |
+| Mock questions | **508** across 4 papers of 127 | `content/question-banks/mock-<form>.json`, one file per paper |
 | Reading passages | 52 | `content/passages/` |
 | Precision words | 160 — 20 a week | the bundle's `precision` |
 | Essay prompts | 8 weekly, plus a bank of 12 | the bundle's `essay` |

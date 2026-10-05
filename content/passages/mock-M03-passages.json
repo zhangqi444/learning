@@ -1,0 +1,58 @@
+{
+  "bank": "mock",
+  "form": "M03",
+  "schema_version": "1.0",
+  "content_version": "2026.08.31",
+  "items": [
+    {
+      "id": "M03-RC-P01",
+      "form": "M03",
+      "title": "Messages Across the River",
+      "text": "Before the first permanent bridge crossed Silverbend\nRiver, ferries carried people, animals, and supplies\nbetween the two banks. Because the river bent sharply, a\nboat waiting at one landing could not see whether\npassengers had gathered at the other.\n\nIn 1872, the ferry keeper and a shop owner created a\nsimple signal: a red square raised on a pole meant that\npassengers were waiting, while a white square meant that\nfreight needed space. The flags did not tell the\nferryman exactly how many people or crates were present,\nbut they helped him decide which boat to send.\n\nDuring fog, the system failed because neither bank could\nsee the opposite pole, so workers rang a bell in agreed\npatterns instead. Old account books show fewer\nunnecessary crossings after the signals began. When a\nbridge finally opened, the flags disappeared, yet the\nidea behind them remained familiar: send only the\ninformation needed for the next decision.",
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "lines": true
+    },
+    {
+      "id": "M03-RC-P02",
+      "form": "M03",
+      "title": "Nets That Gather Fog",
+      "text": "In some dry coastal regions, rain is rare even when fog\noften drifts over the hills. Researchers have tested\ntall mesh panels that collect tiny droplets from moving\nfog.\n\nWhen wind pushes fog through the mesh, droplets cling to\nthe fibers, join into larger drops, and slide into a\nchannel below. A pipe then carries the water to a\ncovered tank.\n\nThe method uses no pump while collecting water, but it\nis not effortless. Salt and dust can block the mesh,\nstrong winds can tear it, and long calm periods may\nbring little fog to collect. Designers therefore study\nwind direction, mesh spacing, and local weather before\nchoosing a site. Fog collectors cannot supply every need\nof a large city, yet in suitable places they can provide\nwater for tree seedlings, gardens, or small communities.",
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "lines": true
+    },
+    {
+      "id": "M03-RC-P03",
+      "form": "M03",
+      "title": "The Empty Window Box",
+      "text": "At the community center, each club received a wooden\nwindow box to plant for the spring festival. The chess\nclub chose neat rows of purple flowers, while the\ncooking club planted herbs labeled with tiny signs.\n\nInez's nature club could not agree: some members wanted\nberries for birds, others wanted bright blossoms, and\ntwo wanted to leave room for insects to nest. Their box\nremained empty while everyone argued for a complete\nplan.\n\nOn the final planting day, Inez brought three small\npaper squares and placed them inside the box. “One\nsection for food, one for color, and one left partly\nbare,” she said. The members began arranging plants,\nthen noticed that the sections did not need sharp\nborders; a flowering berry plant could serve two\npurposes at once.\n\nTheir finished box looked less orderly than the chess\nclub's, but birds visited it before the festival opened.\nInez decided that a plan could guide cooperation without\nforcing every useful thing into a single category.",
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "lines": true
+    },
+    {
+      "id": "M03-RC-P04",
+      "form": "M03",
+      "title": "Restoring a Painted Wall",
+      "text": "When workers uncovered a faded mural beneath layers of\nplaster, several colors were barely visible. A restorer\nmight be tempted to repaint every missing shape in\nbright new color, but doing so could replace evidence\nwith guesswork.\n\nInstead, the team first photographed the wall under\ndifferent kinds of light. Certain pigments reflected\ninfrared light differently, revealing outlines hidden\nfrom ordinary view. The team then cleaned a small test\narea and added removable, lightly colored repairs only\nwhere the original pattern was well supported.\n\nFrom across the room, the repairs helped viewers\nunderstand the scene. Up close, however, the new marks\nremained distinguishable from the old paint. This choice\nallowed the mural to be enjoyed without pretending that\nevery detail of its past was known.",
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "lines": true
+    },
+    {
+      "id": "M03-RC-P05",
+      "form": "M03",
+      "title": "A Library of Useful Things",
+      "text": "A neighborhood library once lent only books and\nrecordings, but residents kept asking where they could\nborrow tools used only occasionally. In response, the\nlibrary began a small “library of things” with a drill,\na cake pan, a telescope, and several sewing kits.\n\nThe objects required different rules from books. Staff\nmembers photographed each kit before checkout, labeled\nevery part, and allowed extra time between loans for\ninspection. They also offered short demonstrations\nbecause returning a tool safely matters as much as\nreturning it on time.\n\nAt first, some people predicted the objects would\nquickly vanish or break. A year later, a few parts had\nbeen replaced, but most items remained in use, and the\nwaiting list helped staff decide what to purchase next.\nThe project did not eliminate the need to own everyday\nobjects. It did show that careful sharing can make\nrarely used items available to more people.",
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31",
+      "lines": true
+    }
+  ]
+}

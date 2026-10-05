@@ -1,0 +1,53 @@
+{
+  "bank": "mock",
+  "form": "DGN",
+  "schema_version": "1.0",
+  "content_version": "2026.08.31",
+  "items": [
+    {
+      "id": "DGN-RC-P01",
+      "form": "DGN",
+      "title": "Borrowing from Barnacles",
+      "text": "Engineers often search for ideas in places that do not look like laboratories. One team studied barnacles, small sea animals that fasten themselves to rocks and ship hulls. A barnacle must make its bond while surrounded by moving salt water—a setting in which ordinary glue performs poorly. Researchers studying the animal's natural cement found that it first releases an oily substance that pushes water away from the surface, and only then do its sticky proteins form the bond. The team did not simply collect barnacle cement. Instead, it designed a new material that copied this useful action. In tests, the material joined wet surfaces more effectively than common household adhesives. A future version might help doctors close a wound without using as many stitches. The work illustrates biomimicry: studying a successful feature in nature and adapting its underlying principle to solve a human problem.",
+      "source": "Original content authored for Sheila ISEE — the two-step bond (an oily layer displaces water, then the protein adhesive sets) follows Gohad et al., Nature Communications 5:4414 (2014).",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31"
+    },
+    {
+      "id": "DGN-RC-P02",
+      "form": "DGN",
+      "title": "The Extra Chime",
+      "text": "Every afternoon, Nia swept the floor of her uncle's clock-repair shop. She loved the rows of tiny gears but was allowed only to sort screws and polish cases. One rainy day, a customer returned a clock that chimed thirteen times at noon. Nia's uncle listened, frowned, and began opening the case. Nia noticed a thin lever brushing a wheel after each turn. She almost stayed silent; after all, she was only the helper. Then she pointed to a bright scratch on the lever. Her uncle adjusted it, and the clock chimed twelve times. He did not hand Nia a difficult repair. Instead, he placed a broken alarm clock beside her and asked her to describe what each part might do before touching anything. Nia understood that careful noticing had earned her a new kind of task—and that guessing quickly would not keep it.",
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31"
+    },
+    {
+      "id": "DGN-RC-P03",
+      "form": "DGN",
+      "title": "Messages in the Margins",
+      "text": "Centuries ago, books were copied by hand and could take months to complete. The main text usually received careful attention, but the empty margins sometimes became places for a different kind of record. A reader might correct a copying error, define an unfamiliar word, or argue with an author's claim. Later readers could respond, creating a slow conversation across years. Modern historians value these notes because they reveal not only what people read but also how they reacted. A stain beside a recipe may suggest frequent use, while repeated symbols near one paragraph may show special interest. Such evidence must be interpreted cautiously: a note's writer may be unknown, and a mark may have several explanations. Even so, the margins can turn a surviving book from a container of old words into evidence of many individual encounters with those words.",
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31"
+    },
+    {
+      "id": "DGN-RC-P04",
+      "form": "DGN",
+      "title": "Cooling a City Block",
+      "text": "On a sunny afternoon, a dark roof can become far hotter than the air around it. It absorbs much of the sunlight that strikes it and later releases that energy as heat. Across many buildings, this process contributes to an “urban heat island,” an area where streets and structures keep a neighborhood warmer than nearby land. Some cities are testing pale roof coatings that reflect more sunlight. In one trial, coated buildings required less air-conditioning during the hottest hours. Yet cool roofs are not a complete solution. Trees can shade sidewalks, parks can replace heat-absorbing pavement, and well-designed ventilation can reduce indoor heat. Climate, roof shape, maintenance, and winter heating needs also affect whether a coating is useful. The best plan therefore combines local measurements with several methods rather than treating one bright layer of paint as a universal answer.",
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31"
+    },
+    {
+      "id": "DGN-RC-P05",
+      "form": "DGN",
+      "title": "The Rest in the Music",
+      "text": "During rehearsal, the youth orchestra repeatedly lost its place in a new piece. The loudest section was not the problem. Confusion began in a measure containing three beats of silence. Several players treated the rest as a chance to stop counting, so they entered at slightly different moments. The conductor asked everyone to tap the beat while no notes sounded. At first the tapping seemed unnecessary, but the next entrance was exact. She explained that silence in music is measured, not empty. A rest can build expectation, separate two ideas, or give a melody room to breathe. The students practiced the quiet measure as carefully as the fast passages. By the end, the audience would hear no tapping, of course. What listeners would hear was the result: a confident entrance made possible by musicians who had learned to perform the silence together.",
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.08.31"
+    }
+  ]
+}
