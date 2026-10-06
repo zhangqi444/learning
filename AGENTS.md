@@ -313,6 +313,25 @@ subject. The app says "each set is one sitting" on the page, so *sitting* is her
 `build_seed.py` mirrors this split, so changing `SETSIZE` or the chunking rule silently invalidates
 every migrated result. Do not touch it without re-deriving the seed.
 
+**A week can grow without moving a sitting she has done.** On 5 October 2026 the owner
+asked for each week's work doubled ("did you double the volume of each work for me? … you
+must do it now"), mid-way through Week 5. `chunk()` rebalances a whole week, so adding 37
+Verbal questions to Week 5's 37 would have moved questions between sittings she had already
+sat. Questions added to a planned week live in their own `-plus` bank
+(`content/question-banks/<sub>-weeks5-8-plus.json`), the bundle marks them `x`, and
+`setsFor` gives them sittings of their own after the week's first ones — chunked by the
+same rule, so `build_seed.py` and every result already recorded line up as before. Each
+added question names its `subskill`; the older questions' sub-skills are in
+`content/subskills.json`, beside the banks so no content hash moves.
+
+**Every skill opens its questions.** The owner, the same day, after marking a published
+paper by hand and finding whole topics missing: "to each skill, add link to all the covered
+questions … each skill should be openable and see list of questions". `/skill/<sub>/<name>`
+(`pages/skill.jsx`) lists every bank question whose `skillOf` is that skill, grouped by
+sub-skill, with its week and sitting, her last answer, and the key behind a tap; Practice
+this skill runs up to twelve of them as `again`, which counts as evidence for the reason
+`again` always has. The skills card on a subject page links each name there.
+
 **Every wrong choice is answered.** All 1,510 items carry a `why` per wrong choice, and the
 validator errors on a gap in any bank. This is the property the site is *for*: an explanation can
 only ever describe the correct route, so "perimeter = 2(10+3) = 26" never tells her that the 30 she

@@ -130,10 +130,11 @@ for the writing sample and a number there would measure that she wrote one rathe
 | route | what it is for |
 |---|---|
 | `/` | today — the next set, what is due, the week's checklist |
-| `/s/<subject>/<week>` | a subject's sittings for one plan week |
+| `/s/<subject>/<week>` | a subject's sittings for one plan week, and its skills — each one opens its page |
+| `/skill/<subject>/<skill>` | every question of one skill, grouped by sub-skill, with its week, sitting and how she did; the answer behind a tap; Practice this skill |
 | `/review` | everything a miss has scheduled, by subject, with the cause breakdown |
 | `/mixed` | twelve questions, all four subjects, shuffled — where Proficient becomes Mastered |
-| `/precision/<week>` | the week's 20 words, then a quiz on them |
+| `/precision/<week>` | the week's words (20, or 40 in a doubled week), then a quiz on them |
 | `/essay/<week>` | plan, draft, revise against that week's rubric |
 | `/mock`, `/mock/<form>` | the four papers, timed by section, then corrections by skill |
 | `/mock/TPR` | a paper sat offline: its sections and source, and the scores a parent enters once it is marked |

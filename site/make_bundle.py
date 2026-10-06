@@ -3,10 +3,19 @@
 import glob, json, re, os
 BANKS={'vr':['vr-september.json','vr-weeks5-8.json'],'qr':['qr-september.json','qr-weeks5-8.json'],
        'ma':['ma-september.json','ma-weeks5-8.json'],'rc':['rc-september.json','rc-weeks5-8.json']}
+# A week's work doubled after it was planned (the owner, 5 October 2026: "did you double
+# the volume of each work for me? … you must do it now"): the added questions live in
+# their own `-plus` bank and are marked `x`, so the site gives them sittings of their own
+# after the week's first ones and a sitting she has already done keeps exactly its
+# questions (src/lib/content.js, setsFor).
+PLUS={sub:f'{sub}-weeks5-8-plus.json' for sub in BANKS}
+# The sub-skill of each question written before sub-skills were named, kept beside the
+# banks rather than in them so those questions (and their content hashes) are untouched.
+SUBSKILLS=json.load(open('content/subskills.json'))['items'] if os.path.exists('content/subskills.json') else {}
 out={'version':'2026.09.01','subjects':{},'passages':{}}
 for sub,files in BANKS.items():
     items=[]
-    for f in files:
+    for f in files+([PLUS[sub]] if os.path.exists(f'content/question-banks/{PLUS[sub]}') else []):
         for it in json.load(open(f'content/question-banks/{f}'))['items']:
             m=re.match(r'(W[1-8])', str(it.get('form','')))
             q={'id':it['id'],'w':m.group(1) if m else 'W1','sk':it.get('skill',''),
@@ -21,6 +30,10 @@ for sub,files in BANKS.items():
             # The picture a question is read off (tools/itemspec.py FIGURES;
             # drawn by site/src/components/figure.jsx). Carried only when authored.
             if it.get('figure'): q['f']=it['figure']
+            # The fine-grained sub-skill, where an author named one: a skill's page lists
+            # its questions under these, so what is covered can be read off at a glance.
+            if it.get('subskill') or SUBSKILLS.get(it['id']): q['ss']=it.get('subskill') or SUBSKILLS[it['id']]
+            if f==PLUS[sub]: q['x']=1
             items.append(q)
     items.sort(key=lambda i:(int(i['w'][1:]), i['id']))
     out['subjects'][sub]=items
@@ -31,7 +44,7 @@ def passage_out(p):
     o={'t':p.get('title',''),'x':p['text']}
     if p.get('lines'): o['l']=True
     return o
-for f in ['rc-september-passages.json','rc-weeks5-8-passages.json']:
+for f in ['rc-september-passages.json','rc-weeks5-8-passages.json']+(['rc-weeks5-8-plus-passages.json'] if os.path.exists('content/passages/rc-weeks5-8-plus-passages.json') else []):
     for p in json.load(open(f'content/passages/{f}'))['items']:
         out['passages'][p['id']]=passage_out(p)
 out['weeks']=[{'w':'W1','label':'Aug 31 – Sep 6'},{'w':'W2','label':'Sep 7 – 13'},

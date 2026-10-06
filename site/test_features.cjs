@@ -1668,6 +1668,54 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   drive.body = grewRemote;
 
   check('subject page lists skill levels', (await pg.$$('[data-testid=skills] [data-level]')).length >= 3 && /Proficient|Familiar|Needs work/.test(await body(pg)));
+  /* Every skill opens a page of every question in it (the owner, 5 October 2026: "to
+     each skill, add link to all the covered questions … each skill should be openable
+     and see list of questions"). The counts are read from the bundle, so the page has
+     to list exactly the bank's questions on that skill — no more, no fewer. */
+  console.log('== a skill opens its questions');
+  {
+  const bankCount = (sub, sk) => pg.evaluate(async ([sub, sk]) => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const kind = (it) => sub !== 'vr' ? (it.sk || 'General') : /most nearly means/i.test(it.q) ? 'Synonyms' : /_{3,}/.test(it.q) ? 'Sentence completion' : 'Words in context';
+    return b.subjects[sub].filter((it) => kind(it) === sk).length;
+  }, [sub, sk]);
+  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  { const all = await pg.$('[data-testid=skills] button:has-text("All skills")'); if (all) await all.click(); }
+  const skLinks = await pg.$$eval('[data-testid=skill-link]', (els) => els.map((e) => ({ t: e.textContent.trim(), h: e.getAttribute('href') })));
+  check('every skill on the subject page links to its own page', skLinks.length >= 15 && skLinks.every((l) => l.h === '#/skill/ma/' + encodeURIComponent(l.t)), JSON.stringify(skLinks.slice(0, 3)));
+  await pg.click('[data-testid=skill-link]:text-is("Fractions")'); await pg.waitForSelector('[data-testid=skill-page]');
+  const fracN = Number(await pg.$eval('[data-testid=skill-page]', (e) => e.dataset.n));
+  check('a skill\'s page lists exactly the bank\'s questions on it', fracN > 0 && fracN === await bankCount('ma', 'Fractions'), `${fracN} listed`);
+  await pg.click('[data-testid=skill-open-all]');
+  check('and opening every part shows every one of them', (await pg.$$('[data-testid=skill-question]')).length === fracN);
+  await pg.click('[data-testid=skill-question] >> nth=0 >> [data-testid=skill-question-answer]');
+  const shownQ = await pg.$eval('[data-testid=skill-question] >> nth=0', (e) => ({ id: e.dataset.qid, key: [...e.querySelectorAll('li')].findIndex((li) => li.dataset.key === '1'), why: !!e.querySelector('[data-testid=skill-question-why]') }));
+  const wantKey = await pg.evaluate(async (id) => { const b = await (await fetch('./content/bundle.json')).json(); const it = b.subjects.ma.find((q) => q.id === id); return 'ABCD'.indexOf(it.k); }, shownQ.id);
+  check('a question\'s answer is a tap away, and it is the bank\'s key', shownQ.why && shownQ.key === wantKey, JSON.stringify(shownQ));
+  await pg.evaluate(() => { location.hash = '#/skill/rc/' + encodeURIComponent('Organization/logic'); }); await pg.waitForSelector('[data-testid=skill-page]');
+  check('a skill whose name has a slash in it opens too', Number(await pg.$eval('[data-testid=skill-page]', (e) => e.dataset.n)) === await bankCount('rc', 'Organization/logic'));
+  await pg.click('[data-testid=skill-practice]'); await pg.waitForSelector('[data-testid=question]');
+  const practiceQ = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
+  check('Practice this skill asks a question of that skill', await pg.evaluate(async (id) => { const b = await (await fetch('./content/bundle.json')).json(); const it = b.subjects.rc.find((q) => q.id === id); return !!it && it.sk === 'Organization/logic'; }, practiceQ), practiceQ);
+  /* A week doubled after it was planned: the added questions (x) get sittings of their
+     own after the week's first ones, so a sitting she has done keeps its questions. */
+  const plusPlan = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const wk = b.subjects.vr.filter((i) => i.w === 'W7');   // a week nothing earlier in the suite has sat
+    const base = wk.filter((i) => !i.x), plus = wk.filter((i) => i.x);
+    return { baseSets: Math.ceil(base.length / 12), plusSets: Math.ceil(plus.length / 12), first: base[0] && base[0].id, firstPlus: plus[0] && plus[0].id };
+  });
+  // A full load: the practice run above is still open, and a run asks before it is left.
+  await pg.goto('http://localhost:8143/learning/#/run/vr/W7/0', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=question]');
+  const firstQ = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
+  let plusQ = null;
+  if (plusPlan.plusSets) {
+    await pg.goto('http://localhost:8143/learning/#/run/vr/W7/' + plusPlan.baseSets, { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=question]');
+    plusQ = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
+  }
+  check('a week\'s first sittings keep their questions, and the added ones come after them in sittings of their own',
+    firstQ === plusPlan.first && (!plusPlan.plusSets || plusQ === plusPlan.firstPlus), JSON.stringify({ firstQ, plusQ, plusPlan }));
+  }
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('text=How the number is built');
   check('score page explains the parts and lists subjects', /Accuracy · 30%/.test(await body(pg)) && /comes? from attempts, not accuracy/.test(await body(pg)));
   // checklist carries the new items

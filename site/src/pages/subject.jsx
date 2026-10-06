@@ -2,7 +2,7 @@ import * as React from "react"
 import { ChevronRight, Play } from "lucide-react"
 
 import { D, SETSIZE, SUBJ, currentWeek, itemsFor, nextSet, setAddedAfter, setId, setsFor, subjProgress, weekLabel } from "@/lib/content"
-import { go } from "@/lib/router"
+import { go, href } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { PLACE } from "@/lib/world"
 import { cn } from "@/lib/utils"
@@ -16,6 +16,7 @@ import { LevelBadge } from "@/pages/score"
 import { AopsHint } from "@/components/aops-hint"
 import { aopsFor } from "@/lib/aops"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
+import { skillPath } from "@/pages/skill"
 
 function ScoreBadge({ r, part, n }) {
   /* "Not started" was said about a set with nine answers in it, because the only
@@ -155,7 +156,11 @@ export function SkillsCard({ sub }) {
                       that can wrap without losing anything. */}
                   <TableCell className="font-medium whitespace-normal">
                     <span className="flex flex-col gap-0.5">
-                      <span>{k.sk}{k.overdue ? <span className="text-warning ml-2 text-xs">{k.overdue} due</span> : null}</span>
+                      <span>
+                        {/* Every skill opens its questions (pages/skill.jsx) — the owner, 5 October 2026. */}
+                        <a href={href(skillPath(sub, k.sk))} className="hover:text-primary decoration-muted-foreground/60 underline decoration-dotted underline-offset-4" data-testid="skill-link">{k.sk}</a>
+                        {k.overdue ? <span className="text-warning ml-2 text-xs">{k.overdue} due</span> : null}
+                      </span>
                       <span className="text-muted-foreground text-xs tabular-nums @md/main:hidden" data-testid="skill-now">{now}</span>
                       {weak(k) ? <AopsHint sub={sub} skill={k.sk} inline /> : null}
                     </span>

@@ -26,6 +26,7 @@ import { Quest } from "@/pages/quest"
 import { Rewards } from "@/pages/rewards"
 import { Books } from "@/pages/books"
 import { Import } from "@/pages/import"
+import { SkillPage, SkillRun } from "@/pages/skill"
 import { DriveSettings } from "@/pages/drive"
 
 /** The queue is read once on mount, so finishing the run (which reschedules every item) keeps the score screen up. */
@@ -108,6 +109,13 @@ function Screen({ route }) {
     }
   }
   if (top === "again" && a) return <AgainRun key={"again:" + a} id={a} from={b} />
+  // A skill and every question in it (pages/skill.jsx); the name is URI-encoded, since
+  // "Organization/logic" carries a slash the router would otherwise split on.
+  if (top === "skill" && SUBJ[a] && b) {
+    let sk = b
+    try { sk = decodeURIComponent(b) } catch { /* a hand-typed name: use it as written */ }
+    return c === "practice" ? <SkillRun key={`skillrun:${a}:${sk}`} sub={a} sk={sk} /> : <SkillPage key={`skill:${a}:${sk}`} sub={a} sk={sk} />
+  }
   if (top === "review" && SUBJ[a]) return <ReviewRun key={`rev:${a}:${b || ""}`} sub={a} mode={b} />
   if (top === "review") return <Review />
   if (top === "precision" && a && D.precision[a] && b === "quiz") return <VocabRun key={"vocab:" + a} wk={a} />

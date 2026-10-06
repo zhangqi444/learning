@@ -76,6 +76,12 @@ function crumbs(route, zhImport) {
        "B:2026-09-21", and that is what the trail then said she was looking at.
        Ask the plan what the span is called instead of assuming the key is it. */
     else if (a) out.push({ label: (spanById(a) || {}).name || a, path: `/checklist/${a}` })
+  } else if (top === "skill" && SUBJ[a] && b) {
+    let sk = b
+    try { sk = decodeURIComponent(b) } catch { /* as typed */ }
+    out.push({ label: SUBJ[a].name, path: "/s/" + a })
+    out.push({ label: sk, path: `/skill/${a}/${b}` })
+    if (c === "practice") out.push({ label: "Practice", path: `/skill/${a}/${b}/practice` })
   } else if (top === "drive") {
     out.push({ label: "Drive settings", path: "/drive" })
   } else if (top === "import") {

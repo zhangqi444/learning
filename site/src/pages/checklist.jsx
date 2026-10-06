@@ -50,12 +50,14 @@ export function weekItems(wk) {
   for (const s of ORDER) {
     if (s === "vr" && D.precision && D.precision[wk]) {
       const ps = precisionSummary(wk)
-      items.push({ id: `prec:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: "Precision review", label: "Session 1 · Precision review — 20 words in your own words", sub: "20–25 min", done: ps.submitted, path: `/precision/${wk}`, auto: true })
+      // The week's own count: Weeks 5–8 carry 40 words since the owner doubled them (5 October 2026).
+      const nWords = (D.precision[wk].words || []).length
+      items.push({ id: `prec:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: "Precision review", label: `Session 1 · Precision review — ${nWords} words in your own words`, sub: D.precision[wk].minutes || "20–25 min", done: ps.submitted, path: `/precision/${wk}`, auto: true })
       /* Words with vocabulary evidence on them — from the quiz or from the wood,
        * which write the same thing on purpose, so either one answers for both. */
       const wordList = D.precision[wk].words || []
       const called = wordList.filter((e) => { const r = rec("w:" + e.word); return r && (r.hist || []).some((h) => h.ctx === "vocab") }).length
-      items.push({ id: `quiz:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: "Word quiz", label: "Word quiz — the same 20 words as ISEE synonym questions", sub: "a day after Session 1", done: called > 0, path: `/precision/${wk}/quiz`, auto: true })
+      items.push({ id: `quiz:${wk}`, group: SUBJ.vr.name, tag: SUBJ.vr.short, short: "Word quiz", label: `Word quiz — the same ${nWords} words as ISEE synonym questions`, sub: "a day after Session 1", done: called > 0, path: `/precision/${wk}/quiz`, auto: true })
       /* The Wordwood, once the week has actually given her cats to call. It is
        * `auto: false` on purpose: it produces exactly the same vocabulary
        * evidence as the quiz, so making it a sixteenth obligation would be
