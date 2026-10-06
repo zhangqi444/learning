@@ -331,9 +331,26 @@ added question names its `subskill`; the older questions' sub-skills are in
 paper by hand and finding whole topics missing: "to each skill, add link to all the covered
 questions … each skill should be openable and see list of questions". `/skill/<sub>/<name>`
 (`pages/skill.jsx`) lists every bank question whose `skillOf` is that skill, grouped by
-sub-skill, with its week and sitting, her last answer, and the key behind a tap; Practice
+sub-skill, with its week and sitting, her answers on it, and the key behind a tap; Practice
 this skill runs up to twelve of them as `again`, which counts as evidence for the reason
 `again` always has. The skills card on a subject page links each name there.
+
+**A skill and a word are counted one way.** The owner, 6 October 2026: "to the skills, should
+follow the vocabulary list, to see more statistic data? or can you make the two features more
+consistent". They had each counted for themselves — the word page added up her evidence, the
+skill page read the last line of a question's history, corrections and stand-in answers
+included — so one answer could be "right last time" on a skill and not counted at all on the
+word it tests. `lib/tally.js` is now the only counter: `answersOn` (the rule below — `LEARN_CTX`,
+no `via`), `questionResult` (one question: done, right, wrong, last) and `tally` (many: questions,
+tried, missed, done, right, wrong, last). `components/tally.jsx` draws them, so the shapes match
+too: the same stats header on a word's page and a skill's (questions, answers she gave, right,
+wrong, last answered), the same line on every question, the same filter buttons, and one list
+row for the word bank and for a subject's skills card — which is now that list, with Level as
+its last column and Practiced · Missed · Not tried yet · All skills above it. A skill's page
+narrows its questions by All · Tried · Missed · Not tried yet. The mastery ladder still reads the
+record its own way (`skillLevel`, every evidence answer including `via`, latest per question),
+because it asks where each question stands now, not how many answers she gave. Wrong counts are
+plain text, never red: red means due now, and a count of wrong answers only ever grows.
 
 **Every word opens its questions.** The owner, 6 October 2026: "each words i need to how its
 covered by questions … track the result, so we know to each words how well we covered, if
@@ -352,7 +369,8 @@ are read off the questions by `lib/vocab.js`, never kept in a list beside them:
 Inflections fold onto the plain form only when the plain form is in the bank. Each half of a
 paired list entry folds onto the entry. Nothing else is merged. The counts are her record's
 answers under `LEARN_CTX`, minus any answer a stand-in wrote onto the question (`via`): that
-answer was given to a different question with different words in it. The precision card links
+answer was given to a different question with different words in it. They are counted by
+`lib/tally.js`, the same counter the skill pages use (above). The precision card links
 to a word's page only after she has asked for the meaning, because the page opens with it.
 
 **Every word on her lists is asked three ways.** The bank showed most list words asked by one
@@ -417,6 +435,16 @@ do today. Two rules inside it are decisions, not arithmetic: an overdue pile jum
 half of it is late, because it is the one lever that works the same afternoon; and **essays are
 counted beside the number and never inside it**, because the ISEE returns no score for the writing
 sample and a number there would measure that she wrote one rather than how well.
+
+**Vocabulary is shown beside the number too, and for a different reason: it is already in it.**
+The owner asked on 6 October 2026, "vacabulary should be part of scoring?". The questions that
+test a word sit inside the sets, mixed sets and mocks that Accuracy and Skill mastery read, and a
+word quiz or a Wordwood gate moves Review health and Consistency. The Score page's Vocabulary
+card (`vocabStanding()` in `lib/vocab.js`) counts the words on their own — list words explained,
+quizzed right the last time, known; words tested, answered, her right rate, words missed — by the
+word bank's own rules, so each number equals the button that lists those words. It changes
+nothing in `readiness()`. Whether vocabulary becomes a seventh part is the owner's decision; the
+risk to weigh is counting the same Verbal answers twice, once in Accuracy and once as words.
 
 **The four mocks are not four of the same thing.** The diagnostic is split across two sittings
 because it is a baseline and not an endurance test; the three later papers are single-sitting

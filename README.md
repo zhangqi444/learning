@@ -131,24 +131,27 @@ the largest shortfall so there is something to do next:
 
 Essays are counted **beside** the number and never inside it, because the ISEE returns no score
 for the writing sample and a number there would measure that she wrote one rather than how well.
+Vocabulary is shown beside it too, for a different reason: the questions that test a word are
+already inside Accuracy and Skill mastery, so a part of its own risks counting the same Verbal
+answers twice. Whether it should have one is the owner's decision.
 
 ## The surfaces
 
 | route | what it is for |
 |---|---|
 | `/` | today — the next set, what is due, the week's checklist |
-| `/s/<subject>/<week>` | a subject's sittings for one plan week, and its skills — each one opens its page |
-| `/skill/<subject>/<skill>` | every question of one skill, grouped by sub-skill, with its week, sitting and how she did; the answer behind a tap; Practice this skill |
+| `/s/<subject>/<week>` | a subject's sittings for one plan week, and its skills as one list in the word bank's shape — questions, done, right, wrong, last and level, narrowed to practised, missed or not tried yet — each one opening its page |
+| `/skill/<subject>/<skill>` | every question of one skill, grouped by sub-skill, with its week, sitting and her answers on it, under the same numbers a word's page opens with; narrowed to tried, missed or not tried yet; the answer behind a tap; Practice this skill |
 | `/review` | everything a miss has scheduled, by subject, with the cause breakdown |
 | `/mixed` | twelve questions, all four subjects, shuffled — where Proficient becomes Mastered |
 | `/precision/<week>` | the week's words (20, or 40 in a doubled week), then a quiz on them |
-| `/vocab` | every word the questions teach or test: the questions that cover it, and how many times she answered them, right and wrong |
+| `/vocab` | every word the questions teach or test: the questions that cover it, and how many times she answered them, right and wrong, and when last — counted as a skill's are |
 | `/vocab/<word>` | one word: its meaning, each question that asks it and each that offers it as a wrong choice, with her answers on every one |
 | `/essay/<week>` | plan, draft, revise against that week's rubric |
 | `/mock`, `/mock/<form>` | the four papers, timed by section, then corrections by skill |
 | `/mock/TPR` | a paper sat offline: its sections and source, and the scores a parent enters once it is marked |
 | `/mock/add`, `/mock/P…` | a paper a parent adds: its PDF (kept in her own Drive folder) or a link, her scores, the questions she missed filed under skills, and what she has redone from the booklet |
-| `/score` | readiness, its six parts, and the trend across weeks |
+| `/score` | readiness, its six parts, and the trend across weeks; beside the number, her essays and how her words stand |
 | `/calendar` | the real exam dates, registration cutoffs and application deadlines |
 | `/books` | the independent-reading log — titles chosen for the skills the ISEE tests, but kept out of the readiness score |
 

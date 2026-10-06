@@ -1581,8 +1581,9 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   }, seeded);
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  // The skills card is the word bank's list now (components/tally.jsx), one row per skill.
   const mastered = await pg.evaluate((sk) => {
-    const row = [...document.querySelectorAll('[data-testid=skills] tr')].find((r) => (r.textContent || '').includes(sk));
+    const row = [...document.querySelectorAll('[data-testid=skill-row]')].find((r) => r.dataset.sk === sk);
     return row ? (row.textContent || '').replace(/\s+/g, ' ').trim() : null;
   }, seeded.sk);
   check('and one more promotion is exactly what it took — the engine agrees with the page',
@@ -1685,7 +1686,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     return b.subjects[sub].filter((it) => kind(it) === sk).length;
   }, [sub, sk]);
   await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
-  { const all = await pg.$('[data-testid=skills] button:has-text("All skills")'); if (all) await all.click(); }
+  await pg.click('[data-testid=skills-show-all]');
   const skLinks = await pg.$$eval('[data-testid=skill-link]', (els) => els.map((e) => ({ t: e.textContent.trim(), h: e.getAttribute('href') })));
   check('every skill on the subject page links to its own page', skLinks.length >= 15 && skLinks.every((l) => l.h === '#/skill/ma/' + encodeURIComponent(l.t)), JSON.stringify(skLinks.slice(0, 3)));
   await pg.click('[data-testid=skill-link]:text-is("Fractions")'); await pg.waitForSelector('[data-testid=skill-page]');
@@ -1761,6 +1762,139 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   }
   await pg.evaluate(() => { location.hash = '#/vocab/futile'; }); await pg.waitForSelector('[data-testid=word-page], [data-testid=word-page-missing]');
   check('a phrase completion is filed under the word its sentence turns on', !!vw.futile && !!(await pg.$(`[data-testid=vocab-question][data-qid="${vw.futile}"][data-role=asked]`)), vw.futile);
+  }
+  {
+  /* A skill and a word count her answers one way (lib/tally.js), and show them in the same
+     shapes (components/tally.jsx). The owner, 6 October 2026: "to the skills, should follow the
+     vocabulary list, to see more statistic data? or can you make the two features more
+     consistent". Every number is held to her record, read by the rule the review runs on: an
+     answer in a context that is evidence, given to that question — never a corrections pass,
+     and never an answer a review stand-in wrote onto the question it stood in for (`via`). The
+     record and the page are read in one synchronous turn, after the bundle has arrived, so a
+     Drive merge cannot land between the two. Only reads: nothing here writes history. */
+  console.log('== a skill and a word count her answers the same way');
+  await pg.goto('http://localhost:8143/learning/#/s/ma', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.click('[data-testid=skills-show-all]'); await pg.waitForSelector('[data-testid=skills-show-all][aria-pressed=true]');
+  const skList = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const C = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 };
+    const own = (id) => ((s.items[id] || {}).hist || []).filter((h) => h && C[h.ctx] && !h.via);
+    const want = {};
+    for (const it of b.subjects.ma) {
+      const w = want[it.sk || 'General'] || (want[it.sk || 'General'] = { q: 0, d: 0, r: 0, w: 0 });
+      const hs = own(it.id); w.q++; w.d += hs.length; w.r += hs.filter((h) => h.ok).length; w.w += hs.filter((h) => !h.ok).length;
+    }
+    const rows = [...document.querySelectorAll('[data-testid=skill-row]')].map((e) => ({ sk: e.dataset.sk, q: +e.dataset.questions, d: +e.dataset.done, r: +e.dataset.right, w: +e.dataset.wrong }));
+    const off = rows.filter((x) => !want[x.sk] || ['q', 'd', 'r', 'w'].some((k) => want[x.sk][k] !== x[k]));
+    return { n: rows.length, skills: Object.keys(want).length, done: rows.reduce((a, x) => a + x.d, 0),
+      off: off.map((x) => `${x.sk}: page ${JSON.stringify(x)} record ${JSON.stringify(want[x.sk])}`) };
+  });
+  check('every skill on a subject page lists its questions and her answers on them, as her record has them',
+    skList.n === skList.skills && skList.done > 0 && skList.off.length === 0, skList.off.join(' | ') || `${skList.n} skills, ${skList.done} answers`);
+  const skShows = {};
+  for (const id of ['practiced', 'missed', 'untried']) {
+    await pg.click(`[data-testid=skills-show-${id}]`); await pg.waitForSelector(`[data-testid=skills-show-${id}][aria-pressed=true]`);
+    skShows[id] = await pg.evaluate((x) => ({ n: +document.querySelector(`[data-testid=skills-show-${x}]`).dataset.n,
+      rows: [...document.querySelectorAll('[data-testid=skill-row]')].map((e) => ({ d: +e.dataset.done, w: +e.dataset.wrong })) }), id);
+  }
+  check('and its filters keep what they say, as many as their buttons count: Practiced answered, Missed answered wrong, Not tried yet untouched',
+    Object.values(skShows).every((x) => x.rows.length === x.n) && skShows.practiced.n > 0 && skShows.missed.n > 0
+      && skShows.practiced.rows.every((x) => x.d > 0) && skShows.missed.rows.every((x) => x.w > 0) && skShows.untried.rows.every((x) => x.d === 0),
+    Object.entries(skShows).map(([k, v]) => `${k} ${v.n}/${v.rows.length}`).join(' · '));
+  await pg.click('[data-testid=skills-show-all]');
+  await pg.click('[data-testid=skill-link]:text-is("Fractions")'); await pg.waitForSelector('[data-testid=skill-stats]');
+  const frac = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const C = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 };
+    const own = (id) => ((s.items[id] || {}).hist || []).filter((h) => h && C[h.ctx] && !h.via);
+    const res = b.subjects.ma.filter((it) => it.sk === 'Fractions').map((it) => { const hs = own(it.id), r = hs.filter((h) => h.ok).length; return { id: it.id, d: hs.length, r, w: hs.length - r }; });
+    const sum = (k) => res.reduce((a, x) => a + x[k], 0);
+    const head = document.querySelector('[data-testid=skill-stats]').dataset;
+    const btn = (id) => +document.querySelector(`[data-testid=skill-show-${id}]`).dataset.n;
+    return {
+      want: { q: res.length, d: sum('d'), r: sum('r'), w: sum('w') },
+      head: { q: +head.questions, d: +head.done, r: +head.right, w: +head.wrong },
+      buttons: { all: btn('all'), tried: btn('tried'), missed: btn('missed'), untried: btn('untried') },
+      counts: { all: res.length, tried: res.filter((x) => x.d).length, missed: res.filter((x) => x.w).length, untried: res.filter((x) => !x.d).length },
+      res,
+    };
+  });
+  check("a skill's page opens on a word page's numbers — questions, answers she gave, right, wrong — as her record has them",
+    frac.want.q > 0 && frac.want.d > 0 && JSON.stringify(frac.head) === JSON.stringify(frac.want), JSON.stringify({ head: frac.head, record: frac.want }));
+  check('and its filters count her questions from the same answers', JSON.stringify(frac.buttons) === JSON.stringify(frac.counts),
+    JSON.stringify({ buttons: frac.buttons, record: frac.counts }));
+  await pg.click('[data-testid=skill-show-missed]'); await pg.waitForSelector('[data-testid=skill-show-missed][aria-pressed=true]');
+  const missRows = await pg.$$eval('[data-testid=skill-question]', (els) => els.map((e) => ({ id: e.dataset.qid, d: +e.dataset.done, r: +e.dataset.right, w: +e.dataset.wrong })));
+  const missWant = frac.res.filter((x) => x.w);
+  check('Missed opens the parts that hold a miss and lists exactly the questions she has answered wrong, each with its own answers',
+    missWant.length > 0 && missRows.length === missWant.length
+      && missRows.every((x) => { const y = frac.res.find((q) => q.id === x.id); return !!y && y.w > 0 && y.d === x.d && y.r === x.r && y.w === x.w; }),
+    `${missRows.length} listed, ${missWant.length} in her record`);
+  /* One question, two pages. A synonym is asked on its word's page and on the Synonyms skill's,
+     and both rows have to say the same thing. Taken, where there is one, from a question a review
+     credited through its stand-ins earlier in this suite, so the `via` answers are in its record
+     and both pages are seen to leave them out. */
+  const pair = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const C = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 };
+    const all = (id) => ((s.items[id] || {}).hist || []).filter((h) => h && C[h.ctx]);
+    const own = (id) => all(id).filter((h) => !h.via);
+    const syn = b.subjects.vr.map((it) => ({ it, m: /^\s*([A-Z][A-Z'’\- ]*[A-Z])\s+most nearly means/.exec(it.q) })).filter((x) => x.m && own(x.it.id).length);
+    const x = syn.find((y) => all(y.it.id).length > own(y.it.id).length) || syn[0];
+    if (!x) return null;
+    const hs = own(x.it.id), r = hs.filter((h) => h.ok).length;
+    return { id: x.it.id, word: x.m[1].toLowerCase(), d: hs.length, r, w: hs.length - r, withVia: all(x.it.id).length };
+  });
+  check('the suite has an answered synonym to read on both pages', !!pair, JSON.stringify(pair));
+  if (pair) {
+    const rowOf = (sel, line) => pg.$eval(sel, (e, l) => ({ d: +e.dataset.done, r: +e.dataset.right, w: +e.dataset.wrong, line: (e.querySelector(`[data-testid=${l}]`) || {}).textContent }), line);
+    await pg.evaluate((w) => { location.hash = '#/vocab/' + encodeURIComponent(w); }, pair.word);
+    await pg.waitForSelector(`[data-testid=vocab-question][data-qid="${pair.id}"]`);
+    const onWord = await rowOf(`[data-testid=vocab-question][data-qid="${pair.id}"]`, 'vocab-question-result');
+    await pg.evaluate(() => { location.hash = '#/skill/vr/Synonyms'; }); await pg.waitForSelector('[data-testid=skill-show-tried]');
+    await pg.click('[data-testid=skill-show-tried]');
+    await pg.waitForSelector(`[data-testid=skill-question][data-qid="${pair.id}"]`);
+    const onSkill = await rowOf(`[data-testid=skill-question][data-qid="${pair.id}"]`, 'skill-question-result');
+    check("one question reads the same on its word's page and on its skill's page, and neither counts what a stand-in wrote onto it",
+      onWord.d === pair.d && onWord.r === pair.r && onWord.w === pair.w && JSON.stringify(onWord) === JSON.stringify(onSkill),
+      JSON.stringify({ pair, onWord, onSkill }) + (pair.withVia > pair.d ? ' · stand-in answers left out' : ' · no stand-in answer on it'));
+  }
+  /* Vocabulary on the Score page, beside the number and not in it. Each count is the word
+     bank's own, so it has to equal the number on the button that lists those words; the quiz
+     line is read off her record; and the readiness number keeps its six parts. */
+  await pg.evaluate(() => { location.hash = '#/vocab'; }); await pg.waitForSelector('[data-testid=vocab-show-lists]');
+  const chips = await pg.evaluate(() => ({
+    ...Object.fromEntries([...document.querySelectorAll('[data-testid^=vocab-show-]')].map((e) => [e.dataset.testid.slice('vocab-show-'.length), +e.dataset.n])),
+    answered: +((/answered questions on (\d+) of them/.exec(document.querySelector('[data-testid=vocab-summary]').textContent) || [])[1]),
+  }));
+  await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('[data-testid=vocab-standing]');
+  const standing = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const C = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 };
+    const first = new Map();
+    for (const wk of Object.keys(b.precision)) for (const e of b.precision[wk].words) { const k = String(e.word).toLowerCase().trim(); if (!first.has(k)) first.set(k, e.word); }
+    let quizRight = 0;
+    for (const w of first.values()) { const hs = ((s.items['w:' + w] || {}).hist || []).filter((h) => h && C[h.ctx] && !h.via); if (hs.length && hs[hs.length - 1].ok) quizRight++; }
+    const card = document.querySelector('[data-testid=vocab-standing]');
+    const parts = [...document.querySelector('[data-testid=score-parts]').children].map((li) => (li.textContent || '').replace(/\s+/g, ' '));
+    return { card: { ...card.dataset }, text: card.textContent, record: { lists: first.size, quizRight }, parts };
+  });
+  const sc = standing.card;
+  check("the Score page counts her words by the word bank's rules: each number is the one on that list's button",
+    +sc.lists === chips.lists && +sc.tested === chips.tested && +sc.missed === chips.missed && +sc.answered === chips.answered && +sc.lists === standing.record.lists,
+    JSON.stringify({ card: { lists: sc.lists, tested: sc.tested, missed: sc.missed, answered: sc.answered }, chips }));
+  check('and a list word counts as quizzed right when her last answer on its quiz was right', +sc.quizRight === standing.record.quizRight && +sc.known <= +sc.lists,
+    `card ${sc.quizRight}, record ${standing.record.quizRight}, known ${sc.known}`);
+  check('vocabulary sits beside the readiness number, not in it: still six parts, none of them words',
+    standing.parts.length === 6 && standing.parts.every((p) => !/vocab|word/i.test(p)) && /No part of its own in the readiness number/.test(standing.text),
+    standing.parts.join(' | '));
+  const toBank = await pg.click('[data-testid=vocab-standing-open]')
+    .then(() => pg.waitForSelector('[data-testid=vocab-page]', { timeout: 10000 })).then(() => true).catch(() => false);
+  check('and its link opens the word bank', toBank, await pg.evaluate(() => location.hash));
   }
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('text=How the number is built');
   check('score page explains the parts and lists subjects', /Accuracy · 30%/.test(await body(pg)) && /comes? from attempts, not accuracy/.test(await body(pg)));

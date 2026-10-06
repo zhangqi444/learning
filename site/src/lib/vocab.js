@@ -19,12 +19,15 @@
  * onto "stifle"), and each half of a paired list entry ("imply / infer") onto the entry, the
  * way the Wordwood files them. Nothing else is guessed: "hasty" and "hastily" stay two words.
  *
- * Her results come from the record the review runs on and count the answers it counts
- * (LEARN_CTX). A corrections pass re-asks a question whose answer she has just been shown,
- * and an answer written onto a question by the stand-in that asked in its place (`via`) was
- * given to a different question, with different words in it — neither is counted here. */
+ * Her results come from the record the review runs on, counted by lib/tally.js — the same
+ * counting the skill pages use, so a word and a skill can never disagree about an answer. A
+ * corrections pass re-asks a question whose answer she has just been shown, and an answer
+ * written onto a question by the stand-in that asked in its place (`via`) was given to a
+ * different question, with different words in it — neither is counted. */
 import { D, LTR, keyOf } from "@/lib/content"
-import { LEARN_CTX, rec } from "@/lib/engine"
+import { wordStatus } from "@/lib/engine"
+import { Store } from "@/lib/store"
+import { answersOn, questionResult, tally } from "@/lib/tally"
 
 const SYN = /^\s*([A-Z][A-Z'’\- ]*[A-Z])\s+most nearly means/
 const CTX = /\b([A-Z][A-Z'’-]{2,})\s+means\s*:/
@@ -128,28 +131,70 @@ export function vocabWord(name) {
   return null
 }
 
-const ts = (a) => (typeof a === "number" ? a : Date.parse(a) || 0)
-/** The answers that count, on one question: given to it, and in a context that is evidence. */
-function evidence(id) { return ((rec(id) || {}).hist || []).filter((h) => h && LEARN_CTX[h.ctx] && !h.via) }
-
-/** One question's part in a word: answered how often, how, and — for a wrong choice — how
- *  often she chose this word. */
+/** One question's part in a word: her answers on it (`questionResult`) — and, for a wrong
+ *  choice, how often she answered the question and how often she chose this word. */
 export function refResult(ref) {
-  const hs = evidence(ref.id)
-  if (ref.role === "choice") return { seen: hs.length, chose: hs.filter((h) => !h.ok && h.pick === ref.letter).length }
-  const right = hs.filter((h) => h.ok).length
-  return { done: hs.length, right, wrong: hs.length - right, last: hs.length ? hs[hs.length - 1] : null }
-}
-/** A word's whole record: how many questions test it, and her answers on them. */
-export function wordResult(v) {
-  const out = { tests: 0, choices: 0, done: 0, right: 0, wrong: 0, chose: 0, last: null }
-  for (const r of v.refs) {
-    const x = refResult(r)
-    if (r.role === "choice") { out.choices++; out.chose += x.chose; continue }
-    out.tests++; out.done += x.done; out.right += x.right; out.wrong += x.wrong
-    if (x.last && (!out.last || ts(x.last.at) > ts(out.last.at))) out.last = x.last
+  if (ref.role === "choice") {
+    const hs = answersOn(ref.id)
+    return { seen: hs.length, chose: hs.filter((h) => !h.ok && h.pick === ref.letter).length }
   }
+  return questionResult(ref.id)
+}
+/** A word's whole record: the questions that test it, tallied as a skill's are (`questions`,
+ *  `tried`, `done`, `right`, `wrong`, `last`; `tests` is `questions` under its older name), and
+ *  the completions that offer it as a wrong answer, with how often she chose it there. */
+export function wordResult(v) {
+  const t = tally(v.refs.filter((r) => r.role !== "choice").map((r) => r.id))
+  const out = { ...t, tests: t.questions, choices: 0, chose: 0 }
+  for (const r of v.refs) if (r.role === "choice") { out.choices++; out.chose += refResult(r).chose }
   return out
+}
+
+/** The ways the word bank can be narrowed, in the order its buttons show them. "Tested" first:
+ *  a word that is only ever a wrong answer ("above", "absorbs") is in a question without being
+ *  taught by it, and 537 of them ahead of the real list buried it. `r` is `wordResult(v)`. */
+export const WORD_SHOWS = [
+  { id: "tested", label: "Tested", keep: (v, r) => r.tests > 0 },
+  { id: "lists", label: "On her lists", keep: (v) => v.lists.length > 0 },
+  { id: "missed", label: "Missed", keep: (v, r) => r.wrong > 0 || r.chose > 0 },
+  { id: "untried", label: "Not tried yet", keep: (v, r) => r.tests > 0 && r.done === 0 },
+  { id: "choice", label: "Only a wrong answer", keep: (v, r) => r.tests === 0 },
+  { id: "all", label: "All", keep: () => true },
+]
+const wordShow = (id) => WORD_SHOWS.find((s) => s.id === id).keep
+
+/** Her own explanation of a list word, from the precision page of any list it is on. */
+export function ownWords(v) {
+  if (!v || !v.entry) return null
+  const mine = v.lists.map((w) => (((Store.s.precision || {})[w] || {}).words || {})[v.entry.word])
+  return mine.find((x) => x && x.text && String(x.text).trim()) || null
+}
+
+/** How her words stand, for the Score page. The words on her lists by how far along each is —
+ *  explained in her own words, its quiz answered right the last time it was asked, known (the
+ *  precision page's own rule, `wordStatus`) — and the words the questions test, by her answers on
+ *  them. Each count is made by the word bank's own rules (WORD_SHOWS), so it is the number on the
+ *  button that lists those words; the answers are tallied once per question, so a question that
+ *  tests two words is not counted twice. */
+export function vocabStanding() {
+  const rows = vocabIndex().list.map((v) => ({ v, r: wordResult(v) }))
+  const lists = rows.filter(({ v, r }) => wordShow("lists")(v, r))
+  const tested = rows.filter(({ v, r }) => wordShow("tested")(v, r))
+  const quizRight = (v) => { const q = questionResult("w:" + v.entry.word); return !!(q.last && q.last.ok) }
+  return {
+    lists: {
+      words: lists.length,
+      explained: lists.filter(({ v }) => ownWords(v)).length,
+      quizRight: lists.filter(({ v }) => quizRight(v)).length,
+      known: lists.filter(({ v }) => wordStatus(v.entry.word).status === "known").length,
+    },
+    tested: {
+      ...tally(tested.flatMap(({ v }) => v.refs.filter((x) => x.role !== "choice").map((x) => x.id))),
+      words: tested.length,
+      answered: tested.filter(({ r }) => r.done > 0).length,
+    },
+    missed: rows.filter(({ v, r }) => wordShow("missed")(v, r)).length,
+  }
 }
 /** What a word means, as far as the site says: its list entry, or the answer of the first
  *  synonym question that asks it. */

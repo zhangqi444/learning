@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ArrowRight, Flame, PenLine, Sparkles, Trophy } from "lucide-react"
+import { ArrowRight, Flame, Library, PenLine, Sparkles, Trophy } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import { ORDER, SUBJ } from "@/lib/content"
@@ -9,6 +9,8 @@ import { LEVELS, effortPoints, readiness, readinessHistory, skillsFor, thisWeekR
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
+import { vocabStanding } from "@/lib/vocab"
+import { Stat } from "@/components/tally"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
@@ -143,6 +145,58 @@ function Band({ R }) {
 
 const histConfig = { score: { label: "Readiness", color: "var(--primary)" } }
 
+/** How her words stand, beside the number and not inside it — the owner, 6 October 2026:
+ *  "vocabulary should be part of scoring?". Whether it should be a seventh part is the owner's
+ *  call, and changing the readiness weights is a decision with reasons attached (AGENTS.md), so
+ *  this shows the words and changes nothing: the number is read the same before and after.
+ *  It says where vocabulary already reaches the number, because it does — the questions that
+ *  test a word sit inside the sets, mixed sets and mocks that Accuracy and Skill mastery read,
+ *  and a word quiz or a Wordwood gate moves Review health and Consistency — and a card that
+ *  implied the number had never looked at a word would be wrong the other way. Every count is
+ *  the word bank's own (lib/vocab.js, vocabStanding), so it matches the button that lists it. */
+function VocabStanding() {
+  const V = vocabStanding(), L = V.lists, T = V.tested
+  const pct = T.done ? `${Math.round((T.right / T.done) * 100)}%` : "—"
+  return (
+    <Card data-testid="vocab-standing" data-lists={L.words} data-explained={L.explained} data-quiz-right={L.quizRight} data-known={L.known}
+      data-tested={T.words} data-answered={T.answered} data-missed={V.missed} data-done={T.done} data-right={T.right}>
+      <CardHeader>
+        <CardDescription className="flex items-center gap-2"><Library className="size-4" /> Vocabulary</CardDescription>
+        <CardTitle className="text-xl tabular-nums">{L.known} of {L.words} list words known</CardTitle>
+        <CardDescription>
+          <b className="text-foreground font-semibold">No part of its own in the readiness number.</b>{" "}
+          The questions that test a word are already in it — inside the sets, mixed sets and mocks that Accuracy and Skill mastery read — and a word quiz or a Wordwood gate counts in Review health and Consistency. Here the words are counted on their own.
+        </CardDescription>
+        <CardAction><Button size="sm" variant="ghost" onClick={() => go("/vocab")} data-testid="vocab-standing-open">Every word <ArrowRight /></Button></CardAction>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-5">
+        <div className="flex flex-col gap-2">
+          <div className="text-muted-foreground text-xs font-medium">On her weekly lists</div>
+          <div className="grid grid-cols-2 gap-4 @md/main:grid-cols-4">
+            <Stat n={L.words} label="words on her lists" />
+            <Stat n={L.explained} label="explained in her own words" />
+            <Stat n={L.quizRight} label="quiz right the last time" />
+            <Stat n={L.known} label="known" tone={L.known ? "text-success" : undefined} />
+          </div>
+        </div>
+        <div className="flex flex-col gap-2">
+          <div className="text-muted-foreground text-xs font-medium">In the questions</div>
+          <div className="grid grid-cols-2 gap-4 @md/main:grid-cols-4">
+            <Stat n={T.words} label="words tested by a question" />
+            <Stat n={T.answered} label="answered at least once" />
+            <Stat n={pct} label={T.done ? `right, of ${T.done} answers` : "right — no answers yet"} tone={T.done ? undefined : "text-muted-foreground"} />
+            <Stat n={V.missed} label="words missed" />
+          </div>
+        </div>
+      </CardContent>
+      <CardFooter className="text-muted-foreground flex-col items-start gap-1 text-xs">
+        <span>Known is the precision page's own rule: explained in her own words and rated 2 or 3, then its quiz answered right on a different day. Missed: a question on the word answered wrong, or the word chosen as a wrong answer.</span>
+        <span>Counted as the word bank counts, so each number is the one on its button there. Each answer counts once — from sets, reviews, mocks, the word quiz and the Wordwood — and never from a corrections pass, where she has just seen the answer.</span>
+      </CardFooter>
+    </Card>
+  )
+}
+
 export function Score() {
   useStore()
   const R = readiness()
@@ -190,6 +244,8 @@ export function Score() {
           <span>Source: admission.org/assessments/isee/score-reports and E3n's 2026–27 ISEE QuickFacts. Checked 2026-09-13.</span>
         </CardFooter>
       </Card>
+
+      <VocabStanding />
 
       <div className="grid grid-cols-1 gap-4 @3xl/main:grid-cols-[3fr_2fr] md:gap-6">
         <Card>

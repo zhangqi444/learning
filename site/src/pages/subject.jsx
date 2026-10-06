@@ -11,11 +11,12 @@ import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Progress } from "@zhangqi444/ui/ui/progress"
 import { precisionSummary } from "@/pages/precision"
-import { masteryOf, pacingFor, skillsFor } from "@/lib/engine"
+import { masteryOf, pacingFor, skillTable, skillsFor } from "@/lib/engine"
+import { SKILL_SHOWS, tally } from "@/lib/tally"
 import { LevelBadge } from "@/pages/score"
 import { AopsHint } from "@/components/aops-hint"
+import { ShowFilter, TallyHead, TallyRow } from "@/components/tally"
 import { aopsFor } from "@/lib/aops"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@zhangqi444/ui/ui/table"
 import { skillPath } from "@/pages/skill"
 
 function ScoreBadge({ r, part, n }) {
@@ -110,76 +111,77 @@ export function WeekCard({ sub, wk, highlight }) {
 /** A skill worth relearning rather than just practising again. */
 const weak = (k) => k.attempted && (k.level === "Needs work" || k.level === "Started" || (k.acc != null && k.acc < 0.75))
 
-/** Skill levels for one subject: weakest first. Mastered needs a right answer in a later mixed set or mock. */
+/** "W1–W3, W5": the weeks a skill's questions sit in, runs folded. */
+function weekSpan(weeks) {
+  const ns = weeks.map((w) => Number(String(w).slice(1))).filter((n) => !Number.isNaN(n)).sort((a, b) => a - b)
+  const out = []
+  for (let i = 0; i < ns.length; ) {
+    let j = i
+    while (j + 1 < ns.length && ns[j + 1] === ns[j] + 1) j++
+    out.push(i === j ? `W${ns[i]}` : `W${ns[i]}–W${ns[j]}`)
+    i = j + 1
+  }
+  return out.join(", ")
+}
+const SKILLS_NONE = { practiced: "No skill practised yet — levels appear after the first set.", missed: "Nothing missed in this subject.", untried: "Every skill here has been tried." }
+
+/** A subject's skills as one list, in the word bank's shape (the owner, 6 October 2026: "to
+ *  the skills, should follow the vocabulary list, to see more statistic data"): each skill's
+ *  questions, her answers on them — done, right, wrong and when — counted by lib/tally.js as a
+ *  word's are, and the skill's level on the mastery ladder beside them. Weakest first;
+ *  Missed puts the most wrong answers first, as the word bank's Missed does.
+ *
+ *  A phone has no room for seven columns. This card once kept four in an overflow box, and a
+ *  hundred and twenty-seven pixels of it sat off the edge behind a sideways scroll nobody could
+ *  see; the row folds its numbers into one line under the name instead (components/tally.jsx),
+ *  and the level stays beside the name at every width. Nothing is lost at any width. */
 export function SkillsCard({ sub }) {
   const skills = skillsFor(sub)
-  const practiced = skills.filter((k) => k.attempted)
+  const table = skillTable(sub)
+  const rows = skills.map((k) => ({ k, t: tally((table[k.sk] || {}).ids || []) }))
   const m = masteryOf(sub), pace = pacingFor(sub)
-  const [all, setAll] = React.useState(false)
-  const rows = all ? skills : practiced
+  const keepOf = (id) => (SKILL_SHOWS.find((s) => s.id === id) || SKILL_SHOWS[0]).keep
+  const count = (id) => rows.filter(({ t }) => keepOf(id)(t)).length
+  const practiced = count("practiced")
+  const [show, setShow] = React.useState(() => (practiced ? "practiced" : "all"))
+  let shown = rows.filter(({ t }) => keepOf(show)(t))
+  if (show === "missed") shown = [...shown].sort((a, b) => b.t.wrong - a.t.wrong || a.k.sk.localeCompare(b.k.sk))
   return (
-    <Card className="gap-3 py-5" data-testid="skills">
+    <Card className="gap-3 py-5" data-testid="skills" data-shown={shown.length}>
       <CardHeader className="px-5">
         <CardTitle>Skills</CardTitle>
         <CardDescription>
-          {practiced.length ? `${m.mastered} mastered · ${m.proficient} proficient · ${practiced.length} of ${skills.length} practiced` : `${skills.length} skills in this subject — levels appear after the first set`}
+          {practiced ? `${m.mastered} mastered · ${m.proficient} proficient · ${practiced} of ${skills.length} practiced` : `${skills.length} skills in this subject — levels appear after the first set`}
           {pace.n >= 8 ? ` · median ${Math.round(pace.median)} s a question against a ${pace.budget} s budget` : ""}
         </CardDescription>
-        <CardAction><Button size="sm" variant="ghost" onClick={() => setAll((v) => !v)}>{all ? "Practiced only" : "All skills"}</Button></CardAction>
+        <CardDescription className="text-xs">
+          Each skill opens its questions. Done, right and wrong count her answers on them the way the word bank counts a word's — sets, reviews, mixed sets and practice, never a corrections pass, where she has just seen the answer. Level is where its questions stand now.
+        </CardDescription>
         {sub === "vr" ? (
           <CardDescription className="text-xs">
             <a href={href("/vocab")} className="hover:text-primary underline decoration-dotted underline-offset-4" data-testid="vocab-from-vr">Every word</a> in these questions and on her lists, with the questions that test each one and her answers on them.
           </CardDescription>
         ) : null}
-        {rows.some((k) => weak(k) && aopsFor(sub, k.sk)) ? <CardDescription className="text-xs">Weak skills carry the free Alcumus topic that drills them — hover for the Prealgebra chapter and the Beast Academy unit behind it.</CardDescription> : null}
+        {shown.some(({ k }) => weak(k) && aopsFor(sub, k.sk)) ? <CardDescription className="text-xs">Weak skills carry the free Alcumus topic that drills them — hover for the Prealgebra chapter and the Beast Academy unit behind it.</CardDescription> : null}
+        <ShowFilter className="pt-1" shows={SKILL_SHOWS} show={show} count={count} prefix="skills" onShow={setShow} />
       </CardHeader>
-      {rows.length ? (
-        <CardContent className="px-5">
-          <Table>
-            {/* Four columns need 441px and a phone gives this card 314. The
-                table has always been in an overflow-x box, so nothing spilled
-                onto the page and every check stayed green while a hundred and
-                twenty-seven pixels of it — the whole "Right now" column and half
-                of Level — sat off the right-hand edge behind a sideways scroll
-                with nothing on screen to say it was there. A number she cannot
-                find is not on the page.
-
-                Weeks was already dropped on a narrow card and the Alcumus topic
-                already sits under the skill's name, so there is a place for a
-                figure that has nowhere else to go: the accuracy moves under the
-                name too, and the column it came from is hidden rather than
-                scrolled to. Two columns fit. Nothing is lost at any width. */}
-            <TableHeader><TableRow><TableHead>Skill</TableHead><TableHead className="hidden @md/main:table-cell">Weeks</TableHead><TableHead className="hidden text-right @md/main:table-cell">Right now</TableHead><TableHead className="text-right">Level</TableHead></TableRow></TableHeader>
-            <TableBody>
-              {rows.map((k) => {
-                const now = k.acc == null ? "—" : `${Math.round(k.acc * 100)}% · ${k.attempted}/${k.total}`
-                return (
-                <TableRow key={k.sk}>
-                  {/* Every table cell is nowrap by default, so "Whole-number
-                      operations · 2 due" set the column's width and pushed the
-                      level badge off the edge. The name is the one thing here
-                      that can wrap without losing anything. */}
-                  <TableCell className="font-medium whitespace-normal">
-                    <span className="flex flex-col gap-0.5">
-                      <span>
-                        {/* Every skill opens its questions (pages/skill.jsx) — the owner, 5 October 2026. */}
-                        <a href={href(skillPath(sub, k.sk))} className="hover:text-primary decoration-muted-foreground/60 underline decoration-dotted underline-offset-4" data-testid="skill-link">{k.sk}</a>
-                        {k.overdue ? <span className="text-warning ml-2 text-xs">{k.overdue} due</span> : null}
-                      </span>
-                      <span className="text-muted-foreground text-xs tabular-nums @md/main:hidden" data-testid="skill-now">{now}</span>
-                      {weak(k) ? <AopsHint sub={sub} skill={k.sk} inline /> : null}
-                    </span>
-                  </TableCell>
-                  <TableCell className="text-muted-foreground hidden text-xs @md/main:table-cell">{k.weeks.join(" ")}</TableCell>
-                  <TableCell className="hidden text-right tabular-nums @md/main:table-cell" data-testid="skill-now">{now}</TableCell>
-                  <TableCell className="text-right"><LevelBadge level={k.level} /></TableCell>
-                </TableRow>
-                )
-              })}
-            </TableBody>
-          </Table>
-        </CardContent>
-      ) : null}
+      <CardContent className="px-5">
+        <TallyHead first="Skill" second="Weeks" extra="Level" />
+        <ul className="divide-y">
+          {shown.map(({ k, t }) => (
+            <TallyRow key={k.sk} testid="skill-row" t={t} data={{ "data-sk": k.sk }}
+              name={<>
+                {/* Every skill opens its questions (pages/skill.jsx) — the owner, 5 October 2026. */}
+                <a href={href(skillPath(sub, k.sk))} className="hover:text-primary decoration-muted-foreground/60 font-medium underline decoration-dotted underline-offset-4" data-testid="skill-link">{k.sk}</a>
+                {k.overdue ? <span className="text-warning text-xs">{k.overdue} due</span> : null}
+                {weak(k) && aopsFor(sub, k.sk) ? <span className="basis-full"><AopsHint sub={sub} skill={k.sk} inline /></span> : null}
+              </>}
+              desc={weekSpan(k.weeks)}
+              extra={<LevelBadge level={k.level} />} />
+          ))}
+        </ul>
+        {!shown.length ? <p className="text-muted-foreground py-3 text-sm" data-testid="skills-none-shown">{SKILLS_NONE[show]}</p> : null}
+      </CardContent>
     </Card>
   )
 }
