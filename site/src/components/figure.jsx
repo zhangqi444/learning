@@ -220,9 +220,12 @@ function Polygon({ f }) {
       <polygon points={pts.map(([px, py]) => `${x(px)},${y(py)}`).join(" ")} fill={f.shade ? FILL : "none"} fillOpacity={f.shade ? 0.18 : 0} stroke={INK} strokeWidth={2} />
       {(f.dashed || []).map((si) => {
         const a = pts[si % pts.length], b = pts[(si + 1) % pts.length]
+        // the break stops 3px short of each end, or it rubs out the corner the fold starts from
+        const ax = x(a[0]), ay = y(a[1]), bx = x(b[0]), by = y(b[1]), len = Math.hypot(bx - ax, by - ay) || 1
+        const ex = ((bx - ax) / len) * Math.min(3, len / 4), ey = ((by - ay) / len) * Math.min(3, len / 4)
         return (
           <g key={"d" + si} data-dashed={si}>
-            <line x1={x(a[0])} y1={y(a[1])} x2={x(b[0])} y2={y(b[1])} stroke="var(--card)" strokeWidth={4} />
+            <line x1={ax + ex} y1={ay + ey} x2={bx - ex} y2={by - ey} stroke="var(--card)" strokeWidth={4} />
             <line x1={x(a[0])} y1={y(a[1])} x2={x(b[0])} y2={y(b[1])} stroke={INK} strokeWidth={2} strokeDasharray="7 5" />
           </g>
         )
@@ -247,6 +250,25 @@ function Polygon({ f }) {
         const off = 12 + Math.abs(nx) * String(lb.text).length * 3.8 + Math.abs(ny) * 4
         return <T key={k} x={x(mx) + nx * off} y={y(my) - ny * off} weight={500}>{lb.text}</T>
       })}
+      {/* A corner's size inside it and the vertex's name outside it, both along the
+          corner's bisector — the direction halfway between its two sides, which
+          points into the figure at any corner a triangle has. */}
+      {[...(f.angles || []).map((a) => ({ k: "a" + a.at, at: a.at, text: a.text, out: false })),
+        ...(f.names || []).map((nm, at) => ({ k: "n" + at, at, text: nm, out: true }))].filter((m) => m.text).map((m) => {
+        const n = pts.length, b = pts[m.at % n], a = pts[(m.at + n - 1) % n], c = pts[(m.at + 1) % n]
+        const B = [x(b[0]), y(b[1])], A = [x(a[0]), y(a[1])], C = [x(c[0]), y(c[1])]
+        const ua = [A[0] - B[0], A[1] - B[1]], uc = [C[0] - B[0], C[1] - B[1]]
+        const la = Math.hypot(...ua) || 1, lc = Math.hypot(...uc) || 1
+        let d = [ua[0] / la + uc[0] / lc, ua[1] / la + uc[1] / lc]
+        const ld = Math.hypot(...d) || 1; d = [d[0] / ld, d[1] / ld]
+        // Inside a corner the label has to clear both sides: the narrower the corner,
+        // the further along its bisector (half the label's width over sin of half the
+        // angle), and past a right-angle mark when the corner carries one.
+        const half = Math.acos(Math.max(-1, Math.min(1, (ua[0] * uc[0] + ua[1] * uc[1]) / (la * lc)))) / 2
+        const fit = (String(m.text).length * 3.6 + 6) / Math.max(Math.sin(half), 0.05)
+        const off = m.out ? -16 : Math.min(72, Math.max((f.right || []).includes(m.at) ? 36 : 22, fit))
+        return <T key={m.k} x={B[0] + d[0] * off} y={B[1] + d[1] * off} weight={m.out ? 600 : 500} size={m.out ? 13 : 12} data-angle={m.out ? undefined : m.at}>{m.text}</T>
+      })}
     </Frame>
   )
 }
@@ -270,6 +292,47 @@ function Venn({ f }) {
       {stack(both, (c1[0] + c2[0]) / 2, c1[1], big(both))}
       {stack(right, c2[0] + 40, c2[1], big(right))}
       {outside.length ? stack(outside, 70, H - 36, big(outside)) : null}
+    </Frame>
+  )
+}
+
+/* ---- three overlapping circles ----
+ * "Inside two circles and outside the third" — the question the Princeton Review
+ * paper asked twice and she missed both times (QR 12 and 35, 5 October 2026), and
+ * the two-circle figure above could not draw. Each of the seven regions can hold
+ * names or a count, and `shade` paints whole regions: a region is a mask that is
+ * white inside its own circles and black inside the others, so "ab" is exactly the
+ * part of A and B that is outside C. */
+const V3_AT = { a: [128, 100], b: [312, 100], c: [220, 262], ab: [220, 88], ac: [168, 190], bc: [272, 190], abc: [220, 152] }
+function Venn3({ f }) {
+  const W = 440, H = 330, r = 88, ctr = { a: [175, 125], b: [265, 125], c: [220, 203] }
+  const uid = "v3" + React.useId().replace(/[^a-zA-Z0-9]/g, "")
+  const items = f.items || {}, counts = f.counts || {}
+  const cell = (k) => (items[k] ? items[k] : counts[k] != null ? [String(counts[k])] : [])
+  const size = (arr) => (arr.length === 1 && /^\d+$/.test(arr[0]) ? 18 : 11)
+  const stack = (arr, x, y) => arr.map((s, i) => <T key={i} x={x} y={y + (i - (arr.length - 1) / 2) * 14} size={size(arr)}>{s}</T>)
+  const shade = Array.isArray(f.shade) ? f.shade : []
+  const inside = (reg) => (reg === "outside" ? [] : reg.split(""))
+  const white = (ks) => ks.reduceRight((child, k) => <g clipPath={`url(#${uid}-${k})`}>{child}</g>, <rect x={0} y={0} width={W} height={H} fill="white" />)
+  return (
+    <Frame type="venn3" title={f.title} viewBox={`0 0 ${W} ${H}`}>
+      <defs>
+        {["a", "b", "c"].map((k) => <clipPath key={k} id={`${uid}-${k}`}><circle cx={ctr[k][0]} cy={ctr[k][1]} r={r} /></clipPath>)}
+        {shade.map((reg) => (
+          <mask key={reg} id={`${uid}-m-${reg}`} maskUnits="userSpaceOnUse" x={0} y={0} width={W} height={H}>
+            {reg === "outside" ? <rect x={16} y={16} width={W - 32} height={H - 32} fill="white" /> : white(inside(reg))}
+            {["a", "b", "c"].filter((k) => !inside(reg).includes(k)).map((k) => <circle key={k} cx={ctr[k][0]} cy={ctr[k][1]} r={r} fill="black" />)}
+          </mask>
+        ))}
+      </defs>
+      <rect x={16} y={16} width={W - 32} height={H - 32} fill="none" stroke={SOFT} strokeWidth={1} />
+      {shade.map((reg) => <rect key={reg} x={0} y={0} width={W} height={H} fill={FILL} fillOpacity={0.32} mask={`url(#${uid}-m-${reg})`} data-shade={reg} />)}
+      {["a", "b", "c"].map((k) => <circle key={k} cx={ctr[k][0]} cy={ctr[k][1]} r={r} fill="none" stroke={INK} strokeWidth={1.5} />)}
+      <T x={ctr.a[0] - 58} y={30} weight={600} size={12}>{f.a}</T>
+      <T x={ctr.b[0] + 58} y={30} weight={600} size={12}>{f.b}</T>
+      <T x={ctr.c[0]} y={ctr.c[1] + r + 16} weight={600} size={12}>{f.c}</T>
+      {Object.entries(V3_AT).map(([k, [x, y]]) => <g key={k} data-region={k}>{stack(cell(k), x, y)}</g>)}
+      {cell("outside").length ? <g data-region="outside">{stack(cell("outside"), 64, H - 34)}</g> : null}
     </Frame>
   )
 }
@@ -317,7 +380,8 @@ function Clock({ f }) {
         return <T key={k} x={cx + (r - 26) * Math.cos(a)} y={cy + (r - 26) * Math.sin(a)} weight={600}>{k + 1}</T>
       })}
       <line x1={cx} y1={cy} x2={cx + r * 0.52 * Math.cos(hA)} y2={cy + r * 0.52 * Math.sin(hA)} stroke={INK} strokeWidth={5} strokeLinecap="round" />
-      <line x1={cx} y1={cy} x2={cx + r * 0.78 * Math.cos(mA)} y2={cy + r * 0.78 * Math.sin(mA)} stroke={INK} strokeWidth={3} strokeLinecap="round" />
+      {/* the minute hand stops short of the numerals (at r - 26), so the one it points at stays readable */}
+      <line x1={cx} y1={cy} x2={cx + r * 0.66 * Math.cos(mA)} y2={cy + r * 0.66 * Math.sin(mA)} stroke={INK} strokeWidth={3} strokeLinecap="round" />
       <circle cx={cx} cy={cy} r={5} fill={INK} />
     </Frame>
   )
@@ -360,8 +424,12 @@ function Cubes({ f }) {
     const front = `${X(x, z)},${Y(y, z)} ${X(x + 1, z)},${Y(y, z)} ${X(x + 1, z)},${Y(y + 1, z)} ${X(x, z)},${Y(y + 1, z)}`
     const top = `${X(x, z)},${Y(y + 1, z)} ${X(x + 1, z)},${Y(y + 1, z)} ${X(x + 1, z + 1)},${Y(y + 1, z + 1)} ${X(x, z + 1)},${Y(y + 1, z + 1)}`
     const side = `${X(x + 1, z)},${Y(y, z)} ${X(x + 1, z + 1)},${Y(y, z + 1)} ${X(x + 1, z + 1)},${Y(y + 1, z + 1)} ${X(x + 1, z)},${Y(y + 1, z)}`
+    // The tint sits on an opaque face: a see-through top or side lets the edges of the
+    // cubes behind it show, and a block a question asks her to count looks hollow.
     faces.push(<g key={`${x}-${y}-${z}`}>
+      <polygon points={top} fill="var(--card)" />
       <polygon points={top} fill={FILL} fillOpacity={0.1} stroke={INK} strokeWidth={1} />
+      <polygon points={side} fill="var(--card)" />
       <polygon points={side} fill={FILL} fillOpacity={0.3} stroke={INK} strokeWidth={1} />
       <polygon points={front} fill="var(--card)" stroke={INK} strokeWidth={1} />
     </g>)
@@ -380,6 +448,7 @@ export function Figure({ f, className }) {
     case "grid": return <Grid f={f} />
     case "polygon": return <Polygon f={f} />
     case "venn": return <Venn f={f} />
+    case "venn3": return <Venn3 f={f} />
     case "spinner": return <Spinner f={f} />
     case "clock": return <Clock f={f} />
     case "shaded": return <Shaded f={f} />

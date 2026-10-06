@@ -135,8 +135,16 @@ FIGURES = {
     'pictograph': {'req': ['rows', 'unit'], 'opt': ['title']},
     'numberline': {'req': ['min', 'max', 'step'], 'opt': ['points', 'labelEvery']},
     'grid':       {'req': ['xmax', 'ymax'], 'opt': ['points', 'polygon', 'lines', 'quadrants', 'title']},
-    'polygon':    {'req': ['points'], 'opt': ['labels', 'right', 'dashed', 'grid', 'shade', 'title']},
+    # `angles` writes a size inside a corner ("45°", "x") and `names` a letter outside
+    # each vertex ("F", "G", "H"): a triangle question shows its angles on the figure,
+    # as the Princeton Review paper's triangle FGH does.
+    'polygon':    {'req': ['points'], 'opt': ['labels', 'right', 'dashed', 'grid', 'shade', 'title', 'angles', 'names']},
     'venn':       {'req': ['left', 'right'], 'opt': ['counts', 'items', 'outside', 'title']},
+    # Three overlapping circles: the "inside two, outside the third" question the
+    # Princeton Review paper asked twice. Regions: a, b, c (one circle only), ab,
+    # ac, bc (two circles, outside the third), abc (all three), outside; `shade`
+    # names the regions drawn shaded, for "which belongs in the shaded part".
+    'venn3':      {'req': ['a', 'b', 'c'], 'opt': ['counts', 'items', 'shade', 'title']},
     'spinner':    {'req': ['sectors'], 'opt': ['title']},
     'clock':      {'req': ['h', 'm'], 'opt': ['title']},
     'shaded':     {'req': ['shape', 'parts', 'shaded'], 'opt': ['cols', 'title']},
@@ -215,6 +223,10 @@ def figure_errors(it):
             out.append(f'{i}: figure.dashed lists side numbers (side i joins point i to i+1) drawn as a dashed line — a fold')
         if 'right' in f and not (isinstance(f['right'], list) and all(isinstance(v, int) for v in f['right'])):
             out.append(f'{i}: figure.right lists vertex numbers that get a right-angle mark')
+        if 'angles' in f and not (isinstance(f['angles'], list) and all(isinstance(a, dict) and isinstance(a.get('at'), int) and 0 <= a['at'] < len(pts) and isinstance(a.get('text'), str) and 0 < len(a['text']) <= 8 for a in f['angles'])):
+            out.append(f'{i}: figure.angles is a list of {{at: vertex number, text: up to 8 characters}}')
+        if 'names' in f and not (isinstance(f['names'], list) and len(f['names']) == len(pts) and all(isinstance(n, str) and len(n) <= 2 for n in f['names'])):
+            out.append(f'{i}: figure.names gives one short vertex name per point ("" for none)')
     elif t == 'venn':
         if not (_label_ok(f['left']) and _label_ok(f['right'])): out.append(f'{i}: figure.left/right are the circle labels')
         if 'counts' in f:
@@ -226,6 +238,21 @@ def figure_errors(it):
             if not (isinstance(c, dict) and set(c) <= {'left', 'right', 'both', 'outside'} and all(isinstance(v, list) and len(v) <= 6 and all(_label_ok(s) for s in v) for v in c.values())):
                 out.append(f'{i}: figure.items is {{left, right, both, outside}} lists of short strings')
         if 'counts' not in f and 'items' not in f: out.append(f'{i}: a venn needs counts or items')
+    elif t == 'venn3':
+        V3 = {'a', 'b', 'c', 'ab', 'ac', 'bc', 'abc', 'outside'}
+        if not all(_label_ok(f[k]) for k in ('a', 'b', 'c')): out.append(f'{i}: figure.a/b/c are the three circle labels')
+        if 'counts' in f:
+            c = f['counts']
+            if not (isinstance(c, dict) and set(c) <= V3 and all(isinstance(v, int) and v >= 0 for v in c.values())):
+                out.append(f'{i}: figure.counts is {{a, b, c, ab, ac, bc, abc, outside}} whole numbers')
+        if 'items' in f:
+            c = f['items']
+            # a three-circle region is small: three names fit, six do not
+            if not (isinstance(c, dict) and set(c) <= V3 and all(isinstance(v, list) and len(v) <= 3 and all(_label_ok(s) and len(s) <= 14 for s in v) for v in c.values())):
+                out.append(f'{i}: figure.items is {{a, b, c, ab, ac, bc, abc, outside}} lists of up to three names of at most 14 letters')
+        if 'shade' in f and not (isinstance(f['shade'], list) and f['shade'] and set(f['shade']) <= V3):
+            out.append(f'{i}: figure.shade is a list of regions (a, b, c, ab, ac, bc, abc, outside)')
+        if 'counts' not in f and 'items' not in f and 'shade' not in f: out.append(f'{i}: a venn3 needs counts, items or shade')
     elif t == 'spinner':
         if rows_ok(f['sectors'], 'sectors', 2, 8):
             for s in f['sectors']:

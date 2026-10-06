@@ -1,0 +1,4003 @@
+{
+  "bank": "vr-weeks5-8-plus",
+  "schema_version": "1.0",
+  "content_version": "2026.10.05",
+  "items": [
+    {
+      "id": "VR-W5-X-01",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "M",
+      "prompt": "ADORN most nearly means:",
+      "choices": {
+        "A": "admire",
+        "B": "decorate",
+        "C": "polish",
+        "D": "strip"
+      },
+      "correct": "B",
+      "explanation": "To adorn something is to decorate it by adding pretty things to it: we adorned the classroom door with paper snowflakes.",
+      "misconceptions": "admire shares the ad- start and goes with beautiful things; polish improves a look without adding anything; strip is the opposite",
+      "why": {
+        "A": "Admire starts like adorn and also goes with beautiful things, but to admire something is to look at it and like it, while to adorn it is to add the decorations yourself.",
+        "C": "Polish also makes a thing look nicer, which is the trap, but polishing means rubbing it until it shines; adorning means adding something pretty, like ribbons or lights.",
+        "D": "Strip is the opposite: to strip a wall is to take everything off it, and to adorn it is to put decorations on."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "72c59854de39f8c7"
+    },
+    {
+      "id": "VR-W5-X-02",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "H",
+      "prompt": "MALICE most nearly means:",
+      "choices": {
+        "A": "envy",
+        "B": "kindness",
+        "C": "mischief",
+        "D": "spite"
+      },
+      "correct": "D",
+      "explanation": "Malice is the wish to hurt someone on purpose, the same thing as spite: he tore up her drawing out of pure malice.",
+      "misconceptions": "envy and mischief are neighbors in the field of bad feelings and naughty acts; kindness is the opposite",
+      "why": {
+        "A": "Envy is a bad feeling too, but it means wanting what someone else has; malice means wanting to hurt them.",
+        "B": "Kindness is the opposite: a kind person wants good things for others, and a person full of malice wants them hurt.",
+        "C": "Mischief is naughty fun, like hiding your brother's shoes as a joke; malice is meant to hurt, which makes it much meaner."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "23be16b658c2caa6"
+    },
+    {
+      "id": "VR-W5-X-03",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "LINGER most nearly means:",
+      "choices": {
+        "A": "chat",
+        "B": "hurry",
+        "C": "lunge",
+        "D": "stay"
+      },
+      "correct": "D",
+      "explanation": "To linger is to stay somewhere longer than you need to, slow to leave: we lingered at the beach until the sun went down.",
+      "misconceptions": "hurry is the opposite; lunge is a sound-alike; chat is what people often do while they linger",
+      "why": {
+        "A": "Chat means to talk in a friendly way; people often chat while they linger, but to linger is to stay on, slow to leave.",
+        "B": "Hurry is the opposite: someone who lingers is slow to leave, and someone who hurries rushes off.",
+        "C": "Lunge sounds a little like linger, but to lunge is to jump forward suddenly, the way a dog lunges at a ball."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "99395b7ba0678cd2"
+    },
+    {
+      "id": "VR-W5-X-04",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "H",
+      "prompt": "ALLOCATE most nearly means:",
+      "choices": {
+        "A": "assign",
+        "B": "calculate",
+        "C": "collect",
+        "D": "spend"
+      },
+      "correct": "A",
+      "explanation": "To allocate is to decide how much of something each person or job gets, and hand it out: the teacher allocated two markers to each table.",
+      "misconceptions": "calculate is the math that may come first; collect is the reverse direction; spend is what may come after the shares are set",
+      "why": {
+        "B": "Calculate means to work out an answer with math; you might calculate how big each share should be, but to allocate is to hand the shares out.",
+        "C": "Collect goes the other way: collecting gathers things in from everyone, while allocating hands them out, a share to each.",
+        "D": "Spend means to pay money out for things; to allocate is to decide ahead of time how much each person or job will get."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "59c9876d80b22080"
+    },
+    {
+      "id": "VR-W5-X-05",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "FORFEIT most nearly means:",
+      "choices": {
+        "A": "cheat",
+        "B": "forget",
+        "C": "lose",
+        "D": "postpone"
+      },
+      "correct": "C",
+      "explanation": "To forfeit is to lose something or give it up as a penalty: a team that does not show up for a game forfeits it.",
+      "misconceptions": "forget is a sound-alike; cheating can cause a forfeit but is not one; postpone keeps the game for later, and a forfeit does not",
+      "why": {
+        "A": "Cheat means to break the rules to get ahead; a team caught cheating may have to forfeit, but forfeiting is the losing that comes after.",
+        "B": "Forget starts with the same sound as forfeit, which is the trap; to forget is to not remember, while to forfeit is to lose something as a penalty.",
+        "D": "Postpone means to put a game off until another day; a forfeited game is not played later, it is simply lost."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "71f1accff807ddc8"
+    },
+    {
+      "id": "VR-W5-X-06",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "M",
+      "prompt": "COMPEL most nearly means:",
+      "choices": {
+        "A": "allow",
+        "B": "compete",
+        "C": "force",
+        "D": "invite"
+      },
+      "correct": "C",
+      "explanation": "To compel is to force someone to do something, whether they want to or not: the pouring rain compelled us to move the picnic indoors.",
+      "misconceptions": "compete is a look-alike; allow and invite leave a choice, which compel takes away",
+      "why": {
+        "A": "Allow means to let someone do something if they choose; compel means to make them do it, with no choice.",
+        "B": "Compete looks almost like compel, but it means to try to win against others, as in a race.",
+        "D": "Invite means to ask someone to come, and they can say no; when you compel someone, they cannot say no."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "55fc73a50ddfab4c"
+    },
+    {
+      "id": "VR-W5-X-07",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "RESTRAIN most nearly means:",
+      "choices": {
+        "A": "control",
+        "B": "punish",
+        "C": "release",
+        "D": "strain"
+      },
+      "correct": "A",
+      "explanation": "To restrain is to hold someone or something back and keep it under control: Dad restrained the puppy on its leash when a squirrel ran past.",
+      "misconceptions": "strain hides inside the word; release is the opposite; punish is done to a wrongdoer, not just holding back",
+      "why": {
+        "B": "Punish means to make someone suffer for doing wrong; restraining only holds someone back, and nobody has to have done anything wrong.",
+        "C": "Release is the opposite: you release a dog by letting go of its leash, and you restrain it by holding on.",
+        "D": "Strain is hiding inside restrain, which is the trap; to strain is to pull very hard, or to pour something through a sieve, not to hold something back."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "a3577660021a3d63"
+    },
+    {
+      "id": "VR-W5-X-08",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "STAGNANT most nearly means:",
+      "choices": {
+        "A": "flowing",
+        "B": "frozen",
+        "C": "shallow",
+        "D": "still"
+      },
+      "correct": "D",
+      "explanation": "Stagnant water is still: it does not flow, so it just sits in one place and often turns green and smelly, like an old puddle in the shade.",
+      "misconceptions": "flowing is the opposite; a frozen pond also stays put but is ice; shallow is about depth, not movement",
+      "why": {
+        "A": "Flowing is the opposite: a flowing river keeps moving, and stagnant water just sits.",
+        "B": "Frozen is tempting because a frozen pond does not ripple or flow either, but frozen means turned to ice; stagnant water is liquid water that just lies in one place.",
+        "C": "Shallow means not deep, and a stagnant puddle may be shallow, but stagnant is about water that does not move, however deep it is."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ca383f7a599ce558"
+    },
+    {
+      "id": "VR-W5-X-09",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "MEEK most nearly means:",
+      "choices": {
+        "A": "bold",
+        "B": "gentle",
+        "C": "sleek",
+        "D": "tiny"
+      },
+      "correct": "B",
+      "explanation": "A meek person is quiet and gentle and goes along with what others want instead of arguing: the meek boy let everyone else choose a seat first and took the one left over.",
+      "misconceptions": "sleek is a rhyme; tiny comes from picturing a meek little mouse; bold is the opposite",
+      "why": {
+        "A": "Bold is the opposite: a bold person speaks up and takes charge, while a meek one stays quiet and goes along.",
+        "C": "Sleek rhymes with meek, but it means smooth and shiny, like a seal's wet fur.",
+        "D": "Tiny comes from picturing a meek little mouse, but meek describes how someone acts, quiet and gentle, not how big they are; a huge dog can be meek."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "528ec923259f1de8"
+    },
+    {
+      "id": "VR-W5-X-10",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "E",
+      "prompt": "FRAIL most nearly means:",
+      "choices": {
+        "A": "afraid",
+        "B": "elderly",
+        "C": "pale",
+        "D": "weak"
+      },
+      "correct": "D",
+      "explanation": "Frail means weak and easily hurt or broken: the baby bird was so frail it could barely lift its head.",
+      "misconceptions": "afraid is a sound-alike; elderly and pale are things a frail person often is, not what frail means",
+      "why": {
+        "A": "Afraid sounds a little like frail, but it means scared; a frail person is weak and may not feel afraid at all.",
+        "B": "Elderly means old; frail people are often elderly, which is the trap, but frail means weak and easily hurt, and a young child who has been very sick can be frail too.",
+        "C": "Pale means having little color in your face; a frail person may look pale, but frail means weak, not pale."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "03327d81ea75eeb9"
+    },
+    {
+      "id": "VR-W5-X-11",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "E",
+      "prompt": "SERENE most nearly means:",
+      "choices": {
+        "A": "calm",
+        "B": "lonely",
+        "C": "scenic",
+        "D": "serious"
+      },
+      "correct": "A",
+      "explanation": "Serene means calm and peaceful: the lake was serene at sunrise, without a single ripple.",
+      "misconceptions": "scenic and serious share sounds with the headword; lonely is a feeling that can go with the same quiet places",
+      "why": {
+        "B": "Lonely means sad from being alone; a serene beach may have nobody on it, but serene is about feeling peaceful, not sad.",
+        "C": "Scenic sounds like serene and is used about the same lakes and mountains, but scenic means pretty to look at, not calm.",
+        "D": "Serious starts like serene, but it means thoughtful and not joking; a serious face can be worried or stern, not peaceful."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "a8e961a220fed359"
+    },
+    {
+      "id": "VR-W5-X-12",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "H",
+      "prompt": "LUCID most nearly means:",
+      "choices": {
+        "A": "brief",
+        "B": "clear",
+        "C": "lucky",
+        "D": "polite"
+      },
+      "correct": "B",
+      "explanation": "Lucid means clear and easy to understand: her lucid directions got us to the party without one wrong turn.",
+      "misconceptions": "lucky is a look-alike; brief and polite are other good qualities of what someone says",
+      "why": {
+        "A": "Brief means short; a lucid explanation can be long, as long as it is easy to follow.",
+        "C": "Lucky starts with the same letters, which is the trap, but lucky means having good things happen by chance.",
+        "D": "Polite means having good manners; a lucid answer is one that is easy to understand, whether it is polite or not."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "4a2850efd66fcf1c"
+    },
+    {
+      "id": "VR-W5-X-13",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "M",
+      "prompt": "FIASCO most nearly means:",
+      "choices": {
+        "A": "accident",
+        "B": "failure",
+        "C": "fiesta",
+        "D": "prank"
+      },
+      "correct": "B",
+      "explanation": "A fiasco is a complete and embarrassing failure: the school play was a fiasco when the curtain fell down and the lights went out.",
+      "misconceptions": "fiesta is a sound-alike; accident is one bad moment rather than a whole plan gone wrong; prank is a joke played on purpose",
+      "why": {
+        "A": "Accident is something bad that happens by chance, like a spill; a fiasco is a whole plan or event that goes completely wrong.",
+        "C": "Fiesta sounds like fiasco, which is the trap; a fiesta is a party or festival, the kind of event you hope will not turn into a fiasco.",
+        "D": "Prank is a trick played as a joke, on purpose; a fiasco can be funny to watch, but it is a real failure that nobody wanted."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "59f98d65d0c7f344"
+    },
+    {
+      "id": "VR-W5-X-14",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "M",
+      "prompt": "TEMPEST most nearly means:",
+      "choices": {
+        "A": "breeze",
+        "B": "drought",
+        "C": "storm",
+        "D": "temperature"
+      },
+      "correct": "C",
+      "explanation": "A tempest is a violent storm with strong winds: the tempest tore branches off the trees and rattled every window.",
+      "misconceptions": "temperature is a sound-alike in the same field; breeze is a mild wind; drought is a lack of rain",
+      "why": {
+        "A": "Breeze is a wind too, but a gentle one; a tempest is a wild, violent storm.",
+        "B": "Drought is weather of a different kind, a long time with little or no rain; a tempest brings fierce wind and often rain.",
+        "D": "Temperature starts with the same sounds as tempest and is a weather word too, which is the trap; temperature is how hot or cold it is."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "9d4ca6ba43edbd52"
+    },
+    {
+      "id": "VR-W5-X-15",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "M",
+      "prompt": "ADVERSARY most nearly means:",
+      "choices": {
+        "A": "anniversary",
+        "B": "opponent",
+        "C": "referee",
+        "D": "teammate"
+      },
+      "correct": "B",
+      "explanation": "An adversary is the person or team you are playing or fighting against: in the chess final, her adversary was last year's champion.",
+      "misconceptions": "anniversary is a sound-alike; referee is in the contest but on no side; teammate is the opposite",
+      "why": {
+        "A": "Anniversary ends with the same sounds as adversary, which is the trap; an anniversary is the date each year when something happened, like a wedding.",
+        "C": "Referee is in the game too, but a referee keeps it fair and is on nobody's side; an adversary is the one you are playing against.",
+        "D": "Teammate is the opposite: a teammate is on your side, and an adversary is on the other."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "c565542845086bb6"
+    },
+    {
+      "id": "VR-W5-X-16",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — adverb",
+      "difficulty": "E",
+      "prompt": "HASTILY most nearly means:",
+      "choices": {
+        "A": "busily",
+        "B": "carefully",
+        "C": "happily",
+        "D": "quickly"
+      },
+      "correct": "D",
+      "explanation": "Hastily means quickly and in a rush, often too fast to be careful: he dressed so hastily that his shirt was inside out.",
+      "misconceptions": "happily is a look-alike; busily is having lots to do, not hurrying; carefully is the opposite",
+      "why": {
+        "A": "Busily means in a busy way, with lots to do; you can work busily all day at a calm, steady pace, but hastily means rushing, often too fast to be careful.",
+        "B": "Carefully is the opposite: work done hastily is rushed, and work done carefully takes its time to get things right.",
+        "C": "Happily starts and ends like hastily, which is the trap; it tells how someone feels, not how fast they move."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "bc8f52792df5a121"
+    },
+    {
+      "id": "VR-W5-X-17",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "synonym — adverb",
+      "difficulty": "E",
+      "prompt": "CAUTIOUSLY most nearly means:",
+      "choices": {
+        "A": "boldly",
+        "B": "carefully",
+        "C": "curiously",
+        "D": "quietly"
+      },
+      "correct": "B",
+      "explanation": "Cautiously means carefully, watching out for danger: the deer stepped cautiously out of the woods, its ears turning at every sound.",
+      "misconceptions": "curiously is a look-alike; quietly often goes with caution but is about noise; boldly is the opposite",
+      "why": {
+        "A": "Boldly is the opposite: a bold person charges ahead without worrying, while someone acting cautiously checks for danger first.",
+        "C": "Curiously starts and ends like cautiously, which is the trap; it means wanting to find something out, and a curious cat is not always a careful one.",
+        "D": "Quietly means without much noise; a cautious person is often quiet too, but cautiously means watching out for danger, and you can do that while talking."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "28029b90d14f1fb7"
+    },
+    {
+      "id": "VR-W5-X-18",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "M",
+      "prompt": "Although the outlaw Wade Rourke was almost never seen by anyone, he was ____ across the whole territory, and every family had heard about the stagecoaches he had robbed.",
+      "choices": {
+        "A": "beloved",
+        "B": "infamous",
+        "C": "invisible",
+        "D": "obscure"
+      },
+      "correct": "B",
+      "explanation": "Although signals a turn: he was hardly ever seen, yet everyone knew of him, for robbing stagecoaches. Infamous means well known for something bad. The in- does not mean “not” here: an infamous outlaw is famous, for the wrong reasons.",
+      "misconceptions": "reads in- as not and picks the unknown word; repeats almost never seen; takes well known for well loved",
+      "why": {
+        "A": "Beloved means dearly loved, but nobody loves a man for robbing stagecoaches; the stories made him well known, not loved.",
+        "C": "Invisible just repeats “almost never seen” instead of turning against it, as although requires, and the stories prove that people knew all about him.",
+        "D": "Obscure means hardly known at all, which is what you pick if you read infamous as “not famous”; it agrees with “almost never seen” and ignores the stories every family had heard."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "52a0e52de9753a69"
+    },
+    {
+      "id": "VR-W5-X-19",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — negative clue",
+      "difficulty": "H",
+      "prompt": "Even after the rain began, Ulysses was not about to ____ the front-row seat he had waited two hours to get; he simply pulled up his hood and stayed.",
+      "choices": {
+        "A": "guard",
+        "B": "occupy",
+        "C": "relinquish",
+        "D": "reserve"
+      },
+      "correct": "C",
+      "explanation": "Not about to means he refused to. He pulled up his hood and stayed, so what he refused to do was give the seat up. Relinquish means to give up or let go of something.",
+      "misconceptions": "skips not and picks a word for keeping the seat; confuses having the seat with booking it",
+      "why": {
+        "A": "Guard means to protect and keep, which is just what he did; with not in front of it, the sentence would say he was ready to leave, but he pulled up his hood and stayed.",
+        "B": "Occupy means to sit in or fill a place, which he kept doing; read with not, it would mean he was giving the seat away, the reverse of staying under his hood.",
+        "D": "Reserve means to save a place ahead of time, but he already had the seat; the question was whether he would give it up once the rain began."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "156ea6ddbb602201"
+    },
+    {
+      "id": "VR-W5-X-20",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "M",
+      "prompt": "Although Victor often stumbles over his words at the dinner table, on the debate stage he is ____, speaking smoothly and persuasively.",
+      "choices": {
+        "A": "awkward",
+        "B": "eloquent",
+        "C": "silent",
+        "D": "talkative"
+      },
+      "correct": "B",
+      "explanation": "Although sets up a turn: at dinner he stumbles, but on stage he speaks smoothly and persuasively. Eloquent means able to speak well and convincingly.",
+      "misconceptions": "ignores although and keeps the stumbling; picks how much he talks instead of how well; contradicts speaking",
+      "why": {
+        "A": "Awkward fits stumbling over his words at dinner, but although says the debate stage is different.",
+        "C": "Silent cannot be right when the same sentence says he is speaking, smoothly and persuasively.",
+        "D": "Talkative means talking a lot, not talking well, and a person can chatter all day and still stumble; it misses the turn from stumbling to speaking smoothly."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "ae8619c904fe79c6"
+    },
+    {
+      "id": "VR-W5-X-21",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "E",
+      "prompt": "In one old fairy tale, a princess pricks her finger on a spindle and falls into a ____ that lasts a hundred years, until a prince's kiss wakes her.",
+      "choices": {
+        "A": "fever",
+        "B": "panic",
+        "C": "puddle",
+        "D": "slumber"
+      },
+      "correct": "D",
+      "explanation": "The clue is wakes: you wake from sleep, so the princess fell into a long, deep sleep. Slumber means sleep.",
+      "misconceptions": "takes falls into literally; picks another state you can fall into without asking what wakes means",
+      "why": {
+        "A": "Fever is the body running hot when you are ill; nothing says she is sick, and you do not wake from a fever with a kiss.",
+        "B": "Panic is sudden, wild fear, which keeps a person wide awake; it is not something you wake from a hundred years later.",
+        "C": "Puddle takes falls into literally, as if she tripped into water, but a puddle does not last a hundred years, and no kiss wakes you from one."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Little_Briar_Rose",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "db40fc90453aef5d"
+    },
+    {
+      "id": "VR-W5-X-22",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "E",
+      "prompt": "Because deer kept eating the lettuce in his garden, Yusuf's grandfather built a tall fence to ____ them.",
+      "choices": {
+        "A": "befriend",
+        "B": "deter",
+        "C": "feed",
+        "D": "tame"
+      },
+      "correct": "B",
+      "explanation": "Because tells you the fence answers a problem: deer eating the lettuce. A fence built for that keeps them away. Deter means to discourage or stop someone from doing something.",
+      "misconceptions": "picks a way of being kind to the deer (befriend, tame) or repeats the problem (feed) instead of keeping them out",
+      "why": {
+        "A": "Befriend means to make friends with, but the deer were the problem eating his lettuce, and a tall fence keeps animals away, not close.",
+        "C": "Feed would give the deer food, but they were already eating his lettuce, and that was the problem the fence was built to solve.",
+        "D": "Tame means to make a wild animal gentle and used to people, and a fence does nothing of the kind; it only keeps animals out."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "33c0a054c28d0d6e"
+    },
+    {
+      "id": "VR-W5-X-23",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "E",
+      "prompt": "Since the ice cream truck had already turned the corner, Uma's shouting and waving were ____; the truck kept going.",
+      "choices": {
+        "A": "futile",
+        "B": "polite",
+        "C": "rude",
+        "D": "silent"
+      },
+      "correct": "A",
+      "explanation": "Since gives the reason: the truck was already around the corner, so no one in it could see or hear her. Futile means useless, having no chance of success.",
+      "misconceptions": "picks a word about manners (polite, rude) or sound (silent) instead of whether the shouting could work",
+      "why": {
+        "B": "Polite is about manners, and the truck being gone says nothing about her manners; it only says whether the shouting could work.",
+        "C": "Rude means impolite, and nothing about a truck turning the corner makes shouting rude; since gives the reason the shouting could not work.",
+        "D": "Silent contradicts the sentence itself: shouting is the opposite of silent."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "6b8910ab1a7aa631"
+    },
+    {
+      "id": "VR-W5-X-24",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "M",
+      "prompt": "The sailors knew they were in great ____: the storm had cracked the mast, water was pouring in, and the nearest harbor was a day away.",
+      "choices": {
+        "A": "demand",
+        "B": "peril",
+        "C": "shape",
+        "D": "spirits"
+      },
+      "correct": "B",
+      "explanation": "The colon lists what was happening: a cracked mast, water pouring in, help a day away. Peril means serious danger.",
+      "misconceptions": "picks a phrase that sounds right after in great (shape, spirits, demand) without reading the list after the colon",
+      "why": {
+        "A": "Demand, in “in great demand,” means wanted by many people, but the colon lists dangers at sea, not people who want something.",
+        "C": "Shape, in “in great shape,” means in good condition, but a ship with a cracked mast is in very bad condition.",
+        "D": "Spirits, in “in great spirits,” means cheerful, but the colon lists dangers, and none of them would cheer a sailor."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "4078f2b89929ac32"
+    },
+    {
+      "id": "VR-W5-X-25",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "M",
+      "prompt": "In the 1800s, many Americans worked for years to ____ slavery, and they finally got their wish in 1865, when the Thirteenth Amendment ended it throughout the United States.",
+      "choices": {
+        "A": "abolish",
+        "B": "debate",
+        "C": "record",
+        "D": "reform"
+      },
+      "correct": "A",
+      "explanation": "The second half says what they wanted: they got their wish when slavery was ended. Abolish means to end something completely, by law.",
+      "misconceptions": "misses that the second half names their wish; picks a step along the way (debate, record) or a change short of ending it (reform)",
+      "why": {
+        "B": "Debate means to argue about something, and arguing was not their wish; their wish came true only when the amendment ended slavery.",
+        "C": "Record means to write something down, and nobody works for years just to write slavery down; their wish was for it to end.",
+        "D": "Reform means to change something to make it better, but these people wanted slavery gone, and their wish came true when it was ended."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Thirteenth_Amendment_to_the_United_States_Constitution",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "0574920115c0f2a8"
+    },
+    {
+      "id": "VR-W5-X-26",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — negative clue",
+      "difficulty": "H",
+      "prompt": "Wesley's grandpa and his old dog take walks that are hardly ____ these days; the two of them stop to rest at every bench along the way.",
+      "choices": {
+        "A": "brisk",
+        "B": "leisurely",
+        "C": "noisy",
+        "D": "restful"
+      },
+      "correct": "A",
+      "explanation": "Hardly means almost not. Stopping to rest at every bench makes the walks slow, so they are hardly brisk. Brisk means quick and full of energy.",
+      "misconceptions": "skips hardly and picks a word that describes the slow walks; picks a word the second half does not explain",
+      "why": {
+        "B": "Leisurely means slow and relaxed, which is exactly what the walks are; it would fit without hardly, but hardly makes the blank what the walks are not.",
+        "C": "Noisy has nothing to do with resting at benches; the part after the semicolon tells you how fast they go, not how loud they are.",
+        "D": "Restful fits resting at every bench, but hardly says the walks are not the blank, so picking it means reading the sentence as if hardly were not there."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "5d71bde0908b3d07"
+    },
+    {
+      "id": "VR-W5-X-27",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "M",
+      "prompt": "Vaughn felt certain his paper airplane would fly the farthest, and he made a ____ with Zoe: the loser would give the winner a week of desserts.",
+      "choices": {
+        "A": "apology",
+        "B": "guess",
+        "C": "toast",
+        "D": "wager"
+      },
+      "correct": "D",
+      "explanation": "The colon explains the blank: each one puts something at stake, and the loser pays the winner. A wager is a bet.",
+      "misconceptions": "matches being sure with a guess; picks a word that goes with made a but not with a prize for the winner",
+      "why": {
+        "A": "Apology means saying sorry, but nothing has gone wrong yet; Vaughn expects to win.",
+        "B": "Guess fits feeling certain who would win, but a guess has no prize for the winner and no cost for the loser, and the colon describes both.",
+        "C": "Toast, when you make one, means raising a glass and saying something kind about someone; the colon describes a prize for the winner instead."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "8eee042afc7d61b8"
+    },
+    {
+      "id": "VR-W5-X-28",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "E",
+      "prompt": "A northern mockingbird can ____ the songs of many other birds, and some even copy the sounds of car alarms and squeaky wheels.",
+      "choices": {
+        "A": "hush",
+        "B": "ignore",
+        "C": "interrupt",
+        "D": "mimic"
+      },
+      "correct": "D",
+      "explanation": "Even copy tells you the blank is already a kind of copying, and car alarms and squeaky wheels are surprising examples of what it copies. Mimic means to imitate.",
+      "misconceptions": "misses even copy, which makes the blank a kind of copying",
+      "why": {
+        "A": "Hush means to make something quiet, and a bird that copies songs adds them rather than quieting them.",
+        "B": "Ignore means to pay no attention, but even copy needs a blank that is already a kind of copying.",
+        "C": "Interrupt means to break in while someone else is singing or talking; even copy tells you the bird repeats the songs instead."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Northern_mockingbird",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "aa984edd9b07ee35"
+    },
+    {
+      "id": "VR-W5-X-29",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "M",
+      "prompt": "Unlike the green valley below it, the top of the old volcano was ____: bare black rock where not a single plant could grow.",
+      "choices": {
+        "A": "barren",
+        "B": "fertile",
+        "C": "snowy",
+        "D": "tropical"
+      },
+      "correct": "A",
+      "explanation": "Unlike sets the top against the green valley, and the colon describes it: bare rock where nothing grows. Barren means unable to grow plants.",
+      "misconceptions": "describes the valley instead of the top (fertile); misreads the colon (snowy, tropical)",
+      "why": {
+        "B": "Fertile means rich enough to grow plenty of plants, which describes the green valley, not the top that unlike sets against it.",
+        "C": "Snowy would make the top white, but the colon says bare black rock.",
+        "D": "Tropical means hot and full of lush plants, and the colon says not a single plant could grow there."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "d541873ba9a33867"
+    },
+    {
+      "id": "VR-W5-X-30",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "E",
+      "prompt": "When Zeke first worked the handle of the old pump, only a trickle came out, but a moment later a ____ of water burst from the spout and soaked his shoes.",
+      "choices": {
+        "A": "mist",
+        "B": "puddle",
+        "C": "ripple",
+        "D": "torrent"
+      },
+      "correct": "D",
+      "explanation": "But signals a change from only a trickle, and water that bursts out and soaks his shoes is a rush. A torrent is a fast, powerful flood of water.",
+      "misconceptions": "ignores but and picks a small or still kind of water (mist, ripple, puddle)",
+      "why": {
+        "A": "Mist is a spray of tiny drops floating in the air, far too light to burst from a spout and soak his shoes.",
+        "B": "Puddle is water lying still on the ground; it might be what the water made afterward, but a puddle does not burst out of a spout.",
+        "C": "Ripple is a small wave moving across still water, like the rings a pebble makes in a pond; it does not burst from a spout and soak anyone's shoes."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "0ca6e5be84b04422"
+    },
+    {
+      "id": "VR-W5-X-31",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "M",
+      "prompt": "Vikram knew that one more late assignment could ____ his place on the honor roll, so he finished his science project a day early.",
+      "choices": {
+        "A": "delay",
+        "B": "earn",
+        "C": "improve",
+        "D": "jeopardize"
+      },
+      "correct": "D",
+      "explanation": "So links the two halves: he worked ahead because a late assignment could cost him his place. Jeopardize means to put something in danger.",
+      "misconceptions": "picks a good effect for a bad cause (earn, improve); confuses losing a place with waiting for one (delay)",
+      "why": {
+        "A": "Delay means to put off until later, but he already had his place; the worry was losing it, not getting it later.",
+        "B": "Earn means to get something by working for it, but a late assignment is not good work; he hurried because lateness could cost him his place.",
+        "C": "Improve means to make better, but turning work in late lowers a grade, which is why he finished early."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "c1d7332af3217f71"
+    },
+    {
+      "id": "VR-W5-X-32",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "E",
+      "prompt": "Unlike the fine, powdery sand on the beach, the sand Zion scooped from the creek bed was ____, full of gritty bits as big as grains of rice.",
+      "choices": {
+        "A": "brown",
+        "B": "coarse",
+        "C": "silky",
+        "D": "sticky"
+      },
+      "correct": "B",
+      "explanation": "Unlike sets the creek sand against fine, powdery sand, and gritty bits as big as rice finish the picture. Coarse means rough and made of large grains.",
+      "misconceptions": "describes the beach sand instead of the creek sand (silky); picks a color or a feel the sentence does not describe (brown, sticky)",
+      "why": {
+        "A": "Brown is the color of the sand, but unlike sets it against fine, powdery sand, so the blank is about how big and gritty the grains were.",
+        "C": "Silky means smooth and soft, like the fine, powdery beach sand that unlike sets this sand against.",
+        "D": "Sticky means gluey, clinging to things; the sentence is about how big and gritty the grains are, not whether they cling."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "626aabdcc542638e"
+    },
+    {
+      "id": "VR-W5-X-33",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — contrast",
+      "difficulty": "E",
+      "prompt": "Bats fly as well as many birds do, but unlike birds, bats ____.",
+      "choices": {
+        "A": "lay eggs in a nest",
+        "B": "feed their babies milk",
+        "C": "can fly through the air",
+        "D": "have feathers on their wings"
+      },
+      "correct": "B",
+      "explanation": "Unlike birds asks for something bats do and birds do not. Bats are mammals, and a bat mother nurses her babies with milk from her own body, as every mammal mother does; birds do not nurse their chicks.",
+      "misconceptions": "picks a bird trait or a trait both share instead of a difference",
+      "why": {
+        "A": "Lay eggs in a nest is what birds do, so it cannot be how bats are unlike birds; bats give birth to live babies.",
+        "C": "Can fly through the air is true of bats, but birds fly too, so it is not a difference, and unlike asks for one.",
+        "D": "Have feathers on their wings describes birds; a bat's wings are thin skin, so this is neither true of bats nor a difference."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Bat and https://smallscience.hbcse.tifr.res.in/how-bats-care-for-their-babies/",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "daa753ea8dd95310"
+    },
+    {
+      "id": "VR-W5-X-34",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — cause and effect",
+      "difficulty": "M",
+      "prompt": "Since arguing with the referee was futile, the coach ____.",
+      "choices": {
+        "A": "won the argument easily",
+        "B": "argued even louder than before",
+        "C": "sat down and let the game go on",
+        "D": "made the referee change the call"
+      },
+      "correct": "C",
+      "explanation": "Since gives the reason: arguing could not change anything. Futile means useless, so a sensible coach stops arguing and lets the game go on.",
+      "misconceptions": "does not know futile, so picks an ending where arguing works or keeps going",
+      "why": {
+        "A": "Won the argument easily cannot follow from futile, which means arguing had no chance of working.",
+        "B": "Argued even louder than before keeps doing the useless thing; futile gives a reason to stop, not to shout more.",
+        "D": "Made the referee change the call means the arguing worked, the opposite of futile."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "59596c4e3694b90c"
+    },
+    {
+      "id": "VR-W5-X-35",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — contrast",
+      "difficulty": "M",
+      "prompt": "From across the gallery, the painting looked as smooth as a photograph, but up close it ____.",
+      "choices": {
+        "A": "hung in a golden frame",
+        "B": "showed a lighthouse by the sea",
+        "C": "was made of thousands of tiny dots",
+        "D": "looked just as real as a photograph"
+      },
+      "correct": "C",
+      "explanation": "But turns from how the painting looked far away to how it looked up close, so the ending must be different from smooth. Thousands of tiny dots are the opposite of a smooth photograph.",
+      "misconceptions": "repeats the first half; picks a fact about the painting that does not change with distance",
+      "why": {
+        "A": "Hung in a golden frame is true from any distance, so it is not what changed when you came close.",
+        "B": "Showed a lighthouse by the sea tells what the painting is of, which is the same from across the room and up close.",
+        "D": "Looked just as real as a photograph repeats the first half, while the word but promises that something changed up close."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "e73a0f106c2a787e"
+    },
+    {
+      "id": "VR-W5-X-36",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — negative",
+      "difficulty": "H",
+      "prompt": "The new puppy had hardly ever been away from its mother; on its first night alone in Yara's house, it ____.",
+      "choices": {
+        "A": "whimpered all night",
+        "B": "was used to sleeping alone",
+        "C": "slept soundly from the start",
+        "D": "acted as though nothing had changed"
+      },
+      "correct": "A",
+      "explanation": "Hardly ever means almost never: the puppy was used to its mother always being there, so a first night without her would upset it. Whimpering all night follows.",
+      "misconceptions": "reads hardly ever as often and picks an ending for a puppy used to being alone",
+      "why": {
+        "B": "Was used to sleeping alone reads hardly ever as if it meant often; a puppy almost never away from its mother has never slept alone.",
+        "C": "Slept soundly from the start is how a puppy used to being alone might act, but this one had hardly ever left its mother.",
+        "D": "Acted as though nothing had changed ignores hardly ever; for this puppy, a night without its mother was a very big change."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "bf4db98ffbc82ed3"
+    },
+    {
+      "id": "VR-W5-X-37",
+      "subject": "VR",
+      "form": "W5",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — cause and effect",
+      "difficulty": "H",
+      "prompt": "Because the hillside behind the farm was barren, Yael's goats ____.",
+      "choices": {
+        "A": "napped under tall trees",
+        "B": "nibbled the hillside clover",
+        "C": "grazed on thick grass all day",
+        "D": "ate hay carried up from the barn"
+      },
+      "correct": "D",
+      "explanation": "Because tells you the goats' meals follow from the hillside being barren, which means nothing grows there. With no grass to eat, they ate hay carried up from the barn.",
+      "misconceptions": "does not know barren, so picks an ending that needs plants to grow",
+      "why": {
+        "A": "Napped under tall trees needs trees, and nothing grows on a barren hillside.",
+        "B": "Nibbled the hillside clover needs plants growing on the hillside, and a barren hillside grows nothing.",
+        "C": "Grazed on thick grass all day is the opposite of barren, which means nothing grows."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "4126cacfccc5f155"
+    },
+    {
+      "id": "VR-W6-X-01",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "UNKEMPT most nearly means:",
+      "choices": {
+        "A": "lost",
+        "B": "messy",
+        "C": "neat",
+        "D": "unkind"
+      },
+      "correct": "B",
+      "explanation": "Unkempt means messy and not looked after, especially hair or clothes: after a week of camping, his hair was unkempt and full of pine needles.",
+      "misconceptions": "lost comes from hearing un-kept; unkind is a look-alike; neat is the opposite",
+      "why": {
+        "A": "Lost is a guess from hearing un-kept inside unkempt, as if something had not been kept; but unkempt means untidy and uncared for, the way hair looks when nobody has brushed it.",
+        "C": "Neat is the opposite: neat hair is brushed and in place, while unkempt hair is tangled and messy.",
+        "D": "Unkind starts the same way, which is the trap; unkind describes how someone treats people, while unkempt describes how someone or something looks."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "9d05e1f7b3d1a833"
+    },
+    {
+      "id": "VR-W6-X-02",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "WILY most nearly means:",
+      "choices": {
+        "A": "fierce",
+        "B": "honest",
+        "C": "sly",
+        "D": "wild"
+      },
+      "correct": "C",
+      "explanation": "Wily means clever at tricking others to get what you want: the wily fox pretended to be asleep until the hens wandered close.",
+      "misconceptions": "wild is a look-alike; fierce is another animal trait; honest is the opposite",
+      "why": {
+        "A": "Fierce describes a dangerous animal too, like a fierce wolf, but it means violent and ready to attack; a wily fox wins with tricks, not by fighting.",
+        "B": "Honest is the opposite: an honest person tells the truth, while a wily one is full of tricks.",
+        "D": "Wild looks almost like wily, which is the trap; wild means not tame, while wily means clever at tricking."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "bd8e4ed0fd2d8918"
+    },
+    {
+      "id": "VR-W6-X-03",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "INHABIT most nearly means:",
+      "choices": {
+        "A": "abandon",
+        "B": "explore",
+        "C": "inherit",
+        "D": "occupy"
+      },
+      "correct": "D",
+      "explanation": "To inhabit a place is to live in it, to occupy it: frogs and turtles inhabit the pond behind our school.",
+      "misconceptions": "inherit is a look-alike; explore is visiting, not living there; abandon is the opposite",
+      "why": {
+        "A": "Abandon is the opposite: to abandon a house is to leave it for good, and to inhabit it is to live in it.",
+        "B": "Explore means to travel through a place to learn about it; explorers visit a place, but the people and animals that inhabit it live there.",
+        "C": "Inherit looks a lot like inhabit, which is the trap; to inherit is to receive something from a family member, often after that person dies."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "75231b596b4aae49"
+    },
+    {
+      "id": "VR-W6-X-04",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "M",
+      "prompt": "LAMENT most nearly means:",
+      "choices": {
+        "A": "apologize",
+        "B": "comment",
+        "C": "grieve",
+        "D": "rejoice"
+      },
+      "correct": "C",
+      "explanation": "To lament is to feel and show deep sadness about something lost, often out loud: the whole town lamented the old oak tree that the storm knocked down.",
+      "misconceptions": "apologize mixes up sorry and sorrow; comment ends the same way and is also spoken; rejoice is the opposite",
+      "why": {
+        "A": "Apologize means to say you are sorry for something you did; to lament is to show sorrow about a loss, even one that was nobody's fault.",
+        "B": "Comment ends like lament, and both can be done out loud, but to comment is just to say what you think about something.",
+        "D": "Rejoice is the opposite: to rejoice is to be full of joy, and to lament is to be full of sorrow."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "3d043097190284b6"
+    },
+    {
+      "id": "VR-W6-X-05",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "M",
+      "prompt": "SHUN most nearly means:",
+      "choices": {
+        "A": "avoid",
+        "B": "stun",
+        "C": "tease",
+        "D": "welcome"
+      },
+      "correct": "A",
+      "explanation": "To shun someone or something is to stay away from it on purpose: after the bee stung him, Leo shunned the flower bed for the rest of the summer.",
+      "misconceptions": "stun is a rhyme; tease is a different unkind act; welcome is the opposite",
+      "why": {
+        "B": "Stun rhymes with shun, but to stun someone is to shock or daze them, the way a loud bang can; to shun someone is to keep away from them.",
+        "C": "Tease is another unkind way to treat someone, but teasing is making fun of them, and shunning is staying away from them.",
+        "D": "Welcome is the opposite: you welcome someone by greeting them warmly, and you shun them by keeping away."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b4075d7eaec1e528"
+    },
+    {
+      "id": "VR-W6-X-06",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "H",
+      "prompt": "EXERT most nearly means:",
+      "choices": {
+        "A": "apply",
+        "B": "exit",
+        "C": "measure",
+        "D": "relax"
+      },
+      "correct": "A",
+      "explanation": "To exert strength or effort is to put it to work, to apply it: she exerted all her strength to twist the stuck lid off the jar.",
+      "misconceptions": "exit shares the ex- start; measure belongs to the same field of force; relax is the opposite",
+      "why": {
+        "B": "Exit looks like exert because both start with ex-, but to exit is to go out of a place.",
+        "C": "Measure goes with force too, which is the trap; you can measure how hard someone pushes, but to exert force is to do the pushing.",
+        "D": "Relax is the opposite: when you exert yourself you work hard, and when you relax you rest."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "e5eeafcb36991f1c"
+    },
+    {
+      "id": "VR-W6-X-07",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "HOARD most nearly means:",
+      "choices": {
+        "A": "board",
+        "B": "share",
+        "C": "steal",
+        "D": "store"
+      },
+      "correct": "D",
+      "explanation": "To hoard is to collect and store away a big supply, often secretly and more than you need: the squirrel hoarded acorns in a hollow log.",
+      "misconceptions": "board is a rhyme; steal is a different kind of greed; share is the opposite",
+      "why": {
+        "A": "Board rhymes with hoard, but to board is to get on a bus, a train, a plane, or a ship.",
+        "B": "Share is the opposite: someone who hoards keeps everything for later, and someone who shares gives some away.",
+        "C": "Steal means to take what belongs to someone else; a hoarder may be greedy, but the things being hoarded can be all their own."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "45d4409849192697"
+    },
+    {
+      "id": "VR-W6-X-08",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "M",
+      "prompt": "WIELD most nearly means:",
+      "choices": {
+        "A": "drop",
+        "B": "handle",
+        "C": "sharpen",
+        "D": "yield"
+      },
+      "correct": "B",
+      "explanation": "To wield a tool or a weapon is to hold it and use it: the chef wielded a huge wooden spoon to stir the soup.",
+      "misconceptions": "yield is a rhyme; sharpen belongs to the same field; drop is the opposite",
+      "why": {
+        "A": "Drop is the opposite: to wield a sword is to grip it and use it, and to drop it is to let it fall.",
+        "C": "Sharpen goes with swords and knives, which is the trap; you sharpen a blade to get it ready, and you wield it when you use it.",
+        "D": "Yield rhymes with wield, but it means to give way or give up, as when a driver yields to another car."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8a221a01b8e53a9f"
+    },
+    {
+      "id": "VR-W6-X-09",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "E",
+      "prompt": "IMPULSIVE most nearly means:",
+      "choices": {
+        "A": "excited",
+        "B": "impressive",
+        "C": "patient",
+        "D": "reckless"
+      },
+      "correct": "D",
+      "explanation": "An impulsive person acts on a sudden wish without stopping to think about what might happen, which can be reckless: in an impulsive moment, she jumped into the cold lake with all her clothes on.",
+      "misconceptions": "impressive is a look-alike; excited is a feeling that can lead to impulsive acts; patient is the opposite",
+      "why": {
+        "A": "Excited means full of eager feeling, and an excited person may act on impulse, but impulsive means acting without thinking, excited or not.",
+        "B": "Impressive looks a lot like impulsive, which is the trap; impressive means so good that people admire it.",
+        "C": "Patient is the opposite: a patient person can wait and think things over, while an impulsive one acts on the spot."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "5d390a1487757a8f"
+    },
+    {
+      "id": "VR-W6-X-10",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "QUAINT most nearly means:",
+      "choices": {
+        "A": "charming",
+        "B": "modern",
+        "C": "quiet",
+        "D": "shabby"
+      },
+      "correct": "A",
+      "explanation": "Quaint means charming in an old-fashioned way: we stayed in a quaint little cottage with lace curtains and a creaky gate.",
+      "misconceptions": "quiet is a look-alike that often fits the same village; shabby is old in an ugly, worn-out way; modern is the opposite",
+      "why": {
+        "B": "Modern is the opposite: modern things are new and up to date, and quaint ones are pleasantly old-fashioned.",
+        "C": "Quiet looks like quaint, and a quaint village may well be quiet, which is the trap, but quaint is about charm, not noise.",
+        "D": "Shabby means old and worn out in an ugly way, like a coat full of holes; quaint means old-fashioned in a sweet, charming way."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f186b327335cdcdf"
+    },
+    {
+      "id": "VR-W6-X-11",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "ADEPT most nearly means:",
+      "choices": {
+        "A": "adopted",
+        "B": "clumsy",
+        "C": "eager",
+        "D": "expert"
+      },
+      "correct": "D",
+      "explanation": "Adept means very skilled, expert at something: she is so adept at juggling that she can keep four balls in the air.",
+      "misconceptions": "adopted is a look-alike; eager is wanting to, not being good at it; clumsy is the opposite",
+      "why": {
+        "A": "Adopted looks like adept, which is the trap; an adopted child is one who joined a family through adoption.",
+        "B": "Clumsy is the opposite: a clumsy person drops things, and an adept one handles them with skill.",
+        "C": "Eager means wanting very much to do something; a beginner can be eager without being adept, which means already very good at it."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "447e7dfc8b3f9ecb"
+    },
+    {
+      "id": "VR-W6-X-12",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "E",
+      "prompt": "QUARREL most nearly means:",
+      "choices": {
+        "A": "argument",
+        "B": "competition",
+        "C": "conversation",
+        "D": "insult"
+      },
+      "correct": "A",
+      "explanation": "A quarrel is an angry argument: the twins had a quarrel over who got the top bunk.",
+      "misconceptions": "competition is rivalry without the anger; conversation is talk without the anger; insult is one rude remark, not the whole fight",
+      "why": {
+        "B": "Competition is trying to beat others, as in a spelling bee, and nobody has to be angry; a quarrel is an angry fight in words.",
+        "C": "Conversation is people talking together, which a quarrel is too, but a quarrel is angry and a conversation can be perfectly friendly.",
+        "D": "Insult is one rude remark that hurts someone's feelings; a quarrel may be full of insults, but a quarrel is the whole angry argument."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "82dcca48536f1e76"
+    },
+    {
+      "id": "VR-W6-X-13",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "H",
+      "prompt": "ZEAL most nearly means:",
+      "choices": {
+        "A": "anger",
+        "B": "boredom",
+        "C": "enthusiasm",
+        "D": "talent"
+      },
+      "correct": "C",
+      "explanation": "Zeal is great eagerness and energy for something you believe in: she cleaned up the park with such zeal that she filled six bags of trash.",
+      "misconceptions": "anger is a strong feeling of the wrong kind; talent is ability, not eagerness; boredom is the opposite",
+      "why": {
+        "A": "Anger is a strong feeling too, but it means being mad; zeal is strong eagerness for something you care about.",
+        "B": "Boredom is the opposite: a bored person has no interest at all, and zeal is a great, eager interest.",
+        "D": "Talent is being naturally good at something; zeal is wanting it badly, and a beginner can have plenty of zeal and very little talent."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "06bf356034bab97e"
+    },
+    {
+      "id": "VR-W6-X-14",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "E",
+      "prompt": "PRODIGY most nearly means:",
+      "choices": {
+        "A": "beginner",
+        "B": "genius",
+        "C": "product",
+        "D": "student"
+      },
+      "correct": "B",
+      "explanation": "A prodigy is a young person with an amazing talent, a young genius: the eight-year-old prodigy played the violin like a grown-up star.",
+      "misconceptions": "product is a look-alike; student is too broad; beginner is close to the opposite",
+      "why": {
+        "A": "Beginner is nearly the opposite: a beginner is just starting to learn, while a prodigy is already amazing while still young.",
+        "C": "Product starts with the same letters, which is the trap; a product is something made to be sold, like a toy or a box of cereal.",
+        "D": "Student is anyone who is learning, and many prodigies are students, but a prodigy is a young person with a rare and amazing gift."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "52ae7de7b55bec0e"
+    },
+    {
+      "id": "VR-W6-X-15",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "H",
+      "prompt": "PROWESS most nearly means:",
+      "choices": {
+        "A": "luck",
+        "B": "pride",
+        "C": "progress",
+        "D": "skill"
+      },
+      "correct": "D",
+      "explanation": "Prowess is great skill or ability, especially in a sport or a battle: the goalie's prowess kept every shot out of the net.",
+      "misconceptions": "progress is a look-alike; luck is chance instead of skill; pride is a feeling that may come with prowess",
+      "why": {
+        "A": "Luck is good things happening by chance; prowess is great skill, so a win that comes from prowess is earned, not lucky.",
+        "B": "Pride is the good feeling you get from doing well; a person with prowess may feel pride, but prowess is the skill itself.",
+        "C": "Progress looks like prowess, both starting with pro and ending in ss, but progress means moving forward or getting better over time."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "fba6878308a4641d"
+    },
+    {
+      "id": "VR-W6-X-16",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — adverb",
+      "difficulty": "M",
+      "prompt": "SCARCELY most nearly means:",
+      "choices": {
+        "A": "barely",
+        "B": "completely",
+        "C": "nearly",
+        "D": "scarily"
+      },
+      "correct": "A",
+      "explanation": "Scarcely means only just, or almost not at all: the fog was so thick that she could scarcely see the house next door.",
+      "misconceptions": "scarily is a look-alike; nearly is almost-did rather than only-just-did; completely is the opposite",
+      "why": {
+        "B": "Completely is the opposite: if you can see something completely, you see all of it, and if you can scarcely see it, you see almost nothing.",
+        "C": "Nearly means almost, and the two are easy to mix up: if you nearly won, you did not win; if you scarcely won, you did win, but only just.",
+        "D": "Scarily looks like scarcely, which is the trap; scarily means in a frightening way."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "6b41df9cec40aeb4"
+    },
+    {
+      "id": "VR-W6-X-17",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "synonym — adverb",
+      "difficulty": "E",
+      "prompt": "VIGOROUSLY most nearly means:",
+      "choices": {
+        "A": "gently",
+        "B": "loudly",
+        "C": "strongly",
+        "D": "victoriously"
+      },
+      "correct": "C",
+      "explanation": "Vigorously means with a lot of strength and energy: she shook the paint can vigorously until the colors mixed.",
+      "misconceptions": "victoriously is a look-alike; loudly is about noise, not force; gently is the opposite",
+      "why": {
+        "A": "Gently is the opposite: you pat a kitten gently, but you scrub a muddy pan vigorously.",
+        "B": "Loudly is about noise; a vigorous scrub can be quite quiet, because vigorously means with strength and energy.",
+        "D": "Victoriously starts and ends like vigorously, which is the trap; it means like a winner, and you can play vigorously and still lose."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "7239030781234f9d"
+    },
+    {
+      "id": "VR-W6-X-18",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "M",
+      "prompt": "The museum's new exhibit shows ____ life long ago: a kitchen hearth with an iron pot, a spinning wheel, and a wooden cradle by the bed.",
+      "choices": {
+        "A": "domestic",
+        "B": "military",
+        "C": "nautical",
+        "D": "political"
+      },
+      "correct": "A",
+      "explanation": "The examples decide it: a hearth, a spinning wheel and a cradle are all things in a home. Domestic means having to do with the home and family. It can also mean inside your own country, as in a domestic flight, but every example here comes from a home.",
+      "misconceptions": "does not connect domestic with the home; picks another kind of life a museum might show",
+      "why": {
+        "B": "Military means having to do with soldiers and war, and there is not a weapon or a uniform in the exhibit, only things from a house.",
+        "C": "Nautical means having to do with ships and sailors; a hearth, a spinning wheel and a cradle belong in a home, not on a ship.",
+        "D": "Political means having to do with government and voting, and the exhibit shows cooking, spinning and a baby's bed."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "50695fb0fa1094ad"
+    },
+    {
+      "id": "VR-W6-X-19",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "E",
+      "prompt": "Because Zara and Yasmin both missed their old friendship, they decided to ____ and put their silly argument behind them.",
+      "choices": {
+        "A": "celebrate",
+        "B": "compete",
+        "C": "complain",
+        "D": "reconcile"
+      },
+      "correct": "D",
+      "explanation": "Because gives the reason: they missed being friends, so they made up. Reconcile means to become friends again after a disagreement.",
+      "misconceptions": "picks a word that keeps the trouble going (complain, compete) or skips ahead to a party (celebrate)",
+      "why": {
+        "A": "Celebrate means to have a party for something happy, but the girls had not made up yet; missing a friend is a reason to make peace first.",
+        "B": "Compete means to try to beat someone, which has nothing to do with missing a friend.",
+        "C": "Complain means to say you are unhappy about something, which would keep the argument going instead of putting it behind them."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "72ecd2e60d33c10b"
+    },
+    {
+      "id": "VR-W6-X-20",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "E",
+      "prompt": "Winston's own birthday parties had always been simple picnics in the park, but his cousin's party was ____, with a chocolate fountain, a magician, and pony rides.",
+      "choices": {
+        "A": "dull",
+        "B": "humble",
+        "C": "lavish",
+        "D": "rushed"
+      },
+      "correct": "C",
+      "explanation": "But turns away from simple picnics, and the examples show how far: a chocolate fountain, a magician and pony rides. Lavish means rich, generous and costly.",
+      "misconceptions": "ignores but and describes the simple picnics; picks a word the examples do not support",
+      "why": {
+        "A": "Dull means boring, and a party with a magician and pony rides is the opposite of boring.",
+        "B": "Humble means simple and plain, like Winston's picnics, the very thing but sets the cousin's party against.",
+        "D": "Rushed means hurried, but the examples are about how fancy the party was, not how fast it went."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "616ad99c663500da"
+    },
+    {
+      "id": "VR-W6-X-21",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "H",
+      "prompt": "In the old Greek legend, the giant wooden horse left outside the gates of Troy was really a ____: Greek soldiers were hiding inside it.",
+      "choices": {
+        "A": "gift",
+        "B": "monument",
+        "C": "ruse",
+        "D": "stable"
+      },
+      "correct": "C",
+      "explanation": "Really tells you the horse was not what it seemed, and the colon gives the example: soldiers hidden inside. A ruse is a trick meant to fool someone.",
+      "misconceptions": "takes what the city believed for what it really was (gift); picks by the word horse (stable)",
+      "why": {
+        "A": "Gift is what the people of Troy were fooled into thinking it was; really tells you the truth was different.",
+        "B": "Monument is a statue built to honor someone, and soldiers hiding inside it show it was built to fool, not to honor.",
+        "D": "Stable is a building for horses, which fits the word horse but not a wooden horse with soldiers hiding inside, waiting to attack."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Trojan_Horse",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "a779c15e499eb43c"
+    },
+    {
+      "id": "VR-W6-X-22",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "M",
+      "prompt": "Because the old doctor had cared for three generations of families and never turned anyone away, the whole town came to ____ her.",
+      "choices": {
+        "A": "envy",
+        "B": "fear",
+        "C": "pity",
+        "D": "revere"
+      },
+      "correct": "D",
+      "explanation": "Because gives the reason: a lifetime of caring for everyone earns deep respect. Revere means to respect and admire deeply.",
+      "misconceptions": "picks a feeling the reason does not cause (envy, fear, pity)",
+      "why": {
+        "A": "Envy means wanting what someone else has, and caring for every family is not a reason to be jealous.",
+        "B": "Fear means being afraid, but a doctor who never turned anyone away gave the town nothing to fear.",
+        "C": "Pity means to feel sorry for someone, but nothing in the sentence is sad; a lifetime of caring for everyone earns respect, not sorrow."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "8899663b7370bbe8"
+    },
+    {
+      "id": "VR-W6-X-23",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — negative clue",
+      "difficulty": "H",
+      "prompt": "On the first warm Saturday of spring, the park was anything but ____: children crowded every swing, and families spread blankets across the grass.",
+      "choices": {
+        "A": "crowded",
+        "B": "desolate",
+        "C": "lively",
+        "D": "popular"
+      },
+      "correct": "B",
+      "explanation": "Anything but means not at all. A park full of children and families is not at all empty. Desolate means empty, lonely and bleak.",
+      "misconceptions": "skips anything but and picks a word that describes the crowded park",
+      "why": {
+        "A": "Crowded echoes the sentence's own words, children crowded every swing, and that is the trap: anything but turns the blank into what the park was not.",
+        "C": "Lively is exactly what the crowded park was, but anything but means the park was not the blank, so picking it means skipping those two words.",
+        "D": "Popular describes a park that crowds come to, which this one was; anything but needs a word for what it was not."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "b5f73874013bd167"
+    },
+    {
+      "id": "VR-W6-X-24",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "M",
+      "prompt": "Although the choir sang in perfect harmony at the concert, its rehearsals were full of ____, with singers arguing over every song.",
+      "choices": {
+        "A": "applause",
+        "B": "discord",
+        "C": "harmony",
+        "D": "triumph"
+      },
+      "correct": "B",
+      "explanation": "Although turns from perfect harmony to something different, and singers arguing over every song shows what. Discord means disagreement, the opposite of harmony.",
+      "misconceptions": "ignores although and repeats harmony; misses the arguing",
+      "why": {
+        "A": "Applause is clapping for something you enjoyed, and singers arguing over every song were not clapping for one another.",
+        "C": "Harmony is the word from the first half, and although says the rehearsals were different from it.",
+        "D": "Triumph is a great success, and rehearsals spent arguing over every song were no success."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "0b8e04a8045a1320"
+    },
+    {
+      "id": "VR-W6-X-25",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "E",
+      "prompt": "Instead of competing against each other at the science fair, Vivian and Willa decided to ____ and build one big project about bees together.",
+      "choices": {
+        "A": "argue",
+        "B": "collaborate",
+        "C": "compete",
+        "D": "withdraw"
+      },
+      "correct": "B",
+      "explanation": "Instead of turns away from competing, and together finishes the thought. Collaborate means to work together.",
+      "misconceptions": "ignores instead of (compete); picks the opposite of together",
+      "why": {
+        "A": "Argue means to disagree out loud, the opposite of building one project together.",
+        "C": "Compete is the very thing instead of rules out.",
+        "D": "Withdraw means to pull out of the fair, but they stayed in and built one big project."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "8e9ee3900e3fb553"
+    },
+    {
+      "id": "VR-W6-X-26",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "M",
+      "prompt": "Although Vera had hoped her summer job at the art museum would be thrilling, most of her days were spent on ____ tasks like dusting picture frames and counting brochures.",
+      "choices": {
+        "A": "dangerous",
+        "B": "exotic",
+        "C": "glamorous",
+        "D": "mundane"
+      },
+      "correct": "D",
+      "explanation": "Although tells you the job turned out different from thrilling, and the examples, dusting and counting, are dull chores. Mundane means ordinary and dull.",
+      "misconceptions": "ignores although and describes the job she hoped for",
+      "why": {
+        "A": "Dangerous would make the job thrilling, which although says it was not; dusting frames is not risky.",
+        "B": "Exotic means strange and from far away, the kind of job she dreamed of, not the dusting and counting she got.",
+        "C": "Glamorous means exciting and full of style, the job she hoped for; although says what she got was different."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "ed1562fc56841315"
+    },
+    {
+      "id": "VR-W6-X-27",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "M",
+      "prompt": "For the young violinist Yolanda, playing a solo at the famous concert hall was the ____ of her career; nothing she did afterward ever topped it.",
+      "choices": {
+        "A": "footnote",
+        "B": "intermission",
+        "C": "pinnacle",
+        "D": "souvenir"
+      },
+      "correct": "C",
+      "explanation": "The second half explains the blank: nothing afterward ever topped it, so it was the very top. Pinnacle means the highest point.",
+      "misconceptions": "picks a concert word (intermission), a keepsake (souvenir) or a minor detail (footnote) instead of the highest point",
+      "why": {
+        "A": "Footnote means a small, unimportant detail, but a moment nothing she did afterward ever topped was the biggest moment of her career, not a small one.",
+        "B": "Intermission is a short break in the middle of a show, and a break is not the high point that nothing afterward could top.",
+        "D": "Souvenir is an object you keep to remember a place, and the solo was an event, not a keepsake."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "6507bfd3a590c0a1"
+    },
+    {
+      "id": "VR-W6-X-28",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "E",
+      "prompt": "In the old story, the furious king decided to ____ the dishonest knight, ordering him to leave the kingdom and never come back.",
+      "choices": {
+        "A": "applaud",
+        "B": "banish",
+        "C": "boo",
+        "D": "pardon"
+      },
+      "correct": "B",
+      "explanation": "The words after the comma define the blank: ordering someone to leave and never come back. Banish means to send someone away as a punishment.",
+      "misconceptions": "misses the definition after the comma; picks a kind act (applaud, pardon) or a noise of dislike (boo)",
+      "why": {
+        "A": "Applaud means to clap for someone, which an angry king does not do for a dishonest knight.",
+        "C": "Boo means to shout your dislike, the way a crowd boos a bad call; it does not order anyone to leave the kingdom and never come back.",
+        "D": "Pardon means to forgive and let someone off, but the king was angry and sent the knight away for good."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "31a5dc17fd308311"
+    },
+    {
+      "id": "VR-W6-X-29",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "E",
+      "prompt": "In Aesop's fable, the ____ fox flatters the crow and asks to hear her sing, and when the vain bird opens her beak, her piece of cheese falls straight to the fox.",
+      "choices": {
+        "A": "careless",
+        "B": "clumsy",
+        "C": "cunning",
+        "D": "timid"
+      },
+      "correct": "C",
+      "explanation": "The example shows the fox fooling the crow with false praise to get the cheese. Cunning means clever at tricking others.",
+      "misconceptions": "describes the crow instead of the fox; misses that the fox's trick works",
+      "why": {
+        "A": "Careless describes the crow, who opens her beak without thinking; the fox's plan is carefully worked out.",
+        "B": "Clumsy means awkward and likely to drop things, but it is the crow that drops the cheese, and the fox's plan works perfectly.",
+        "D": "Timid means shy and easily frightened, but the fox boldly talks the crow out of her cheese."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/The_Fox_and_the_Crow_(Aesop)",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "afdaaa8c993b4aec"
+    },
+    {
+      "id": "VR-W6-X-30",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "M",
+      "prompt": "Dozens of volunteers rushed to the beach because news of the stranded whales' ____ had reached the town.",
+      "choices": {
+        "A": "escape",
+        "B": "migration",
+        "C": "plight",
+        "D": "safety"
+      },
+      "correct": "C",
+      "explanation": "Because tells you the news is why the volunteers rushed to help, and stranded means stuck on the beach, a dangerous fix for a whale. Plight means a difficult or dangerous situation.",
+      "misconceptions": "picks a good outcome (escape, safety) or what whales usually do (migration) instead of the trouble that made the volunteers come",
+      "why": {
+        "A": "Escape would mean the whales had already gotten free, and then no one would need to rush to the beach.",
+        "B": "Migration is a long seasonal journey, but stranded whales are stuck on the sand, going nowhere.",
+        "D": "Safety would mean the whales were already out of danger, and then nobody would need to rush to the beach."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "903fb8c9d6336db6"
+    },
+    {
+      "id": "VR-W6-X-31",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — negative clue",
+      "difficulty": "H",
+      "prompt": "Without enough sunlight, the tomato plants on the shady side of the house could never ____, no matter how often Wyatt watered them.",
+      "choices": {
+        "A": "flourish",
+        "B": "freeze",
+        "C": "hibernate",
+        "D": "wilt"
+      },
+      "correct": "A",
+      "explanation": "Never flips the sentence: without sunlight, the plants could never do well, however much water they got. Flourish means to grow strong and healthy.",
+      "misconceptions": "skips never and picks what plants without light do (wilt); picks a winter word (freeze, hibernate)",
+      "why": {
+        "B": "Freeze is about cold weather, but the sentence is about too little sunlight, and watering has nothing to do with freezing.",
+        "C": "Hibernate is what some animals do in winter, sleeping for months; the problem here is plants getting too little light.",
+        "D": "Wilt is what plants without enough light might do, but never flips the blank: the sentence says what the plants could never do, so it needs the opposite of wilting."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://yardandgarden.extension.iastate.edu/how-to/growing-tomatoes-home-garden",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "5b2acad2050d4f24"
+    },
+    {
+      "id": "VR-W6-X-32",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "M",
+      "prompt": "The snow leopard is so ____ that even people who live in its mountains almost never see one, and some call it the mountain ghost.",
+      "choices": {
+        "A": "aggressive",
+        "B": "elusive",
+        "C": "enormous",
+        "D": "friendly"
+      },
+      "correct": "B",
+      "explanation": "So … that links cause and effect: people almost never see it because it is so hard to find. Elusive means hard to find or catch.",
+      "misconceptions": "picks a trait that would make the animal easier to see, not harder",
+      "why": {
+        "A": "Aggressive means quick to attack, and an animal that attacked people would be seen, not called a ghost.",
+        "C": "Enormous means very large, and a very large animal would be easier to spot, not harder.",
+        "D": "Friendly means glad to be around people, and a friendly animal would come close enough to be seen, not hide like a ghost."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://snowleopard.org/tracking-ghost-mountains/",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "b120d7014057cd45"
+    },
+    {
+      "id": "VR-W6-X-33",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — time order",
+      "difficulty": "M",
+      "prompt": "Long before refrigerators were invented, families who wanted to keep meat from spoiling ____.",
+      "choices": {
+        "A": "ate it a month later",
+        "B": "salted it or smoked it",
+        "C": "stored it in the freezer",
+        "D": "left it out in the warm sun"
+      },
+      "correct": "B",
+      "explanation": "Long before refrigerators means the answer has to be something people could do without one. Salting and smoking are old ways of keeping meat from spoiling.",
+      "misconceptions": "skips long before and picks a freezer; picks something that would spoil the meat",
+      "why": {
+        "A": "Ate it a month later says nothing about keeping it fresh; meat left alone for a month spoils, and the sentence asks how they stopped that.",
+        "C": "Stored it in the freezer skips long before refrigerators were invented; a freezer needs the same cold machine, which did not exist yet.",
+        "D": "Left it out in the warm sun would make meat spoil faster, the opposite of keeping it."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Food_preservation",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "2ba615508e797d86"
+    },
+    {
+      "id": "VR-W6-X-34",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — cause and effect",
+      "difficulty": "H",
+      "prompt": "Because the plight of the stray cats in her neighborhood worried her, Ursula ____.",
+      "choices": {
+        "A": "chased them out of her yard",
+        "B": "bought herself a new bicycle",
+        "C": "laughed at their silly tricks",
+        "D": "raised money for the animal shelter"
+      },
+      "correct": "D",
+      "explanation": "Plight means a hard or dangerous situation. Worrying about the cats' plight is a reason to help them, and raising money for a shelter helps.",
+      "misconceptions": "does not know plight, so picks an ending that does not follow from worry",
+      "why": {
+        "A": "Chased them out of her yard would make their hard situation worse; worry about their plight is a reason to help them, not drive them off.",
+        "B": "Bought herself a new bicycle has nothing to do with the cats, so because has nothing to connect it to.",
+        "C": "Laughed at their silly tricks treats the cats as funny, but plight means they were in trouble, which is what worried her."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "d08be04b08547825"
+    },
+    {
+      "id": "VR-W6-X-35",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — contrast",
+      "difficulty": "E",
+      "prompt": "Most of the composer's music was loud and stormy, but her final piece ____.",
+      "choices": {
+        "A": "was played by an orchestra",
+        "B": "was quiet and gentle throughout",
+        "C": "was written during a long winter",
+        "D": "crashed with drums and booming horns"
+      },
+      "correct": "B",
+      "explanation": "But promises a change from loud and stormy, so the ending must be the opposite: quiet and gentle.",
+      "misconceptions": "repeats loud and stormy; picks a fact about the piece that is not a change",
+      "why": {
+        "A": "Was played by an orchestra could be said of her stormy music too, so it is no change, and but needs one.",
+        "C": "Was written during a long winter tells when she wrote it, not how it sounded, so it does not turn against loud and stormy.",
+        "D": "Crashed with drums and booming horns is loud and stormy all over again; but says the last piece was different."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "9dbc5192103ab5ff"
+    },
+    {
+      "id": "VR-W6-X-36",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — negative",
+      "difficulty": "M",
+      "prompt": "Yvette had never been on a boat before, so on the ferry ride across the bay she ____.",
+      "choices": {
+        "A": "steered like an old sailor",
+        "B": "told tales of her past voyages",
+        "C": "was amazed by everything she saw",
+        "D": "felt bored by the familiar sights"
+      },
+      "correct": "C",
+      "explanation": "Never been on a boat means the ferry ride was her first, so everything was new to her; being amazed by it all follows.",
+      "misconceptions": "reads never as often and picks an ending for an experienced sailor",
+      "why": {
+        "A": "Steered like an old sailor needs years on boats, and she had never been on one.",
+        "B": "Told tales of her past voyages reads never as if it were often; she had no past voyages to tell about.",
+        "D": "Felt bored by the familiar sights cannot be right on a first trip, because nothing on it was familiar yet."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "06ceb03bee4e5db0"
+    },
+    {
+      "id": "VR-W6-X-37",
+      "subject": "VR",
+      "form": "W6",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — cause and effect",
+      "difficulty": "E",
+      "prompt": "Because there is no air to breathe on the moon, astronauts who walk there ____.",
+      "choices": {
+        "A": "bring their own air",
+        "B": "leave their helmets at home",
+        "C": "fly kites in a gentle breeze",
+        "D": "take deep breaths of fresh air"
+      },
+      "correct": "A",
+      "explanation": "Because there is no air to breathe, astronauts have to bring their own. Every other ending would need air on the moon.",
+      "misconceptions": "picks an ending that needs air on the moon",
+      "why": {
+        "B": "Leave their helmets at home is the one thing they cannot do; with no air outside, the helmet is part of the sealed suit that holds the air they breathe.",
+        "C": "Fly kites in a gentle breeze needs moving air, and the moon has no air to move.",
+        "D": "Take deep breaths of fresh air is exactly what no air to breathe rules out."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Atmosphere_of_the_Moon",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "99e66cf50619d132"
+    },
+    {
+      "id": "VR-W7-X-01",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "M",
+      "prompt": "ORATOR most nearly means:",
+      "choices": {
+        "A": "listener",
+        "B": "operator",
+        "C": "speaker",
+        "D": "writer"
+      },
+      "correct": "C",
+      "explanation": "An orator is a person who gives speeches, usually a skilled public speaker: the orator spoke so well that the whole crowd rose and cheered.",
+      "misconceptions": "listener is the opposite role; operator is a look-alike; writer works with words but does not speak them aloud",
+      "why": {
+        "A": "Listener is the opposite role: an orator is the one speaking, and the listeners are the audience.",
+        "B": "Operator looks a lot like orator, which is the trap; an operator is someone who runs a machine or answers calls.",
+        "D": "Writer works with words too, but on paper; an orator speaks to an audience out loud."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "7a67a95d1fcdb760"
+    },
+    {
+      "id": "VR-W7-X-02",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "M",
+      "prompt": "POLL most nearly means:",
+      "choices": {
+        "A": "debate",
+        "B": "pole",
+        "C": "rumor",
+        "D": "survey"
+      },
+      "correct": "D",
+      "explanation": "A poll is a survey: you ask many people the same question and count their answers. Our class poll showed that most of us wanted pizza at the party.",
+      "misconceptions": "pole is a sound-alike; debate and rumor are other ways opinions travel, without the asking and counting",
+      "why": {
+        "A": "Debate is people arguing for different sides of a question; a poll does not argue, it asks many people and counts what they say.",
+        "B": "Pole sounds exactly like poll, which is the trap; a pole is a long stick, like a flagpole.",
+        "C": "Rumor is a story passed from person to person that may not be true; a poll collects real answers from people and counts them."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "81b7fa5f69309f18"
+    },
+    {
+      "id": "VR-W7-X-03",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "MINGLE most nearly means:",
+      "choices": {
+        "A": "dance",
+        "B": "gossip",
+        "C": "mix",
+        "D": "mumble"
+      },
+      "correct": "C",
+      "explanation": "To mingle is to mix together, or to move around a crowd chatting with different people: at the party, the parents mingled while the kids played tag.",
+      "misconceptions": "dance and gossip happen at the same parties; mumble is a look-alike",
+      "why": {
+        "A": "Dance is another thing people do at parties, which is the trap; to mingle is to move around and mix with the crowd, talking to different people.",
+        "B": "Gossip is talk about other people's private business; people may gossip while they mingle, but to mingle is to mix with a crowd.",
+        "D": "Mumble looks a bit like mingle, but it means to speak so quietly and unclearly that others cannot understand."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "495be5128f8d14db"
+    },
+    {
+      "id": "VR-W7-X-04",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "M",
+      "prompt": "EVADE most nearly means:",
+      "choices": {
+        "A": "catch",
+        "B": "escape",
+        "C": "invade",
+        "D": "vanish"
+      },
+      "correct": "B",
+      "explanation": "To evade is to escape or keep away from something, often by being clever or quick: the rabbit evaded the fox by darting into its burrow.",
+      "misconceptions": "invade is a rhyme; vanish is disappearing, not getting away; catch is what the chaser wants",
+      "why": {
+        "A": "Catch is what the other side is trying to do: the fox tries to catch the rabbit, and the rabbit evades it.",
+        "C": "Invade rhymes with evade, which is the trap; to invade is to march into a place to take it over.",
+        "D": "Vanish means to disappear completely; someone who evades a chaser is still there, just out of reach."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "0c5e61251f160324"
+    },
+    {
+      "id": "VR-W7-X-05",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "SOAR most nearly means:",
+      "choices": {
+        "A": "dive",
+        "B": "flap",
+        "C": "fly",
+        "D": "roar"
+      },
+      "correct": "C",
+      "explanation": "To soar is to fly or rise high into the air: my kite soared high above the beach on the strong wind.",
+      "misconceptions": "roar is a rhyme; flap is a wing movement, not high flight; dive is the opposite direction",
+      "why": {
+        "A": "Dive goes the other way: a bird that dives plunges straight down, and one that soars rises high.",
+        "B": "Flap is something wings do, which is the trap; to flap is to move wings up and down, while to soar is to fly high.",
+        "D": "Roar rhymes with soar, but it means to make a loud, deep sound, like a lion."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "9141f99a093a3df7"
+    },
+    {
+      "id": "VR-W7-X-06",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "H",
+      "prompt": "APPEASE most nearly means:",
+      "choices": {
+        "A": "annoy",
+        "B": "applaud",
+        "C": "ignore",
+        "D": "satisfy"
+      },
+      "correct": "D",
+      "explanation": "To appease someone is to calm them down by giving them what they want, to satisfy them: Dad appeased the crying baby with her favorite blanket.",
+      "misconceptions": "applaud is a look-alike that also pleases; ignore is a different way to handle someone upset; annoy is the opposite",
+      "why": {
+        "A": "Annoy is the opposite: annoying someone makes them more upset, and appeasing them calms them down.",
+        "B": "Applaud starts the same way and also pleases people, but to applaud is to clap to show you liked something.",
+        "C": "Ignore is another way to deal with someone upset, but ignoring means paying no attention, while appeasing means giving them what they want so they settle down."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "49e2edb7f792675e"
+    },
+    {
+      "id": "VR-W7-X-07",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "EMBARK most nearly means:",
+      "choices": {
+        "A": "begin",
+        "B": "embarrass",
+        "C": "pack",
+        "D": "return"
+      },
+      "correct": "A",
+      "explanation": "To embark is to set off or begin, especially on a journey, often by getting on a ship or plane: the explorers embarked on a long voyage across the sea.",
+      "misconceptions": "embarrass is a look-alike; pack happens before setting out; return is the end of the journey, not the start",
+      "why": {
+        "B": "Embarrass starts with the same letters, which is the trap; to embarrass someone is to make them feel foolish in front of others.",
+        "C": "Pack is something you do to get ready for a trip; to embark is to actually set off.",
+        "D": "Return is the other end of the trip: you embark when you set out, and you return when you come back."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "42a39ca3138f654d"
+    },
+    {
+      "id": "VR-W7-X-08",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "M",
+      "prompt": "DEPRIVE most nearly means:",
+      "choices": {
+        "A": "deny",
+        "B": "depart",
+        "C": "provide",
+        "D": "punish"
+      },
+      "correct": "A",
+      "explanation": "To deprive someone of something is to keep it from them or take it away, to deny it to them: the barking dog deprived the whole street of sleep.",
+      "misconceptions": "depart is a look-alike; punish is one reason to deprive, not the meaning; provide is the opposite",
+      "why": {
+        "B": "Depart starts like deprive, which is the trap; to depart is to leave, like a train departing the station.",
+        "C": "Provide is the opposite: to provide food is to give it, and to deprive someone of food is to keep it from them.",
+        "D": "Punish is a near miss, since taking away a treat can be a punishment, but to deprive is only to keep something from someone, and it need not be a punishment at all."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "961875cfc7631d27"
+    },
+    {
+      "id": "VR-W7-X-09",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "ERRATIC most nearly means:",
+      "choices": {
+        "A": "dramatic",
+        "B": "mistaken",
+        "C": "steady",
+        "D": "unpredictable"
+      },
+      "correct": "D",
+      "explanation": "Erratic means changing in ways nobody can predict, with no steady pattern: the fly's erratic path around the kitchen made it impossible to swat.",
+      "misconceptions": "dramatic is a rhyme; mistaken is a guess from error; steady is the opposite",
+      "why": {
+        "A": "Dramatic rhymes with erratic, but it means full of excitement or strong feeling, like the dramatic ending of a movie.",
+        "B": "Mistaken is a guess from error, a word that starts like erratic; mistaken means wrong, but erratic means unpredictable, and something erratic is not always wrong.",
+        "C": "Steady is the opposite: a steady beat keeps the same pattern, and an erratic one keeps changing."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b73eb552773376cf"
+    },
+    {
+      "id": "VR-W7-X-10",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "VIGILANT most nearly means:",
+      "choices": {
+        "A": "alert",
+        "B": "brave",
+        "C": "nervous",
+        "D": "violent"
+      },
+      "correct": "A",
+      "explanation": "Vigilant means watchful and alert, always on the lookout for danger: the lifeguard stayed vigilant, scanning the water every few seconds.",
+      "misconceptions": "violent is a look-alike; brave is another quality of a good guard; nervous is worry, not watchfulness",
+      "why": {
+        "B": "Brave is another quality a good guard has, which is the trap; brave means not afraid, while vigilant means always watching.",
+        "C": "Nervous means worried and jumpy; a vigilant lifeguard watches carefully for danger but can stay perfectly calm.",
+        "D": "Violent looks a lot like vigilant, but it means using force to hurt people or things."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "71b1d689ceca5009"
+    },
+    {
+      "id": "VR-W7-X-11",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "LOFTY most nearly means:",
+      "choices": {
+        "A": "high",
+        "B": "lovely",
+        "C": "short",
+        "D": "steep"
+      },
+      "correct": "A",
+      "explanation": "Lofty means very high, rising far above: lofty mountains towered over the valley. Lofty goals are high goals too.",
+      "misconceptions": "lovely is a look-alike; steep is about slope, not height; short is the opposite",
+      "why": {
+        "B": "Lovely starts and ends like lofty, which is the trap; lovely means beautiful, and a lofty tower can be ugly.",
+        "C": "Short is the opposite: a lofty tower rises high, and a short one barely reaches the treetops.",
+        "D": "Steep means sloping sharply, like a hill that is hard to climb; a lofty mountain is very high, and a small hill can be steep."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "62cc9cff09e16c6d"
+    },
+    {
+      "id": "VR-W7-X-12",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "H",
+      "prompt": "DEVOUT most nearly means:",
+      "choices": {
+        "A": "devious",
+        "B": "doubtful",
+        "C": "faithful",
+        "D": "greedy"
+      },
+      "correct": "C",
+      "explanation": "Devout means deeply faithful, especially to a religion; you can also be a devout fan of a team: he is a devout fan who has not missed a home game in five years.",
+      "misconceptions": "devious is a look-alike; greedy comes from the look-alike devour; doubtful is the opposite",
+      "why": {
+        "A": "Devious looks almost like devout, which is the trap; a devious person is sneaky and full of tricks, nearly the opposite of a sincere, devout one.",
+        "B": "Doubtful is the opposite: a devout believer is sure and steady in her faith, and a doubtful one is unsure.",
+        "D": "Greedy is a guess from devour, which looks like devout; devour means to eat hungrily, but devout means deeply faithful."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "bbf0da3616de88bb"
+    },
+    {
+      "id": "VR-W7-X-13",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "LUMINOUS most nearly means:",
+      "choices": {
+        "A": "dim",
+        "B": "glowing",
+        "C": "hot",
+        "D": "numerous"
+      },
+      "correct": "B",
+      "explanation": "Luminous means giving off light, glowing or shining: the luminous stars on my bedroom ceiling glow after I turn out the lamp.",
+      "misconceptions": "numerous is a look-alike; hot things can glow but heat is not light; dim is the opposite",
+      "why": {
+        "A": "Dim is the opposite: a dim light is weak and faint, and a luminous one glows brightly.",
+        "C": "Hot is tempting because campfire coals glow, but luminous is about light, not heat; a glow-in-the-dark sticker is luminous and stays cool.",
+        "D": "Numerous ends like luminous, but it means many in number, like the numerous ants at a picnic."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "bf795eb6a695033a"
+    },
+    {
+      "id": "VR-W7-X-14",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "H",
+      "prompt": "VIGIL most nearly means:",
+      "choices": {
+        "A": "nap",
+        "B": "party",
+        "C": "visit",
+        "D": "watch"
+      },
+      "correct": "D",
+      "explanation": "A vigil is a time of staying awake, often all night, to keep watch or to pray: Mom kept a vigil by my bed the night I had a high fever.",
+      "misconceptions": "visit is a look-alike near miss; party is a gathering of the wrong kind; nap is the opposite",
+      "why": {
+        "A": "Nap is the opposite: a nap is a short sleep, and a vigil is staying awake to keep watch.",
+        "B": "Party is a gathering for fun; people sometimes gather for a vigil too, but a vigil is quiet and serious, a time to keep watch or to remember someone.",
+        "C": "Visit starts like vigil, and you might visit a sick friend, but a visit can be short; a vigil means staying awake and watching, often through the night."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "77da8e9e34b9c2f7"
+    },
+    {
+      "id": "VR-W7-X-15",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "E",
+      "prompt": "TYRANT most nearly means:",
+      "choices": {
+        "A": "dictator",
+        "B": "giant",
+        "C": "rebel",
+        "D": "servant"
+      },
+      "correct": "A",
+      "explanation": "A tyrant is a ruler who uses power in a cruel, unfair way, or anyone who bosses others around cruelly: the tyrant in the story made the villagers work day and night.",
+      "misconceptions": "giant is a rhyme from the same stories; rebel fights the tyrant; servant is the opposite",
+      "why": {
+        "B": "Giant ends like tyrant, and either one can be the scary character in a story, but a giant is a very large person; a tyrant is a cruel ruler of any size.",
+        "C": "Rebel is someone who fights against a ruler, often against a tyrant, so a rebel is on the other side.",
+        "D": "Servant is the opposite: a servant takes orders, and a tyrant gives harsh ones."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ee78193228c1784d"
+    },
+    {
+      "id": "VR-W7-X-16",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — adverb",
+      "difficulty": "E",
+      "prompt": "RELUCTANTLY most nearly means:",
+      "choices": {
+        "A": "angrily",
+        "B": "luckily",
+        "C": "politely",
+        "D": "unwillingly"
+      },
+      "correct": "D",
+      "explanation": "Reluctantly means not wanting to do something but doing it anyway: he reluctantly turned off the game and started his homework.",
+      "misconceptions": "luckily is a look-alike; angrily and politely describe manner, not willingness",
+      "why": {
+        "A": "Angrily means in a mad way; a reluctant person may grumble, but reluctantly only means not wanting to, and you can be reluctant without being angry at all.",
+        "B": "Luckily shares the luc sound inside reluctantly, which is the trap; luckily means by good luck.",
+        "C": "Politely means with good manners; you can agree politely and still be glad to, while reluctantly means not wanting to."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "34023f6b2d6b04e0"
+    },
+    {
+      "id": "VR-W7-X-17",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "synonym — adverb",
+      "difficulty": "E",
+      "prompt": "DILIGENTLY most nearly means:",
+      "choices": {
+        "A": "hard",
+        "B": "intelligently",
+        "C": "late",
+        "D": "lazily"
+      },
+      "correct": "A",
+      "explanation": "Diligently means working hard and carefully, without giving up: she practiced her spelling words diligently every night before the test.",
+      "misconceptions": "intelligently is a look-alike; late is when, not how; lazily is the opposite",
+      "why": {
+        "B": "Intelligently ends with the same sounds as diligently, which is the trap; it means in a smart way, and being smart is not the same as working hard.",
+        "C": "Late tells when someone works, like after dark; diligently tells how, with steady effort, at any hour.",
+        "D": "Lazily is the opposite: a lazy worker does as little as possible, and a diligent one keeps at it."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "29cd84d453e20101"
+    },
+    {
+      "id": "VR-W7-X-18",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "E",
+      "prompt": "Over the summer, Uriel's family worked to ____ the old farmhouse: they patched the roof, replaced the broken windows, and painted every room.",
+      "choices": {
+        "A": "explore",
+        "B": "inherit",
+        "C": "inspect",
+        "D": "renovate"
+      },
+      "correct": "D",
+      "explanation": "The colon lists the work: patching, replacing and painting. That is fixing an old building up. Renovate means to repair something and make it like new.",
+      "misconceptions": "picks a way of looking around (explore, inspect) or how they got the house (inherit) instead of fixing it up",
+      "why": {
+        "A": "Explore means to look around a place you do not know, but the colon lists repairs the family made, not rooms they looked through.",
+        "B": "Inherit means to receive something from someone who has died; it might be how they got the farmhouse, but it is not the work the colon lists.",
+        "C": "Inspect means to look something over carefully, but the colon lists work done with tools, patching, replacing and painting, not just looking."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "495393c0fa51b10b"
+    },
+    {
+      "id": "VR-W7-X-19",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — negative clue",
+      "difficulty": "H",
+      "prompt": "Grandpa Walter is hardly ____: he has eaten the same breakfast, two eggs and toast, every morning for forty years.",
+      "choices": {
+        "A": "fickle",
+        "B": "hungry",
+        "C": "loyal",
+        "D": "predictable"
+      },
+      "correct": "A",
+      "explanation": "Hardly means almost not at all. Eating the same breakfast for forty years shows he never changes his mind, so he is hardly fickle. Fickle means changing your mind often.",
+      "misconceptions": "skips hardly and picks a word that describes the steady habit; picks by the word breakfast",
+      "why": {
+        "B": "Hungry fits the word breakfast, but the sentence is about eating the same thing for forty years, which shows how steady he is, not how hungry.",
+        "C": "Loyal fits a man who has stuck with one breakfast for forty years, but hardly turns the blank into what he is not.",
+        "D": "Predictable describes Grandpa exactly, and that is the trap: hardly means the blank is what he is not, so it needs the opposite."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "3d735149c0a3368d"
+    },
+    {
+      "id": "VR-W7-X-20",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "E",
+      "prompt": "The cabin was pitch dark, but as Yohan's eyes adjusted, he noticed a faint ____ of light under the door.",
+      "choices": {
+        "A": "blaze",
+        "B": "echo",
+        "C": "glimmer",
+        "D": "shadow"
+      },
+      "correct": "C",
+      "explanation": "But turns from pitch dark to something he could see, and faint says it was small. Glimmer means a faint, flickering light.",
+      "misconceptions": "ignores faint (blaze); ignores but and stays with the dark (shadow); picks a sound (echo)",
+      "why": {
+        "A": "Blaze is a big, bright fire, much too strong to be called faint, and it would have lit the whole cabin.",
+        "B": "Echo is a sound that bounces back, but he noticed it with his eyes, and the sentence says of light.",
+        "D": "Shadow goes with pitch dark, the part but turns away from; a shadow is where light is missing, not something faintly shining."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "ac2c71daec9abc61"
+    },
+    {
+      "id": "VR-W7-X-21",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "H",
+      "prompt": "Although many scientists doubted Alfred Wegener when he first said, in 1912, that the continents slowly drift across Earth's surface, his idea would eventually ____.",
+      "choices": {
+        "A": "collapse",
+        "B": "prevail",
+        "C": "vanish",
+        "D": "wander"
+      },
+      "correct": "B",
+      "explanation": "Although sets up a turn: doubted at first, but in the end the idea won out. Prevail means to win out or be accepted after a struggle.",
+      "misconceptions": "ignores although and goes with the doubters; picks by the word drift",
+      "why": {
+        "A": "Collapse goes with the doubting scientists, but although promises the opposite of how it started.",
+        "C": "Vanish would mean the idea disappeared, which is what the doubters expected, not the turn although signals.",
+        "D": "Wander borrows the drifting continents from the sentence, but an idea that wanders is not one that wins out."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Alfred_Wegener",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "5044ec5e74ee0f65"
+    },
+    {
+      "id": "VR-W7-X-22",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "E",
+      "prompt": "Valeria had looked pale and nervous all morning, but when the judges announced her name as the winner, her face was suddenly ____.",
+      "choices": {
+        "A": "furious",
+        "B": "pale",
+        "C": "radiant",
+        "D": "weary"
+      },
+      "correct": "C",
+      "explanation": "But and suddenly signal a change from pale and nervous, and winning makes a face light up. Radiant means glowing with happiness.",
+      "misconceptions": "ignores but and keeps the morning's look; picks a feeling winning does not cause",
+      "why": {
+        "A": "Furious means very angry, and nothing about winning makes a face angry.",
+        "B": "Pale is how Valeria looked all morning, and but and suddenly say her face changed.",
+        "D": "Weary means worn out, and hearing that you won does not wear you out; but and suddenly point to a happy change."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "88f6d65d901627f2"
+    },
+    {
+      "id": "VR-W7-X-23",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "M",
+      "prompt": "When Yuki stirred a drop of black paint into the bright red, it turned a darker ____, closer to the color of cherries.",
+      "choices": {
+        "A": "hue",
+        "B": "scent",
+        "C": "texture",
+        "D": "volume"
+      },
+      "correct": "A",
+      "explanation": "The sentence explains itself: the paint became closer to the color of cherries. Hue means a color, or a shade of a color.",
+      "misconceptions": "misses the definition at the end of the sentence (closer to the color of cherries)",
+      "why": {
+        "B": "Scent is a smell, and adding black paint changes how the paint looks, not how it smells.",
+        "C": "Texture is how something feels to the touch, and one drop of paint changes the color, as the end of the sentence says.",
+        "D": "Volume is how much space something fills, and one drop hardly changes that; the sentence is about color."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Tint,_shade_and_tone",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "7da01c12ee1a7719"
+    },
+    {
+      "id": "VR-W7-X-24",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "M",
+      "prompt": "Rather than throw out the whole class constitution, the students voted to ____ it by adding one new rule about sharing art supplies.",
+      "choices": {
+        "A": "abolish",
+        "B": "amend",
+        "C": "memorize",
+        "D": "sign"
+      },
+      "correct": "B",
+      "explanation": "Rather than tells you they did not throw it out, and adding one new rule shows what they did instead: changed it a little. Amend means to change or correct a rule or document.",
+      "misconceptions": "ignores rather than and picks throwing it out (abolish); picks something done to a document that adds nothing",
+      "why": {
+        "A": "Abolish means to end something completely, which is the throwing out that rather than rules out.",
+        "C": "Memorize means to learn by heart, but adding a rule changes the constitution rather than committing it to memory.",
+        "D": "Sign means to write your name on it, which adds no rule; adding a rule changes what the document says."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "1e065a79ac31cbbb"
+    },
+    {
+      "id": "VR-W7-X-25",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "E",
+      "prompt": "Zack is ____: when his older sister told him spaghetti grows on trees, he asked Dad if they could plant some in the backyard.",
+      "choices": {
+        "A": "generous",
+        "B": "gullible",
+        "C": "selfish",
+        "D": "skeptical"
+      },
+      "correct": "B",
+      "explanation": "The example shows Zack believing an obvious joke. Gullible means easily fooled.",
+      "misconceptions": "picks the opposite (skeptical) or a trait the example does not show (generous, selfish)",
+      "why": {
+        "A": "Generous means happy to give and share, which has nothing to do with believing a silly story.",
+        "C": "Selfish means caring only about yourself, but nothing in the example is about sharing or keeping things; it shows Zack believing a joke.",
+        "D": "Skeptical means doubting what you are told, the opposite of a boy who believes spaghetti grows on trees."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "eda70bf57b0d3f04"
+    },
+    {
+      "id": "VR-W7-X-26",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "M",
+      "prompt": "In many kingdoms long ago, a ruler's ____, an official order that everyone had to obey, was read aloud in the streets.",
+      "choices": {
+        "A": "ballad",
+        "B": "diary",
+        "C": "edict",
+        "D": "legend"
+      },
+      "correct": "C",
+      "explanation": "The words after the blank define it: an official order that everyone had to obey. An edict is an official order from someone in power.",
+      "misconceptions": "misses the definition after the blank; picks something read or sung aloud",
+      "why": {
+        "A": "Ballad is a song that tells a story; it might be sung in the streets, but no one has to obey a song.",
+        "B": "Diary is a private journal of someone's days, not an order read aloud for everyone to obey.",
+        "D": "Legend is an old story handed down, not an order from a ruler."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Town_crier",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "87ed7eabbd3dd38c"
+    },
+    {
+      "id": "VR-W7-X-27",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "M",
+      "prompt": "After the long, dry summer, the town's reservoir was nearly empty, so everyone hoped the autumn rains would ____ it.",
+      "choices": {
+        "A": "clean",
+        "B": "measure",
+        "C": "pollute",
+        "D": "replenish"
+      },
+      "correct": "D",
+      "explanation": "So links the problem, a nearly empty reservoir, to what the town hoped for: rain to fill it back up. Replenish means to fill up again.",
+      "misconceptions": "picks a word about dirt (clean, pollute) or amounts (measure) when the problem was too little water",
+      "why": {
+        "A": "Clean means to wash away dirt, but the trouble was that the reservoir was nearly empty, not dirty; it needed more water.",
+        "B": "Measure means to find out how much there is, and rain cannot do that; the town needed water, not a number.",
+        "C": "Pollute means to make dirty, which no town hopes for; the problem was that the water was low, not dirty."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "0ebc4688cf73e473"
+    },
+    {
+      "id": "VR-W7-X-28",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "E",
+      "prompt": "Uncle Ulric's chili is famous for its fiery spices, but the soup he made for my sick sister was ____, with no pepper or spice at all.",
+      "choices": {
+        "A": "bland",
+        "B": "boiling",
+        "C": "fiery",
+        "D": "frozen"
+      },
+      "correct": "A",
+      "explanation": "But turns away from fiery spices, and no pepper or spice at all describes the flavor. Bland means mild, without much taste.",
+      "misconceptions": "ignores but and repeats the chili's word (fiery); picks a temperature (boiling, frozen) when the sentence is about flavor",
+      "why": {
+        "B": "Boiling is about how hot the soup was, while no pepper or spice at all is about how it tasted.",
+        "C": "Fiery is the word for the chili, and but says the soup was different.",
+        "D": "Frozen soup would be a block of ice, and no pepper or spice at all describes the soup's flavor, not how cold it was."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "3394efc8e2fdb2b7"
+    },
+    {
+      "id": "VR-W7-X-29",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "M",
+      "prompt": "Because the novel was far too long to read aloud in one class, Ms. Vance read only a short ____ from its first chapter.",
+      "choices": {
+        "A": "biography",
+        "B": "epilogue",
+        "C": "excerpt",
+        "D": "glossary"
+      },
+      "correct": "C",
+      "explanation": "Because gives the reason: the whole book was too long, so she read a small part of it. An excerpt is a short passage taken from a longer piece of writing.",
+      "misconceptions": "picks another part of a book without checking from its first chapter",
+      "why": {
+        "A": "Biography is a book about a real person's life, not a short piece taken out of a novel.",
+        "B": "Epilogue is a short section at the very end of a book, and the sentence says the passage came from the first chapter.",
+        "D": "Glossary is the list of hard words and meanings at the back of a book, not part of the story's first chapter."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "cd403fab050aa97d"
+    },
+    {
+      "id": "VR-W7-X-30",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — negative clue",
+      "difficulty": "H",
+      "prompt": "The race could not ____ until every runner was standing behind the starting line; the officials waited for the last few stragglers.",
+      "choices": {
+        "A": "commence",
+        "B": "conclude",
+        "C": "pause",
+        "D": "relocate"
+      },
+      "correct": "A",
+      "explanation": "Could not … until tells you the race had to wait for something: every runner at the starting line. What waits for the starting line is the start. Commence means to begin.",
+      "misconceptions": "loses track of could not … until and picks the end (conclude); picks a stop or a move",
+      "why": {
+        "B": "Conclude means to end, and a race ends at the finish line, not the starting line.",
+        "C": "Pause means to stop for a moment, but a race that has not started yet has nothing to pause.",
+        "D": "Relocate means to move to a new place, but the officials were waiting for runners, not for a new spot."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "559a78951e8dd906"
+    },
+    {
+      "id": "VR-W7-X-31",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "M",
+      "prompt": "The ____ actor refused to eat lunch with the rest of the cast and demanded that his name be printed twice as large as theirs on every poster.",
+      "choices": {
+        "A": "calm",
+        "B": "nervous",
+        "C": "pompous",
+        "D": "shy"
+      },
+      "correct": "C",
+      "explanation": "The examples show an actor who thinks he is more important than everyone else. Pompous means self-important and showy.",
+      "misconceptions": "fits only the first example (shy) or picks a mood the examples do not show (calm, nervous)",
+      "why": {
+        "A": "Calm means quiet and relaxed, but the examples are not about staying relaxed; demanding a bigger name shows he thinks he matters more than everyone else.",
+        "B": "Nervous means worried, but nothing here shows worry; demanding a bigger name shows he thinks he is better than the rest.",
+        "D": "Shy could explain eating lunch alone, but a shy actor would never demand that his name be printed twice as large as everyone else's."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "78c958737018cca7"
+    },
+    {
+      "id": "VR-W7-X-32",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "M",
+      "prompt": "Because the salt water in the shallow dish slowly evaporated over the weekend, by Monday only a white ____ of salt crystals was left on the bottom.",
+      "choices": {
+        "A": "bubble",
+        "B": "droplet",
+        "C": "mist",
+        "D": "residue"
+      },
+      "correct": "D",
+      "explanation": "Because tells you the water went off into the air as it evaporated, and the salt could not go with it. Residue means what is left behind after the rest is gone.",
+      "misconceptions": "picks a watery word when the water had evaporated",
+      "why": {
+        "A": "Bubble is a pocket of air inside a liquid, and the liquid was gone; what was left was solid crystals.",
+        "B": "Droplet is a single drop of water, and the water had all evaporated; what was left was salt.",
+        "C": "Mist is a cloud of tiny water drops in the air, and the water had gone; what was left lay on the bottom of the dish."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://www.education.com/activity/article/earth-science_sun-dried",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "9cab0dfde33d698d"
+    },
+    {
+      "id": "VR-W7-X-33",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — contrast",
+      "difficulty": "E",
+      "prompt": "Many spiders spin webs to catch insects, but a jumping spider ____.",
+      "choices": {
+        "A": "spins a large sticky web",
+        "B": "lives in gardens and homes",
+        "C": "pounces on insects it spots",
+        "D": "has eight legs like other spiders"
+      },
+      "correct": "C",
+      "explanation": "But promises a difference from spinning webs to catch insects, so the jumping spider must catch them another way: it pounces on them.",
+      "misconceptions": "ignores but and repeats the web; picks a fact that is not about catching insects",
+      "why": {
+        "A": "Spins a large sticky web is what many spiders do, and but says the jumping spider is different.",
+        "B": "Lives in gardens and homes says where it lives, not how it catches insects, which is what but turns against.",
+        "D": "Has eight legs like other spiders tells how it is the same, when but asks for a difference."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Jumping_spider",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "1b41db35eafc2bc6"
+    },
+    {
+      "id": "VR-W7-X-34",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — cause and effect",
+      "difficulty": "M",
+      "prompt": "Since the rice tasted bland, Usha ____.",
+      "choices": {
+        "A": "ate it with a smile",
+        "B": "said it was too spicy",
+        "C": "complained it was too salty",
+        "D": "added a pinch of salt and pepper"
+      },
+      "correct": "D",
+      "explanation": "Bland means without much flavor, so the sensible next step is to add some: a pinch of salt and pepper.",
+      "misconceptions": "does not know bland and reads it as too much flavor",
+      "why": {
+        "A": "Ate it with a smile does not follow from since; tasting bland is a reason to fix the rice, not a reason to smile.",
+        "B": "Said it was too spicy is the opposite of bland, which means the rice had hardly any taste at all.",
+        "C": "Complained it was too salty is wrong for the same reason: bland rice has too little flavor, not too much."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "b1ddaf519b14de55"
+    },
+    {
+      "id": "VR-W7-X-35",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — contrast",
+      "difficulty": "M",
+      "prompt": "Although the folk singer never learned to read music, she ____.",
+      "choices": {
+        "A": "wrote songs people loved",
+        "B": "could not play any instrument",
+        "C": "lived in a small mountain town",
+        "D": "read each new song from sheet music"
+      },
+      "correct": "A",
+      "explanation": "Although sets up a surprise: you might expect someone who cannot read music to make little of it, yet she wrote songs people loved.",
+      "misconceptions": "picks an ending that agrees with the first half, or contradicts it, instead of a surprise",
+      "why": {
+        "B": "Could not play any instrument goes along with not reading music instead of against it, and although needs a surprise.",
+        "C": "Lived in a small mountain town is about where she lived, which has nothing to do with reading music, so although has nothing to turn on.",
+        "D": "Read each new song from sheet music contradicts the first half, since she never learned to read music."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "26238bf1bd249a05"
+    },
+    {
+      "id": "VR-W7-X-36",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — negative",
+      "difficulty": "H",
+      "prompt": "An ostrich cannot fly away from danger; instead, it ____.",
+      "choices": {
+        "A": "flies off to safety",
+        "B": "runs away on its long legs",
+        "C": "has feathers like other birds",
+        "D": "hides in a nest high in a tree"
+      },
+      "correct": "B",
+      "explanation": "Cannot fly rules out escaping through the air, so the ostrich must escape on the ground, and it runs fast on its long legs.",
+      "misconceptions": "reads cannot as can; picks a true fact that does not follow",
+      "why": {
+        "A": "Flies off to safety reads cannot as can; the sentence says flying is the one thing an ostrich cannot do.",
+        "C": "Has feathers like other birds is true, but it does not follow from being unable to fly; instead asks what the ostrich does when it cannot fly.",
+        "D": "Hides in a nest high in a tree would mean getting up there, which a bird that cannot fly cannot do."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Common_ostrich",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "627eba87d1ab7c08"
+    },
+    {
+      "id": "VR-W7-X-37",
+      "subject": "VR",
+      "form": "W7",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — cause and effect",
+      "difficulty": "E",
+      "prompt": "Because the library's air conditioner broke on the hottest day of the year, the librarian ____.",
+      "choices": {
+        "A": "turned up the heat",
+        "B": "opened all the windows",
+        "C": "handed out wool blankets",
+        "D": "closed early for the winter holidays"
+      },
+      "correct": "B",
+      "explanation": "Because tells you the ending answers the problem: a broken air conditioner on the hottest day. Opening the windows lets in a breeze to cool the room.",
+      "misconceptions": "picks an ending for cold weather instead of a hot day",
+      "why": {
+        "A": "Turned up the heat would make a hot library hotter, the opposite of what the problem needs.",
+        "C": "Handed out wool blankets is what you do when people are cold, not on the hottest day of the year.",
+        "D": "Closed early for the winter holidays is about a winter break, while the problem is a broken air conditioner on the hottest day of the year."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "110350d3fb6f9559"
+    },
+    {
+      "id": "VR-W8-X-01",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "M",
+      "prompt": "PLEA most nearly means:",
+      "choices": {
+        "A": "pleasure",
+        "B": "promise",
+        "C": "request",
+        "D": "warning"
+      },
+      "correct": "C",
+      "explanation": "A plea is an urgent request, asking for something you badly want or need: the lost hikers made a plea for help over the radio.",
+      "misconceptions": "pleasure starts with the same letters; promise offers instead of asking; warning tells instead of asking",
+      "why": {
+        "A": "Pleasure begins with plea, which is the trap, but pleasure is a feeling of happiness or enjoyment.",
+        "B": "Promise is something you say you will do for someone; a plea goes the other way, asking someone to do something for you.",
+        "D": "Warning tells someone about danger ahead; a plea asks someone, often begging, for help or mercy."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2045c1f00daac039"
+    },
+    {
+      "id": "VR-W8-X-02",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "M",
+      "prompt": "DEFY most nearly means:",
+      "choices": {
+        "A": "complain",
+        "B": "deny",
+        "C": "obey",
+        "D": "resist"
+      },
+      "correct": "D",
+      "explanation": "To defy is to openly resist or refuse to obey: the girl in the story defied the king's order and told the truth.",
+      "misconceptions": "deny is a look-alike; complain grumbles but goes along; obey is the opposite",
+      "why": {
+        "A": "Complain means to grumble that something is unfair; a person who complains may still do as they are told, but one who defies refuses.",
+        "B": "Deny looks almost like defy, which is the trap; to deny is to say that something is not true, while to defy is to refuse to obey.",
+        "C": "Obey is the opposite: to obey a rule is to follow it, and to defy it is to openly refuse."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "978cd8bc22f83c7f"
+    },
+    {
+      "id": "VR-W8-X-03",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "H",
+      "prompt": "RECTIFY most nearly means:",
+      "choices": {
+        "A": "fix",
+        "B": "notice",
+        "C": "repeat",
+        "D": "terrify"
+      },
+      "correct": "A",
+      "explanation": "To rectify is to fix something that is wrong, to make it right: the store rectified its mistake and gave us our money back.",
+      "misconceptions": "terrify ends the same way; repeat starts the same way; notice comes before fixing",
+      "why": {
+        "B": "Notice is the step before: you have to notice a mistake before you can rectify it, which means fixing it.",
+        "C": "Repeat starts with the same two letters, but to repeat is to say or do something again, which would not fix anything.",
+        "D": "Terrify ends with the same sound as rectify, which is the trap; to terrify is to frighten someone badly."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "934f52c9b39ef3e6"
+    },
+    {
+      "id": "VR-W8-X-04",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "MOURN most nearly means:",
+      "choices": {
+        "A": "celebrate",
+        "B": "grieve",
+        "C": "warn",
+        "D": "worry"
+      },
+      "correct": "B",
+      "explanation": "To mourn is to feel and show deep sadness because someone has died or something is lost: the whole town mourned the old fire chief.",
+      "misconceptions": "warn is a rhyme; worry looks ahead instead of back at a loss; celebrate is the opposite",
+      "why": {
+        "A": "Celebrate is the opposite: people celebrate happy events, and they mourn sad losses.",
+        "C": "Warn rhymes with mourn, which is the trap; to warn is to tell someone about danger ahead.",
+        "D": "Worry is an uneasy feeling about what might happen; mourning is sorrow for something that has already been lost."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "748e6ce85a0ef377"
+    },
+    {
+      "id": "VR-W8-X-05",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "H",
+      "prompt": "IMPEDE most nearly means:",
+      "choices": {
+        "A": "assist",
+        "B": "hinder",
+        "C": "hurry",
+        "D": "stampede"
+      },
+      "correct": "B",
+      "explanation": "To impede something is to hinder it, to slow it down or get in its way: deep snow impeded the school bus, so we were late.",
+      "misconceptions": "stampede is a rhyme; assist and hurry both push the other way",
+      "why": {
+        "A": "Assist is the opposite: to assist is to help something along, and to impede is to get in its way.",
+        "C": "Hurry goes the other way too: hurrying speeds things up, and impeding slows them down.",
+        "D": "Stampede rhymes with impede, but it means to rush wildly in a big crowd, like frightened cattle."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "52b4a6ef9bb07387"
+    },
+    {
+      "id": "VR-W8-X-06",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "DIMINISH most nearly means:",
+      "choices": {
+        "A": "divide",
+        "B": "erase",
+        "C": "finish",
+        "D": "reduce"
+      },
+      "correct": "D",
+      "explanation": "To diminish is to make something smaller or less, or to become smaller: the pile of firewood diminished as the cold night went on.",
+      "misconceptions": "finish is a rhyme; divide makes smaller pieces of the same whole; erase removes all of it",
+      "why": {
+        "A": "Divide means to split something into parts; each part is smaller, which is the trap, but all of the thing is still there, while diminishing leaves less of it.",
+        "B": "Erase means to rub something out completely; to diminish is to make it smaller or weaker, and some of it is still there.",
+        "C": "Finish rhymes with the end of diminish, but to finish is to come to the end of something."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ad136c441e6b5d05"
+    },
+    {
+      "id": "VR-W8-X-07",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — verb",
+      "difficulty": "E",
+      "prompt": "CRAVE most nearly means:",
+      "choices": {
+        "A": "carve",
+        "B": "desire",
+        "C": "hate",
+        "D": "taste"
+      },
+      "correct": "B",
+      "explanation": "To crave something is to want it very badly, to desire it: after the long, hot hike, I craved a cold glass of lemonade.",
+      "misconceptions": "carve has the same letters rearranged; taste goes with food cravings but is not wanting; hate is the opposite",
+      "why": {
+        "A": "Carve has the same letters as crave in a different order, which is the trap; to carve is to cut wood or meat into shape.",
+        "C": "Hate is the opposite: you crave the things you want most, and you hate the things you cannot stand.",
+        "D": "Taste is a near miss, since people often crave a food, but to taste is to try it in your mouth; you can crave a food you have not tasted for months."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "d5672d8566028640"
+    },
+    {
+      "id": "VR-W8-X-08",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "SPARSE most nearly means:",
+      "choices": {
+        "A": "crowded",
+        "B": "empty",
+        "C": "scattered",
+        "D": "sparkly"
+      },
+      "correct": "C",
+      "explanation": "Sparse means thinly scattered, with only a few things spread far apart: grass was sparse on the dry, rocky hill, just a tuft here and there.",
+      "misconceptions": "sparkly is a look-alike; empty goes too far; crowded is the opposite",
+      "why": {
+        "A": "Crowded is the opposite: a crowded place is packed full, and a sparse one has only a few things, spread far apart.",
+        "B": "Empty means nothing at all is there; sparse means a few things are there, just spread thin.",
+        "D": "Sparkly starts like sparse, which is the trap; sparkly means glittering with tiny flashes of light."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "54deb92c22c5f91d"
+    },
+    {
+      "id": "VR-W8-X-09",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "H",
+      "prompt": "OPAQUE most nearly means:",
+      "choices": {
+        "A": "shiny",
+        "B": "transparent",
+        "C": "unclear",
+        "D": "unique"
+      },
+      "correct": "C",
+      "explanation": "Opaque means not clear enough to see through, because light cannot pass through it: a wooden door is opaque, but a window is not. Words can be opaque too: an opaque explanation is unclear, hard to understand.",
+      "misconceptions": "unique ends the same way; shiny is about reflecting light, not letting it through; transparent is the opposite",
+      "why": {
+        "A": "Shiny means reflecting light brightly, like a new coin; opaque is about whether light can pass through, and a shiny coin is opaque too.",
+        "B": "Transparent is the opposite: you can see right through something transparent, like a clean window, and you cannot see through something opaque.",
+        "D": "Unique ends in -que, just like opaque, which is the trap; unique means one of a kind."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "75a165a66ab6c199"
+    },
+    {
+      "id": "VR-W8-X-10",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "IMPARTIAL most nearly means:",
+      "choices": {
+        "A": "biased",
+        "B": "complete",
+        "C": "fair",
+        "D": "impatient"
+      },
+      "correct": "C",
+      "explanation": "Impartial means fair, not favoring one side over another: a good referee stays impartial, even when her own school is playing.",
+      "misconceptions": "impatient is a look-alike; complete comes from reading not partial as not in part; biased is the opposite",
+      "why": {
+        "A": "Biased is the opposite: a biased judge favors one side, and an impartial judge treats both sides the same.",
+        "B": "Complete is a guess from reading impartial as not partial, as if it meant not in part; but impartial means not taking sides.",
+        "D": "Impatient looks a lot like impartial, which is the trap; impatient means unable to wait calmly."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "733900b5a11dc5ec"
+    },
+    {
+      "id": "VR-W8-X-11",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "H",
+      "prompt": "GALLANT most nearly means:",
+      "choices": {
+        "A": "brave",
+        "B": "fast",
+        "C": "loyal",
+        "D": "wealthy"
+      },
+      "correct": "A",
+      "explanation": "Gallant means brave and noble, like a hero in an old story: the gallant knight rode out alone to face the dragon.",
+      "misconceptions": "fast comes from the look-alike gallop; loyal and wealthy fit the same storybook heroes",
+      "why": {
+        "B": "Fast is a guess from gallop, which looks like gallant; knights in stories do both, but gallant means brave and noble, not quick.",
+        "C": "Loyal means always standing by a friend or a leader; a gallant knight may be loyal too, but gallant means brave and noble.",
+        "D": "Wealthy means rich; the gallant heroes of old stories are often rich lords, but gallant describes courage, not money."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "3d898805c9043ff4"
+    },
+    {
+      "id": "VR-W8-X-12",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — adjective",
+      "difficulty": "M",
+      "prompt": "CRAFTY most nearly means:",
+      "choices": {
+        "A": "drafty",
+        "B": "mean",
+        "C": "sneaky",
+        "D": "truthful"
+      },
+      "correct": "C",
+      "explanation": "Crafty means clever at tricking people to get what you want: the crafty pirate hid the real map and let his rivals steal a fake one.",
+      "misconceptions": "drafty is a rhyme; mean is unkind rather than tricky; truthful is the opposite",
+      "why": {
+        "A": "Drafty rhymes with crafty, but it describes a room where cold air blows in through cracks.",
+        "B": "Mean means unkind; a crafty person may be mean too, but crafty is about clever tricks, and a crafty plan can be harmless fun.",
+        "D": "Truthful is the opposite: a truthful person says what is so, and a crafty one plays tricks."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ff7dc7ae0f6a55c9"
+    },
+    {
+      "id": "VR-W8-X-13",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "M",
+      "prompt": "VALOR most nearly means:",
+      "choices": {
+        "A": "courage",
+        "B": "glory",
+        "C": "valley",
+        "D": "victory"
+      },
+      "correct": "A",
+      "explanation": "Valor is great courage, especially in danger or in battle: the firefighter won a medal for valor after carrying a child out of the burning house.",
+      "misconceptions": "valley is a look-alike; glory is the fame that may follow valor; victory is a result, not courage",
+      "why": {
+        "B": "Glory is the fame and praise a hero may win; valor is the courage itself, and many brave acts are never praised at all.",
+        "C": "Valley starts with the same letters as valor, which is the trap; a valley is the low land between hills.",
+        "D": "Victory is winning; valor can help win a battle, but valor is the courage itself, and a brave soldier can show valor and still lose."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "15c9f79557ebec62"
+    },
+    {
+      "id": "VR-W8-X-14",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "M",
+      "prompt": "RELIC most nearly means:",
+      "choices": {
+        "A": "antique",
+        "B": "invention",
+        "C": "relish",
+        "D": "replica"
+      },
+      "correct": "A",
+      "explanation": "A relic is an object that has lasted from long ago: the rusty sword in the museum is a relic of a battle fought hundreds of years ago.",
+      "misconceptions": "relish is a look-alike; replica is a new copy of an old thing; invention is new, close to the opposite",
+      "why": {
+        "B": "Invention is nearly the opposite: an invention is something new that someone has just created, and a relic is something left from long ago.",
+        "C": "Relish looks like relic, which is the trap; relish is a chopped pickle sauce for hot dogs, or great enjoyment.",
+        "D": "Replica is a copy made to look like something old, the kind a museum gift shop sells; a relic is the real object that has lasted from long ago."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "4ab409a2f57df2dc"
+    },
+    {
+      "id": "VR-W8-X-15",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — noun",
+      "difficulty": "M",
+      "prompt": "ANECDOTE most nearly means:",
+      "choices": {
+        "A": "antidote",
+        "B": "poem",
+        "C": "riddle",
+        "D": "story"
+      },
+      "correct": "D",
+      "explanation": "An anecdote is a short, interesting story about something that really happened: Grandpa told an anecdote about the day his cow got loose in town.",
+      "misconceptions": "antidote is a look-alike; a poem and a riddle are other short pieces, but not true stories",
+      "why": {
+        "A": "Antidote looks and sounds like anecdote, which is the trap; an antidote is a medicine that stops a poison from working.",
+        "B": "Poem is a piece of writing with rhythm and often rhyme; an anecdote is a short true story, usually told out loud.",
+        "C": "Riddle is a puzzling question you try to guess the answer to; an anecdote is a short true story, with nothing to guess."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ae85428818469eba"
+    },
+    {
+      "id": "VR-W8-X-16",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — adverb",
+      "difficulty": "E",
+      "prompt": "EAGERLY most nearly means:",
+      "choices": {
+        "A": "easily",
+        "B": "excitedly",
+        "C": "nervously",
+        "D": "patiently"
+      },
+      "correct": "B",
+      "explanation": "Eagerly means excitedly, really wanting something to happen: the puppy waited eagerly by the door for its walk.",
+      "misconceptions": "easily is a look-alike; nervously is waiting with worry instead of excitement; patiently is calm waiting, close to the opposite",
+      "why": {
+        "A": "Easily starts and ends like eagerly, which is the trap; easily means without trouble or effort.",
+        "C": "Nervously also describes how someone might wait, but nervous waiting is worried, and eager waiting is excited and happy.",
+        "D": "Patiently is close to the opposite: a patient person waits calmly, while someone waiting eagerly can hardly wait at all."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "9cb29e0fccd6338c"
+    },
+    {
+      "id": "VR-W8-X-17",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "synonym — adverb",
+      "difficulty": "E",
+      "prompt": "ABRUPTLY most nearly means:",
+      "choices": {
+        "A": "absolutely",
+        "B": "early",
+        "C": "loudly",
+        "D": "suddenly"
+      },
+      "correct": "D",
+      "explanation": "Abruptly means suddenly and without warning: the music stopped abruptly, right in the middle of the song.",
+      "misconceptions": "absolutely is a look-alike; early is about time, not surprise; loudly often comes with a sudden stop but is about noise",
+      "why": {
+        "A": "Absolutely starts with the same letters as abruptly, which is the trap; absolutely means completely, as in absolutely sure.",
+        "B": "Early means before the usual time; something can end early but slowly, while abruptly means all at once, with no warning.",
+        "C": "Loudly is about noise; a car that stops abruptly may screech loudly, but abruptly means suddenly, and a quiet thing can end abruptly too."
+      },
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b6ef2cfa96dad1c7"
+    },
+    {
+      "id": "VR-W8-X-18",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "H",
+      "prompt": "Uncle Vince loves almost every kind of food, but he cannot ____ olives; he picks every last one off his pizza and leaves them on his plate.",
+      "choices": {
+        "A": "abide",
+        "B": "afford",
+        "C": "find",
+        "D": "resist"
+      },
+      "correct": "A",
+      "explanation": "But turns from loving almost every food to one he cannot stand, and picking every olive off his pizza shows it. To abide something is to put up with it, so cannot abide means cannot stand.",
+      "misconceptions": "reads cannot resist (loves them) for cannot abide; picks money or finding",
+      "why": {
+        "B": "Afford means to have enough money for something, but picking olives off a pizza is about disliking them, not about cost.",
+        "C": "Find does not fit: he spots every last olive on his pizza, so he has no trouble finding them.",
+        "D": "Resist would make it mean he loves olives too much to turn them down, but but says olives are the exception to the foods he loves."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "f0013c5744236ca1"
+    },
+    {
+      "id": "VR-W8-X-19",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "M",
+      "prompt": "Unlike her timid older brother, who would not even try the low diving board, Zola was ____ and leaped from the highest platform on her very first visit.",
+      "choices": {
+        "A": "clumsy",
+        "B": "graceful",
+        "C": "intrepid",
+        "D": "timid"
+      },
+      "correct": "C",
+      "explanation": "Unlike sets Zola against her timid brother, and leaping from the highest platform on her first visit shows how. Intrepid means fearless and bold.",
+      "misconceptions": "ignores unlike and describes the brother (timid); picks a word about how she moves (clumsy, graceful) instead of how brave she was",
+      "why": {
+        "A": "Clumsy means awkward and likely to stumble, which says nothing about courage; unlike sets Zola against a brother too timid to try even the low board.",
+        "B": "Graceful is about how smoothly someone moves, but unlike sets Zola against a timid brother, so the blank is about courage.",
+        "D": "Timid is the sentence's own word for her brother, and unlike tells you Zola was different from him."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "f173bc7e9313159a"
+    },
+    {
+      "id": "VR-W8-X-20",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "M",
+      "prompt": "Benjamin Franklin became a printer by starting out as his older brother's ____: from the age of twelve, he worked in his brother's Boston print shop and learned the trade from him.",
+      "choices": {
+        "A": "apprentice",
+        "B": "customer",
+        "C": "master",
+        "D": "partner"
+      },
+      "correct": "A",
+      "explanation": "The words after the colon define the blank: someone who works for a skilled worker in order to learn a trade from him. An apprentice is a person learning a trade from an expert.",
+      "misconceptions": "reverses the roles and picks the teacher (master); picks someone from outside the shop (customer); misses that he was still learning (partner)",
+      "why": {
+        "B": "Customer is someone who buys things from a shop, but a customer does not work there or learn the trade, and Benjamin did both.",
+        "C": "Master is the skilled worker who teaches the trade, and that was his brother; Benjamin, at twelve, was the one learning it.",
+        "D": "Partner is someone who owns a share of a business as an equal, but a twelve-year-old still learning the trade from his brother was not his equal."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Benjamin_Franklin and https://en.wikipedia.org/wiki/James_Franklin_(printer)",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "a812fd4a66f079b5"
+    },
+    {
+      "id": "VR-W8-X-21",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "H",
+      "prompt": "Each spring, the town council chooses one citizen to receive the Golden Key, the highest honor the town can ____.",
+      "choices": {
+        "A": "auction",
+        "B": "bestow",
+        "C": "earn",
+        "D": "inherit"
+      },
+      "correct": "B",
+      "explanation": "The citizen receives the Golden Key, so the town is the one giving it. Bestow means to give an honor or a gift.",
+      "misconceptions": "takes the side of the person receiving (earn, inherit) instead of the town giving, or turns the honor into a sale (auction)",
+      "why": {
+        "A": "Auction means to sell something to whoever offers the most money, but an honor is given as a reward, not sold to the highest bidder.",
+        "C": "Earn is what the citizen does to deserve the Golden Key; the blank is what the town does when it hands the honor over.",
+        "D": "Inherit means to receive something from someone who has died, but the town is not receiving the Golden Key; it is the one giving it."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "889702f6339b81cc"
+    },
+    {
+      "id": "VR-W8-X-22",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "M",
+      "prompt": "A barnacle is a ____ little animal: once it cements itself to a rock or a ship's hull, it stays stuck there for the rest of its life.",
+      "choices": {
+        "A": "delicate",
+        "B": "playful",
+        "C": "restless",
+        "D": "tenacious"
+      },
+      "correct": "D",
+      "explanation": "The colon gives the example: once stuck, it never lets go. Tenacious means holding on tightly and not giving up.",
+      "misconceptions": "picks a trait the colon does not describe; picks the opposite of staying put",
+      "why": {
+        "A": "Delicate means easily broken or harmed, but this animal glues itself down for life.",
+        "B": "Playful means full of fun, and the colon is about how tightly the barnacle holds on, not how it behaves.",
+        "C": "Restless means unable to keep still, but this animal stays in one spot for the rest of its life."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Barnacle",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "6ea0a64669403d71"
+    },
+    {
+      "id": "VR-W8-X-23",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "E",
+      "prompt": "Everyone laughed, because they knew Zane's threat to trade his little sister for a puppy was only a ____.",
+      "choices": {
+        "A": "jest",
+        "B": "promise",
+        "C": "secret",
+        "D": "warning"
+      },
+      "correct": "A",
+      "explanation": "Because gives the reason they laughed: they knew he did not mean it. A jest is a joke, something said for fun.",
+      "misconceptions": "misses that laughing shows nobody believed it; picks something said seriously",
+      "why": {
+        "B": "Promise would mean he really planned to do it, and nobody laughs at a promise to trade away a sister if they believe it.",
+        "C": "Secret means something hidden, but he said it out loud to everyone, which is why they laughed.",
+        "D": "Warning means telling someone about danger ahead, and people do not laugh at a warning they believe."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "15b3cda701b08a93"
+    },
+    {
+      "id": "VR-W8-X-24",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "M",
+      "prompt": "Although her classmates laughed at the idea, Zainab continued to ____ that a tomato is a fruit, and she brought in a book about plants to prove it.",
+      "choices": {
+        "A": "assert",
+        "B": "doubt",
+        "C": "forget",
+        "D": "regret"
+      },
+      "correct": "A",
+      "explanation": "Although tells you she kept on even though others laughed, and bringing a book to prove it shows she said it firmly. Assert means to state something firmly.",
+      "misconceptions": "goes with the laughing classmates instead of the turn although signals",
+      "why": {
+        "B": "Doubt means to be unsure, but she brought a book to prove her point, which is the opposite of doubting.",
+        "C": "Forget does not fit continued to: you cannot keep forgetting something while you bring a book to prove it.",
+        "D": "Regret means to feel sorry about something, and she was not sorry; she was proving she was right."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Tomato",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "a3dd1e742d56c872"
+    },
+    {
+      "id": "VR-W8-X-25",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "M",
+      "prompt": "Marie Curie, the first person ever to win two Nobel Prizes, was one of the most ____ scientists of her time.",
+      "choices": {
+        "A": "eminent",
+        "B": "imminent",
+        "C": "obscure",
+        "D": "ordinary"
+      },
+      "correct": "A",
+      "explanation": "The example tells you: two Nobel Prizes, a first in history, made her famous and respected. Eminent means famous and respected in your field.",
+      "misconceptions": "confuses eminent with imminent; picks the opposite of famous",
+      "why": {
+        "B": "Imminent sounds almost the same but means about to happen, like an imminent storm; it cannot describe a scientist.",
+        "C": "Obscure means little known, but the first person to win two Nobel Prizes is famous.",
+        "D": "Ordinary means nothing special, and winning two Nobel Prizes, a first in history, is far from ordinary."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Marie_Curie",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "342d37855fb3520b"
+    },
+    {
+      "id": "VR-W8-X-26",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — contrast clue",
+      "difficulty": "E",
+      "prompt": "Rather than the whole clay pot they had hoped to find, the archaeologists dug up only a single ____ no bigger than a coin.",
+      "choices": {
+        "A": "boulder",
+        "B": "fragment",
+        "C": "original",
+        "D": "replica"
+      },
+      "correct": "B",
+      "explanation": "Rather than the whole pot, they found only a piece no bigger than a coin: a small broken part. Fragment means a small piece broken off something.",
+      "misconceptions": "misses no bigger than a coin (boulder); picks a word about real or copied (original, replica) instead of a broken piece",
+      "why": {
+        "A": "Boulder is a huge rock, and the find was no bigger than a coin.",
+        "C": "Original means the real thing rather than a copy, but the sentence is about size: rather than the whole pot, they found a piece no bigger than a coin.",
+        "D": "Replica is a copy made later, but archaeologists dig up old, real things, and this was a piece of the pot itself."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "2aa2b861cd2073f8"
+    },
+    {
+      "id": "VR-W8-X-27",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "H",
+      "prompt": "Because they found fossils of sea creatures near the top of Mount Everest, scientists were able to ____ that its rock had once been at the bottom of an ocean.",
+      "choices": {
+        "A": "conceal",
+        "B": "deduce",
+        "C": "imagine",
+        "D": "pretend"
+      },
+      "correct": "B",
+      "explanation": "Because tells you the fossils were evidence, and the scientists reasoned from that evidence to a conclusion. Deduce means to figure something out from the facts.",
+      "misconceptions": "picks a word that needs no evidence (imagine, pretend) or hides it",
+      "why": {
+        "A": "Conceal means to hide, and finding fossils does not help anyone hide a fact; it helps them prove it.",
+        "C": "Imagine means to picture something in your mind, which needs no evidence at all; because says the fossils let them work it out.",
+        "D": "Pretend means to act as if something were true when it is not, but the fossils showed it really was true."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://www.aap.com.au/nothing-fishy-about-ancient-marine-fossils-on-everest/",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "6b498e94a3017eb1"
+    },
+    {
+      "id": "VR-W8-X-28",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — negative clue",
+      "difficulty": "H",
+      "prompt": "Uncle Vito's speech at the reunion was hardly ____; he read a long list of thank-yous for twenty minutes, and two cousins fell asleep.",
+      "choices": {
+        "A": "dull",
+        "B": "lengthy",
+        "C": "solemn",
+        "D": "witty"
+      },
+      "correct": "D",
+      "explanation": "Hardly means almost not. A twenty-minute list that put two cousins to sleep was not clever or funny. Witty means clever and funny.",
+      "misconceptions": "skips hardly and picks a word that describes the boring speech",
+      "why": {
+        "A": "Dull describes the speech exactly, which is the trap: hardly means the blank is what the speech was not.",
+        "B": "Lengthy fits a list read for twenty minutes, but hardly flips it; a twenty-minute speech cannot be hardly lengthy.",
+        "C": "Solemn means grave and serious, but the second half shows how boring the speech was, not how serious, so it gives no reason for hardly solemn."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "ad23ad5201f76b7c"
+    },
+    {
+      "id": "VR-W8-X-29",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — example clue",
+      "difficulty": "E",
+      "prompt": "The 1906 earthquake was a ____ for San Francisco: fires burned for four days, and more than 80 percent of the city was destroyed.",
+      "choices": {
+        "A": "catastrophe",
+        "B": "mystery",
+        "C": "nuisance",
+        "D": "rehearsal"
+      },
+      "correct": "A",
+      "explanation": "The colon gives the evidence: fires for four days and most of the city destroyed. A catastrophe is a sudden, terrible disaster.",
+      "misconceptions": "picks a bad thing far too small (nuisance) or a word the evidence after the colon does not support (mystery, rehearsal)",
+      "why": {
+        "B": "Mystery means something nobody can explain, but the colon does not puzzle over the earthquake; it lists the damage it did.",
+        "C": "Nuisance means a small annoyance, like a buzzing fly; fires that destroyed most of a city were far worse than that.",
+        "D": "Rehearsal is a practice before the real thing, but the earthquake and fires were real."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/1906_San_Francisco_earthquake",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "b2d6ecab9da30e90"
+    },
+    {
+      "id": "VR-W8-X-30",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — definition clue",
+      "difficulty": "M",
+      "prompt": "After Wendy lost her earring at the beach, her whole family helped ____ the sand, sifting through it inch by inch until they found it.",
+      "choices": {
+        "A": "flatten",
+        "B": "measure",
+        "C": "scour",
+        "D": "sculpt"
+      },
+      "correct": "C",
+      "explanation": "The words after the comma define the blank: sifting through the sand inch by inch is a careful, complete search. Scour means to search a place thoroughly.",
+      "misconceptions": "picks something done to sand at the beach (sculpt, flatten) or borrows inch by inch (measure) instead of a thorough search",
+      "why": {
+        "A": "Flatten means to press smooth and level, which would bury an earring deeper, not find it.",
+        "B": "Measure borrows inch by inch from the sentence, but measuring sand would not turn up an earring; until they found it shows they were searching.",
+        "D": "Sculpt means to shape something, like a sandcastle, but shaping the sand would not find an earring; sifting through it until they found it is a search."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "908ca69defd07da9"
+    },
+    {
+      "id": "VR-W8-X-31",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — negative clue",
+      "difficulty": "M",
+      "prompt": "The deer in the city park have grown used to people and are hardly ____ at all; some will walk right up to a picnic blanket to sniff the sandwiches.",
+      "choices": {
+        "A": "graceful",
+        "B": "hungry",
+        "C": "tame",
+        "D": "wary"
+      },
+      "correct": "D",
+      "explanation": "Hardly means almost not. Deer that walk right up to people's picnics are not on guard at all. Wary means cautious and watchful for danger.",
+      "misconceptions": "skips hardly and picks a word that describes the bold deer; picks by sandwiches",
+      "why": {
+        "A": "Graceful is about how smoothly deer move, and nothing after the semicolon is about movement; it is about how unafraid they are.",
+        "B": "Hungry fits sniffing the sandwiches, which is the trap: deer that come to sniff the sandwiches are hungry, so hardly hungry contradicts the second half.",
+        "C": "Tame is exactly what these deer are, and hardly means the blank is what they are not."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "960662ef931b52a1"
+    },
+    {
+      "id": "VR-W8-X-32",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "sentence completion — cause clue",
+      "difficulty": "E",
+      "prompt": "Because land downtown was crowded and expensive, the new zoo was built on the ____ of the city, where open fields were cheap.",
+      "choices": {
+        "A": "harbor",
+        "B": "outskirts",
+        "C": "rooftops",
+        "D": "streets"
+      },
+      "correct": "B",
+      "explanation": "Because gives the reason: downtown was crowded and costly, so the zoo went to the edge of the city, where land was open and cheap. Outskirts means the outer edges of a town or city.",
+      "misconceptions": "picks a place in the city that has no open fields (harbor, rooftops, streets)",
+      "why": {
+        "A": "Harbor is the place where ships dock, at the water's edge, not a spread of open fields.",
+        "C": "Rooftops are the tops of buildings, and a zoo with open fields cannot be built on top of buildings.",
+        "D": "Streets are the roads between buildings, and a zoo is not built on roads; the sentence says it went where open fields were cheap."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "d76e0a20c56a20d7"
+    },
+    {
+      "id": "VR-W8-X-33",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — contrast",
+      "difficulty": "E",
+      "prompt": "Although the conductor never said a single word during the concert, the musicians ____.",
+      "choices": {
+        "A": "had no idea when to begin",
+        "B": "listened to her long speech",
+        "C": "wore black suits and dresses",
+        "D": "followed the motions of her hands"
+      },
+      "correct": "D",
+      "explanation": "Although sets up a surprise: with no words from the conductor, you might expect the musicians to be lost, yet they followed her hands, which is how an orchestra follows a conductor.",
+      "misconceptions": "agrees with the first half instead of turning; contradicts it; picks an unrelated fact",
+      "why": {
+        "A": "Had no idea when to begin goes along with her silence instead of against it, and although needs a surprise.",
+        "B": "Listened to her long speech contradicts the first half: she never said a single word.",
+        "C": "Wore black suits and dresses tells what they had on, which has nothing to do with whether the conductor spoke."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "8c8a01375be37fc1"
+    },
+    {
+      "id": "VR-W8-X-34",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — cause and effect",
+      "difficulty": "M",
+      "prompt": "Since the foxes were wary of people, the wildlife photographer ____.",
+      "choices": {
+        "A": "fed them from her hand",
+        "B": "walked right up to pet them",
+        "C": "hid quietly behind a fallen log",
+        "D": "called loudly to get their attention"
+      },
+      "correct": "C",
+      "explanation": "Since gives the reason: wary animals keep away from people, so the photographer had to stay out of sight, hiding quietly behind a fallen log.",
+      "misconceptions": "does not know wary, so picks an ending for tame animals",
+      "why": {
+        "A": "Fed them from her hand would need foxes that come close to people, and wary ones keep away.",
+        "B": "Walked right up to pet them is just what wary animals would run from.",
+        "D": "Called loudly to get their attention would warn wary foxes that a person was near, and they would run."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "21f7a5963072dbfe"
+    },
+    {
+      "id": "VR-W8-X-35",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — negative",
+      "difficulty": "E",
+      "prompt": "Now that the old bridge was no longer safe to cross, the farmers ____.",
+      "choices": {
+        "A": "went the long way",
+        "B": "crossed it twice a day",
+        "C": "raced their trucks over it",
+        "D": "painted the barn a new color"
+      },
+      "correct": "A",
+      "explanation": "No longer safe to cross means the farmers could not use the bridge, so they had to go another way: the long way around.",
+      "misconceptions": "reads no longer safe as safe; picks an unrelated ending",
+      "why": {
+        "B": "Crossed it twice a day reads no longer safe as if it said safe; an unsafe bridge is one you stop crossing.",
+        "C": "Raced their trucks over it would be even more dangerous on a bridge that is no longer safe.",
+        "D": "Painted the barn a new color has nothing to do with the bridge, so it does not follow from the first half."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "58b41981a412131e"
+    },
+    {
+      "id": "VR-W8-X-36",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — condition",
+      "difficulty": "E",
+      "prompt": "Unless it stops raining by noon, the school picnic ____.",
+      "choices": {
+        "A": "will move into the gym",
+        "B": "will start an hour early",
+        "C": "will have more food than ever",
+        "D": "will be held on the sunny lawn"
+      },
+      "correct": "A",
+      "explanation": "Unless means if not. If the rain does not stop by noon, the picnic cannot stay outside, so it will move into the gym.",
+      "misconceptions": "reads unless as if; picks an ending unrelated to the rain",
+      "why": {
+        "B": "Will start an hour early is about the time, but unless is about the rain, and an earlier start does not keep anyone dry.",
+        "C": "Will have more food than ever has nothing to do with whether it keeps raining, so unless has nothing to connect it to.",
+        "D": "Will be held on the sunny lawn is what would happen if the rain did stop; unless says what happens if it does not."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "097cfe3f9b9fc2ea"
+    },
+    {
+      "id": "VR-W8-X-37",
+      "subject": "VR",
+      "form": "W8",
+      "skill": "vocabulary",
+      "subskill": "phrase completion — contrast",
+      "difficulty": "M",
+      "prompt": "Unlike paper money, which tears and wears out within a few years, coins ____.",
+      "choices": {
+        "A": "burn easily in a fire",
+        "B": "are used to buy things",
+        "C": "fold neatly into a wallet",
+        "D": "can last for hundreds of years"
+      },
+      "correct": "D",
+      "explanation": "Unlike sets coins against paper money, which wears out in a few years, so coins must last a long time; many coins have lasted for hundreds of years.",
+      "misconceptions": "describes paper money or what both share instead of a difference",
+      "why": {
+        "A": "Burn easily in a fire is a weakness of paper money, not a difference from it, and metal coins do not burn.",
+        "B": "Are used to buy things is true of paper money too, so it is not a way coins are unlike it.",
+        "C": "Fold neatly into a wallet describes paper money; a metal coin does not fold."
+      },
+      "source": "Original content authored for Sheila ISEE; fact checked against https://en.wikipedia.org/wiki/Coin",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "690298143f06d76f"
+    }
+  ]
+}

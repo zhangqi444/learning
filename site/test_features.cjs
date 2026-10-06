@@ -1715,6 +1715,11 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   }
   check('a week\'s first sittings keep their questions, and the added ones come after them in sittings of their own',
     firstQ === plusPlan.first && (!plusPlan.plusSets || plusQ === plusPlan.firstPlus), JSON.stringify({ firstQ, plusQ, plusPlan }));
+  // A doubled week's word list runs to 40, and the row said "20–25 min" whatever the week held.
+  await pg.goto('http://localhost:8143/learning/#/s/vr/W7', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=precision-row]');
+  const precRow = await pg.$eval('[data-testid=precision-row]', (e) => e.textContent);
+  const precWant = await pg.evaluate(async () => { const b = await (await fetch('./content/bundle.json')).json(); return { n: b.precision.W7.words.length, min: b.precision.W7.minutes }; });
+  check('a week\'s precision row gives that week\'s own word count and time', precRow.includes(`${precWant.n} words`) && precRow.includes(precWant.min), precRow);
   }
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('text=How the number is built');
   check('score page explains the parts and lists subjects', /Accuracy · 30%/.test(await body(pg)) && /comes? from attempts, not accuracy/.test(await body(pg)));

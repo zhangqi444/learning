@@ -27,15 +27,17 @@ const srv = http.createServer((req, res) => {
  * quiet, and a number edited to match the page is not an assertion any more.
  *
  * So `done` stays hand-written and `total` is derived. The one-line rule below is
- * the same one chunk() applies in src/lib/content.js — near-equal sets of at most
- * SETSIZE per week — and if that ever changes, this is a place to change too. */
+ * the same one setsFor() applies in src/lib/content.js — near-equal sets of at most
+ * SETSIZE per week, and the questions added to a week afterwards (`x`, Weeks 5–8
+ * doubled) in sets of their own — and if that ever changes, this is a place to
+ * change too. */
 const SETSIZE = 12;
 function totalSets() {
   const b = JSON.parse(fs.readFileSync(path.join(DIST, 'content', 'bundle.json'), 'utf8'));
   let n = 0;
   for (const items of Object.values(b.subjects)) {
     const perWeek = {};
-    for (const i of items) perWeek[i.w] = (perWeek[i.w] || 0) + 1;
+    for (const i of items) { const k = i.w + (i.x ? '+' : ''); perWeek[k] = (perWeek[k] || 0) + 1; }
     for (const c of Object.values(perWeek)) n += Math.ceil(c / SETSIZE);
   }
   return n;

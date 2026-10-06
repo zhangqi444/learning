@@ -1,0 +1,4137 @@
+{
+  "bank": "ma-weeks5-8-plus",
+  "schema_version": "1.0",
+  "content_version": "2026.10.05",
+  "items": [
+    {
+      "id": "MA-W5-X-01",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Fractions",
+      "subskill": "adding fractions with like denominators",
+      "difficulty": "E",
+      "prompt": "Alma cut a tray of granola bars into equal bars, as shown. The shaded bars were eaten at lunch. After school, her brother ate 3 more bars. What fraction of the tray has been eaten in all?",
+      "figure": {
+        "type": "shaded",
+        "shape": "bar",
+        "parts": 10,
+        "shaded": 4
+      },
+      "choices": {
+        "A": "3/10",
+        "B": "7/20",
+        "C": "2/5",
+        "D": "7/10"
+      },
+      "correct": "D",
+      "explanation": "The shaded part is 4 of the 10 bars, 4/10. Three more bars are 3/10, and 4/10 + 3/10 = 7/10: when the denominators match, add only the numerators.",
+      "misconceptions": "counts only the after-school bars; adds the denominators too; reads only the shaded part",
+      "why": {
+        "A": "3/10 counts only the 3 bars eaten after school and leaves out the 4 shaded bars eaten at lunch.",
+        "B": "7/20 adds the denominators too (10 + 10); the bars are still tenths of one tray, so only the numerators add.",
+        "C": "2/5 is 4/10, the shaded lunch bars alone, before the 3 bars eaten after school."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "9534022cf279f1df"
+    },
+    {
+      "id": "MA-W5-X-02",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Fractions",
+      "subskill": "adding fractions with unlike denominators",
+      "difficulty": "H",
+      "prompt": "Bryn read 1/4 of her library book on Saturday and 1/8 of it on Sunday. What fraction of the book does she still have left to read?",
+      "choices": {
+        "A": "3/8",
+        "B": "5/8",
+        "C": "3/4",
+        "D": "5/6"
+      },
+      "correct": "B",
+      "explanation": "Change 1/4 into 2/8. She has read 2/8 + 1/8 = 3/8 of the book, so 8/8 − 3/8 = 5/8 is left.",
+      "misconceptions": "gives the part read, not the part left; leaves out the second day's part, or adds the numerators while keeping eighths; adds numerators and denominators",
+      "why": {
+        "A": "3/8 is the part she has read, 2/8 + 1/8; the question asks for the part still left to read.",
+        "C": "3/4 is 1 − 1/4, which leaves out the 1/8 she read on Sunday; it is also what is left if 1/4 + 1/8 is added as 2/8, keeping eighths without changing 1/4 into 2/8.",
+        "D": "5/6 adds the numerators and the denominators, 2/12 = 1/6, and takes that from 1; fourths and eighths must be made the same size first."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "3b9c7e43cd1fe481"
+    },
+    {
+      "id": "MA-W5-X-03",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Fractions",
+      "subskill": "a whole number divided by a unit fraction",
+      "difficulty": "E",
+      "prompt": "Andre is making burgers for a family cookout. He has 3 pounds of ground beef, and each burger uses 1/4 pound. How many burgers can he make?",
+      "choices": {
+        "A": "3/4",
+        "B": "4",
+        "C": "7",
+        "D": "12"
+      },
+      "correct": "D",
+      "explanation": "Each pound holds four 1/4-pound burgers, so 3 pounds make 3 × 4 = 12 burgers. Dividing by 1/4 counts how many quarters there are.",
+      "misconceptions": "multiplies by the fraction; stops after one pound; adds 3 and 4",
+      "why": {
+        "A": "3/4 is 3 × 1/4, the beef that 3 burgers use, not the number of burgers 3 pounds make.",
+        "B": "4 is the number of burgers one pound makes; Andre has 3 pounds.",
+        "C": "7 is 3 + 4, the two numbers added instead of counting 4 burgers in each of 3 pounds."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "d1dde340e30d98ca"
+    },
+    {
+      "id": "MA-W5-X-04",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Fractions",
+      "subskill": "comparing and ordering fractions",
+      "difficulty": "M",
+      "prompt": "Four friends are reading the same library book. The table shows what part of the book each friend has read so far. Which friend has read more than half of the book?",
+      "figure": {
+        "type": "table",
+        "caption": "Part of the book read",
+        "head": [
+          "Friend",
+          "Part read"
+        ],
+        "rows": [
+          [
+            "Amir",
+            "7/16"
+          ],
+          [
+            "Avery",
+            "5/12"
+          ],
+          [
+            "Bao",
+            "5/8"
+          ],
+          [
+            "Cassie",
+            "2/5"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "Amir",
+        "B": "Avery",
+        "C": "Bao",
+        "D": "Cassie"
+      },
+      "correct": "C",
+      "explanation": "A fraction is more than 1/2 when its numerator is more than half of its denominator. Half of 8 is 4, and 5 is more than 4, so Bao's 5/8 is more than half.",
+      "misconceptions": "picks the fraction with the biggest numbers; picks the smallest denominator; does not compare each numerator with half its denominator",
+      "why": {
+        "A": "Amir has read 7/16, which has the biggest numbers in the table, but half of 16 is 8 and 7 is less than 8.",
+        "B": "Avery has read 5/12, and half of 12 is 6, so 5/12 is less than half.",
+        "D": "Cassie has read 2/5, the fraction with the smallest denominator, but half of 5 is 2 1/2 and 2 is less than that."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "a2f4262be7d5d0c2"
+    },
+    {
+      "id": "MA-W5-X-05",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Fractions",
+      "subskill": "fraction of a quantity",
+      "difficulty": "M",
+      "prompt": "Callum's class collected 32 books for a library book swap. Three eighths of the books are picture books. How many of the books are NOT picture books?",
+      "choices": {
+        "A": "4",
+        "B": "5",
+        "C": "12",
+        "D": "20"
+      },
+      "correct": "D",
+      "explanation": "One eighth of 32 is 32 ÷ 8 = 4, so three eighths is 3 × 4 = 12 picture books. The other 32 − 12 = 20 books are NOT picture books.",
+      "misconceptions": "finds one eighth and stops; counts eighths instead of books; gives the picture books instead of the rest",
+      "why": {
+        "A": "4 is one eighth of 32, the size of one group, not the number of books that are not picture books.",
+        "B": "5 is the number of eighths that are not picture books (8 − 3); each eighth is 4 books, so that is 5 × 4 = 20 books.",
+        "C": "12 is 3 × 4, the picture books; the question asks for the books that are NOT picture books."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "aa89c8c25edd27e8"
+    },
+    {
+      "id": "MA-W5-X-06",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Division",
+      "subskill": "division with a remainder",
+      "difficulty": "M",
+      "prompt": "Mr. Chu has 437 pencils to sell at the school store in packs of 6. He makes as many full packs as he can. How many pencils are left over?",
+      "choices": {
+        "A": "5",
+        "B": "11",
+        "C": "72",
+        "D": "432"
+      },
+      "correct": "A",
+      "explanation": "437 ÷ 6 = 72 R 5: 72 packs use 72 × 6 = 432 pencils, and 437 − 432 = 5 pencils are left over. A remainder is always less than the number you divide by.",
+      "misconceptions": "stops one pack early; gives the number of packs; gives the pencils in the packs",
+      "why": {
+        "B": "11 is what is left after only 71 packs; 11 pencils are enough for another pack of 6, so the division is not finished.",
+        "C": "72 is the number of full packs, not the number of pencils left over.",
+        "D": "432 is the number of pencils in the 72 full packs, 72 × 6; the pencils left over are 437 − 432."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "af2be6e8ce9d75e5"
+    },
+    {
+      "id": "MA-W5-X-07",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Division",
+      "subskill": "what a remainder means in a story",
+      "difficulty": "E",
+      "prompt": "Mr. Bautista's class of 30 students is riding minibuses to the public library. Each minibus can carry 8 students. What is the fewest number of minibuses the class needs?",
+      "choices": {
+        "A": "2",
+        "B": "3",
+        "C": "4",
+        "D": "6"
+      },
+      "correct": "C",
+      "explanation": "30 ÷ 8 = 3 R 6. Three full minibuses carry 24 students, and the 6 students left over need a fourth minibus, so the class needs 4.",
+      "misconceptions": "drops the remainder; gives the remainder; gives the empty seats on the last minibus",
+      "why": {
+        "A": "2 is the number of empty seats on the last minibus (8 − 6), not the number of minibuses.",
+        "B": "3 drops the remainder: 3 minibuses carry only 24 students, and the other 6 would be left behind.",
+        "D": "6 is the remainder, the students left after 3 full minibuses; they still need a minibus of their own."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "8da7a0c8445a9c81"
+    },
+    {
+      "id": "MA-W5-X-08",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Division",
+      "subskill": "division word problems",
+      "difficulty": "E",
+      "prompt": "Aditi is saving her pocket money for a $96 art set. The table shows the total she has saved at the end of each of the first three weeks. She saves the same amount every week. At the end of which week will she have saved exactly $96?",
+      "figure": {
+        "type": "table",
+        "caption": "Aditi's savings",
+        "head": [
+          "End of week",
+          "Total saved"
+        ],
+        "rows": [
+          [
+            "1",
+            "$8"
+          ],
+          [
+            "2",
+            "$16"
+          ],
+          [
+            "3",
+            "$24"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "4",
+        "B": "12",
+        "C": "32",
+        "D": "72"
+      },
+      "correct": "B",
+      "explanation": "Her total goes up by $8 each week, so she saves $8 a week. $96 ÷ $8 = 12, so she reaches $96 at the end of week 12.",
+      "misconceptions": "divides by the three-week total; divides by the number of weeks shown; subtracts instead of dividing",
+      "why": {
+        "A": "4 is 96 ÷ 24, the number of three-week stretches; each stretch is 3 weeks, so that is 12 weeks.",
+        "C": "32 is 96 ÷ 3, which divides by the 3 weeks in the table instead of by the $8 she saves each week.",
+        "D": "72 is 96 − 24, the dollars she still needs after week 3, not a number of weeks."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "dd8fb63da3b05702"
+    },
+    {
+      "id": "MA-W5-X-09",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Decimals",
+      "subskill": "decimal place value to the thousandths",
+      "difficulty": "E",
+      "prompt": "The spine of a library book shows the number 406.281. Which digit is in the hundredths place?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "4",
+        "D": "8"
+      },
+      "correct": "D",
+      "explanation": "The places after the decimal point are tenths, hundredths, then thousandths. In 406.281 the second digit after the point is 8, so 8 is in the hundredths place.",
+      "misconceptions": "takes the last digit; takes the first digit after the point; confuses hundredths with hundreds",
+      "why": {
+        "A": "1 is in the thousandths place, the third place after the decimal point.",
+        "B": "2 is in the tenths place, the first place after the decimal point; hundredths is the second.",
+        "C": "4 is in the hundreds place, left of the point; hundredths, which end in -ths, are right of the point."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "8763f4b3f1f3bd9d"
+    },
+    {
+      "id": "MA-W5-X-10",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Whole-number operations",
+      "subskill": "subtracting across zeros",
+      "difficulty": "M",
+      "prompt": "The table shows how many fiction and nonfiction books the town library has. How many more fiction books than nonfiction books does the library have?",
+      "figure": {
+        "type": "table",
+        "caption": "Books at the town library",
+        "head": [
+          "Kind of book",
+          "Number of books"
+        ],
+        "rows": [
+          [
+            "Fiction",
+            "6,004"
+          ],
+          [
+            "Nonfiction",
+            "2,357"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "3,647",
+        "B": "3,657",
+        "C": "3,747",
+        "D": "4,353"
+      },
+      "correct": "A",
+      "explanation": "Regroup 6,004 as 5 thousands, 9 hundreds, 9 tens and 14 ones. Then 14 − 7 = 7, 9 − 5 = 4, 9 − 3 = 6 and 5 − 2 = 3: 3,647.",
+      "misconceptions": "keeps a 10 in the tens after they lend; keeps a 10 in the hundreds after they lend; takes the smaller digit from the larger in each place",
+      "why": {
+        "B": "3,657 keeps a 10 in the tens place after it has lent 1 to the ones; it becomes 9, and 9 − 5 = 4 tens.",
+        "C": "3,747 keeps a 10 in the hundreds place after it has lent 1 to the tens; it becomes 9, and 9 − 3 = 6 hundreds.",
+        "D": "4,353 takes the smaller digit from the larger in each place (7 − 4, 5 − 0, 3 − 0) instead of regrouping."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "145de9b133cc969f"
+    },
+    {
+      "id": "MA-W5-X-11",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Whole-number operations",
+      "subskill": "tripling and dozens",
+      "difficulty": "E",
+      "prompt": "Aziz earns $45 each month for walking his neighbor's dog, and he saves all of it. How much does he save in 3 months?",
+      "choices": {
+        "A": "$15",
+        "B": "$48",
+        "C": "$90",
+        "D": "$135"
+      },
+      "correct": "D",
+      "explanation": "3 × $40 = $120 and 3 × $5 = $15, so 3 × $45 = $120 + $15 = $135.",
+      "misconceptions": "divides by 3; adds 3; doubles instead of tripling",
+      "why": {
+        "A": "$15 is $45 ÷ 3, which divides; 3 months of saving is 3 times as much as one month.",
+        "B": "$48 is $45 + $3, which adds the number of months instead of multiplying by it.",
+        "C": "$90 is 2 × $45, the savings for 2 months; 3 months is 3 × $45."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "cf765114094c15d6"
+    },
+    {
+      "id": "MA-W5-X-12",
+      "subject": "MA",
+      "form": "W5",
+      "skill": "Number properties",
+      "subskill": "divisibility by 3 and 9 (the digit sum)",
+      "difficulty": "M",
+      "prompt": "The table shows how many muffins four bakers made for the school fair. The muffins are sold in boxes of 3. Whose muffins can NOT all be packed into boxes of 3 with none left over?",
+      "figure": {
+        "type": "table",
+        "caption": "Muffins for the school fair",
+        "head": [
+          "Baker",
+          "Muffins"
+        ],
+        "rows": [
+          [
+            "Abby",
+            "304"
+          ],
+          [
+            "Bruno",
+            "216"
+          ],
+          [
+            "Carly",
+            "411"
+          ],
+          [
+            "Cyrus",
+            "522"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "Abby",
+        "B": "Bruno",
+        "C": "Carly",
+        "D": "Cyrus"
+      },
+      "correct": "A",
+      "explanation": "A number splits evenly into 3s when its digits add up to a multiple of 3. The digits of 304 add up to 3 + 0 + 4 = 7, which is not a multiple of 3, so Abby would have 1 muffin left over (304 = 3 × 101 + 1).",
+      "misconceptions": "checks the last digit instead of the digit sum; thinks an odd number cannot split into 3s; thinks a multiple of 3 must end in 3, 6 or 9",
+      "why": {
+        "B": "Bruno's 216 can be packed: 2 + 1 + 6 = 9, a multiple of 3, and 216 ÷ 3 = 72.",
+        "C": "Carly's 411 can be packed even though it ends in 1: 4 + 1 + 1 = 6, and 411 ÷ 3 = 137.",
+        "D": "Cyrus's 522 can be packed even though it ends in 2: 5 + 2 + 2 = 9, and 522 ÷ 3 = 174."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "4931704fb604ebe1"
+    },
+    {
+      "skill": "Angles",
+      "subskill": "angles of a triangle add to 180°",
+      "difficulty": "E",
+      "prompt": "In art class, Dmitri drew triangle FGH. The figure shows the sizes of two of its angles. What is the value of x?",
+      "choices": {
+        "A": "65°",
+        "B": "115°",
+        "C": "132°",
+        "D": "245°"
+      },
+      "correct": "A",
+      "explanation": "The three angles of a triangle add to 180°. 48 + 67 = 115, and 180 − 115 = 65, so x is 65°.",
+      "misconceptions": "adds the two given angles and stops; takes only one angle away from 180; uses 360 as the angle total",
+      "why": {
+        "B": "115° is 48 + 67, the two given angles added together; the third angle is what is left when 115 is taken from 180.",
+        "C": "132° is 180 − 48, with only the 48° angle taken away; the 67° angle has to come off as well.",
+        "D": "245° is 360 − 115, as if a triangle’s angles added to 360°, a whole turn; a triangle’s three angles add to 180°."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            6.8,
+            7.55
+          ]
+        ],
+        "names": [
+          "F",
+          "G",
+          "H"
+        ],
+        "angles": [
+          {
+            "at": 0,
+            "text": "48°"
+          },
+          {
+            "at": 1,
+            "text": "67°"
+          },
+          {
+            "at": 2,
+            "text": "x"
+          }
+        ]
+      },
+      "id": "MA-W5-X-13",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "cdf98ab3cf1f0404"
+    },
+    {
+      "skill": "Perimeter",
+      "subskill": "missing side of a triangle from its perimeter",
+      "difficulty": "H",
+      "prompt": "Farid is building a triangle-shaped frame for a garden bed. The two slanted sides are the same length, and the bottom side is 10 feet long, as the figure shows. He uses 36 feet of wood for the whole frame. How long is each slanted side?",
+      "choices": {
+        "A": "12 feet",
+        "B": "13 feet",
+        "C": "18 feet",
+        "D": "26 feet"
+      },
+      "correct": "B",
+      "explanation": "Take the bottom side away first: 36 − 10 = 26 feet for the two slanted sides together. They are equal, so each one is 26 ÷ 2 = 13 feet.",
+      "misconceptions": "divides the perimeter by 3 as if all sides were equal; halves the perimeter without removing the bottom side; forgets to halve the 26",
+      "why": {
+        "A": "12 feet is 36 ÷ 3, as if all three sides were equal; the bottom side is only 10 feet, so the two slanted sides share the other 26 feet.",
+        "C": "18 feet is 36 ÷ 2, half of all the wood, with the 10-foot bottom side never taken off first.",
+        "D": "26 feet is 36 − 10, the two slanted sides together; half of it is one side."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            5,
+            12
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "10 ft"
+          },
+          {
+            "side": 1,
+            "text": "?"
+          },
+          {
+            "side": 2,
+            "text": "?"
+          }
+        ]
+      },
+      "id": "MA-W5-X-14",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "876824affd54dd6e"
+    },
+    {
+      "skill": "Angles",
+      "subskill": "the other angles of a right triangle",
+      "difficulty": "M",
+      "prompt": "The figure shows a triangle-shaped sandbox in a park. What is the value of x?",
+      "choices": {
+        "A": "34°",
+        "B": "56°",
+        "C": "124°",
+        "D": "146°"
+      },
+      "correct": "B",
+      "explanation": "The square mark shows a right angle, 90°, at the bottom left corner. The three angles add to 180°, so x = 180 − 90 − 34 = 56°.",
+      "misconceptions": "ignores the right-angle mark; adds the two known angles; assumes the two smaller angles are equal",
+      "why": {
+        "A": "34° copies the given angle, as if the two smaller angles had to be equal; they only have to add up to 90°.",
+        "C": "124° is 90 + 34, the two known angles added together and never taken from 180°.",
+        "D": "146° is 180 − 34, which leaves out the square corner; its 90° has to be taken away too."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            0,
+            6.75
+          ]
+        ],
+        "right": [
+          0
+        ],
+        "angles": [
+          {
+            "at": 1,
+            "text": "34°"
+          },
+          {
+            "at": 2,
+            "text": "x"
+          }
+        ]
+      },
+      "id": "MA-W5-X-15",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "d93aa6657f09b96a"
+    },
+    {
+      "skill": "Angles",
+      "subskill": "classifying triangles by their angles",
+      "difficulty": "M",
+      "prompt": "Eamon is sorting paper triangles in art class. Which of these CANNOT be true of a triangle?",
+      "choices": {
+        "A": "It has one right angle.",
+        "B": "It has two acute angles.",
+        "C": "It has two obtuse angles.",
+        "D": "It has three acute angles."
+      },
+      "correct": "C",
+      "explanation": "An obtuse angle is more than 90°, so two of them would already add to more than 180°, which is more than all three angles of a triangle add to.",
+      "misconceptions": "thinks a triangle can have only one acute angle; confuses acute and obtuse; reads CANNOT as can",
+      "why": {
+        "A": "“It has one right angle” is true of every right triangle: one 90° angle, with the other two angles sharing the remaining 90°.",
+        "B": "“It has two acute angles” is true of every triangle; even a right triangle or an obtuse triangle has two angles smaller than 90°.",
+        "D": "“It has three acute angles” describes an acute triangle, such as one whose angles are 60°, 60° and 60°."
+      },
+      "id": "MA-W5-X-16",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "cd0816f86bf0dd5c"
+    },
+    {
+      "skill": "Perimeter",
+      "subskill": "side of a square from its perimeter",
+      "difficulty": "E",
+      "prompt": "Elsa put a fence all the way around her square vegetable garden. She used 44 feet of fencing. How long is each side of the garden?",
+      "choices": {
+        "A": "11 feet",
+        "B": "22 feet",
+        "C": "40 feet",
+        "D": "176 feet"
+      },
+      "correct": "A",
+      "explanation": "A square has four equal sides, so the 44 feet of fence is shared equally among them: 44 ÷ 4 = 11 feet.",
+      "misconceptions": "shares the fence between two sides; subtracts the number of sides; multiplies by the number of sides",
+      "why": {
+        "B": "22 feet is 44 ÷ 2, which shares the fence between only two sides; a square has four.",
+        "C": "40 feet is 44 − 4, the 4 sides taken away from the 44 feet instead of divided into it.",
+        "D": "176 feet is 44 × 4, the fence multiplied by the number of sides instead of shared among them."
+      },
+      "id": "MA-W5-X-17",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "c5ef5a0f805b68ce"
+    },
+    {
+      "skill": "Data",
+      "subskill": "reading a pictograph whose symbol stands for more than 1",
+      "difficulty": "M",
+      "prompt": "Emeka kept a record of the tomatoes he picked from his garden each month, and the pictograph shows it. How many more tomatoes did he pick in July than in June?",
+      "choices": {
+        "A": "5",
+        "B": "25",
+        "C": "40",
+        "D": "55"
+      },
+      "correct": "B",
+      "explanation": "Each symbol stands for 5 tomatoes. July has 8 symbols, 8 × 5 = 40 tomatoes, and June has 3, 3 × 5 = 15 tomatoes. 40 − 15 = 25 more.",
+      "misconceptions": "subtracts the symbols and forgets the key; gives July’s total; adds the two months",
+      "why": {
+        "A": "5 is 8 − 3, the difference in symbols; each symbol is 5 tomatoes, so that difference is 5 × 5 tomatoes.",
+        "C": "40 is 8 × 5, all of July’s tomatoes; June’s 15 still have to be taken away.",
+        "D": "55 is 40 + 15, July and June added together instead of compared."
+      },
+      "figure": {
+        "type": "pictograph",
+        "title": "Tomatoes picked",
+        "unit": "= 5 tomatoes",
+        "rows": [
+          {
+            "label": "June",
+            "count": 3
+          },
+          {
+            "label": "July",
+            "count": 8
+          },
+          {
+            "label": "August",
+            "count": 6
+          },
+          {
+            "label": "September",
+            "count": 2
+          }
+        ]
+      },
+      "id": "MA-W5-X-18",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "95cbc8e019774026"
+    },
+    {
+      "skill": "Data",
+      "subskill": "range of a short list",
+      "difficulty": "E",
+      "prompt": "The table shows the high temperature in Fern’s town on five days. What is the range of the temperatures?",
+      "choices": {
+        "A": "5 degrees",
+        "B": "6 degrees",
+        "C": "11 degrees",
+        "D": "17 degrees"
+      },
+      "correct": "D",
+      "explanation": "The range is the highest value minus the lowest. The highest is 75°F on Thursday and the lowest is 58°F on Wednesday: 75 − 58 = 17 degrees.",
+      "misconceptions": "subtracts the first day from the last; subtracts the lowest from the first day; subtracts the first day from the highest",
+      "why": {
+        "A": "5 degrees is 69 − 64, the last day minus the first day; the range uses the highest and the lowest temperatures.",
+        "B": "6 degrees is 64 − 58, Monday’s temperature minus the lowest; the range starts from the highest, 75°F on Thursday.",
+        "C": "11 degrees is 75 − 64, the highest minus Monday’s temperature; the lowest is Wednesday’s 58°F."
+      },
+      "figure": {
+        "type": "table",
+        "caption": "High temperatures",
+        "head": [
+          "Day",
+          "High temperature"
+        ],
+        "rows": [
+          [
+            "Monday",
+            "64°F"
+          ],
+          [
+            "Tuesday",
+            "71°F"
+          ],
+          [
+            "Wednesday",
+            "58°F"
+          ],
+          [
+            "Thursday",
+            "75°F"
+          ],
+          [
+            "Friday",
+            "69°F"
+          ]
+        ]
+      },
+      "id": "MA-W5-X-19",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ff98e0003dfa9282"
+    },
+    {
+      "skill": "Geometry",
+      "subskill": "faces, edges and vertices of a solid",
+      "difficulty": "M",
+      "prompt": "Delphine glued cubes together to make the block shown, which is shaped like a rectangular prism. She puts a strip of tape along every edge of the whole block, where two of its outside faces meet. How many strips of tape does she need?",
+      "choices": {
+        "A": "6",
+        "B": "8",
+        "C": "9",
+        "D": "12"
+      },
+      "correct": "D",
+      "explanation": "A rectangular prism has 4 edges around its top face, 4 around its bottom face and 4 going up and down between them: 4 + 4 + 4 = 12 edges. Three of them are hidden behind the block in the drawing.",
+      "misconceptions": "counts the faces; counts the vertices; counts only the edges the drawing shows",
+      "why": {
+        "A": "6 is the number of faces, the flat sides of the block; the tape goes along the edges, where two faces meet.",
+        "B": "8 is the number of vertices, the corners of the block; each edge runs from one corner to another.",
+        "C": "9 counts only the edges you can see in the drawing; three more are hidden at the back, the left and the bottom."
+      },
+      "figure": {
+        "type": "cubes",
+        "w": 3,
+        "d": 2,
+        "h": 2
+      },
+      "id": "MA-W5-X-20",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "6380a3ed8f968a57"
+    },
+    {
+      "skill": "Measurement",
+      "subskill": "elapsed time: the start time",
+      "difficulty": "M",
+      "prompt": "One afternoon, Ellis wrote down the time a thunderstorm ended, which the clock shows. The storm had lasted 1 hour 25 minutes. At what time did the storm start?",
+      "choices": {
+        "A": "2:45 p.m.",
+        "B": "3:15 p.m.",
+        "C": "3:45 p.m.",
+        "D": "5:35 p.m."
+      },
+      "correct": "A",
+      "explanation": "The clock shows 4:10. Count back 1 hour to 3:10, then 25 minutes more: 3:10 back to 2:45. The storm started at 2:45 p.m.",
+      "misconceptions": "subtracts the smaller minutes from the larger; takes off the minutes but not the hour; adds the time instead of counting back",
+      "why": {
+        "B": "3:15 p.m. comes from taking 10 from 25 to get 15 minutes; 25 minutes cannot come out of 10, so one hour has to be broken into 60 minutes first.",
+        "C": "3:45 p.m. is only 25 minutes before 4:10; the storm lasted 1 hour 25 minutes, so the hour still has to come off.",
+        "D": "5:35 p.m. is 1 hour 25 minutes after 4:10; the storm started before it ended, so count back instead."
+      },
+      "figure": {
+        "type": "clock",
+        "h": 4,
+        "m": 10
+      },
+      "id": "MA-W5-X-21",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b3ad15569a1b74ef"
+    },
+    {
+      "skill": "Algebra",
+      "subskill": "missing number in a number sentence",
+      "difficulty": "E",
+      "prompt": "Edgar is checking a puzzle in his math workbook: □ − 15 = 3 × 8. Which number belongs in the box?",
+      "choices": {
+        "A": "9",
+        "B": "24",
+        "C": "39",
+        "D": "360"
+      },
+      "correct": "C",
+      "explanation": "3 × 8 = 24, so □ − 15 = 24. The box is 15 more than 24: 24 + 15 = 39. Check: 39 − 15 = 24.",
+      "misconceptions": "subtracts 15 again instead of adding it back; stops at 3 × 8; multiplies the numbers",
+      "why": {
+        "A": "9 is 24 − 15, which takes 15 away a second time; the box minus 15 makes 24, so the box is 15 more than 24.",
+        "B": "24 is 3 × 8, the right side alone; the box has to be 15 more than that, because 15 is taken from it.",
+        "D": "360 is 24 × 15, a multiplication the number sentence never asks for."
+      },
+      "id": "MA-W5-X-22",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "acb74ed530ac1fba"
+    },
+    {
+      "skill": "Geometry",
+      "subskill": "properties of quadrilaterals",
+      "difficulty": "M",
+      "prompt": "In art class, Frida cut out the rhombus shown. Which of these is NOT true of every rhombus?",
+      "choices": {
+        "A": "Its four sides are equal.",
+        "B": "It has four right angles.",
+        "C": "Its opposite angles are equal.",
+        "D": "Its opposite sides are parallel."
+      },
+      "correct": "B",
+      "explanation": "A rhombus has four equal sides, but its angles do not have to be right angles: Frida’s has two wide angles and two narrow ones. Only a rhombus that is also a square has four right angles.",
+      "misconceptions": "thinks every rhombus is a square; doubts that opposite angles of a rhombus match; reads NOT as a request for a true statement",
+      "why": {
+        "A": "“Its four sides are equal” is true of every rhombus; four equal sides are what make a shape a rhombus, like the four 5 cm sides in the figure.",
+        "C": "“Its opposite angles are equal” is true of every rhombus: in the figure the two wide angles match, and so do the two narrow ones.",
+        "D": "“Its opposite sides are parallel” is true of every rhombus, because a rhombus is a kind of parallelogram."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "5 cm"
+          },
+          {
+            "side": 1,
+            "text": "5 cm"
+          },
+          {
+            "side": 2,
+            "text": "5 cm"
+          },
+          {
+            "side": 3,
+            "text": "5 cm"
+          }
+        ]
+      },
+      "id": "MA-W5-X-23",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "7322418a12c89311"
+    },
+    {
+      "skill": "Perimeter",
+      "subskill": "perimeter of a figure made of rectangles",
+      "difficulty": "H",
+      "prompt": "Desmond built a U-shaped flower bed around a garden bench. The figure shows the bed from above, with some side lengths labeled. Every side meets the next at a right angle. What is the perimeter of the flower bed?",
+      "choices": {
+        "A": "27 m",
+        "B": "32 m",
+        "C": "36 m",
+        "D": "40 m"
+      },
+      "correct": "D",
+      "explanation": "Find the unlabeled sides: the top of the right arm is 10 − 3 − 4 = 3 m, the left side of the notch is 4 m like its right side, and the left side is 6 m like the right side. 10 + 6 + 3 + 4 + 4 + 4 + 3 + 6 = 40 m.",
+      "misconceptions": "adds only the labeled sides; uses the perimeter of the outer rectangle; misses one side of the notch",
+      "why": {
+        "A": "27 m is 10 + 6 + 3 + 4 + 4, only the labeled sides; three more sides go around the bed without a label.",
+        "B": "32 m is 2 × (10 + 6), the perimeter of a plain 10 m by 6 m rectangle; the notch for the bench adds its two 4 m sides.",
+        "C": "36 m is 4 m short: it leaves out the unlabeled left side of the notch, which is 4 m like the side across from it."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            7,
+            6
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            0,
+            6
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "10 m"
+          },
+          {
+            "side": 1,
+            "text": "6 m"
+          },
+          {
+            "side": 3,
+            "text": "4 m"
+          },
+          {
+            "side": 4,
+            "text": "4 m"
+          },
+          {
+            "side": 6,
+            "text": "3 m"
+          }
+        ],
+        "right": [
+          0,
+          1,
+          2,
+          3,
+          6,
+          7
+        ]
+      },
+      "id": "MA-W5-X-24",
+      "subject": "MA",
+      "form": "W5",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "1e862b3409d6cb07"
+    },
+    {
+      "id": "MA-W6-X-01",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Fractions",
+      "subskill": "adding mixed numbers",
+      "difficulty": "M",
+      "prompt": "The table shows how much flour Chloe used in three recipes. How many cups of flour did she use for the banana bread and the pancakes together?",
+      "figure": {
+        "type": "table",
+        "caption": "Flour Chloe used",
+        "head": [
+          "Recipe",
+          "Cups of flour"
+        ],
+        "rows": [
+          [
+            "Banana bread",
+            "2 1/3"
+          ],
+          [
+            "Pancakes",
+            "1 3/4"
+          ],
+          [
+            "Biscuits",
+            "2 1/2"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "3 1/12",
+        "B": "3 4/7",
+        "C": "4 1/12",
+        "D": "4 1/4"
+      },
+      "correct": "C",
+      "explanation": "Add the wholes: 2 + 1 = 3. Add the fractions in twelfths: 4/12 + 9/12 = 13/12 = 1 1/12. In all, 3 + 1 1/12 = 4 1/12 cups.",
+      "misconceptions": "forgets to carry the extra whole; adds numerators and denominators; reads the wrong row",
+      "why": {
+        "A": "3 1/12 forgets that 13/12 is more than 1 whole; the extra whole must be carried to the 3 to make 4 1/12.",
+        "B": "3 4/7 adds the numerators and the denominators of 1/3 and 3/4; thirds and fourths must both become twelfths first.",
+        "D": "4 1/4 adds the biscuits' 2 1/2 cups to the pancakes' 1 3/4 cups instead of the banana bread's 2 1/3 cups."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "a42bb421bec415fa"
+    },
+    {
+      "id": "MA-W6-X-02",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Fractions",
+      "subskill": "subtracting mixed numbers",
+      "difficulty": "H",
+      "prompt": "Caleb has a roll of craft paper that is 6 1/4 yards long. He uses 2 5/6 yards of it to cover a bulletin board. How many yards of paper are left on the roll?",
+      "choices": {
+        "A": "3 1/4",
+        "B": "3 5/12",
+        "C": "4 5/12",
+        "D": "4 7/12"
+      },
+      "correct": "B",
+      "explanation": "In twelfths, the problem is 6 3/12 − 2 10/12. Since 3/12 is less than 10/12, regroup one whole: 6 3/12 = 5 15/12, and 5 15/12 − 2 10/12 = 3 5/12 yards.",
+      "misconceptions": "regroups a whole as ten twelfths; regroups without reducing the whole number; takes the smaller fraction from the larger",
+      "why": {
+        "A": "3 1/4 regroups a whole as 10/12, as if a whole were ten; a whole is 12/12, so 3/12 becomes 15/12.",
+        "C": "4 5/12 regroups a whole into twelfths but still takes 6 − 2 = 4; after giving up a whole, the 6 is 5.",
+        "D": "4 7/12 takes the smaller fraction from the larger, 10/12 − 3/12, instead of regrouping a whole."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "69ac2083e755e00d"
+    },
+    {
+      "id": "MA-W6-X-03",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Fractions",
+      "subskill": "a fraction times a whole number",
+      "difficulty": "E",
+      "prompt": "Bilal makes 5 batches of soft pretzels for a bake sale. Each batch uses 2/3 cup of melted butter. How many cups of butter does he use in all?",
+      "choices": {
+        "A": "2/15",
+        "B": "3 1/3",
+        "C": "5 2/3",
+        "D": "10"
+      },
+      "correct": "B",
+      "explanation": "5 × 2/3 = 10/3, ten thirds. Nine thirds make 3 whole cups with 1 third left over, so 10/3 = 3 1/3 cups.",
+      "misconceptions": "multiplies the denominator; adds instead of multiplying; drops the denominator",
+      "why": {
+        "A": "2/15 multiplies the denominator by 5, which makes each part smaller; 5 × 2/3 multiplies the numerator: 10/3.",
+        "C": "5 2/3 adds 5 and 2/3 instead of taking 2/3 cup five times.",
+        "D": "10 is 5 × 2, ten thirds of a cup with the thirds left off; 10/3 cups is 3 1/3 cups."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "fee921e0210697af"
+    },
+    {
+      "id": "MA-W6-X-04",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Fractions",
+      "subskill": "a unit fraction divided by a whole number",
+      "difficulty": "M",
+      "prompt": "The shaded part of the picture shows how much of a pan of lasagna is left after dinner. Brooke shares the leftover lasagna equally among 4 people. What fraction of the whole pan does each person get?",
+      "figure": {
+        "type": "shaded",
+        "shape": "bar",
+        "parts": 2,
+        "shaded": 1
+      },
+      "choices": {
+        "A": "1/8",
+        "B": "1/6",
+        "C": "1/4",
+        "D": "2"
+      },
+      "correct": "A",
+      "explanation": "Half of the pan is left. Splitting that half into 4 equal shares cuts the whole pan into 8 equal pieces, so each person gets 1/2 ÷ 4 = 1/8 of the pan.",
+      "misconceptions": "adds the denominator and the number of people; gives the share of the leftover, not of the pan; multiplies instead of dividing",
+      "why": {
+        "B": "1/6 adds 2 + 4 to get the denominator; sharing half a pan among 4 people makes 2 × 4 = 8 equal pieces of the pan.",
+        "C": "1/4 is each person's share of the leftover half, not of the whole pan; a quarter of a half is 1/8.",
+        "D": "2 is 1/2 × 4, which multiplies; sharing among 4 people splits the half into 4 smaller pieces."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "96bc5e0ecbddfbc3"
+    },
+    {
+      "id": "MA-W6-X-05",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Fractions",
+      "subskill": "comparing and ordering fractions",
+      "difficulty": "H",
+      "prompt": "Four players each started soccer practice with the same size bottle of water. The table shows what part of the water in the bottle each player drank. Who drank the LEAST water?",
+      "figure": {
+        "type": "table",
+        "caption": "Water drunk at practice",
+        "head": [
+          "Player",
+          "Part of the bottle"
+        ],
+        "rows": [
+          [
+            "Ainsley",
+            "5/8"
+          ],
+          [
+            "Alonzo",
+            "17/24"
+          ],
+          [
+            "Blake",
+            "3/4"
+          ],
+          [
+            "Coby",
+            "7/12"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "Ainsley",
+        "B": "Alonzo",
+        "C": "Blake",
+        "D": "Coby"
+      },
+      "correct": "D",
+      "explanation": "Write each fraction in twenty-fourths: 5/8 = 15/24, 17/24, 3/4 = 18/24 and 7/12 = 14/24. The smallest is 14/24, so Coby drank the least.",
+      "misconceptions": "picks the fraction with the smallest numbers; takes the biggest denominator for the smallest amount; compares without a common denominator",
+      "why": {
+        "A": "Ainsley drank 5/8, which is 15/24, just a little more than Coby's 7/12, which is 14/24.",
+        "B": "Alonzo drank 17/24, the fraction with the biggest denominator; the pieces are small, but 17 of them is more than 14/24.",
+        "C": "Blake drank 3/4, the fraction with the smallest numbers, but 3/4 is 18/24, the most of the four."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "1557655d943c058c"
+    },
+    {
+      "id": "MA-W6-X-06",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Fractions",
+      "subskill": "subtracting fractions with unlike denominators",
+      "difficulty": "M",
+      "prompt": "Cora had 7/8 cup of honey. She used 1/3 cup of it to bake a honey cake. How much honey does she have left?",
+      "choices": {
+        "A": "13/24",
+        "B": "3/4",
+        "C": "1 1/5",
+        "D": "1 5/24"
+      },
+      "correct": "A",
+      "explanation": "Use twenty-fourths: 7/8 = 21/24 and 1/3 = 8/24. Then 21/24 − 8/24 = 13/24 cup.",
+      "misconceptions": "subtracts the numerators but keeps eighths; subtracts numerators and denominators; adds instead of subtracting",
+      "why": {
+        "B": "3/4 is 6/8: it takes the 1 from the 7 but keeps eighths, as if 1/3 were 1/8; thirds and eighths must both become twenty-fourths.",
+        "C": "1 1/5 is 6/5, from subtracting the numerators (7 − 1) and the denominators (8 − 3); denominators are never subtracted.",
+        "D": "1 5/24 is 7/8 + 1/3, which adds the honey she used instead of taking it away."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "7a6afc81f176ca9b"
+    },
+    {
+      "id": "MA-W6-X-07",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Division",
+      "subskill": "dividing a 4-digit number by a 1-digit number",
+      "difficulty": "M",
+      "prompt": "The library's used-book sale raised $3,624 over 6 Saturdays. It raised the same amount each Saturday. How much did the sale raise each Saturday?",
+      "choices": {
+        "A": "$64",
+        "B": "$600",
+        "C": "$604",
+        "D": "$640"
+      },
+      "correct": "C",
+      "explanation": "36 hundreds ÷ 6 = 6 hundreds. 2 tens ÷ 6 is 0 tens with 2 tens left over, and 24 ones ÷ 6 = 4 ones. So $3,624 ÷ 6 = $604; check: 6 × 604 = 3,624.",
+      "misconceptions": "drops the zero in the quotient; stops at an estimate; puts the zero in the wrong place",
+      "why": {
+        "A": "$64 leaves out the 0 in the tens place: 6 does not go into 2 tens, so a 0 must be written before the 24 ones are divided.",
+        "B": "$600 is $3,600 ÷ 6, an estimate that leaves out the last $24, which adds $4 for each Saturday.",
+        "D": "$640 puts the 0 in the ones place instead of the tens place; 6 × 640 is 3,840, more than the sale raised."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "53100466b5ad4b85"
+    },
+    {
+      "id": "MA-W6-X-08",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Division",
+      "subskill": "what a remainder means in a story",
+      "difficulty": "E",
+      "prompt": "Chidi baked 75 cookies for the bake sale. He packs them in boxes that hold 8 cookies each. How many boxes can he fill completely?",
+      "choices": {
+        "A": "3",
+        "B": "5",
+        "C": "9",
+        "D": "10"
+      },
+      "correct": "C",
+      "explanation": "75 ÷ 8 = 9 R 3. Nine boxes hold 72 cookies, and the 3 cookies left over cannot fill another box, so he fills 9 boxes completely.",
+      "misconceptions": "gives the remainder; gives the cookies still needed for another box; rounds up when the remainder should be dropped",
+      "why": {
+        "A": "3 is the remainder, the cookies left after 9 full boxes, not a number of boxes.",
+        "B": "5 is the number of cookies needed to fill a tenth box (8 − 3), not a number of boxes he can fill.",
+        "D": "10 counts a box that is only partly full; the question asks for full boxes, so the remainder is dropped."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "9a7c312fadfe89bc"
+    },
+    {
+      "id": "MA-W6-X-09",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Division",
+      "subskill": "dividing a 2-digit number by a 1-digit number",
+      "difficulty": "E",
+      "prompt": "Benita saved the same amount of pocket money each month for 4 months. She saved $92 in all. How much did she save each month?",
+      "choices": {
+        "A": "$20",
+        "B": "$23",
+        "C": "$88",
+        "D": "$368"
+      },
+      "correct": "B",
+      "explanation": "9 tens ÷ 4 is 2 tens with 1 ten left over. That ten and the 2 ones make 12, and 12 ÷ 4 = 3, so $92 ÷ 4 = $23.",
+      "misconceptions": "drops the regrouped ten; subtracts instead of dividing; multiplies instead of dividing",
+      "why": {
+        "A": "$20 drops the 1 ten left over after 9 tens ÷ 4; that ten joins the 2 ones to make 12, and 12 ÷ 4 = 3.",
+        "C": "$88 is $92 − $4, which takes away the number of months instead of dividing by it.",
+        "D": "$368 is 4 × $92, as if she had saved $92 every month."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "ec96d556a2d8a521"
+    },
+    {
+      "id": "MA-W6-X-10",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Decimals",
+      "subskill": "converting between fractions and decimals",
+      "difficulty": "E",
+      "prompt": "Colin's sheet of stickers is shown. He has already used the shaded stickers. Which decimal names the part of the sheet he has used?",
+      "figure": {
+        "type": "shaded",
+        "shape": "bar",
+        "parts": 10,
+        "shaded": 3
+      },
+      "choices": {
+        "A": "0.03",
+        "B": "0.3",
+        "C": "0.7",
+        "D": "3.10"
+      },
+      "correct": "B",
+      "explanation": "The sheet has 10 equal stickers and 3 are shaded, so he has used 3/10 of it. Three tenths is written 0.3.",
+      "misconceptions": "writes tenths as hundredths; names the unshaded part; writes the numerator and the denominator on either side of the point",
+      "why": {
+        "A": "0.03 is 3 hundredths; each sticker is one of 10 equal parts, a tenth, so 3 stickers are 0.3.",
+        "C": "0.7 is the part of the sheet he has NOT used, the 7 unshaded stickers.",
+        "D": "3.10 writes the 3 and the 10 of 3/10 on either side of the point; 3/10 is 3 tenths, 0.3."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "98ed8751e020c4fe"
+    },
+    {
+      "id": "MA-W6-X-11",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Decimals",
+      "subskill": "tripling and dozens",
+      "difficulty": "M",
+      "prompt": "The table shows prices at a school bake sale. Axel buys 36 cookies. How much does he pay for them?",
+      "figure": {
+        "type": "table",
+        "caption": "Bake sale prices",
+        "head": [
+          "Item",
+          "Price"
+        ],
+        "rows": [
+          [
+            "Cookies",
+            "$3.25 a dozen"
+          ],
+          [
+            "Brownies",
+            "$1.50 each"
+          ],
+          [
+            "Lemonade",
+            "$0.75 a cup"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "$3.25",
+        "B": "$6.25",
+        "C": "$6.50",
+        "D": "$9.75"
+      },
+      "correct": "D",
+      "explanation": "A dozen is 12, so 36 cookies are 36 ÷ 12 = 3 dozen. Three dozen cost 3 × $3.25 = $9.75.",
+      "misconceptions": "prices one dozen only; adds the number of dozens to the price; counts 36 as 2 dozen",
+      "why": {
+        "A": "$3.25 pays for one dozen, 12 cookies; 36 cookies are 3 dozen.",
+        "B": "$6.25 is $3.25 + $3, which adds the 3 dozen to the price instead of multiplying by it.",
+        "C": "$6.50 is 2 × $3.25, the price of 24 cookies; 36 cookies are 3 dozen, not 2."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "f74c25a0723e6a0c"
+    },
+    {
+      "id": "MA-W6-X-12",
+      "subject": "MA",
+      "form": "W6",
+      "skill": "Percent",
+      "subskill": "percent as another way to write a fraction or decimal",
+      "difficulty": "M",
+      "prompt": "The picture shows a baking tray with equal cupcake spots. Lemon cupcakes fill the shaded spots. What percent of the spots hold lemon cupcakes?",
+      "figure": {
+        "type": "shaded",
+        "shape": "grid",
+        "parts": 20,
+        "shaded": 3,
+        "cols": 5
+      },
+      "choices": {
+        "A": "3%",
+        "B": "15%",
+        "C": "60%",
+        "D": "85%"
+      },
+      "correct": "B",
+      "explanation": "3 of the 20 spots are shaded: 3/20. Multiply the numerator and the denominator by 5 to get 15/100, which is 15%.",
+      "misconceptions": "writes the count as a percent; takes one row as the whole tray; gives the unshaded part",
+      "why": {
+        "A": "3% is just the number of shaded spots; 3 out of 20 is the same as 15 out of 100.",
+        "C": "60% is 3 out of 5, the shaded spots in the top row alone; the tray has 20 spots, and 3 out of 20 is 15 out of 100.",
+        "D": "85% is the part of the tray that does NOT hold lemon cupcakes, the 17 unshaded spots."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "d2d9115e9d151d47"
+    },
+    {
+      "skill": "Perimeter",
+      "subskill": "perimeter of a triangle",
+      "difficulty": "E",
+      "prompt": "Darnell is gluing ribbon all the way around the edge of a triangle-shaped poster for art class. The figure shows the length of each side. How many inches of ribbon does he need?",
+      "choices": {
+        "A": "21 inches",
+        "B": "27 inches",
+        "C": "36 inches",
+        "D": "42 inches"
+      },
+      "correct": "C",
+      "explanation": "The ribbon goes along all three sides, so add them: 12 + 15 + 9 = 36 inches.",
+      "misconceptions": "leaves out the longest side; leaves out a short side; uses the rule for the perimeter of a rectangle",
+      "why": {
+        "A": "21 inches is 12 + 9, the two sides that meet at the square corner; the 15-inch side needs ribbon too.",
+        "B": "27 inches is 12 + 15, only two of the three sides; the 9-inch side needs ribbon too.",
+        "D": "42 inches is 2 × (12 + 9), the rule for a rectangle’s perimeter; a triangle has three sides, so add the three."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            0,
+            9
+          ]
+        ],
+        "right": [
+          0
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "12 in"
+          },
+          {
+            "side": 1,
+            "text": "15 in"
+          },
+          {
+            "side": 2,
+            "text": "9 in"
+          }
+        ]
+      },
+      "id": "MA-W6-X-13",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "3cf8df9e582a7d71"
+    },
+    {
+      "skill": "Geometry",
+      "subskill": "classifying triangles by their sides",
+      "difficulty": "E",
+      "prompt": "Three straight trails in a park join to make a triangle. The map shows how long each trail is. Which word best describes the triangle?",
+      "choices": {
+        "A": "equilateral",
+        "B": "isosceles",
+        "C": "right",
+        "D": "scalene"
+      },
+      "correct": "D",
+      "explanation": "The three trails are 500 m, 600 m and 700 m long. No two sides are the same length, so the triangle is scalene.",
+      "misconceptions": "calls any triangle with three different-looking sides isosceles; picks right for an ordinary triangle; confuses equilateral with scalene",
+      "why": {
+        "A": "Equilateral needs all three sides to be the same length; these trails are 500 m, 600 m and 700 m.",
+        "B": "Isosceles needs two sides of the same length, and no two of these trails match.",
+        "C": "Right would need a square corner, and none of this triangle’s corners is marked as one; its three different side lengths make it scalene."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            2.71,
+            4.2
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "700 m"
+          },
+          {
+            "side": 1,
+            "text": "600 m"
+          },
+          {
+            "side": 2,
+            "text": "500 m"
+          }
+        ]
+      },
+      "id": "MA-W6-X-14",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "7460ba9e057ac542"
+    },
+    {
+      "skill": "Angles",
+      "subskill": "classifying triangles by their angles",
+      "difficulty": "M",
+      "prompt": "Esther traced a triangle-shaped block from her block set and measured two of its angles, as the figure shows. Which word best describes triangle JKL?",
+      "choices": {
+        "A": "acute",
+        "B": "equilateral",
+        "C": "obtuse",
+        "D": "right"
+      },
+      "correct": "C",
+      "explanation": "The angles add to 180°: 25 + 40 = 65, and 180 − 65 = 115°. An angle greater than 90° is obtuse, so the triangle is obtuse.",
+      "misconceptions": "looks only at the two angles given; never finds the third angle; thinks a triangle with no right angle must be acute",
+      "why": {
+        "A": "Acute needs all three angles to be less than 90°; the two measured angles are, but the third is 180 − 65 = 115°.",
+        "B": "Equilateral triangles have three 60° angles, and these angles are all different.",
+        "D": "Right needs one angle of exactly 90°; the third angle here is 115°."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            6.43,
+            3.0
+          ]
+        ],
+        "names": [
+          "J",
+          "K",
+          "L"
+        ],
+        "angles": [
+          {
+            "at": 0,
+            "text": "25°"
+          },
+          {
+            "at": 1,
+            "text": "40°"
+          },
+          {
+            "at": 2,
+            "text": "?"
+          }
+        ]
+      },
+      "id": "MA-W6-X-15",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ee065e3624fe01cb"
+    },
+    {
+      "skill": "Perimeter",
+      "subskill": "a triangle inside a figure",
+      "difficulty": "M",
+      "prompt": "Fletcher put a triangle-shaped block on top of a square block to make the shape shown; the dashed line is where the two blocks touch. Each side of the triangle is as long as a side of the square. What is the perimeter of the whole shape?",
+      "choices": {
+        "A": "24 inches",
+        "B": "30 inches",
+        "C": "36 inches",
+        "D": "42 inches"
+      },
+      "correct": "B",
+      "explanation": "The outside of the shape is 5 sides: the square’s left, bottom and right sides and the triangle’s two slanted sides, each 6 inches. 5 × 6 = 30 inches.",
+      "misconceptions": "finds only the square’s perimeter; counts the side where the blocks touch; adds the two perimeters",
+      "why": {
+        "A": "24 inches is 4 × 6, the square block’s perimeter by itself; the triangle’s two slanted sides are on the outside too, and the square’s top side is not.",
+        "C": "36 inches is 6 × 6, which counts the dashed side where the blocks touch; that side is inside the shape, not around it.",
+        "D": "42 inches is 24 + 18, the square’s perimeter plus the triangle’s, which counts the shared side twice although it is not on the outside at all."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            6
+          ],
+          [
+            3,
+            11.2
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            6,
+            6
+          ]
+        ],
+        "labels": [
+          {
+            "side": 1,
+            "text": "6 in"
+          }
+        ],
+        "right": [
+          1,
+          2
+        ],
+        "dashed": [
+          5
+        ]
+      },
+      "id": "MA-W6-X-16",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "302df3ac1cffe9ae"
+    },
+    {
+      "skill": "Angles",
+      "subskill": "classifying angles (acute, right, obtuse)",
+      "difficulty": "E",
+      "prompt": "In art class, Eva opened the lid of her paint box. The figure shows the lid and the top of the box meeting at the hinge. Which word describes the angle between them?",
+      "choices": {
+        "A": "acute",
+        "B": "obtuse",
+        "C": "right",
+        "D": "straight"
+      },
+      "correct": "A",
+      "explanation": "The lid has not yet come up to a square corner with the box, so the angle between them is less than a right angle, 90°. An angle less than a right angle is acute.",
+      "misconceptions": "mixes up the names acute and obtuse; calls any open lid a right angle; calls any wide opening straight",
+      "why": {
+        "B": "Obtuse is the name for an angle wider than a square corner, like a lid pushed back past standing straight up; this lid has not reached straight up yet.",
+        "C": "Right is a square corner, the lid standing straight up from the box; this lid leans toward the box, so the angle is less than that.",
+        "D": "Straight is a lid opened all the way flat, in one line with the top of the box; this lid is open much less than that."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            8,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            4,
+            6.93
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "top of the box"
+          },
+          {
+            "side": 1,
+            "text": "lid"
+          }
+        ]
+      },
+      "id": "MA-W6-X-17",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "11c1ed995fec8087"
+    },
+    {
+      "skill": "Angles",
+      "subskill": "angles on a straight line add to 180°",
+      "difficulty": "E",
+      "prompt": "A straight fence runs along one side of Eden’s yard, and a garden path meets it as the figure shows. What is the value of x?",
+      "choices": {
+        "A": "25°",
+        "B": "65°",
+        "C": "115°",
+        "D": "295°"
+      },
+      "correct": "C",
+      "explanation": "The two angles sit side by side along the straight fence, so together they make 180°: x = 180 − 65 = 115°.",
+      "misconceptions": "uses 90 instead of 180; copies the given angle; uses a full turn of 360",
+      "why": {
+        "A": "25° is 90 − 65, as if the two angles made a right angle; angles side by side along a straight line make 180°.",
+        "B": "65° repeats the angle you were given; the two angles share a straight line, so together they must make 180°, and 65 + 65 is only 130.",
+        "D": "295° is 360 − 65, a full turn; the angles on one side of a straight line make half a turn, 180°."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6.69,
+            3.63
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ],
+        "angles": [
+          {
+            "at": 1,
+            "text": "x"
+          },
+          {
+            "at": 3,
+            "text": "65°"
+          }
+        ]
+      },
+      "id": "MA-W6-X-18",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b727df229fda40f2"
+    },
+    {
+      "skill": "Angles",
+      "subskill": "angles in a rectangle",
+      "difficulty": "M",
+      "prompt": "Felicity drew a dashed line on a rectangular card, from its top left corner to its bottom edge, as shown. What is the value of x?",
+      "choices": {
+        "A": "62°",
+        "B": "90°",
+        "C": "118°",
+        "D": "152°"
+      },
+      "correct": "A",
+      "explanation": "Every corner of a rectangle is a right angle, 90°. The dashed line splits the top left corner into two parts, 28° and x, so x = 90 − 28 = 62°.",
+      "misconceptions": "gives the whole corner; adds the given angle to the corner; treats the corner as a straight angle",
+      "why": {
+        "B": "90° is the whole corner of the card, the right angle; the dashed line splits it into two parts, and one part is the 28° angle.",
+        "C": "118° is 90 + 28, the corner and the given angle added together; the 28° angle is part of the corner, so take it away.",
+        "D": "152° is 180 − 28, as if the corner were a straight line; a rectangle’s corner is a right angle, 90°."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            10,
+            6
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            3.19,
+            0
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            3.19,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ],
+        "right": [
+          0,
+          4,
+          6
+        ],
+        "dashed": [
+          1,
+          2
+        ],
+        "angles": [
+          {
+            "at": 1,
+            "text": "x"
+          },
+          {
+            "at": 3,
+            "text": "28°"
+          }
+        ]
+      },
+      "id": "MA-W6-X-19",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "a0eda52d7aa3179c"
+    },
+    {
+      "skill": "Angles",
+      "subskill": "equal angles of an isosceles triangle",
+      "difficulty": "H",
+      "prompt": "The figure shows a pennant, a triangle-shaped flag, that Faye made for a park festival. Its two long sides are the same length. What is the value of x, the angle at the tip of the pennant?",
+      "choices": {
+        "A": "20°",
+        "B": "40°",
+        "C": "55°",
+        "D": "110°"
+      },
+      "correct": "B",
+      "explanation": "The two long sides are equal, so the angles at the two ends of the short side are equal: both are 70°. x = 180 − 70 − 70 = 40°.",
+      "misconceptions": "treats the pennant as a right triangle; treats the given angle as the tip; takes away only one of the two equal angles",
+      "why": {
+        "A": "20° is 180 − 90 − 70, as if the pennant had a square corner; it has none, and its two equal angles at the short side are both 70°.",
+        "C": "55° is (180 − 70) ÷ 2, which treats the 70° angle as the tip; the 70° angle is at one end of the short side, and the angle at the other end matches it.",
+        "D": "110° is 180 − 70, with only one of the two equal angles taken away; the angle at the other end of the short side is 70° as well."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            5.49,
+            2
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "50 cm"
+          },
+          {
+            "side": 1,
+            "text": "50 cm"
+          }
+        ],
+        "angles": [
+          {
+            "at": 0,
+            "text": "70°"
+          },
+          {
+            "at": 1,
+            "text": "x"
+          }
+        ]
+      },
+      "id": "MA-W6-X-20",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "17590208c1000191"
+    },
+    {
+      "skill": "Perimeter",
+      "subskill": "side of a square from its area",
+      "difficulty": "H",
+      "prompt": "A square stepping stone in Duncan’s garden has an area of 144 square inches. What is the perimeter of the stepping stone?",
+      "choices": {
+        "A": "36 inches",
+        "B": "48 inches",
+        "C": "144 inches",
+        "D": "576 inches"
+      },
+      "correct": "B",
+      "explanation": "The side times itself makes 144, so each side is 12 inches (12 × 12 = 144). The perimeter is 4 × 12 = 48 inches.",
+      "misconceptions": "divides the area by 4 as if it were the perimeter; gives the area as the perimeter; multiplies the area by 4",
+      "why": {
+        "A": "36 inches is 144 ÷ 4, which treats the area as if it were the distance around; first find the side, the number that times itself makes 144.",
+        "C": "144 inches is the area itself; the area counts square inches inside the stone, while the perimeter measures around its four sides.",
+        "D": "576 inches is 144 × 4, the area multiplied by 4 instead of the side length."
+      },
+      "id": "MA-W6-X-21",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f197a96d6791a2b5"
+    },
+    {
+      "skill": "Area",
+      "subskill": "area of a figure made of rectangles",
+      "difficulty": "M",
+      "prompt": "Elio built a wall of toy blocks with a doorway in it. The figure shows the front of the wall, with some lengths labeled. Every side meets the next at a right angle. What is the area of the front of the wall, not counting the doorway?",
+      "choices": {
+        "A": "15 square inches",
+        "B": "48 square inches",
+        "C": "73 square inches",
+        "D": "88 square inches"
+      },
+      "correct": "C",
+      "explanation": "Find the area of the whole wall and take away the doorway: 11 × 8 = 88 square inches, and 3 × 5 = 15 square inches, so 88 − 15 = 73 square inches.",
+      "misconceptions": "finds only the doorway; finds the perimeter instead of the area; forgets to take away the doorway",
+      "why": {
+        "A": "15 square inches is 3 × 5, the doorway’s area; the doorway is the part with no blocks, so it is taken away from the wall.",
+        "B": "48 square inches is the distance around the wall, 4 + 5 + 3 + 5 + 4 + 8 + 11 + 8 = 48 inches, the perimeter rather than the area.",
+        "D": "88 square inches is 11 × 8, the whole wall as if there were no doorway; the doorway’s 15 square inches come off."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            7,
+            5
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            11,
+            0
+          ],
+          [
+            11,
+            8
+          ],
+          [
+            0,
+            8
+          ]
+        ],
+        "labels": [
+          {
+            "side": 1,
+            "text": "5 in"
+          },
+          {
+            "side": 2,
+            "text": "3 in"
+          },
+          {
+            "side": 5,
+            "text": "8 in"
+          },
+          {
+            "side": 6,
+            "text": "11 in"
+          }
+        ],
+        "right": [
+          0,
+          1,
+          4,
+          5,
+          6,
+          7
+        ]
+      },
+      "id": "MA-W6-X-22",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "71cff541cdee365c"
+    },
+    {
+      "skill": "Data",
+      "subskill": "reading a pictograph whose symbol stands for more than 1",
+      "difficulty": "M",
+      "prompt": "The pictograph shows how many people visited the nature center in a town park on four days. How many people visited the nature center on the four days in all?",
+      "choices": {
+        "A": "17",
+        "B": "160",
+        "C": "165",
+        "D": "170"
+      },
+      "correct": "D",
+      "explanation": "Count the symbols: 3 1/2 + 5 + 2 1/2 + 6 = 17. Each symbol stands for 10 people, so 17 × 10 = 170 people.",
+      "misconceptions": "counts the symbols and forgets the key; drops both half symbols; counts only one of the two half symbols",
+      "why": {
+        "A": "17 is the number of symbols, 3 1/2 + 5 + 2 1/2 + 6; each symbol stands for 10 people.",
+        "B": "160 is 16 × 10, which leaves out the two half symbols; each half symbol stands for 5 people.",
+        "C": "165 is 16 × 10 + 5, which counts only one of the two half symbols; Monday and Wednesday each end in a half, 5 people each."
+      },
+      "figure": {
+        "type": "pictograph",
+        "title": "Nature center visitors",
+        "unit": "= 10 people",
+        "rows": [
+          {
+            "label": "Monday",
+            "count": 3.5
+          },
+          {
+            "label": "Tuesday",
+            "count": 5
+          },
+          {
+            "label": "Wednesday",
+            "count": 2.5
+          },
+          {
+            "label": "Thursday",
+            "count": 6
+          }
+        ]
+      },
+      "id": "MA-W6-X-23",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f2e67e8655601c2d"
+    },
+    {
+      "skill": "Geometry",
+      "subskill": "properties of quadrilaterals",
+      "difficulty": "H",
+      "prompt": "Eloise sorted some shapes into the Venn diagram shown. Which shape is inside both circles but does NOT always have four sides of equal length?",
+      "choices": {
+        "A": "rectangle",
+        "B": "rhombus",
+        "C": "square",
+        "D": "trapezoid"
+      },
+      "correct": "A",
+      "explanation": "The shapes inside both circles are the rectangle and the square. A square always has four equal sides, but a rectangle does not have to, so the answer is the rectangle.",
+      "misconceptions": "picks a shape without equal sides that sits in only one circle; picks the square because it is in the overlap; mixes up the rhombus and the rectangle",
+      "why": {
+        "B": "Rhombus sits in only the “Has 4 sides” circle, and a rhombus always has four equal sides.",
+        "C": "Square is inside both circles, but a square always has four equal sides.",
+        "D": "Trapezoid does not always have four equal sides, but it sits in only the “Has 4 sides” circle, not inside both."
+      },
+      "figure": {
+        "type": "venn",
+        "left": "Has 4 sides",
+        "right": "Has a right angle",
+        "items": {
+          "left": [
+            "rhombus",
+            "trapezoid"
+          ],
+          "both": [
+            "rectangle",
+            "square"
+          ],
+          "right": [
+            "right triangle"
+          ],
+          "outside": [
+            "hexagon"
+          ]
+        }
+      },
+      "id": "MA-W6-X-24",
+      "subject": "MA",
+      "form": "W6",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8086a4fb97135802"
+    },
+    {
+      "id": "MA-W7-X-01",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Fractions",
+      "subskill": "adding fractions with unlike denominators",
+      "difficulty": "M",
+      "prompt": "Cruz walks from his home to the library, and then from the library to the bakery. The table shows the distances. How many miles does he walk in all?",
+      "figure": {
+        "type": "table",
+        "caption": "Walking distances",
+        "head": [
+          "From",
+          "To",
+          "Distance"
+        ],
+        "rows": [
+          [
+            "Home",
+            "Library",
+            "5/6 mile"
+          ],
+          [
+            "Library",
+            "Bakery",
+            "3/4 mile"
+          ],
+          [
+            "Bakery",
+            "Park",
+            "1 1/4 miles"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "4/5",
+        "B": "1 1/3",
+        "C": "1 7/12",
+        "D": "1 3/4"
+      },
+      "correct": "C",
+      "explanation": "Use twelfths: 5/6 = 10/12 and 3/4 = 9/12. Then 10/12 + 9/12 = 19/12, which is 1 7/12 miles.",
+      "misconceptions": "adds numerators and denominators; keeps one denominator; regroups twelfths as if ten made a whole",
+      "why": {
+        "A": "4/5 is 8/10, from adding the numerators (5 + 3) and the denominators (6 + 4); sixths and fourths must first become twelfths.",
+        "B": "1 1/3 is 8/6: it adds 5 + 3 but keeps sixths, as if 3/4 were 3/6.",
+        "D": "1 3/4 is 1 9/12, which takes 10 twelfths out of 19 twelfths instead of 12; 19/12 is 1 whole and 7/12."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "ca2b343e27b303cd"
+    },
+    {
+      "id": "MA-W7-X-02",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Fractions",
+      "subskill": "fraction of a quantity",
+      "difficulty": "E",
+      "prompt": "The bar graph shows the snacks Coach Abbott bought for the soccer team. Two thirds of the granola bars are chocolate chip. How many chocolate chip granola bars did Coach Abbott buy?",
+      "figure": {
+        "type": "bar",
+        "title": "Snacks for the team",
+        "y": "Number bought",
+        "step": 3,
+        "bars": [
+          {
+            "label": "Granola bars",
+            "value": 18
+          },
+          {
+            "label": "Apples",
+            "value": 9
+          },
+          {
+            "label": "Juice boxes",
+            "value": 24
+          },
+          {
+            "label": "Crackers",
+            "value": 15
+          }
+        ]
+      },
+      "choices": {
+        "A": "6",
+        "B": "12",
+        "C": "16",
+        "D": "36"
+      },
+      "correct": "B",
+      "explanation": "The graph shows 18 granola bars. One third of 18 is 18 ÷ 3 = 6, so two thirds is 2 × 6 = 12.",
+      "misconceptions": "finds one third and stops; reads the wrong bar; multiplies by 2 without dividing by 3",
+      "why": {
+        "A": "6 is one third of 18, the granola bars that are NOT chocolate chip.",
+        "C": "16 is two thirds of the 24 juice boxes, read from the wrong bar.",
+        "D": "36 is 18 × 2, which multiplies by the numerator of 2/3 but never divides by the denominator, 3."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "946939eec11680e0"
+    },
+    {
+      "id": "MA-W7-X-03",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Fractions",
+      "subskill": "a whole number divided by a unit fraction",
+      "difficulty": "H",
+      "prompt": "Coach Bauer has 4 pounds of grapes for the 18 players on her team. She puts 1/4 pound of grapes in each snack bag. How many more bags of grapes would she need so that every player gets one?",
+      "choices": {
+        "A": "2",
+        "B": "4",
+        "C": "14",
+        "D": "16"
+      },
+      "correct": "A",
+      "explanation": "Each pound fills four 1/4-pound bags, so 4 pounds fill 4 ÷ 1/4 = 16 bags. For 18 players she needs 18 − 16 = 2 more bags.",
+      "misconceptions": "stops at the bags in one pound; subtracts pounds from players; gives the bags she can fill, not the bags still needed",
+      "why": {
+        "B": "4 is the number of bags one pound fills; she has 4 pounds, so she can fill 16 bags.",
+        "C": "14 is 18 − 4, which takes the pounds of grapes away from the number of players.",
+        "D": "16 is the number of bags 4 pounds fill (4 × 4); the question asks how many more bags 18 players need."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "ccbb13b6fa3215a7"
+    },
+    {
+      "id": "MA-W7-X-04",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Fractions",
+      "subskill": "a fraction times a whole number",
+      "difficulty": "H",
+      "prompt": "Alana has 6 cups of flour. Her biscuit recipe uses 1 1/4 cups of flour for each batch, and she makes 3 batches. How many cups of flour does she have left?",
+      "choices": {
+        "A": "2 1/4",
+        "B": "2 3/4",
+        "C": "3 1/2",
+        "D": "3 3/4"
+      },
+      "correct": "A",
+      "explanation": "Three batches use 3 × 1 1/4 = 3 + 3/4 = 3 3/4 cups. Then 6 − 3 3/4 = 2 1/4 cups are left.",
+      "misconceptions": "triples the whole number but not the fraction; doubles instead of tripling; gives the flour used, not the flour left",
+      "why": {
+        "B": "2 3/4 is what is left if only the 1 is tripled: 3 batches use 3 × 1 1/4 = 3 3/4 cups, not 3 1/4 cups.",
+        "C": "3 1/2 is 6 − 2 1/2, the flour left after only 2 batches; she makes 3.",
+        "D": "3 3/4 is the flour she uses, 3 × 1 1/4; the question asks how much is left."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "3116c9dc89794de7"
+    },
+    {
+      "id": "MA-W7-X-05",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Fractions",
+      "subskill": "comparing and ordering fractions",
+      "difficulty": "M",
+      "prompt": "Two points are marked on the number line. Which fraction belongs between the two marked points?",
+      "figure": {
+        "type": "numberline",
+        "min": 0,
+        "max": 1,
+        "step": 0.25,
+        "labelEvery": 4,
+        "points": [
+          {
+            "at": 0.5,
+            "label": "1/2"
+          },
+          {
+            "at": 0.75,
+            "label": "3/4"
+          }
+        ]
+      },
+      "choices": {
+        "A": "3/8",
+        "B": "5/12",
+        "C": "2/3",
+        "D": "5/6"
+      },
+      "correct": "C",
+      "explanation": "2/3 is more than 1/2 because 2 is more than half of 3. In twelfths, 2/3 = 8/12 and 3/4 = 9/12, so 2/3 is also less than 3/4.",
+      "misconceptions": "takes a large denominator for a large fraction; compares numerators only; checks against 1/2 but not against 3/4",
+      "why": {
+        "A": "3/8 is less than 1/2, because half of 8 is 4 and 3 is less than 4.",
+        "B": "5/12 is less than 1/2, because half of 12 is 6 and 5 is less than 6.",
+        "D": "5/6 is more than 3/4: in twelfths, 5/6 = 10/12 and 3/4 = 9/12."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "6c4f8a45b7e4ac61"
+    },
+    {
+      "id": "MA-W7-X-06",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Fractions",
+      "subskill": "adding mixed numbers",
+      "difficulty": "M",
+      "prompt": "Beatriz spent 2 1/2 hours at the library on Saturday and 1 2/3 hours there on Sunday. How many hours did she spend at the library over the weekend?",
+      "choices": {
+        "A": "3 1/6",
+        "B": "3 3/5",
+        "C": "4 1/6",
+        "D": "4 1/2"
+      },
+      "correct": "C",
+      "explanation": "Add the wholes: 2 + 1 = 3. Add the fractions in sixths: 3/6 + 4/6 = 7/6 = 1 1/6. In all, 3 + 1 1/6 = 4 1/6 hours.",
+      "misconceptions": "forgets to carry the extra whole; adds numerators and denominators; keeps one denominator",
+      "why": {
+        "A": "3 1/6 forgets that 7/6 is more than 1 whole; that whole must be carried to make 4 1/6.",
+        "B": "3 3/5 adds the numerators and the denominators of 1/2 and 2/3; halves and thirds must both become sixths first.",
+        "D": "4 1/2 adds the numerators, 1 + 2 = 3, and keeps halves to get 3/2; the thirds must become sixths before adding."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "54b8ae2412ac4eb0"
+    },
+    {
+      "id": "MA-W7-X-07",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Division",
+      "subskill": "what a remainder means in a story",
+      "difficulty": "H",
+      "prompt": "Coach Brandt wants to give each of the 27 players at a tournament 3 juice boxes. Juice boxes come in packs of 8. What is the fewest number of packs she must buy?",
+      "choices": {
+        "A": "1",
+        "B": "4",
+        "C": "10",
+        "D": "11"
+      },
+      "correct": "D",
+      "explanation": "The players need 27 × 3 = 81 juice boxes. 81 ÷ 8 = 10 R 1, so 10 packs hold 80 and one more pack is needed for the last juice box: 11 packs.",
+      "misconceptions": "gives the remainder; forgets that each player gets 3; drops the remainder when it must round up",
+      "why": {
+        "A": "1 is the remainder, the one juice box left over after 10 packs, not a number of packs.",
+        "B": "4 packs hold 32 juice boxes, one for each player; each player gets 3, so 81 are needed.",
+        "C": "10 drops the remainder: 10 packs hold 80 juice boxes, 1 short of 81."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "c0f113a7f4ef615d"
+    },
+    {
+      "id": "MA-W7-X-08",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Division",
+      "subskill": "division word problems",
+      "difficulty": "E",
+      "prompt": "The school library gave 144 new books to 6 classrooms, the same number to each classroom. Each classroom put 9 of its books on display and the rest in a reading bin. How many books went into each classroom's reading bin?",
+      "choices": {
+        "A": "15",
+        "B": "24",
+        "C": "90",
+        "D": "135"
+      },
+      "correct": "A",
+      "explanation": "Each classroom got 144 ÷ 6 = 24 books. After 9 went on display, 24 − 9 = 15 went into the bin.",
+      "misconceptions": "stops at each classroom's share; gives the books in all the bins together; subtracts the display books only once",
+      "why": {
+        "B": "24 is each classroom's share, 144 ÷ 6, before the 9 display books are taken out.",
+        "C": "90 is the number of books in all 6 bins together, 144 − 6 × 9; the question asks about one bin.",
+        "D": "135 is 144 − 9, which takes the display books away only once, from all 144 books."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "e5ffecd9d5b04a6c"
+    },
+    {
+      "id": "MA-W7-X-09",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Division",
+      "subskill": "division word problems",
+      "difficulty": "H",
+      "prompt": "The bar graph shows how much money Beckett saved in each of four months. He uses his savings to buy as many packs of trading cards as he can, and each pack costs $6. How many packs can he buy?",
+      "figure": {
+        "type": "bar",
+        "title": "Money Beckett saved",
+        "y": "Dollars",
+        "step": 2,
+        "bars": [
+          {
+            "label": "Jan",
+            "value": 14
+          },
+          {
+            "label": "Feb",
+            "value": 10
+          },
+          {
+            "label": "Mar",
+            "value": 18
+          },
+          {
+            "label": "Apr",
+            "value": 16
+          }
+        ]
+      },
+      "choices": {
+        "A": "9",
+        "B": "10",
+        "C": "54",
+        "D": "58"
+      },
+      "correct": "A",
+      "explanation": "He saved 14 + 10 + 18 + 16 = $58. 58 ÷ 6 = 9 R 4, so he can buy 9 packs and has $4 left, not enough for another pack.",
+      "misconceptions": "rounds up when the remainder must be dropped; gives the dollars spent; gives the dollars saved",
+      "why": {
+        "B": "10 packs would cost $60, $2 more than Beckett saved, so the remainder must be dropped.",
+        "C": "54 is the number of dollars 9 packs cost, 9 × 6, not the number of packs.",
+        "D": "58 is the total number of dollars he saved, before dividing by $6 a pack."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "94dee7cd207cfb36"
+    },
+    {
+      "id": "MA-W7-X-10",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Decimals",
+      "subskill": "comparing and ordering decimals",
+      "difficulty": "M",
+      "prompt": "Four teammates each packed a bag of trail mix for an away game. The table shows how much each bag weighs. Whose bag weighs the LEAST?",
+      "figure": {
+        "type": "table",
+        "caption": "Trail mix bags",
+        "head": [
+          "Teammate",
+          "Weight (kilograms)"
+        ],
+        "rows": [
+          [
+            "Akira",
+            "0.307"
+          ],
+          [
+            "Ayesha",
+            "0.073"
+          ],
+          [
+            "Bram",
+            "0.08"
+          ],
+          [
+            "Clem",
+            "0.7"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "Akira",
+        "B": "Ayesha",
+        "C": "Bram",
+        "D": "Clem"
+      },
+      "correct": "B",
+      "explanation": "Compare the tenths first: 0.073 and 0.08 both have 0 tenths, and the other two have 3 or 7. Then compare the hundredths: 7 hundredths is less than 8, so Ayesha's bag, 0.073 kilogram, is the lightest.",
+      "misconceptions": "skips the zero right after the decimal point; after a tie in the tenths, compares the rest as whole numbers; thinks fewer digits means a smaller number",
+      "why": {
+        "A": "Akira's bag is 0.307 kilogram, with 3 tenths; it only looks the lightest if the 0 right after the point in 0.073 is skipped, but that 0 means 0.073 has no tenths at all.",
+        "C": "Bram's bag is 0.08 kilogram. It and 0.073 both have 0 tenths, so compare the hundredths: 8 hundredths is more than 7, even though 8 looks smaller than 73.",
+        "D": "Clem's bag is 0.7 kilogram, the number with the fewest digits, but it has 7 tenths, the heaviest of the four."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "65029f6a7e18469c"
+    },
+    {
+      "id": "MA-W7-X-11",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Number properties",
+      "subskill": "divisibility by 2, 5 and 10 (the last digit)",
+      "difficulty": "E",
+      "prompt": "The table shows how many erasers are in four boxes at the school store. Which box's erasers can be put into bags of 5 with none left over, but NOT into bags of 10 with none left over?",
+      "figure": {
+        "type": "table",
+        "caption": "Erasers at the school store",
+        "head": [
+          "Box",
+          "Erasers"
+        ],
+        "rows": [
+          [
+            "Blue",
+            "150"
+          ],
+          [
+            "Green",
+            "501"
+          ],
+          [
+            "Red",
+            "510"
+          ],
+          [
+            "Yellow",
+            "105"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "Blue",
+        "B": "Green",
+        "C": "Red",
+        "D": "Yellow"
+      },
+      "correct": "D",
+      "explanation": "A number splits into 5s with none left over when its last digit is 0 or 5, and into 10s only when its last digit is 0. Yellow's 105 ends in 5: it makes 21 bags of 5, but 10 bags of 10 leave 5 over.",
+      "misconceptions": "looks for a 5 or a 0 anywhere in the number; forgets that a number ending in 0 also fills bags of 10; checks the first digit",
+      "why": {
+        "A": "Blue's 150 ends in 0, so it fills bags of 10 too: 15 bags of 10.",
+        "B": "Green's 501 ends in 1, so it fills neither: 1 eraser is left over in bags of 5, even though 5 and 0 are among its digits.",
+        "C": "Red's 510 ends in 0, so it fills bags of 10 as well as bags of 5: 51 bags of 10."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "38d516f5802077e9"
+    },
+    {
+      "id": "MA-W7-X-12",
+      "subject": "MA",
+      "form": "W7",
+      "skill": "Whole-number operations",
+      "subskill": "tripling and dozens",
+      "difficulty": "E",
+      "prompt": "A tray at Corinne's family bakery holds 2 dozen rolls. Every morning the bakery bakes 3 full trays of rolls. How many rolls does it bake each morning?",
+      "choices": {
+        "A": "6",
+        "B": "27",
+        "C": "48",
+        "D": "72"
+      },
+      "correct": "D",
+      "explanation": "A dozen is 12, so one tray holds 2 × 12 = 24 rolls. Three trays hold 3 × 24 = 72 rolls.",
+      "misconceptions": "stops at the number of dozens; adds instead of multiplying; doubles instead of tripling",
+      "why": {
+        "A": "6 is the number of dozens, 3 × 2; 6 dozen rolls is 6 × 12 = 72 rolls.",
+        "B": "27 is 24 + 3, which adds the 3 trays instead of multiplying by them.",
+        "C": "48 is 2 × 24, the rolls on 2 trays; the bakery bakes 3 trays."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "f0c60334c448ecb5"
+    },
+    {
+      "skill": "Area",
+      "subskill": "a triangle inside a figure",
+      "difficulty": "M",
+      "prompt": "The grid shows Daphne’s rectangular garden. She stretched a string from one corner to the opposite corner, shown by the dashed line, to make two triangle-shaped beds. Each square on the grid is 1 meter long and 1 meter wide. What is the area of one of the triangle-shaped beds?",
+      "choices": {
+        "A": "14 square meters",
+        "B": "24 square meters",
+        "C": "28 square meters",
+        "D": "48 square meters"
+      },
+      "correct": "B",
+      "explanation": "The garden is 8 meters long and 6 meters wide, so its area is 8 × 6 = 48 square meters. The string cuts it into two equal triangles, so each bed is 48 ÷ 2 = 24 square meters.",
+      "misconceptions": "adds the length and width; finds the perimeter; uses the whole rectangle instead of half",
+      "why": {
+        "A": "14 square meters is 8 + 6, the length and width added; area comes from multiplying them, and then each bed is half.",
+        "C": "28 square meters is 2 × (8 + 6), the distance around the whole garden rather than the space inside one bed.",
+        "D": "48 square meters is 8 × 6, the whole garden; the string cuts it into two equal triangles, so one bed is half of it."
+      },
+      "figure": {
+        "type": "grid",
+        "xmax": 10,
+        "ymax": 8,
+        "polygon": [
+          [
+            1,
+            1
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            9,
+            7
+          ],
+          [
+            1,
+            7
+          ]
+        ],
+        "lines": [
+          [
+            [
+              1,
+              1
+            ],
+            [
+              9,
+              7
+            ]
+          ]
+        ]
+      },
+      "id": "MA-W7-X-13",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "02885fa5f0a4bdae"
+    },
+    {
+      "skill": "Angles",
+      "subskill": "a triangle inside a figure",
+      "difficulty": "H",
+      "prompt": "The map shows a rectangular park. A straight path, the dashed line, runs from the park’s bottom left corner to its right edge. What is the value of x?",
+      "choices": {
+        "A": "35°",
+        "B": "55°",
+        "C": "125°",
+        "D": "145°"
+      },
+      "correct": "B",
+      "explanation": "The path, the bottom edge and the right edge make a triangle. It has a right angle, 90°, at the park’s bottom right corner and a 35° angle at the bottom left, and its angles add to 180°, so x = 180 − 90 − 35 = 55°.",
+      "misconceptions": "copies the given angle; adds the known angles; leaves out the right angle",
+      "why": {
+        "A": "35° copies the angle the path makes with the bottom edge, as if the two angles that are not the right angle had to match; together they only have to make 90°.",
+        "C": "125° is 90 + 35, the two angles you know added together instead of taken from 180°.",
+        "D": "145° is 180 − 35, which leaves out the square corner at the bottom right; its 90° comes off too."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            10,
+            7
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            10,
+            9
+          ],
+          [
+            10,
+            7
+          ]
+        ],
+        "right": [
+          1,
+          4,
+          5
+        ],
+        "dashed": [
+          2,
+          6
+        ],
+        "angles": [
+          {
+            "at": 0,
+            "text": "35°"
+          },
+          {
+            "at": 2,
+            "text": "x"
+          }
+        ]
+      },
+      "id": "MA-W7-X-14",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "1e55939ad46dfb4b"
+    },
+    {
+      "skill": "Data",
+      "subskill": "reading a pictograph whose symbol stands for more than 1",
+      "difficulty": "E",
+      "prompt": "The pictograph shows how many paintings four students finished in art class this term. How many more paintings did Fabian finish than Edie?",
+      "choices": {
+        "A": "2 1/2",
+        "B": "3",
+        "C": "4",
+        "D": "5"
+      },
+      "correct": "D",
+      "explanation": "Each symbol stands for 2 paintings. Fabian has 6 symbols, 6 × 2 = 12 paintings. Edie has 3 whole symbols and a half, 3 × 2 + 1 = 7 paintings. 12 − 7 = 5 more.",
+      "misconceptions": "subtracts the symbols and forgets the key; drops the half symbol; counts the half symbol as a whole one",
+      "why": {
+        "A": "2 1/2 is 6 − 3 1/2, the difference in symbols; each symbol stands for 2 paintings.",
+        "B": "3 is 6 − 3, the whole symbols compared with Edie’s half symbol dropped and the key never used.",
+        "C": "4 is 12 − 8, which counts Edie’s half symbol as a whole one; half a symbol is 1 painting, so she finished 7."
+      },
+      "figure": {
+        "type": "pictograph",
+        "title": "Paintings finished",
+        "unit": "= 2 paintings",
+        "rows": [
+          {
+            "label": "Dawit",
+            "count": 5
+          },
+          {
+            "label": "Edie",
+            "count": 3.5
+          },
+          {
+            "label": "Fabian",
+            "count": 6
+          },
+          {
+            "label": "Erin",
+            "count": 2.5
+          }
+        ]
+      },
+      "id": "MA-W7-X-15",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "9923a30c5ff61e5b"
+    },
+    {
+      "skill": "Data",
+      "subskill": "reading a bar graph",
+      "difficulty": "M",
+      "prompt": "The bar graph shows how many blocks four friends used in a tower-building contest. How many more blocks did Dorian use than Enzo and Florian used together?",
+      "choices": {
+        "A": "10",
+        "B": "25",
+        "C": "35",
+        "D": "90"
+      },
+      "correct": "A",
+      "explanation": "Enzo and Florian used 15 + 25 = 40 blocks together. Dorian used 50, and 50 − 40 = 10 more.",
+      "misconceptions": "compares with only one of the two friends; adds all three instead of comparing",
+      "why": {
+        "B": "25 is 50 − 25, Dorian compared with Florian alone; Enzo’s 15 blocks belong in the comparison too.",
+        "C": "35 is 50 − 15, Dorian compared with Enzo alone; Florian’s 25 blocks have to be added in first.",
+        "D": "90 is 50 + 15 + 25, all three added; “how many more” asks for a difference."
+      },
+      "figure": {
+        "type": "bar",
+        "title": "Blocks used",
+        "y": "Blocks",
+        "step": 5,
+        "max": 50,
+        "bars": [
+          {
+            "label": "Esteban",
+            "value": 35
+          },
+          {
+            "label": "Enzo",
+            "value": 15
+          },
+          {
+            "label": "Florian",
+            "value": 25
+          },
+          {
+            "label": "Dorian",
+            "value": 50
+          }
+        ]
+      },
+      "id": "MA-W7-X-16",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "53e95874c2ecf883"
+    },
+    {
+      "skill": "Data",
+      "subskill": "reading a line graph",
+      "difficulty": "M",
+      "prompt": "The line graph shows the temperature at noon in one town on six days. Between which two days did the noon temperature rise the most?",
+      "choices": {
+        "A": "Monday to Tuesday",
+        "B": "Friday to Saturday",
+        "C": "Thursday to Friday",
+        "D": "Wednesday to Thursday"
+      },
+      "correct": "D",
+      "explanation": "Look at each step of the line that goes up: Monday to Tuesday rises 10 degrees, Wednesday to Thursday 15 degrees, Thursday to Friday 5 degrees. The biggest rise is Wednesday to Thursday, from 50° to 65°.",
+      "misconceptions": "picks the first rise; picks the steepest piece even though it falls; picks the step that reaches the highest point",
+      "why": {
+        "A": "Monday to Tuesday is the first rise on the graph, 45° to 55°, which is 10 degrees; a later rise is bigger.",
+        "B": "Friday to Saturday is the steepest piece of the line, but it goes down: the temperature fell from 70° to 50°.",
+        "C": "Thursday to Friday ends at the highest point on the graph, 70°, but it rises only 5 degrees from 65°."
+      },
+      "figure": {
+        "type": "line",
+        "title": "Noon temperature (°F)",
+        "y": "Degrees",
+        "step": 5,
+        "max": 70,
+        "points": [
+          {
+            "label": "Mon",
+            "value": 45
+          },
+          {
+            "label": "Tue",
+            "value": 55
+          },
+          {
+            "label": "Wed",
+            "value": 50
+          },
+          {
+            "label": "Thu",
+            "value": 65
+          },
+          {
+            "label": "Fri",
+            "value": 70
+          },
+          {
+            "label": "Sat",
+            "value": 50
+          }
+        ]
+      },
+      "id": "MA-W7-X-17",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "6bc464d3eb78c8c2"
+    },
+    {
+      "skill": "Geometry",
+      "subskill": "lines of symmetry",
+      "difficulty": "H",
+      "prompt": "In art class, Esperanza cut out the tile shown. All of its sides are the same length, and all of its angles are equal. How many lines of symmetry does the tile have?",
+      "choices": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "6"
+      },
+      "correct": "D",
+      "explanation": "A line of symmetry folds the tile exactly onto itself. Three such lines go through opposite corners and three go through the middles of opposite sides, so the tile has 3 + 3 = 6.",
+      "misconceptions": "counts only the up-and-down line; counts only the up-and-down and side-to-side lines; counts only the lines through corners",
+      "why": {
+        "A": "1 counts only the line straight down the middle; the tile also folds onto itself along lines through its corners.",
+        "B": "2 counts only the up-and-down line and the side-to-side line; four more lines, on a slant, fold the tile onto itself too.",
+        "C": "3 counts only the lines through opposite corners; three more go through the middles of opposite sides."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            2,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            3.46
+          ],
+          [
+            6,
+            6.93
+          ],
+          [
+            2,
+            6.93
+          ],
+          [
+            0,
+            3.46
+          ]
+        ]
+      },
+      "id": "MA-W7-X-18",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "636482a098731bdf"
+    },
+    {
+      "skill": "Data",
+      "subskill": "reading a Venn diagram",
+      "difficulty": "M",
+      "prompt": "On garden day, the students in Delia’s class planted seeds, pulled weeds, did both, or did neither. The Venn diagram shows how many students did each. How many students did NOT pull weeds?",
+      "choices": {
+        "A": "3",
+        "B": "9",
+        "C": "12",
+        "D": "13"
+      },
+      "correct": "C",
+      "explanation": "The students who did not pull weeds are the ones outside the “Pulled weeds” circle: the 9 who only planted seeds and the 3 outside both circles. 9 + 3 = 12.",
+      "misconceptions": "counts only the students outside both circles; forgets the students outside both circles; counts the students who did pull weeds",
+      "why": {
+        "A": "3 is only the students outside both circles; the 9 who planted seeds but did not pull weeds count too.",
+        "B": "9 is only the students who planted seeds and nothing else; the 3 who did neither also did not pull weeds.",
+        "D": "13 is 7 + 6, the students who DID pull weeds, the opposite of the group asked for."
+      },
+      "figure": {
+        "type": "venn",
+        "left": "Planted seeds",
+        "right": "Pulled weeds",
+        "counts": {
+          "left": 9,
+          "both": 6,
+          "right": 7,
+          "outside": 3
+        }
+      },
+      "id": "MA-W7-X-19",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b46dcfebbc6b5983"
+    },
+    {
+      "skill": "Probability",
+      "subskill": "probability of a simple event",
+      "difficulty": "E",
+      "prompt": "Fatima made the weather spinner shown for a game. If she spins it once, what is the probability that it lands on Rain?",
+      "choices": {
+        "A": "1/4",
+        "B": "1/3",
+        "C": "1/2",
+        "D": "3/4"
+      },
+      "correct": "A",
+      "explanation": "Sun covers half of the spinner, and Clouds and Rain each cover a quarter. Rain is 1 of 4 equal quarters, so the probability is 1/4.",
+      "misconceptions": "treats the three sections as equal; gives the largest section’s share; gives the chance of not landing on Rain",
+      "why": {
+        "B": "1/3 treats the three sections as the same size; Sun takes up half the spinner, so Rain is only a quarter of it.",
+        "C": "1/2 is the part of the spinner covered by Sun, the biggest section, not by Rain.",
+        "D": "3/4 is the part covered by Sun and Clouds together, the chance of NOT landing on Rain."
+      },
+      "figure": {
+        "type": "spinner",
+        "sectors": [
+          {
+            "label": "Sun",
+            "size": 2
+          },
+          {
+            "label": "Clouds",
+            "size": 1
+          },
+          {
+            "label": "Rain",
+            "size": 1
+          }
+        ]
+      },
+      "id": "MA-W7-X-20",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "66f4baf75951102a"
+    },
+    {
+      "skill": "Measurement",
+      "subskill": "converting pounds and ounces",
+      "difficulty": "E",
+      "prompt": "Ewan grew a watermelon that weighs 4 pounds and a cantaloupe that weighs 36 ounces. How many more ounces does the watermelon weigh than the cantaloupe? (1 pound = 16 ounces)",
+      "choices": {
+        "A": "4",
+        "B": "12",
+        "C": "28",
+        "D": "32"
+      },
+      "correct": "C",
+      "explanation": "Change the pounds to ounces first: 4 pounds is 4 × 16 = 64 ounces. 64 − 36 = 28 ounces more.",
+      "misconceptions": "uses 10 or 12 ounces in a pound; subtracts 4 from 36 without changing units",
+      "why": {
+        "A": "4 is 40 − 36, which uses 10 ounces in a pound; a pound is 16 ounces, so the watermelon is 64 ounces.",
+        "B": "12 is 48 − 36, which uses 12 ounces in a pound, the way a foot has 12 inches; a pound is 16 ounces.",
+        "D": "32 is 36 − 4, the 4 pounds taken away as if they were 4 ounces; change the pounds to ounces first."
+      },
+      "id": "MA-W7-X-21",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "e41f2fa8336595bb"
+    },
+    {
+      "skill": "Measurement",
+      "subskill": "converting cups, pints, quarts and gallons",
+      "difficulty": "M",
+      "prompt": "In art class, Frankie mixed 3 quarts and 1 pint of blue paint. She pours all of it into jars that each hold 1 pint. How many jars can she fill? (1 quart = 2 pints)",
+      "choices": {
+        "A": "3 1/2",
+        "B": "4",
+        "C": "6",
+        "D": "7"
+      },
+      "correct": "D",
+      "explanation": "Each quart is 2 pints, so 3 quarts is 3 × 2 = 6 pints. Add the extra pint: 6 + 1 = 7 pints, which fill 7 jars.",
+      "misconceptions": "gives the amount in quarts; adds quarts and pints as if they were the same size; forgets the extra pint",
+      "why": {
+        "A": "3 1/2 is the paint measured in quarts, 3 quarts and half a quart; each jar holds a pint, so count the pints instead.",
+        "B": "4 is 3 + 1, the quarts and the pint added as if they were the same size; each quart holds 2 pints.",
+        "C": "6 is 3 × 2, the pints in the 3 quarts, with the extra 1 pint left out."
+      },
+      "id": "MA-W7-X-22",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ebcbadac570e0eed"
+    },
+    {
+      "skill": "Measurement",
+      "subskill": "converting hours and minutes",
+      "difficulty": "E",
+      "prompt": "The school art show was open for 3 hours 15 minutes. For how many minutes was the art show open?",
+      "choices": {
+        "A": "75",
+        "B": "180",
+        "C": "195",
+        "D": "315"
+      },
+      "correct": "C",
+      "explanation": "Each hour is 60 minutes, so 3 hours is 3 × 60 = 180 minutes. Add the 15 minutes: 180 + 15 = 195 minutes.",
+      "misconceptions": "changes only one hour into minutes; leaves out the 15 minutes; uses 100 minutes in an hour",
+      "why": {
+        "A": "75 is 60 + 15, only one of the 3 hours changed into minutes.",
+        "B": "180 is 3 × 60, the 3 hours in minutes with the extra 15 minutes left out.",
+        "D": "315 is 300 + 15, as if an hour had 100 minutes; an hour has 60 minutes."
+      },
+      "id": "MA-W7-X-23",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b2b450831c6902d2"
+    },
+    {
+      "skill": "Measurement",
+      "subskill": "elapsed time: how long",
+      "difficulty": "H",
+      "prompt": "Snow began to fall at 9:35 a.m. The clock shows the time, later that same day, when the snow stopped. For how long did the snow fall?",
+      "choices": {
+        "A": "2 hours 45 minutes",
+        "B": "3 hours 15 minutes",
+        "C": "3 hours 25 minutes",
+        "D": "3 hours 45 minutes"
+      },
+      "correct": "A",
+      "explanation": "The clock shows 12:20. From 9:35 a.m. to 12:35 p.m. is 3 hours, and 12:20 is 15 minutes before 12:35, so the snow fell for 3 hours minus 15 minutes: 2 hours 45 minutes.",
+      "misconceptions": "subtracts the smaller number of minutes from the larger; subtracts times as ordinary numbers; borrows an hour without taking it away",
+      "why": {
+        "B": "3 hours 15 minutes comes from taking 20 from 35 instead of 35 from 20; 35 minutes cannot come out of 20, so one hour is broken into 60 minutes first.",
+        "C": "3 hours 25 minutes comes from subtracting the times like ordinary numbers, 1220 − 935 = 285, and reading the 85 as 1 hour 25 minutes; an hour has 60 minutes, not 100.",
+        "D": "3 hours 45 minutes breaks an hour into 60 minutes (60 + 20 = 80, and 80 − 35 = 45) but never takes that hour away from the 12."
+      },
+      "figure": {
+        "type": "clock",
+        "h": 12,
+        "m": 20
+      },
+      "id": "MA-W7-X-24",
+      "subject": "MA",
+      "form": "W7",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8dd69223fad70eff"
+    },
+    {
+      "id": "MA-W8-X-01",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Fractions",
+      "subskill": "subtracting fractions with like denominators",
+      "difficulty": "E",
+      "prompt": "The picture shows a pizza cut into equal slices. The shaded slices were left after lunch. Later, Blair ate 2 of the slices that were left. What fraction of the whole pizza is left now?",
+      "figure": {
+        "type": "shaded",
+        "shape": "circle",
+        "parts": 12,
+        "shaded": 7
+      },
+      "choices": {
+        "A": "5/12",
+        "B": "1/2",
+        "C": "7/12",
+        "D": "5/7"
+      },
+      "correct": "A",
+      "explanation": "7 of the 12 slices were left, 7/12. Blair ate 2 of them, 2/12, and 7/12 − 2/12 = 5/12: with the same denominator, subtract only the numerators.",
+      "misconceptions": "subtracts from the denominator too; forgets the slices eaten later; uses the slices left as the whole",
+      "why": {
+        "B": "1/2 is 5/10, from taking 2 away from both the numerator and the denominator; the pizza still has 12 slices, so only the numerator changes.",
+        "C": "7/12 is what was left after lunch, before Blair ate 2 more slices.",
+        "D": "5/7 counts the 5 slices out of the 7 that were left, not out of the 12 slices of the whole pizza."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "aee18c671f1511b5"
+    },
+    {
+      "id": "MA-W8-X-02",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Decimals",
+      "subskill": "converting between fractions and decimals",
+      "difficulty": "M",
+      "prompt": "Point P is on the number line. Which fraction is equal to the number at point P?",
+      "figure": {
+        "type": "numberline",
+        "min": 0,
+        "max": 0.1,
+        "step": 0.01,
+        "labelEvery": 5,
+        "points": [
+          {
+            "at": 0.07,
+            "label": "P"
+          }
+        ]
+      },
+      "choices": {
+        "A": "7/1000",
+        "B": "3/100",
+        "C": "7/100",
+        "D": "7/10"
+      },
+      "correct": "C",
+      "explanation": "From 0 to 0.1 there are 10 equal jumps, so each jump is 0.01, one hundredth. P is 7 jumps past 0, so P is 0.07, which is 7/100.",
+      "misconceptions": "counts the jumps as thousandths; counts back from the right end; counts the jumps as tenths",
+      "why": {
+        "A": "7/1000 is 0.007, seven thousandths; each jump on this line is a hundredth, not a thousandth.",
+        "B": "3/100 is the distance from P to 0.1, counted from the wrong end of the line.",
+        "D": "7/10 counts each small jump as a tenth; the whole line from 0 to 0.1 is only one tenth."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "6c873e7e09fa2654"
+    },
+    {
+      "id": "MA-W8-X-03",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Whole-number operations",
+      "subskill": "subtracting across zeros",
+      "difficulty": "E",
+      "prompt": "The table shows Bella's savings record. How much money does she have left after buying the bike?",
+      "figure": {
+        "type": "table",
+        "caption": "Bella's savings",
+        "head": [
+          "Entry",
+          "Amount"
+        ],
+        "rows": [
+          [
+            "Saved by June",
+            "$500"
+          ],
+          [
+            "Spent on a bike",
+            "$236"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "$164",
+        "B": "$264",
+        "C": "$274",
+        "D": "$336"
+      },
+      "correct": "B",
+      "explanation": "Regroup $500 as 4 hundreds, 9 tens and 10 ones. Then 10 − 6 = 4, 9 − 3 = 6 and 4 − 2 = 2: $264.",
+      "misconceptions": "takes from the hundreds twice; keeps a 10 in the tens after they lend; takes the smaller digit from the larger",
+      "why": {
+        "A": "$164 crosses out the hundreds twice, 5 to 4 and then 4 to 3, while the tens still become 9; 500 is 4 hundreds, 9 tens and 10 ones, so 4 − 2 = 2 hundreds.",
+        "C": "$274 keeps a 10 in the tens place after it has lent 1 to the ones; it becomes 9, and 9 − 3 = 6 tens.",
+        "D": "$336 takes the smaller digit from the larger in each place (6 − 0, 3 − 0, 5 − 2) instead of regrouping."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "4ecc0141c8423c7f"
+    },
+    {
+      "id": "MA-W8-X-04",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Number properties",
+      "subskill": "divisibility by 3 and 9 (the digit sum)",
+      "difficulty": "M",
+      "prompt": "The table shows how many stickers four friends have. Whose stickers can be shared equally among 9 people with none left over?",
+      "figure": {
+        "type": "table",
+        "caption": "Stickers",
+        "head": [
+          "Friend",
+          "Stickers"
+        ],
+        "rows": [
+          [
+            "Alfie",
+            "249"
+          ],
+          [
+            "Astrid",
+            "539"
+          ],
+          [
+            "Bryce",
+            "914"
+          ],
+          [
+            "Celine",
+            "423"
+          ]
+        ]
+      },
+      "choices": {
+        "A": "Alfie",
+        "B": "Astrid",
+        "C": "Bryce",
+        "D": "Celine"
+      },
+      "correct": "D",
+      "explanation": "A number splits evenly into 9s when its digits add up to a multiple of 9. For Celine's 423, 4 + 2 + 3 = 9, and 423 ÷ 9 = 47.",
+      "misconceptions": "uses the rule for 3 instead of 9; looks for a 9 at the end; looks for a 9 at the start",
+      "why": {
+        "A": "Alfie's 249 has digits that add to 15, which is a multiple of 3 but not of 9, so 249 = 9 × 27 + 6 leaves 6 over.",
+        "B": "Astrid's 539 ends in 9, but that does not help; its digits add to 17, so 539 = 9 × 59 + 8 leaves 8 over.",
+        "C": "Bryce's 914 begins with 9, but its digits add to 14, so 914 = 9 × 101 + 5 leaves 5 over."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "08a9997c05e1801e"
+    },
+    {
+      "id": "MA-W8-X-05",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Division",
+      "subskill": "what a remainder means in a story",
+      "difficulty": "M",
+      "prompt": "Carmen baked 9 large muffins and shares them equally among 4 friends. She cuts any muffins left over into equal pieces so that nothing is left. How many muffins does each friend get?",
+      "choices": {
+        "A": "1/4",
+        "B": "2",
+        "C": "2 1/4",
+        "D": "2 1/2"
+      },
+      "correct": "C",
+      "explanation": "9 ÷ 4 = 2 R 1, so each friend gets 2 whole muffins. The 1 muffin left over is cut into 4 equal pieces, so each friend also gets 1/4: 2 1/4 muffins.",
+      "misconceptions": "gives only the share of the leftover; drops the remainder; halves the leftover instead of sharing it four ways",
+      "why": {
+        "A": "1/4 is each friend's share of the 1 muffin left over; each friend also gets 2 whole muffins.",
+        "B": "2 drops the muffin left over, but it is cut up and shared so that nothing is left.",
+        "D": "2 1/2 gives each friend half of the leftover muffin; one muffin shared by 4 friends gives each a quarter."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "26010fabb73efd82"
+    },
+    {
+      "id": "MA-W8-X-06",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Fractions",
+      "subskill": "subtracting mixed numbers",
+      "difficulty": "M",
+      "prompt": "Coach Byrne bought 5 pounds of oranges for the team. The players ate 2 3/8 pounds of them at halftime. How many pounds of oranges are left?",
+      "choices": {
+        "A": "2 5/8",
+        "B": "3 3/8",
+        "C": "3 5/8",
+        "D": "7 3/8"
+      },
+      "correct": "A",
+      "explanation": "Regroup one of the 5 wholes as 8/8, so 5 = 4 8/8. Then 4 8/8 − 2 3/8 = 2 5/8 pounds.",
+      "misconceptions": "subtracts the wholes and keeps the fraction; regroups without reducing the whole number; adds instead of subtracting",
+      "why": {
+        "B": "3 3/8 takes 2 from 5 and then keeps the 3/8 instead of taking it away too.",
+        "C": "3 5/8 turns a whole into 8/8 but still uses all 5 wholes; after regrouping, 5 is 4 8/8.",
+        "D": "7 3/8 is 5 + 2 3/8, the oranges added instead of taken away."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "d1d5e20617d6ca56"
+    },
+    {
+      "id": "MA-W8-X-07",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Percent",
+      "subskill": "writing a part of a whole as a percent",
+      "difficulty": "M",
+      "prompt": "Each square of the grid stands for one question on Claudia's library quiz. The shaded squares are the questions she answered correctly. What percent of the questions did she NOT answer correctly?",
+      "figure": {
+        "type": "shaded",
+        "shape": "grid",
+        "parts": 20,
+        "shaded": 15,
+        "cols": 10
+      },
+      "choices": {
+        "A": "5%",
+        "B": "25%",
+        "C": "75%",
+        "D": "85%"
+      },
+      "correct": "B",
+      "explanation": "She missed the 5 unshaded questions out of 20: 5/20. Multiply the numerator and the denominator by 5 to get 25/100, which is 25%.",
+      "misconceptions": "writes the count as a percent; gives the part answered correctly; subtracts the count from 100",
+      "why": {
+        "A": "5% is just the number of questions she missed; 5 out of 20 is the same as 25 out of 100.",
+        "C": "75% is the part she answered correctly, 15 out of 20; the question asks for the part she did NOT.",
+        "D": "85% is 100 − 15, which takes the number of correct answers away from 100 instead of finding a part of 20."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "c79a7297f4d1d021"
+    },
+    {
+      "id": "MA-W8-X-08",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Division",
+      "subskill": "division with a remainder",
+      "difficulty": "M",
+      "prompt": "Bree is tying 485 craft sticks into bundles of 6 for art class. She divides and gets 80 R 5. Which number sentence can she use to check her answer?",
+      "choices": {
+        "A": "6 × 85 = 485",
+        "B": "5 × 80 + 6 = 485",
+        "C": "6 × 80 + 5 = 485",
+        "D": "6 × 80 − 5 = 485"
+      },
+      "correct": "C",
+      "explanation": "80 bundles of 6 hold 6 × 80 = 480 sticks, and 5 are left over, so 6 × 80 + 5 should equal 485. It does, so her answer checks.",
+      "misconceptions": "adds the remainder to the quotient; swaps the divisor and the remainder; subtracts the remainder",
+      "why": {
+        "A": "6 × 85 = 485 adds the remainder to the number of bundles, as if 80 R 5 meant 85 bundles; 6 × 85 is 510.",
+        "B": "5 × 80 + 6 = 485 swaps the 6 and the 5: 6 is the number of sticks in each bundle and 5 is the number left over.",
+        "D": "6 × 80 − 5 = 485 takes the 5 leftover sticks away, but they must be added back to the 480 sticks in bundles."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "895711f1135e7305"
+    },
+    {
+      "id": "MA-W8-X-09",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Whole-number operations",
+      "subskill": "place value of whole numbers",
+      "difficulty": "M",
+      "prompt": "Arjun takes the $306 in his savings jar to the bank. He trades it for $10 bills and $1 bills, getting as many $10 bills as he can. How many $10 bills does he get?",
+      "choices": {
+        "A": "0",
+        "B": "3",
+        "C": "6",
+        "D": "30"
+      },
+      "correct": "D",
+      "explanation": "306 is 30 tens and 6 ones, because 300 is 30 tens. So he gets 30 ten-dollar bills and 6 one-dollar bills.",
+      "misconceptions": "reads the tens digit instead of the number of tens; counts each hundred as one ten; gives the ones",
+      "why": {
+        "A": "0 is the digit in the tens place of 306, but there are 30 tens in 306, since 300 alone is 30 tens.",
+        "B": "3 is the hundreds digit; each hundred is ten $10 bills, so 3 hundreds make 30 of them.",
+        "C": "6 is the number of $1 bills he gets, not the number of $10 bills."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "4975a92c6f1aaf4c"
+    },
+    {
+      "id": "MA-W8-X-10",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Division",
+      "subskill": "dividing a 4-digit number by a 1-digit number",
+      "difficulty": "H",
+      "prompt": "The town library is packing 1,830 books into boxes of 8 to move them to a new building. It fills as many boxes as it can, and the books left over go into one last box. How many books go into the last box?",
+      "choices": {
+        "A": "6",
+        "B": "228",
+        "C": "229",
+        "D": "1,824"
+      },
+      "correct": "A",
+      "explanation": "1,830 ÷ 8 = 228 R 6. The 228 full boxes hold 8 × 228 = 1,824 books, and the 1,830 − 1,824 = 6 books left over go into the last box.",
+      "misconceptions": "gives the number of full boxes; gives the number of boxes in all; gives the books in the full boxes",
+      "why": {
+        "B": "228 is the number of full boxes, not the number of books in the last box.",
+        "C": "229 is the number of boxes in all, the 228 full ones and the last one, not a number of books.",
+        "D": "1,824 is the number of books in the 228 full boxes; the last box holds the 1,830 − 1,824 left over."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "a234d987caddfb76"
+    },
+    {
+      "id": "MA-W8-X-11",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Decimals",
+      "subskill": "decimal place value to the thousandths",
+      "difficulty": "H",
+      "prompt": "Which number has a 7 in the tenths place and a 4 in the thousandths place?",
+      "choices": {
+        "A": "0.074",
+        "B": "0.407",
+        "C": "0.704",
+        "D": "4.07"
+      },
+      "correct": "C",
+      "explanation": "Tenths is the first place after the decimal point and thousandths is the third. 0.704 has 7 tenths, 0 hundredths and 4 thousandths.",
+      "misconceptions": "puts the 7 in the hundredths place; swaps the tenths and thousandths digits; puts a digit left of the point",
+      "why": {
+        "A": "0.074 has its 7 in the hundredths place, the second place after the point; tenths is the first.",
+        "B": "0.407 swaps the two digits: its 4 is in the tenths place and its 7 is in the thousandths place.",
+        "D": "4.07 has its 4 in the ones place, left of the point, and its 7 in the hundredths place."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "aefda555f4cafbf4"
+    },
+    {
+      "id": "MA-W8-X-12",
+      "subject": "MA",
+      "form": "W8",
+      "skill": "Fractions",
+      "subskill": "a unit fraction divided by a whole number",
+      "difficulty": "H",
+      "prompt": "Carlos has 1/3 pound of cheese. He puts the same amount on each of 4 sandwiches and uses all of the cheese. How many pounds of cheese are on 2 of the sandwiches?",
+      "choices": {
+        "A": "1/12",
+        "B": "1/6",
+        "C": "2/3",
+        "D": "1 1/3"
+      },
+      "correct": "B",
+      "explanation": "Splitting 1/3 pound equally over 4 sandwiches puts 1/3 ÷ 4 = 1/12 pound on each one. Two sandwiches have 2/12 = 1/6 pound.",
+      "misconceptions": "stops at one sandwich; gives each sandwich the whole amount; multiplies instead of splitting",
+      "why": {
+        "A": "1/12 is the cheese on one sandwich, 1/3 ÷ 4; the question asks about 2 sandwiches.",
+        "C": "2/3 is 2 × 1/3, as if each sandwich got the whole 1/3 pound instead of a quarter of it.",
+        "D": "1 1/3 is 1/3 × 4, which multiplies by the 4 sandwiches instead of splitting the cheese among them."
+      },
+      "source": "Original content authored for Sheila ISEE",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "content_hash": "93af1aa73230e422"
+    },
+    {
+      "skill": "Volume",
+      "subskill": "volume by counting unit cubes",
+      "difficulty": "E",
+      "prompt": "Dax built the block shown from 1-inch cubes, with no gaps and no hidden holes. Then he took the whole top layer of cubes off. How many cubes were left?",
+      "choices": {
+        "A": "12",
+        "B": "24",
+        "C": "32",
+        "D": "36"
+      },
+      "correct": "B",
+      "explanation": "The block is 4 cubes long, 3 cubes deep and 3 cubes tall, so it has 4 × 3 × 3 = 36 cubes. The top layer is 4 × 3 = 12 cubes, and 36 − 12 = 24 cubes are left.",
+      "misconceptions": "gives the layer that was taken off; takes off only the front row of the top layer; counts the block before the layer came off",
+      "why": {
+        "A": "12 is the top layer itself, 4 × 3 cubes: the cubes taken off, not the ones left.",
+        "C": "32 is 36 − 4, which takes off only the front row of the top layer; the top layer goes 3 rows back, 4 × 3 = 12 cubes.",
+        "D": "36 is 4 × 3 × 3, every cube in the block before the top layer came off."
+      },
+      "figure": {
+        "type": "cubes",
+        "w": 4,
+        "d": 3,
+        "h": 3
+      },
+      "id": "MA-W8-X-13",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "79ad617ba5e3d069"
+    },
+    {
+      "skill": "Measurement",
+      "subskill": "converting feet, inches and yards",
+      "difficulty": "M",
+      "prompt": "Fenella measured four of the vines growing up her garden fence. Which of these lengths is the LEAST?",
+      "choices": {
+        "A": "1 1/2 yards",
+        "B": "4 feet",
+        "C": "46 inches",
+        "D": "56 inches"
+      },
+      "correct": "C",
+      "explanation": "Change each length to inches. A yard is 36 inches, so 1 1/2 yards is 36 + 18 = 54 inches; a foot is 12 inches, so 4 feet is 48 inches. Of 54, 48, 46 and 56 inches, the least is 46 inches.",
+      "misconceptions": "compares the numbers without changing the units; uses 10 inches in a foot; picks the greatest length",
+      "why": {
+        "A": "1 1/2 yards has the smallest number, but each yard is 36 inches, so 1 1/2 yards is 54 inches, longer than 46 inches.",
+        "B": "4 feet looks shortest only if a foot is taken as 10 inches, making 40 inches; a foot is 12 inches, so 4 feet is 48 inches.",
+        "D": "56 inches is the longest of the four vines, the opposite of what the question asks for: the LEAST."
+      },
+      "id": "MA-W8-X-14",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "3ae8a270896bdb62"
+    },
+    {
+      "skill": "Data",
+      "subskill": "reading a price list with several quantities",
+      "difficulty": "M",
+      "prompt": "The table shows prices at a garden center. Dulce buys 4 seed packets, 2 bags of soil and 1 trowel. How much does she spend in all?",
+      "choices": {
+        "A": "$9.50",
+        "B": "$14.00",
+        "C": "$14.50",
+        "D": "$18.25"
+      },
+      "correct": "D",
+      "explanation": "Seed packets: 4 × $1.50 = $6.00. Soil: 2 × $4.25 = $8.50. Trowel: $3.75. In all, $6.00 + $8.50 + $3.75 = $18.25.",
+      "misconceptions": "buys one of each item; counts only one bag of soil; leaves out the trowel",
+      "why": {
+        "A": "$9.50 is 1.50 + 4.25 + 3.75, one of each item; she buys 4 seed packets and 2 bags of soil.",
+        "B": "$14.00 counts only one bag of soil, 6.00 + 4.25 + 3.75; she buys 2 bags, so the soil costs 2 × 4.25 = 8.50.",
+        "C": "$14.50 is 6.00 + 8.50, the seed packets and the soil with the $3.75 trowel left out."
+      },
+      "figure": {
+        "type": "table",
+        "caption": "Garden center prices",
+        "head": [
+          "Item",
+          "Price"
+        ],
+        "rows": [
+          [
+            "Seed packet",
+            "$1.50"
+          ],
+          [
+            "Bag of soil",
+            "$4.25"
+          ],
+          [
+            "Trowel",
+            "$3.75"
+          ],
+          [
+            "Flower pot",
+            "$2.40"
+          ]
+        ]
+      },
+      "id": "MA-W8-X-15",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "4cd2fd937c5dcd63"
+    },
+    {
+      "skill": "Algebra",
+      "subskill": "input/output rule from a table",
+      "difficulty": "M",
+      "prompt": "Fergus is building a straight fence along one side of his yard. The table shows how many posts he needs for different numbers of fence sections. How many posts will he need for 15 sections?",
+      "choices": {
+        "A": "15",
+        "B": "16",
+        "C": "18",
+        "D": "30"
+      },
+      "correct": "B",
+      "explanation": "In every row the posts are 1 more than the sections (2 = 1 + 1, 3 = 2 + 1, 6 = 5 + 1). So 15 sections need 15 + 1 = 16 posts.",
+      "misconceptions": "gives one post per section; triples the 5-section row; doubles from the first row only",
+      "why": {
+        "A": "15 is the number of sections, as if each section needed just one post; every row of the table has one more post than sections, for the post at the far end.",
+        "C": "18 is 3 × 6, the 5-section row tripled because 15 is 3 × 5; three short fences joined end to end share posts, so 15 sections need 16.",
+        "D": "30 is 15 × 2, a rule taken from the first row alone (1 section, 2 posts); the other rows show 1 more post than sections, not twice as many."
+      },
+      "figure": {
+        "type": "table",
+        "caption": "Fence posts",
+        "head": [
+          "Sections",
+          "Posts"
+        ],
+        "rows": [
+          [
+            "1",
+            "2"
+          ],
+          [
+            "2",
+            "3"
+          ],
+          [
+            "3",
+            "4"
+          ],
+          [
+            "5",
+            "6"
+          ]
+        ]
+      },
+      "id": "MA-W8-X-16",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8a92c12d3df2232b"
+    },
+    {
+      "skill": "Algebra",
+      "subskill": "number pattern from a rule",
+      "difficulty": "H",
+      "prompt": "Dagny is building a row of block towers. The first tower is 4 blocks tall, and each tower after it is 5 blocks taller than the one before. How many blocks tall is the 10th tower?",
+      "choices": {
+        "A": "45",
+        "B": "49",
+        "C": "50",
+        "D": "54"
+      },
+      "correct": "B",
+      "explanation": "From the 1st tower to the 10th there are 9 jumps of 5 blocks: 9 × 5 = 45. Add the first tower’s 4 blocks: 4 + 45 = 49. The pattern runs 4, 9, 14, 19, … 49.",
+      "misconceptions": "leaves out the first tower’s blocks; multiplies the tower number by 5; counts 10 jumps instead of 9",
+      "why": {
+        "A": "45 is 9 × 5, the blocks added after the first tower, without the first tower’s own 4 blocks.",
+        "C": "50 is 10 × 5, as if the pattern went up by 5 from 0; it starts at 4, so the towers are 4, 9, 14, and so on.",
+        "D": "54 is 4 + 10 × 5, one jump too many: from the 1st tower to the 10th there are 9 jumps of 5, not 10."
+      },
+      "id": "MA-W8-X-17",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "6b1580940fbe5238"
+    },
+    {
+      "skill": "Measurement",
+      "subskill": "converting meters and centimeters",
+      "difficulty": "E",
+      "prompt": "Dashiell measured the path through his family’s garden. It is 6 meters 5 centimeters long. How many centimeters long is the path? (1 meter = 100 centimeters)",
+      "choices": {
+        "A": "65 cm",
+        "B": "600 cm",
+        "C": "605 cm",
+        "D": "650 cm"
+      },
+      "correct": "C",
+      "explanation": "6 meters is 6 × 100 = 600 centimeters. Add the 5 centimeters: 600 + 5 = 605 centimeters.",
+      "misconceptions": "writes the two numbers side by side; leaves out the extra centimeters; reads 6 meters 5 centimeters as 6.5 meters",
+      "why": {
+        "A": "65 cm writes the 6 and the 5 side by side; 6 meters is 6 × 100 = 600 centimeters, and the 5 centimeters are added to that.",
+        "B": "600 cm is the 6 meters alone, 6 × 100; the extra 5 centimeters still have to be added.",
+        "D": "650 cm reads the length as 6.5 meters, but 5 centimeters is not half a meter; half a meter would be 50 centimeters."
+      },
+      "id": "MA-W8-X-18",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "1c36cfd104bcd2e5"
+    },
+    {
+      "skill": "Median",
+      "subskill": "median of a short list",
+      "difficulty": "M",
+      "prompt": "Delaney recorded the hours of sunshine in her town each day for one week, and the table shows her record. What is the median number of hours?",
+      "choices": {
+        "A": "6",
+        "B": "7",
+        "C": "10",
+        "D": "11"
+      },
+      "correct": "A",
+      "explanation": "Put the hours in order: 1, 4, 5, 6, 10, 11, 12. The median is the middle one of the seven, the 4th: 6 hours.",
+      "misconceptions": "gives the mean; takes the middle of the list without ordering it; gives the range",
+      "why": {
+        "B": "7 is the mean, the total of 49 hours shared equally among the 7 days; the median is the middle number once they are in order.",
+        "C": "10 is Thursday’s hours, the middle of the list in the order the days are written; the median is the middle once the hours are put in order from least to greatest.",
+        "D": "11 is 12 − 1, the range, how far the most sunshine is above the least, not the middle value."
+      },
+      "figure": {
+        "type": "table",
+        "caption": "Hours of sunshine",
+        "head": [
+          "Day",
+          "Hours"
+        ],
+        "rows": [
+          [
+            "Monday",
+            "5"
+          ],
+          [
+            "Tuesday",
+            "12"
+          ],
+          [
+            "Wednesday",
+            "1"
+          ],
+          [
+            "Thursday",
+            "10"
+          ],
+          [
+            "Friday",
+            "6"
+          ],
+          [
+            "Saturday",
+            "4"
+          ],
+          [
+            "Sunday",
+            "11"
+          ]
+        ]
+      },
+      "id": "MA-W8-X-19",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "3db24f6cd9231d9b"
+    },
+    {
+      "skill": "Volume",
+      "subskill": "volume by counting unit cubes",
+      "difficulty": "M",
+      "prompt": "Elodie built the block shown from 1-centimeter cubes, with no gaps and no hidden holes. She took the block apart and stacked all of its cubes into one tower, one cube wide and one cube deep. How many cubes tall is the tower?",
+      "choices": {
+        "A": "8",
+        "B": "9",
+        "C": "14",
+        "D": "18"
+      },
+      "correct": "D",
+      "explanation": "The tower uses every cube in the block, one on top of another. The block is 3 cubes long, 3 cubes wide and 2 cubes tall, so it has 3 × 3 × 2 = 18 cubes, and the tower is 18 cubes tall.",
+      "misconceptions": "adds the three lengths; counts one layer; counts only the cubes the drawing shows",
+      "why": {
+        "A": "8 is 3 + 3 + 2, the block’s length, width and height added; the number of cubes comes from multiplying them.",
+        "B": "9 is one layer, 3 × 3 cubes; the block has 2 layers, and every cube goes into the tower.",
+        "C": "14 counts only the cubes you can see in the drawing; 4 more are hidden at the back of the bottom layer."
+      },
+      "figure": {
+        "type": "cubes",
+        "w": 3,
+        "d": 3,
+        "h": 2
+      },
+      "id": "MA-W8-X-20",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "689f8cdd7bac096b"
+    },
+    {
+      "skill": "Data",
+      "subskill": "inside two groups but outside a third",
+      "difficulty": "M",
+      "prompt": "The Venn diagram shows which vegetables the members of a garden club grow. How many members grow tomatoes and beans but do NOT grow squash?",
+      "choices": {
+        "A": "3",
+        "B": "5",
+        "C": "8",
+        "D": "9"
+      },
+      "correct": "A",
+      "explanation": "These members are inside the Tomatoes circle and the Beans circle but outside the Squash circle: the part where only those two circles overlap. It holds 3.",
+      "misconceptions": "adds the members who grow all three; counts every tomato grower outside the squash circle; counts every part where exactly two circles overlap",
+      "why": {
+        "B": "5 is 3 + 2, everyone inside both the Tomatoes and Beans circles, including the 2 in the middle who grow squash as well.",
+        "C": "8 is 5 + 3, every tomato grower outside the Squash circle, including the 5 who grow tomatoes but no beans.",
+        "D": "9 is 3 + 2 + 4, every part where exactly two circles overlap; the question wants only the Tomatoes-and-Beans part."
+      },
+      "figure": {
+        "type": "venn3",
+        "a": "Tomatoes",
+        "b": "Beans",
+        "c": "Squash",
+        "title": "Garden club members",
+        "counts": {
+          "a": 5,
+          "b": 4,
+          "c": 6,
+          "ab": 3,
+          "ac": 2,
+          "bc": 4,
+          "abc": 2,
+          "outside": 1
+        }
+      },
+      "id": "MA-W8-X-21",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "635de3844f759aa4"
+    },
+    {
+      "skill": "Perimeter",
+      "subskill": "a triangle inside a figure",
+      "difficulty": "M",
+      "prompt": "In art class, Fiorella fit three tiles together to make the trapezoid shown. Each tile is an equilateral triangle. What is the perimeter of the trapezoid?",
+      "choices": {
+        "A": "20 cm",
+        "B": "24 cm",
+        "C": "28 cm",
+        "D": "36 cm"
+      },
+      "correct": "A",
+      "explanation": "An equilateral triangle has three equal sides, so every tile edge is 4 cm. Around the outside of the trapezoid there are 5 tile edges: 2 along the bottom, 1 on top and 1 on each slanted side. 5 × 4 = 20 cm.",
+      "misconceptions": "takes the top to be as long as the bottom; counts the edges inside the trapezoid; adds the three tile perimeters",
+      "why": {
+        "B": "24 cm takes the top edge to be as long as the bottom, 8 + 8 + 4 + 4; the top is the edge of one tile, 4 cm.",
+        "C": "28 cm counts the two lines inside the trapezoid as well, 7 tile edges of 4 cm; only the 5 edges around the outside are perimeter.",
+        "D": "36 cm is 3 × 12, the perimeters of the three tiles added, which counts the edges where tiles touch even though they are inside."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            2,
+            3.46
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            6,
+            3.46
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            2,
+            3.46
+          ],
+          [
+            6,
+            3.46
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "4 cm"
+          }
+        ]
+      },
+      "id": "MA-W8-X-22",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "a1d2fe310444366c"
+    },
+    {
+      "skill": "Area",
+      "subskill": "area and perimeter of the same rectangle",
+      "difficulty": "E",
+      "prompt": "Dominika cut out the rectangle shown in art class. All of these statements about her rectangle are true EXCEPT which one?",
+      "choices": {
+        "A": "It has four right angles.",
+        "B": "Its perimeter is 26 centimeters.",
+        "C": "Its area is 13 square centimeters.",
+        "D": "Its opposite sides are the same length."
+      },
+      "correct": "C",
+      "explanation": "The area of a rectangle is length × width: 9 × 4 = 36 square centimeters, not 13. The number 13 is 9 + 4, the two side lengths added.",
+      "misconceptions": "adds the length and width for the area; doubts the perimeter; reads EXCEPT as asking for a true statement",
+      "why": {
+        "A": "“It has four right angles” is true: every rectangle has four square corners, as the marks in the figure show.",
+        "B": "“Its perimeter is 26 centimeters” is true: 9 + 4 + 9 + 4 = 26 centimeters all the way around.",
+        "D": "“Its opposite sides are the same length” is true: the two long sides are 9 cm each and the two short sides 4 cm each."
+      },
+      "figure": {
+        "type": "polygon",
+        "points": [
+          [
+            0,
+            0
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            0,
+            4
+          ]
+        ],
+        "labels": [
+          {
+            "side": 0,
+            "text": "9 cm"
+          },
+          {
+            "side": 1,
+            "text": "4 cm"
+          }
+        ],
+        "right": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      "id": "MA-W8-X-23",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b81fd1e218caac42"
+    },
+    {
+      "skill": "Data",
+      "subskill": "mode of a short list",
+      "difficulty": "E",
+      "prompt": "Seven friends each built a tower of blocks, and the bar graph shows how many blocks tall each tower is. What is the mode of the tower heights?",
+      "choices": {
+        "A": "2",
+        "B": "6",
+        "C": "8",
+        "D": "9"
+      },
+      "correct": "D",
+      "explanation": "Read each bar: 5, 9, 3, 9, 11, 4 and 6 blocks. The mode is the height that appears most often, and only 9 appears twice, so the mode is 9 blocks.",
+      "misconceptions": "gives how many times the mode appears; gives the median; gives the range",
+      "why": {
+        "A": "2 is how many towers are 9 blocks tall; the mode is the height itself, the one that shows up most often.",
+        "B": "6 is the median, the middle height once the seven heights are put in order (3, 4, 5, 6, 9, 9, 11).",
+        "C": "8 is 11 − 3, the range, the tallest tower minus the shortest."
+      },
+      "figure": {
+        "type": "bar",
+        "title": "Tower heights",
+        "y": "Blocks",
+        "step": 1,
+        "max": 12,
+        "bars": [
+          {
+            "label": "Darcy",
+            "value": 5
+          },
+          {
+            "label": "Emery",
+            "value": 9
+          },
+          {
+            "label": "Fallon",
+            "value": 3
+          },
+          {
+            "label": "Dixon",
+            "value": 9
+          },
+          {
+            "label": "Elliot",
+            "value": 11
+          },
+          {
+            "label": "Fritz",
+            "value": 4
+          },
+          {
+            "label": "Ferris",
+            "value": 6
+          }
+        ]
+      },
+      "id": "MA-W8-X-24",
+      "subject": "MA",
+      "form": "W8",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "91a793675c9fcb4d"
+    }
+  ]
+}

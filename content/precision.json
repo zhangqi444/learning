@@ -824,8 +824,8 @@
   ]
  },
  "W5": {
-  "title": "SESSION 1 — PRECISION REVIEW • 20–25 min",
-  "minutes": "20–25 min",
+  "title": "SESSION 1 — PRECISION REVIEW • 40–50 min",
+  "minutes": "40–50 min",
   "words": [
    {
     "n": 1,
@@ -1026,12 +1026,212 @@
     "example": "A versatile athlete plays soccer, swims, and runs track.",
     "usage": "Used for people and objects (a versatile tool). Noun: versatility.",
     "connotation": ""
+   },
+   {
+    "n": 21,
+    "word": "adorn",
+    "task": "Explain in your own words + describe how you would adorn your bedroom door.",
+    "pos": "verb",
+    "meaning": "to decorate something to make it prettier; beautify, ornament, trim",
+    "example": "For the spring parade, the kids adorned their bikes with ribbons, paper flowers, and tiny silver bells.",
+    "usage": "Usually followed by with: adorn a cake with berries. Noun: adornment (a decoration). Opposite: strip bare.",
+    "connotation": ""
+   },
+   {
+    "n": 22,
+    "word": "malice",
+    "task": "The prefix mal- means “bad.” Explain how that fits malice, then name one more mal- word.",
+    "pos": "noun",
+    "meaning": "a wish to hurt someone on purpose; spite, ill will, meanness",
+    "example": "Out of pure malice, the bully hid Maya's art project just to watch her panic before the show.",
+    "usage": "Root: mal- = bad (as in malfunction). Adjective: malicious. Opposite: kindness, goodwill.",
+    "connotation": "negative"
+   },
+   {
+    "n": 23,
+    "word": "linger",
+    "task": "Use it once about a person and once about a smell.",
+    "pos": "verb",
+    "meaning": "to stay around longer than expected; remain, dawdle, loiter",
+    "example": "After the concert, Nora lingered by the stage for an hour, hoping the violinist would come back out to sign her program.",
+    "usage": "A smell, a taste, or a feeling can linger too: the smell of popcorn lingered in the hall. Adjective: lingering. Opposite: hurry off.",
+    "connotation": ""
+   },
+   {
+    "n": 24,
+    "word": "allocate",
+    "task": "Allocate one free hour among three activities, and explain your choices using the word.",
+    "pos": "verb",
+    "meaning": "to give out or set aside for a certain use; assign, distribute, budget",
+    "example": "The class allocated twenty dollars of the bake sale money for snacks and the rest for new library books.",
+    "usage": "Root: loc = place (as in location): you place each share where it belongs. Noun: allocation. Opposite: keep it all for yourself.",
+    "connotation": ""
+   },
+   {
+    "n": 25,
+    "word": "forfeit",
+    "task": "Explain what it means to forfeit a game, and name one other thing a person could forfeit.",
+    "pos": "verb",
+    "meaning": "to lose something as a penalty; give up, surrender, hand over",
+    "example": "When only three players showed up, our team had to forfeit the game, and the other team won without kicking a ball.",
+    "usage": "Also a noun: the team lost by forfeit. Opposite: win, keep, earn.",
+    "connotation": ""
+   },
+   {
+    "n": 26,
+    "word": "compel",
+    "task": "Explain the difference between asking someone to do something and compelling them.",
+    "pos": "verb",
+    "meaning": "to force someone to do something; oblige, require, drive",
+    "example": "The awful smell coming from the fridge compelled Dad to clean it out that very night.",
+    "usage": "Root: pel = push or drive (as in propel). Adjective: compelling (so strong you have to pay attention: a compelling story). Opposite: let someone choose.",
+    "connotation": ""
+   },
+   {
+    "n": 27,
+    "word": "restrain",
+    "task": "Give one literal use (holding back an animal) and one figurative use (holding back a feeling).",
+    "pos": "verb",
+    "meaning": "to hold back or keep under control; curb, contain, hinder",
+    "example": "Jada had to restrain her puppy with both arms when it spotted a squirrel across the street.",
+    "usage": "Noun: restraint (self-restraint = holding yourself back). Opposite: release, let loose.",
+    "connotation": ""
+   },
+   {
+    "n": 28,
+    "word": "stagnant",
+    "task": "Give one literal use (water) and one figurative use (a skill or a business).",
+    "pos": "adjective",
+    "meaning": "not flowing or moving, and often stale; still, motionless, murky",
+    "example": "Mosquitoes laid their eggs in the stagnant water of the old birdbath, which nobody had emptied all summer.",
+    "usage": "Also used for things that stop growing or changing: stagnant sales. Verb: stagnate. Opposite: flowing, fresh, lively.",
+    "connotation": "negative"
+   },
+   {
+    "n": 29,
+    "word": "meek",
+    "task": "Is this praise or criticism? Explain, then give an opposite.",
+    "pos": "adjective",
+    "meaning": "gentle and quick to give in to others; mild, timid, humble",
+    "example": "The meek new boy let everyone cut in front of him in the lunch line without saying a word.",
+    "usage": "Not the same as kind: a meek person may be kind, but the word is about giving in. Noun: meekness. Opposite: bold, assertive.",
+    "connotation": ""
+   },
+   {
+    "n": 30,
+    "word": "frail",
+    "task": "Give a synonym + an opposite. Then describe something frail that is not a person.",
+    "pos": "adjective",
+    "meaning": "weak and easily hurt or broken; feeble, fragile, delicate",
+    "example": "After her long illness, Grandma was so frail that she needed help climbing the three porch steps.",
+    "usage": "Often describes old or sick people, or delicate things. Noun: frailty. Opposite: sturdy, strong, robust.",
+    "connotation": ""
+   },
+   {
+    "n": 31,
+    "word": "serene",
+    "task": "Describe a serene place in one sentence, then name its opposite.",
+    "pos": "adjective",
+    "meaning": "calm and peaceful, without worry; tranquil, untroubled, still",
+    "example": "When the fire alarm blared, Ms. Ortiz stayed serene, calmly leading the class outside while everyone else panicked.",
+    "usage": "Noun: serenity. Opposite: agitated, frantic, upset.",
+    "connotation": "positive"
+   },
+   {
+    "n": 32,
+    "word": "lucid",
+    "task": "Explain in your own words + use it to describe a set of instructions.",
+    "pos": "adjective",
+    "meaning": "clear and easy to understand; plain, sensible, coherent",
+    "example": "Ms. Patel's explanation was so lucid that even Eli, who had been confused for a week, finally understood long division.",
+    "usage": "Root: luc = light (as in translucent): a lucid idea is easy to see. Noun: lucidity. Opposite: confusing, muddled.",
+    "connotation": "positive"
+   },
+   {
+    "n": 33,
+    "word": "fiasco",
+    "task": "Describe a fiasco (real or made up) in two sentences.",
+    "pos": "noun",
+    "meaning": "a complete and embarrassing failure; disaster, flop, mess",
+    "example": "The science fair volcano was a total fiasco: it erupted early and splattered red goo all over the judges.",
+    "usage": "Bigger than a mistake: the whole thing goes wrong, usually in front of people. Opposite: triumph, success.",
+    "connotation": "negative"
+   },
+   {
+    "n": 34,
+    "word": "tempest",
+    "task": "Write one sentence about a tempest with a sound detail and a touch detail.",
+    "pos": "noun",
+    "meaning": "a violent, windy storm; gale, hurricane, squall",
+    "example": "The tempest ripped the sails, snapped the mast, and tossed the little ship like a toy.",
+    "usage": "Adjective: tempestuous (stormy, also used for moods). A “tempest in a teapot” is a big fuss over something small. Opposite: calm.",
+    "connotation": ""
+   },
+   {
+    "n": 35,
+    "word": "adversary",
+    "task": "Give its opposite and use both words in one sentence about a game.",
+    "pos": "noun",
+    "meaning": "an opponent or enemy in a contest or fight; rival, foe, competitor",
+    "example": "In the chess final, Ravi faced his toughest adversary, a girl who had not lost a single game all year.",
+    "usage": "Opposite: ally, partner, teammate. Adjective: adversarial. Do not confuse with adversity (hard times).",
+    "connotation": ""
+   },
+   {
+    "n": 36,
+    "word": "hastily",
+    "task": "Explain how hastily is different from quickly.",
+    "pos": "adverb",
+    "meaning": "too quickly and without enough care; hurriedly, rashly, carelessly",
+    "example": "Kai hastily scribbled his answers to beat the bell and got three easy questions wrong.",
+    "usage": "Adjective: hasty (also on this week's list). Noun: haste, as in “Haste makes waste.” Opposite: carefully, slowly.",
+    "connotation": "negative"
+   },
+   {
+    "n": 37,
+    "word": "cautiously",
+    "task": "Describe how you would cross an icy parking lot cautiously.",
+    "pos": "adverb",
+    "meaning": "in a careful way that avoids risks; warily, carefully, gingerly",
+    "example": "The kitten crept cautiously toward the sleeping dog, freezing every time the dog's ear twitched.",
+    "usage": "Adjective: cautious. Noun: caution. Opposite: recklessly, carelessly.",
+    "connotation": ""
+   },
+   {
+    "n": 38,
+    "word": "infamous",
+    "task": "Explain why infamous does NOT mean “not famous,” then use it about a villain.",
+    "pos": "adjective",
+    "meaning": "well known for something bad; notorious, disgraceful, shameful",
+    "example": "The infamous Captain Scarbone had robbed so many ships that sailors trembled at the sight of his black flag.",
+    "usage": "It does NOT mean “not famous”: it means famous for the wrong reasons. Noun: infamy. Opposite: admired, honored.",
+    "connotation": "negative"
+   },
+   {
+    "n": 39,
+    "word": "relinquish",
+    "task": "Use it in a sentence about a game or a toy, then give an opposite.",
+    "pos": "verb",
+    "meaning": "to give up or let go of something, often unwillingly; surrender, yield, hand over",
+    "example": "The toddler refused to relinquish the TV remote, clutching it to her chest even when her brother offered her a cookie.",
+    "usage": "Often used for control, power, or a seat: relinquish control. Opposite: keep, hold on to, seize.",
+    "connotation": ""
+   },
+   {
+    "n": 40,
+    "word": "eloquent",
+    "task": "Explain what makes a speech eloquent + give an opposite.",
+    "pos": "adjective",
+    "meaning": "skilled at speaking or writing powerfully; expressive, well-spoken, persuasive",
+    "example": "Mia's eloquent speech about the shelter dogs moved the audience so much that six families adopted a dog that day.",
+    "usage": "Root: loqu = speak. Noun: eloquence. Opposite: tongue-tied, inarticulate.",
+    "connotation": "positive"
    }
   ]
  },
  "W6": {
-  "title": "SESSION 1 — PRECISION REVIEW • 20–25 min",
-  "minutes": "20–25 min",
+  "title": "SESSION 1 — PRECISION REVIEW • 40–50 min",
+  "minutes": "40–50 min",
   "words": [
    {
     "n": 1,
@@ -1232,12 +1432,212 @@
     "example": "As a novice skier, he stayed on the gentle slope.",
     "usage": "Root: nov = new. Opposite: expert, veteran.",
     "connotation": ""
+   },
+   {
+    "n": 21,
+    "word": "unkempt",
+    "task": "Break into parts (un + kempt) and explain what the parts predict.",
+    "pos": "adjective",
+    "meaning": "messy and not cared for, especially hair or clothes; untidy, scruffy, disheveled",
+    "example": "After a week of camping with no brush, Zoe's hair was so unkempt that it looked like a bird's nest.",
+    "usage": "Root: un- = not + kempt, an old word meaning combed. Opposite: neat, tidy, well-groomed.",
+    "connotation": "negative"
+   },
+   {
+    "n": 22,
+    "word": "wily",
+    "task": "Name a wily animal from a story or fable and the trick that makes it wily.",
+    "pos": "adjective",
+    "meaning": "full of clever tricks for fooling others; sly, cunning, deceitful",
+    "example": "The wily raccoon waited until the porch light clicked off, then slid open the latch on the trash can that was supposed to be raccoon-proof.",
+    "usage": "Built from wile, a clever trick (“she used all her wiles”). Opposite: naive, trusting.",
+    "connotation": ""
+   },
+   {
+    "n": 23,
+    "word": "inhabit",
+    "task": "Link it to habitat: say what the two words share, then use inhabit in a sentence.",
+    "pos": "verb",
+    "meaning": "to live in a place; occupy, dwell in, populate",
+    "example": "A family of owls inhabits the old barn, swooping out every night to hunt for mice.",
+    "usage": "Noun: inhabitant (someone who lives in a place). Related: habitat (an animal's home). Opposite: abandon, leave empty. Do not confuse with inhibit (hold back).",
+    "connotation": ""
+   },
+   {
+    "n": 24,
+    "word": "lament",
+    "task": "Use it as a verb, then as a noun (a lament is a sad song or poem).",
+    "pos": "verb",
+    "meaning": "to express deep sadness or regret; mourn, grieve, bemoan",
+    "example": "Theo lamented the loss of his lucky baseball cap all week, sighing every time he passed the empty hook.",
+    "usage": "Also a noun: a lament is a sad song or poem. Adjective: lamentable (sadly bad). Opposite: celebrate, rejoice.",
+    "connotation": ""
+   },
+   {
+    "n": 25,
+    "word": "shun",
+    "task": "Explain how shunning someone is different from simply not noticing them.",
+    "pos": "verb",
+    "meaning": "to avoid someone or something on purpose; ignore, reject, steer clear of",
+    "example": "Our cat shuns the fancy new scratching post and keeps clawing the couch instead.",
+    "usage": "Stronger than ignore: you keep away on purpose, often for a long time. Opposite: welcome, embrace, seek out.",
+    "connotation": "negative"
+   },
+   {
+    "n": 26,
+    "word": "exert",
+    "task": "Describe a time you had to exert yourself, using the word.",
+    "pos": "verb",
+    "meaning": "to use strength or effort, trying hard; apply, put forth, strain",
+    "example": "Ben had to exert all his strength to push the stuck wagon up the muddy hill.",
+    "usage": "Noun: exertion (hard physical effort). Often “exert yourself” (try very hard) or “exert pressure.” Opposite: relax, rest.",
+    "connotation": ""
+   },
+   {
+    "n": 27,
+    "word": "hoard",
+    "task": "Explain the difference between hoard and horde, then use hoard in a sentence.",
+    "pos": "verb",
+    "meaning": "to collect and hide away a large supply; stockpile, stash, store up",
+    "example": "The squirrel had hoarded so many acorns in our attic that they rained down when Mom opened the hatch.",
+    "usage": "Also a noun: a dragon's hoard of gold. Person: hoarder. Opposite: share, spend. Do not confuse with horde (a huge crowd).",
+    "connotation": ""
+   },
+   {
+    "n": 28,
+    "word": "wield",
+    "task": "Use it once with a tool and once with power.",
+    "pos": "verb",
+    "meaning": "to handle a tool or weapon with skill; swing, operate, utilize",
+    "example": "The chef wielded her huge knife so quickly that the carrot turned into a pile of thin orange coins in seconds.",
+    "usage": "Also used for power: a queen wields power over her kingdom. Unwieldy = too big or heavy to handle easily. Spelling: i before e.",
+    "connotation": ""
+   },
+   {
+    "n": 29,
+    "word": "impulsive",
+    "task": "The root puls means “push.” Explain how an impulse pushes you, then describe an impulsive choice.",
+    "pos": "adjective",
+    "meaning": "acting suddenly without thinking first; rash, hasty, spur-of-the-moment",
+    "example": "In one impulsive moment, Lily spent all her birthday money on a giant inflatable flamingo she had nowhere to put.",
+    "usage": "Root: puls = push (as in pulse). Noun: impulse (a sudden urge). Opposite: cautious, thoughtful, careful.",
+    "connotation": ""
+   },
+   {
+    "n": 30,
+    "word": "quaint",
+    "task": "Describe a quaint place, using two details that show it is old-fashioned.",
+    "pos": "adjective",
+    "meaning": "charming in an old-fashioned way; picturesque, cozy, storybook",
+    "example": "The quaint little inn had a thatched roof, crooked windows, and a sleepy cat on every windowsill.",
+    "usage": "Usually a compliment, but it can hint that something is a little odd or out of date. Adverb: quaintly. Opposite: modern, sleek.",
+    "connotation": "positive"
+   },
+   {
+    "n": 31,
+    "word": "adept",
+    "task": "Explain how adept, adapt, and adopt differ, one sentence each.",
+    "pos": "adjective",
+    "meaning": "very skilled at something; expert, able, handy",
+    "example": "Grandpa is so adept at origami that he can fold a paper crane in less than a minute.",
+    "usage": "Usually “adept at” something. Opposite: clumsy, inept, unskilled. Do not confuse with adapt (change to fit) or adopt (take as your own).",
+    "connotation": "positive"
+   },
+   {
+    "n": 32,
+    "word": "quarrel",
+    "task": "Use it as a noun and as a verb, then give an opposite.",
+    "pos": "noun",
+    "meaning": "an angry argument between people; fight, squabble, dispute",
+    "example": "The twins had a loud quarrel over the top bunk, and neither would speak to the other until dinner.",
+    "usage": "Also a verb; American spelling keeps one l: they quarreled. Adjective: quarrelsome. Opposite: agreement, harmony.",
+    "connotation": "negative"
+   },
+   {
+    "n": 33,
+    "word": "zeal",
+    "task": "Name something you have zeal for and show it in one sentence.",
+    "pos": "noun",
+    "meaning": "great energy and eagerness for something; enthusiasm, passion, fervor",
+    "example": "Ana cleaned up the beach with such zeal that she filled four trash bags before her friends had filled one.",
+    "usage": "Adjective: zealous (full of zeal). Opposite: indifference, apathy.",
+    "connotation": "positive"
+   },
+   {
+    "n": 34,
+    "word": "prodigy",
+    "task": "Explain what makes someone a prodigy rather than just good at something.",
+    "pos": "noun",
+    "meaning": "a young person with amazing talent; genius, whiz kid, marvel",
+    "example": "The seven-year-old chess prodigy beat every adult in the park, one after another, without losing a game.",
+    "usage": "Adjective: prodigious (amazing or huge). Usually a child or a teenager. Opposite: beginner, novice.",
+    "connotation": "positive"
+   },
+   {
+    "n": 35,
+    "word": "prowess",
+    "task": "Use it about a sport and about a school subject.",
+    "pos": "noun",
+    "meaning": "great skill or ability; talent, expertise, mastery",
+    "example": "Everyone at the pool stopped to watch Keiko show off her diving prowess, flipping twice before slicing into the water.",
+    "usage": "Often “athletic prowess” or “prowess at math.” Its older meaning is bravery in battle. Opposite: weakness, clumsiness.",
+    "connotation": "positive"
+   },
+   {
+    "n": 36,
+    "word": "scarcely",
+    "task": "Rewrite “I could hardly breathe” using scarcely, then explain why “couldn't scarcely” is wrong.",
+    "pos": "adverb",
+    "meaning": "almost not at all; barely, hardly, only just",
+    "example": "The fog was so thick that we could scarcely see the car right in front of us.",
+    "usage": "Adjective: scarce (in short supply). It already means “almost not,” so never add not: write “I could scarcely hear,” not “I couldn't scarcely hear.” Opposite: easily, fully.",
+    "connotation": ""
+   },
+   {
+    "n": 37,
+    "word": "vigorously",
+    "task": "Describe one thing you would do vigorously and one you would do gently.",
+    "pos": "adverb",
+    "meaning": "with lots of force and energy; powerfully, briskly, hard",
+    "example": "Uncle Raj shook the ketchup bottle so vigorously that a huge red blob shot out and covered his whole plate.",
+    "usage": "Adjective: vigorous. Noun: vigor. Opposite: gently, weakly, feebly.",
+    "connotation": ""
+   },
+   {
+    "n": 38,
+    "word": "domestic",
+    "task": "You met this word in Week 3. Give its three uses (home, own country, tame animal), one sentence each.",
+    "pos": "adjective",
+    "meaning": "having to do with the home or family; household, homemaking, home-loving",
+    "example": "On Saturdays, Kofi helps with domestic chores like washing the dishes, folding laundry, and feeding the cat.",
+    "usage": "A second meaning is inside your own country: domestic flights do not go abroad. A domestic animal is a tame one that lives with people. Root: domus = house. Opposite: foreign (for the country sense), wild (for animals).",
+    "connotation": ""
+   },
+   {
+    "n": 39,
+    "word": "reconcile",
+    "task": "Re- means “again.” Explain how that fits, then use it about two friends.",
+    "pos": "verb",
+    "meaning": "to make friends again after a fight; make up, make peace, reunite",
+    "example": "After a week of not speaking, the two best friends finally reconciled and shared a giant milkshake to celebrate.",
+    "usage": "Noun: reconciliation. It can also mean making two things fit together: reconcile two different stories. Opposite: split up, fall out.",
+    "connotation": "positive"
+   },
+   {
+    "n": 40,
+    "word": "lavish",
+    "task": "Use it as an adjective (a lavish feast) and as a verb (lavish praise on someone).",
+    "pos": "adjective",
+    "meaning": "very generous or fancy, more than needed; extravagant, luxurious, plentiful",
+    "example": "The queen threw a lavish party with a chocolate fountain, fireworks, and a cake as tall as the ceiling.",
+    "usage": "Also a verb: lavish praise on someone (give lots of it). Opposite: plain, modest, stingy.",
+    "connotation": ""
    }
   ]
  },
  "W7": {
-  "title": "SESSION 1 — PRECISION REVIEW • 20–25 min",
-  "minutes": "20–25 min",
+  "title": "SESSION 1 — PRECISION REVIEW • 40–50 min",
+  "minutes": "40–50 min",
   "words": [
    {
     "n": 1,
@@ -1438,12 +1838,212 @@
     "example": "The weary hikers dropped their packs at camp; she grew weary of the same jokes.",
     "usage": "'Weary of' = fed up with. Do not confuse with wary (cautious).",
     "connotation": ""
+   },
+   {
+    "n": 21,
+    "word": "orator",
+    "task": "Describe two things a good orator does that make a crowd listen.",
+    "pos": "noun",
+    "meaning": "a skilled public speaker; speechmaker, lecturer, spokesperson",
+    "example": "When the orator stepped up to the podium, the noisy crowd fell silent, and her stirring speech soon had everyone cheering.",
+    "usage": "The orator is the one speaking, not the audience listening. A formal speech is an oration, and skill at giving speeches is oratory. A good orator is usually eloquent (Week 5).",
+    "connotation": ""
+   },
+   {
+    "n": 22,
+    "word": "poll",
+    "task": "Plan a class poll: write the question and three answer choices.",
+    "pos": "noun",
+    "meaning": "a survey of people's opinions or votes; questionnaire, vote, tally",
+    "example": "Before choosing a class pet, Mr. Reyes took a poll, and fourteen students voted for a hamster.",
+    "usage": "A poll counts what many people think; it is not a discussion. Also a verb: poll the class. People who go to vote “go to the polls,” and a pollster runs polls.",
+    "connotation": ""
+   },
+   {
+    "n": 23,
+    "word": "mingle",
+    "task": "Use it once about people at a party and once about smells or sounds.",
+    "pos": "verb",
+    "meaning": "to mix with others, especially at a party; socialize, blend, circulate",
+    "example": "At the welcome picnic, Ms. Kim urged the new students to mingle instead of sitting only with friends they already knew.",
+    "usage": "Smells, sounds, and colors can mingle too: laughter mingled with music. Opposite: separate, keep apart.",
+    "connotation": ""
+   },
+   {
+    "n": 24,
+    "word": "evade",
+    "task": "Is evading a question honest? Explain, then use evasive in a sentence.",
+    "pos": "verb",
+    "meaning": "to escape or avoid, often by being quick or clever; dodge, elude, sidestep",
+    "example": "The rabbit evaded the fox by zigzagging through the tall grass and diving into its burrow.",
+    "usage": "Noun: evasion. Adjective: evasive (avoiding a clear answer: an evasive reply). Opposite: face, confront.",
+    "connotation": ""
+   },
+   {
+    "n": 25,
+    "word": "soar",
+    "task": "Use it once about a bird and once about a feeling or a price.",
+    "pos": "verb",
+    "meaning": "to fly or rise high into the air; glide, climb, ascend",
+    "example": "The hawk spread its wings and soared high above the cliffs without a single flap.",
+    "usage": "Prices, hopes, and spirits can soar too (rise fast). Do not confuse with sore (hurting). Opposite: plunge, sink.",
+    "connotation": ""
+   },
+   {
+    "n": 26,
+    "word": "appease",
+    "task": "Is appeasing someone always wise? Give one case where it helps and one where it may not.",
+    "pos": "verb",
+    "meaning": "to calm someone by giving in to them; pacify, soothe, satisfy",
+    "example": "To appease his crying little sister, Omar gave her the last strawberry from his own bowl.",
+    "usage": "Noun: appeasement. Opposite: provoke, anger, annoy.",
+    "connotation": ""
+   },
+   {
+    "n": 27,
+    "word": "embark",
+    "task": "Use it once about boarding a ship and once about starting a big project.",
+    "pos": "verb",
+    "meaning": "to board a ship or set out on something new; begin, launch, set off",
+    "example": "With backpacks full of snacks and a hand-drawn map, the cousins embarked on their hike to find the hidden waterfall.",
+    "usage": "Usually “embark on” a journey or a project. Opposite: disembark (get off a ship or plane).",
+    "connotation": ""
+   },
+   {
+    "n": 28,
+    "word": "deprive",
+    "task": "Use it with “of” in a sentence about sleep, food, or fun.",
+    "pos": "verb",
+    "meaning": "to take away something that is needed; deny, rob, strip",
+    "example": "The storm deprived the whole town of electricity, so families ate dinner by candlelight for three nights.",
+    "usage": "Usually “deprive someone of something”: deprived of sleep. Noun: deprivation. Opposite: provide, supply.",
+    "connotation": "negative"
+   },
+   {
+    "n": 29,
+    "word": "erratic",
+    "task": "Praise or criticism? Explain the feeling it carries in “an erratic driver.”",
+    "pos": "adjective",
+    "meaning": "not steady or regular, changing without warning; unpredictable, irregular, uneven",
+    "example": "The moth's erratic flight, darting left, then up, then suddenly down, made it impossible to catch.",
+    "usage": "Root: err = wander or stray (as in error). Opposite: steady, consistent, regular.",
+    "connotation": "negative"
+   },
+   {
+    "n": 30,
+    "word": "lofty",
+    "task": "Praise or criticism? Compare “lofty goals” with “a lofty tone.”",
+    "pos": "adjective",
+    "meaning": "very high, or grand and noble; towering, elevated, ambitious",
+    "example": "From the lofty lookout tower, the ranger could see over the treetops all the way to the distant mountains.",
+    "usage": "Can describe big goals (lofty dreams) or a proud, snooty manner (a lofty tone). Opposite: low, humble.",
+    "connotation": ""
+   },
+   {
+    "n": 31,
+    "word": "vigilant",
+    "task": "Name two jobs where being vigilant matters, and say why.",
+    "pos": "adjective",
+    "meaning": "carefully watching for danger or trouble; watchful, alert, attentive",
+    "example": "The lifeguard stayed vigilant all afternoon, scanning the waves every few seconds for swimmers in trouble.",
+    "usage": "Noun: vigilance. Related: vigil (a time of staying awake to keep watch). Opposite: careless, inattentive, off guard.",
+    "connotation": "positive"
+   },
+   {
+    "n": 32,
+    "word": "devout",
+    "task": "Explain the feeling it carries, then use it about a fan instead of a religion.",
+    "pos": "adjective",
+    "meaning": "deeply religious or very committed; pious, faithful, sincere",
+    "example": "The devout monks rose before dawn every single day to pray and sing in the chapel.",
+    "usage": "Noun: devotion. It can also describe a very loyal fan: a devout soccer fan. Opposite: unbelieving, half-hearted.",
+    "connotation": "positive"
+   },
+   {
+    "n": 33,
+    "word": "luminous",
+    "task": "The root lum means “light.” Name another lum word and explain the link.",
+    "pos": "adjective",
+    "meaning": "giving off light, bright and glowing; shining, radiant, brilliant",
+    "example": "The luminous stars on Ivy's ceiling kept glowing green long after she switched off the lamp.",
+    "usage": "Root: lum = light (as in illuminate). Noun: luminosity. Opposite: dark, dim, dull.",
+    "connotation": ""
+   },
+   {
+    "n": 34,
+    "word": "vigil",
+    "task": "Explain how a vigil and being vigilant are connected.",
+    "pos": "noun",
+    "meaning": "a time of staying awake to watch or pray; watch, lookout, guard",
+    "example": "The night before the big storm, the farmers kept a vigil by the barn, taking turns staying awake to watch over the newborn calves.",
+    "usage": "Often “keep a vigil” or “a candlelight vigil,” when people gather quietly to remember someone or show support. Adjective: vigilant (watchful).",
+    "connotation": ""
+   },
+   {
+    "n": 35,
+    "word": "tyrant",
+    "task": "Is it fair to call a strict coach a tyrant? Explain, using both words.",
+    "pos": "noun",
+    "meaning": "a cruel ruler who uses power unfairly; dictator, bully, oppressor",
+    "example": "The tyrant king banned music, laughter, and even whistling, and anyone caught humming was thrown in jail.",
+    "usage": "Can describe anyone who bosses others around cruelly. Noun: tyranny. Adjective: tyrannical. Opposite: a fair and kind ruler.",
+    "connotation": "negative"
+   },
+   {
+    "n": 36,
+    "word": "reluctantly",
+    "task": "Write the same chore twice: once done reluctantly, once done eagerly.",
+    "pos": "adverb",
+    "meaning": "without really wanting to; unwillingly, grudgingly, hesitantly",
+    "example": "Jonah reluctantly handed over his tablet at bedtime, sighing as if he were saying goodbye to a best friend.",
+    "usage": "Adjective: reluctant. Noun: reluctance. Opposite: eagerly, willingly, gladly.",
+    "connotation": ""
+   },
+   {
+    "n": 37,
+    "word": "diligently",
+    "task": "Praise or criticism? Use it about someone whose work you admire.",
+    "pos": "adverb",
+    "meaning": "with steady and careful hard work; industriously, persistently, carefully",
+    "example": "Noor practiced her violin diligently every morning before school, and by spring she could play the whole piece from memory.",
+    "usage": "Adjective: diligent (also on this week's list). Noun: diligence. Opposite: lazily, carelessly.",
+    "connotation": "positive"
+   },
+   {
+    "n": 38,
+    "word": "renovate",
+    "task": "Break into parts (re + nov) and explain what the parts predict.",
+    "pos": "verb",
+    "meaning": "to fix up and improve an old building; restore, remodel, repair",
+    "example": "The family renovated the old barn, adding new windows and a loft, and turned it into a cozy art studio.",
+    "usage": "Root: nov = new (as in novice and novel), so renovate = make new again. Noun: renovation. Opposite: neglect, wreck.",
+    "connotation": ""
+   },
+   {
+    "n": 39,
+    "word": "fickle",
+    "task": "Praise or criticism? Explain, then name the opposite you would rather be called.",
+    "pos": "adjective",
+    "meaning": "changing your mind or loyalty often; changeable, unpredictable, flighty",
+    "example": "The fickle kitten loved its new toy mouse for one minute, then ignored it forever for a crumpled paper ball.",
+    "usage": "Weather and luck can be fickle too. Noun: fickleness. Opposite: loyal, steady, constant.",
+    "connotation": "negative"
+   },
+   {
+    "n": 40,
+    "word": "glimmer",
+    "task": "Use it once about light and once about hope.",
+    "pos": "noun",
+    "meaning": "a faint flicker of light or of hope; gleam, twinkle, hint",
+    "example": "Far across the dark lake, the lost campers spotted a glimmer of light from the ranger's cabin and paddled toward it.",
+    "usage": "Often “a glimmer of hope” (a tiny bit of hope). Also a verb: the stars glimmered. Opposite: blaze, glare.",
+    "connotation": ""
    }
   ]
  },
  "W8": {
-  "title": "SESSION 1 — CUMULATIVE PRECISION • 20–25 min",
-  "minutes": "20–25 min",
+  "title": "SESSION 1 — CUMULATIVE PRECISION • 40–50 min",
+  "minutes": "40–50 min",
   "words": [
    {
     "n": 1,
@@ -1644,6 +2244,206 @@
     "example": "The population remained static for several years.",
     "usage": "Can mean not changing, not moving, or electrical static. Compare stationary: physically not moving.",
     "connotation": "neutral"
+   },
+   {
+    "n": 21,
+    "word": "plea",
+    "task": "Give two meanings (an urgent request; an answer in court), one sentence each.",
+    "pos": "noun",
+    "meaning": "an urgent and heartfelt request; appeal, petition, cry for help",
+    "example": "The mayor listened to the children's plea to save the old oak tree and agreed to build the new road around it.",
+    "usage": "A plea asks for something; it does not explain. In court, a plea is a person's answer to a charge: a plea of “not guilty.” Verb: plead. Opposite: an order or a command.",
+    "connotation": ""
+   },
+   {
+    "n": 22,
+    "word": "defy",
+    "task": "Is defying someone good or bad? Give one example of each.",
+    "pos": "verb",
+    "meaning": "to openly refuse to obey or follow; disobey, resist, rebel against",
+    "example": "It takes courage to defy a bully, but Sam refused to hand over his lunch no matter how loudly the bigger boy shouted.",
+    "usage": "Noun: defiance. Adjective: defiant. “Defy belief” = be almost impossible to believe. Opposite: obey, follow, comply.",
+    "connotation": ""
+   },
+   {
+    "n": 23,
+    "word": "rectify",
+    "task": "Use it in a sentence that makes the meaning obvious to a reader who doesn't know it.",
+    "pos": "verb",
+    "meaning": "to fix a mistake or put something right; correct, remedy, repair",
+    "example": "When Hana realized she had given the customer too little change, she ran after him to rectify her mistake.",
+    "usage": "Root: rect = right or straight (as in rectangle and correct). Opposite: worsen, spoil, ruin.",
+    "connotation": ""
+   },
+   {
+    "n": 24,
+    "word": "mourn",
+    "task": "Name the word it is most often confused with (morning) and give the difference.",
+    "pos": "verb",
+    "meaning": "to feel or show deep sadness after a loss; grieve, lament, weep",
+    "example": "The whole neighborhood mourned when the old bakery closed, and people left flowers by its locked door.",
+    "usage": "Noun: mourning (do not confuse with morning). Adjective: mournful (very sad). Opposite: celebrate, rejoice.",
+    "connotation": ""
+   },
+   {
+    "n": 25,
+    "word": "impede",
+    "task": "Compare it with obstruct (Week 6): the same meaning or different? Explain.",
+    "pos": "verb",
+    "meaning": "to slow down or block progress; hinder, obstruct, hamper",
+    "example": "Deep snowdrifts impeded the rescue team, so a walk that usually took ten minutes took two hours.",
+    "usage": "Root: ped = foot (as in pedal): to impede is, in a way, to tangle someone's feet. Noun: impediment. Opposite: help, assist, speed up.",
+    "connotation": "negative"
+   },
+   {
+    "n": 26,
+    "word": "diminish",
+    "task": "Use it with wane (Week 1) in one sentence about the moon or a sound.",
+    "pos": "verb",
+    "meaning": "to become or make smaller or less; decrease, lessen, shrink",
+    "example": "As the storm moved out to sea, the roar of the wind slowly diminished to a soft whistle.",
+    "usage": "Root: min = small (as in minimum and minus). Opposite: increase, grow, expand.",
+    "connotation": ""
+   },
+   {
+    "n": 27,
+    "word": "crave",
+    "task": "Explain how crave is stronger than want, with an example of each.",
+    "pos": "verb",
+    "meaning": "to want something very strongly; long for, yearn for, hunger for",
+    "example": "After a week of camp food, Jasper craved his mom's spicy noodles so much that he dreamed about them.",
+    "usage": "Noun: craving (a craving for chocolate). Stronger than want or like. Opposite: dislike, reject.",
+    "connotation": ""
+   },
+   {
+    "n": 28,
+    "word": "sparse",
+    "task": "Describe a sparse room and a crowded room in two short sentences.",
+    "pos": "adjective",
+    "meaning": "thinly spread out, with only a few here and there; scattered, scanty, meager",
+    "example": "The grass on the windy hilltop was sparse, just a thin tuft here and there between the rocks.",
+    "usage": "Often describes hair, crowds, plants, or details. Adverb: sparsely (a sparsely furnished room). Opposite: dense, thick, crowded.",
+    "connotation": ""
+   },
+   {
+    "n": 29,
+    "word": "opaque",
+    "task": "Explain transparent, translucent, and opaque, with one object for each.",
+    "pos": "adjective",
+    "meaning": "not letting any light through; murky, cloudy, solid",
+    "example": "The curtains were so opaque that the room stayed pitch-dark even at noon.",
+    "usage": "Three steps: transparent (clear glass: you can see through it), translucent (frosted glass: some light, no clear view), opaque (a brick wall: no light). It can also mean hard to understand. Opposite: transparent, clear.",
+    "connotation": ""
+   },
+   {
+    "n": 30,
+    "word": "impartial",
+    "task": "Explain why a referee must be impartial, then give two opposites.",
+    "pos": "adjective",
+    "meaning": "treating all sides equally and fairly; neutral, unbiased, even-handed",
+    "example": "Because the referee was the goalie's aunt, the other team worried that she would not be impartial.",
+    "usage": "Root: im- = not + partial (favoring one part or side). Noun: impartiality. Opposite: biased, partial, one-sided.",
+    "connotation": "positive"
+   },
+   {
+    "n": 31,
+    "word": "gallant",
+    "task": "Give both senses (brave, and polite), one sentence each.",
+    "pos": "adjective",
+    "meaning": "brave and noble, or very polite and kind; heroic, bold, courteous",
+    "example": "The gallant knight bowed politely to the frightened villagers, then rode off alone to face the dragon.",
+    "usage": "It can also mean very polite and kind, the way a knight might bow and hold open a door. Noun: gallantry. Opposite: cowardly, rude.",
+    "connotation": "positive"
+   },
+   {
+    "n": 32,
+    "word": "crafty",
+    "task": "Name the word it is most often confused with (craft) and give the difference.",
+    "pos": "adjective",
+    "meaning": "clever in a sneaky way; sly, scheming, deceitful",
+    "example": "The crafty little brother got Rosa's brand-new toy car by convincing her that his broken one was a rare treasure.",
+    "usage": "Do not confuse with craft (a skill, or making things by hand): a crafty person is sneaky, not artsy. Opposite: honest, straightforward, naive.",
+    "connotation": "negative"
+   },
+   {
+    "n": 33,
+    "word": "valor",
+    "task": "Use valor and valiant in one sentence about a rescue.",
+    "pos": "noun",
+    "meaning": "great courage, especially in battle; bravery, heroism, boldness",
+    "example": "The firefighter received a medal for valor after she carried two children out of the burning building.",
+    "usage": "Adjective: valiant (brave). American spelling: valor, with no u. Opposite: cowardice, fear.",
+    "connotation": "positive"
+   },
+   {
+    "n": 34,
+    "word": "relic",
+    "task": "Explain what relic and relinquish share, then use relic in a sentence about a museum.",
+    "pos": "noun",
+    "meaning": "an object that survives from long ago; artifact, remnant, antique",
+    "example": "Under the floorboards of the old station, the twins found a rusty relic of the railroad days: a conductor's brass whistle.",
+    "usage": "Comes from the same Latin word as relinquish (Week 5): a relic is something left behind. It can also tease something old-fashioned: Grandpa's flip phone is a relic.",
+    "connotation": ""
+   },
+   {
+    "n": 35,
+    "word": "anecdote",
+    "task": "Name the word it is most often confused with (antidote) and give the difference.",
+    "pos": "noun",
+    "meaning": "a short and often funny true story; tale, account, yarn",
+    "example": "At dinner, Grandpa told a funny anecdote about the time a goat ate his homework, and everyone laughed until they cried.",
+    "usage": "Adjective: anecdotal (based on stories, not careful study). Do not confuse with antidote (a cure for poison).",
+    "connotation": ""
+   },
+   {
+    "n": 36,
+    "word": "eagerly",
+    "task": "Give its opposite from Week 7 and use both words in one sentence.",
+    "pos": "adverb",
+    "meaning": "in a way that shows you can hardly wait; keenly, enthusiastically, impatiently",
+    "example": "The kids pressed their noses to the window and eagerly watched the first snowflakes of the year drift down.",
+    "usage": "Adjective: eager. Noun: eagerness. Opposite: reluctantly (Week 7), unwillingly.",
+    "connotation": "positive"
+   },
+   {
+    "n": 37,
+    "word": "abruptly",
+    "task": "Give both meanings (suddenly; in a rudely short way), one sentence each.",
+    "pos": "adverb",
+    "meaning": "suddenly and without warning; sharply, unexpectedly, all at once",
+    "example": "The music stopped abruptly, and every dancer froze in the middle of a spin.",
+    "usage": "Adjective: abrupt (Week 6). It can also mean in a rudely short way: she answered abruptly and walked off. Opposite: gradually, slowly.",
+    "connotation": ""
+   },
+   {
+    "n": 38,
+    "word": "abide",
+    "task": "Give two meanings (follow a rule; put up with), one sentence each.",
+    "pos": "verb",
+    "meaning": "to follow or obey a rule or decision; comply with, keep to, respect",
+    "example": "Everyone who joins the chess club must abide by its rules, including the one about putting the pieces away.",
+    "usage": "Almost always “abide by” (obey). “I can't abide noise” means I can't stand it. Opposite: break, disobey, defy.",
+    "connotation": ""
+   },
+   {
+    "n": 39,
+    "word": "intrepid",
+    "task": "Compare it with gallant: are they the same? Explain the difference.",
+    "pos": "adjective",
+    "meaning": "fearless and adventurous; brave, daring, gutsy",
+    "example": "The intrepid explorer crossed the frozen river on foot while her guides refused to step off the shore.",
+    "usage": "Root: in- = not + trepid = alarmed (as in trepidation, a feeling of fear). Opposite: timid, fearful, cowardly.",
+    "connotation": "positive"
+   },
+   {
+    "n": 40,
+    "word": "apprentice",
+    "task": "Compare it with novice (Week 6): how is an apprentice different from any beginner?",
+    "pos": "noun",
+    "meaning": "someone learning a trade from an expert; trainee, beginner, learner",
+    "example": "As the baker's apprentice, Lena spent her first month measuring flour and washing bowls while she learned how to shape the bread.",
+    "usage": "A trade is a skilled job such as baking or carpentry. Noun: apprenticeship (the time spent learning). Also a verb: she was apprenticed to a carpenter. Opposite: master, expert.",
+    "connotation": ""
    }
   ]
  }

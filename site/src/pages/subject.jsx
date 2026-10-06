@@ -40,7 +40,7 @@ export function WeekCard({ sub, wk, highlight }) {
           {wk} <span className="text-muted-foreground font-normal">· {weekLabel(wk)}</span>
           {highlight && <Badge>This week</Badge>}
         </CardTitle>
-        <CardDescription>{sub === "vr" ? "Session 1 is written; sessions 2–3 are the ISEE-style sets. " : ""}{itemsFor(sub, wk).length} questions · {sets.length} sets of about {SETSIZE}. Each set is one sitting.</CardDescription>
+        <CardDescription>{sub === "vr" ? "Session 1 is written; the sets after it are ISEE-style. " : ""}{itemsFor(sub, wk).length} questions · {sets.length} sets of up to {SETSIZE}. Each set is one sitting.</CardDescription>
         <CardAction>
           <Badge variant={done === sets.length && sets.length ? "success" : done ? "warning" : "secondary"} className="tabular-nums">
             {done}/{sets.length} sets
@@ -62,7 +62,7 @@ export function WeekCard({ sub, wk, highlight }) {
                   <span className="bg-accent text-accent-foreground flex size-8 shrink-0 items-center justify-center rounded-md text-xs font-semibold">S1</span>
                   <span className="flex min-w-0 flex-1 flex-col">
                     <span className="font-medium">Session 1 · Precision review</span>
-                    <span className="text-muted-foreground text-xs">{ps.total} words to explain in your own words · 20–25 min{ps.submitted ? ` · submitted${ps.submittedAt ? " " + new Date(ps.submittedAt).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : ""}` : ""}</span>
+                    <span className="text-muted-foreground text-xs">{ps.total} words to explain in your own words · {D.precision[wk]?.minutes || "20–25 min"}{ps.submitted ? ` · submitted${ps.submittedAt ? " " + new Date(ps.submittedAt).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : ""}` : ""}</span>
                   </span>
                   {ps.submitted ? <Badge variant={ps.due ? "warning" : "success"} className="tabular-nums">{ps.due ? `${ps.due} to review` : "Mastered"}</Badge> : <Badge variant="outline" className="text-muted-foreground tabular-nums">{ps.written}/{ps.total} written</Badge>}
                   <ChevronRight className="text-muted-foreground size-4" />

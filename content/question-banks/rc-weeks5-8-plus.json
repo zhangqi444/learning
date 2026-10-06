@@ -1,0 +1,2695 @@
+{
+  "bank": "rc-weeks5-8-plus",
+  "schema_version": "1.0",
+  "content_version": "2026.10.05",
+  "items": [
+    {
+      "id": "RC-W5-X-01",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Main idea",
+      "subskill": "main idea — the main idea of one paragraph",
+      "difficulty": "H",
+      "prompt": "Which sentence best states the main idea of the fourth paragraph (lines 19–25)?",
+      "choices": {
+        "A": "Other bees follow the dancer closely in the darkness of the hive.",
+        "B": "The farther away the flowers are, the longer the waggle run lasts.",
+        "C": "The straight run's angle shows the flowers' direction from the sun.",
+        "D": "Flowers directly away from the sun are shown by a run pointing down."
+      },
+      "correct": "C",
+      "explanation": "Every sentence in lines 19–25 explains how the angle of the straight run stands for a direction measured from the sun: up for toward it, down for away from it, tilted for left or right. The main idea is the sentence that covers all of them, not one example.",
+      "misconceptions": "picks the next paragraph's point about distance; picks one true example instead of the paragraph's point; picks a detail from the last paragraph",
+      "why": {
+        "A": "Following the dancer in the dark comes from the last paragraph (lines 30–31), not from lines 19–25.",
+        "B": "A longer waggle run for faraway flowers is the point of the fifth paragraph, which is about distance; lines 19–25 are about direction.",
+        "D": "Pointing down for flowers away from the sun is one example inside lines 19–25; it is true, but it leaves out up, left and right, so it is too small to be the main idea."
+      },
+      "passage_id": "RC-W5-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f368fdb10c7fe58e"
+    },
+    {
+      "id": "RC-W5-X-02",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — a fact on a cited line",
+      "difficulty": "E",
+      "prompt": "According to lines 8–12, what does a round dance tell the other bees?",
+      "choices": {
+        "A": "that food is near, but not which way to fly",
+        "B": "which direction the bees should fly to reach it",
+        "C": "that the flowers are more than a mile and a half away",
+        "D": "how far the sun has moved across the sky since morning"
+      },
+      "correct": "A",
+      "explanation": "Lines 10–12 say the round dance “tells the other bees that food is nearby, but not which way to fly.”",
+      "misconceptions": "gives the round dance the waggle dance's job; takes a number from the distance example; takes a detail from the last paragraph",
+      "why": {
+        "B": "Which direction to fly is exactly what lines 11–12 say the round dance does not tell; that is the waggle dance's job.",
+        "C": "More than a mile and a half away is the distance in the waggle-dance example (lines 28–29); the round dance is for food very close to the hive.",
+        "D": "How far the sun has moved comes from the last paragraph, about a waggle dance later in the day."
+      },
+      "passage_id": "RC-W5-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "545327f65abb29ac"
+    },
+    {
+      "id": "RC-W5-X-03",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — a word with two meanings",
+      "difficulty": "M",
+      "prompt": "As it is used in lines 20–21, “stand for” means",
+      "choices": {
+        "A": "favor",
+        "B": "represent",
+        "C": "rise",
+        "D": "tolerate"
+      },
+      "correct": "B",
+      "explanation": "To stand for something is to represent it, the way a symbol on a map stands for a place. On the upright comb, straight up represents the direction of the sun.",
+      "misconceptions": "reads stand as standing upright; uses the put-up-with meaning; uses the believe-in meaning",
+      "why": {
+        "A": "Favor is the meaning in “what a club stands for,” what it believes in; the dancer is not taking the sun's side, she is using “up” as a sign for it.",
+        "C": "Rise borrows “stands upright” from the start of the same sentence; the comb stands up, but “stand for” is about what straight up means.",
+        "D": "Tolerate is the meaning in “I won't stand for that”; nothing in the sentence is being put up with."
+      },
+      "passage_id": "RC-W5-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f11f979b78c989d1"
+    },
+    {
+      "id": "RC-W5-X-04",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Inference",
+      "subskill": "inference — applying the passage to a new case",
+      "difficulty": "H",
+      "prompt": "A bee dances at noon for a patch of flowers and dances again for the same flowers late in the afternoon. Based on the passage, which part of her dance would most likely be different?",
+      "choices": {
+        "A": "how long each waggle run lasts",
+        "B": "whether she does a round dance",
+        "C": "the figure-eight shape of her path",
+        "D": "the direction her straight run points"
+      },
+      "correct": "D",
+      "explanation": "Lines 31–34 say a bee dancing for the same flowers later in the day changes the angle of her run, because the sun has moved. The flowers have stayed put, so the distance, and the length of the waggle, stay the same.",
+      "misconceptions": "thinks a later hour changes the distance; thinks the shape of the dance changes; mixes up the round and waggle dances",
+      "why": {
+        "A": "How long each waggle run lasts reports distance (lines 26–27), and the flowers have not moved, so the distance has not changed.",
+        "B": "Whether she does a round dance depends on how close the food is (lines 8–9), and the flowers are just as near or far as they were at noon.",
+        "C": "The figure-eight shape belongs to every waggle dance (lines 16–18); nothing says it changes with the time of day."
+      },
+      "passage_id": "RC-W5-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "bdee4a28bbe63a6c"
+    },
+    {
+      "id": "RC-W5-X-05",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — the question the passage answers",
+      "difficulty": "M",
+      "prompt": "Which of these questions can be answered from the passage?",
+      "choices": {
+        "A": "How does a bee show how far away food is?",
+        "B": "How many bees usually live together in a single hive?",
+        "C": "Why do bees visit some kinds of flowers and not others?",
+        "D": "How do honeybees turn the nectar they collect into honey?"
+      },
+      "correct": "A",
+      "explanation": "Lines 26–29 answer it: the farther away the flowers are, the longer each waggle run lasts. The passage never takes up the other three questions.",
+      "misconceptions": "picks a question about bees that the passage never discusses; assumes a familiar fact about bees must be in it",
+      "why": {
+        "B": "How many bees live in a hive is never given; the passage counts seconds and miles, not bees.",
+        "C": "Why bees choose some flowers is never discussed; the passage only says a bee may find a plentiful patch.",
+        "D": "Turning nectar into honey is never described; the passage follows the bees only as far as flying out to the flowers."
+      },
+      "passage_id": "RC-W5-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ac72c133b45fc29a"
+    },
+    {
+      "id": "RC-W5-X-06",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Tone/style/figurative language",
+      "subskill": "tone — the author's attitude",
+      "difficulty": "E",
+      "prompt": "Which word best describes the author's attitude toward the bees' dance?",
+      "choices": {
+        "A": "critical",
+        "B": "doubtful",
+        "C": "impressed",
+        "D": "sorrowful"
+      },
+      "correct": "C",
+      "explanation": "The author sets up a hard problem (no map, no way to point) and then shows the dance solving it exactly, even turning to keep up with the sun. That is the attitude of someone impressed.",
+      "misconceptions": "reads an informational passage as critical or doubtful; invents a sad tone",
+      "why": {
+        "A": "Critical would mean finding fault, but the author never says anything is wrong with the dance.",
+        "B": "Doubtful would mean questioning whether the dance works, yet the author says the other bees fly “directly toward the flowers.”",
+        "D": "Sorrowful has nothing to attach to; nothing in the passage is sad or lost."
+      },
+      "passage_id": "RC-W5-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8f20b049a262b839"
+    },
+    {
+      "id": "RC-W5-X-07",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — EXCEPT: the one detail the passage does not give",
+      "difficulty": "M",
+      "prompt": "The passage says that Wilson Bentley did all of the following EXCEPT",
+      "choices": {
+        "A": "measure raindrops",
+        "B": "photograph frost and dew",
+        "C": "teach at a school in Vermont",
+        "D": "make hundreds of sketches of snow"
+      },
+      "correct": "C",
+      "explanation": "The question asks for the one thing the passage does not say Bentley did. It was his mother who had once been a teacher (line 2); Bentley himself is never said to have taught.",
+      "misconceptions": "misses the EXCEPT and picks a stated detail; gives Bentley his mother's job",
+      "why": {
+        "A": "Measuring raindrops is in line 27, so the passage does say he did it.",
+        "B": "Photographing frost and dew is in lines 26–27, so it is something he did, not the exception.",
+        "D": "Making several hundred sketches is in lines 9–10, so it is not the exception."
+      },
+      "passage_id": "RC-W5-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2bf701c9c129def4"
+    },
+    {
+      "id": "RC-W5-X-08",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — an unfamiliar word's meaning from clues",
+      "difficulty": "E",
+      "prompt": "In line 21, Bentley “nudged” a crystal into position. This means that he",
+      "choices": {
+        "A": "breathed on it",
+        "B": "lifted it high",
+        "C": "melted it slowly",
+        "D": "pushed it gently"
+      },
+      "correct": "D",
+      "explanation": "To nudge something is to give it a small, gentle push. With the feather, Bentley pushed the crystal a little at a time until it sat where he wanted it.",
+      "misconceptions": "gives the feather the straw's job; picks an action the passage says he avoided",
+      "why": {
+        "A": "Breathed on it is exactly what lines 22–23 say he was careful never to do, because his breath could melt the crystal.",
+        "B": "Lifted it high is the straw's job in lines 20–21; the feather came next, to move the crystal into place.",
+        "C": "Melted it slowly names the danger he was guarding against, not what he did with the feather."
+      },
+      "passage_id": "RC-W5-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "a73596823e2dc30c"
+    },
+    {
+      "id": "RC-W5-X-09",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Inference",
+      "subskill": "inference — what a character's actions show",
+      "difficulty": "M",
+      "prompt": "Bentley's two years of failed photographs most likely show that he",
+      "choices": {
+        "A": "wanted to sell his pictures",
+        "B": "did not know how to use his microscope",
+        "C": "agreed with his father about the camera",
+        "D": "kept trying even when the work went badly"
+      },
+      "correct": "D",
+      "explanation": "Two years of failures did not stop him. He kept going until, on January 15, 1885, he made the first photograph of a single snow crystal, which shows he kept trying when the work went badly.",
+      "misconceptions": "reads failure as lack of skill; ignores what his father thought; invents a motive",
+      "why": {
+        "A": "Selling his pictures is never mentioned; the passage gives no sign that money was what kept him going.",
+        "B": "Not knowing how to use his microscope does not fit someone who had been using one since he was fifteen (lines 3–4).",
+        "C": "Agreeing with his father would mean deciding snowflakes were a waste of time, yet Bentley kept going until he succeeded."
+      },
+      "passage_id": "RC-W5-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f2df0f4b3d750c36"
+    },
+    {
+      "id": "RC-W5-X-10",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — how the whole passage is arranged",
+      "difficulty": "E",
+      "prompt": "Which choice best describes how the passage is organized?",
+      "choices": {
+        "A": "It argues for photographing snow.",
+        "B": "It tells his life story in time order.",
+        "C": "It compares snow crystals with frost and dew.",
+        "D": "It explains how snow crystals form in clouds."
+      },
+      "correct": "B",
+      "explanation": "The passage begins with his birth in 1865 and moves through the microscope at fifteen, the camera, the first photograph in 1885 and his later work, to his death in 1931: the events of his life in the order they happened.",
+      "misconceptions": "takes one detail as the plan of the whole passage",
+      "why": {
+        "A": "Arguing for photographing snow is not what the passage does; it reports what Bentley did and never tells the reader to photograph snow.",
+        "C": "Comparing snow crystals with frost and dew would take more than the one sentence (lines 26–27) that mentions frost and dew.",
+        "D": "How snow crystals form is never explained; the passage is about the man who photographed them."
+      },
+      "passage_id": "RC-W5-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ba6f14e9a5559af9"
+    },
+    {
+      "id": "RC-W5-X-11",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Tone/style/figurative language",
+      "subskill": "tone — the author's attitude",
+      "difficulty": "M",
+      "prompt": "How does the author seem to feel about Bentley's work?",
+      "choices": {
+        "A": "sorry it took so long",
+        "B": "amused by an odd hobby",
+        "C": "respectful of its care and patience",
+        "D": "doubtful that his photograph came first"
+      },
+      "correct": "C",
+      "explanation": "The author lingers on his care (the black tray, the straw, the feather, never breathing on a crystal) and on more than 5,000 photographs. That is respect for patient work, not amusement or doubt.",
+      "misconceptions": "takes the father's view for the author's; reads regret into a plain report",
+      "why": {
+        "A": "Sorry it took so long reads regret into the passage; the author reports the years of work as patience, not as a loss.",
+        "B": "Amused by an odd hobby borrows his father's view in lines 13–14; the author never makes fun of the work.",
+        "D": "Doubtful that his photograph came first goes against lines 17–18, which state plainly that he made the first photograph of a single snow crystal."
+      },
+      "passage_id": "RC-W5-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "1af4d8fb5069ec26"
+    },
+    {
+      "id": "RC-W5-X-12",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Main idea",
+      "subskill": "main idea — the central idea of the whole passage",
+      "difficulty": "M",
+      "prompt": "Which statement best expresses what the passage shows about Wilson Bentley?",
+      "choices": {
+        "A": "He patiently photographed snow crystals for decades.",
+        "B": "He proved that snow crystals form in six-sided shapes.",
+        "C": "He was the first scientist to study raindrops closely.",
+        "D": "His father taught him to use a camera and a microscope."
+      },
+      "correct": "A",
+      "explanation": "From the microscope at fifteen to the book of photographs in 1931, every paragraph follows his long, careful work photographing snow crystals.",
+      "misconceptions": "picks a minor detail; adds a claim the passage never makes; mixes up his parents' roles",
+      "why": {
+        "B": "Six-sided shapes are never mentioned; the passage reports only that he never found two crystals alike.",
+        "C": "Studying raindrops gets one mention (line 27), and the passage never calls him the first to do it.",
+        "D": "His father thought fussing with snowflakes a waste of time (lines 13–14), and it was his mother who gave him the microscope; the passage never says anyone taught him to use either one."
+      },
+      "passage_id": "RC-W5-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "55e022f48166af20"
+    },
+    {
+      "id": "RC-W5-X-13",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Inference",
+      "subskill": "inference — a character's feeling",
+      "difficulty": "E",
+      "prompt": "When Otis first reads the cast list, he most likely feels",
+      "choices": {
+        "A": "disappointed",
+        "B": "frightened",
+        "C": "grateful",
+        "D": "proud"
+      },
+      "correct": "A",
+      "explanation": "He reads the list twice “to be certain,” and he notes he is not Ancient Tree or Wise Old Tree but “simply Tree,” with no lines at all. He hoped for more, so he is disappointed.",
+      "misconceptions": "confuses checking twice with fear; reads pride or thanks into a small part",
+      "why": {
+        "B": "Frightened mistakes reading the list twice for nerves; what he dwells on is how small his part is, not fear of the stage.",
+        "C": "Grateful would need a sign that he wanted this part, but he notes it is not even Wise Old Tree, just Tree.",
+        "D": "Proud has nothing to rest on: lines 5–8 stress that his part has no lines and that he will say absolutely nothing."
+      },
+      "passage_id": "RC-W5-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f11d65d270b86b15"
+    },
+    {
+      "id": "RC-W5-X-14",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — the order of events",
+      "difficulty": "M",
+      "prompt": "Which of these events happens before the night of the performance?",
+      "choices": {
+        "A": "Otis learns every line in the play.",
+        "B": "Otis whispers the missing line to Nico.",
+        "C": "Families surround the queen and the woodcutter.",
+        "D": "Ms. Pruitt runs the lights from the back of the gym."
+      },
+      "correct": "A",
+      "explanation": "During rehearsals, by the third week, Otis “could have recited every line in the entire play” (lines 15–17). The other three events happen on the night of the show or after it.",
+      "misconceptions": "loses track of which events are rehearsals and which are the performance",
+      "why": {
+        "B": "Whispering the missing line happens on the night, in the third scene (lines 26–28).",
+        "C": "Families surround the actors afterward, once the show is over (lines 33–34).",
+        "D": "Running the lights happens on the night of the performance (lines 18–20)."
+      },
+      "passage_id": "RC-W5-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "d22930369aff3a3c"
+    },
+    {
+      "id": "RC-W5-X-15",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — a word with two meanings",
+      "difficulty": "M",
+      "prompt": "In line 15, the word “prompted” is closest in meaning to",
+      "choices": {
+        "A": "caused him to ask",
+        "B": "made him move faster",
+        "C": "reminded him of the words",
+        "D": "gave him a topic to write about"
+      },
+      "correct": "C",
+      "explanation": "In a play, to prompt an actor is to say the forgotten words so the actor can go on. Each time Nico forgot his line, Ms. Pruitt reminded him of it from the front row.",
+      "misconceptions": "uses the meaning on time; uses the meaning to cause; uses the classroom writing prompt",
+      "why": {
+        "A": "Caused him to ask uses “prompt” in the sense of leading someone to do something, but Nico asks nothing; he has forgotten his line.",
+        "B": "Made him move faster comes from prompt meaning quick or on time; Ms. Pruitt was helping Nico remember, not hurrying him.",
+        "D": "Gave him a topic to write about is a writing prompt from class, but this is a play rehearsal and Nico needed his line."
+      },
+      "passage_id": "RC-W5-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "82c2d8be2fc536dc"
+    },
+    {
+      "id": "RC-W5-X-16",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Tone/style/figurative language",
+      "subskill": "tone — the mood of a scene",
+      "difficulty": "M",
+      "prompt": "Which word best describes the mood of the scene in lines 20–25?",
+      "choices": {
+        "A": "cheerful",
+        "B": "peaceful",
+        "C": "sleepy",
+        "D": "tense"
+      },
+      "correct": "D",
+      "explanation": "Nico freezes, the silence stretches “like a rubber band about to snap,” someone coughs, and Nico stares at the floor. Everyone is uneasy and waiting, so the mood is tense.",
+      "misconceptions": "reads silence as calm; picks a mood from the rest of the story",
+      "why": {
+        "A": "Cheerful does not fit a scene in which nothing comes out of Nico's mouth and he stares at the floor.",
+        "B": "Peaceful mistakes the silence for calm, but this silence stretches “like a rubber band about to snap.”",
+        "C": "Sleepy does not fit an audience that is waiting, wide awake, to see what Nico will do."
+      },
+      "passage_id": "RC-W5-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "547f0e9f3b872581"
+    },
+    {
+      "id": "RC-W5-X-17",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — the turning point of a story",
+      "difficulty": "M",
+      "prompt": "Which event is the turning point of the story?",
+      "choices": {
+        "A": "Families surround the actors.",
+        "B": "Otis reads the cast list on the door.",
+        "C": "Otis whispers the forgotten line to Nico.",
+        "D": "Ms. Pruitt says the tree had the most important part."
+      },
+      "correct": "C",
+      "explanation": "Everything before the whisper builds toward it (the silent part, the listening, Nico frozen on stage), and everything after follows from it: Nico says his line and the play goes on.",
+      "misconceptions": "picks the opening or the ending instead of the moment things change",
+      "why": {
+        "A": "Families surrounding the actors comes after the play, once the trouble is already over.",
+        "B": "Reading the cast list is how the story begins; it sets up his small part but does not change anything yet.",
+        "D": "Ms. Pruitt's remark at the party looks back on the turning point; it is not the moment things change."
+      },
+      "passage_id": "RC-W5-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ed883a20239b6594"
+    },
+    {
+      "id": "RC-W5-X-18",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Main idea",
+      "subskill": "main idea — what a story is mainly about",
+      "difficulty": "E",
+      "prompt": "The story is mainly about a boy who",
+      "choices": {
+        "A": "learns to run the lights in the gym",
+        "B": "wants a bigger part in the next play",
+        "C": "forgets his line on the night of the play",
+        "D": "saves the play with what he heard at rehearsals"
+      },
+      "correct": "D",
+      "explanation": "The story follows Otis from a part with no lines, through weeks of listening, to the moment he whispers the line Nico has forgotten. What he heard is what saves the show.",
+      "misconceptions": "follows the wrong character; picks a detail from the background",
+      "why": {
+        "A": "Running the lights is Ms. Pruitt's job on the night; Otis is on stage the whole time.",
+        "B": "A bigger part next year is never mentioned; the story ends at this year's cast party.",
+        "C": "Forgetting a line on the night happens to Nico, not to Otis, the boy the story follows."
+      },
+      "passage_id": "RC-W5-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f6806e22d798d1ad"
+    },
+    {
+      "id": "RC-W5-X-19",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Main idea",
+      "subskill": "main idea — the author's purpose",
+      "difficulty": "M",
+      "prompt": "Why did the author most likely write this passage?",
+      "choices": {
+        "A": "to describe a program where children read to a dog",
+        "B": "to explain how a dog is trained to become a therapy dog",
+        "C": "to persuade families to buy a dog for a child who reads",
+        "D": "to tell the history of the public library in Salt Lake City"
+      },
+      "correct": "A",
+      "explanation": "Most of the passage shows one Saturday program (Oatmeal, Pam, the readers, Paloma) and explains why reading to a dog helps, with one paragraph on where the idea began.",
+      "misconceptions": "takes one paragraph for the purpose of the whole; reads an argument into a description",
+      "why": {
+        "B": "How a dog is trained is never explained; line 7 says only that Oatmeal is a registered therapy dog.",
+        "C": "Buying a dog is never suggested; Oatmeal belongs to Pam and comes to the library.",
+        "D": "The Salt Lake City library fills one paragraph (lines 19–24), which shows where the idea began; it is not the subject of the whole passage."
+      },
+      "passage_id": "RC-W5-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "468590a6d2709c2e"
+    },
+    {
+      "id": "RC-W5-X-20",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — a figurative or idiomatic phrase",
+      "difficulty": "E",
+      "prompt": "In line 17, “puts it more simply” tells us that Paloma",
+      "choices": {
+        "A": "writes it down in her notebook",
+        "B": "places her book on a lower shelf",
+        "C": "reads the hard words more slowly",
+        "D": "says the same idea in plainer words"
+      },
+      "correct": "D",
+      "explanation": "To put something simply is to say it in plain, easy words. Paloma sums up the whole paragraph in one short sentence: “He never says, ‘Sound it out.’”",
+      "misconceptions": "takes put literally; confuses saying with writing or reading",
+      "why": {
+        "A": "Writing it down turns speaking into writing; Paloma says her words aloud, and the passage quotes them.",
+        "B": "Placing her book on a shelf takes “puts” in its everyday sense of setting something down.",
+        "C": "Reading the hard words more slowly is about reading aloud, but “puts it” is about how Paloma says something."
+      },
+      "passage_id": "RC-W5-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "cd63eae95ccb072c"
+    },
+    {
+      "id": "RC-W5-X-21",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — the detail that supports a claim",
+      "difficulty": "M",
+      "prompt": "Which detail from the passage best supports the idea that children need not worry about mistakes when they read to Oatmeal?",
+      "choices": {
+        "A": "Paloma signs up for the following Saturday.",
+        "B": "A dog never interrupts, corrects, or laughs at a reader.",
+        "C": "Oatmeal listens patiently and rests his chin on a sneaker.",
+        "D": "More than one hundred children came to the Salt Lake City program."
+      },
+      "correct": "B",
+      "explanation": "The idea is about mistakes, and lines 15–16 speak to exactly that: a dog “never corrects a mistake or laughs when a word comes out wrong.” The other details are true, but they are about other things.",
+      "misconceptions": "picks a true detail that shows enjoyment or popularity rather than the claim",
+      "why": {
+        "A": "Signing up for the following Saturday shows Paloma enjoyed the visit, but it says nothing about how a mistake is treated.",
+        "C": "Listening patiently and resting his chin on a sneaker show that Oatmeal is calm and friendly, but they do not show what happens when a reader makes a mistake.",
+        "D": "More than one hundred children coming shows the Salt Lake City program was popular, not that mistakes were safe."
+      },
+      "passage_id": "RC-W5-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "cc546e8207e6678e"
+    },
+    {
+      "id": "RC-W5-X-22",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — the purpose of a paragraph",
+      "difficulty": "M",
+      "prompt": "Why does the author include the fourth paragraph (lines 19–24)?",
+      "choices": {
+        "A": "to show where the idea began and how it spread",
+        "B": "to describe the books that children bring to read",
+        "C": "to explain why Oatmeal was chosen as a therapy dog",
+        "D": "to argue that every library in the country should have a dog"
+      },
+      "correct": "A",
+      "explanation": "Lines 19–24 go back to a 1999 program in Salt Lake City, then say that libraries across the country have started similar ones: where the idea began and how it spread.",
+      "misconceptions": "assigns another paragraph's content to this one; reads a report as an argument",
+      "why": {
+        "B": "The books children bring are described in the second paragraph (lines 9–11).",
+        "C": "Why Oatmeal was chosen is never explained anywhere in the passage.",
+        "D": "Every library having a dog is never argued; lines 22–24 report only that many libraries have started similar programs."
+      },
+      "passage_id": "RC-W5-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "499a5bbd0fd47d3a"
+    },
+    {
+      "id": "RC-W5-X-23",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Inference",
+      "subskill": "inference — what the author would most likely say",
+      "difficulty": "H",
+      "prompt": "The author would most likely agree with which statement?",
+      "choices": {
+        "A": "Dogs understand most of the words that children read.",
+        "B": "A listener who never corrects can help a nervous reader.",
+        "C": "Children should read only to animals and never to people.",
+        "D": "Reading to a dog is a new idea that few libraries have tried."
+      },
+      "correct": "B",
+      "explanation": "The passage says many children feel nervous reading aloud to people, and that a dog never interrupts, corrects, or laughs. So the author would agree that a listener who never corrects can help a nervous reader.",
+      "misconceptions": "overstates the claim; takes Pam's game literally; contradicts the history paragraph",
+      "why": {
+        "A": "Dogs understanding the words is not claimed; Pam's question in lines 26–27 is a way to let the child explain, not proof that Oatmeal understands.",
+        "C": "Reading only to animals goes far beyond the passage, which says some children feel nervous reading to people, not that they should stop.",
+        "D": "A new idea that few have tried contradicts lines 19–24: the passage says the idea is not new, and libraries across the country have started similar programs."
+      },
+      "passage_id": "RC-W5-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "1ae2eb0f976dd5ba"
+    },
+    {
+      "id": "RC-W5-X-24",
+      "subject": "RC",
+      "form": "W5",
+      "skill": "Tone/style/figurative language",
+      "subskill": "style — what kind of writing the passage is",
+      "difficulty": "E",
+      "prompt": "The passage is most like",
+      "choices": {
+        "A": "a set of rules for dog owners",
+        "B": "a folktale that explains why dogs wag",
+        "C": "a letter asking the library for money",
+        "D": "a news article about a library program"
+      },
+      "correct": "D",
+      "explanation": "The passage reports on a real kind of program, with a scene from one Saturday, a quotation from a child, and facts about where the idea began. That is how a news article reads.",
+      "misconceptions": "matches the subject, dogs, instead of the form of the writing",
+      "why": {
+        "A": "A set of rules would tell the reader what to do; this passage describes what happens on Saturdays.",
+        "B": "A folktale would be made up and set long ago; this passage reports a real kind of program happening now, with a date and a city.",
+        "C": "A letter would be addressed to someone and ask for something; this passage asks for nothing."
+      },
+      "passage_id": "RC-W5-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b9a15df48cee5ed7"
+    },
+    {
+      "id": "RC-W6-X-01",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — a reason the passage states",
+      "difficulty": "E",
+      "prompt": "According to the passage, why do you see a flash of lightning before you hear its thunder?",
+      "choices": {
+        "A": "Light travels much faster than sound.",
+        "B": "Clouds block the sound for a few seconds.",
+        "C": "Thunder is made only after the air cools.",
+        "D": "The flash happens before the thunder is made."
+      },
+      "correct": "A",
+      "explanation": "Lines 13–16 say the flash and the sound begin together, but light reaches your eyes almost immediately while thunder takes about five seconds to travel one mile.",
+      "misconceptions": "thinks the flash happens first; mixes how thunder is made with how it travels; invents a cause",
+      "why": {
+        "B": "Clouds blocking the sound are never mentioned; the passage says sound simply moves more slowly.",
+        "C": "The air cooling is part of how thunder is made (lines 10–12), not the reason it reaches you later.",
+        "D": "The flash coming first is what line 13 rules out: “The flash and the sound begin together.”"
+      },
+      "passage_id": "RC-W6-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "bd0fb1a6c901e2cf"
+    },
+    {
+      "id": "RC-W6-X-02",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Inference",
+      "subskill": "inference — applying the passage to a new case",
+      "difficulty": "E",
+      "prompt": "Pablo counts ten seconds between a flash and its thunder. Based on the passage, about how far away did the lightning strike?",
+      "choices": {
+        "A": "1/2 mile",
+        "B": "2 miles",
+        "C": "5 miles",
+        "D": "10 miles"
+      },
+      "correct": "B",
+      "explanation": "Lines 17–19 say to count the seconds and divide by five. Ten seconds divided by five is 2, so the lightning struck about 2 miles away.",
+      "misconceptions": "divides the wrong way; uses the five seconds per mile as the answer; treats seconds as miles",
+      "why": {
+        "A": "1/2 mile comes from dividing five by ten instead of dividing the ten seconds by five.",
+        "C": "5 miles takes the five seconds that thunder needs to travel one mile as if it were the answer.",
+        "D": "10 miles counts each second as a mile and forgets to divide by five."
+      },
+      "passage_id": "RC-W6-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "205cb966cee051e9"
+    },
+    {
+      "id": "RC-W6-X-03",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — a word with two meanings",
+      "difficulty": "M",
+      "prompt": "In line 21, the word “crack” refers to",
+      "choices": {
+        "A": "attempt",
+        "B": "bang",
+        "C": "joke",
+        "D": "split"
+      },
+      "correct": "B",
+      "explanation": "Line 21 pairs “crack” with “click” as sounds that come from lightning nearby, so here a crack is a sudden, sharp noise: a bang.",
+      "misconceptions": "uses the everyday meaning of a split; uses the idioms for a try or a joke",
+      "why": {
+        "A": "Attempt is the meaning in “take a crack at it”; nothing in line 21 is trying anything.",
+        "C": "Joke is the meaning in “a wisecrack”; the passage is describing a sound, not something funny.",
+        "D": "Split is the meaning in “a crack in the sidewalk,” but this crack is something you hear, like the click beside it."
+      },
+      "passage_id": "RC-W6-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ea3149f35a068f4b"
+    },
+    {
+      "id": "RC-W6-X-04",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Main idea",
+      "subskill": "main idea — the central idea of the whole passage",
+      "difficulty": "E",
+      "prompt": "Which sentence best states the main idea of “Counting to Thunder”?",
+      "choices": {
+        "A": "Lightning heats the air to great temperatures.",
+        "B": "A rumble of thunder is louder than a sharp crack.",
+        "C": "Counting seconds after a flash keeps a person safe.",
+        "D": "Thunder can tell you how far away lightning struck."
+      },
+      "correct": "D",
+      "explanation": "Most of the passage is about reading thunder: the seconds between flash and sound give the distance, and a crack or a rumble gives a clue too. The heat is one detail, and the end warns that counting is not the same as being safe.",
+      "misconceptions": "picks a vivid detail; turns the warning around; invents a comparison",
+      "why": {
+        "A": "The heat of lightning is one detail from the second paragraph, not what the whole passage is about.",
+        "B": "Louder is never claimed; the passage says a rumble means the lightning was farther away.",
+        "C": "Keeping safe by counting is what the last lines deny: the count “cannot promise anything about the next one.”"
+      },
+      "passage_id": "RC-W6-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "886dec8008e0a08d"
+    },
+    {
+      "id": "RC-W6-X-05",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Tone/style/figurative language",
+      "subskill": "figurative language — personification",
+      "difficulty": "M",
+      "prompt": "In the last sentence, the author says the count “cannot promise anything about the next one.” This means that",
+      "choices": {
+        "A": "counting cannot predict the next strike",
+        "B": "lightning never strikes the same place twice",
+        "C": "the next bolt will land where the last one did",
+        "D": "a person should keep counting until the storm ends"
+      },
+      "correct": "A",
+      "explanation": "Counting cannot really make a promise; the author gives the count a person's action to make a point. The count tells only where the last bolt landed, so it cannot predict where the next one will strike.",
+      "misconceptions": "takes the sentence as a promise about the next bolt; brings in a saying from outside the passage; misses the warning",
+      "why": {
+        "B": "Never striking the same place twice is a popular saying that the passage never mentions, and it would be a promise about the next bolt.",
+        "C": "The next bolt landing where the last one did is a promise about the next bolt, the very thing the sentence says the count cannot give.",
+        "D": "Keeping on counting misses the warning just before it: anyone who can hear thunder is probably close enough to be struck."
+      },
+      "passage_id": "RC-W6-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "42aa92fed3e9dbef"
+    },
+    {
+      "id": "RC-W6-X-06",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — EXCEPT: the question the passage does not answer",
+      "difficulty": "H",
+      "prompt": "The passage answers all of the following questions EXCEPT",
+      "choices": {
+        "A": "What causes the sound of thunder?",
+        "B": "How far away can thunder be heard?",
+        "C": "Where does lightning strike most often?",
+        "D": "What can a rumble of thunder tell a listener?"
+      },
+      "correct": "C",
+      "explanation": "Three of the questions are answered in the passage. Nothing in it says where lightning strikes most often, so that is the one it does not answer.",
+      "misconceptions": "misses the EXCEPT; assumes a well-known lightning fact must be in the passage",
+      "why": {
+        "A": "What causes the sound of thunder is answered in lines 6–12: heated air expands and then squeezes back together.",
+        "B": "How far away thunder can be heard is answered in lines 24–26: about ten miles.",
+        "D": "What a rumble can tell a listener is answered in lines 21–23: the lightning was at least several miles away."
+      },
+      "passage_id": "RC-W6-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "35560d21fbb70e68"
+    },
+    {
+      "id": "RC-W6-X-07",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — the purpose of a paragraph",
+      "difficulty": "M",
+      "prompt": "What is the main purpose of the second paragraph (lines 7–12)?",
+      "choices": {
+        "A": "to explain why trains often ran late in Chicago",
+        "B": "to show that Chicago's clocks were more correct",
+        "C": "to describe the four time zones the railroads chose",
+        "D": "to give real examples of how much local times differed"
+      },
+      "correct": "D",
+      "explanation": "Lines 7–10 give actual times (11:50 in St. Louis, 11:27 in Omaha, 12:07 in Indianapolis) for the moment it was noon in Chicago: real examples of how far apart local times were.",
+      "misconceptions": "assigns a later paragraph's job to this one; reads a judgment into the examples",
+      "why": {
+        "A": "Late trains in Chicago are never mentioned; Chicago is only the city the other times are measured against.",
+        "B": "Chicago's clocks being more correct is never claimed; each town simply followed its own sun.",
+        "C": "The four time zones come later, in lines 19–24; the second paragraph is still about the old local times."
+      },
+      "passage_id": "RC-W6-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ec4842e36e9c7cbb"
+    },
+    {
+      "id": "RC-W6-X-08",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — a fact on a cited line",
+      "difficulty": "E",
+      "prompt": "According to lines 7–10, what time was it in St. Louis when it was noon by the sun in Chicago?",
+      "choices": {
+        "A": "11:27",
+        "B": "11:50",
+        "C": "12:00",
+        "D": "12:07"
+      },
+      "correct": "B",
+      "explanation": "Line 8 says that when it was noon by the sun in Chicago, “it was 11:50 in St. Louis, Missouri.”",
+      "misconceptions": "takes the time for the wrong city; assumes noon was the same everywhere",
+      "why": {
+        "A": "11:27 was the time in Omaha, Nebraska, the next city named in the same sentence.",
+        "C": "12:00 assumes that every city reached noon at the same moment, which is exactly what the paragraph shows was not true.",
+        "D": "12:07 was the time in Indianapolis, which was already past noon."
+      },
+      "passage_id": "RC-W6-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ade0f43358d633be"
+    },
+    {
+      "id": "RC-W6-X-09",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Inference",
+      "subskill": "inference — a conclusion the facts support",
+      "difficulty": "H",
+      "prompt": "The passage suggests that in a city where noon came twice on November 18, 1883, the clocks had to be",
+      "choices": {
+        "A": "turned back after the first noon",
+        "B": "stopped until the next morning came",
+        "C": "moved one hour ahead of the old time",
+        "D": "set again by the sun's highest point"
+      },
+      "correct": "A",
+      "explanation": "The clocks struck noon once by the old local time and again by the new standard time (lines 25–27). For noon to come a second time, the new noon had to arrive later, so after striking noon the first time the clocks were turned back.",
+      "misconceptions": "applies the hour between zones; confuses the old sun time with the new standard time",
+      "why": {
+        "B": "Stopped until morning is never suggested, and a stopped clock could not strike noon a second time that day.",
+        "C": "Moved one hour ahead borrows the hour between zones (lines 23–24), and a clock moved ahead would skip noon, not strike it twice.",
+        "D": "Set by the sun's highest point is the old local time, the very thing the new standard time replaced."
+      },
+      "passage_id": "RC-W6-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "4736a6555dd0f86e"
+    },
+    {
+      "id": "RC-W6-X-10",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — a word with two meanings",
+      "difficulty": "E",
+      "prompt": "The clocks “struck” noon in line 25. Here “struck” means",
+      "choices": {
+        "A": "attacked",
+        "B": "discovered",
+        "C": "knocked",
+        "D": "sounded"
+      },
+      "correct": "D",
+      "explanation": "When a clock strikes noon, it sounds the hour, ringing or chiming twelve times. On November 18, 1883, some clocks sounded noon twice.",
+      "misconceptions": "uses the everyday meaning of hitting; uses the meanings attack and discover",
+      "why": {
+        "A": "Attacked is the meaning in “the storm struck the coast”; the clocks were not attacking anything.",
+        "B": "Discovered is the meaning in “struck gold”; nothing was found.",
+        "C": "Knocked takes struck in its everyday sense of hitting, as in “struck his head on the shelf”; a clock that strikes noon rings out the hour."
+      },
+      "passage_id": "RC-W6-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8a8f103a0b98ff9c"
+    },
+    {
+      "id": "RC-W6-X-11",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Main idea",
+      "subskill": "main idea — the central idea of the whole passage",
+      "difficulty": "M",
+      "prompt": "What is the main point of “The Day Noon Came Twice”?",
+      "choices": {
+        "A": "St. Louis and Omaha kept time differently from Chicago.",
+        "B": "Congress created the four time zones for the whole country.",
+        "C": "The railroads replaced each town's sun time with time zones.",
+        "D": "Each town once set its clocks by the highest point of the sun."
+      },
+      "correct": "C",
+      "explanation": "The passage explains the problem of each town keeping its own sun time, how trains made it worse, and how the railroads moved the country to four time zones on November 18, 1883.",
+      "misconceptions": "picks the problem or an example instead of the whole; credits Congress with the railroads' change",
+      "why": {
+        "A": "St. Louis, Omaha and Chicago are the examples in the second paragraph, not the main point.",
+        "B": "Congress did not create the zones; lines 30–31 say the railroads made the change and Congress made it law years later.",
+        "D": "Setting clocks by the sun is where the passage begins, the problem rather than the main point."
+      },
+      "passage_id": "RC-W6-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "61bfa5331e54cc32"
+    },
+    {
+      "id": "RC-W6-X-12",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Tone/style/figurative language",
+      "subskill": "figurative language — a metaphor or figurative phrase",
+      "difficulty": "M",
+      "prompt": "In lines 32–33, the phrase “living on railroad time” suggests that people",
+      "choices": {
+        "A": "rode the train each day",
+        "B": "followed the time the railroads chose",
+        "C": "worked for one of the railroad companies",
+        "D": "lived in houses beside the railroad tracks"
+      },
+      "correct": "B",
+      "explanation": "To live on a kind of time is to run your days by it. Much of the country had gone by the time zones the railroads chose for thirty-five years before Congress made them law.",
+      "misconceptions": "takes the phrase literally as a place, a job or a trip",
+      "why": {
+        "A": "Riding the train each day reads the phrase as a trip; people could follow railroad time without boarding a train.",
+        "C": "Working for the railroads takes “railroad time” as a job, but the sentence is about much of the country, not railroad workers.",
+        "D": "Living beside the tracks reads “living on” as a place to live, but the phrase is about which time people went by."
+      },
+      "passage_id": "RC-W6-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b144fba85b599fdd"
+    },
+    {
+      "id": "RC-W6-X-13",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — an unfamiliar word's meaning from clues",
+      "difficulty": "E",
+      "prompt": "As the word is used in line 23, the “skirt” of a steel pan is",
+      "choices": {
+        "A": "a piece of clothing",
+        "B": "the side of the drum",
+        "C": "a cloth hung around a table",
+        "D": "a way of going around something"
+      },
+      "correct": "B",
+      "explanation": "Lines 22–23 define it: “The side of the drum, called the skirt.” It is cut to a length that depends on the kind of pan being made.",
+      "misconceptions": "uses the everyday clothing meaning; uses the verb meaning to go around",
+      "why": {
+        "A": "A piece of clothing is the everyday meaning of skirt, but this skirt is part of an oil drum.",
+        "C": "A cloth hung around a table is another kind of skirt, but nothing in the passage is a table.",
+        "D": "A way of going around something is the verb “to skirt,” as in skirting a puddle; here the word names a part of the drum."
+      },
+      "passage_id": "RC-W6-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "fa81a2b6553dd8dc"
+    },
+    {
+      "id": "RC-W6-X-14",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Main idea",
+      "subskill": "main idea — the main idea of one paragraph",
+      "difficulty": "H",
+      "prompt": "Which sentence best sums up lines 29–32?",
+      "choices": {
+        "A": "One bass player may play six drums.",
+        "B": "The maker heats the drum over a fire.",
+        "C": "A note's size decides how high or low it sounds.",
+        "D": "Players strike the pan with rubber-tipped sticks."
+      },
+      "correct": "C",
+      "explanation": "Lines 29–32 state a rule, the larger the oval, the lower the note, and then give an example: a bass pan uses a whole drum for only three low notes. The rule is the main idea; the bass pan is a detail that shows it.",
+      "misconceptions": "picks a detail from another paragraph; picks the example instead of the rule",
+      "why": {
+        "A": "One bass player playing six drums is a true detail from lines 31–32, an example of the rule rather than the main idea.",
+        "B": "Heating the drum over a fire is a step from the paragraph before (line 24), not what lines 29–32 are about.",
+        "D": "Rubber-tipped sticks come from the first paragraph (lines 3–4), not from lines 29–32."
+      },
+      "passage_id": "RC-W6-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "3c9dbcb23b4f641f"
+    },
+    {
+      "id": "RC-W6-X-15",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — how the whole passage is arranged",
+      "difficulty": "M",
+      "prompt": "The author arranges the information in the passage by",
+      "choices": {
+        "A": "comparing the steel pan with other drums",
+        "B": "telling one player's life from childhood on",
+        "C": "telling how the pan began, then how one is made",
+        "D": "listing the steps a beginner follows to learn to play"
+      },
+      "correct": "C",
+      "explanation": "After a short opening, the passage tells where the steel pan came from (the bans, the bamboo, the metal, the oil drums), then explains how a pan is made and tuned, and ends with the pan today.",
+      "misconceptions": "takes one part of the passage as the plan of the whole",
+      "why": {
+        "A": "Comparing the steel pan with other drums would need other drums to compare it with, and none is described.",
+        "B": "One player's life is never told; the passage follows the instrument, not a person.",
+        "D": "Steps for learning to play are never given; the steps in the passage are for making a pan."
+      },
+      "passage_id": "RC-W6-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "c642524e5636d330"
+    },
+    {
+      "id": "RC-W6-X-16",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — EXCEPT: the one detail the passage does not give",
+      "difficulty": "H",
+      "prompt": "The passage says that making a pan includes each of the following steps EXCEPT",
+      "choices": {
+        "A": "cooling the metal in water",
+        "B": "cutting the skirt to length",
+        "C": "heating the metal over a fire",
+        "D": "pounding the bottom into a bowl"
+      },
+      "correct": "A",
+      "explanation": "Lines 19–26 list the steps: pounding the bottom into a bowl, marking and shaping the notes, cutting the skirt, heating the metal over a fire, and tuning. Cooling the metal in water is never mentioned, so it is the exception.",
+      "misconceptions": "misses the EXCEPT; supplies a metalworking step the passage never gives",
+      "why": {
+        "B": "Cutting the skirt to length is in lines 22–24, so it is one of the steps.",
+        "C": "Heating the metal over a fire is in line 24, so it is one of the steps.",
+        "D": "Pounding the bottom into a bowl is the first step, in lines 19–21."
+      },
+      "passage_id": "RC-W6-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "0c56666691071b41"
+    },
+    {
+      "id": "RC-W6-X-17",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Tone/style/figurative language",
+      "subskill": "figurative language — a metaphor or figurative phrase",
+      "difficulty": "M",
+      "prompt": "In lines 26–28, the author writes that “the music is hammered out of the metal itself.” This suggests that",
+      "choices": {
+        "A": "a pan is played with a hammer",
+        "B": "the maker glues extra metal onto the drum",
+        "C": "the notes come from shaping the drum itself",
+        "D": "steel pans are louder than other instruments"
+      },
+      "correct": "C",
+      "explanation": "The maker adds nothing to the drum; the notes come from pounding, shaping and tuning the metal that is already there. Saying the music is “hammered out of the metal” means the sound comes from the drum's own metal, once it is shaped.",
+      "misconceptions": "takes a figurative sentence literally; reverses it",
+      "why": {
+        "A": "Playing with a hammer takes the words literally; the passage says players use rubber-tipped sticks.",
+        "B": "Gluing on extra metal is the opposite: the sentence says the maker does not add music to the drum.",
+        "D": "Being louder than other instruments is never claimed; the sentence is about where the notes come from."
+      },
+      "passage_id": "RC-W6-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8e6568b1be24c087"
+    },
+    {
+      "id": "RC-W6-X-18",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Inference",
+      "subskill": "inference — applying the passage to a new case",
+      "difficulty": "H",
+      "prompt": "A pan maker wants one note to sound lower than all the other notes on her pan. Based on the passage, what should she do?",
+      "choices": {
+        "A": "strike that note harder",
+        "B": "make that note's oval larger",
+        "C": "make that note's oval smaller",
+        "D": "cut the skirt of the pan shorter"
+      },
+      "correct": "B",
+      "explanation": "Lines 29–30 give the rule: the larger the oval of metal, the lower the note. To make one note lower than the rest, she should give it a larger oval.",
+      "misconceptions": "reverses the size rule; confuses playing with making; confuses the skirt with a single note",
+      "why": {
+        "A": "Striking harder is about how a player plays, not how a maker shapes a note, and the passage ties a lower note to a larger oval.",
+        "C": "A smaller oval gives a higher note; the passage says the larger the oval, the lower the note (lines 29–30).",
+        "D": "Cutting the skirt is done for the whole pan, by the kind of pan being made, not for one note; a single note's sound comes from the size of its oval."
+      },
+      "passage_id": "RC-W6-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "962f68322fd19760"
+    },
+    {
+      "id": "RC-W6-X-19",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Main idea",
+      "subskill": "main idea — what a folktale explains",
+      "difficulty": "E",
+      "prompt": "This tale mainly explains",
+      "choices": {
+        "A": "why the owl calls only at night",
+        "B": "how birds learned to build nests",
+        "C": "how the oriole got its bright colors",
+        "D": "why mockingbirds sing other birds' songs"
+      },
+      "correct": "D",
+      "explanation": "The tale ends by naming what it explains: “That is why, to this day, the mockingbird imitates the songs of many other birds” (lines 34–35). Everything before leads up to that.",
+      "misconceptions": "picks one visit as the whole; misreads bright as a color",
+      "why": {
+        "A": "The owl calling at night is one visit in the tale, not what the tale sets out to explain.",
+        "B": "Building nests never comes up anywhere in the tale.",
+        "C": "The oriole's bright colors misread its wish for something bright: it wanted a bright song for the treetops."
+      },
+      "passage_id": "RC-W6-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "c4c8daf4561029bf"
+    },
+    {
+      "id": "RC-W6-X-20",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — what a character says or does",
+      "difficulty": "E",
+      "prompt": "According to the tale, what did the mockingbird do when the other birds asked for pieces of her song?",
+      "choices": {
+        "A": "She taught her song only to the owl.",
+        "B": "She gave a piece to each bird that asked.",
+        "C": "She sent away the birds that came too late.",
+        "D": "She traded each piece for one of their songs."
+      },
+      "correct": "B",
+      "explanation": "Lines 17–18 say the birds kept coming all spring and the mockingbird “never sent anyone away,” and lines 20–21 say she had given away the final piece.",
+      "misconceptions": "stops at the first visit; reverses a stated detail",
+      "why": {
+        "A": "Teaching only the owl stops after the first visit; the oriole and the nuthatch were given pieces too.",
+        "C": "Sending birds away is the reverse of line 18: she “never sent anyone away.”",
+        "D": "Trading for their songs could not happen, because the other birds could only chirp until she gave them songs."
+      },
+      "passage_id": "RC-W6-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f63df85ed99bbfbf"
+    },
+    {
+      "id": "RC-W6-X-21",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — a figurative or idiomatic phrase",
+      "difficulty": "M",
+      "prompt": "In line 21, “Her heart sank” means that the mockingbird",
+      "choices": {
+        "A": "became too sick to sing",
+        "B": "felt sad and discouraged",
+        "C": "felt her heart beat faster",
+        "D": "flew down to a lower branch"
+      },
+      "correct": "B",
+      "explanation": "When someone's heart sinks, they suddenly feel sad and discouraged. The mockingbird has just found that her whole song is gone.",
+      "misconceptions": "takes sank literally as moving down; reads the phrase as illness or fear",
+      "why": {
+        "A": "Too sick to sing misreads why nothing came out; she had given every piece away, she was not ill.",
+        "C": "Her heart beating faster goes with fear or excitement, and she shows neither; she sits quietly with her head low.",
+        "D": "Flying to a lower branch takes “sank” as moving downward, but she stays at the top of the pine (line 23)."
+      },
+      "passage_id": "RC-W6-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "6940a88f98776f09"
+    },
+    {
+      "id": "RC-W6-X-22",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Inference",
+      "subskill": "inference — a character's feeling",
+      "difficulty": "M",
+      "prompt": "When the mockingbird slowly lifts her head that evening, she most likely feels",
+      "choices": {
+        "A": "angry",
+        "B": "ashamed",
+        "C": "hopeful",
+        "D": "sleepy"
+      },
+      "correct": "C",
+      "explanation": "All day her head was “tucked low” with sadness. She lifts it as she hears the songs she created and realizes she knows every one, so her feeling is turning to hope.",
+      "misconceptions": "reads anger into sadness; takes the time of day as the feeling",
+      "why": {
+        "A": "Angry does not fit; lines 21–23 say she did not blame the other birds.",
+        "B": "Ashamed has nothing to rest on: she has done nothing wrong, and she is about to sing again.",
+        "D": "Sleepy mistakes the evening hour for her feeling; she lifts her head because she hears the songs, not because she is waking up."
+      },
+      "passage_id": "RC-W6-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "dfccf7677c294d80"
+    },
+    {
+      "id": "RC-W6-X-23",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Tone/style/figurative language",
+      "subskill": "style — what kind of writing the passage is",
+      "difficulty": "E",
+      "prompt": "Which kind of writing is this passage?",
+      "choices": {
+        "A": "a folktale about something in nature",
+        "B": "a news report about a study of birds",
+        "C": "a letter from the owl to the mockingbird",
+        "D": "a set of directions for teaching a bird to sing"
+      },
+      "correct": "A",
+      "explanation": "It begins “Long ago,” has birds that talk, and ends “That is why, to this day…”: it is a folktale that explains something real in nature, the mockingbird's way of copying other birds' songs.",
+      "misconceptions": "matches the subject, birds, instead of the kind of writing",
+      "why": {
+        "B": "A news report would give facts about real birds and people; in this tale, birds talk and give away songs.",
+        "C": "A letter would be written to one reader and signed; this tale is told by a storyteller about all the birds.",
+        "D": "A set of directions would tell the reader what to do; the tale tells what happened long ago."
+      },
+      "passage_id": "RC-W6-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b0907795a8de84d7"
+    },
+    {
+      "id": "RC-W6-X-24",
+      "subject": "RC",
+      "form": "W6",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — how the whole passage is arranged",
+      "difficulty": "H",
+      "prompt": "Which description best fits the way the tale is put together?",
+      "choices": {
+        "A": "Two birds argue until a wise animal settles it.",
+        "B": "One kind of visit repeats until a sudden change.",
+        "C": "It starts at the end and then goes back to the start.",
+        "D": "Each paragraph tells about a different season of the year."
+      },
+      "correct": "B",
+      "explanation": "Bird after bird comes and asks, and each time the mockingbird gives away a piece (lines 7–18). Then the pattern breaks: one morning nothing is left, and that evening she finds a new way to sing.",
+      "misconceptions": "invents a conflict; misreads the order of events or the time span",
+      "why": {
+        "A": "Two birds arguing never happens; the mockingbird gives every piece freely and blames no one.",
+        "C": "Starting at the end is not how it moves: the tale goes forward, from one morning to the next day to that evening.",
+        "D": "A different season for each paragraph is wrong: the only season the tale names is spring."
+      },
+      "passage_id": "RC-W6-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "7857853ae8e81181"
+    },
+    {
+      "id": "RC-W7-X-01",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — the purpose of a paragraph",
+      "difficulty": "M",
+      "prompt": "The first paragraph (lines 1–9) mainly serves to",
+      "choices": {
+        "A": "describe where wood frogs lay their eggs",
+        "B": "explain how the western toad makes its burrow",
+        "C": "prove that deep ponds in Alaska never freeze at all",
+        "D": "show that the wood frog meets winter in a stranger way"
+      },
+      "correct": "D",
+      "explanation": "The first paragraph tells how the western toad and the spotted frog hide from the ice, then says the wood frog \"does something stranger\" (lines 6–7): it waits for the cold. It sets up the contrast that the rest of the passage explains.",
+      "misconceptions": "takes one example (the toad's burrow) for the purpose of the paragraph; misreads \"too deep to freeze solid\" as never freezing; takes the frog's winter hollow for a nest",
+      "why": {
+        "A": "Where wood frogs lay their eggs is never described; the shallow hollow in lines 7–8 is where the frog itself waits out the winter, not a nest for eggs.",
+        "B": "How the western toad makes its burrow is never explained; lines 2–4 say only where it spends the winter, as one of two animals set beside the wood frog.",
+        "C": "Never freezing at all misreads lines 5–6: the pond is too deep to freeze solid, so it does not freeze all the way down to the mud where the spotted frog is buried."
+      },
+      "passage_id": "RC-W7-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ae5e07890c5b1b9c"
+    },
+    {
+      "id": "RC-W7-X-02",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — the one choice the passage does not support (EXCEPT)",
+      "difficulty": "M",
+      "prompt": "According to the passage, all of the following happen to a wood frog as it freezes EXCEPT",
+      "choices": {
+        "A": "it stops breathing",
+        "B": "its eyes turn white",
+        "C": "it hops toward a pond",
+        "D": "ice wraps around its organs"
+      },
+      "correct": "C",
+      "explanation": "Hopping toward a pond happens in the spring, after the frog has thawed: lines 29–30 say that within hours the males are hopping toward shallow ponds. The other three changes happen as the frog freezes (lines 18–22).",
+      "misconceptions": "mixes up the spring thaw with the freeze; counts everything the frog does in the passage as part of freezing",
+      "why": {
+        "A": "It stops breathing does happen as the frog freezes: line 22 says its heart stops beating and it stops breathing.",
+        "B": "Its eyes turning white does happen as the frog freezes: line 20 says so, just as ice spreads between the frog's skin and its muscles.",
+        "D": "Ice wrapping around its organs does happen as the frog freezes: lines 18–19 say ice fills the frog's belly and wraps around its organs."
+      },
+      "passage_id": "RC-W7-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ca6c5aa5b22b62d5"
+    },
+    {
+      "id": "RC-W7-X-03",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — a word with two meanings",
+      "difficulty": "E",
+      "prompt": "In line 8, “hollow” most nearly means",
+      "choices": {
+        "A": "empty on the inside",
+        "B": "a small dip in the ground",
+        "C": "a deep tunnel under the soil",
+        "D": "a thick pile of fallen leaves"
+      },
+      "correct": "B",
+      "explanation": "The frog settles into a shallow hollow on the forest floor, under the leaves, so a hollow here is a small dip or low spot in the ground.",
+      "misconceptions": "uses the adjective sense (empty inside); confuses the hollow with the leaves on top of it or with the toad's burrow",
+      "why": {
+        "A": "Empty on the inside is what hollow means in “a hollow log,” but here a hollow is a place on the forest floor that the frog settles into (lines 7–8).",
+        "C": "A deep tunnel under the soil is more like the toad's burrow below the frost line (lines 3–4); the frog's hollow is shallow and sits on the forest floor (line 8).",
+        "D": "A thick pile of fallen leaves is what covers the frog; the hollow lies beneath a blanket of fallen leaves (lines 8–9)."
+      },
+      "passage_id": "RC-W7-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8c8cc69f368e62fc"
+    },
+    {
+      "id": "RC-W7-X-04",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Inference",
+      "subskill": "inference — applying the passage to a new case",
+      "difficulty": "H",
+      "prompt": "Based on the passage, what would most likely happen to a wood frog whose liver could not make glucose as the ice began to form?",
+      "choices": {
+        "A": "It would hide in a burrow instead.",
+        "B": "It would wake up sooner in the spring.",
+        "C": "Its heart would keep beating all winter.",
+        "D": "The water inside its cells would turn to ice."
+      },
+      "correct": "D",
+      "explanation": "Lines 23–24 say the thick, syrupy sugar is what keeps the water inside each cell from freezing. A frog that could not make glucose would have no such protection, so the water inside its cells would turn to ice.",
+      "misconceptions": "ties the glucose to the heartbeat or to the time of thawing; borrows the toad's burrow from the first paragraph",
+      "why": {
+        "A": "Hiding in a burrow is what the western toad does (lines 2–4); nothing suggests a wood frog could change its whole way of spending the winter.",
+        "B": "Waking up sooner in the spring has nothing to do with the glucose; the passage says only that the frog thaws from the inside out (line 27).",
+        "C": "A heart that keeps beating all winter is not what the glucose controls; every frozen wood frog's heart stops (line 22), and the sugar protects the water inside its cells (lines 23–24)."
+      },
+      "passage_id": "RC-W7-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "0e93603fb76aabb7"
+    },
+    {
+      "id": "RC-W7-X-05",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Tone/style/figurative language",
+      "subskill": "figurative language — personification",
+      "difficulty": "M",
+      "prompt": "The author writes that the frog “waits for the cold to find it” (line 9) and that “The cold always does” (line 10). These words suggest that",
+      "choices": {
+        "A": "the frog likes cold weather best",
+        "B": "the cold reaches the frog every winter",
+        "C": "winter comes later to the forest floor",
+        "D": "the frog hides where the cold cannot go"
+      },
+      "correct": "B",
+      "explanation": "The author writes about the cold as if it were searching for the frog and always finding it: unlike the toad and the spotted frog, the wood frog does not escape the freezing cold.",
+      "misconceptions": "reads \"waits for\" as eagerness; reverses the contrast with the animals that hide",
+      "why": {
+        "A": "Liking cold weather best misreads “waits”: the frog is not eager for the cold; it simply stays where the cold will reach it, unlike the toad and the spotted frog.",
+        "C": "Winter coming later to the forest floor is never said; “waits” means the frog stays where it is until the cold arrives, not that winter is late there.",
+        "D": "Hiding where the cold cannot go is what the toad and the spotted frog do (lines 2–6); the wood frog is the one the cold always finds."
+      },
+      "passage_id": "RC-W7-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "4af6150e6e1b19c0"
+    },
+    {
+      "id": "RC-W7-X-06",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Main idea",
+      "subskill": "main idea — the central idea of the whole passage",
+      "difficulty": "E",
+      "prompt": "Which statement best expresses the main idea of the passage?",
+      "choices": {
+        "A": "All of Alaska's frogs and toads hide from the ice in winter.",
+        "B": "In the spring, a wood frog's heart begins beating before its legs move.",
+        "C": "A wood frog survives being frozen solid because sugar protects its cells.",
+        "D": "Wood frogs are North America's only amphibians north of the Arctic Circle."
+      },
+      "correct": "C",
+      "explanation": "The passage explains how the wood frog, unlike the animals that hide from the ice, freezes solid each winter and survives because glucose keeps the water inside its cells from freezing.",
+      "misconceptions": "takes a single fact (the Arctic Circle, the spring thaw) for the whole; stretches the first paragraph to every frog",
+      "why": {
+        "A": "All of Alaska's frogs and toads hiding from the ice is wrong: lines 1–2 say two of the three hide, and the wood frog, the subject of the passage, does not.",
+        "B": "A heart that starts beating before the legs move is one detail from the last paragraph (lines 27–29), not the idea the whole passage explains.",
+        "D": "Being North America's only amphibians north of the Arctic Circle is a single fact (lines 10–11) about where wood frogs live, not how they get through the winter."
+      },
+      "passage_id": "RC-W7-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "d426af4097de2239"
+    },
+    {
+      "id": "RC-W7-X-07",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Main idea",
+      "subskill": "main idea — the central idea of the whole passage",
+      "difficulty": "E",
+      "prompt": "The passage is mainly about",
+      "choices": {
+        "A": "the history of women's racing at the Olympics",
+        "B": "a college coach who spotted a talented athlete",
+        "C": "a sick child who grew up to be an Olympic champion",
+        "D": "how Clarksville held its first parade for everyone"
+      },
+      "correct": "C",
+      "explanation": "Most of the passage follows Wilma Rudolph from a sick child in a leg brace to the winner of three Olympic gold medals; the coach and the parade are parts of that story.",
+      "misconceptions": "takes one paragraph (the coach, the parade) for the whole; widens one runner into a history of the sport",
+      "why": {
+        "A": "The history of women's racing at the Olympics is far too broad; the passage follows one runner, Wilma Rudolph, and describes no other woman's races.",
+        "B": "A college coach who spotted a talented athlete is Ed Temple's part of the story (lines 15–18), one paragraph rather than the subject of the whole passage.",
+        "D": "How Clarksville held its first parade for everyone is the last paragraph only (lines 28–34), the end of her story rather than what the whole passage is about."
+      },
+      "passage_id": "RC-W7-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8321dd68a4e46305"
+    },
+    {
+      "id": "RC-W7-X-08",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — the meaning of a phrase",
+      "difficulty": "E",
+      "prompt": "In line 9, the words “give up on” most nearly mean",
+      "choices": {
+        "A": "be finished using",
+        "B": "stop trying to help",
+        "C": "hand over to others",
+        "D": "trade for a new one"
+      },
+      "correct": "B",
+      "explanation": "To give up on something is to stop trying or stop hoping. Rudolph's family did the opposite: again and again they took off the brace and rubbed her weak leg to help it heal (lines 9–11).",
+      "misconceptions": "takes \"give up\" in its other senses: quitting a habit, handing something over, trading one thing for another",
+      "why": {
+        "A": "Be finished using is what “give up” means for a habit, like giving up candy; to give up on her leg would mean to stop trying to make it better, which her family refused to do (lines 9–11).",
+        "C": "Hand over to others is the sense of “give up” in giving up a seat; nobody handed anything over, and the family kept helping her leg heal (lines 9–11).",
+        "D": "Trade for a new one takes “give up” as in giving up one thing for another; the passage is about the family not losing hope in the leg she had (lines 9–11)."
+      },
+      "passage_id": "RC-W7-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "025e03f81755914c"
+    },
+    {
+      "id": "RC-W7-X-09",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — a fact stated in the passage",
+      "difficulty": "E",
+      "prompt": "According to the passage, how did Ed Temple first come to see Rudolph?",
+      "choices": {
+        "A": "She came to his summer camp.",
+        "B": "He refereed her basketball game.",
+        "C": "He read about her in a newspaper.",
+        "D": "He saw her race at the Olympics in Australia."
+      },
+      "correct": "B",
+      "explanation": "Lines 15–17 say Ed Temple came to Clarksville to referee a basketball game, saw Rudolph play, and invited her to his summer camp.",
+      "misconceptions": "reverses the order of the game and the camp; jumps ahead to the Olympics; invents a newspaper story",
+      "why": {
+        "A": "Coming to his summer camp happened only after he had seen her; the camp is what he invited her to once he had watched her play (lines 16–18).",
+        "C": "Reading about her in a newspaper is never mentioned; lines 15–17 say he saw her in person while refereeing a basketball game in Clarksville.",
+        "D": "Seeing her race at the Olympics in Australia came later, the next year (lines 18–20), after he had already invited her to his camp."
+      },
+      "passage_id": "RC-W7-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "dee01894cefc6db9"
+    },
+    {
+      "id": "RC-W7-X-10",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — how the whole passage is arranged",
+      "difficulty": "E",
+      "prompt": "Which best describes how the passage is organized?",
+      "choices": {
+        "A": "It compares two runners who raced in the Olympics.",
+        "B": "It tells about her life in the order events happened.",
+        "C": "It lists the reasons that people get sick with polio.",
+        "D": "It describes a problem in Clarksville and how it was solved."
+      },
+      "correct": "B",
+      "explanation": "The passage moves forward in time: her childhood illnesses in the 1940s, high school, the basketball game in 1955, the Olympics the next year, the 1960 Olympics, and finally her return home.",
+      "misconceptions": "takes the last paragraph's problem and solution for the whole; mistakes one mention of polio for a list of causes",
+      "why": {
+        "A": "Comparing two runners does not fit; the passage follows only Wilma Rudolph, and no other runner is described.",
+        "C": "Listing the reasons people get polio does not fit; polio is named once (lines 5–7) as one of the illnesses she survived, and no causes are given.",
+        "D": "A problem in Clarksville and how it was solved describes only the last paragraph (lines 28–34), not how the whole passage is built."
+      },
+      "passage_id": "RC-W7-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "de0ce00320a5733c"
+    },
+    {
+      "id": "RC-W7-X-11",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Inference",
+      "subskill": "inference — what a character's actions show",
+      "difficulty": "M",
+      "prompt": "Rudolph's refusal to take part in two separate celebrations suggests that she",
+      "choices": {
+        "A": "did not want any parade to be held for her",
+        "B": "cared more about winning than about her town",
+        "C": "believed her whole town should celebrate together",
+        "D": "was angry that the town had waited four years to honor her"
+      },
+      "correct": "C",
+      "explanation": "The town planned one celebration for its white residents and another for its Black residents. Rudolph refused, and the town held one parade for everyone, which shows she believed the whole town should celebrate together.",
+      "misconceptions": "reads the refusal as not wanting any celebration at all; invents a grudge from the four years between the two Olympics",
+      "why": {
+        "A": "Not wanting any parade does not fit: because she insisted, the town held one parade for everyone (lines 31–32); it was only the separate celebrations she refused.",
+        "B": "Caring more about winning than about her town does not fit: she stood up for how her whole town would celebrate, which shows she cared about it a great deal.",
+        "D": "Being angry about four years of waiting is never suggested; the four years in line 22 are the time between two Olympics, and her refusal was about the separate celebrations."
+      },
+      "passage_id": "RC-W7-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "67a7e0bb34bdc73e"
+    },
+    {
+      "id": "RC-W7-X-12",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Tone/style/figurative language",
+      "subskill": "tone — the author's attitude",
+      "difficulty": "M",
+      "prompt": "The author's attitude toward Wilma Rudolph is best described as",
+      "choices": {
+        "A": "critical",
+        "B": "doubtful",
+        "C": "pitying",
+        "D": "respectful"
+      },
+      "correct": "D",
+      "explanation": "The author traces how Rudolph rose from a sick child in a brace to an Olympic champion and how she insisted on one celebration for everyone, details chosen to show respect for her.",
+      "misconceptions": "takes \"few people would have guessed\" as the author's doubt; stops at the illnesses; reads her refusal as criticized",
+      "why": {
+        "A": "Critical misreads the last paragraph: the author presents Rudolph's refusal as a stand that changed her town (lines 30–34), not as a fault.",
+        "B": "Doubtful mistakes the opening for the author's own view: “few people would have guessed” (line 2) is about what others expected long ago, and the rest of the passage proves them wrong.",
+        "C": "Pitying stops at the illnesses in the first paragraph; the rest of the passage dwells on her strength, her medals and her stand, not on feeling sorry for her."
+      },
+      "passage_id": "RC-W7-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "670a600334b56a95"
+    },
+    {
+      "id": "RC-W7-X-13",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Tone/style/figurative language",
+      "subskill": "tone — the mood of a scene",
+      "difficulty": "E",
+      "prompt": "The mood of lines 14–16, when Grandpa first sees the shelf, is best described as",
+      "choices": {
+        "A": "tense and quiet",
+        "B": "proud and excited",
+        "C": "cheerful and noisy",
+        "D": "angry and very loud"
+      },
+      "correct": "A",
+      "explanation": "Grandpa stops whistling and says nothing for a long moment, so the scene is hushed and uneasy: Raina, and the reader, wait to learn how he feels.",
+      "misconceptions": "takes the whistling from before he sees the shelf; reads Raina's pride as the mood of the scene; expects anger to be loud",
+      "why": {
+        "B": "Proud and excited fits Raina as she sits down to wait after finishing the shelf (lines 11–13); once Grandpa sees it, he stops whistling and goes silent.",
+        "C": "Cheerful and noisy fits only the whistling as he walks in (line 14); the whistling stops the moment he notices the shelf.",
+        "D": "Angry and very loud expects shouting, but Grandpa says nothing at all for a long moment (lines 15–16); the scene is silent."
+      },
+      "passage_id": "RC-W7-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "5c439e4b4ae7f8a3"
+    },
+    {
+      "id": "RC-W7-X-14",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — a reason stated in the passage",
+      "difficulty": "E",
+      "prompt": "According to the story, why had the bird guide, the cookbook, and the cracked paperback always stood together?",
+      "choices": {
+        "A": "They were the books he liked best.",
+        "B": "They were written by the same author.",
+        "C": "They were all about cooking and birds.",
+        "D": "He had read all three of them the same summer."
+      },
+      "correct": "D",
+      "explanation": "In lines 24–26 Grandpa explains that the three books stood together because he had read them the same summer, the year he learned to make soup and tell a heron from an egret.",
+      "misconceptions": "applies Raina's author order or an order by subject to Grandpa's shelf; invents favorite books",
+      "why": {
+        "A": "Being the books he liked best is never said; Grandpa explains that they stood together because of when he read them (lines 24–26).",
+        "B": "Being written by the same author is Raina's kind of order, by the authors' last names (lines 8–9); Grandpa's order was by when he read each book.",
+        "C": "Being all about cooking and birds sorts the books by subject, but the third one is a paperback whose subject is never given; what the three share is the summer he read them (lines 24–26)."
+      },
+      "passage_id": "RC-W7-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "c381f5a214d606c7"
+    },
+    {
+      "id": "RC-W7-X-15",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — a word with two meanings",
+      "difficulty": "E",
+      "prompt": "In line 17, “spines” most nearly means",
+      "choices": {
+        "A": "the shelves of the bookcase",
+        "B": "the outer edges of the books",
+        "C": "the sharp points on a cactus",
+        "D": "the bones down a person's back"
+      },
+      "correct": "B",
+      "explanation": "A book's spine is the narrow edge that faces out on a shelf, where the title is printed; Grandpa runs his finger along the books' edges as he looks at them.",
+      "misconceptions": "uses the body or cactus sense of spine; confuses the edges of the books with the shelves",
+      "why": {
+        "A": "The shelves of the bookcase hold the books, but Grandpa runs his finger along the books themselves, across the edges that face out (lines 16–17).",
+        "C": "The sharp points on a cactus are spines too, but there is no cactus here; the spines in line 17 belong to the books on the shelf.",
+        "D": "The bones down a person's back is the most common meaning of spine, but Grandpa is touching his books, not anyone's back (lines 16–17)."
+      },
+      "passage_id": "RC-W7-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f2afad53c2970eae"
+    },
+    {
+      "id": "RC-W7-X-16",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — the turning point of a story",
+      "difficulty": "H",
+      "prompt": "Grandpa's question in line 19, “Where's the summer we drove to the lake?”, matters to the story mainly because it",
+      "choices": {
+        "A": "shows that the shelf had its own kind of order",
+        "B": "suggests that Grandpa has forgotten where his books are",
+        "C": "shows that Grandpa is angry at Raina for moving his books",
+        "D": "tells the reader that Grandpa wants to go back to the lake"
+      },
+      "correct": "A",
+      "explanation": "Grandpa asks for a summer, not a book, because his books stood in the order he read them. The question leads him to explain the shelf's real order, which changes how Raina sees the \"mess.\"",
+      "misconceptions": "reads the question literally (lost books, a trip); takes his silence for anger",
+      "why": {
+        "B": "Forgetting where his books are takes the question too literally; Grandpa knows exactly which books he means and finds all three (lines 21–24).",
+        "C": "Being angry at Raina does not fit: he asks quietly (line 20), explains the shelf, and offers to fix it with her (line 32).",
+        "D": "Wanting to go back to the lake treats the question as a wish for a trip; “the summer we drove to the lake” names the summer he read three of the books (lines 24–26)."
+      },
+      "passage_id": "RC-W7-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "84e4efeefc059ce5"
+    },
+    {
+      "id": "RC-W7-X-17",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Main idea",
+      "subskill": "main idea — what a story is mainly about",
+      "difficulty": "M",
+      "prompt": "Which best states what the story is mainly about?",
+      "choices": {
+        "A": "A grandfather remembers a summer he spent at a lake.",
+        "B": "A girl shows her grandfather how a library sorts books.",
+        "C": "A girl discovers the hidden order of her grandfather's shelf.",
+        "D": "A grandfather is upset when his granddaughter moves his books."
+      },
+      "correct": "C",
+      "explanation": "Raina thinks the shelf is a mess and sorts it the library way, then learns from Grandpa that the books stood in the order he read them, and together they put it back.",
+      "misconceptions": "takes the middle of the story (Grandpa's reaction) or one memory for the whole; reverses who teaches whom",
+      "why": {
+        "A": "A summer at a lake is one memory the shelf holds (line 19), not what the whole story is about.",
+        "B": "Showing her grandfather how a library sorts books gets the story backward: Raina sorts them the library way (lines 8–10), and it is Grandpa who shows her something new.",
+        "D": "Being upset when she moves his books is only the middle of the story (lines 14–16); the story goes on to what Raina learns and how the two of them rebuild the shelf."
+      },
+      "passage_id": "RC-W7-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "5449c3adaaf5a0ba"
+    },
+    {
+      "id": "RC-W7-X-18",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Inference",
+      "subskill": "inference — a character's reason for acting",
+      "difficulty": "H",
+      "prompt": "At the end of the story, Grandpa most likely holds out his hand for Raina's novel because he wants to",
+      "choices": {
+        "A": "give her visit a place on his shelf",
+        "B": "take it back to the school library for her",
+        "C": "see whether she has finished reading it yet",
+        "D": "file it under the author's last name, the library way"
+      },
+      "correct": "A",
+      "explanation": "Grandpa's shelf is in the order he lived it, and he clears a space at the very end, where the newest books belong. Putting Raina's novel there makes her visit part of the shelf's story.",
+      "misconceptions": "reads the gesture literally (checking, returning); applies the alphabetical order Grandpa has just undone",
+      "why": {
+        "B": "Taking it back to the school library is never suggested; the librarian appears only as the model for Raina's sorting (lines 9–10), and Grandpa is making room on his own shelf.",
+        "C": "Seeing whether she has finished it misses why he first cleared a narrow space at the end of the shelf (lines 34–36), just before he asked for the book.",
+        "D": "Filing it under the author's last name is Raina's library way (lines 8–10); Grandpa's shelf runs in the order he lived, and the new space is at the far end."
+      },
+      "passage_id": "RC-W7-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "fe338bed15fd482d"
+    },
+    {
+      "id": "RC-W7-X-19",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Inference",
+      "subskill": "inference — what a character's words mean",
+      "difficulty": "H",
+      "prompt": "When Mom says that Saffron's trotting off was “exactly what we raised her to do” (line 31), she most likely means that",
+      "choices": {
+        "A": "the family would soon get Saffron back again",
+        "B": "the family had already taught Saffron to guide",
+        "C": "Saffron was ready to go calmly with someone new",
+        "D": "Saffron had never really loved the family at all"
+      },
+      "correct": "C",
+      "explanation": "The family's job was to make Saffron comfortable anywhere and with anyone, so her trotting off calmly with a new trainer, without looking back, shows that the raising worked.",
+      "misconceptions": "reads \"without looking back\" as not caring; credits the family with the guide training; imagines her coming home",
+      "why": {
+        "A": "Getting Saffron back soon is not suggested; she is staying at the school for about four months of training to guide (lines 25–27).",
+        "B": "Teaching her to guide was not the family's job: an instructor will spend about four months teaching her to guide (lines 26–27), while the family taught manners and socializing.",
+        "D": "Never having loved the family takes “without looking back” (line 29) as a lack of love; Mom means that a calm, confident puppy is what all the socializing was for."
+      },
+      "passage_id": "RC-W7-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "a06056fcc76fd275"
+    },
+    {
+      "id": "RC-W7-X-20",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Main idea",
+      "subskill": "main idea — the author's main purpose",
+      "difficulty": "M",
+      "prompt": "The author's main purpose in the passage is to",
+      "choices": {
+        "A": "explain how instructors teach dogs to guide",
+        "B": "tell how a puppy learned to walk through doors",
+        "C": "persuade readers to adopt a dog from a shelter",
+        "D": "describe what raising a guide dog puppy is like"
+      },
+      "correct": "D",
+      "explanation": "The narrator tells what the family did with Saffron, from the day she arrived to the day they handed her back, and explains why a guide dog puppy is raised that way.",
+      "misconceptions": "takes one example (the doors) or the later training for the purpose; assumes a story about a dog is urging readers to get one",
+      "why": {
+        "A": "How instructors teach dogs to guide is mentioned only once (lines 26–27); the passage is about the family's part, before that training begins.",
+        "B": "Walking through automatic doors is one example of socializing (lines 20–23), not the purpose of the whole passage.",
+        "C": "Adopting a dog from a shelter is never mentioned; Saffron belonged to a guide dog school, and the family was only raising her."
+      },
+      "passage_id": "RC-W7-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "0bb6e807cc91ce67"
+    },
+    {
+      "id": "RC-W7-X-21",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Tone/style/figurative language",
+      "subskill": "style — who is telling the passage (point of view)",
+      "difficulty": "E",
+      "prompt": "The passage is told from the point of view of",
+      "choices": {
+        "A": "Saffron herself",
+        "B": "a child whose family raised Saffron",
+        "C": "the instructor who will train Saffron",
+        "D": "a blind person who will someday use Saffron"
+      },
+      "correct": "B",
+      "explanation": "The narrator says “our puppy,” mentions “my math textbook” and “my soccer practice,” and writes “My mom squeezed my shoulder,” so the teller is a child in the family raising Saffron.",
+      "misconceptions": "takes the subject of the passage (Saffron) or someone mentioned at the end for the narrator",
+      "why": {
+        "A": "Saffron herself is the one being told about, not the teller; the narrator calls her “she” and “her” (lines 3–4).",
+        "C": "The instructor who will train her appears only at the end (lines 26–27); the “I” is the one who hands the leash over to the trainer (lines 27–29).",
+        "D": "A blind person who will use Saffron never speaks in the passage; the person she will guide is not even named."
+      },
+      "passage_id": "RC-W7-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "884ca9b2374030fd"
+    },
+    {
+      "id": "RC-W7-X-22",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — the detail that best supports an idea",
+      "difficulty": "H",
+      "prompt": "Which detail from the passage best shows that socializing Saffron worked?",
+      "choices": {
+        "A": "She rode in the car to soccer practice.",
+        "B": "Later, she walked right through the doors.",
+        "C": "She stopped and stared at the automatic doors.",
+        "D": "She arrived with a green leash and a bag of food."
+      },
+      "correct": "B",
+      "explanation": "Socializing means taking a puppy to new places until nothing surprises her. Saffron first stopped and stared at the automatic doors, but by the fifth trip she walked through them as if she had always done it (lines 20–23).",
+      "misconceptions": "picks an example of the work instead of its result; picks the first reaction, from before it worked",
+      "why": {
+        "A": "Riding in the car to soccer practice is part of the socializing itself (lines 18–19), one of the places she went, not proof that it worked.",
+        "C": "Stopping and staring at the automatic doors is how she reacted the first time (lines 20–22), before the socializing had worked.",
+        "D": "Arriving with a green leash and a bag of food describes her first day (lines 1–2), before any socializing had begun."
+      },
+      "passage_id": "RC-W7-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "61e78dbcb47302db"
+    },
+    {
+      "id": "RC-W7-X-23",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — an unfamiliar word's meaning from clues",
+      "difficulty": "M",
+      "prompt": "In line 13, “socializing” most nearly means",
+      "choices": {
+        "A": "getting used to new places",
+        "B": "keeping a puppy safe at home",
+        "C": "teaching a puppy to sit and stay",
+        "D": "chatting with friends at a party"
+      },
+      "correct": "A",
+      "explanation": "Right after naming it, the passage explains socializing: taking a puppy to crowded, noisy places again and again until nothing surprises her. It means getting her used to new places.",
+      "misconceptions": "uses the everyday sense for people; confuses socializing with obedience; reverses it",
+      "why": {
+        "B": "Keeping a puppy safe at home is the opposite of what lines 15–17 describe: the puppy is taken out to busy places again and again.",
+        "C": "Teaching a puppy to sit and stay is house manners and obedience (lines 10–11), which the passage names as a different part of the job.",
+        "D": "Chatting with friends at a party is what socializing means for people; for a guide dog puppy, the school means getting used to new places (lines 15–17)."
+      },
+      "passage_id": "RC-W7-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "78c7280f8cf40717"
+    },
+    {
+      "id": "RC-W7-X-24",
+      "subject": "RC",
+      "form": "W7",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — which question the passage answers",
+      "difficulty": "E",
+      "prompt": "The passage provides information to answer which question?",
+      "choices": {
+        "A": "How many puppies does the school train each year?",
+        "B": "What is the name of the person Saffron will guide?",
+        "C": "What happens to puppies that do not become guides?",
+        "D": "At what age do puppies go to their volunteer families?"
+      },
+      "correct": "D",
+      "explanation": "Lines 8–9 say puppies like Saffron go to volunteer families when they are seven or eight weeks old. The passage never gives the school's numbers, the name of the person she will guide, or what happens to puppies that do not become guides.",
+      "misconceptions": "takes a question the passage touches on (the school, the later training) for one it answers",
+      "why": {
+        "A": "How many puppies the school trains each year is never stated; the passage tells about only one puppy, Saffron.",
+        "B": "The name of the person Saffron will guide is never given; the passage ends as she trots off with her trainer (lines 28–29).",
+        "C": "What happens to puppies that do not become guides is not explained; the passage ends as Saffron begins her training (lines 25–29)."
+      },
+      "passage_id": "RC-W7-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "b6bb195c6f798933"
+    },
+    {
+      "id": "RC-W8-X-01",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Main idea",
+      "subskill": "main idea — the central idea of the whole passage",
+      "difficulty": "M",
+      "prompt": "Which statement best expresses the main idea of the passage?",
+      "choices": {
+        "A": "Water hollows out caves and then builds stone shapes in them.",
+        "B": "Rainwater carries the same acid that gives soda pop its fizz.",
+        "C": "Cave visitors are asked never to touch the stone shapes they see.",
+        "D": "A soda straw becomes a stalactite when its hollow inside gets blocked."
+      },
+      "correct": "A",
+      "explanation": "The passage explains how acidic water dissolves rock to make caves and how dripping water then leaves calcite, ring by ring, to build soda straws, stalactites, stalagmites and columns.",
+      "misconceptions": "takes a single step or the closing rule for the whole",
+      "why": {
+        "B": "Rainwater carrying the soda-pop acid is one step at the start (lines 6–9), part of how caves form, not the idea the whole passage builds.",
+        "C": "Visitors being asked not to touch the shapes is the last paragraph only (lines 32–34), one rule rather than the main idea.",
+        "D": "A soda straw becoming a stalactite is one step of the process (lines 25–28), not the whole of what the passage explains."
+      },
+      "passage_id": "RC-W8-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2ad30c10cf55f3da"
+    },
+    {
+      "id": "RC-W8-X-02",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — an unfamiliar word's meaning from clues",
+      "difficulty": "E",
+      "prompt": "In line 10, “seeps” most nearly means",
+      "choices": {
+        "A": "bubbles up",
+        "B": "flows in slowly",
+        "C": "freezes into ice",
+        "D": "pours in quickly and loudly"
+      },
+      "correct": "B",
+      "explanation": "Seeps means flows slowly through small openings: the acidic water works its way into small cracks in the rock and slowly dissolves it (lines 9–11).",
+      "misconceptions": "borrows the soda fizz or the icicles; ignores \"slowly\"",
+      "why": {
+        "A": "Bubbles up comes from the soda pop fizz in line 9, but the water is moving down into cracks in the rock, not bubbling up.",
+        "C": "Freezes into ice borrows the icicles from line 3, which only describe how the stone shapes look; nothing in this cave freezes.",
+        "D": "Pours in quickly and loudly is the opposite of lines 10–11, which say the water works into small cracks and slowly dissolves the rock."
+      },
+      "passage_id": "RC-W8-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f6d601a09b14a5aa"
+    },
+    {
+      "id": "RC-W8-X-03",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — a fact stated in the passage",
+      "difficulty": "M",
+      "prompt": "According to the passage, what happens when the inside of a soda straw gets blocked?",
+      "choices": {
+        "A": "It stops growing and turns a dull color.",
+        "B": "It breaks off and falls to the cave floor.",
+        "C": "Water fills it up and it becomes a column.",
+        "D": "Water runs down its outside and makes it thicker."
+      },
+      "correct": "D",
+      "explanation": "Lines 25–27 say that when a straw's inside gets blocked, water runs down its outside instead, coating it with calcite and making it thicker; the straw has become a stalactite.",
+      "misconceptions": "mixes in the skin-oil paragraph or the column; invents a fall",
+      "why": {
+        "A": "Stopping growth and turning a dull color mixes in the last paragraph, where skin oils stain formations and stop their growth (lines 32–34).",
+        "B": "Breaking off and falling to the floor is never described; drops fall to the floor, but the straw itself keeps hanging and grows thicker (lines 25–27).",
+        "C": "Becoming a column happens only when a stalactite and the stalagmite below it grow together (lines 30–31), not when a straw is blocked."
+      },
+      "passage_id": "RC-W8-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "8e4dbc882f17c146"
+    },
+    {
+      "id": "RC-W8-X-04",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Inference",
+      "subskill": "inference — applying the passage to a new case",
+      "difficulty": "H",
+      "prompt": "Based on the passage, a soda straw that is ten inches long has most likely been growing for about how long?",
+      "choices": {
+        "A": "10 years",
+        "B": "100 years",
+        "C": "1,000 years",
+        "D": "10,000 years"
+      },
+      "correct": "C",
+      "explanation": "Lines 23–24 say a soda straw often takes a hundred years to grow a single inch, so a ten-inch straw has most likely been growing for about 10 × 100 = 1,000 years.",
+      "misconceptions": "stops at the one-inch figure; reads inches as years; multiplies by a thousand",
+      "why": {
+        "A": "10 years reads the length in inches as years; at about a hundred years for each inch, ten inches takes far longer.",
+        "B": "100 years is about how long a straw takes to grow a single inch (lines 23–24), not ten inches.",
+        "D": "10,000 years multiplies by a thousand instead of a hundred; ten inches at about a hundred years an inch is about 1,000 years."
+      },
+      "passage_id": "RC-W8-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "d9e9c6ddab02904d"
+    },
+    {
+      "id": "RC-W8-X-05",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — which question the passage does NOT answer (EXCEPT)",
+      "difficulty": "H",
+      "prompt": "The passage answers all of the following questions EXCEPT",
+      "choices": {
+        "A": "What gives soda pop its fizz?",
+        "B": "What is a stalagmite made of?",
+        "C": "How long ago did the first caves form?",
+        "D": "Why should visitors not touch formations?"
+      },
+      "correct": "C",
+      "explanation": "The passage says what gives soda pop its fizz (lines 8–9), what builds a stalagmite (lines 28–30) and why visitors must not touch formations (lines 32–34), but it never says when the first caves formed; it says only that caves take a very long time to form.",
+      "misconceptions": "picks a question the passage does answer without checking it; takes \"a very long time\" as an answer about dates",
+      "why": {
+        "A": "What gives soda pop its fizz is answered in lines 8–9: carbonic acid, the same acid that rain picks up from rotting leaves.",
+        "B": "What a stalagmite is made of is answered in lines 28–30: drops that splash onto the floor leave calcite there, building the mound.",
+        "D": "Why visitors should not touch formations is answered in lines 32–34: skin oils leave stains and can keep the stone from growing."
+      },
+      "passage_id": "RC-W8-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2cf7bfbc1b1acdf4"
+    },
+    {
+      "id": "RC-W8-X-06",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Tone/style/figurative language",
+      "subskill": "style — what kind of writing the passage is",
+      "difficulty": "E",
+      "prompt": "The passage would most likely be found in",
+      "choices": {
+        "A": "a science book about caves",
+        "B": "a cookbook of soda pop recipes",
+        "C": "a diary kept by a cave explorer",
+        "D": "a book of tales about magic caves"
+      },
+      "correct": "A",
+      "explanation": "The passage explains a natural process step by step, with facts about acid, calcite and how cave formations grow, the way a science book does.",
+      "misconceptions": "is misled by the soda pop comparisons or by \"The story begins\"; imagines an explorer",
+      "why": {
+        "B": "A cookbook of soda pop recipes picks up on the soda pop comparisons (lines 8–9 and 16–17), which only help explain how the water behaves.",
+        "C": "A diary kept by a cave explorer would tell what one person saw and did, in “I” and “we”; this passage explains a process and never mentions an explorer.",
+        "D": "A book of tales about magic caves takes “The story begins” (line 6) too literally; the “story” is the true science of how caves form, with nothing magic in it."
+      },
+      "passage_id": "RC-W8-XP1",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "66edc929cad19b30"
+    },
+    {
+      "id": "RC-W8-X-07",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — the one choice the passage does not support (EXCEPT)",
+      "difficulty": "M",
+      "prompt": "According to the passage, all of the following are true of the Pony Express EXCEPT",
+      "choices": {
+        "A": "It carried mail to California.",
+        "B": "Its riders changed horses often.",
+        "C": "It made its owners a lot of money.",
+        "D": "It cost more than ordinary postage."
+      },
+      "correct": "C",
+      "explanation": "Lines 19–21 say the company never earned enough to pay its expenses and sank deep into debt, so it did not make its owners a lot of money. The other three statements are all in the passage.",
+      "misconceptions": "assumes a high price meant high profits; skims for the false statement instead of checking each one",
+      "why": {
+        "A": "Carrying mail to California is true: the first mail from St. Joseph reached Sacramento, California, in ten days (lines 14–15).",
+        "B": "Changing horses often is true: stations stood every ten to fifteen miles, each with a fresh horse waiting (lines 9–11).",
+        "D": "Costing more than ordinary postage is true: up to five dollars for half an ounce, when ordinary postage was no more than ten cents (lines 16–19)."
+      },
+      "passage_id": "RC-W8-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "da7727cb3ff5509d"
+    },
+    {
+      "id": "RC-W8-X-08",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Inference",
+      "subskill": "inference — a cause the passage implies",
+      "difficulty": "M",
+      "prompt": "The passage suggests that the Pony Express ended mainly because",
+      "choices": {
+        "A": "Congress stopped paying for the riders' horses",
+        "B": "the stations were too far apart for the horses",
+        "C": "the riders refused to cross the deserts and mountains",
+        "D": "the telegraph could now carry messages across the country"
+      },
+      "correct": "D",
+      "explanation": "The Pony Express ended on the same day the telegraph joined San Francisco to New York City (lines 28–30). Once messages could cross the country by wire, riders were no longer needed.",
+      "misconceptions": "misreads the money Congress approved as pay for the riders; misreads the spacing of the stations",
+      "why": {
+        "A": "Congress paying for horses misreads lines 23–25: the money Congress approved was to help build the telegraph line, the very thing that replaced the riders.",
+        "B": "Stations being too far apart does not fit: they stood only ten to fifteen miles apart, each with a fresh horse waiting (lines 9–11), and the passage never calls that distance a problem.",
+        "C": "Riders refusing to cross the deserts and mountains is never suggested; they carried mail, and even telegrams, until the line was finished (lines 26–30)."
+      },
+      "passage_id": "RC-W8-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "693b31d2f011032e"
+    },
+    {
+      "id": "RC-W8-X-09",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Main idea",
+      "subskill": "main idea — the main idea of one paragraph",
+      "difficulty": "M",
+      "prompt": "Which best states the main idea of the second paragraph (lines 7–15)?",
+      "choices": {
+        "A": "Riders on fresh horses carried the mail very fast.",
+        "B": "Each rider kept the mail in a saddle cover with pockets.",
+        "C": "Stations stood every ten to fifteen miles along the trail.",
+        "D": "Three businessmen proved that mail could not cross the land."
+      },
+      "correct": "A",
+      "explanation": "The second paragraph tells how the Pony Express worked: riders switched to fresh horses at stations every ten to fifteen miles, covered 75 to 100 miles a day, and carried the first mail to Sacramento in just ten days. Its main idea is that riders on fresh horses carried the mail fast.",
+      "misconceptions": "takes one detail of the relay (the stations, the saddle cover) for the whole paragraph; reverses \"prove them wrong\"",
+      "why": {
+        "B": "Keeping the mail in a saddle cover with pockets is one detail, the mochila of lines 11–13, not what the whole paragraph is about.",
+        "C": "Stations every ten to fifteen miles along the trail is one detail (lines 9–10): the stations are where the fresh horses waited, one part of how the mail moved so fast.",
+        "D": "Proving that mail could not cross the land reverses lines 5–7: many people believed it could not be done, and the three businessmen set out to prove them wrong."
+      },
+      "passage_id": "RC-W8-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "10c702d3f12e591e"
+    },
+    {
+      "id": "RC-W8-X-10",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Tone/style/figurative language",
+      "subskill": "figurative language — a metaphor or figurative phrase",
+      "difficulty": "E",
+      "prompt": "In line 22, the phrase “another kind of messenger” refers to",
+      "choices": {
+        "A": "a faster horse",
+        "B": "the stagecoach",
+        "C": "the telegraph line",
+        "D": "a new Pony Express rider"
+      },
+      "correct": "C",
+      "explanation": "The next sentences tell how Congress paid to help build a telegraph line that finally joined the two coasts; the telegraph is the “messenger” that would carry messages instead of riders.",
+      "misconceptions": "takes \"messenger\" literally as a rider or a horse; reaches back to the stagecoach",
+      "why": {
+        "A": "A faster horse is still the Pony Express's kind of messenger; “another kind” points to something different, the telegraph line described next (lines 23–25).",
+        "B": "The stagecoach is the slow way letters crossed before the Pony Express (lines 4–5), not something on its way in 1860.",
+        "D": "A new Pony Express rider would be the same kind of messenger; the sentences after line 22 describe the telegraph line instead."
+      },
+      "passage_id": "RC-W8-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ca4debcd4de92cad"
+    },
+    {
+      "id": "RC-W8-X-11",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — an unfamiliar word's meaning from clues",
+      "difficulty": "M",
+      "prompt": "In line 18, “postage” most nearly means",
+      "choices": {
+        "A": "the weight of a letter",
+        "B": "a pole for tying horses",
+        "C": "the cost of sending mail",
+        "D": "a building where mail is sorted"
+      },
+      "correct": "C",
+      "explanation": "The sentence sets the Pony Express price, up to five dollars, beside ordinary postage, no more than ten cents, so postage is the cost of sending mail.",
+      "misconceptions": "grabs the nearby half ounce; follows the \"post\" in post office or hitching post",
+      "why": {
+        "A": "The weight of a letter is the half an ounce in lines 17–18; postage is what sending a letter cost, as the ten cents in line 19 shows.",
+        "B": "A pole for tying horses is a hitching post, a different word that only shares “post”; the sentence is about what mail cost (lines 16–19).",
+        "D": "A building where mail is sorted is a post office; postage is something that costs money, no more than ten cents (lines 18–19)."
+      },
+      "passage_id": "RC-W8-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "738e009eb175b7d9"
+    },
+    {
+      "id": "RC-W8-X-12",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — the purpose of a sentence or detail",
+      "difficulty": "M",
+      "prompt": "The sentence “Speed was costly, though” (line 16) mainly serves to",
+      "choices": {
+        "A": "turn from the riders' speed to the cost",
+        "B": "explain how fast the riders could travel",
+        "C": "show that the riders were paid very little",
+        "D": "introduce the telegraph line across the land"
+      },
+      "correct": "A",
+      "explanation": "The paragraph before line 16 tells how fast the Pony Express was; “Speed was costly, though” turns to its price and the company's debt, which the rest of that paragraph describes.",
+      "misconceptions": "ignores the turn that \"though\" signals; misreads \"costly\" as low pay; confuses this turn with the one in line 22",
+      "why": {
+        "B": "Explaining how fast the riders traveled is what the paragraph before it does (lines 9–15); “though” signals a turn away from speed.",
+        "C": "Showing that the riders were paid very little misreads “costly”: the passage gives the high price of sending a letter (lines 16–18), and the riders' pay is never mentioned.",
+        "D": "Introducing the telegraph is the job of line 22, “Meanwhile, another kind of messenger was on its way,” not of line 16."
+      },
+      "passage_id": "RC-W8-XP2",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "1ad8d248684c5c99"
+    },
+    {
+      "id": "RC-W8-X-13",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — a word with two meanings",
+      "difficulty": "M",
+      "prompt": "In line 19, “studies” most nearly means",
+      "choices": {
+        "A": "small practice paintings",
+        "B": "rooms where artists work",
+        "C": "careful looks at something",
+        "D": "lessons students learn in school"
+      },
+      "correct": "A",
+      "explanation": "Seurat made smaller drawings and painted studies first, working out where each figure should go, so his studies were small practice paintings for planning the big one.",
+      "misconceptions": "uses the school sense or the \"careful look\" sense; confuses studies with studios",
+      "why": {
+        "B": "Rooms where artists work are studios; Seurat's studies were things he painted (line 19), not places.",
+        "C": "Careful looks at something is what a study means in “a study of the night sky”; here “painted studies” are pictures Seurat made to plan the big one (lines 18–20).",
+        "D": "Lessons students learn in school is the everyday meaning of studies, but these were painted by Seurat before he worked on the big canvas (lines 18–20)."
+      },
+      "passage_id": "RC-W8-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "ad885ef533788419"
+    },
+    {
+      "id": "RC-W8-X-14",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Main idea",
+      "subskill": "main idea — the central idea of the whole passage",
+      "difficulty": "M",
+      "prompt": "Which statement best expresses the main idea of the passage?",
+      "choices": {
+        "A": "Zinc yellow paint always turns a dull brown.",
+        "B": "Most painters mix their colors on a palette before painting.",
+        "C": "Seurat painted with dots of color that mix in the viewer's eye.",
+        "D": "The painting shows a crowded Sunday on the banks of the River Seine."
+      },
+      "correct": "C",
+      "explanation": "The passage explains how Seurat's painting is made of small touches of unmixed color that seem to fall apart up close and come together from a distance; the other choices are single details, and one of them stretches its detail beyond what the passage says.",
+      "misconceptions": "takes the subject of the painting, the usual method or the color change for the whole",
+      "why": {
+        "A": "Zinc yellow paint always turning a dull brown stretches one detail from lines 25–27: the passage says only that the zinc yellow in this painting turned brown, not that all zinc yellow does, and one detail is not the main idea.",
+        "B": "Painters mixing colors on a palette is the usual method Seurat turned away from (lines 10–11), background for the main idea rather than the main idea.",
+        "D": "A crowded Sunday on the banks of the River Seine is what the painting shows (lines 5–7), not what the passage mainly explains about it."
+      },
+      "passage_id": "RC-W8-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "a4caa30463131a1a"
+    },
+    {
+      "id": "RC-W8-X-15",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — a fact stated in the passage",
+      "difficulty": "E",
+      "prompt": "According to the passage, what did Seurat use zinc yellow to paint?",
+      "choices": {
+        "A": "the sunlit grass",
+        "B": "the people's faces",
+        "C": "the monkey's leash",
+        "D": "the waters of the River Seine"
+      },
+      "correct": "A",
+      "explanation": "Lines 25–26 say that for the sunlit grass, Seurat used a bright paint called zinc yellow.",
+      "misconceptions": "grabs another painted detail from the passage",
+      "why": {
+        "B": "The people's faces are among the things that break into dots up close (line 2), but no paint color is named for them.",
+        "C": "The monkey's leash belongs to a figure Seurat added later (lines 20–22); zinc yellow was used for the sunlit grass.",
+        "D": "The waters of the River Seine come from the setting in line 6, where the crowd gathers on the river's banks; the passage names zinc yellow only for the sunlit grass (lines 25–26)."
+      },
+      "passage_id": "RC-W8-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "4589e5c55e2401f3"
+    },
+    {
+      "id": "RC-W8-X-16",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Inference",
+      "subskill": "inference — a conclusion the facts support",
+      "difficulty": "H",
+      "prompt": "It can be inferred that people who saw the painting in 1886 saw grass that looked",
+      "choices": {
+        "A": "darker than it looks now",
+        "B": "brighter than it looks now",
+        "C": "already a dull shade of brown",
+        "D": "the same as it does in the museum today"
+      },
+      "correct": "B",
+      "explanation": "Seurat painted the sunlit grass with a bright zinc yellow that by 1892 was turning a dull brown, so visitors in 1886, before the change, saw brighter grass than visitors see today.",
+      "misconceptions": "reverses the direction of the change; dates the change too early; ignores it",
+      "why": {
+        "A": "Darker than it looks now reverses the change: the zinc yellow has darkened since then (lines 25–29), so the grass was brighter in 1886.",
+        "C": "Already a dull shade of brown puts the change too early: people noticed the yellow turning brown by 1892 (lines 26–27), years after the painting was first shown.",
+        "D": "The same as it does in the museum today ignores lines 25–29: the yellow has turned brown, so the painting is darker in places than when it was finished."
+      },
+      "passage_id": "RC-W8-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "7ffa209182dd236c"
+    },
+    {
+      "id": "RC-W8-X-17",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Tone/style/figurative language",
+      "subskill": "style — the effect of a word or phrase",
+      "difficulty": "E",
+      "prompt": "The word “Sadly” in line 25 shows that the author",
+      "choices": {
+        "A": "wishes the colors had not changed",
+        "B": "believes Seurat was a careless painter",
+        "C": "is sorry that the painting is in Chicago",
+        "D": "thinks the painting should be thrown away"
+      },
+      "correct": "A",
+      "explanation": "“Sadly” comes just before the news that not every color has lasted, so it shows the author is sorry that the bright yellow has turned brown.",
+      "misconceptions": "attaches \"Sadly\" to the wrong fact; turns regret into blame or rejection",
+      "why": {
+        "B": "Believing Seurat was a careless painter does not fit; the author blames nothing on Seurat and says only that one paint he used turned brown (lines 25–27).",
+        "C": "Being sorry that the painting is in Chicago attaches “Sadly” to the wrong fact; it introduces the colors that have not lasted (line 25), not where the painting hangs.",
+        "D": "Thinking the painting should be thrown away goes far beyond “Sadly”; the author describes visitors still enjoying it today (lines 30–31)."
+      },
+      "passage_id": "RC-W8-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "13b121a7ab21a7a9"
+    },
+    {
+      "id": "RC-W8-X-18",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — which question the passage answers",
+      "difficulty": "M",
+      "prompt": "The passage provides information to answer which question?",
+      "choices": {
+        "A": "Who taught Seurat to paint with dots?",
+        "B": "Why did Seurat add a monkey on a leash?",
+        "C": "What did the museum pay for the painting?",
+        "D": "In what year did Seurat begin the painting?"
+      },
+      "correct": "D",
+      "explanation": "Line 8 says Seurat began the painting in 1884. The passage never says who taught him, why he added the monkey, or what the museum paid.",
+      "misconceptions": "takes a question the passage touches on (the monkey, the museum) for one it answers",
+      "why": {
+        "A": "Who taught Seurat to paint with dots is never said; the passage says only that his way of painting came to be called pointillism (lines 16–17).",
+        "B": "Why Seurat added a monkey on a leash is not explained; lines 20–22 say only that he added new figures, including the monkey.",
+        "C": "What the museum paid for the painting is never mentioned; the passage says only that it hangs in the Art Institute of Chicago today (lines 28–29)."
+      },
+      "passage_id": "RC-W8-XP3",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "028b1a1e1cd47c42"
+    },
+    {
+      "id": "RC-W8-X-19",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Main idea",
+      "subskill": "main idea — the theme of a story",
+      "difficulty": "H",
+      "prompt": "Which best states a theme of the story?",
+      "choices": {
+        "A": "Hard work always earns a fair reward in the end.",
+        "B": "Storms do more damage than long periods of calm.",
+        "C": "It is unwise to argue with people who are powerful.",
+        "D": "Whoever claims to own something must also accept its troubles."
+      },
+      "correct": "D",
+      "explanation": "Tamsin shows the lord that if the wind is his property, its idle weeks and its storm damage are his too; once he sees that owning the wind means paying for its harm, he gives up his claim.",
+      "misconceptions": "takes a literal comparison of two events for a theme; reverses Tamsin's success; reaches for a stock moral",
+      "why": {
+        "A": "Hard work always earning a fair reward does not fit; Tamsin wins with a clever argument, not with extra work, and no one is rewarded for working.",
+        "B": "Storms doing more damage than calm weeks compares two events in the story (lines 15–17 and 24–25) instead of stating a lesson about them.",
+        "C": "Arguing with the powerful being unwise is the opposite of what happens: Tamsin argues politely with the lord and wins (lines 28–34)."
+      },
+      "passage_id": "RC-W8-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "f33187308df5a462"
+    },
+    {
+      "id": "RC-W8-X-20",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Supporting detail/evidence",
+      "subskill": "supporting detail — the one choice the passage does not support (EXCEPT)",
+      "difficulty": "M",
+      "prompt": "In the story, Tamsin does all of the following EXCEPT",
+      "choices": {
+        "A": "pay the weekly sack of flour",
+        "B": "keep a record on the mill door",
+        "C": "ask the other millers to join her",
+        "D": "climb the hill with a bill for the repairs"
+      },
+      "correct": "C",
+      "explanation": "Tamsin pays like the others, keeps chalk marks on the door, and carries a bill up to the castle, but she never asks the other millers for help; she acts on her own.",
+      "misconceptions": "assumes the hero gathers helpers; skims for the missing action instead of checking each one",
+      "why": {
+        "A": "Paying the weekly sack of flour is something she does: line 11 says she paid too and said nothing.",
+        "B": "Keeping a record on the mill door is something she does: each evening she made a chalk mark for a windy day or a still one (lines 11–14).",
+        "D": "Climbing the hill with a bill for the repairs is something she does after the storm (lines 26–28)."
+      },
+      "passage_id": "RC-W8-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "7823d43629dfc392"
+    },
+    {
+      "id": "RC-W8-X-21",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Vocabulary in context",
+      "subskill": "vocabulary in context — the meaning of a phrase",
+      "difficulty": "M",
+      "prompt": "In lines 22–23, “could hardly argue” means that the lord",
+      "choices": {
+        "A": "argued only a little",
+        "B": "had no good reason to object",
+        "C": "agreed to give her more flour",
+        "D": "was much too angry to say anything"
+      },
+      "correct": "B",
+      "explanation": "“Could hardly argue” means there was almost nothing he could say against her: by his own rule the wind was his, and it had not come to work, so he had no good reason to object.",
+      "misconceptions": "reads \"hardly\" as \"a little\"; reads the frown as speechless anger",
+      "why": {
+        "A": "Argued only a little reads “hardly” as “a small amount”; the phrase means he had almost nothing to argue with, since it was his own wind that had not worked.",
+        "C": "Agreeing to give her more flour is never suggested; the lord only frowns at the empty sack and lets the matter drop (lines 22–23).",
+        "D": "Being much too angry to say anything comes from the frown in line 22, but the phrase is about having no good argument, not about being too upset to talk."
+      },
+      "passage_id": "RC-W8-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2c26e73d69f578b5"
+    },
+    {
+      "id": "RC-W8-X-22",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Inference",
+      "subskill": "inference — a character's reason for acting",
+      "difficulty": "M",
+      "prompt": "Tamsin most likely made a chalk mark on the mill door each evening in order to",
+      "choices": {
+        "A": "decorate the door with a pattern",
+        "B": "count the sacks she owed the lord",
+        "C": "help her family remember to shut the mill",
+        "D": "keep proof of the days the wind failed to blow"
+      },
+      "correct": "D",
+      "explanation": "Tamsin marked each still day with a circle, and when the calm came she pointed to the row of circles to show the servant that the lord's wind had not worked. The marks were her proof.",
+      "misconceptions": "reads the marks as decoration or as a tally of the payments",
+      "why": {
+        "A": "Decorating the door takes the marks for a pattern; each one stood for a windy day or a still one (lines 12–14), and she later used them as proof (line 19).",
+        "B": "Counting the sacks she owed the lord mixes the marks up with the payments; a line meant a windy day and a circle a still one (lines 12–14).",
+        "C": "Helping her family remember to shut the mill is never mentioned; the marks recorded the weather, which she pointed to when the servant came (lines 17–19)."
+      },
+      "passage_id": "RC-W8-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "9a1508953af4bce4"
+    },
+    {
+      "id": "RC-W8-X-23",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Organization/logic",
+      "subskill": "organization/logic — how two parts relate",
+      "difficulty": "H",
+      "prompt": "How is the summer calm related to the autumn storm?",
+      "choices": {
+        "A": "Each shows a problem with owning the wind.",
+        "B": "Both show that Tamsin's mill was poorly built.",
+        "C": "The calm hurts the lord, but the storm helps him.",
+        "D": "The storm happens because of the long summer calm."
+      },
+      "correct": "A",
+      "explanation": "In the calm, the lord's wind does no work, so there is no flour to share; in the storm, his wind does damage, so the repair bill is his. Each shows a different trouble that comes with owning the wind.",
+      "misconceptions": "looks for cause and effect between the two events; misjudges whom the storm hurts",
+      "why": {
+        "B": "Both showing that Tamsin's mill was poorly built does not fit; no mill turned in the calm (lines 15–17), and the storm was strong enough to flatten a barn.",
+        "C": "The calm hurting the lord but the storm helping him gets the storm backward: it brings him a bill for the repairs (lines 28–30).",
+        "D": "The storm happening because of the calm is never suggested; the two come in different seasons, and the story gives no cause for either."
+      },
+      "passage_id": "RC-W8-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "7096784166672139"
+    },
+    {
+      "id": "RC-W8-X-24",
+      "subject": "RC",
+      "form": "W8",
+      "skill": "Tone/style/figurative language",
+      "subskill": "style — what kind of writing the passage is",
+      "difficulty": "E",
+      "prompt": "Which best describes the kind of writing in this passage?",
+      "choices": {
+        "A": "a folktale",
+        "B": "a biography",
+        "C": "a news report",
+        "D": "a science article"
+      },
+      "correct": "A",
+      "explanation": "The story begins “Long ago,” takes place in an unnamed valley, has a clever hero who outwits a greedy lord, and ends by telling what people there still do “to this day,” all marks of a folktale.",
+      "misconceptions": "is misled by the weather in the story or by the line numbers on the page",
+      "why": {
+        "B": "A biography tells the true life of a real person; Tamsin and the lord are characters in a tale set “long ago” in an unnamed valley (line 1).",
+        "C": "A news report tells real, recent events with dates and places; this story happens “long ago” and ends with a custom that lasts “to this day” (line 37).",
+        "D": "A science article would explain how wind or storms work; here the wind is the center of a clever argument, not something explained."
+      },
+      "passage_id": "RC-W8-XP4",
+      "schema_version": "1.0",
+      "content_version": "2026.10.05",
+      "source": "Original content authored for Sheila ISEE",
+      "content_hash": "2230463e1b0f4b17"
+    }
+  ]
+}

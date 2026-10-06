@@ -173,11 +173,22 @@ mock items had one. Three further rules from the review:
 ## Figures and line numbers
 
 An item carries its picture as a small declarative `figure` — table, bar, line,
-pictograph, numberline, grid, polygon, venn, spinner, clock, shaded, cubes — whose
-schema is `tools/itemspec.py` (`FIGURES`) and whose drawing is
+pictograph, numberline, grid, polygon, venn, venn3, spinner, clock, shaded, cubes —
+whose schema is `tools/itemspec.py` (`FIGURES`) and whose drawing is
 `site/src/components/figure.jsx`. The stem introduces the figure; the figure holds
 the data. A polygon marks its right angles, places each side's label outside that
 side, and can draw a fold as a dashed side (`dashed`), which the stem then names.
+It can also print a corner's size inside that corner (`angles`: `{at, text}`, the
+vertex index and "35°" or "x") and name its vertices outside them (`names`), the
+way the booklet draws a triangle whose missing angle is asked for — the sizes go on
+the figure, not in the stem, because reading them off the drawing is the skill.
+The label sits on the corner's bisector, pushed further in the narrower the corner,
+so it clears both sides.
+
+`venn3` is three overlapping circles, `a`, `b` and `c`, with a count, up to three
+names, or a shade for each region — `a`, `b`, `c`, `ab`, `ac`, `bc`, `abc` and
+`outside`. It exists because the Princeton Review paper asked twice for the part
+"inside two circles and outside the third", and two circles cannot ask it.
 
 A passage written to this spec carries `lines: true` and is authored line by line:
 a newline ends a line, a blank line ends a paragraph, lines run to about 56

@@ -332,25 +332,31 @@ sub-skill, with its week and sitting, her last answer, and the key behind a tap;
 this skill runs up to twelve of them as `again`, which counts as evidence for the reason
 `again` always has. The skills card on a subject page links each name there.
 
-**Every wrong choice is answered.** All 1,510 items carry a `why` per wrong choice, and the
+**Every wrong choice is answered.** All 2,009 items carry a `why` per wrong choice, and the
 validator errors on a gap in any bank. This is the property the site is *for*: an explanation can
 only ever describe the correct route, so "perimeter = 2(10+3) = 26" never tells her that the 30 she
 picked was the area. If you add a question, you author three `why` sentences with it or the gate
 refuses the commit.
 
-**The 8 plan weeks are 112–142 questions each, in 11–13 sittings, plus 20 words and one essay.**
-The range is not flat: W3 and W4 are the heaviest at 137 and 142, because they carry the two
-54-item Verbal weeks, and they fall either side of the diagnostic (W3 ends Sep 20, the diagnostic
-runs Sep 21–27, W4 starts Sep 28). Whether that placement was chosen or fell out of the week sizes
-is not recorded anywhere, so do not invent a reason for it — ask. What *is* certain is the
-mechanism: any change to a week's item count changes its sitting count through `ceil(n/12)`, which
-is what she actually feels. 37 items is four sittings; 36 is three.
+**Weeks 1–4 are 112–142 questions each, in 11–13 sittings, plus 20 words and one essay; Weeks 5–8
+are 248–250, in 24 sittings, plus 40 words and the same one essay.** The second half is the owner's
+doubling of 5 October 2026 (above): every subject's week was doubled in proportion — the added
+sittings follow the planned twelve, the word lists run to 40 — and the essay stayed at one, which
+the owner has not asked to change. Among Weeks 1–4 the range is not flat: W3 and W4 are the
+heaviest at 137 and 142, because they carry the two 54-item Verbal weeks, and they fall either side
+of the diagnostic (W3 ends Sep 20, the diagnostic runs Sep 21–27, W4 starts Sep 28). Whether that
+placement was chosen or fell out of the week sizes is not recorded anywhere, so do not invent a
+reason for it — ask. What *is* certain is the mechanism: any change to a week's item count changes
+its sitting count through `ceil(n/12)`, which is what she actually feels. 37 items is four
+sittings; 36 is three.
 
-**Verbal is over-weighted on purpose.** 33% of practice against 27% of the paper. 181 of its 330
-items are sentence completion, which is the mechanic the whole site is built on, and Verbal gates
-the rest. This has been mistaken for a defect and flagged as one; it is not. The mocks reproduce
-the exam's true proportions exactly, so shape exposure lives there and the practice weeks are free
-to be weighted for teaching. Do not "rebalance" the bank toward the paper without the owner asking.
+**Verbal is over-weighted on purpose.** 32% of practice against 27% of the paper (33% until Weeks
+5–8 were doubled, which added to every subject in its own proportion and so diluted it slightly —
+that is not a rebalancing either). 261 of its 478 items are sentence completion, which is the
+mechanic the whole site is built on, and Verbal gates the rest. This has been mistaken for a defect
+and flagged as one; it is not. The mocks reproduce the exam's true proportions exactly, so shape
+exposure lives there and the practice weeks are free to be weighted for teaching. Do not
+"rebalance" the bank toward the paper without the owner asking.
 
 **Spaced review is 1, 3, 7, 21 days** (`INTERVALS`), retiring on two correct answers on
 *different* days with a check-in at three weeks — and the review never re-asks the missed
@@ -901,7 +907,7 @@ came back. Which name she called belongs on the attempt (`pick`), not in the id.
 keyed by the letters of its *wrong* choices; the runner shows it above the
 explanation, on the reveal and again on the score card. The explanation can only
 ever describe the correct route — told "perimeter = 2(10+3) = 26" after picking
-30, she still does not learn that 30 was the area. **All 1,510 items carry one for
+30, she still does not learn that 30 was the area. **All 2,009 items carry one for
 every wrong choice now**, and `tools/validate_content.py` errors on a gap. It began
 as fifteen, all on area and perimeter, written against mistakes Sheila actually
 made on an IXL set. Author it in `content/question-banks/*.json`, never for the
