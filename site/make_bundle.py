@@ -33,6 +33,10 @@ for sub,files in BANKS.items():
             # The fine-grained sub-skill, where an author named one: a skill's page lists
             # its questions under these, so what is covered can be read off at a glance.
             if it.get('subskill') or SUBSKILLS.get(it['id']): q['ss']=it.get('subskill') or SUBSKILLS[it['id']]
+            # The word a phrase completion turns on ("Since arguing with the referee was futile,
+            # the coach ____"), where its author named one: its choices are what happened next,
+            # not words, so the word bank (site/src/lib/vocab.js) could not read it off them.
+            if it.get('word'): q['vw']=it['word']
             if f==PLUS[sub]: q['x']=1
             items.append(q)
     items.sort(key=lambda i:(int(i['w'][1:]), i['id']))

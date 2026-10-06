@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Award, Blocks, BookA, Languages, Volume2, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
+import { Award, Blocks, BookA, Languages, Library, Volume2, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, subjProgress, zhLessonLabel } from "@/lib/content"
 import { currentZhLesson, noteFor, zhNextUp } from "@/pages/chinese"
@@ -183,6 +183,12 @@ export function AppSidebar({ route, ...props }) {
                 <SidebarMenuButton tooltip="Score" isActive={top === "score"} onClick={() => nav("/score")}>
                   <Trophy />
                   <span>Score</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="Every word, with the questions that test it" isActive={top === "vocab"} onClick={() => nav("/vocab")} data-testid="nav-vocab">
+                  <Library />
+                  <span>Vocabulary</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>

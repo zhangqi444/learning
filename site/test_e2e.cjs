@@ -182,7 +182,7 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
        inside their own box — the document may not. */
     if (isPhone) {
       const wide = [];
-      for (const h of ['#/', '#/mock', '#/mock/DGN', '#/checklist', '#/review', '#/score', '#/s/ma', '#/calendar', '#/quest', '#/base', '#/rewards', '#/books']) {
+      for (const h of ['#/', '#/mock', '#/mock/DGN', '#/checklist', '#/review', '#/score', '#/s/ma', '#/calendar', '#/quest', '#/base', '#/rewards', '#/books', '#/vocab', '#/vocab/resolute']) {
         await pg.evaluate((x) => { location.hash = x; }, h);
         await pg.waitForTimeout(350);
         const over = await pg.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);

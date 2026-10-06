@@ -26,23 +26,25 @@ const DIFF = { E: "Easy", M: "Medium", H: "Hard" }
 const UNSORTED = "other questions"
 
 /** Where each question of a subject sits: its week and its sitting (0-based). */
-function placesOf(sub) {
+export function placesOf(sub) {
   const out = {}
   for (const w of D.weeks || []) setsFor(sub, w.w).forEach((set, n) => set.forEach((q) => { out[q.id] = { w: w.w, n } }))
   return out
 }
 function lastTry(id) { const r = rec(id); const h = (r && r.hist) || []; return h.length ? h[h.length - 1] : null }
 
-function QuestionRow({ sub, it, at }) {
+/** One question as she sees it, its answer behind a tap. `where` names its place when it is
+ *  not a sitting (a mock, the word quiz), and `note` adds what the page around it counts. */
+export function QuestionRow({ sub, it, at, where, testid = "skill-question", role, note, data }) {
   const [answer, setAnswer] = React.useState(false)
   const [passage, setPassage] = React.useState(false)
   const last = lastTry(it.id), k = keyOf(it)
   return (
-    <li className="flex flex-col gap-2 py-3" data-testid="skill-question" data-qid={it.id} data-added={it.x ? "1" : undefined}>
+    <li className="flex flex-col gap-2 py-3" data-testid={testid} data-qid={it.id} data-role={role} data-added={it.x ? "1" : undefined} {...(data || {})}>
       <div className="text-muted-foreground flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-        <span className="text-foreground font-medium tabular-nums">{at ? `${at.w} · sitting ${at.n + 1}` : it.w}</span>
+        <span className="text-foreground font-medium tabular-nums">{where || (at ? `${at.w} · sitting ${at.n + 1}` : it.w)}</span>
         {it.d ? <Badge variant="outline" className="text-[11px]">{DIFF[it.d] || it.d}</Badge> : null}
-        <span data-testid="skill-question-last">{last ? (last.ok ? "right last time" : "missed last time") : "not tried yet"}</span>
+        {note || <span data-testid="skill-question-last">{last ? (last.ok ? "right last time" : "missed last time") : "not tried yet"}</span>}
       </div>
       {sub === "rc" && it.p && D.passages[it.p] ? (
         <div className="flex flex-col gap-2">

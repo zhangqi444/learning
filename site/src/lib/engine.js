@@ -35,7 +35,7 @@ export const CAUSE_LABEL = Object.fromEntries(CAUSES.map((c) => [c.id, c.label])
 export const BUDGET = { vr: 35, qr: 55, rc: 60, ma: 60 }
 export const INTERVALS = [1, 3, 7, 21]                  // days: after a miss, then after each spaced correct answer
 const CHECKIN_DAYS = 21, WORD_BRUSHUP_DAYS = 7
-const LEARN_CTX = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 }   // 'corr' (right after seeing the answers) is not evidence
+export const LEARN_CTX = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 }   // 'corr' (right after seeing the answers) is not evidence
 // 'again' is evidence and 'corr' is not, and the difference is the whole rule:
 // corrections re-ask the question whose answer she has just been shown, while
 // 'again' asks a DIFFERENT question on the same skill. She has seen no key for

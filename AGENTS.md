@@ -332,6 +332,26 @@ sub-skill, with its week and sitting, her last answer, and the key behind a tap;
 this skill runs up to twelve of them as `again`, which counts as evidence for the reason
 `again` always has. The skills card on a subject page links each name there.
 
+**Every word opens its questions.** The owner, 6 October 2026: "each words i need to how its
+covered by questions … track the result, so we know to each words how well we covered, if
+covered, done how many times, right/wrong". `/vocab` (`pages/vocab.jsx`) lists every word the
+questions teach or test, and `/vocab/<word>` its questions with her answers on each. The words
+are read off the questions by `lib/vocab.js`, never kept in a list beside them:
+- a question **asks** a word when the word is a synonym's or words-in-context headword, a
+  sentence completion's answer, the word a reading question quotes for its meaning, or the word
+  a phrase completion turns on;
+- a phrase completion's choices are what happened next, not words, so the item names its word
+  in `word`, which the bundle carries as `vw`;
+- the four-choice quiz built from her lists counts as a question that asks the word;
+- a completion's wrong choices are words she has to turn down, and choosing one is counted as a
+  miss that names the word.
+
+Inflections fold onto the plain form only when the plain form is in the bank. Each half of a
+paired list entry folds onto the entry. Nothing else is merged. The counts are her record's
+answers under `LEARN_CTX`, minus any answer a stand-in wrote onto the question (`via`): that
+answer was given to a different question with different words in it. The precision card links
+to a word's page only after she has asked for the meaning, because the page opens with it.
+
 **Every wrong choice is answered.** All 2,009 items carry a `why` per wrong choice, and the
 validator errors on a gap in any bank. This is the property the site is *for*: an explanation can
 only ever describe the correct route, so "perimeter = 2(10+3) = 26" never tells her that the 30 she

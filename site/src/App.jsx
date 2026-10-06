@@ -27,6 +27,7 @@ import { Rewards } from "@/pages/rewards"
 import { Books } from "@/pages/books"
 import { Import } from "@/pages/import"
 import { SkillPage, SkillRun } from "@/pages/skill"
+import { VocabPage, WordPage } from "@/pages/vocab"
 import { DriveSettings } from "@/pages/drive"
 
 /** The queue is read once on mount, so finishing the run (which reschedules every item) keeps the score screen up. */
@@ -115,6 +116,13 @@ function Screen({ route }) {
     let sk = b
     try { sk = decodeURIComponent(b) } catch { /* a hand-typed name: use it as written */ }
     return c === "practice" ? <SkillRun key={`skillrun:${a}:${sk}`} sub={a} sk={sk} /> : <SkillPage key={`skill:${a}:${sk}`} sub={a} sk={sk} />
+  }
+  // Every word, and one word with each question that covers it (pages/vocab.jsx).
+  if (top === "vocab") {
+    if (!a) return <VocabPage />
+    let w = a
+    try { w = decodeURIComponent(a) } catch { /* as typed */ }
+    return <WordPage key={"word:" + w} name={w} />
   }
   if (top === "review" && SUBJ[a]) return <ReviewRun key={`rev:${a}:${b || ""}`} sub={a} mode={b} />
   if (top === "review") return <Review />

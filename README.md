@@ -140,6 +140,8 @@ for the writing sample and a number there would measure that she wrote one rathe
 | `/review` | everything a miss has scheduled, by subject, with the cause breakdown |
 | `/mixed` | twelve questions, all four subjects, shuffled — where Proficient becomes Mastered |
 | `/precision/<week>` | the week's words (20, or 40 in a doubled week), then a quiz on them |
+| `/vocab` | every word the questions teach or test: the questions that cover it, and how many times she answered them, right and wrong |
+| `/vocab/<word>` | one word: its meaning, each question that asks it and each that offers it as a wrong choice, with her answers on every one |
 | `/essay/<week>` | plan, draft, revise against that week's rubric |
 | `/mock`, `/mock/<form>` | the four papers, timed by section, then corrections by skill |
 | `/mock/TPR` | a paper sat offline: its sections and source, and the scores a parent enters once it is marked |

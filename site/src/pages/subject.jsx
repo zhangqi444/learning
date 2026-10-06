@@ -126,6 +126,11 @@ export function SkillsCard({ sub }) {
           {pace.n >= 8 ? ` · median ${Math.round(pace.median)} s a question against a ${pace.budget} s budget` : ""}
         </CardDescription>
         <CardAction><Button size="sm" variant="ghost" onClick={() => setAll((v) => !v)}>{all ? "Practiced only" : "All skills"}</Button></CardAction>
+        {sub === "vr" ? (
+          <CardDescription className="text-xs">
+            <a href={href("/vocab")} className="hover:text-primary underline decoration-dotted underline-offset-4" data-testid="vocab-from-vr">Every word</a> in these questions and on her lists, with the questions that test each one and her answers on them.
+          </CardDescription>
+        ) : null}
         {rows.some((k) => weak(k) && aopsFor(sub, k.sk)) ? <CardDescription className="text-xs">Weak skills carry the free Alcumus topic that drills them — hover for the Prealgebra chapter and the Beast Academy unit behind it.</CardDescription> : null}
       </CardHeader>
       {rows.length ? (

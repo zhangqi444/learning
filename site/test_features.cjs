@@ -1721,6 +1721,42 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const precWant = await pg.evaluate(async () => { const b = await (await fetch('./content/bundle.json')).json(); return { n: b.precision.W7.words.length, min: b.precision.W7.minutes }; });
   check('a week\'s precision row gives that week\'s own word count and time', precRow.includes(`${precWant.n} words`) && precRow.includes(precWant.min), precRow);
   }
+  {
+  /* The word bank (pages/vocab.jsx, lib/vocab.js). The owner, 6 October 2026: for each
+     word, which questions cover it, and "done how many times, right/wrong". Its counts are
+     her record's own, so they are checked against the record: the answers a review counts,
+     never a corrections pass and never an answer a stand-in wrote onto the question (`via`). */
+  const vw = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const lists = new Set(Object.values(b.precision).flatMap((p) => p.words.map((e) => String(e.word).toLowerCase().trim())));
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const CTX = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 };
+    const counted = (id) => ((s.items[id] || {}).hist || []).filter((h) => CTX[h.ctx] && !h.via);
+    const syn = b.subjects.vr.map((it) => ({ it, m: /^\s*([A-Z][A-Z'’\- ]*[A-Z])\s+most nearly means/.exec(it.q) })).filter((x) => x.m);
+    const done = syn.find((x) => counted(x.it.id).length);
+    return { lists: lists.size, word: done && done.m[1].toLowerCase(), id: done && done.it.id, n: done ? counted(done.it.id).length : 0,
+      right: done ? counted(done.it.id).filter((h) => h.ok).length : 0, futile: (b.subjects.vr.find((it) => it.vw === 'futile') || {}).id };
+  });
+  await pg.goto('http://localhost:8143/learning/#/vocab', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=vocab-page]');
+  await pg.click('[data-testid=vocab-show-lists]');
+  const onLists = Number(await pg.$eval('[data-testid=vocab-page]', (e) => e.dataset.shown));
+  check('the word bank holds every word on her weekly lists', onLists === vw.lists, `${onLists} of ${vw.lists}`);
+  check('the suite has an answered synonym to read the word bank against', !!vw.word, JSON.stringify(vw));
+  if (vw.word) {
+    await pg.click('[data-testid=vocab-show-all]');
+    await pg.fill('[data-testid=vocab-search]', vw.word);
+    await pg.waitForSelector(`[data-testid=vocab-row][data-word="${vw.word}"]`);
+    await pg.click(`[data-testid=vocab-row][data-word="${vw.word}"] [data-testid=vocab-link]`); await pg.waitForSelector('[data-testid=word-page]');
+    const row = await pg.$eval(`[data-testid=vocab-question][data-qid="${vw.id}"]`, (e) => ({ role: e.dataset.role, done: Number(e.dataset.done), right: Number(e.dataset.right) }));
+    check('a word\'s page lists the question that asks it, with her answers on it as her record has them',
+      row.role === 'asked' && row.done === vw.n && row.right === vw.right, JSON.stringify({ row, vw }));
+    const tot = await pg.$eval('[data-testid=word-page]', (e) => ({ done: Number(e.dataset.done), right: Number(e.dataset.right), wrong: Number(e.dataset.wrong) }));
+    const rows = await pg.$$eval('[data-testid=vocab-question][data-role=asked], [data-testid=vocab-question][data-role=quiz]', (els) => els.reduce((n, e) => n + Number(e.dataset.done || 0), 0));
+    check('and the word\'s totals are its questions\' answers added up', tot.done === rows && tot.right + tot.wrong === tot.done && tot.done >= vw.n, JSON.stringify({ tot, rows }));
+  }
+  await pg.evaluate(() => { location.hash = '#/vocab/futile'; }); await pg.waitForSelector('[data-testid=word-page], [data-testid=word-page-missing]');
+  check('a phrase completion is filed under the word its sentence turns on', !!vw.futile && !!(await pg.$(`[data-testid=vocab-question][data-qid="${vw.futile}"][data-role=asked]`)), vw.futile);
+  }
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('text=How the number is built');
   check('score page explains the parts and lists subjects', /Accuracy · 30%/.test(await body(pg)) && /comes? from attempts, not accuracy/.test(await body(pg)));
   // checklist carries the new items

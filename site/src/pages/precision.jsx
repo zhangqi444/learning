@@ -3,7 +3,8 @@ import { BookA, CheckCircle2, Eye, EyeOff, ListChecks, RotateCcw, Send, Sparkles
 
 import { D, weekLabel } from "@/lib/content"
 import { scheduleWord, wordStatus, wordSummary } from "@/lib/engine"
-import { go } from "@/lib/router"
+import { go, href } from "@/lib/router"
+import { vocabPath } from "@/lib/vocab"
 import { Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Badge } from "@zhangqi444/ui/ui/badge"
@@ -134,6 +135,8 @@ function WordCard({ wk, entry, idx, state, submitted }) {
             {entry.example ? <div><span className="text-muted-foreground">Example: </span><em>{entry.example}</em></div> : null}
             {entry.usage ? <div><span className="text-muted-foreground">Note: </span>{entry.usage}</div> : null}
             {entry.connotation ? <div><span className="text-muted-foreground">Feel: </span>{entry.connotation}</div> : null}
+            {/* here, after she has asked for the meaning: the word's page opens with it */}
+            <div><a href={href(vocabPath(entry.word.toLowerCase()))} className="hover:text-primary underline decoration-dotted underline-offset-4" data-testid="pword-questions">Every question with this word</a></div>
           </div>
         )}
       </CardContent>

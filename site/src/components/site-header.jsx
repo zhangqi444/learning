@@ -82,6 +82,13 @@ function crumbs(route, zhImport) {
     out.push({ label: SUBJ[a].name, path: "/s/" + a })
     out.push({ label: sk, path: `/skill/${a}/${b}` })
     if (c === "practice") out.push({ label: "Practice", path: `/skill/${a}/${b}/practice` })
+  } else if (top === "vocab") {
+    out.push({ label: "Vocabulary", path: "/vocab" })
+    if (a) {
+      let w = a
+      try { w = decodeURIComponent(a) } catch { /* as typed */ }
+      out.push({ label: w, path: "/vocab/" + a })
+    }
   } else if (top === "drive") {
     out.push({ label: "Drive settings", path: "/drive" })
   } else if (top === "import") {
