@@ -8,14 +8,18 @@ BANKS={'vr':['vr-september.json','vr-weeks5-8.json'],'qr':['qr-september.json','
 # their own `-plus` bank and are marked `x`, so the site gives them sittings of their own
 # after the week's first ones and a sitting she has already done keeps exactly its
 # questions (src/lib/content.js, setsFor).
-PLUS={sub:f'{sub}-weeks5-8-plus.json' for sub in BANKS}
+# Each later addition is a layer of its own, `x` 1, 2, …, given sittings after the layer before
+# it: the doubling (`-weeks5-8-plus`), then the questions written on 6 October 2026 so every
+# word on her lists is asked three ways — a synonym, a completion and a phrase completion
+# (`-words-plus`, Verbal only).
+ADDED={sub:[f'{sub}-weeks5-8-plus.json', f'{sub}-words-plus.json'] for sub in BANKS}
 # The sub-skill of each question written before sub-skills were named, kept beside the
 # banks rather than in them so those questions (and their content hashes) are untouched.
 SUBSKILLS=json.load(open('content/subskills.json'))['items'] if os.path.exists('content/subskills.json') else {}
 out={'version':'2026.09.01','subjects':{},'passages':{}}
 for sub,files in BANKS.items():
     items=[]
-    for f in files+([PLUS[sub]] if os.path.exists(f'content/question-banks/{PLUS[sub]}') else []):
+    for f in files+[a for a in ADDED[sub] if os.path.exists(f'content/question-banks/{a}')]:
         for it in json.load(open(f'content/question-banks/{f}'))['items']:
             m=re.match(r'(W[1-8])', str(it.get('form','')))
             q={'id':it['id'],'w':m.group(1) if m else 'W1','sk':it.get('skill',''),
@@ -37,7 +41,7 @@ for sub,files in BANKS.items():
             # the coach ____"), where its author named one: its choices are what happened next,
             # not words, so the word bank (site/src/lib/vocab.js) could not read it off them.
             if it.get('word'): q['vw']=it['word']
-            if f==PLUS[sub]: q['x']=1
+            if f in ADDED[sub]: q['x']=ADDED[sub].index(f)+1
             items.append(q)
     items.sort(key=lambda i:(int(i['w'][1:]), i['id']))
     out['subjects'][sub]=items

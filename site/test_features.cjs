@@ -1697,24 +1697,24 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.click('[data-testid=skill-practice]'); await pg.waitForSelector('[data-testid=question]');
   const practiceQ = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
   check('Practice this skill asks a question of that skill', await pg.evaluate(async (id) => { const b = await (await fetch('./content/bundle.json')).json(); const it = b.subjects.rc.find((q) => q.id === id); return !!it && it.sk === 'Organization/logic'; }, practiceQ), practiceQ);
-  /* A week doubled after it was planned: the added questions (x) get sittings of their
-     own after the week's first ones, so a sitting she has done keeps its questions. */
+  /* A week added to after it was planned: each layer (x 1, the doubling; x 2, the word
+     questions) gets sittings of its own after the layer before, so a sitting she has
+     done keeps its questions whatever is added later. */
   const plusPlan = await pg.evaluate(async () => {
     const b = await (await fetch('./content/bundle.json')).json();
     const wk = b.subjects.vr.filter((i) => i.w === 'W7');   // a week nothing earlier in the suite has sat
-    const base = wk.filter((i) => !i.x), plus = wk.filter((i) => i.x);
-    return { baseSets: Math.ceil(base.length / 12), plusSets: Math.ceil(plus.length / 12), first: base[0] && base[0].id, firstPlus: plus[0] && plus[0].id };
+    const layers = [...new Set(wk.map((i) => i.x || 0))].sort((a, b) => a - b);
+    let at = 0;
+    return layers.map((x) => { const qs = wk.filter((i) => (i.x || 0) === x), out = { x, at, first: qs[0].id }; at += Math.ceil(qs.length / 12); return out; });
   });
   // A full load: the practice run above is still open, and a run asks before it is left.
-  await pg.goto('http://localhost:8143/learning/#/run/vr/W7/0', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=question]');
-  const firstQ = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
-  let plusQ = null;
-  if (plusPlan.plusSets) {
-    await pg.goto('http://localhost:8143/learning/#/run/vr/W7/' + plusPlan.baseSets, { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=question]');
-    plusQ = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
+  const firsts = [];
+  for (const l of plusPlan) {
+    await pg.goto('http://localhost:8143/learning/#/run/vr/W7/' + l.at, { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=question]');
+    firsts.push(await pg.$eval('[data-testid=question]', (e) => e.dataset.qid));
   }
-  check('a week\'s first sittings keep their questions, and the added ones come after them in sittings of their own',
-    firstQ === plusPlan.first && (!plusPlan.plusSets || plusQ === plusPlan.firstPlus), JSON.stringify({ firstQ, plusQ, plusPlan }));
+  check('a week\'s first sittings keep their questions, and each added layer comes after them in sittings of its own',
+    plusPlan.length >= 1 && plusPlan.every((l, k) => firsts[k] === l.first), JSON.stringify({ firsts, plusPlan }));
   // A doubled week's word list runs to 40, and the row said "20–25 min" whatever the week held.
   await pg.goto('http://localhost:8143/learning/#/s/vr/W7', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=precision-row]');
   const precRow = await pg.$eval('[data-testid=precision-row]', (e) => e.textContent);

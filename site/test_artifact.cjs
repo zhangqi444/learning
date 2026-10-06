@@ -14,16 +14,14 @@ const check = (name, ok, detail) => { if (!ok) bad++; console.log(name + ':', ok
 /* The dashboard's headline count is the bundle's own arithmetic, so read it from the bundle
  * rather than freezing last month's number: adding a week's worth of questions is a legitimate
  * content change and must not read as a broken artifact. Mirrors setsFor() in src/lib/content.js:
- * a week's questions in near-equal sets, and those added to it afterwards (`x`) in sets of their own. */
+ * a week's questions in near-equal sets, and each layer added to it afterwards (`x` 1, 2, …) in sets of its own. */
 const bundle = JSON.parse(fs.readFileSync(__dirname + '/content/bundle.json', 'utf8'));
 const SETSIZE = 12;
 let totalSets = 0;
 for (const sub of ['vr', 'qr', 'ma', 'rc'])
   for (const w of bundle.weeks) {
-    for (const added of [false, true]) {
-      const n = bundle.subjects[sub].filter((i) => i.w === w.w && !!i.x === added).length;
-      totalSets += Math.ceil(n / SETSIZE);
-    }
+    const wk = bundle.subjects[sub].filter((i) => i.w === w.w);
+    for (const x of new Set(wk.map((i) => i.x || 0))) totalSets += Math.ceil(wk.filter((i) => (i.x || 0) === x).length / SETSIZE);
   }
 const seeded = Object.keys(bundle.seed.results).length;
 

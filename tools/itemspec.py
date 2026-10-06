@@ -73,7 +73,12 @@ def _plain(t):
     return None
 
 _WORD = re.compile(r"^[A-Za-z][A-Za-z'’-]*$")
-_EXPR = re.compile(r'[A-Za-z]\s*[-+×x*/÷=<>]|[-+×*/÷=<>]\s*[A-Za-z]|\d\s*[A-Za-z]\b|\b[A-Za-z]\d|\(|\)|=|<|>|÷|×')
+# An operator beside a one-letter name ("n + 3", "x − 2"), a times sign between numbers, a
+# number with a unit letter, brackets or a comparison. It once took any letter next to a
+# hyphen or an x for maths, so "well-known", "fixed" and "next week" made a set of phrases an
+# expression and the order check passed it unread — a vocabulary author found that on
+# 6 October 2026, and no held form had a set the narrower rule puts out of order.
+_EXPR = re.compile(r'(?<![A-Za-z])[A-Za-z]\s*[-+×*/÷=<>]|[-+×*/÷=<>]\s*[A-Za-z](?![A-Za-z])|\d\s*[x×]\s*\d|\d\s*[A-Za-z]\b|\b[A-Za-z]\d|\(|\)|=|<|>|÷|×')
 
 def kind_of(choices):
     """'number' | 'word' | 'phrase' | 'expression' for a set of four choice strings."""

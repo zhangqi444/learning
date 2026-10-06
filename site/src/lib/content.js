@@ -77,12 +77,14 @@ export function chunk(all) {
   for (let i = 0, at = 0; i < k; i++) { const n = base + (i < extra ? 1 : 0); out.push(all.slice(at, at + n)); at += n }
   return out
 }
-/** A week's sittings: its planned questions first, then the questions added to it later
- *  (`x`, the owner's doubling of 5 October 2026) in sittings of their own — so adding to a
- *  week she has started never moves a question between the sittings she has done. */
+/** A week's sittings: its planned questions first, then each layer added to it later in
+ *  sittings of its own — `x` 1, the owner's doubling of 5 October 2026; `x` 2, the questions
+ *  that ask every list word three ways (6 October). Adding to a week she has started never
+ *  moves a question between the sittings she has done. */
 export function setsFor(sub, wk) {
   const all = itemsFor(sub, wk)
-  return [...chunk(all.filter((i) => !i.x)), ...chunk(all.filter((i) => i.x))]
+  const layers = [...new Set(all.map((i) => i.x || 0))].sort((a, b) => a - b)
+  return layers.flatMap((x) => chunk(all.filter((i) => (i.x || 0) === x)))
 }
 /** When a set's questions arrived, if they all arrived after the week was first
  *  finished — otherwise null, because then there is nothing to explain.

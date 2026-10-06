@@ -26,13 +26,13 @@ in `content/calendar*`, and the app's Calendar page is generated from it.
 
 | | count | where |
 |---|---|---|
-| Practice questions | **1,501** across 8 plan weeks — 1,002 planned, 499 added when Weeks 5–8 were doubled | `content/question-banks/{vr,qr,rc,ma}-*.json`; the added ones in `<sub>-weeks5-8-plus.json` |
+| Practice questions | **1,883** across 8 plan weeks — 1,002 planned, 499 added when Weeks 5–8 were doubled, 382 so every list word is asked three ways | `content/question-banks/{vr,qr,rc,ma}-*.json`; the added ones in `<sub>-weeks5-8-plus.json` and `vr-words-plus.json` |
 | Mock questions | **508** across 4 papers of 127 | `content/question-banks/mock-<form>.json`, one file per paper |
 | Reading passages | 68 | `content/passages/` |
 | Precision words | 240 — 20 a week, 40 in Weeks 5–8 | the bundle's `precision` |
 | Essay prompts | 8 weekly, plus a bank of 12 | the bundle's `essay` |
 
-Every one of the 2,009 questions carries **an explanation** of the correct route and a **`why`
+Every one of the 2,391 questions carries **an explanation** of the correct route and a **`why`
 for each of its three wrong choices** — a sentence saying what *that* answer actually was.
 This is the single most important property of the content and it is enforced: the validator
 fails if any wrong choice anywhere is left unexplained. The reason is that an explanation can
@@ -43,8 +43,10 @@ does not learn that 30 was the area.
 
 Weeks 1–4 hold **112–142 questions** each, which the app divides into **11–13 sittings**, plus
 20 precision words and one essay. Weeks 5–8 were **doubled** on 5 October 2026, when the owner
-asked for every week's work doubled: **248–250 questions in 24 sittings**, plus 40 words and the
-same one essay. The added questions sit in sittings of their own *after* the week's first twelve
+asked for every week's work doubled — 248–250 questions in 24 sittings, plus 40 words and the
+same one essay — and grew again the next day by the Verbal questions that ask every word on her
+lists three ways (a synonym, a sentence completion and a phrase completion): **337–352 questions
+in 32–33 sittings**. Each addition sits in sittings of its own *after* the ones before it
 (`setsFor`), so the sittings she had already done in Week 5 did not move.
 
 A *sitting* is the unit she experiences. `chunk()` splits a week's questions for one subject into
@@ -54,17 +56,17 @@ subject. The app says so on the page: *"Each set is one sitting."*
 
 | | W1 | W2 | W3 | W4 | W5 | W6 | W7 | W8 |
 |---|---|---|---|---|---|---|---|---|
-| Verbal | 37 | 37 | 54 | 54 | 37 + 37 | 37 + 37 | 37 + 37 | 37 + 37 |
+| Verbal | 37 | 37 | 54 | 54 | 37 + 37 + 87 | 37 + 37 + 94 | 37 + 37 + 102 | 37 + 37 + 99 |
 | Quantitative | 27 | 27 | 27 | 40 | 40 + 40 | 40 + 40 | 40 + 40 | 39 + 39 |
 | Reading | 24 | 24 | 24 | 24 | 24 + 24 | 24 + 24 | 24 + 24 | 24 + 24 |
 | Mathematics | 24 | 24 | 32 | 24 | 24 + 24 | 24 + 24 | 24 + 24 | 24 + 24 |
-| **questions** | 112 | 112 | 137 | 142 | 250 | 250 | 250 | 248 |
-| **sittings** | 11 | 11 | 13 | 13 | 24 | 24 | 24 | 24 |
+| **questions** | 112 | 112 | 137 | 142 | 337 | 344 | 352 | 347 |
+| **sittings** | 11 | 11 | 13 | 13 | 32 | 32 | 33 | 33 |
 | **words** | 20 | 20 | 20 | 20 | 40 | 40 | 40 | 40 |
 
-Verbal is deliberately the largest share — 32% of the practice bank against 27% of the real
-paper (33% before Weeks 5–8 were doubled, every subject in proportion). It is not an accident to
-be corrected: 261 of its 478 items are sentence completion,
+Verbal is deliberately the largest share — 46% of the practice bank against 27% of the real
+paper since every list word was given three questions of its own (32% after the doubling, 33%
+before it). It is not an accident to be corrected: 573 of its 860 items are sentence completion,
 which is the mechanic the whole site is built around, and Verbal is the section that gates the
 rest. The mock papers reproduce the exam's true proportions exactly, so test-shape exposure is
 covered there and the practice weeks are free to be weighted for teaching.
