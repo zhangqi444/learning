@@ -1090,7 +1090,7 @@
    {
     "n": 27,
     "word": "restrain",
-    "task": "Give one literal use (holding back an animal) and one figurative use (holding back a feeling).",
+    "task": "Give one literal use (an animal) and one figurative use (a feeling).",
     "pos": "verb",
     "meaning": "to hold back or keep under control; curb, contain, hinder",
     "example": "Jada had to restrain her puppy with both arms when it spotted a squirrel across the street.",
@@ -1102,7 +1102,7 @@
     "word": "stagnant",
     "task": "Give one literal use (water) and one figurative use (a skill or a business).",
     "pos": "adjective",
-    "meaning": "not flowing or moving, and often stale; still, motionless, murky",
+    "meaning": "not flowing or moving, and often stale; still, motionless, sluggish",
     "example": "Mosquitoes laid their eggs in the stagnant water of the old birdbath, which nobody had emptied all summer.",
     "usage": "Also used for things that stop growing or changing: stagnant sales. Verb: stagnate. Opposite: flowing, fresh, lively.",
     "connotation": "negative"
@@ -1142,7 +1142,7 @@
     "word": "lucid",
     "task": "Explain in your own words + use it to describe a set of instructions.",
     "pos": "adjective",
-    "meaning": "clear and easy to understand; plain, sensible, coherent",
+    "meaning": "clear and easy to understand; plain, coherent, crystal-clear",
     "example": "Ms. Patel's explanation was so lucid that even Eli, who had been confused for a week, finally understood long division.",
     "usage": "Root: luc = light (as in translucent): a lucid idea is easy to see. Noun: lucidity. Opposite: confusing, muddled.",
     "connotation": "positive"
@@ -1179,22 +1179,22 @@
    },
    {
     "n": 36,
-    "word": "hastily",
-    "task": "Explain how hastily is different from quickly.",
+    "word": "briskly",
+    "task": "Is walking briskly the same as walking hastily? Explain the difference.",
     "pos": "adverb",
-    "meaning": "too quickly and without enough care; hurriedly, rashly, carelessly",
-    "example": "Kai hastily scribbled his answers to beat the bell and got three easy questions wrong.",
-    "usage": "Adjective: hasty (also on this week's list). Noun: haste, as in “Haste makes waste.” Opposite: carefully, slowly.",
-    "connotation": "negative"
+    "meaning": "in a quick and lively way, full of energy; quickly, energetically, nimbly",
+    "example": "On the first frosty morning of fall, Grandma walked briskly to the mailbox, swinging her arms to keep warm.",
+    "usage": "Adjective: brisk (a brisk walk; a brisk wind is cold and fresh). Not the same as hasty, also on this week's list: brisk is lively, hasty is careless. Opposite: slowly, sluggishly.",
+    "connotation": ""
    },
    {
     "n": 37,
-    "word": "cautiously",
-    "task": "Describe how you would cross an icy parking lot cautiously.",
+    "word": "seldom",
+    "task": "Explain in your own words + name one food you seldom eat and say why.",
     "pos": "adverb",
-    "meaning": "in a careful way that avoids risks; warily, carefully, gingerly",
-    "example": "The kitten crept cautiously toward the sleeping dog, freezing every time the dog's ear twitched.",
-    "usage": "Adjective: cautious. Noun: caution. Opposite: recklessly, carelessly.",
+    "meaning": "not very often, only once in a while; rarely, hardly ever, infrequently",
+    "example": "Our cat seldom leaves her sunny windowsill, so we were amazed to find her sitting on top of the fridge.",
+    "usage": "“Seldom, if ever” means almost never. Opposite: often, frequently, usually.",
     "connotation": ""
    },
    {
@@ -1202,7 +1202,7 @@
     "word": "infamous",
     "task": "Explain why infamous does NOT mean “not famous,” then use it about a villain.",
     "pos": "adjective",
-    "meaning": "well known for something bad; notorious, disgraceful, shameful",
+    "meaning": "well known for something bad; notorious, ill-famed, disreputable",
     "example": "The infamous Captain Scarbone had robbed so many ships that sailors trembled at the sight of his black flag.",
     "usage": "It does NOT mean “not famous”: it means famous for the wrong reasons. Noun: infamy. Opposite: admired, honored.",
     "connotation": "negative"
@@ -1466,7 +1466,7 @@
    {
     "n": 24,
     "word": "lament",
-    "task": "Use it as a verb, then as a noun (a lament is a sad song or poem).",
+    "task": "Use it as a verb, then as a noun (a lament can be a song or a poem).",
     "pos": "verb",
     "meaning": "to express deep sadness or regret; mourn, grieve, bemoan",
     "example": "Theo lamented the loss of his lucky baseball cap all week, sighing every time he passed the empty hook.",
@@ -1526,9 +1526,9 @@
    {
     "n": 30,
     "word": "quaint",
-    "task": "Describe a quaint place, using two details that show it is old-fashioned.",
+    "task": "Describe a quaint place, using two details that make it quaint.",
     "pos": "adjective",
-    "meaning": "charming in an old-fashioned way; picturesque, cozy, storybook",
+    "meaning": "charming in an old-fashioned way; picturesque, old-time, storybook",
     "example": "The quaint little inn had a thatched roof, crooked windows, and a sleepy cat on every windowsill.",
     "usage": "Usually a compliment, but it can hint that something is a little odd or out of date. Adverb: quaintly. Opposite: modern, sleek.",
     "connotation": "positive"
@@ -1570,7 +1570,7 @@
     "pos": "noun",
     "meaning": "a young person with amazing talent; genius, whiz kid, marvel",
     "example": "The seven-year-old chess prodigy beat every adult in the park, one after another, without losing a game.",
-    "usage": "Adjective: prodigious (amazing or huge). Usually a child or a teenager. Opposite: beginner, novice.",
+    "usage": "Adjective: prodigious (amazing or huge). Usually a child or a teenager.",
     "connotation": "positive"
    },
    {
@@ -1586,7 +1586,7 @@
    {
     "n": 36,
     "word": "scarcely",
-    "task": "Rewrite “I could hardly breathe” using scarcely, then explain why “couldn't scarcely” is wrong.",
+    "task": "Use it in a sentence about a noisy room, then explain why “couldn't scarcely” is wrong.",
     "pos": "adverb",
     "meaning": "almost not at all; barely, hardly, only just",
     "example": "The fog was so thick that we could scarcely see the car right in front of us.",
@@ -1606,7 +1606,7 @@
    {
     "n": 38,
     "word": "domestic",
-    "task": "You met this word in Week 3. Give its three uses (home, own country, tame animal), one sentence each.",
+    "task": "You met this word in Week 3. Give three different uses, one sentence each.",
     "pos": "adjective",
     "meaning": "having to do with the home or family; household, homemaking, home-loving",
     "example": "On Saturdays, Kofi helps with domestic chores like washing the dishes, folding laundry, and feeding the cat.",
@@ -1844,7 +1844,7 @@
     "word": "orator",
     "task": "Describe two things a good orator does that make a crowd listen.",
     "pos": "noun",
-    "meaning": "a skilled public speaker; speechmaker, lecturer, spokesperson",
+    "meaning": "a skilled public speaker; speechmaker, lecturer",
     "example": "When the orator stepped up to the podium, the noisy crowd fell silent, and her stirring speech soon had everyone cheering.",
     "usage": "The orator is the one speaking, not the audience listening. A formal speech is an oration, and skill at giving speeches is oratory. A good orator is usually eloquent (Week 5).",
     "connotation": ""
@@ -1902,7 +1902,7 @@
    {
     "n": 27,
     "word": "embark",
-    "task": "Use it once about boarding a ship and once about starting a big project.",
+    "task": "Use it once about a ship and once about a big project.",
     "pos": "verb",
     "meaning": "to board a ship or set out on something new; begin, launch, set off",
     "example": "With backpacks full of snacks and a hand-drawn map, the cousins embarked on their hike to find the hidden waterfall.",
@@ -1946,7 +1946,7 @@
     "pos": "adjective",
     "meaning": "carefully watching for danger or trouble; watchful, alert, attentive",
     "example": "The lifeguard stayed vigilant all afternoon, scanning the waves every few seconds for swimmers in trouble.",
-    "usage": "Noun: vigilance. Related: vigil (a time of staying awake to keep watch). Opposite: careless, inattentive, off guard.",
+    "usage": "Noun: vigilance. Related: vigil (also on this week's list). Opposite: careless, inattentive, off guard.",
     "connotation": "positive"
    },
    {
@@ -2001,13 +2001,13 @@
    },
    {
     "n": 37,
-    "word": "diligently",
-    "task": "Praise or criticism? Use it about someone whose work you admire.",
+    "word": "deliberately",
+    "task": "It has two meanings. Write one sentence about a choice someone made and one about the way someone talks.",
     "pos": "adverb",
-    "meaning": "with steady and careful hard work; industriously, persistently, carefully",
-    "example": "Noor practiced her violin diligently every morning before school, and by spring she could play the whole piece from memory.",
-    "usage": "Adjective: diligent (also on this week's list). Noun: diligence. Opposite: lazily, carelessly.",
-    "connotation": "positive"
+    "meaning": "on purpose, not by accident; intentionally, purposely, knowingly",
+    "example": "Max deliberately left the last cookie on the plate so that his little sister could have it after school.",
+    "usage": "It can also mean slowly and carefully: she spoke deliberately, choosing every word. Adjective: deliberate. Opposite: accidentally, by mistake.",
+    "connotation": ""
    },
    {
     "n": 38,
@@ -2248,11 +2248,11 @@
    {
     "n": 21,
     "word": "plea",
-    "task": "Give two meanings (an urgent request; an answer in court), one sentence each.",
+    "task": "Give two meanings, one sentence each; one of them is used in a courtroom.",
     "pos": "noun",
     "meaning": "an urgent and heartfelt request; appeal, petition, cry for help",
     "example": "The mayor listened to the children's plea to save the old oak tree and agreed to build the new road around it.",
-    "usage": "A plea asks for something; it does not explain. In court, a plea is a person's answer to a charge: a plea of “not guilty.” Verb: plead. Opposite: an order or a command.",
+    "usage": "In everyday use, a plea asks for something rather than explaining. In court, a plea is a person's answer to a charge: a plea of “not guilty.” Verb: plead. Opposite: an order or a command.",
     "connotation": ""
    },
    {
@@ -2330,7 +2330,7 @@
     "word": "opaque",
     "task": "Explain transparent, translucent, and opaque, with one object for each.",
     "pos": "adjective",
-    "meaning": "not letting any light through; murky, cloudy, solid",
+    "meaning": "not letting any light through; murky, cloudy",
     "example": "The curtains were so opaque that the room stayed pitch-dark even at noon.",
     "usage": "Three steps: transparent (clear glass: you can see through it), translucent (frosted glass: some light, no clear view), opaque (a brick wall: no light). It can also mean hard to understand. Opposite: transparent, clear.",
     "connotation": ""
@@ -2348,7 +2348,7 @@
    {
     "n": 31,
     "word": "gallant",
-    "task": "Give both senses (brave, and polite), one sentence each.",
+    "task": "Give both senses, one sentence each: one about a knight in a battle, one about a guest at a dinner.",
     "pos": "adjective",
     "meaning": "brave and noble, or very polite and kind; heroic, bold, courteous",
     "example": "The gallant knight bowed politely to the frightened villagers, then rode off alone to face the dragon.",
@@ -2362,7 +2362,7 @@
     "pos": "adjective",
     "meaning": "clever in a sneaky way; sly, scheming, deceitful",
     "example": "The crafty little brother got Rosa's brand-new toy car by convincing her that his broken one was a rare treasure.",
-    "usage": "Do not confuse with craft (a skill, or making things by hand): a crafty person is sneaky, not artsy. Opposite: honest, straightforward, naive.",
+    "usage": "Do not confuse with craft (a skill, or making things by hand). People sometimes call someone who loves making things crafty, but in stories and on tests a crafty person is sneaky. Opposite: honest, straightforward, naive.",
     "connotation": "negative"
    },
    {
@@ -2407,18 +2407,18 @@
    },
    {
     "n": 37,
-    "word": "abruptly",
-    "task": "Give both meanings (suddenly; in a rudely short way), one sentence each.",
+    "word": "tenaciously",
+    "task": "Use it once about an animal or a plant and once about a person.",
     "pos": "adverb",
-    "meaning": "suddenly and without warning; sharply, unexpectedly, all at once",
-    "example": "The music stopped abruptly, and every dancer froze in the middle of a spin.",
-    "usage": "Adjective: abrupt (Week 6). It can also mean in a rudely short way: she answered abruptly and walked off. Opposite: gradually, slowly.",
+    "meaning": "holding on firmly and not giving up; stubbornly, persistently, doggedly",
+    "example": "The little terrier held on tenaciously to the rope toy, growling happily while the twins tried to tug it away.",
+    "usage": "Adjective: tenacious (a tenacious grip; a tenacious player who never quits). Root: ten = hold (as in tenant). Opposite: weakly, half-heartedly.",
     "connotation": ""
    },
    {
     "n": 38,
     "word": "abide",
-    "task": "Give two meanings (follow a rule; put up with), one sentence each.",
+    "task": "Give two meanings, one sentence each: one using “abide by,” one using “can't abide.”",
     "pos": "verb",
     "meaning": "to follow or obey a rule or decision; comply with, keep to, respect",
     "example": "Everyone who joins the chess club must abide by its rules, including the one about putting the pieces away.",
