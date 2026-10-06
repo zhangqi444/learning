@@ -64,7 +64,9 @@ async function stubGoogle(ctx) {
       const sid = (u.match(/upload_id=(sess\d+)/) || [])[1], meta = (drive.sessions || {})[sid] || {};
       drive.media = drive.media || {};
       const id = 'media' + (Object.keys(drive.media).length + 1);
-      drive.media[id] = { name: meta.name, mime: meta.mimeType, size: (r.request().postDataBuffer() || Buffer.alloc(0)).length, parent: (meta.parents || [])[0] || drive.folder, resumable: true };
+      const raw = r.request().postDataBuffer() || Buffer.alloc(0);
+      drive.media[id] = { name: meta.name, mime: meta.mimeType, size: raw.length, parent: (meta.parents || [])[0] || drive.folder, resumable: true };
+      Object.defineProperty(drive.media[id], 'bytes', { value: raw });   // kept out of the checks' printed records
       return json({ id });
     }
     if (/upload\/drive\/v3\/files\?/.test(u) && m === 'POST') {
@@ -83,7 +85,13 @@ async function stubGoogle(ctx) {
       if (meta.name && meta.name !== 'progress.json') {
         drive.media = drive.media || {};
         const id = 'media' + (Object.keys(drive.media).length + 1);
-        drive.media[id] = { name: meta.name, mime: meta.mimeType, size: (r.request().postDataBuffer() || Buffer.alloc(0)).length || body.length, parent: (meta.parents || [])[0] || drive.folder };
+        // The file's own bytes, out of the multipart's second part, so a PDF can be read
+        // back and drawn (components/paper-question.jsx).
+        const buf = r.request().postDataBuffer() || Buffer.alloc(0), txt = buf.toString('latin1'), bnd = (ct.match(/boundary=([^;\s]+)/) || [])[1];
+        let bytes = null;
+        if (bnd) { const second = txt.indexOf('--' + bnd, txt.indexOf('--' + bnd) + 2), start = txt.indexOf('\r\n\r\n', second) + 4, end = txt.lastIndexOf('\r\n--' + bnd + '--'); if (second > 0 && start > 3 && end > start) bytes = buf.subarray(start, end); }
+        drive.media[id] = { name: meta.name, mime: meta.mimeType, size: buf.length || body.length, parent: (meta.parents || [])[0] || drive.folder };
+        Object.defineProperty(drive.media[id], 'bytes', { value: bytes });   // kept out of the checks' printed records
         return json({ id });
       }
       drive.file = 'file1'; drive.body = body;
@@ -92,7 +100,8 @@ async function stubGoogle(ctx) {
     }
     if (/drive\/v3\/files\/media\d+\?alt=media/.test(u)) {
       const id = (u.match(/files\/(media\d+)/) || [])[1], rec = (drive.media || {})[id];
-      return rec ? r.fulfill({ status: 200, contentType: rec.mime || 'audio/mp4', body: 'not-really-audio' }) : r.fulfill({ status: 404, body: '{}' });
+      // A PDF comes back as it went up, to be drawn; a recording stays a placeholder.
+      return rec ? r.fulfill({ status: 200, contentType: rec.mime || 'audio/mp4', body: rec.mime === 'application/pdf' && rec.bytes ? rec.bytes : 'not-really-audio' }) : r.fulfill({ status: 404, body: '{}' });
     }
     if (/upload\/drive\/v3\/files\/file1/.test(u) && m === 'PATCH') {
       if (drive.hold) { drive.held++; await drive.hold; }

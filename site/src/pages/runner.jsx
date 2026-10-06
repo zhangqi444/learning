@@ -23,6 +23,7 @@ import { Figure } from "@/components/figure"
 import { Glim, hearProps } from "@/components/glim"
 import { PromotionReport } from "@/components/promotion"
 import { MissProgress, MissStage } from "@/components/miss-status"
+import { PracticeFor } from "@/components/paper-question"
 import { sfx } from "@/lib/sfx"
 
 const { useState, useEffect, useRef } = React
@@ -754,6 +755,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             </div>
           ) : (
             <>
+              {/* Practice for a miss on a paper sat on paper: which question, and the book's own on request. */}
+              {it.standsFor && it.standsFor.startsWith("off:") ? <PracticeFor key={it.standsFor} id={it.standsFor} /> : null}
               <p className="text-lg leading-snug font-medium" data-testid="question" data-qid={it.id} data-stands-for={it.standsFor || undefined}>{qOf(it)}</p>
               {it.f ? <Figure f={it.f} /> : null}
               {/* A Chinese prompt is the book's own wording; the other language is a

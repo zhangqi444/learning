@@ -22,7 +22,8 @@ import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { learnName } from "@/lib/aops"
 import { LearnCard } from "@/components/learn-card"
-import { ISEE_LOWER_SECTIONS, STANINE, addPaperAttachment, createOfflinePaper, markRedone, paperAnalysis, paperAttachments, paperNote, removePaperAttachment, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
+import { PaperQuestion } from "@/components/paper-question"
+import { ISEE_LOWER_SECTIONS, STANINE, addPaperAttachment, createOfflinePaper, markRedone, paperAnalysis, paperAttachments, paperBoxes, paperNote, paperPdf, removePaperAttachment, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
 
 /* ---------- state helpers ---------- */
 export function mockState(form) { return Store.s.mocks[form] || { sections: {} } }
@@ -478,18 +479,32 @@ function PaperAnalysisCard({ p }) {
  * never dropped. */
 function PaperMissesCard({ p, sc }) {
   useStore()
+  // Which questions are open, as the book prints them (components/paper-question.jsx).
+  const [shown, setShown] = React.useState(() => new Set())
+  const [all, setAll] = React.useState(false)
   const rows = []
-  for (const s of p.sections || []) for (const n of ((sc.missed || {})[s.id] || { nums: [] }).nums) rows.push({ s, n, sk: paperSkill(p, s.id, n), redone: paperRedone(p, s.id, n), note: paperNote(p, s.id, n) })
+  for (const s of p.sections || []) for (const n of ((sc.missed || {})[s.id] || { nums: [] }).nums) rows.push({ s, n, sk: paperSkill(p, s.id, n), redone: paperRedone(p, s.id, n), note: paperNote(p, s.id, n), mapped: !!paperBoxes(p, s.id, n).q })
   if (!rows.length) return null
   const done = rows.filter((r) => r.redone).length, unfiled = rows.filter((r) => !r.sk).length, noted = rows.filter((r) => r.note).length
+  const mapped = rows.filter((r) => r.mapped).length, pdf = paperPdf(p)
+  const isOpen = (r) => all || shown.has(`${r.s.id}:${r.n}`)
+  const toggle = (r) => setShown((x) => { const y = new Set(x), k = `${r.s.id}:${r.n}`; if (y.has(k)) y.delete(k); else y.add(k); return y })
   return (
-    <Card className="gap-3 py-5" data-testid="paper-misses" data-n={rows.length} data-redone={done} data-unfiled={unfiled} data-noted={noted}>
+    <Card className="gap-3 py-5" data-testid="paper-misses" data-n={rows.length} data-redone={done} data-unfiled={unfiled} data-noted={noted} data-mapped={mapped}>
       <CardHeader className="px-5">
         <CardTitle>The questions she missed</CardTitle>
         <CardDescription>
           {done} of {rows.length} redone from the booklet{unfiled ? ` · ${unfiled} still need a skill before review can ask about them` : " · each one sends two questions of its skill into review"}.
           {noted ? " Under each, what went wrong; Try one like it asks a question of ours on the same skill now." : ""}
+          {mapped && !pdf ? " Add the paper's PDF above and each question shows here as the book prints it." : ""}
         </CardDescription>
+        {mapped && pdf ? (
+          <CardAction>
+            <Button size="sm" variant="outline" onClick={() => { setAll((v) => !v); setShown(new Set()) }} data-testid="paper-misses-showall">
+              <FileText /> {all ? "Hide the questions" : "Show all the questions"}
+            </Button>
+          </CardAction>
+        ) : null}
       </CardHeader>
       <CardContent className="flex flex-col gap-4 px-5">
         {(p.sections || []).map((s) => {
@@ -509,6 +524,11 @@ function PaperMissesCard({ p, sc }) {
                       {opts.map((o) => <option key={o} value={o}>{o}</option>)}
                       {r.sk && !opts.includes(r.sk) ? <option value={r.sk}>{r.sk}</option> : null}
                     </select>
+                    {r.mapped && pdf ? (
+                      <Button size="sm" variant={isOpen(r) ? "secondary" : "outline"} className="order-2 h-8 shrink-0" onClick={() => toggle(r)} data-testid="paper-miss-show" aria-expanded={isOpen(r)}>
+                        <FileText /> {isOpen(r) ? "Hide the question" : "Show the question"}
+                      </Button>
+                    ) : null}
                     {r.sk ? (
                       <Button size="sm" variant="outline" className="order-2 h-8 shrink-0" onClick={() => go(`/again/off:${p.id}:${s.id}:${r.n}/${p.id}`)} data-testid="paper-miss-try">
                         <RotateCcw /> Try one like it
@@ -526,6 +546,7 @@ function PaperMissesCard({ p, sc }) {
                         {r.note.why}
                       </p>
                     ) : null}
+                    {r.mapped && pdf && isOpen(r) ? <div className="order-4 basis-full pt-1"><PaperQuestion p={p} secId={s.id} n={r.n} /></div> : null}
                   </li>
                 ))}
               </ul>

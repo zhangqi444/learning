@@ -82,6 +82,11 @@ def main(path):
             if len(v["why"]) > 400: sys.exit(f"notes {k} {n}: keep the why under 400 characters")
             for f in ("pick", "key"):
                 if v.get(f) is not None and v[f] not in list("ABCDE"): sys.exit(f"notes {k} {n}: {f} must be a letter A–E")
+            for f in ("where", "ctx"):   # where the question (or its figure) sits on the paper's PDF
+                b = v.get(f)
+                if b is not None and not (isinstance(b, list) and len(b) == 5 and isinstance(b[0], int) and b[0] >= 1
+                                          and all(isinstance(x, (int, float)) and 0 <= x <= 1 for x in b[1:]) and b[1] < b[3] and b[2] < b[4]):
+                    sys.exit(f"notes {k} {n}: {f} must be [page, x0, y0, x1, y1], fractions of the page")
             if int(n) not in set((r.get("missed") or {}).get(k, [int(n)])): print(f"warning: a note on {k} {n}, which is not among the missed", file=sys.stderr)
     an = r.get("analysis")
     if an is not None and (not isinstance(an, list) or not all(isinstance(x, str) and x.strip() and len(x) <= 500 for x in an) or len(an) > 10):

@@ -140,7 +140,17 @@ export function paperFromPayload(obj) {
       if (!Number.isInteger(k) || k < 1 || k > s.n) throw new Error(`${s.name} has no question ${n}.`)
       if (!v || typeof v !== "object" || typeof v.why !== "string" || !v.why.trim()) throw new Error(`The note on ${s.name} question ${n} says nothing.`)
       for (const f of ["pick", "key"]) if (v[f] != null && !/^[A-E]$/.test(v[f])) throw new Error(`The note on ${s.name} question ${n} gives "${v[f]}" as a choice; a choice is a letter from A to E.`)
-      notes[`${sec}:${k}`] = { why: v.why.trim().slice(0, 400), ...(v.pick ? { pick: v.pick } : {}), ...(v.key ? { key: v.key } : {}) }
+      // `where` and `ctx`: where the question, and the figure or passage it refers to, sit on
+      // the paper's own PDF — [page, x0, y0, x1, y1], fractions of the page — so its page can
+      // show it cut out of that PDF (components/paper-question.jsx). Positions, not words.
+      const box = (b, what) => {
+        if (b == null) return null
+        const okBox = Array.isArray(b) && b.length === 5 && Number.isInteger(b[0]) && b[0] >= 1 && b.slice(1).every((x) => typeof x === "number" && x >= 0 && x <= 1) && b[1] < b[3] && b[2] < b[4]
+        if (!okBox) throw new Error(`The note on ${s.name} question ${n} gives a ${what} that is not [page, x0, y0, x1, y1] on the page.`)
+        return b
+      }
+      const where = box(v.where, "place"), ctx = box(v.ctx, "figure")
+      notes[`${sec}:${k}`] = { why: v.why.trim().slice(0, 400), ...(v.pick ? { pick: v.pick } : {}), ...(v.key ? { key: v.key } : {}), ...(where ? { where } : {}), ...(ctx ? { ctx } : {}) }
     }
   }
   if (p.analysis != null && !Array.isArray(p.analysis)) throw new Error("The link's analysis must be a list of lines.")

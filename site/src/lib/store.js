@@ -571,6 +571,11 @@ export const Store = {
       .then((loc) => (loc ? fetch(loc, { method: "PUT", headers: { "Content-Type": type }, body: blob }).then((r) => (r.ok ? r.json() : null)) : null))
       .then((f) => (f && f.id) || null).catch(() => null)
   },
+  /** A file kept in Drive, as bytes, or null — a paper's PDF, to draw a question from. */
+  mediaBytes(id) {
+    if (!DRIVE_ENABLED || !id) return Promise.resolve(null)
+    return this.api(`https://www.googleapis.com/drive/v3/files/${id}?alt=media`).then((r) => (r.ok ? r.arrayBuffer() : null)).catch(() => null)
+  },
   /** An object URL for a recording kept in Drive, or null. The caller revokes it. */
   mediaUrl(id) {
     if (!DRIVE_ENABLED || !id) return Promise.resolve(null)

@@ -990,6 +990,21 @@ export function setPaperNotes(id, { notes = {}, analysis = [], by = "" } = {}) {
 }
 export function paperNote(p, secId, n) { const r = ((p && p.rec && p.rec.notes) || {})[`${secId}:${n}`]; return r && r.why ? r : null }
 export function paperAnalysis(p) { const a = p && p.rec && p.rec.analysis; return a && Array.isArray(a.points) && a.points.length ? a : null }
+/** Where a question sits on the paper's own PDF, so its page can show it cut out of
+ *  the family's copy (components/paper-question.jsx): `q` the question, `ctx` the
+ *  figure or passage it refers to — each [page, x0, y0, x1, y1], fractions of the
+ *  page. A marker's note can carry them for a paper a parent added; a paper the site
+ *  ships carries its own map (content/offline_mocks.json). Positions only: the
+ *  question's words stay in the PDF, in her Drive. */
+export function paperBoxes(p, secId, n) {
+  const note = paperNote(p, secId, n) || {}, sec = ((p && p.sections) || []).find((x) => x.id === secId) || {}
+  const ok = (b) => (Array.isArray(b) && b.length === 5 && b.every((v) => typeof v === "number") ? b : null)
+  return { q: ok(note.where) || ok((sec.where || [])[n - 1]), ctx: ok(note.ctx) || ok((sec.ctx || {})[String(n)]) }
+}
+/** The paper's PDF in her Drive, if one is attached: the file a question is cut from. */
+export function paperPdf(p) {
+  return paperAttachments(p, "pages").find((x) => x.mime === "application/pdf" || /\.pdf$/i.test(x.name || "")) || null
+}
 /** What is attached to a paper, each a PDF or a photo, kept in her Drive folder:
  *  the paper itself (`pages` — a PDF, or a photo of each page of a booklet) and
  *  the marked answer sheet (`sheets` — a scan, or photos once it is marked). The

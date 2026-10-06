@@ -66,6 +66,9 @@ export default defineConfig({
   base: './',
   publicDir: ARTIFACT ? false : 'public',
   resolve: { alias: { '@': path.join(ROOT, 'src') } },
+  // The artifact has no Drive, so no paper's PDF to draw: a constant lets the build
+  // drop pdf.js from it altogether rather than inline a megabyte nobody can use.
+  define: { 'import.meta.env.LEARNING_ARTIFACT': JSON.stringify(ARTIFACT) },
   plugins: [react(), tailwindcss(), learningTarget(), ...(ARTIFACT ? [viteSingleFile({ removeViteModuleLoader: true })] : [])],
   build: {
     outDir: ARTIFACT ? 'dist-artifact' : 'dist',

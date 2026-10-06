@@ -443,6 +443,19 @@ Try one like it, a question of ours on its skill through `/again`. They are in t
 marker's own words and never the book's text: the questions stay in the booklet, which
 copyright requires, and the notes stay in her record. `notes` merge question by
 question; `analysis` keeps the newer copy.
+The questions themselves show on the page as the book prints them — the owner: "I want
+to see the wrong questions exact at the website" — cut out of the family's own PDF in
+her Drive and drawn in her browser by pdf.js (`site/src/lib/pdf.js`,
+`components/paper-question.jsx`). What the site keeps is where each question sits: a
+box per question, `[page, x0, y0, x1, y1]` in fractions of the page, and the figure or
+passage it refers to (`ctx`). The Princeton Review paper ships its map in
+`content/offline_mocks.json`, with the page count of the PDF it was read from, so another
+edition shows nothing rather than the wrong crop; a paper a parent added gets its boxes
+in the notes of its results link. `tools/paper_boxes.py` reads them off a PDF's text
+layer. In review, a question of ours standing in for a paper's miss says which one it
+is practice for, and shows the book's question on request. pdf.js is a lazy chunk of
+the Pages build only: `import.meta.env.LEARNING_ARTIFACT` drops it from the artifact,
+which has no Drive to read a PDF from.
 
 ## The game
 

@@ -3,7 +3,8 @@ const { chromium } = require('playwright');
 const { stubGoogle, signIn } = require('./test_google.cjs');
 const http = require('http'), fs = require('fs'), path = require('path');
 const DIST = path.join(__dirname, 'dist');
-const MIME = { '.html': 'text/html', '.json': 'application/json', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.webmanifest': 'application/manifest+json' };
+// .mjs is pdf.js's worker (lib/pdf.js): a module worker served as anything but JavaScript is refused.
+const MIME = { '.html': 'text/html', '.json': 'application/json', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.webmanifest': 'application/manifest+json' };
 const srv = http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split('?')[0]); if (!p.startsWith('/learning')) { res.writeHead(404); return res.end(); }
   p = p.slice('/learning'.length) || '/'; if (p === '/') p = '/index.html';
@@ -653,7 +654,8 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.reload({ waitUntil: 'networkidle' }); await pg.evaluate(() => { location.hash = '#/review/qr'; }); await pg.waitForSelector('[data-testid=question]');
   const offRun = [];
   for (let k = 0; k < 10 && (await pg.$('[data-testid=question]')); k++) {
-    offRun.push(await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null })));
+    offRun.push({ ...(await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null }))),
+      pf: await pg.$eval('[data-testid=practice-for]', (e) => ({ for: e.dataset.for, text: e.textContent })).catch(() => null) });
     const before = await pg.textContent('[data-testid=counter]');
     await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]');
     await pg.waitForFunction((b) => { const c = document.querySelector('[data-testid=counter]'); return !c || c.textContent !== b || !!document.querySelector('[data-testid=score]'); }, before, { timeout: 15000 });
@@ -661,6 +663,9 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   check('three missed questions on paper become six different questions in review, two for each, none of them the paper\'s',
     narrowed === true && offRun.length === 6 && new Set(offRun.map((x) => x.qid)).size === 6 && offRun.every((x) => x.qid && !x.qid.startsWith('off:') && anchors.includes(x.standsFor))
     && anchors.every((a) => offRun.filter((x) => x.standsFor === a).length === 2), JSON.stringify(offRun));
+  check('and each one says which question on the paper it is practice for',
+    offRun.length === 6 && offRun.every((x) => x.pf && x.pf.for === x.standsFor && new RegExp(`Practice for Princeton Review practice test · Quantitative Reasoning question ${x.standsFor.split(':').pop()}$`).test(x.pf.text.trim())),
+    JSON.stringify(offRun.map((x) => x.pf && x.pf.text)));
   const viaAfter = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return Object.keys(s.items).filter((k) => k.startsWith('off:TPR:QR:')).map((k) => (s.items[k].hist || []).filter((h) => h.ctx === 'again').length); });
   check('and each anchor is credited with both of its answers', viaAfter.length === 3 && viaAfter.every((v) => v === 2), JSON.stringify(viaAfter));
   const restored = await setLs(pg, () => {
@@ -698,6 +703,9 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      things in the website"): the lines on the paper above the misses, and each
      miss's own line under it, with the letter she chose and the right one. A miss
      the marker said nothing about shows nothing. */
+  check('the paper the site ships knows where its questions are, and asks for its PDF to show them',
+    (await pg.$eval('[data-testid=paper-misses]', (e) => Number(e.dataset.mapped))) > 0 && /Add the paper's PDF above and each question shows here/.test(await pg.textContent('[data-testid=paper-misses]'))
+    && !(await pg.$('[data-testid=paper-miss-show]')));
   const pts = await pg.$$eval('[data-testid=paper-analysis-point]', (els) => els.map((e) => e.textContent.trim()));
   check('what the misses have in common shows on the paper, in the marker\'s words', pts.length === 2 && /inferences on one passage/.test(pts[0]), JSON.stringify(pts));
   const note17 = (await pg.textContent('[data-testid=paper-miss][data-sec=RC][data-n="17"] [data-testid=paper-miss-note]').catch(() => '')).replace(/\s+/g, ' ');
@@ -739,7 +747,20 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const newId = await pg.evaluate(() => location.hash.split('/').pop());
   check('it is added and opens on its own page, carrying its link',
     /^P[0-9A-Z]+$/.test(newId) && (await pg.getAttribute('[data-testid=paper-link-open]', 'href')) === 'https://example.com/test-a.pdf', newId);
-  const pdfBytes = (n) => Buffer.concat([Buffer.from('%PDF-1.4\n'), Buffer.alloc(n, 32), Buffer.from('\n%%EOF\n')]);
+  // A real one-page PDF, a black block on a white page, padded with a comment to a little
+  // over n bytes: the upload checks keep their sizes, and the page can draw it.
+  const pdfBytes = (n) => {
+    const draw = '0 0 0 rg 100 500 200 100 re f';
+    const objs = ['<< /Type /Catalog /Pages 2 0 R >>', '<< /Type /Pages /Kids [3 0 R] /Count 1 >>',
+      '<< /Type /Page /Parent 2 0 R /MediaBox [0 0 600 800] /Contents 4 0 R /Resources << >> >>',
+      `<< /Length ${draw.length} >>\nstream\n${draw}\nendstream`];
+    const head = '%PDF-1.4\n%' + 'x'.repeat(Math.max(0, n)) + '\n';
+    let body = ''; const offs = [];
+    objs.forEach((o, i) => { offs.push(Buffer.byteLength(head + body)); body += `${i + 1} 0 obj\n${o}\nendobj\n`; });
+    const at = Buffer.byteLength(head + body);
+    return Buffer.from(head + body + `xref\n0 ${objs.length + 1}\n0000000000 65535 f \n` + offs.map((o) => String(o).padStart(10, '0') + ' 00000 n \n').join('')
+      + `trailer\n<< /Size ${objs.length + 1} /Root 1 0 R >>\nstartxref\n${at}\n%%EOF\n`);
+  };
   const png1x1 = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==', 'base64');
   const tiles = (t) => pg.$$eval(`[data-testid=${t}-item]`, (n) => n.map((e) => ({ id: e.dataset.file, kind: e.dataset.kind })));
   const waitTiles = (t, k) => pg.waitForFunction(([t, k]) => document.querySelectorAll(`[data-testid=${t}-item]`).length === k, [t, k], { timeout: 30000 }).catch(() => {});
@@ -791,13 +812,32 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.waitForFunction(() => (document.querySelector('[data-testid=paper-misses]') || { dataset: {} }).dataset.redone === '1');
   // A link that carries only what went wrong, for results already in: the note
   // lands on its miss, and no second entry is added.
-  const notesOnly = Buffer.from(JSON.stringify({ paper: { form: newId, sat: today, notes: { QR: { 5: { pick: 'B', key: 'D', why: 'Compared the tops of the fractions only.' } } } } })).toString('base64url');
+  const notesOnly = Buffer.from(JSON.stringify({ paper: { form: newId, sat: today, notes: { QR: { 5: { pick: 'B', key: 'D', why: 'Compared the tops of the fractions only.', where: [1, 0.1, 0.2, 0.6, 0.45] } } } } })).toString('base64url');
   await pg.evaluate((p) => { location.hash = '#/import/' + p; }, notesOnly);
   await pg.waitForSelector('[data-testid=paper-add]'); await pg.click('[data-testid=paper-add]');
   await pg.waitForSelector('[data-testid=paper-miss][data-sec=QR][data-n="5"] [data-testid=paper-miss-note]');
   check('a link with only notes puts them on the misses and adds no entry',
     /Chose B · Answer D/.test(await pg.textContent('[data-testid=paper-miss][data-sec=QR][data-n="5"]'))
     && (await pg.evaluate((id) => JSON.parse(localStorage.getItem('isee.v1')).mocks[id].entries.length, newId)) === 1);
+  /* The question as the book prints it (the owner, 5 October 2026: "I want to see the
+     wrong questions exact at the website"): cut out of the paper's own PDF in her Drive
+     and drawn on the page — here, the box around the test PDF's black block. A miss
+     with no place on the PDF has nothing to show and no button for it. */
+  check('a miss with a place on the paper\'s PDF can be shown; one without has no button',
+    !!(await pg.$('[data-testid=paper-miss][data-sec=QR][data-n="5"] [data-testid=paper-miss-show]')) && !(await pg.$('[data-testid=paper-miss][data-sec=QR][data-n="9"] [data-testid=paper-miss-show]')));
+  await pg.click('[data-testid=paper-miss][data-sec=QR][data-n="5"] [data-testid=paper-miss-show]');
+  await pg.waitForSelector('[data-testid=paper-q-crop][data-state=drawn]', { timeout: 30000 }).catch(() => {});
+  const drawn = await pg.$eval('[data-testid=paper-q-crop] canvas', (c) => {
+    const d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data; let dark = 0;
+    for (let i = 0; i < d.length; i += 4) if (d[i] < 60 && d[i + 1] < 60 && d[i + 2] < 60) dark++;
+    return { w: c.width, h: c.height, dark: dark / (d.length / 4) };
+  }).catch((e) => ({ err: String(e).slice(0, 120) }));
+  check('and shows as the book prints it, cut out of the paper\'s own PDF', drawn.w > 50 && drawn.dark > 0.2 && drawn.dark < 0.6,
+    JSON.stringify(drawn) + ' ' + (await pg.getAttribute('[data-testid=paper-question]', 'data-state').catch(() => 'no question block')));
+  await pg.click('[data-testid=paper-miss][data-sec=QR][data-n="5"] [data-testid=paper-miss-show]');
+  await pg.click('[data-testid=paper-misses-showall]');
+  check('Show all the questions opens every one that has a place on the PDF', (await pg.$$('[data-testid=paper-question]')).length === 1);
+  await pg.click('[data-testid=paper-misses-showall]');
   await pg.screenshot({ path: 'shot-paper.png', fullPage: true });
   await pg.setViewportSize({ width: 390, height: 844 }); await pg.emulateMedia({ colorScheme: 'dark' });
   await pg.waitForTimeout(300); await pg.screenshot({ path: 'shot-paper-phone-dark.png', fullPage: true });

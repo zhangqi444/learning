@@ -85,6 +85,18 @@ attached, read each missed question and her bubble, and give:
 
 Without the paper, leave both out.
 
+So the paper's page can show each missed question as the book prints it, put where it
+sits on the PDF into its note. For the Princeton Review paper the site already has the
+map; for a paper a parent added, with its PDF in hand:
+
+```bash
+python3 tools/paper_boxes.py paper.pdf --sections VR=4-6,QR=8-11,RC=13-17,MA=19-21 --into result.json
+```
+
+`--sections` is the PDF pages (from 1) each section's questions are on. Cut a few boxes
+out of the rendered pages and look at them before trusting the rest; a scan with no
+text layer gives no boxes, and then the page shows the notes without the questions.
+
 ## 5. Make the link
 
 Write `result.json` (in the scratchpad, never the repo):
