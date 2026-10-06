@@ -257,7 +257,7 @@ function orphanSides() {
  *
  *  The attempts are moved, not rebuilt: same timestamps, same outcomes, with the
  *  name she actually called kept on each attempt. They are deduped on (at, ctx)
- *  exactly as the Drive merge does, so a second run — or a run after another
+ *  as the Drive merge does (its third key, `via`, a word's attempts never carry), so a second run — or a run after another
  *  device pushes its old copy back — folds nothing in twice. The old key is only
  *  removed once its contents are safely under the new one. */
 export function rescueWordSides() {

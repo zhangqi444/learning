@@ -442,7 +442,11 @@ export const Store = {
         if (!lr) { ls[k] = rr; continue }
         const newer = ts(rr.at) > ts(lr.at) ? rr : lr
         const seen = {}, hist = []
-        for (const h of [...(lr.hist || []), ...(rr.hist || [])]) { const key = (h.at || "") + "|" + (h.ctx || ""); if (h && !seen[key]) { seen[key] = 1; hist.push(h) } }
+        // One attempt is its time, its context and, for a review's stand-in, the question
+        // that asked it (`via`): recordAttempts stamps a whole batch with one time, so the
+        // two stand-ins a review writes onto a miss share time and context, and a key of
+        // those two alone kept the first and dropped the second on every sync.
+        for (const h of [...(lr.hist || []), ...(rr.hist || [])]) { if (!h) continue; const key = (h.at || "") + "|" + (h.ctx || "") + "|" + (h.via || ""); if (!seen[key]) { seen[key] = 1; hist.push(h) } }
         hist.sort((a, b) => ts(a.at) - ts(b.at))
         ls[k] = { ...newer, hist: hist.slice(-40) }
       }

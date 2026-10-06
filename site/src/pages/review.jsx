@@ -3,7 +3,7 @@ import { CalendarClock, Play, ShieldCheck, Sparkles } from "lucide-react"
 
 import { ORDER, SUBJ, fmtDate } from "@/lib/content"
 import { W } from "@/lib/world"
-import { CAUSES, CAUSE_TONE, INTERVALS, causeBreakdown, missProfile, reviewQueue, skillCat, skillOf, wordStatus } from "@/lib/engine"
+import { CAUSES, CAUSE_TONE, INTERVALS, causeBreakdown, missProfile, reviewItems, reviewQueue, skillCat, skillOf, wordStatus } from "@/lib/engine"
 import { Glim } from "@/components/glim"
 import { WORD_GLOW } from "@/lib/glim"
 import { sfx } from "@/lib/sfx"
@@ -83,6 +83,14 @@ export function Review() {
             // a Quantitative item is not a cat and pretending otherwise would be
             // the veneer again.
             const waiting = due.filter((x) => x.src === "word").map((x) => String(x.id).replace(/^w:/, "")).filter(Boolean)
+            /* What each button will actually ask. A miss comes back as two other
+               questions on its skill and a word as itself, so "Let 27 in" opened a
+               run of 49 and nothing on the card said why (the owner, 6 October
+               2026: "see let 27 in, but see 49 questions"). The cats at the door
+               are still counted as cats; the work is counted as questions. */
+            const qs = (mode) => reviewItems(s, mode).length
+            const nDue = due.length ? qs() : 0, nAll = sched.length ? qs("all") : 0, nChk = chk.length ? qs("checkin") : 0
+            const nq = (n) => `${n} question${n === 1 ? "" : "s"}`
             return (
               <Card key={s} className="gap-4" data-testid={`review-${s}`}>
                 <CardHeader>
@@ -91,7 +99,7 @@ export function Review() {
                     {SUBJ[s].name}
                   </CardTitle>
                   <CardDescription>
-                    {due.length ? `${due.length} at the door` : "Nobody waiting today"}
+                    {due.length ? `${due.length} at the door · ${nq(nDue)} to answer` : "Nobody waiting today"}
                     {sched.length ? ` · ${sched.length} scheduled${next ? `, next ${fmtDate(next.rec.due)}` : ""}` : ""}
                     {chk.length ? ` · ${chk.length} check-in${chk.length === 1 ? "" : "s"}` : ""}
                   </CardDescription>
@@ -141,9 +149,9 @@ export function Review() {
                   )
                 })()}
                 <CardFooter className="flex-wrap gap-2">
-                  {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Let {due.length} in</Button> : null}
-                  {sched.length ? <Button size="sm" variant={due.length ? "ghost" : "outline"} onClick={() => go(`/review/${s}/all`)}>Everything · {due.length + sched.length}</Button> : null}
-                  {chk.length ? <Button size="sm" variant="outline" onClick={() => go(`/review/${s}/checkin`)}><ShieldCheck /> Check-in · {chk.length}</Button> : null}
+                  {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Let {due.length} in · {nq(nDue)}</Button> : null}
+                  {sched.length ? <Button size="sm" variant={due.length ? "ghost" : "outline"} onClick={() => go(`/review/${s}/all`)}>Everything · {nq(nAll)}</Button> : null}
+                  {chk.length ? <Button size="sm" variant="outline" onClick={() => go(`/review/${s}/checkin`)}><ShieldCheck /> Check-in · {nq(nChk)}</Button> : null}
                 </CardFooter>
               </Card>
             )

@@ -1379,7 +1379,12 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   check('review page: migrated misses waiting at the door, cause breakdown shown', /\d+ at the door/.test(rv) && /Why misses happen/.test(rv));
   const dueVR = +(await pg.textContent('[data-testid=due-vr]').catch(() => '0'));
   check('VR has due items (words rated shaky + misses)', dueVR >= 1, dueVR + ' due');
+  // The button says how many questions the run will ask, not only how many are waiting:
+  // "Let 27 in" opened a run of 49, two questions for each miss and one for each word.
+  const letIn = await pg.textContent('[data-testid=start-review-vr]');
   await pg.click('[data-testid=start-review-vr]'); await pg.waitForSelector('[data-testid=choice]');
+  const runTotal = (await pg.textContent('[data-testid=counter]')).split('/')[1].trim();
+  check('the review button names the number of questions the run asks', new RegExp(`· ${runTotal} questions?\\b`).test(letIn), `${letIn.trim()} → a run of ${runTotal}`);
   await runThrough(pg, 1);
   await pg.waitForSelector('[data-testid=score]');
   /* Since 4 October 2026 a review asks two other questions in a miss's place

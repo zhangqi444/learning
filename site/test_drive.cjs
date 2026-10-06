@@ -137,6 +137,22 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   await pg.waitForTimeout(300);
   check('merge tie keeps local picks', (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).results['ma:W2:0'].picks.X)) === 'A');
 
+  // Two answers written in one moment onto one question are two answers: a review's two
+  // stand-ins each write onto the miss they stand for, with the same time and context and
+  // their own `via`. The merge keyed history on time and context alone and kept the first.
+  {
+    const at = new Date(Date.now() - 60000).toISOString();
+    const a1 = { at, ok: true, ms: 0, pick: 'A', ctx: 'again', via: 'X-STAND-1' }, a2 = { at, ok: false, ms: 0, pick: 'B', ctx: 'again', via: 'X-STAND-2' };
+    const remote = JSON.parse(drive.body); remote.items = remote.items || {};
+    remote.items['MA-SEP-004'] = { hist: [a1, a2], at };
+    drive.body = JSON.stringify(remote);
+    await pg.evaluate((e) => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.items = s.items || {}; s.items['MA-SEP-004'] = { hist: [e], at: e.at }; localStorage.setItem('isee.v1', JSON.stringify(s)); }, a1);
+    await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('button:has-text("Saved to Drive")', { timeout: 8000 });
+    await pg.waitForTimeout(300);
+    const kept = await pg.evaluate(() => ((JSON.parse(localStorage.getItem('isee.v1')).items['MA-SEP-004'] || {}).hist || []).filter((h) => h.ctx === 'again').map((h) => h.via));
+    check('a merge keeps both answers a review wrote onto one question at once', kept.includes('X-STAND-1') && kept.includes('X-STAND-2'), JSON.stringify(kept));
+  }
+
   // Learning records: another device tagged a miss and reviewed it later -> the newer copy wins, histories are merged
   const missId = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return s.results['ma:W2:0'].wrong[0]; });
   // The step above ends with a merge, and a merge writes state, and writing state
