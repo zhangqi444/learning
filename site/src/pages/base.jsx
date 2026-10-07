@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 import { W, GLOW_ORDER } from "@/lib/world"
 import { Glim, hearProps } from "@/components/glim"
 import { WORD_GLOW } from "@/lib/glim"
-import { glimChars, metChars } from "@/lib/zi"
+import { glimChars, metChars, taughtChars } from "@/lib/zi"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
@@ -457,7 +457,7 @@ function Characters() {
       <CardHeader>
         <CardTitle className="text-base">{W.book} · characters</CardTitle>
         <CardDescription>A character from her Chinese book is a {W.cat} too — its coat comes out of the character itself. It is here once she has written it from memory into a 米字格, at the brightness her strokes have earned: Steady once the judge accepts it, Radiant once that has happened on two different days.</CardDescription>
-        <CardAction><Badge variant="outline" className="tabular-nums">{radiant.length} / {all.length}</Badge></CardAction>
+        <CardAction><Badge variant="outline" className="tabular-nums">{radiant.length} / {taughtChars().length}</Badge></CardAction>
       </CardHeader>
       <CardContent>
         {met.length ? (

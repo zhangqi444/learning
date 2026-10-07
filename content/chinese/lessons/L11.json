@@ -1,0 +1,329 @@
+{
+ "id": "L11",
+ "no": 11,
+ "title": "大自然的语言",
+ "title_en": "The Language of Nature",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "115–116",
+  "生字·词语·句子": "116–117",
+  "课堂练习": "118–121",
+  "阅读": "122–124"
+ },
+ "pages_note": "Read off the 目录 (教材 printed p. 3) and confirmed on each rendered page: 第十一课 runs pp. 115–124, 第十二课《探月》 starts p. 125. The 课文 is pp. 115–116; 生字 is at the foot of p. 116 and 词语/句子 on p. 117, so the three are split over two pages here where L03–L05 had them on one. 课堂练习 is pp. 118–121 (描一描写一写 and the first three rows of 读一读 118; the rest of 读一读, 用一用 and the top of 扩展与替换 119; the 替换 table, 想一想 and 对话 120; the end of the 对话 and 课堂游戏 121); the 阅读 text is pp. 122–123 with its 想一想 and 日积月累 on p. 124.",
+ "课文": {
+  "where": {
+   "zh": "课本第115–116页",
+   "en": "Textbook pp. 115–116"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第116页",
+   "en": "Textbook p. 116"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. The book prints eleven characters in two rows (8 + 3) and two radical tags beneath them: 虫——蚂 and 耂——考.",
+  "items": [
+   {
+    "zi": "言",
+    "py": "yán",
+    "gloss": {
+     "zh": "说的话；语言的\"言\"",
+     "en": "speech, words; as in 语言, language"
+    }
+   },
+   {
+    "zi": "丰",
+    "py": "fēng",
+    "gloss": {
+     "zh": "多；丰富、丰收的\"丰\"",
+     "en": "plentiful; as in 丰富 and 丰收"
+    }
+   },
+   {
+    "zi": "富",
+    "py": "fù",
+    "gloss": {
+     "zh": "东西多；有钱",
+     "en": "abundant; rich"
+    }
+   },
+   {
+    "zi": "晴",
+    "py": "qíng",
+    "gloss": {
+     "zh": "天上没有云或云很少，有太阳",
+     "en": "clear, sunny (weather)"
+    }
+   },
+   {
+    "zi": "蚂",
+    "py": "mǎ",
+    "gloss": {
+     "zh": "蚂蚁的\"蚂\"",
+     "en": "as in 蚂蚁, ant"
+    }
+   },
+   {
+    "zi": "蚁",
+    "py": "yǐ",
+    "gloss": {
+     "zh": "蚂蚁的\"蚁\"",
+     "en": "as in 蚂蚁, ant"
+    }
+   },
+   {
+    "zi": "搬",
+    "py": "bān",
+    "gloss": {
+     "zh": "把东西从一个地方移到别的地方",
+     "en": "move, carry (something somewhere else)"
+    }
+   },
+   {
+    "zi": "伞",
+    "py": "sǎn",
+    "gloss": {
+     "zh": "下雨时打在头上挡雨的东西",
+     "en": "umbrella"
+    }
+   },
+   {
+    "zi": "察",
+    "py": "chá",
+    "gloss": {
+     "zh": "仔细地看；观察的\"察\"",
+     "en": "look at closely; as in 观察, observe"
+    }
+   },
+   {
+    "zi": "懂",
+    "py": "dǒng",
+    "gloss": {
+     "zh": "明白，知道是什么意思",
+     "en": "understand"
+    }
+   },
+   {
+    "zi": "考",
+    "py": "kǎo",
+    "gloss": {
+     "zh": "考试；思考的\"考\"",
+     "en": "test, exam; as in 思考, think over"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "虫",
+    "zi": "蚂"
+   },
+   {
+    "bu": "耂",
+    "zi": "考"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第117页",
+   "en": "Textbook p. 117"
+  },
+  "items": [
+   {
+    "w": "大自然",
+    "py": "dàzìrán"
+   },
+   {
+    "w": "语言",
+    "py": "yǔyán"
+   },
+   {
+    "w": "丰富",
+    "py": "fēngfù"
+   },
+   {
+    "w": "晴天",
+    "py": "qíngtiān"
+   },
+   {
+    "w": "公园",
+    "py": "gōngyuán"
+   },
+   {
+    "w": "搬家",
+    "py": "bānjiā"
+   },
+   {
+    "w": "多么",
+    "py": "duōme"
+   },
+   {
+    "w": "认真",
+    "py": "rènzhēn"
+   },
+   {
+    "w": "观察",
+    "py": "guānchá"
+   },
+   {
+    "w": "思考",
+    "py": "sīkǎo"
+   }
+  ]
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第117页",
+   "en": "Textbook p. 117"
+  },
+  "zh": "只有认真学习、细心观察，你才能看得见、听得懂。",
+  "py": "zhǐ yǒu rèn zhēn xué xí, xì xīn guān chá, nǐ cái néng kàn de jiàn, tīng de dǒng."
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第119–120页 扩展与替换",
+   "en": "Textbook pp. 119–120, Expand and substitute"
+  },
+  "pattern": "只有……才……",
+  "ladder": [
+   "只有……才……",
+   "只有细心观察，你才能看得见",
+   "只有认真学习、细心观察，你才能看得见、听得懂。"
+  ],
+  "ladder_note": "The ladder card at the foot of p. 119 prints these three lines, the pattern itself as its first rung; the second rung has no full stop in the book.",
+  "substitutions": {
+   "frame": [
+    "只有",
+    "认真学习，细心观察，",
+    "你",
+    "才能",
+    "看得见，听得懂。"
+   ],
+   "rows": [
+    [
+     "多听多说多读多写",
+     "你",
+     "学好汉语"
+    ],
+    [
+     "早点儿出发",
+     "我们",
+     "不迟到"
+    ],
+    [
+     "把这些都学会了",
+     "你",
+     "考出高分"
+    ]
+   ]
+  },
+  "substitutions_note": "The blue 替换 table at the top of p. 120: 只有 and 才能 are printed in red and stay; the three underlined parts (认真学习，细心观察 / 你 / 看得见，听得懂) are swapped row by row, as L04's table is kept. The table prints commas where the ladder and the 句子 have 、 — kept as the table prints them."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第118–119页",
+   "en": "Textbook pp. 118–119"
+  },
+  "rows": [
+   [
+    "语言",
+    "名言",
+    "发言",
+    "言行"
+   ],
+   [
+    "丰富",
+    "丰收",
+    "富有"
+   ],
+   [
+    "晴天",
+    "雨过天晴",
+    "蚂蚁"
+   ],
+   [
+    "搬家",
+    "搬东西",
+    "搬走"
+   ],
+   [
+    "雨伞",
+    "跳伞",
+    "一把雨伞"
+   ],
+   [
+    "观察",
+    "察看",
+    "懂得",
+    "懂事",
+    "听得懂"
+   ],
+   [
+    "思考",
+    "考试",
+    "考生",
+    "考上"
+   ]
+  ],
+  "page_break_note": "the first three rows are on p. 118, the last four at the top of p. 119"
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第119页",
+   "en": "Textbook p. 119"
+  },
+  "rows": [
+   [
+    "多种语言",
+    "一门语言"
+   ],
+   [
+    "丰富多彩的活动",
+    "食物很丰富"
+   ],
+   [
+    "搬过一次家",
+    "已经搬家了"
+   ],
+   [
+    "多么难",
+    "多么远",
+    "多么幸福"
+   ],
+   [
+    "认真学习",
+    "认真思考",
+    "很认真"
+   ],
+   [
+    "仔细观察",
+    "认真观察",
+    "观察一下蚂蚁",
+    "观察日记"
+   ],
+   [
+    "爱思考",
+    "好好思考一下"
+   ]
+  ]
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第122–123页",
+   "en": "Textbook pp. 122–123"
+  },
+  "title": "要下雨了",
+  "title_en": "It Will Rain Soon",
+  "sidebar": [
+   "空气（新鲜的空气　干净的空气　冷空气）",
+   "翅膀（小鸟的翅膀　飞机的翅膀）",
+   "透气（透一口气　透一下气　透透气）",
+   "脚步（脚步声　他的脚步　放慢脚步）"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The margin prints ★ before each entry (空气 and 翅膀 on p. 122, 透气 and 脚步 on p. 123); each carries example phrases under it rather than a gloss, kept here in brackets as L04 keeps 帮忙 and 表示. p. 124 carries the reading's 想一想，说一说 (four questions) and 日积月累 (朝霞不出门，晚霞行千里。), neither reproduced."
+ }
+}

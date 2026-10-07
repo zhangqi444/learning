@@ -1,0 +1,445 @@
+{
+ "id": "L12",
+ "no": 12,
+ "title": "探月",
+ "title_en": "Lunar Exploration",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "125–126",
+  "生字·词语·句子": "126–127",
+  "课堂练习": "128–132",
+  "阅读": "133–135"
+ },
+ "pages_note": "Read off the 目录 (目录 p. 3 (PDF index 13): 12 探月 p. 125, 阅读 人造卫星 p. 133, 综合练习（四） p. 136) and confirmed on each rendered page (PDF index = printed + 14). The 课文 runs p. 125 to the top of p. 126; 生字 is on p. 126 under it; 词语, 专有名词 and 句子 on p. 127. 课堂练习 is pp. 128–132 (描一描写一写 128, 读一读 and the start of 用一用 129, the rest of 用一用 then 扩展与替换 and 想一想 130, 对话 131–132, 课堂游戏 132); the 阅读 text is pp. 133–134 with its 想一想 at the foot of p. 134 and 日积月累 alone on p. 135.",
+ "课文": {
+  "where": {
+   "zh": "课本第125–126页",
+   "en": "Textbook pp. 125–126"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第126页",
+   "en": "Textbook p. 126"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. Fifteen characters in two rows (8 + 7), the same fifteen and in the same order as the 描一描写一写 grid on p. 128.",
+  "items": [
+   {
+    "zi": "探",
+    "py": "tàn",
+    "gloss": {
+     "zh": "去找、去看个明白：探月就是去探索月球",
+     "en": "explore, find out; 探月 is exploring the moon"
+    }
+   },
+   {
+    "zi": "员",
+    "py": "yuán",
+    "gloss": {
+     "zh": "做某种工作的人：宇航员、运动员",
+     "en": "a person who does a job, as in 宇航员, astronaut"
+    }
+   },
+   {
+    "zi": "次",
+    "py": "cì",
+    "gloss": {
+     "zh": "量词，一回：第一次",
+     "en": "measure word: a time, as in 第一次, the first time"
+    }
+   },
+   {
+    "zi": "类",
+    "py": "lèi",
+    "gloss": {
+     "zh": "同样的一群：人类、种类",
+     "en": "kind, sort; as in 人类, humankind"
+    }
+   },
+   {
+    "zi": "实",
+    "py": "shí",
+    "gloss": {
+     "zh": "真的，不是假的：真实、实现",
+     "en": "real, true; as in 实现, make come true"
+    }
+   },
+   {
+    "zi": "梦",
+    "py": "mèng",
+    "gloss": {
+     "zh": "睡觉时看到的事；心里很想做到的事叫梦想",
+     "en": "dream; 梦想 is a dream you hope to make real"
+    }
+   },
+   {
+    "zi": "船",
+    "py": "chuán",
+    "gloss": {
+     "zh": "在水上走的交通工具；在太空飞的叫飞船",
+     "en": "boat, ship; 飞船 is a spaceship"
+    }
+   },
+   {
+    "zi": "达",
+    "py": "dá",
+    "gloss": {
+     "zh": "到：到达",
+     "en": "reach, arrive; as in 到达"
+    }
+   },
+   {
+    "zi": "植",
+    "py": "zhí",
+    "gloss": {
+     "zh": "种：植树；植物就是花草树木",
+     "en": "plant; 植物 are plants, 植树 is planting trees"
+    }
+   },
+   {
+    "zi": "音",
+    "py": "yīn",
+    "gloss": {
+     "zh": "耳朵听到的：声音",
+     "en": "sound; as in 声音"
+    }
+   },
+   {
+    "zi": "式",
+    "py": "shì",
+    "gloss": {
+     "zh": "样子、规矩：样式、正式",
+     "en": "form, style; as in 正式, formal, official"
+    }
+   },
+   {
+    "zi": "程",
+    "py": "chéng",
+    "gloss": {
+     "zh": "一步一步做的事、走的路：工程、行程",
+     "en": "a course, a route; as in 工程, a big project"
+    }
+   },
+   {
+    "zi": "器",
+    "py": "qì",
+    "gloss": {
+     "zh": "用具、机器：乐器、航天器",
+     "en": "a tool, an instrument; as in 航天器, a spacecraft"
+    }
+   },
+   {
+    "zi": "背",
+    "py": "bèi",
+    "gloss": {
+     "zh": "身体后面的部分；背面是东西后面的那一面",
+     "en": "the back; 背面 is the far side"
+    }
+   },
+   {
+    "zi": "陆",
+    "py": "lù",
+    "gloss": {
+     "zh": "地面，不是水：陆地、着陆",
+     "en": "land; 着陆 is to touch down"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "舟",
+    "zi": "船"
+   },
+   {
+    "bu": "弋",
+    "zi": "式"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第127页",
+   "en": "Textbook p. 127"
+  },
+  "items": [
+   {
+    "w": "以前",
+    "py": "yǐqián"
+   },
+   {
+    "w": "明白",
+    "py": "míngbai"
+   },
+   {
+    "w": "宇航员",
+    "py": "yǔhángyuán"
+   },
+   {
+    "w": "人类",
+    "py": "rénlèi"
+   },
+   {
+    "w": "梦想",
+    "py": "mèngxiǎng"
+   },
+   {
+    "w": "到达",
+    "py": "dàodá"
+   },
+   {
+    "w": "荒凉",
+    "py": "huāngliáng"
+   },
+   {
+    "w": "植物",
+    "py": "zhíwù"
+   },
+   {
+    "w": "安全",
+    "py": "ānquán"
+   },
+   {
+    "w": "正式",
+    "py": "zhèngshì"
+   },
+   {
+    "w": "开展",
+    "py": "kāizhǎn"
+   },
+   {
+    "w": "实现",
+    "py": "shíxiàn"
+   }
+  ]
+ },
+ "专有名词": {
+  "where": {
+   "zh": "课本第127页",
+   "en": "Textbook p. 127"
+  },
+  "section_note": "As in L03: the book prints 专有名词 (Proper nouns) between 词语 and 句子 on p. 127, the pinyin capitalised as a name and written as one word, with the apostrophe the book prints after Cháng. Kept as the book has it; the lesson page may ignore it.",
+  "items": [
+   {
+    "w": "美国",
+    "py": "Měiguó"
+   },
+   {
+    "w": "阿波罗号",
+    "py": "Ābōluóhào"
+   },
+   {
+    "w": "嫦娥探月工程",
+    "py": "Cháng'étànyuègōngchéng"
+   },
+   {
+    "w": "嫦娥四号",
+    "py": "Cháng'ésìhào"
+   }
+  ]
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第127页",
+   "en": "Textbook p. 127"
+  },
+  "zh": "他们坐“阿波罗号”飞船离开了地球。",
+  "py": "tā men zuò “ā bō luó hào” fēi chuán lí kāi le dì qiú."
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第130页 扩展与替换",
+   "en": "Textbook p. 130, Expand and substitute"
+  },
+  "pattern": "……坐……离开了……",
+  "ladder": [
+   "坐",
+   "坐“阿波罗号”飞船",
+   "坐“阿波罗号”飞船离开",
+   "坐“阿波罗号”飞船离开了地球",
+   "他们坐“阿波罗号”飞船离开了地球"
+  ],
+  "ladder_note": "The ladder card on p. 130 prints no full stop on any line, the last included; kept as printed. The pattern string is authored (the book names none) from the sentence the ladder builds out of 坐; the 替换 table below it swaps who, how they travel and where they went, and two of its rows say 去 rather than 离开了.",
+  "substitutions": {
+   "frame": [
+    "他们",
+    "坐“阿波罗号”飞船",
+    "离开了地球。"
+   ],
+   "rows": [
+    [
+     "爸爸",
+     "坐飞机",
+     "去北京了"
+    ],
+    [
+     "我们",
+     "骑自行车",
+     "去公园"
+    ],
+    [
+     "老师",
+     "开车",
+     "离开了学校"
+    ]
+   ]
+  },
+  "substitutions_note": "The blue 替换 table under the ladder on p. 130: all three parts of the sentence are underlined (他们 / 坐“阿波罗号”飞船 / 离开了地球), so each row swaps all three, unlike L03 and L04 where one part stays fixed. Rows typed as printed, without the full stop the frame line carries."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第129页",
+   "en": "Textbook p. 129"
+  },
+  "rows": [
+   [
+    "探月",
+    "探亲",
+    "试探"
+   ],
+   [
+    "宇航员",
+    "运动员",
+    "飞行员",
+    "学员",
+    "队员"
+   ],
+   [
+    "一次",
+    "次数",
+    "每次",
+    "这次",
+    "第几次"
+   ],
+   [
+    "人类",
+    "种类",
+    "分类",
+    "同类",
+    "实现",
+    "真实"
+   ],
+   [
+    "梦想",
+    "美梦",
+    "做梦",
+    "梦话",
+    "飞船",
+    "龙船",
+    "船员",
+    "一只小船"
+   ],
+   [
+    "到达",
+    "送达",
+    "植物",
+    "植树",
+    "种植"
+   ],
+   [
+    "声音",
+    "读音",
+    "发音",
+    "音乐",
+    "正式",
+    "样式",
+    "公式"
+   ],
+   [
+    "工程",
+    "行程",
+    "旅程",
+    "航天器",
+    "机器",
+    "乐器",
+    "电器"
+   ],
+   [
+    "背面",
+    "后背",
+    "背心",
+    "背影"
+   ],
+   [
+    "着陆",
+    "登陆",
+    "陆地"
+   ]
+  ],
+  "page_break_note": "all ten rows are on p. 129, above 用一用",
+  "rows_note": "The book prints the pinyin yuè above 乐 in 乐器 (row 8), the only pinyin in the list; 音乐 in row 7 carries none."
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第129–130页",
+   "en": "Textbook pp. 129–130"
+  },
+  "rows": [
+   [
+    "十二点以前",
+    "下课以前"
+   ],
+   [
+    "不明白",
+    "很明白",
+    "明明白白"
+   ],
+   [
+    "人类社会",
+    "人类的祖先",
+    "人类的梦想"
+   ],
+   [
+    "梦想成真",
+    "美好的梦想"
+   ],
+   [
+    "到达了月球",
+    "到达机场"
+   ],
+   [
+    "荒凉的沙漠",
+    "荒凉的月球",
+    "很荒凉"
+   ],
+   [
+    "很安全",
+    "不安全",
+    "安全的地方"
+   ],
+   [
+    "正式比赛",
+    "正式开始",
+    "正式演出"
+   ],
+   [
+    "开展活动",
+    "开展调查"
+   ],
+   [
+    "没有实现",
+    "实现愿望",
+    "实现梦想"
+   ]
+  ],
+  "page_break_note": "the first seven rows are on p. 129, the last three at the top of p. 130"
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第133–134页",
+   "en": "Textbook pp. 133–134"
+  },
+  "title": "人造卫星",
+  "title_en": "Satellites",
+  "sidebar": [
+   "预报：预先报告。",
+   "数据（一组数据　数据准确）",
+   "定位：确定方位。",
+   "提供（提供帮助　提供热水）",
+   "迷失：弄不清方向，走错道路。"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The sidebar is in the margin of p. 134; the margin prints ★ before each entry; 数据 and 提供 carry two example phrases under them rather than a gloss, kept here in brackets as L04 did. p. 134 ends with the reading's 想一想，说一说 (two questions) and p. 135 holds 日积月累 (仙人垂两足，桂树何团团。——（唐）李白, public domain, with pinyin), neither reproduced."
+ }
+}

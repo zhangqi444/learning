@@ -1,0 +1,390 @@
+{
+ "id": "L02",
+ "no": 2,
+ "title": "故宫",
+ "title_en": "The Forbidden City",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "12–13",
+  "生字·词语·句子": "14",
+  "课堂练习": "15–18",
+  "阅读": "19–21"
+ },
+ "pages_note": "Read off the 目录 (第一单元: 2 故宫 p. 12, 阅读 去北海公园滑冰 p. 19, 3 颐和园 p. 22) and confirmed on each rendered page: 第二课 runs pp. 12–21, 第三课 starts p. 22. 课堂练习 is pp. 15–18 (描一描写一写 and the first two rows of 读一读 15, the rest of 读一读 and 用一用 16, 扩展与替换/想一想 17, 对话/课堂游戏 18); the 阅读 text is pp. 19–20 with its 想一想 and 日积月累 on p. 21.",
+ "课文": {
+  "where": {
+   "zh": "课本第12–13页",
+   "en": "Textbook pp. 12–13"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第14页",
+   "en": "Textbook p. 14"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. The two 部首 are the blue boxes under the list on p. 14: 尸 → 居 and 殳 → 殿.",
+  "items": [
+   {
+    "zi": "朝",
+    "py": "cháo",
+    "gloss": {
+     "zh": "朝代：明朝、清朝",
+     "en": "dynasty, as in 明朝 and 清朝"
+    }
+   },
+   {
+    "zi": "清",
+    "py": "qīng",
+    "gloss": {
+     "zh": "清朝的\"清\"；水很干净叫\"清\"",
+     "en": "as in 清朝, the Qing dynasty; clear"
+    }
+   },
+   {
+    "zi": "皇",
+    "py": "huáng",
+    "gloss": {
+     "zh": "皇帝、皇宫的\"皇\"",
+     "en": "imperial, as in 皇帝 and 皇宫"
+    }
+   },
+   {
+    "zi": "位",
+    "py": "wèi",
+    "gloss": {
+     "zh": "量词，客气地数人：一位老师、二十四位皇帝",
+     "en": "polite measure word for people: 一位老师"
+    }
+   },
+   {
+    "zi": "帝",
+    "py": "dì",
+    "gloss": {
+     "zh": "皇帝的\"帝\"",
+     "en": "as in 皇帝, emperor"
+    }
+   },
+   {
+    "zi": "居",
+    "py": "jū",
+    "gloss": {
+     "zh": "住",
+     "en": "live, reside"
+    }
+   },
+   {
+    "zi": "殿",
+    "py": "diàn",
+    "gloss": {
+     "zh": "又高又大的房子，皇帝住和办事的地方：宫殿、大殿",
+     "en": "a palace hall, as in 宫殿"
+    }
+   },
+   {
+    "zi": "间",
+    "py": "jiān",
+    "gloss": {
+     "zh": "量词，数房间：一间房；也是房间的\"间\"",
+     "en": "measure word for rooms: 一间房; as in 房间"
+    }
+   },
+   {
+    "zi": "筑",
+    "py": "zhù",
+    "gloss": {
+     "zh": "盖房子；建筑的\"筑\"",
+     "en": "build, as in 建筑"
+    }
+   },
+   {
+    "zi": "藏",
+    "py": "cáng",
+    "gloss": {
+     "zh": "放好、收起来，不让人看见：收藏、藏起来",
+     "en": "hide, store away, as in 收藏"
+    }
+   },
+   {
+    "zi": "内",
+    "py": "nèi",
+    "gloss": {
+     "zh": "里面，跟\"外\"相对",
+     "en": "inside"
+    }
+   },
+   {
+    "zi": "外",
+    "py": "wài",
+    "gloss": {
+     "zh": "外面，跟\"内\"相对",
+     "en": "outside"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "尸",
+    "zi": "居"
+   },
+   {
+    "bu": "殳",
+    "zi": "殿"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第14页",
+   "en": "Textbook p. 14"
+  },
+  "items": [
+   {
+    "w": "这里",
+    "py": "zhèli"
+   },
+   {
+    "w": "居住",
+    "py": "jūzhù"
+   },
+   {
+    "w": "世界",
+    "py": "shìjiè"
+   },
+   {
+    "w": "艺术",
+    "py": "yìshù"
+   },
+   {
+    "w": "代表",
+    "py": "dàibiǎo"
+   },
+   {
+    "w": "珍贵",
+    "py": "zhēnguì"
+   },
+   {
+    "w": "展览",
+    "py": "zhǎnlǎn"
+   },
+   {
+    "w": "吸引",
+    "py": "xīyǐn"
+   },
+   {
+    "w": "游客",
+    "py": "yóukè"
+   },
+   {
+    "w": "参观",
+    "py": "cānguān"
+   },
+   {
+    "w": "著名",
+    "py": "zhùmíng"
+   },
+   {
+    "w": "机会",
+    "py": "jīhuì"
+   }
+  ]
+ },
+ "专有名词": {
+  "where": {
+   "zh": "课本第14页",
+   "en": "Textbook p. 14"
+  },
+  "section_note": "Printed between 词语 and 句子 on p. 14, as in L03, with the pinyin capitalised as a name. Kept as the book has it; the lesson page may ignore it.",
+  "items": [
+   {
+    "w": "明朝",
+    "py": "Míngcháo"
+   },
+   {
+    "w": "清朝",
+    "py": "Qīngcháo"
+   },
+   {
+    "w": "紫禁城",
+    "py": "Zǐjìnchéng"
+   },
+   {
+    "w": "太和殿",
+    "py": "Tàihé Diàn"
+   },
+   {
+    "w": "中和殿",
+    "py": "Zhōnghé Diàn"
+   },
+   {
+    "w": "保和殿",
+    "py": "Bǎohé Diàn"
+   }
+  ]
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第14页",
+   "en": "Textbook p. 14"
+  },
+  "zh": "以后有机会我还要来故宫逛逛。",
+  "py": "yǐ hòu yǒu jī huì wǒ hái yào lái gù gōng guàng guang."
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第17页 扩展与替换",
+   "en": "Textbook p. 17, Expand and substitute"
+  },
+  "pattern": "……还要……",
+  "pattern_note": "The book prints no name for the pattern; 还要 is the part the 替换 table holds fixed (我还要) while the place and the doubled verb change, so it is named after that, as L03's ……终于…… was.",
+  "ladder": [
+   "来故宫",
+   "来故宫逛逛",
+   "还要来故宫逛逛",
+   "我还要来故宫逛逛。"
+  ],
+  "substitutions": {
+   "frame": [
+    "我还要",
+    "来故宫",
+    "逛逛。"
+   ],
+   "rows": [
+    [
+     "去北海公园",
+     "玩玩儿"
+    ],
+    [
+     "去颐和园",
+     "看看"
+    ],
+    [
+     "来这里",
+     "参观参观"
+    ]
+   ]
+  },
+  "substitutions_note": "The blue 替换 table under the ladder on p. 17: 我还要 in red, then 来故宫 and 逛逛 underlined, and three rows that swap the two underlined parts. Added as the book prints it, as in L03 and L04."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第15–16页",
+   "en": "Textbook pp. 15–16"
+  },
+  "rows": [
+   [
+    "明朝",
+    "清朝",
+    "皇宫",
+    "皇后"
+   ],
+   [
+    "各位",
+    "几位",
+    "皇帝",
+    "帝王"
+   ],
+   [
+    "居住",
+    "居家",
+    "居民",
+    "宫殿",
+    "殿下"
+   ],
+   [
+    "房间",
+    "试衣间"
+   ],
+   [
+    "建筑",
+    "收藏",
+    "藏书",
+    "藏起来"
+   ],
+   [
+    "国内",
+    "室内",
+    "校内",
+    "内外",
+    "国外",
+    "外边"
+   ]
+  ],
+  "page_break_note": "rows 1–2 are at the foot of p. 15, under 描一描写一写; rows 3–6 at the top of p. 16, above 用一用. 居民 carries the pinyin mín above 民 in the book."
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第16页",
+   "en": "Textbook p. 16"
+  },
+  "rows": [
+   [
+    "住在这里",
+    "这里人很多",
+    "这里很美",
+    "这里的学校"
+   ],
+   [
+    "居住了很多年",
+    "在这里居住过一年"
+   ],
+   [
+    "全世界",
+    "世界地图"
+   ],
+   [
+    "一门艺术",
+    "建筑艺术",
+    "电影艺术"
+   ],
+   [
+    "学生代表",
+    "古代建筑艺术的代表"
+   ],
+   [
+    "很珍贵",
+    "珍贵的动物",
+    "珍贵的礼物"
+   ],
+   [
+    "书画展览",
+    "一个展览",
+    "看文物展览"
+   ],
+   [
+    "吸引着大家",
+    "吸引不了我"
+   ],
+   [
+    "参观故宫",
+    "参观了一天",
+    "来这里参观"
+   ],
+   [
+    "著名的城市",
+    "著名的画家"
+   ],
+   [
+    "一个机会",
+    "好机会",
+    "没有机会了"
+   ]
+  ]
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第19–20页",
+   "en": "Textbook pp. 19–20"
+  },
+  "title": "去北海公园滑冰",
+  "title_en": "Going Skating in Beihai Park",
+  "sidebar": [
+   "滑冰（滑冰场　滑冰鞋）",
+   "适合（不适合他　适合出门）",
+   "各式各样：各种各样。"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The margin of p. 19 prints ★ before each entry; 滑冰 and 适合 carry example phrases under them rather than a gloss, kept here in brackets. p. 21 carries the reading's 想一想，说一说 (four questions) and 日积月累 (临清风，对朗月，登山泛水，意酣歌。——（唐）李延寿), neither reproduced; the quotation is public domain."
+ }
+}

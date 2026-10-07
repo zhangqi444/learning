@@ -1,0 +1,275 @@
+{
+ "id": "L06",
+ "no": 6,
+ "title": "猴子捞月亮",
+ "title_en": "The Monkeys and the Moon",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "58–59",
+  "生字·词语·句子": "59",
+  "课堂练习": "60–63",
+  "阅读": "64–66"
+ },
+ "pages_note": "Read off the 目录 (教材 PDF index 12, printed p. 2) and confirmed on each rendered page: 第六课 runs pp. 58–66, 综合练习（二） starts p. 67. The 课文 is pp. 58–59 and p. 59 also carries 生字, 词语 and 句子 below it. 课堂练习 is pp. 60–63 (描一描写一写 and 读一读 60, 用一用 and 扩展与替换 61, 想一想/对话 62, 课堂游戏 63); the 阅读 text is pp. 64–65 with its 想一想 and 日积月累 on p. 66.",
+ "课文": {
+  "where": {
+   "zh": "课本第58–59页",
+   "en": "Textbook pp. 58–59"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第59页",
+   "en": "Textbook p. 59"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. The book prints 啊 with a toneless a, the reading it has at the end of a sentence (是啊) and the one the 课文 uses.",
+  "items": [
+   {
+    "zi": "猴",
+    "py": "hóu",
+    "gloss": {
+     "zh": "猴子，一种会爬树的动物",
+     "en": "monkey"
+    }
+   },
+   {
+    "zi": "捞",
+    "py": "lāo",
+    "gloss": {
+     "zh": "从水里把东西拿上来",
+     "en": "scoop something out of the water"
+    }
+   },
+   {
+    "zi": "晚",
+    "py": "wǎn",
+    "gloss": {
+     "zh": "太阳下山以后的时候；晚上",
+     "en": "evening; late"
+    }
+   },
+   {
+    "zi": "群",
+    "py": "qún",
+    "gloss": {
+     "zh": "量词：聚在一起的很多个，像一群猴子",
+     "en": "measure word for a crowd or a flock: a group of"
+    }
+   },
+   {
+    "zi": "跟",
+    "py": "gēn",
+    "gloss": {
+     "zh": "在后面紧紧地走；跟着",
+     "en": "follow; with"
+    }
+   },
+   {
+    "zi": "啊",
+    "py": "a",
+    "gloss": {
+     "zh": "放在句子末尾，加强语气，像\"是啊\"",
+     "en": "a word at the end of a sentence that adds feeling, as in 是啊"
+    }
+   },
+   {
+    "zi": "接",
+    "py": "jiē",
+    "gloss": {
+     "zh": "连起来；接着",
+     "en": "join on, connect; next, then (接着)"
+    }
+   },
+   {
+    "zi": "碰",
+    "py": "pèng",
+    "gloss": {
+     "zh": "挨上、撞上",
+     "en": "touch, bump into"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "羊",
+    "zi": "群"
+   },
+   {
+    "bu": "石",
+    "zi": "碰"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第59页",
+   "en": "Textbook p. 59"
+  },
+  "items": [
+   {
+    "w": "月亮",
+    "py": "yuèliang"
+   },
+   {
+    "w": "晚上",
+    "py": "wǎnshang"
+   },
+   {
+    "w": "跟着",
+    "py": "gēnzhe"
+   },
+   {
+    "w": "于是",
+    "py": "yúshì"
+   },
+   {
+    "w": "下面",
+    "py": "xiàmiàn"
+   },
+   {
+    "w": "伸手",
+    "py": "shēnshǒu"
+   },
+   {
+    "w": "这时",
+    "py": "zhèshí"
+   }
+  ]
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第59页",
+   "en": "Textbook p. 59"
+  },
+  "zh": "月亮不是还在天上吗？",
+  "py": "yuè liang bú shì hái zài tiān shang ma?"
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第61页 扩展与替换",
+   "en": "Textbook p. 61, Expand and substitute"
+  },
+  "pattern": "不是……吗？",
+  "ladder": [
+   "不是……吗？",
+   "不是在天上吗？",
+   "不是还在天上吗？",
+   "月亮不是还在天上吗？"
+  ],
+  "substitutions": {
+   "frame": [
+    "月亮",
+    "不是",
+    "还在天上",
+    "吗？"
+   ],
+   "rows": [
+    [
+     "笔",
+     "还在书包里"
+    ],
+    [
+     "老师",
+     "还在学校里"
+    ],
+    [
+     "作业",
+     "做完了"
+    ]
+   ]
+  },
+  "substitutions_note": "The blue 替换 table under the ladder on p. 61: 月亮 不是 还在天上 吗？ with 月亮 and 还在天上 underlined and 不是 and 吗？ printed in red, then three rows that swap the two underlined parts. Shaped like L03's table, two parts to a row. The ladder's first rung is the pattern itself, as the card prints it."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第60页",
+   "en": "Textbook p. 60"
+  },
+  "rows": [
+   [
+    "猴子",
+    "猴王",
+    "捞上来",
+    "打捞"
+   ],
+   [
+    "晚上",
+    "今晚",
+    "夜晚",
+    "晚会",
+    "晚饭"
+   ],
+   [
+    "一群人",
+    "一群猴子",
+    "人群",
+    "群众"
+   ],
+   [
+    "跟着",
+    "跟从",
+    "快跟上"
+   ],
+   [
+    "好啊",
+    "对啊",
+    "是啊"
+   ],
+   [
+    "接着",
+    "接不上",
+    "连接",
+    "接力"
+   ],
+   [
+    "碰到",
+    "碰碰车",
+    "碰见"
+   ]
+  ],
+  "page_break_note": "all seven rows are on p. 60, under 描一描，写一写"
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第61页",
+   "en": "Textbook p. 61"
+  },
+  "rows": [
+   [
+    "跟着妈妈说汉语",
+    "跟着爸爸走",
+    "跟着他做运动"
+   ],
+   [
+    "最下面",
+    "桌子下面"
+   ],
+   [
+    "伸手打招呼",
+    "伸手拿书",
+    "伸一下手",
+    "伸出手来"
+   ]
+  ],
+  "rows_note": "The book prints 跟着他做运动 on its own line under the two other 跟着 phrases; it is the same word's row, so it is kept with them, as L03 did with 生动. Only three of the seven 词语 get a row here: 跟着, 下面, 伸手."
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第64–65页",
+   "en": "Textbook pp. 64–65"
+  },
+  "title": "折筷子",
+  "title_en": "Breaking Chopsticks",
+  "sidebar": [
+   "轻松（轻轻松松　轻松愉快）",
+   "力量（有力量　人多力量大）",
+   "团结（团结同学　团结起来）",
+   "国家（一个国家　强大的国家）",
+   "强盛：强大昌盛（多指民族或国家）。"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The margin is on p. 65 only (p. 64 is title and picture) and prints ★ before each entry; 轻松, 力量, 团结 and 国家 carry two example phrases under them rather than a gloss, kept here in brackets, and 强盛's own gloss prints its bracket. p. 66 carries the reading's 想一想，说一说 (three questions) and 日积月累 (三思而后行。——《论语》), neither reproduced."
+ }
+}

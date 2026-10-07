@@ -1,0 +1,1303 @@
+{
+ "lesson": "L06",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》",
+ "file_note": "The workbook's exercises for 第六课, typed from 练习册B pp. 31–45 (PDF index = printed + 4, verified on p. 31; p. 46 opens 第八课). Same shapes as L04. Left out because no type fits, with their keys so a type can be added: 星期五 练习2 (pp. 40–41, listen and answer, two options each — the script is in the appendix on p. 83: (1) 猴子们说：\"我们把月亮捞上来吧。\" → B 把月亮捞上来 (2) 猫咪总爱趴在我的椅子下面 → A \"我\"的椅子下面 (3) 我们不是在学校吗？ → A 学校 (4) 我刚碰到小狗，它就跑了 → B 它就跑了); 星期五 练习3 (p. 41, read and choose, three options for (1) and (2), two for (3): (1) 什么掉到水里了 → B 月亮; (2) 问题1 哪只小猴子去捞月亮 → A 最下面, 问题2 捞月亮的动作 → B 伸手; (3) 问题1 \"月亮不是还在天上吗？\"是什么意思 → B 月亮还在天上, 问题2 水里的月亮是什么 → B 是月亮的倒影). A two- or three-choice `pick` type with the book's own options per item would take both. Left out inside exercises that are otherwise typed, each named in that exercise's scope_note: 星期二 练习1's fourth house (write the pinyin of 接, jiē); 星期四 练习3's matching (four birds to three bowls, and 小鸟 is 天上 or 树上); 星期五 练习6 (2) (跟着 我们 都 叫了起来 → 我们都跟着叫了起来, but 我们跟着都叫了起来 is also said) and (4) (不是 哥哥 开车 会 吗 → 哥哥不是会开车吗？, but 不是哥哥会开车吗？ is also good Chinese). 星期四 练习5 is typed as free writing although its heading says 说一说, because the page prints five ruled lines for it. 星期五 练习5 is the song 《春天在哪里》 (pp. 43–44), recorded as `speak` with its words held back.",
+ "blocks": [
+  {
+   "id": "zb:L06-D2",
+   "day": "星期二",
+   "page": 33,
+   "ex": 2,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L06-01",
+    "zc:L06-02",
+    "zc:L06-03",
+    "zc:L06-04"
+   ]
+  },
+  {
+   "id": "zb:L06-D3",
+   "day": "星期三",
+   "page": 36,
+   "ex": 3,
+   "title": "根据图片选择正确的词语填空",
+   "title_en": "Look at the picture and choose the right words to fill in the blanks",
+   "items": [
+    "zc:L06-05",
+    "zc:L06-06",
+    "zc:L06-07"
+   ],
+   "scope_note": "The book's first sentence, 云云在方方的___, is its worked example with 右面 (its D) filled in, so it is not asked. It is also what fixes whose left and right the page means — 方方's own, as she faces us — and the 小花 item's explanation leans on it. Read off the picture at 600 dpi: 小雪 is behind by depth (feet higher on the page, no overlap with 方方); 小雨's pigtail is drawn over 方方's right hip (in front); 云云 lower left and 小花 upper right, a cross seen at an angle."
+  },
+  {
+   "id": "zb:L06-D3b",
+   "day": "星期三",
+   "page": 36,
+   "ex": 4,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L06-08",
+    "zc:L06-09",
+    "zc:L06-10",
+    "zc:L06-11"
+   ],
+   "scope_note": "Wednesday has two four-choice exercises on p. 36 (3 and 4), so it has two blocks; this one carries a letter suffix the way a split exercise id does."
+  },
+  {
+   "id": "zb:L06-D4",
+   "day": "星期四",
+   "page": 37,
+   "ex": 1,
+   "title": "找不同，写出正确答案",
+   "title_en": "Find the differences and write the correct answers",
+   "items": [
+    "z:L06-01",
+    "z:L06-02",
+    "z:L06-03",
+    "z:L06-04",
+    "z:L06-05",
+    "z:L06-06"
+   ],
+   "scope_note": "Three sentences, two blanks each, each under a box of four look-alike or sound-alike characters (猴 候 劳 捞; 只 直 根 跟; 接 提 朋 碰). One item per blank, the four choices being the book's box, so the task is the book's: which of these fills this blank. The other blank of the sentence is shown filled with its own answer, which is never a tempting choice for the blank being asked. She writes the characters on paper; the site marks the choice."
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L06-D1-01",
+   "day": "星期一",
+   "page": 31,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看旁边的词想字，用笔写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "The word beside the box tells you the character; write it with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L06-D1-01-1",
+     "py": "hóu",
+     "context": "＿子",
+     "key": "猴",
+     "explanation": {
+      "zh": "猴子：hóu。",
+      "en": "猴子 — hóu, monkey."
+     }
+    },
+    {
+     "id": "zx:L06-D1-01-2",
+     "py": "lāo",
+     "context": "＿上来",
+     "key": "捞",
+     "explanation": {
+      "zh": "捞上来：lāo。",
+      "en": "捞上来 — lāo, scoop up out of the water."
+     }
+    },
+    {
+     "id": "zx:L06-D1-01-3",
+     "py": "wǎn",
+     "context": "＿上",
+     "key": "晚",
+     "explanation": {
+      "zh": "晚上：wǎn。",
+      "en": "晚上 — wǎn, evening."
+     }
+    },
+    {
+     "id": "zx:L06-D1-01-4",
+     "py": "qún",
+     "context": "人＿",
+     "key": "群",
+     "explanation": {
+      "zh": "人群：qún。",
+      "en": "人群 — qún, a crowd."
+     }
+    },
+    {
+     "id": "zx:L06-D1-01-5",
+     "py": "gēn",
+     "context": "＿着",
+     "key": "跟",
+     "explanation": {
+      "zh": "跟着：gēn。",
+      "en": "跟着 — gēn, following."
+     }
+    },
+    {
+     "id": "zx:L06-D1-01-6",
+     "py": "a",
+     "context": "是＿",
+     "key": "啊",
+     "explanation": {
+      "zh": "是啊：a，读轻声。",
+      "en": "是啊 — a, said light and toneless."
+     }
+    },
+    {
+     "id": "zx:L06-D1-01-7",
+     "py": "jiē",
+     "context": "连＿",
+     "key": "接",
+     "explanation": {
+      "zh": "连接：jiē。",
+      "en": "连接 — jiē, join together."
+     }
+    },
+    {
+     "id": "zx:L06-D1-01-8",
+     "py": "pèng",
+     "context": "＿到",
+     "key": "碰",
+     "explanation": {
+      "zh": "碰到：pèng。",
+      "en": "碰到 — pèng, touch, bump into."
+     }
+    }
+   ],
+   "scope_note": "The page prints only the eight 生字 to trace and copy. As in L04, each item carries the 生字's pinyin from 教材 p. 59 and a word from the 读一读 on 教材 p. 60 as its cue, so she knows which character to write without a shadow to trace."
+  },
+  {
+   "id": "zx:L06-D1-02",
+   "day": "星期一",
+   "page": 32,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，写一写",
+   "title_en": "Match and write",
+   "note": {
+    "zh": "先点上面的部首，再点下面能和它合成字的那一半。课本已连好一组：扌—劳。",
+    "en": "Tap a radical on the top row, then the part below that makes a character with it. The book has drawn one line already: 扌—劳."
+   },
+   "shape_note": "The fifth flower prints the foot radical in its side form (⻊); it is written 足 here, as L04 wrote its 足 group, so the label renders in any font. The fifth leaf is 艮 (no dot on top, read at 600 dpi), not 良.",
+   "left": [
+    "扌",
+    "日",
+    "羊",
+    "犭",
+    "足"
+   ],
+   "right": [
+    "免",
+    "劳",
+    "侯",
+    "君",
+    "艮"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     4,
+     4
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L06-D1-02-1",
+     "left": "扌",
+     "key": 1,
+     "word": "捞",
+     "explanation": {
+      "zh": "扌和劳合成\"捞\"——课本给的例子。",
+      "en": "扌 and 劳 make 捞 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L06-D1-02-2",
+     "left": "日",
+     "key": 0,
+     "word": "晚",
+     "explanation": {
+      "zh": "日和免合成\"晚\"。",
+      "en": "日 and 免 make 晚."
+     }
+    },
+    {
+     "id": "zx:L06-D1-02-3",
+     "left": "羊",
+     "key": 3,
+     "word": "群",
+     "explanation": {
+      "zh": "羊和君合成\"群\"，羊在右边。",
+      "en": "羊 and 君 make 群, with 羊 on the right."
+     }
+    },
+    {
+     "id": "zx:L06-D1-02-4",
+     "left": "犭",
+     "key": 2,
+     "word": "猴",
+     "explanation": {
+      "zh": "犭和侯合成\"猴\"。",
+      "en": "犭 and 侯 make 猴."
+     }
+    },
+    {
+     "id": "zx:L06-D1-02-5",
+     "left": "足",
+     "key": 4,
+     "word": "跟",
+     "explanation": {
+      "zh": "足字旁和艮合成\"跟\"。",
+      "en": "The foot radical and 艮 make 跟."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D1-02w",
+   "day": "星期一",
+   "page": 32,
+   "ex": 2,
+   "type": "write",
+   "title": "连一连，写一写：把字写出来",
+   "title_en": "Match and write: write the characters",
+   "outline": false,
+   "note": {
+    "zh": "看着部件，用笔把字写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "Look at the parts and write the character with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L06-D1-02w-1",
+     "parts": "扌＋劳",
+     "key": "捞",
+     "explanation": {
+      "zh": "扌在左，劳在右：捞——课本给的例子。",
+      "en": "扌 on the left, 劳 on the right: 捞 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L06-D1-02w-2",
+     "parts": "日＋免",
+     "key": "晚",
+     "explanation": {
+      "zh": "日在左，免在右：晚。",
+      "en": "日 on the left, 免 on the right: 晚."
+     }
+    },
+    {
+     "id": "zx:L06-D1-02w-3",
+     "parts": "君＋羊",
+     "key": "群",
+     "explanation": {
+      "zh": "君在左，羊在右：群。",
+      "en": "君 on the left, 羊 on the right: 群."
+     }
+    },
+    {
+     "id": "zx:L06-D1-02w-4",
+     "parts": "犭＋侯",
+     "key": "猴",
+     "explanation": {
+      "zh": "犭在左，侯在右：猴。",
+      "en": "犭 on the left, 侯 on the right: 猴."
+     }
+    },
+    {
+     "id": "zx:L06-D1-02w-5",
+     "parts": "足＋艮",
+     "key": "跟",
+     "explanation": {
+      "zh": "足字旁在左，艮在右：跟。",
+      "en": "The foot radical on the left, 艮 on the right: 跟."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D1-03",
+   "day": "星期一",
+   "page": 32,
+   "ex": 3,
+   "type": "sort",
+   "title": "找出部首相同的字",
+   "title_en": "Find the characters with the same radicals",
+   "note": {
+    "zh": "把每个字放进它部首的格子里。",
+    "en": "Put each character in the box of its radical."
+   },
+   "scope_note": "The third leaf prints the foot radical in its side form (⻊); the group is written 足, as in L04's p. 19 sort.",
+   "groups": [
+    "犭",
+    "日",
+    "足",
+    "石"
+   ],
+   "items": [
+    {
+     "id": "zx:L06-D1-03-1",
+     "text": "猴",
+     "key": 0,
+     "explanation": {
+      "zh": "猴的部首是犭，反犬旁。",
+      "en": "The radical of 猴 is 犭, the animal radical."
+     }
+    },
+    {
+     "id": "zx:L06-D1-03-2",
+     "text": "晚",
+     "key": 1,
+     "explanation": {
+      "zh": "晚的部首是日。",
+      "en": "The radical of 晚 is 日, the sun."
+     }
+    },
+    {
+     "id": "zx:L06-D1-03-3",
+     "text": "跑",
+     "key": 2,
+     "explanation": {
+      "zh": "跑的部首是足字旁：跑要用脚。",
+      "en": "The radical of 跑 is 足: you run with your feet."
+     }
+    },
+    {
+     "id": "zx:L06-D1-03-4",
+     "text": "矿",
+     "key": 3,
+     "explanation": {
+      "zh": "矿的部首是石：矿石也是石头。",
+      "en": "The radical of 矿 is 石, stone: ore is a kind of rock."
+     }
+    },
+    {
+     "id": "zx:L06-D1-03-5",
+     "text": "跟",
+     "key": 2,
+     "explanation": {
+      "zh": "跟的部首是足字旁：跟着走要用脚。",
+      "en": "The radical of 跟 is 足: you follow someone on foot."
+     }
+    },
+    {
+     "id": "zx:L06-D1-03-6",
+     "text": "狗",
+     "key": 0,
+     "explanation": {
+      "zh": "狗的部首是犭，和猴一样。",
+      "en": "The radical of 狗 is 犭, like 猴."
+     }
+    },
+    {
+     "id": "zx:L06-D1-03-7",
+     "text": "碰",
+     "key": 3,
+     "explanation": {
+      "zh": "碰的部首是石——课本第59页写着\"石→碰\"。",
+      "en": "The radical of 碰 is 石 — the textbook prints 石 → 碰 on p. 59."
+     }
+    },
+    {
+     "id": "zx:L06-D1-03-8",
+     "text": "暖",
+     "key": 1,
+     "explanation": {
+      "zh": "暖的部首是日：有太阳就暖和。",
+      "en": "The radical of 暖 is 日: the sun makes things warm."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D1-04",
+   "day": "星期一",
+   "page": 32,
+   "ex": 4,
+   "type": "free",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "note": {
+    "zh": "例：月 → 月亮、月球。每个字组两个词。",
+    "en": "Example: 月 → 月亮, 月球. Make two words with each character."
+   },
+   "items": [
+    {
+     "id": "zx:L06-D1-04-1",
+     "prompt": "晚：＿＿、＿＿",
+     "prompt_en": "晚: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L06-D1-04-2",
+     "prompt": "接：＿＿、＿＿",
+     "prompt_en": "接: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L06-D1-04-3",
+     "prompt": "跟：＿＿、＿＿",
+     "prompt_en": "跟: two words",
+     "blanks": 2,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D2-01",
+   "day": "星期二",
+   "page": 33,
+   "ex": 1,
+   "type": "write",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "outline": false,
+   "note": {
+    "zh": "小房子的屋顶上是拼音，在下面写出这个字。例：hóu → 猴。它们都是这一课的生字。",
+    "en": "Each little house has pinyin on its roof; write the character below it. Example: hóu → 猴. They are all this lesson's new characters."
+   },
+   "scope_note": "The page has five houses: the example (hóu 猴), gēn, a and pèng to be written as characters, and one the other way round — 接 printed with its pinyin (jiē) to be written on the roof. A 米字格 is no place for pinyin, so that house is left out, as L04 left out its 模 item.",
+   "items": [
+    {
+     "id": "zx:L06-D2-01-1",
+     "py": "gēn",
+     "key": "跟",
+     "explanation": {
+      "zh": "gēn：跟着的\"跟\"。",
+      "en": "gēn — 跟, as in 跟着, following."
+     }
+    },
+    {
+     "id": "zx:L06-D2-01-2",
+     "py": "a",
+     "key": "啊",
+     "explanation": {
+      "zh": "a（轻声）：是啊的\"啊\"。",
+      "en": "a, toneless — 啊, as in 是啊."
+     }
+    },
+    {
+     "id": "zx:L06-D2-01-3",
+     "py": "pèng",
+     "key": "碰",
+     "explanation": {
+      "zh": "pèng：碰到的\"碰\"。",
+      "en": "pèng — 碰, as in 碰到, touch."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D2-03",
+   "day": "星期二",
+   "page": 34,
+   "ex": 3,
+   "type": "match",
+   "title": "连一连",
+   "title_en": "Match",
+   "note": {
+    "zh": "四张图在练习册第34页，标着A、B、C、D。先点词语，再点它说的那张图。",
+    "en": "The four pictures are on workbook p. 34, lettered A to D. Tap a word, then the picture it names."
+   },
+   "left": [
+    "月亮",
+    "猴子",
+    "晚上",
+    "伸手"
+   ],
+   "right": [
+    "图A",
+    "图B",
+    "图C",
+    "图D"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L06-D2-03-1",
+     "left": "月亮",
+     "key": 1,
+     "explanation": {
+      "zh": "月亮——图B是弯弯的月亮。",
+      "en": "月亮, the moon — picture B is a crescent moon."
+     }
+    },
+    {
+     "id": "zx:L06-D2-03-2",
+     "left": "猴子",
+     "key": 0,
+     "explanation": {
+      "zh": "猴子——图A是树上的小猴子。",
+      "en": "猴子, a monkey — picture A is the little monkey in the tree."
+     }
+    },
+    {
+     "id": "zx:L06-D2-03-3",
+     "left": "晚上",
+     "key": 3,
+     "explanation": {
+      "zh": "晚上——图D是夜空下的房子，天上有月亮和星星。",
+      "en": "晚上, evening — picture D is houses under a night sky with the moon and stars."
+     }
+    },
+    {
+     "id": "zx:L06-D2-03-4",
+     "left": "伸手",
+     "key": 2,
+     "explanation": {
+      "zh": "伸手——图C里的男孩把手伸了出去。",
+      "en": "伸手, stretch out a hand — the boy in picture C is holding his hand out."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D2-04",
+   "day": "星期二",
+   "page": 34,
+   "ex": 4,
+   "type": "free",
+   "title": "动动小脑筋，完成句子",
+   "title_en": "Think and complete the sentences",
+   "note": {
+    "zh": "课本表格的第一行是例子：猴子们看见月亮掉到水里去了，于是去捞月亮。照这样把下面三句补完整。",
+    "en": "The first row of the book's table is the example: 猴子们看见月亮掉到水里去了，于是去捞月亮。 Complete the three below the same way."
+   },
+   "items": [
+    {
+     "id": "zx:L06-D2-04-1",
+     "prompt": "（1）小马听了妈妈的话，＿＿自己过河了。",
+     "prompt_en": "(1) 小马听了妈妈的话，＿＿自己过河了。 (the joining word)",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L06-D2-04-2",
+     "prompt": "（2）听说故宫很大，于是＿＿。",
+     "prompt_en": "(2) 听说故宫很大，于是＿＿。",
+     "blanks": 1,
+     "cells": 12
+    },
+    {
+     "id": "zx:L06-D2-04-3",
+     "prompt": "（3）我想去颐和园玩儿，于是＿＿。",
+     "prompt_en": "(3) 我想去颐和园玩儿，于是＿＿。",
+     "blanks": 1,
+     "cells": 12
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D3-01",
+   "day": "星期三",
+   "page": 35,
+   "ex": 1,
+   "type": "sort",
+   "title": "数一数，找出笔画数相同的字",
+   "title_en": "Count and find the characters with the same stroke numbers",
+   "note": {
+    "zh": "数一数每个字有几画，把它放进对的格子里。",
+    "en": "Count each character's strokes and put it in the right box."
+   },
+   "scope_note": "Stroke counts checked against the vendored hanzi-writer data fetched for this lesson: 捞 10, 啊 10, 晚 11, 接 11, 群 13, 跟 13, 碰 13.",
+   "groups": [
+    "笔画为十的字",
+    "笔画为十一的字",
+    "笔画为十三的字"
+   ],
+   "items": [
+    {
+     "id": "zx:L06-D3-01-1",
+     "text": "捞",
+     "key": 0,
+     "explanation": {
+      "zh": "捞：扌三画，劳七画，一共十画。",
+      "en": "捞: 扌 has 3 strokes and 劳 has 7 — 10 in all."
+     }
+    },
+    {
+     "id": "zx:L06-D3-01-2",
+     "text": "晚",
+     "key": 1,
+     "explanation": {
+      "zh": "晚：日四画，免七画，一共十一画。",
+      "en": "晚: 日 has 4 strokes and 免 has 7 — 11 in all."
+     }
+    },
+    {
+     "id": "zx:L06-D3-01-3",
+     "text": "群",
+     "key": 2,
+     "explanation": {
+      "zh": "群：君七画，羊六画，一共十三画。",
+      "en": "群: 君 has 7 strokes and 羊 has 6 — 13 in all."
+     }
+    },
+    {
+     "id": "zx:L06-D3-01-4",
+     "text": "跟",
+     "key": 2,
+     "explanation": {
+      "zh": "跟：足字旁七画，艮六画，一共十三画。",
+      "en": "跟: the foot radical has 7 strokes and 艮 has 6 — 13 in all."
+     }
+    },
+    {
+     "id": "zx:L06-D3-01-5",
+     "text": "啊",
+     "key": 0,
+     "explanation": {
+      "zh": "啊：口三画，阿七画，一共十画。",
+      "en": "啊: 口 has 3 strokes and 阿 has 7 — 10 in all."
+     }
+    },
+    {
+     "id": "zx:L06-D3-01-6",
+     "text": "接",
+     "key": 1,
+     "explanation": {
+      "zh": "接：扌三画，妾八画，一共十一画。",
+      "en": "接: 扌 has 3 strokes and 妾 has 8 — 11 in all."
+     }
+    },
+    {
+     "id": "zx:L06-D3-01-7",
+     "text": "碰",
+     "key": 2,
+     "explanation": {
+      "zh": "碰：石五画，並八画，一共十三画。",
+      "en": "碰: 石 has 5 strokes and 並 has 8 — 13 in all."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D3-02",
+   "day": "星期三",
+   "page": 35,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match to form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：猴—子。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 猴—子."
+   },
+   "left": [
+    "猴",
+    "于",
+    "这",
+    "伸",
+    "碰"
+   ],
+   "right": [
+    "子",
+    "手",
+    "是",
+    "到",
+    "时"
+   ],
+   "pairs": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L06-D3-02-1",
+     "left": "猴",
+     "key": 0,
+     "word": "猴子",
+     "explanation": {
+      "zh": "猴—子：猴子——课本给的例子。",
+      "en": "猴 + 子 = 猴子, monkey — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L06-D3-02-2",
+     "left": "于",
+     "key": 2,
+     "word": "于是",
+     "explanation": {
+      "zh": "于—是：于是。",
+      "en": "于 + 是 = 于是, so, and then."
+     }
+    },
+    {
+     "id": "zx:L06-D3-02-3",
+     "left": "这",
+     "key": 4,
+     "word": "这时",
+     "explanation": {
+      "zh": "这—时：这时。",
+      "en": "这 + 时 = 这时, at this moment."
+     }
+    },
+    {
+     "id": "zx:L06-D3-02-4",
+     "left": "伸",
+     "key": 1,
+     "word": "伸手",
+     "explanation": {
+      "zh": "伸—手：伸手。",
+      "en": "伸 + 手 = 伸手, stretch out a hand."
+     }
+    },
+    {
+     "id": "zx:L06-D3-02-5",
+     "left": "碰",
+     "key": 3,
+     "word": "碰到",
+     "explanation": {
+      "zh": "碰—到：碰到。",
+      "en": "碰 + 到 = 碰到, touch."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D3-02w",
+   "day": "星期三",
+   "page": 35,
+   "ex": 2,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match to form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把四个词各写一遍（课本已写好：猴子）。",
+    "en": "The matching was done on the site; here write each of the four words once (the book has written 猴子 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L06-D3-02w-1",
+     "prompt": "于＋是 → 写出词语",
+     "prompt_en": "于 + 是 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L06-D3-02w-2",
+     "prompt": "这＋时 → 写出词语",
+     "prompt_en": "这 + 时 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L06-D3-02w-3",
+     "prompt": "伸＋手 → 写出词语",
+     "prompt_en": "伸 + 手 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L06-D3-02w-4",
+     "prompt": "碰＋到 → 写出词语",
+     "prompt_en": "碰 + 到 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D3-05",
+   "day": "星期三",
+   "page": 36,
+   "ex": 5,
+   "type": "tf",
+   "title": "根据课文判断正误",
+   "title_en": "Decide whether the statements are true or false according to the text",
+   "items": [
+    {
+     "id": "zx:L06-D3-05-1",
+     "text": "有一天晚上，一只猴子在树上玩儿。",
+     "key": false,
+     "explanation": {
+      "zh": "课文说的是\"一群猴子在湖边的树上玩儿\"，不是一只。",
+      "en": "The text says 一群猴子 — a whole group of monkeys was playing in the tree, not one."
+     }
+    },
+    {
+     "id": "zx:L06-D3-05-2",
+     "text": "是小猴子先发现月亮掉到水里的。",
+     "key": true,
+     "explanation": {
+      "zh": "一只小猴子先喊起来：\"不好啦，月亮掉到水里了！\"大猴子一看，也叫了起来。",
+      "en": "A little monkey cries out first — 不好啦，月亮掉到水里了！ — and only then does the big monkey look."
+     }
+    },
+    {
+     "id": "zx:L06-D3-05-3",
+     "text": "只有大猴子想把月亮捞上来。",
+     "key": false,
+     "explanation": {
+      "zh": "大猴子说\"我们把月亮捞上来吧\"，于是猴子们都爬到树上，一只拉着一只去捞。",
+      "en": "The big monkey says 我们把月亮捞上来吧 — let's — and all the monkeys climb the tree and hang in a chain to do it."
+     }
+    },
+    {
+     "id": "zx:L06-D3-05-4",
+     "text": "猴子们把月亮捞上来了。",
+     "key": false,
+     "explanation": {
+      "zh": "小猴子的手刚碰到水，月亮就不见了；月亮还在天上呢。",
+      "en": "The moment the little monkey's hand touched the water, the moon was gone — it was still up in the sky."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D4-02",
+   "day": "星期四",
+   "page": 37,
+   "ex": 2,
+   "type": "free",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "note": {
+    "zh": "用\"不是……吗\"把句子改一改。例：太阳在天上。→ 太阳不是在天上吗？图在练习册第37–38页。",
+    "en": "Rewrite each sentence with 不是……吗. Example: 太阳在天上。→ 太阳不是在天上吗？ The pictures are on workbook pp. 37–38."
+   },
+   "items": [
+    {
+     "id": "zx:L06-D4-02-1",
+     "prompt": "（1）老师在学校。（不是……吗）",
+     "prompt_en": "(1) 老师在学校。 Rewrite with 不是……吗.",
+     "blanks": 1,
+     "cells": 14
+    },
+    {
+     "id": "zx:L06-D4-02-2",
+     "prompt": "（2）哥哥比我高。（不是……吗）",
+     "prompt_en": "(2) 哥哥比我高。 Rewrite with 不是……吗.",
+     "blanks": 1,
+     "cells": 14
+    },
+    {
+     "id": "zx:L06-D4-02-3",
+     "prompt": "（3）灯笼在云云手里。（不是……吗）",
+     "prompt_en": "(3) 灯笼在云云手里。 Rewrite with 不是……吗.",
+     "blanks": 1,
+     "cells": 14
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D4-03",
+   "day": "星期四",
+   "page": 38,
+   "ex": 3,
+   "type": "free",
+   "title": "连一连，说一说",
+   "title_en": "Match and say",
+   "note": {
+    "zh": "例：月亮在哪里？月亮在天上。练习册第38页有三个地方：水里、天上、树上。每句写出谁在哪里。",
+    "en": "Example: 月亮在哪里？月亮在天上。 Workbook p. 38 gives three places: 水里, 天上, 树上. Write where each one is."
+   },
+   "scope_note": "The matching half is not typed: four birds (月亮 鱼儿 小鸟 猴子) go to three bowls (水里 天上 树上), so two lines must share a bowl and a match's pairs cannot cover each side once; and 小鸟 fits 天上 (flying) or 树上 (perched), which the page does not settle. The book's own line is 月亮—天上. The three sentences carry the exercise and go to the reviewer.",
+   "items": [
+    {
+     "id": "zx:L06-D4-03-1",
+     "prompt": "鱼儿在哪里？＿＿在＿＿。",
+     "prompt_en": "Where is the fish? ＿＿在＿＿。",
+     "blanks": 1,
+     "cells": 8
+    },
+    {
+     "id": "zx:L06-D4-03-2",
+     "prompt": "小鸟在哪里？＿＿在＿＿。",
+     "prompt_en": "Where is the bird? ＿＿在＿＿。",
+     "blanks": 1,
+     "cells": 8
+    },
+    {
+     "id": "zx:L06-D4-03-3",
+     "prompt": "猴子在哪里？＿＿在＿＿。",
+     "prompt_en": "Where is the monkey? ＿＿在＿＿。",
+     "blanks": 1,
+     "cells": 8
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D4-04",
+   "day": "星期四",
+   "page": 39,
+   "ex": 4,
+   "type": "slots",
+   "title": "选择相应的语句补全对话",
+   "title_en": "Choose the correct expressions to complete the dialogue",
+   "note": {
+    "zh": "对话里缺了四句，从下面四句里选。",
+    "en": "Four lines are missing from the dialogue; choose each from the four given."
+   },
+   "options": [
+    "妈妈在家吗？",
+    "我们一起去机场接爷爷奶奶。",
+    "我在家呢。",
+    "爷爷奶奶不是在北京吗？"
+   ],
+   "items": [
+    {
+     "id": "zx:L06-D4-04-1",
+     "before": "爸爸：云云，你在哪儿呢？",
+     "slot": "云云",
+     "key": 2,
+     "explanation": {
+      "zh": "爸爸问在哪儿，云云就说自己在哪儿：我在家呢。",
+      "en": "Dad asks where she is, so she says where: 我在家呢 — I'm at home."
+     }
+    },
+    {
+     "id": "zx:L06-D4-04-2",
+     "before": "爸爸：______　云云：在啊。",
+     "slot": "爸爸",
+     "key": 0,
+     "explanation": {
+      "zh": "云云回答\"在啊\"，所以爸爸问的是在不在：妈妈在家吗？",
+      "en": "Yunyun answers 在啊 — yes, she is — so Dad's line asks whether someone is there: 妈妈在家吗？"
+     }
+    },
+    {
+     "id": "zx:L06-D4-04-3",
+     "before": "爸爸：云云，你和妈妈出来吧！爸爸来接你们，______",
+     "slot": "爸爸",
+     "key": 1,
+     "explanation": {
+      "zh": "爸爸来接她们，是要一起去做一件事：我们一起去机场接爷爷奶奶。",
+      "en": "Dad is coming to fetch them for a reason: 我们一起去机场接爷爷奶奶 — we're all going to the airport to meet Grandpa and Grandma."
+     }
+    },
+    {
+     "id": "zx:L06-D4-04-4",
+     "before": "云云：嗯？______　爸爸：爷爷奶奶来纽约了。",
+     "slot": "云云",
+     "key": 3,
+     "explanation": {
+      "zh": "云云很奇怪，她以为爷爷奶奶在北京——这就是这一课的\"不是……吗\"。爸爸回答：爷爷奶奶来纽约了。",
+      "en": "Yunyun is surprised: she thought they were in Beijing. That is this lesson's 不是……吗, and Dad's answer settles it — they have come to New York."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D4-05",
+   "day": "星期四",
+   "page": 39,
+   "ex": 5,
+   "type": "free",
+   "title": "照例子，说一说你的家人在哪里",
+   "title_en": "Follow the example to tell where your family members are",
+   "note": {
+    "zh": "例：爸爸在书房。写五句，每句说一位家人在哪里。",
+    "en": "Example: 爸爸在书房。 Write five sentences, each saying where someone in your family is."
+   },
+   "shape_note": "The heading says 说一说, but the page prints five ruled lines under the example for her to write on, so it is free writing rather than a recording.",
+   "items": [
+    {
+     "id": "zx:L06-D4-05-1",
+     "prompt": "（1）谁在哪里？",
+     "prompt_en": "(1) Who is where?",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L06-D4-05-2",
+     "prompt": "（2）谁在哪里？",
+     "prompt_en": "(2) Who is where?",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L06-D4-05-3",
+     "prompt": "（3）谁在哪里？",
+     "prompt_en": "(3) Who is where?",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L06-D4-05-4",
+     "prompt": "（4）谁在哪里？",
+     "prompt_en": "(4) Who is where?",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L06-D4-05-5",
+     "prompt": "（5）谁在哪里？",
+     "prompt_en": "(5) Who is where?",
+     "blanks": 1,
+     "cells": 10
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D5-01",
+   "day": "星期五",
+   "page": 40,
+   "ex": 1,
+   "type": "order",
+   "title": "听录音排序",
+   "title_en": "Listen and order",
+   "note": {
+    "zh": "请爸爸妈妈读练习册第83页第6课听力文本的第1题（或放录音），按听到的先后把词语排好。例：月亮 猴子 水里。",
+    "en": "Ask a parent to read item 1 of the Lesson 6 listening script on workbook p. 83 (or play the recording). Put the words in the order you hear them. Example: 月亮 猴子 水里."
+   },
+   "script_note": "Item 1 of the 第6课 script on 练习册B p. 83 is seven words in a row, so the key below is that order: 一群 晚上 下面 伸手 这时 跟着 于是. The pieces are in the page's order, left to right and top to bottom: 晚上 于是 伸手 / 跟着 这时 一群 / 下面.",
+   "items": [
+    {
+     "id": "zx:L06-D5-01-1",
+     "pieces": [
+      "晚上",
+      "于是",
+      "伸手",
+      "跟着",
+      "这时",
+      "一群",
+      "下面"
+     ],
+     "key": [
+      5,
+      0,
+      6,
+      2,
+      4,
+      3,
+      1
+     ],
+     "explanation": {
+      "zh": "录音的顺序：一群、晚上、下面、伸手、这时、跟着、于是。",
+      "en": "The order on the recording: 一群, 晚上, 下面, 伸手, 这时, 跟着, 于是."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D5-04",
+   "day": "星期五",
+   "page": 42,
+   "ex": 4,
+   "type": "match",
+   "title": "连一连",
+   "title_en": "Match",
+   "note": {
+    "zh": "四张图在练习册第42页，标着（1）到（4）。先点句子，再点它说的那张图。",
+    "en": "The four pictures are on workbook p. 42, numbered (1) to (4). Tap a sentence, then the picture it goes with."
+   },
+   "left": [
+    "妈妈不是在我旁边吗？",
+    "她不是在收拾房间吗？",
+    "这不是我的影子吗？",
+    "这不是故宫吗？"
+   ],
+   "right": [
+    "图（1）",
+    "图（2）",
+    "图（3）",
+    "图（4）"
+   ],
+   "pairs": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L06-D5-04-1",
+     "left": "妈妈不是在我旁边吗？",
+     "key": 3,
+     "explanation": {
+      "zh": "图（4）里妈妈就站在男孩旁边。",
+      "en": "In picture (4) the mother is standing right beside the boy."
+     }
+    },
+    {
+     "id": "zx:L06-D5-04-2",
+     "left": "她不是在收拾房间吗？",
+     "key": 0,
+     "explanation": {
+      "zh": "图（1）里女孩在用布擦桌子，收拾房间。",
+      "en": "In picture (1) the girl is wiping the table with a cloth — tidying the room."
+     }
+    },
+    {
+     "id": "zx:L06-D5-04-3",
+     "left": "这不是我的影子吗？",
+     "key": 1,
+     "explanation": {
+      "zh": "图（2）里有太阳，男孩的影子落在草地上。",
+      "en": "In picture (2) the sun is out and the boy's shadow lies on the grass."
+     }
+    },
+    {
+     "id": "zx:L06-D5-04-4",
+     "left": "这不是故宫吗？",
+     "key": 2,
+     "explanation": {
+      "zh": "图（3）是红墙的宫殿大门——故宫。",
+      "en": "Picture (3) is a palace gate in a red wall — 故宫, the Forbidden City."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D5-05",
+   "day": "星期五",
+   "page": 43,
+   "ex": 5,
+   "type": "speak",
+   "title": "学一学，然后唱给父母听",
+   "title_en": "Learn and sing to your parents",
+   "question": {
+    "zh": "春天在哪里？",
+    "en": "Where is spring?"
+   },
+   "note": {
+    "zh": "学会练习册第43–44页的歌《春天在哪里》，唱给爸爸妈妈听，录下来，再请他们点一下\"家长已听\"。",
+    "en": "Learn the song 春天在哪里 on workbook pp. 43–44, then sing it to your parents; it is recorded. Have them tap Listened."
+   },
+   "scope_note": "The song's words are not reproduced: it is a published song, and the hold on the book's texts covers it. The question is the song's own title, which each of its three verses answers."
+  },
+  {
+   "id": "zx:L06-D5-06",
+   "day": "星期五",
+   "page": 44,
+   "ex": 6,
+   "type": "order",
+   "title": "连词成句",
+   "title_en": "Write the words in the correct order to make sentences",
+   "note": {
+    "zh": "例：猴子 玩儿 在 一群 树上 → 一群猴子在树上玩儿。",
+    "en": "Example: 猴子 玩儿 在 一群 树上 → 一群猴子在树上玩儿。"
+   },
+   "scope_note": "The book's (2) and (4) are left out, because an order item marks only its exact key and a correct sentence marked wrong teaches her a falsehood. (2) 跟着 我们 都 叫了起来: the intended order is 我们都跟着叫了起来, as in the 课文's 都跟着说, but 我们跟着都叫了起来 is also said, with 跟着 as \"right after\" (大家跟着都笑了). (4) 不是 哥哥 开车 会 吗: the intended answer is 哥哥不是会开车吗？ (the 不是……吗 pattern of 教材 p. 61, subject first), but 不是哥哥会开车吗？ — isn't it big brother who can drive? — is also good Chinese. The two kept items are the book's (1) and (3).",
+   "items": [
+    {
+     "id": "zx:L06-D5-06-1",
+     "pieces": [
+      "月亮",
+      "晚上",
+      "的",
+      "今天",
+      "真美"
+     ],
+     "key": [
+      3,
+      1,
+      2,
+      0,
+      4
+     ],
+     "explanation": {
+      "zh": "正确的顺序：今天晚上的月亮真美。",
+      "en": "In order: 今天晚上的月亮真美 — the moon is really beautiful tonight."
+     }
+    },
+    {
+     "id": "zx:L06-D5-06-2",
+     "pieces": [
+      "姐姐",
+      "书",
+      "伸手",
+      "的",
+      "去拿",
+      "上面"
+     ],
+     "key": [
+      0,
+      2,
+      4,
+      5,
+      3,
+      1
+     ],
+     "explanation": {
+      "zh": "正确的顺序：姐姐伸手去拿上面的书。",
+      "en": "In order: 姐姐伸手去拿上面的书 — big sister reaches up for the book on top."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D5-07",
+   "day": "星期五",
+   "page": 45,
+   "ex": 7,
+   "type": "free",
+   "title": "读课文，试着续写猴子捞月亮的故事（四十字以上）",
+   "title_en": "Read the text and try to continue the story of the monkeys and the moon with more than 40 characters",
+   "note": {
+    "zh": "提示：猴子把月亮捞起来了吗？为什么？月亮到底在哪里？月亮为什么会掉进水里？……",
+    "en": "Prompts: Did the monkeys scoop the moon out? Why or why not? Where is the moon really? Why did the moon fall into the water? …"
+   },
+   "items": [
+    {
+     "id": "zx:L06-D5-07-1",
+     "prompt": "续写猴子捞月亮的故事（四十字以上）。",
+     "prompt_en": "Continue the story of the monkeys and the moon (more than 40 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

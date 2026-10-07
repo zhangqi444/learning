@@ -1,0 +1,426 @@
+{
+ "id": "L01",
+ "no": 1,
+ "title": "寒假见闻",
+ "title_en": "Winter Vacation Experiences",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "2–3",
+  "生字·词语·句子": "4",
+  "课堂练习": "5–8",
+  "阅读": "9–11"
+ },
+ "pages_note": "Read off the 目录 (教材 PDF index 11, printed contents p. 1) and confirmed on each rendered page: 第一课 runs pp. 2–11, 第二课《故宫》 starts p. 12. 课堂练习 is pp. 5–8 (描一描写一写 5, 读一读/用一用 6, 扩展与替换/想一想 7, 对话/课堂游戏 8); the 阅读 text is pp. 9–10 with its 想一想 and 日积月累 on p. 11. The 课文's own 想一想，说一说 (three questions, p. 7), the 对话 between 云云 and 亮亮 and the 课堂游戏 (北京有……, p. 8) are not carried here, as in L03–L05.",
+ "课文": {
+  "where": {
+   "zh": "课本第2–3页",
+   "en": "Textbook pp. 2–3"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第4页",
+   "en": "Textbook p. 4"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. The list gives 切 as qiè, the reading in 亲切 (qīnqiè); the knife reading qiē is not on the page and is not taught here. The two blue boxes under the list on p. 4 read 刀——切 and 旡——既 (the second is 旡, the form with the short stroke on top, not 无).",
+  "items": [
+   {
+    "zi": "闻",
+    "py": "wén",
+    "gloss": {
+     "zh": "听到；见闻就是看到的和听到的",
+     "en": "hear; 见闻 is what one sees and hears"
+    }
+   },
+   {
+    "zi": "城",
+    "py": "chéng",
+    "gloss": {
+     "zh": "城市；长城的\"城\"",
+     "en": "city; city wall, as in 长城"
+    }
+   },
+   {
+    "zi": "切",
+    "py": "qiè",
+    "gloss": {
+     "zh": "亲切的\"切\"：让人觉得很近、很温暖",
+     "en": "as in 亲切, warm and familiar"
+    }
+   },
+   {
+    "zi": "逛",
+    "py": "guàng",
+    "gloss": {
+     "zh": "随便走走、看看",
+     "en": "stroll, wander around"
+    }
+   },
+   {
+    "zi": "力",
+    "py": "lì",
+    "gloss": {
+     "zh": "力气；人力车就是靠人的力气走的车",
+     "en": "strength; 人力车 is a cart moved by a person's strength"
+    }
+   },
+   {
+    "zi": "合",
+    "py": "hé",
+    "gloss": {
+     "zh": "合在一起；四合院的\"合\"",
+     "en": "join together; as in 四合院, a courtyard house"
+    }
+   },
+   {
+    "zi": "蓝",
+    "py": "lán",
+    "gloss": {
+     "zh": "像晴天天空那样的颜色",
+     "en": "blue"
+    }
+   },
+   {
+    "zi": "暖",
+    "py": "nuǎn",
+    "gloss": {
+     "zh": "不冷，让人觉得舒服",
+     "en": "warm"
+    }
+   },
+   {
+    "zi": "曲",
+    "py": "qū",
+    "gloss": {
+     "zh": "弯，不直",
+     "en": "bent, winding"
+    }
+   },
+   {
+    "zi": "既",
+    "py": "jì",
+    "gloss": {
+     "zh": "既……又……：两样都有",
+     "en": "both … and … (in 既……又……)"
+    }
+   },
+   {
+    "zi": "哪",
+    "py": "nǎ",
+    "gloss": {
+     "zh": "问是哪一个、什么地方",
+     "en": "which; 哪儿 is where"
+    }
+   },
+   {
+    "zi": "款",
+    "py": "kuǎn",
+    "gloss": {
+     "zh": "钱；付款就是付钱",
+     "en": "a sum of money; 付款 is to pay"
+    }
+   },
+   {
+    "zi": "借",
+    "py": "jiè",
+    "gloss": {
+     "zh": "拿别人的东西来用，用完要还；把东西给别人用，叫\"借给\"别人",
+     "en": "borrow; lend"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "刀",
+    "zi": "切"
+   },
+   {
+    "bu": "旡",
+    "zi": "既"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第4页",
+   "en": "Textbook p. 4"
+  },
+  "items": [
+   {
+    "w": "寒假",
+    "py": "hánjià"
+   },
+   {
+    "w": "看望",
+    "py": "kànwàng"
+   },
+   {
+    "w": "感觉",
+    "py": "gǎnjué"
+   },
+   {
+    "w": "亲切",
+    "py": "qīnqiè"
+   },
+   {
+    "w": "介绍",
+    "py": "jièshào"
+   },
+   {
+    "w": "阳光",
+    "py": "yángguāng"
+   },
+   {
+    "w": "成为",
+    "py": "chéngwéi"
+   },
+   {
+    "w": "印象",
+    "py": "yìnxiàng"
+   },
+   {
+    "w": "到处",
+    "py": "dàochù"
+   },
+   {
+    "w": "非常",
+    "py": "fēicháng"
+   },
+   {
+    "w": "现在",
+    "py": "xiànzài"
+   },
+   {
+    "w": "现金",
+    "py": "xiànjīn"
+   },
+   {
+    "w": "图书馆",
+    "py": "túshūguǎn"
+   },
+   {
+    "w": "经常",
+    "py": "jīngcháng"
+   },
+   {
+    "w": "回来",
+    "py": "huílai"
+   }
+  ]
+ },
+ "专有名词": {
+  "where": {
+   "zh": "课本第4页",
+   "en": "Textbook p. 4"
+  },
+  "section_note": "As in L03: the book prints 专有名词 (Proper nouns) between 词语 and 句子 on p. 4, with the pinyin capitalised as a name. 天安门 is printed Tiān’ān Mén, with the syllable-dividing apostrophe.",
+  "items": [
+   {
+    "w": "北京",
+    "py": "Běijīng"
+   },
+   {
+    "w": "天安门",
+    "py": "Tiān’ān Mén"
+   },
+   {
+    "w": "故宫",
+    "py": "Gùgōng"
+   },
+   {
+    "w": "长城",
+    "py": "Chángchéng"
+   }
+  ]
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第4页",
+   "en": "Textbook p. 4"
+  },
+  "zh": "去哪儿都可以用手机付款。",
+  "py": "qù nǎr dōu kě yǐ yòng shǒu jī fù kuǎn."
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第7页 扩展与替换",
+   "en": "Textbook p. 7, Expand and substitute"
+  },
+  "pattern": "……哪儿都……",
+  "ladder": [
+   "哪儿",
+   "哪儿都可以",
+   "哪儿都可以用手机付款。",
+   "去哪儿都可以用手机付款。"
+  ],
+  "substitutions": {
+   "frame": [
+    "去",
+    "哪儿都",
+    "可以用手机付款。"
+   ],
+   "rows": [
+    [
+     "到",
+     "玩得很开心"
+    ],
+    [
+     "去",
+     "可以买到这种笔"
+    ],
+    [
+     "在",
+     "有共享单车"
+    ]
+   ]
+  },
+  "substitutions_note": "The blue 替换 table under the ladder on p. 7: 去 / 哪儿都 (in red) / 可以用手机付款, with the first and last parts underlined and swapped row by row. Added as the book prints it, as in L03 and L04."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第6页",
+   "en": "Textbook p. 6"
+  },
+  "rows": [
+   [
+    "见闻",
+    "所见所闻",
+    "新闻"
+   ],
+   [
+    "长城",
+    "城门",
+    "古城",
+    "城市",
+    "亲切"
+   ],
+   [
+    "逛胡同",
+    "逛街",
+    "逛超市",
+    "逛书店",
+    "逛一逛"
+   ],
+   [
+    "人力车",
+    "力气",
+    "四合院",
+    "蓝色",
+    "蓝天"
+   ],
+   [
+    "暖和",
+    "弯曲"
+   ],
+   [
+    "哪儿",
+    "哪里",
+    "哪天",
+    "哪个",
+    "哪些",
+    "哪样"
+   ],
+   [
+    "付款",
+    "借款",
+    "借书",
+    "借钱",
+    "借车",
+    "借东西"
+   ]
+  ],
+  "page_break_note": "all seven rows are on p. 6, above 用一用"
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第6页",
+   "en": "Textbook p. 6"
+  },
+  "rows": [
+   [
+    "放寒假",
+    "寒假作业",
+    "寒假见闻"
+   ],
+   [
+    "看望朋友",
+    "看望病人",
+    "看望爷爷奶奶"
+   ],
+   [
+    "感觉怎么样",
+    "感觉很好",
+    "感觉好多了",
+    "让我感觉很亲切"
+   ],
+   [
+    "很亲切",
+    "亲切的样子",
+    "亲切地说"
+   ],
+   [
+    "介绍一下",
+    "自我介绍",
+    "给大家介绍一下"
+   ],
+   [
+    "成为一名好老师",
+    "成为一名科学家"
+   ],
+   [
+    "难忘的印象",
+    "没有印象",
+    "印象很深",
+    "对他没什么印象"
+   ],
+   [
+    "到处逛逛",
+    "到处找",
+    "到处都是书",
+    "到处都有共享单车"
+   ],
+   [
+    "非常方便",
+    "非常热",
+    "非常冷",
+    "非常高兴"
+   ],
+   [
+    "现在的生活",
+    "现在比以前方便"
+   ],
+   [
+    "带上现金",
+    "人民币现金",
+    "美元现金"
+   ],
+   [
+    "经常吃中餐",
+    "经常说汉语"
+   ],
+   [
+    "回来吃饭",
+    "不回来",
+    "没回来"
+   ]
+  ]
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第9–10页",
+   "en": "Textbook pp. 9–10"
+  },
+  "title": "亮亮的日记画",
+  "title_en": "Liangliang’s Picture Diary",
+  "sidebar": [
+   "观光（旅游观光　观光车）",
+   "共享（共享单车　共享Wi-Fi（网络））",
+   "环保（环保袋　环保餐盒　环保汽车）",
+   "小吃（北京小吃　风味小吃　小吃店）"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The text is a diary entry headed 1月20日 星期四 天气：晴. The margin prints ★ before each entry, and each carries example phrases under it rather than a gloss, kept here in brackets as L04 keeps 帮忙 and 表示; 共享's second example is printed 共享Wi-Fi（网络）, kept as printed inside the brackets. 观光 is on p. 9; 共享, 环保 and 小吃 on p. 10. p. 11 carries the reading's 想一想，说一说 (three questions) and 日积月累 (读万卷书，行万里路。——（明）董其昌), neither reproduced."
+ }
+}

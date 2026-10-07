@@ -1,0 +1,1219 @@
+{
+ "lesson": "L10",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》",
+ "file_note": "The workbook's exercises for 第十课, typed from 练习册B pp. 59–70 (PDF index = printed + 4, verified on p. 59: 第十课 runs pp. 59–70, p. 58 ends 第八课 and 第十二课 starts p. 71). Same shapes as L04. Left out because no type fits, with their keys so a type can be added: 星期三 练习1 (pp. 63–64, tick one of two words in each sentence; the book ticks the example 我们生活在（地球）上: (1) 我帮妈妈倒（垃圾） (2) 我最喜欢的（食物）是饺子 (3) 考试的时候不要（说话） (4) 地面变得真（干净） — 真 cannot stand before the reduplicated 干干净净); 星期四 练习3 (p. 67, choose A or B according to the text: (1) B 在招清洁工 (2) A 清道夫鱼 (3) B 蚯蚓 (4) A 变得更好); 星期五 练习1 (p. 68, listen and choose, two options each — the script is in the appendix on p. 83: (1) 现在是北京时间上午十点十分 → A 上午十点十分 (2) 萤火虫是一种会发光的动物 → B 萤火虫 (3) 我最喜欢的食物是豆沙包 → B 豆沙包 (4) 在我眼里，科学家是了不起的人 → A 科学家). A two-choice `pick` type with the book's own options per item would take all three. 星期三 练习2 is 连一连，读一读: the matching is zx:L10-D3-02, and the reading half is asked for in its note rather than recorded, because the lines she would read are only the matched pairs. 星期一 练习4's five pictures are named by position (no letters are printed): globe and rubbish bags on p. 60, clocks, animals and food on p. 61.",
+ "blocks": [
+  {
+   "id": "zb:L10-D2",
+   "day": "星期二",
+   "page": 62,
+   "ex": 3,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L10-01",
+    "zc:L10-02",
+    "zc:L10-03",
+    "zc:L10-04"
+   ]
+  },
+  {
+   "id": "zb:L10-D4",
+   "day": "星期四",
+   "page": 66,
+   "ex": 1,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L10-05",
+    "zc:L10-06",
+    "zc:L10-07",
+    "zc:L10-08"
+   ],
+   "scope_note": "The book offers four words (地面 了不起 食物 垃圾) for the four blanks of one dialogue, each used once. Each item carries all four, shuffled, and its prompt is the speaker's whole line, so the task she faces is the book's: which of the box fills this blank."
+  },
+  {
+   "id": "zb:L10-D5",
+   "day": "星期五",
+   "page": 69,
+   "ex": 3,
+   "title": "读一读，补全对话",
+   "title_en": "Read and complete the dialogue",
+   "items": [
+    "zc:L10-09",
+    "zc:L10-10",
+    "zc:L10-11",
+    "zc:L10-12"
+   ],
+   "scope_note": "The book's box is lettered A 动物 B 打扫 C 地面 D 乌鸦, one word per blank. Each item carries all four, shuffled; the prompt carries the neighbouring lines a blank needs (Mother's question, Yunyun's answer about the crow), with a later blank shown as …… so no item gives away the next one's key."
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L10-D1-01w",
+   "day": "星期一",
+   "page": 59,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看旁边的词想字，用笔写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "The word beside the box tells you the character; write it with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L10-D1-01w-1",
+     "py": "qiú",
+     "context": "地＿",
+     "key": "球",
+     "explanation": {
+      "zh": "地球：qiú。",
+      "en": "地球 — qiú, the Earth."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01w-2",
+     "py": "jié",
+     "context": "清＿",
+     "key": "洁",
+     "explanation": {
+      "zh": "清洁：jié。",
+      "en": "清洁 — jié, clean."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01w-3",
+     "py": "pái",
+     "context": "＿子",
+     "key": "牌",
+     "explanation": {
+      "zh": "牌子：pái。",
+      "en": "牌子 — pái, a sign."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01w-4",
+     "py": "bào",
+     "context": "＿名",
+     "key": "报",
+     "explanation": {
+      "zh": "报名：bào。",
+      "en": "报名 — bào, sign up."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01w-5",
+     "py": "bàn",
+     "context": "＿天",
+     "key": "半",
+     "explanation": {
+      "zh": "半天：bàn。",
+      "en": "半天 — bàn, half a day."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01w-6",
+     "py": "piāo",
+     "context": "＿着",
+     "key": "漂",
+     "explanation": {
+      "zh": "漂着：piāo。",
+      "en": "漂着 — piāo, floating."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01w-7",
+     "py": "shèng",
+     "context": "＿下",
+     "key": "剩",
+     "explanation": {
+      "zh": "剩下：shèng。",
+      "en": "剩下 — shèng, left over."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01w-8",
+     "py": "fū",
+     "context": "清道＿",
+     "key": "夫",
+     "explanation": {
+      "zh": "清道夫：fū。",
+      "en": "清道夫 — fū, a street sweeper."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D1-01s",
+   "day": "星期一",
+   "page": 59,
+   "ex": 1,
+   "type": "sort",
+   "title": "左右结构，还是独体字？",
+   "title_en": "Left–right structure, or a single-body character?",
+   "groups": [
+    "左右结构",
+    "独体字"
+   ],
+   "items": [
+    {
+     "id": "zx:L10-D1-01s-1",
+     "text": "球",
+     "key": 0,
+     "explanation": {
+      "zh": "王在左、求在右：左右结构。",
+      "en": "王 on the left, 求 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01s-2",
+     "text": "洁",
+     "key": 0,
+     "explanation": {
+      "zh": "氵在左、吉在右：左右结构。",
+      "en": "氵 on the left, 吉 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01s-3",
+     "text": "牌",
+     "key": 0,
+     "explanation": {
+      "zh": "片在左、卑在右：左右结构。",
+      "en": "片 on the left, 卑 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01s-4",
+     "text": "报",
+     "key": 0,
+     "explanation": {
+      "zh": "扌在左，另一半在右：左右结构。",
+      "en": "扌 on the left, the other half on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01s-5",
+     "text": "半",
+     "key": 1,
+     "explanation": {
+      "zh": "半不能拆成左右或上下两部分：独体字。",
+      "en": "半 cannot be split into two parts: a single-body character."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01s-6",
+     "text": "漂",
+     "key": 0,
+     "explanation": {
+      "zh": "氵在左、票在右：左右结构。",
+      "en": "氵 on the left, 票 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01s-7",
+     "text": "剩",
+     "key": 0,
+     "explanation": {
+      "zh": "乘在左、刂在右：左右结构。",
+      "en": "乘 on the left, 刂 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L10-D1-01s-8",
+     "text": "夫",
+     "key": 1,
+     "explanation": {
+      "zh": "夫不能拆成左右或上下两部分：独体字。",
+      "en": "夫 cannot be split into two parts: a single-body character."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D1-02",
+   "day": "星期一",
+   "page": 60,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，写一写",
+   "title_en": "Match and write",
+   "note": {
+    "zh": "先点上面的部件，再点下面能和它合成字的那一半。课本已连好一组：氵—尼，泥。",
+    "en": "Tap a part on the top row, then the half below that makes a character with it. The book has drawn one line already: 氵—尼, 泥."
+   },
+   "left": [
+    "牙",
+    "氵",
+    "王",
+    "月",
+    "米"
+   ],
+   "right": [
+    "尼",
+    "巴",
+    "鸟",
+    "不",
+    "斗"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     4
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L10-D1-02-1",
+     "left": "牙",
+     "key": 2,
+     "word": "鸦",
+     "explanation": {
+      "zh": "牙和鸟合成\"鸦\"。",
+      "en": "牙 and 鸟 make 鸦."
+     }
+    },
+    {
+     "id": "zx:L10-D1-02-2",
+     "left": "氵",
+     "key": 0,
+     "word": "泥",
+     "explanation": {
+      "zh": "氵和尼合成\"泥\"——课本给的例子。",
+      "en": "氵 and 尼 make 泥 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L10-D1-02-3",
+     "left": "王",
+     "key": 3,
+     "word": "环",
+     "explanation": {
+      "zh": "王和不合成\"环\"。",
+      "en": "王 and 不 make 环."
+     }
+    },
+    {
+     "id": "zx:L10-D1-02-4",
+     "left": "月",
+     "key": 1,
+     "word": "肥",
+     "explanation": {
+      "zh": "月和巴合成\"肥\"。",
+      "en": "月 and 巴 make 肥."
+     }
+    },
+    {
+     "id": "zx:L10-D1-02-5",
+     "left": "米",
+     "key": 4,
+     "word": "料",
+     "explanation": {
+      "zh": "米和斗合成\"料\"。",
+      "en": "米 and 斗 make 料."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D1-02w",
+   "day": "星期一",
+   "page": 60,
+   "ex": 2,
+   "type": "write",
+   "title": "连一连，写一写：把字写出来",
+   "title_en": "Match and write: write the characters",
+   "outline": false,
+   "note": {
+    "zh": "看着部件，用笔把字写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "Look at the parts and write the character with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L10-D1-02w-1",
+     "parts": "氵＋尼",
+     "key": "泥",
+     "explanation": {
+      "zh": "氵在左，尼在右：泥——课本给的例子。",
+      "en": "氵 on the left, 尼 on the right: 泥 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L10-D1-02w-2",
+     "parts": "月＋巴",
+     "key": "肥",
+     "explanation": {
+      "zh": "月在左，巴在右：肥。",
+      "en": "月 on the left, 巴 on the right: 肥."
+     }
+    },
+    {
+     "id": "zx:L10-D1-02w-3",
+     "parts": "牙＋鸟",
+     "key": "鸦",
+     "explanation": {
+      "zh": "牙在左，鸟在右：鸦。",
+      "en": "牙 on the left, 鸟 on the right: 鸦."
+     }
+    },
+    {
+     "id": "zx:L10-D1-02w-4",
+     "parts": "王＋不",
+     "key": "环",
+     "explanation": {
+      "zh": "王在左，不在右：环。",
+      "en": "王 on the left, 不 on the right: 环."
+     }
+    },
+    {
+     "id": "zx:L10-D1-02w-5",
+     "parts": "米＋斗",
+     "key": "料",
+     "explanation": {
+      "zh": "米在左，斗在右：料。",
+      "en": "米 on the left, 斗 on the right: 料."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D1-03",
+   "day": "星期一",
+   "page": 60,
+   "ex": 3,
+   "type": "sort",
+   "title": "找一找部首相同的字，并把它们涂成一样的颜色",
+   "title_en": "Find the characters with the same radicals and color with the same color",
+   "note": {
+    "zh": "课本里是把部首相同的字涂成一样的颜色；这里把每个字放进它部首的格子里。每个部首有两个字。",
+    "en": "In the book you color the characters that share a radical the same color; here put each character in the box of its radical. Each radical has two."
+   },
+   "groups": [
+    "王",
+    "氵",
+    "鸟",
+    "刂"
+   ],
+   "items": [
+    {
+     "id": "zx:L10-D1-03-1",
+     "text": "球",
+     "key": 0,
+     "explanation": {
+      "zh": "球的部首是王，和环一样。",
+      "en": "The radical of 球 is 王, the same as 环."
+     }
+    },
+    {
+     "id": "zx:L10-D1-03-2",
+     "text": "洁",
+     "key": 1,
+     "explanation": {
+      "zh": "洁的部首是三点水氵，和泥一样。",
+      "en": "The radical of 洁 is 氵, the water radical, the same as 泥."
+     }
+    },
+    {
+     "id": "zx:L10-D1-03-3",
+     "text": "环",
+     "key": 0,
+     "explanation": {
+      "zh": "环的部首是王，和球一样。",
+      "en": "The radical of 环 is 王, the same as 球."
+     }
+    },
+    {
+     "id": "zx:L10-D1-03-4",
+     "text": "鸭",
+     "key": 2,
+     "explanation": {
+      "zh": "鸭的部首是鸟，和鸦一样：都是鸟。",
+      "en": "The radical of 鸭 is 鸟, the same as 鸦: both are birds."
+     }
+    },
+    {
+     "id": "zx:L10-D1-03-5",
+     "text": "剩",
+     "key": 3,
+     "explanation": {
+      "zh": "剩的部首是立刀旁刂，和到一样。",
+      "en": "The radical of 剩 is 刂, the knife radical, the same as 到."
+     }
+    },
+    {
+     "id": "zx:L10-D1-03-6",
+     "text": "鸦",
+     "key": 2,
+     "explanation": {
+      "zh": "鸦的部首是鸟——课本第107页写着\"鸟→鸦\"。",
+      "en": "The radical of 鸦 is 鸟 — the textbook prints 鸟 → 鸦 on p. 107."
+     }
+    },
+    {
+     "id": "zx:L10-D1-03-7",
+     "text": "泥",
+     "key": 1,
+     "explanation": {
+      "zh": "泥的部首是三点水氵：泥是和着水的土。",
+      "en": "The radical of 泥 is 氵, water: mud is earth mixed with water."
+     }
+    },
+    {
+     "id": "zx:L10-D1-03-8",
+     "text": "到",
+     "key": 3,
+     "explanation": {
+      "zh": "到的部首是立刀旁刂，和剩一样。",
+      "en": "The radical of 到 is 刂, the same as 剩."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D1-04",
+   "day": "星期一",
+   "page": 60,
+   "ex": 4,
+   "type": "match",
+   "title": "看图选词语",
+   "title_en": "Look at the pictures and choose the correct words",
+   "note": {
+    "zh": "五张图在练习册第60–61页：第60页左边、右边各一张，第61页左上、右上、左下各一张。先点图，再点它说的词。",
+    "en": "The five pictures are on workbook pp. 60–61: left and right on p. 60, then top left, top right and bottom left on p. 61. Tap a picture, then the word for it."
+   },
+   "left": [
+    "图①（第60页左）",
+    "图②（第60页右）",
+    "图③（第61页左上）",
+    "图④（第61页右上）",
+    "图⑤（第61页左下）"
+   ],
+   "right": [
+    "垃圾",
+    "时间",
+    "动物",
+    "食物",
+    "地球"
+   ],
+   "pairs": [
+    [
+     0,
+     4
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     4,
+     3
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L10-D1-04-1",
+     "left": "图①（第60页左）",
+     "key": 4,
+     "explanation": {
+      "zh": "图上是一个画着陆地和大海的圆球——地球。",
+      "en": "The picture shows a round ball of land and sea: 地球, the Earth."
+     }
+    },
+    {
+     "id": "zx:L10-D1-04-2",
+     "left": "图②（第60页右）",
+     "key": 0,
+     "explanation": {
+      "zh": "图上是两个扎好口的大袋子，旁边还有易拉罐和纸团——垃圾。",
+      "en": "The picture shows two tied-up sacks with a can and scraps beside them: 垃圾, rubbish."
+     }
+    },
+    {
+     "id": "zx:L10-D1-04-3",
+     "left": "图③（第61页左上）",
+     "key": 1,
+     "explanation": {
+      "zh": "图上是各种钟和表——看时间用的。",
+      "en": "The picture shows clocks and watches, which tell 时间, the time."
+     }
+    },
+    {
+     "id": "zx:L10-D1-04-4",
+     "left": "图④（第61页右上）",
+     "key": 2,
+     "explanation": {
+      "zh": "图上是小兔子、小鸭子和长颈鹿——动物。",
+      "en": "The picture shows a rabbit, a duckling and a giraffe: 动物, animals."
+     }
+    },
+    {
+     "id": "zx:L10-D1-04-5",
+     "left": "图⑤（第61页左下）",
+     "key": 3,
+     "explanation": {
+      "zh": "图上是包子、面条和饺子——食物。",
+      "en": "The picture shows buns, noodles and dumplings: 食物, food."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D2-01",
+   "day": "星期二",
+   "page": 61,
+   "ex": 1,
+   "type": "match",
+   "title": "连一连，写一写",
+   "title_en": "Match and write",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：说—话。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 说—话."
+   },
+   "left": [
+    "时",
+    "说",
+    "经",
+    "消",
+    "动"
+   ],
+   "right": [
+    "话",
+    "间",
+    "化",
+    "物",
+    "过"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     4,
+     3
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L10-D2-01-1",
+     "left": "时",
+     "key": 1,
+     "word": "时间",
+     "explanation": {
+      "zh": "时—间：时间。",
+      "en": "时 + 间 = 时间, time."
+     }
+    },
+    {
+     "id": "zx:L10-D2-01-2",
+     "left": "说",
+     "key": 0,
+     "word": "说话",
+     "explanation": {
+      "zh": "说—话：说话——课本给的例子。",
+      "en": "说 + 话 = 说话, talk — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L10-D2-01-3",
+     "left": "经",
+     "key": 4,
+     "word": "经过",
+     "explanation": {
+      "zh": "经—过：经过。",
+      "en": "经 + 过 = 经过, go through; after."
+     }
+    },
+    {
+     "id": "zx:L10-D2-01-4",
+     "left": "消",
+     "key": 2,
+     "word": "消化",
+     "explanation": {
+      "zh": "消—化：消化。",
+      "en": "消 + 化 = 消化, digest."
+     }
+    },
+    {
+     "id": "zx:L10-D2-01-5",
+     "left": "动",
+     "key": 3,
+     "word": "动物",
+     "explanation": {
+      "zh": "动—物：动物。",
+      "en": "动 + 物 = 动物, animal."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D2-01w",
+   "day": "星期二",
+   "page": 61,
+   "ex": 1,
+   "type": "free",
+   "title": "连一连，写一写：把词写下来",
+   "title_en": "Match and write: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把四个词各写一遍（课本已写好：说话）。",
+    "en": "The matching was done on the site; here write each of the four words once (the book has written 说话 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L10-D2-01w-1",
+     "prompt": "时＋间 → 写出词语",
+     "prompt_en": "时 + 间 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L10-D2-01w-2",
+     "prompt": "经＋过 → 写出词语",
+     "prompt_en": "经 + 过 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L10-D2-01w-3",
+     "prompt": "消＋化 → 写出词语",
+     "prompt_en": "消 + 化 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L10-D2-01w-4",
+     "prompt": "动＋物 → 写出词语",
+     "prompt_en": "动 + 物 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D2-02",
+   "day": "星期二",
+   "page": 62,
+   "ex": 2,
+   "type": "free",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "note": {
+    "zh": "例：球 → 地球、月球。每个字组两个词。",
+    "en": "Example: 球 → 地球, 月球. Make two words with each character."
+   },
+   "items": [
+    {
+     "id": "zx:L10-D2-02-1",
+     "prompt": "物：＿＿、＿＿",
+     "prompt_en": "物: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L10-D2-02-2",
+     "prompt": "地：＿＿、＿＿",
+     "prompt_en": "地: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L10-D2-02-3",
+     "prompt": "剩：＿＿、＿＿",
+     "prompt_en": "剩: two words",
+     "blanks": 2,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D2-04",
+   "day": "星期二",
+   "page": 62,
+   "ex": 4,
+   "type": "tf",
+   "title": "根据图片选择正确的句子",
+   "title_en": "Choose the correct sentences for the pictures",
+   "note": {
+    "zh": "图在练习册第62–63页。每组两句，一句对、一句错。",
+    "en": "The pictures are on workbook pp. 62–63. Each pair has one true sentence and one false."
+   },
+   "items": [
+    {
+     "id": "zx:L10-D2-04-1",
+     "text": "弟弟在写作业。",
+     "key": false,
+     "explanation": {
+      "zh": "图上弟弟拿着一袋垃圾，站在垃圾桶旁边，不是在写作业。",
+      "en": "In the picture the boy holds a bag over a bin; he is not doing homework."
+     }
+    },
+    {
+     "id": "zx:L10-D2-04-2",
+     "text": "弟弟在扔垃圾。",
+     "key": true,
+     "explanation": {
+      "zh": "图上弟弟正把垃圾袋放进垃圾桶：弟弟在扔垃圾。",
+      "en": "In the picture the boy is putting a rubbish bag into the bin: 弟弟在扔垃圾."
+     }
+    },
+    {
+     "id": "zx:L10-D2-04-3",
+     "text": "这里有许多可爱的动物。",
+     "key": true,
+     "explanation": {
+      "zh": "图上有企鹅、小熊和长颈鹿：许多可爱的动物。",
+      "en": "The picture shows a penguin, a bear and a giraffe: many lovely animals."
+     }
+    },
+    {
+     "id": "zx:L10-D2-04-4",
+     "text": "这里有许多美味的食物。",
+     "key": false,
+     "explanation": {
+      "zh": "图上是动物，没有吃的东西。",
+      "en": "The picture shows animals, not food."
+     }
+    },
+    {
+     "id": "zx:L10-D2-04-5",
+     "text": "我们生活在月球上。",
+     "key": false,
+     "explanation": {
+      "zh": "图上两个孩子站在蓝绿色的地球上，不是月球。",
+      "en": "The two children stand on the blue-and-green Earth, not the Moon."
+     }
+    },
+    {
+     "id": "zx:L10-D2-04-6",
+     "text": "我们生活在地球上。",
+     "key": true,
+     "explanation": {
+      "zh": "图上两个孩子站在地球上：我们生活在地球上。",
+      "en": "The children stand on the Earth: 我们生活在地球上."
+     }
+    },
+    {
+     "id": "zx:L10-D2-04-7",
+     "text": "我们花了很长时间打扫房间。",
+     "key": true,
+     "explanation": {
+      "zh": "图上两个孩子拿着扫帚和拖把在打扫。",
+      "en": "The two children are sweeping and mopping: cleaning the room."
+     }
+    },
+    {
+     "id": "zx:L10-D2-04-8",
+     "text": "我们花了很长时间做饭。",
+     "key": false,
+     "explanation": {
+      "zh": "图上两个孩子在扫地、拖地，不是在做饭。",
+      "en": "The children are sweeping and mopping, not cooking."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D3-02",
+   "day": "星期三",
+   "page": 64,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，读一读",
+   "title_en": "Match and read",
+   "note": {
+    "zh": "上面是四种动物，下面是四个地方，中间都是\"打扫\"。先点动物，再点它打扫的地方；连好以后把每一组读一读，例如：乌鸦—打扫—地面。课本已连好这一组。",
+    "en": "Four animals above, four places below, and 打扫 (sweep) in the middle of every line. Tap an animal, then the place it sweeps; then read each line aloud, e.g. 乌鸦—打扫—地面. The book has drawn that line already."
+   },
+   "left": [
+    "乌鸦",
+    "海鸥",
+    "清道夫鱼",
+    "蚯蚓"
+   ],
+   "right": [
+    "海面",
+    "河水",
+    "地下",
+    "地面"
+   ],
+   "pairs": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L10-D3-02-1",
+     "left": "乌鸦",
+     "key": 3,
+     "explanation": {
+      "zh": "乌鸦吃掉落在地面上的各种东西：乌鸦—打扫—地面，课本连好的一组。",
+      "en": "The crow eats what falls on the ground: 乌鸦—打扫—地面, the line the book drew."
+     }
+    },
+    {
+     "id": "zx:L10-D3-02-2",
+     "left": "海鸥",
+     "key": 0,
+     "explanation": {
+      "zh": "海鸥说：我是海面清洁工。海鸥—打扫—海面。",
+      "en": "The seagull says it is the sea-surface cleaner: 海鸥—打扫—海面."
+     }
+    },
+    {
+     "id": "zx:L10-D3-02-3",
+     "left": "清道夫鱼",
+     "key": 1,
+     "explanation": {
+      "zh": "清道夫鱼说：河水被我打扫得干干净净。清道夫鱼—打扫—河水。",
+      "en": "The cleaner fish says the river water is swept clean by it: 清道夫鱼—打扫—河水."
+     }
+    },
+    {
+     "id": "zx:L10-D3-02-4",
+     "left": "蚯蚓",
+     "key": 2,
+     "explanation": {
+      "zh": "蚯蚓说：我在地下吃的是垃圾。蚯蚓—打扫—地下。",
+      "en": "The earthworm says it eats rubbish underground: 蚯蚓—打扫—地下."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D3-03",
+   "day": "星期三",
+   "page": 64,
+   "ex": 3,
+   "type": "free",
+   "title": "照例子，写句子",
+   "title_en": "Follow the example and complete the sentences as required",
+   "note": {
+    "zh": "例：我是小学生。→ 乌鸦是地面清洁工。照着每一句的样子，自己写一句。",
+    "en": "Example: 我是小学生。 → 乌鸦是地面清洁工。 Write a sentence of your own on the pattern of each one."
+   },
+   "items": [
+    {
+     "id": "zx:L10-D3-03-1",
+     "prompt": "（1）河水被我打扫得干干净净。→ ＿＿被＿＿。",
+     "prompt_en": "(1) 河水被我打扫得干干净净。 → …被…。",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L10-D3-03-2",
+     "prompt": "（2）海鸥是了不起的清洁工。→ ＿＿是了不起的＿＿。",
+     "prompt_en": "(2) 海鸥是了不起的清洁工。 → …是了不起的…。",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L10-D3-03-3",
+     "prompt": "（3）经过蚯蚓的消化，垃圾变成了肥料。→ 经过＿＿，＿＿。",
+     "prompt_en": "(3) 经过蚯蚓的消化，垃圾变成了肥料。 → 经过…，…。",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L10-D3-03-4",
+     "prompt": "（4）不到半天时间，我就写完了作业。→ 不到半天时间，＿＿。",
+     "prompt_en": "(4) 不到半天时间，我就写完了作业。 → 不到半天时间，…。",
+     "blanks": 1,
+     "cells": 20
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D3-04",
+   "day": "星期三",
+   "page": 65,
+   "ex": 4,
+   "type": "match",
+   "title": "读句子，选择正确的图片",
+   "title_en": "Read the sentences and choose the correct pictures",
+   "note": {
+    "zh": "四张图在练习册第65页，标着A、B、C、D。先点句子，再点它说的那张图。",
+    "en": "The four pictures are on workbook p. 65, lettered A to D. Tap a sentence, then the picture it describes."
+   },
+   "left": [
+    "海鸥能把海上漂着的死鱼吃掉。",
+    "乌鸦是地面清洁工。",
+    "河水被清道夫鱼打扫得干干净净。",
+    "蚯蚓能把地下的垃圾变成肥料。"
+   ],
+   "right": [
+    "图A",
+    "图B",
+    "图C",
+    "图D"
+   ],
+   "pairs": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L10-D3-04-1",
+     "left": "海鸥能把海上漂着的死鱼吃掉。",
+     "key": 3,
+     "explanation": {
+      "zh": "白色的海鸟嘴里叼着一条小鱼——图D，海鸥。",
+      "en": "The white sea bird with a little fish in its beak — picture D, the seagull."
+     }
+    },
+    {
+     "id": "zx:L10-D3-04-2",
+     "left": "乌鸦是地面清洁工。",
+     "key": 2,
+     "explanation": {
+      "zh": "全身黑色的鸟——图C，乌鸦。",
+      "en": "The all-black bird — picture C, the crow."
+     }
+    },
+    {
+     "id": "zx:L10-D3-04-3",
+     "left": "河水被清道夫鱼打扫得干干净净。",
+     "key": 1,
+     "explanation": {
+      "zh": "水草旁边、石头上的黑色的鱼——图B，清道夫鱼。",
+      "en": "The dark fish on the stones by the water weed — picture B, the cleaner fish."
+     }
+    },
+    {
+     "id": "zx:L10-D3-04-4",
+     "left": "蚯蚓能把地下的垃圾变成肥料。",
+     "key": 0,
+     "explanation": {
+      "zh": "从泥土里钻出来的虫子——图A，蚯蚓。",
+      "en": "The worm poking out of the soil — picture A, the earthworm."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D4-02",
+   "day": "星期四",
+   "page": 66,
+   "ex": 2,
+   "type": "free",
+   "title": "动动小脑筋，完成句子",
+   "title_en": "Think and complete the sentences",
+   "note": {
+    "zh": "课本的表格第一行：河水　被　清道夫鱼　打扫得干干净净。照这样把下面三行补完整。",
+    "en": "The first row of the book's table reads 河水 被 清道夫鱼 打扫得干干净净。 Complete the three rows below it the same way."
+   },
+   "items": [
+    {
+     "id": "zx:L10-D4-02-1",
+     "prompt": "（1）苹果被＿＿＿＿。",
+     "prompt_en": "(1) 苹果被＿＿＿＿。 (by whom, and what happened)",
+     "blanks": 2,
+     "cells": 6
+    },
+    {
+     "id": "zx:L10-D4-02-2",
+     "prompt": "（2）＿＿被＿＿喝完了。",
+     "prompt_en": "(2) ＿＿被＿＿喝完了。 (what, and by whom)",
+     "blanks": 2,
+     "cells": 4
+    },
+    {
+     "id": "zx:L10-D4-02-3",
+     "prompt": "（3）＿＿被＿＿＿＿。",
+     "prompt_en": "(3) ＿＿被＿＿＿＿。 (a sentence of your own)",
+     "blanks": 3,
+     "cells": 6
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D4-04",
+   "day": "星期四",
+   "page": 67,
+   "ex": 4,
+   "type": "free",
+   "title": "写一篇日记，记录打扫房间的事情（四十字以上）",
+   "title_en": "Write a diary about cleaning the room with more than 40 characters",
+   "note": {
+    "zh": "课本的日记表格有五行：日期、人物、天气、活动、心情。一共写四十字以上。",
+    "en": "The book's diary table has five rows: date, people, weather, what you did, and how you felt. Write more than 40 characters in all."
+   },
+   "items": [
+    {
+     "id": "zx:L10-D4-04-1",
+     "prompt": "日期",
+     "prompt_en": "Date",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L10-D4-04-2",
+     "prompt": "人物",
+     "prompt_en": "People",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L10-D4-04-3",
+     "prompt": "天气",
+     "prompt_en": "Weather",
+     "blanks": 1,
+     "cells": 8
+    },
+    {
+     "id": "zx:L10-D4-04-4",
+     "prompt": "活动",
+     "prompt_en": "What you did",
+     "blanks": 2,
+     "cells": 40
+    },
+    {
+     "id": "zx:L10-D4-04-5",
+     "prompt": "心情",
+     "prompt_en": "How you felt",
+     "blanks": 1,
+     "cells": 12
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D5-02",
+   "day": "星期五",
+   "page": 68,
+   "ex": 2,
+   "type": "tf",
+   "title": "读句子，判断正误",
+   "title_en": "Read the sentences and decide whether the statements are true or false",
+   "note": {
+    "zh": "每题先读第一句，再判断☆后面那句话对不对。课本的例子：我晚饭吃的是中午剩下的。☆ 我晚上吃的是剩饭剩菜。（对）",
+    "en": "Read the first sentence of each pair, then decide whether the sentence after ☆ is true. The book's example: 我晚饭吃的是中午剩下的。 ☆ 我晚上吃的是剩饭剩菜。 (true)"
+   },
+   "items": [
+    {
+     "id": "zx:L10-D5-02-1",
+     "text": "不到半天时间，地球公公那里来了许多报名当清洁工的动物。　☆ 动物们都积极报名来当地球清洁工。",
+     "key": true,
+     "explanation": {
+      "zh": "不到半天就来了许多报名的动物，说明它们都很积极。",
+      "en": "Within half a day many animals had come to sign up, so they were all eager: the statement is true."
+     }
+    },
+    {
+     "id": "zx:L10-D5-02-2",
+     "text": "海鸥把海面打扫干净了。　☆ 海面被海鸥打扫得干干净净。",
+     "key": true,
+     "explanation": {
+      "zh": "\"海鸥把海面……\"换成\"海面被海鸥……\"，说的是同一件事。",
+      "en": "海鸥把海面… and 海面被海鸥… say the same thing from two ends: true."
+     }
+    },
+    {
+     "id": "zx:L10-D5-02-3",
+     "text": "蚯蚓在地下吃的是垃圾。　☆ 地面上的垃圾是蚯蚓的食物。",
+     "key": false,
+     "explanation": {
+      "zh": "蚯蚓吃的是地下的垃圾，不是地面上的；地面上的东西是乌鸦吃的。",
+      "en": "The earthworm eats rubbish under the ground, not on it; what lies on the ground is the crow's."
+     }
+    },
+    {
+     "id": "zx:L10-D5-02-4",
+     "text": "海鸥、清道夫鱼、乌鸦和蚯蚓都是了不起的地球清洁工。　☆ 只有清道夫鱼是了不起的地球清洁工。",
+     "key": false,
+     "explanation": {
+      "zh": "四种动物\"都是\"了不起的地球清洁工，不是\"只有\"清道夫鱼。",
+      "en": "All four are remarkable Earth cleaners (都是), not only the cleaner fish (只有)."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D5-04",
+   "day": "星期五",
+   "page": 70,
+   "ex": 4,
+   "type": "free",
+   "title": "请写一写你喜欢的动物（五十字以上）",
+   "title_en": "Write about the animals that you like with more than 50 characters",
+   "note": {
+    "zh": "提示：（1）你喜欢什么动物？（2）它生活在哪里？吃什么？会做什么？……（3）你为什么喜欢它？",
+    "en": "Prompts: (1) What animal do you like? (2) Where does it live? What does it eat? What can it do? … (3) Why do you like it?"
+   },
+   "items": [
+    {
+     "id": "zx:L10-D5-04-1",
+     "prompt": "写一写你喜欢的动物（五十字以上）。",
+     "prompt_en": "Write about an animal you like (more than 50 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

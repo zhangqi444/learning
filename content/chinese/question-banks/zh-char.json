@@ -70,6 +70,210 @@
     "C": "九；犬 笔画数对了，可\"犬\"在下面，\"突\"的部首是上面的\"穴\"。",
     "D": "十；犬 两处都不对：九画，部首是\"穴\"。"
    }
+  },
+  {
+   "id": "z:L06-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-char",
+   "skill": "char-choice",
+   "difficulty": "E",
+   "prompt": "找不同，写出正确答案：一群______子在捞月亮。",
+   "choices": {
+    "A": "候",
+    "B": "劳",
+    "C": "猴",
+    "D": "捞"
+   },
+   "correct": "C",
+   "explanation": "猴 (hóu), with 犭 on the left, is the monkey: 猴子. A group of monkeys is scooping at the moon.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期四，练习1（printed p.37）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "候 (hòu) has 亻 and a short upright stroke, not the animal radical; it is the 候 of 时候, the time.",
+    "B": "劳 (láo) is the 劳 of 劳动, work, with 艹 on top; nothing about it is an animal.",
+    "D": "捞 is the scooping word that belongs in the other blank, 在捞月亮; 捞子 is not a word."
+   },
+   "prompt_en": "Find the difference: which character fills the blank? 一群______子在捞月亮。",
+   "explanation_zh": "\"猴\"是反犬旁，说的是动物：猴子。一群猴子在捞月亮。",
+   "why_zh": {
+    "A": "\"候\"是单人旁加一小竖，不是反犬旁；它是\"时候\"的\"候\"。",
+    "B": "\"劳\"是\"劳动\"的\"劳\"，上面是草字头，和动物没有关系。",
+    "D": "\"捞\"是另一个空的字（在捞月亮），\"捞子\"不是词。"
+   },
+   "content_hash": "fa664ea81f28bd06"
+  },
+  {
+   "id": "z:L06-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-char",
+   "skill": "char-choice",
+   "difficulty": "E",
+   "prompt": "找不同，写出正确答案：一群猴子在______月亮。",
+   "choices": {
+    "A": "捞",
+    "B": "猴",
+    "C": "候",
+    "D": "劳"
+   },
+   "correct": "A",
+   "explanation": "捞 (lāo) has 扌, the hand: taking something out of water is done by hand. 在捞月亮: they are scooping at the moon.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期四，练习1（printed p.37）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "B": "猴 is the monkey of the other blank, an animal and not an action.",
+    "C": "候 is the 候 of 时候, the time; it is not something you can do to the moon.",
+    "D": "劳 (láo) looks like 捞 without the hand and sounds close to it, but it means work, as in 劳动; to scoop you need the hand, 扌."
+   },
+   "prompt_en": "Find the difference: which character fills the blank? 一群猴子在______月亮。",
+   "explanation_zh": "\"捞\"是提手旁，从水里拿东西要用手：在捞月亮。",
+   "why_zh": {
+    "B": "\"猴\"是另一个空的字，是动物，不是动作。",
+    "C": "\"候\"是\"时候\"的\"候\"，不是能对月亮做的动作。",
+    "D": "\"劳\"和\"捞\"只差一个提手旁，读音也像，可它是\"劳动\"的\"劳\"；捞东西要用手，所以要有扌。"
+   },
+   "content_hash": "ef0fea83b2181d1b"
+  },
+  {
+   "id": "z:L06-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-char",
+   "skill": "char-choice",
+   "difficulty": "E",
+   "prompt": "找不同，写出正确答案：我有一______可爱的小狗，它总爱跟着我。",
+   "choices": {
+    "A": "直",
+    "B": "只",
+    "C": "跟",
+    "D": "根"
+   },
+   "correct": "B",
+   "explanation": "只 (zhī) is the measure word for animals: 一只小狗, just as the text says 一只小猴子.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期四，练习1（printed p.37）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "直 (zhí) sounds almost the same, but it means straight, as in 一直; it does not count dogs.",
+    "C": "跟 means follow, the word of the other blank (跟着我); it cannot count a dog.",
+    "D": "根 counts long thin things, like 一根筷子, and a puppy is not long and thin."
+   },
+   "prompt_en": "Find the difference: which character fills the blank? 我有一______可爱的小狗，它总爱跟着我。",
+   "explanation_zh": "\"只\"是量词，数小动物用：一只小狗，课文里也说\"一只小猴子\"。",
+   "why_zh": {
+    "A": "\"直\"读音很像，可它是\"一直\"的\"直\"，意思是不弯，不能数小狗。",
+    "C": "\"跟\"是\"跟着\"的\"跟\"，是另一个空的字，不能数小狗。",
+    "D": "\"根\"数细长的东西，像\"一根筷子\"，小狗不是细长的东西。"
+   },
+   "content_hash": "95bdb79bac096a50"
+  },
+  {
+   "id": "z:L06-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-char",
+   "skill": "char-choice",
+   "difficulty": "M",
+   "prompt": "找不同，写出正确答案：我有一只可爱的小狗，它总爱______着我。",
+   "choices": {
+    "A": "根",
+    "B": "直",
+    "C": "只",
+    "D": "跟"
+   },
+   "correct": "D",
+   "explanation": "跟 (gēn) has the foot radical: following someone is done on foot. 它总爱跟着我: it always likes to follow me.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期四，练习1（printed p.37）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "根 (gēn) sounds the same and shares 艮, but it has 木, the tree: 树根, a root. A root cannot follow anyone.",
+    "B": "直 means straight, as in 一直; 直着我 says nothing.",
+    "C": "只 is the measure word of the other blank, 一只小狗; 只着我 says nothing."
+   },
+   "prompt_en": "Find the difference: which character fills the blank? 我有一只可爱的小狗，它总爱______着我。",
+   "explanation_zh": "\"跟\"是足字旁，跟着别人走要用脚：它总爱跟着我。",
+   "why_zh": {
+    "A": "\"根\"读音一样，右边也是\"艮\"，可它是木字旁，是\"树根\"的\"根\"，不会跟着人走。",
+    "B": "\"直\"是\"一直\"的\"直\"，\"直着我\"说不通。",
+    "C": "\"只\"是另一个空的量词（一只小狗），\"只着我\"说不通。"
+   },
+   "content_hash": "43d6b162282e96dd"
+  },
+  {
+   "id": "z:L06-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-char",
+   "skill": "char-choice",
+   "difficulty": "E",
+   "prompt": "找不同，写出正确答案：爸爸来学校______我，回家的路上，我们碰见了哥哥。",
+   "choices": {
+    "A": "提",
+    "B": "接",
+    "C": "碰",
+    "D": "朋"
+   },
+   "correct": "B",
+   "explanation": "接 (jiē) is going to meet someone and bring them back: 爸爸来学校接我, Dad comes to school to pick me up.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期四，练习1（printed p.37）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "提 (tí) also has 扌, but it means lifting something by a handle, as in 提水; a child is collected with 接.",
+    "C": "碰 belongs in the other blank, 碰见了哥哥; 碰我 would be bumping into me, not collecting me.",
+    "D": "朋 is the 朋 of 朋友, a friend, and not something Dad can do."
+   },
+   "prompt_en": "Find the difference: which character fills the blank? 爸爸来学校______我，回家的路上，我们碰见了哥哥。",
+   "explanation_zh": "\"接\"是去把人带回来：爸爸来学校接我。",
+   "why_zh": {
+    "A": "\"提\"也是提手旁，可它是\"提水\"的\"提\"，把东西拎起来；来学校带孩子回家用\"接\"。",
+    "C": "\"碰\"是另一个空的字（碰见了哥哥）；\"碰我\"是撞到我，不是来接我。",
+    "D": "\"朋\"是\"朋友\"的\"朋\"，不是爸爸能做的事。"
+   },
+   "content_hash": "04b01b60214095ff"
+  },
+  {
+   "id": "z:L06-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-char",
+   "skill": "char-choice",
+   "difficulty": "M",
+   "prompt": "找不同，写出正确答案：爸爸来学校接我，回家的路上，我们______见了哥哥。",
+   "choices": {
+    "A": "朋",
+    "B": "提",
+    "C": "碰",
+    "D": "接"
+   },
+   "correct": "C",
+   "explanation": "碰见 is meeting someone by chance. On the way home they happened to run into big brother: 我们碰见了哥哥.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期四，练习1（printed p.37）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "朋 (péng) sounds almost like 碰 (pèng), but it is the 朋 of 朋友, and 朋见 is not a word.",
+    "B": "提 is lifting something by a handle, as in 提水, and 提见 is not a word.",
+    "D": "接 is Dad's word from the other blank. 接见 is a real word, but it is an important person formally receiving visitors, not bumping into your brother on the way home."
+   },
+   "prompt_en": "Find the difference: which character fills the blank? 爸爸来学校接我，回家的路上，我们______见了哥哥。",
+   "explanation_zh": "\"碰见\"是没约好，在路上遇到：我们碰见了哥哥。",
+   "why_zh": {
+    "A": "\"朋\"和\"碰\"读音很像，可它是\"朋友\"的\"朋\"，\"朋见\"不是词。",
+    "B": "\"提\"是\"提水\"的\"提\"，\"提见\"不是词。",
+    "D": "\"接\"是另一个空的字。\"接见\"虽然是个词，可它是大人物正式见客人，不是在路上遇到哥哥。"
+   },
+   "content_hash": "3a568f1491d0d389"
   }
  ]
 }

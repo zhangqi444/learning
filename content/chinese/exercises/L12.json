@@ -1,0 +1,989 @@
+{
+ "lesson": "L12",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》",
+ "file_note": "The workbook's exercises for 第十二课, typed from 练习册B pp. 71–81 (PDF index = printed + 4, verified on p. 71; the listening script for 第12课 is on p. 84, the page after pp. 82–83). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; speak is recorded and signed by a parent; the four-choice exercises are `blocks` naming zh-word items. Left out because no type fits, with their keys so a type can be added: 星期三 练习1 (p. 75, choose one of two words in brackets: (1) 人们很早___（以前 从前）就想知道月亮上有什么 → 以前 (2) 人类___（开展 实现）了登月的梦想 → 实现 (3) 月球上没有___（动物 石头） → 动物 (4) 宇航员___（坐 座）飞船离开了地球 → 坐); 星期四 练习3 (p. 78, answer by choosing A or B according to the text: (1) 月亮上面有什么 → A 泥土和石块 (2) 美国宇航员是怎样离开地球的 → A 坐飞船 (3) 嫦娥探月工程是哪个国家正式开展的 → B 中国 (4) 哪艘飞船实现了人类航天器首次在月球背面着陆 → B 嫦娥四号). A two-choice `pick` type with the book's own options per item would take both. 星期四 练习4 (read the 课文 to a parent for a grade) is a `speak`, since the 课文 is held back and a `read` carries its text. Workbook misprint: p. 80's dialogue dates the Chang'e programme 2014; the textbook says 2004.",
+ "blocks": [
+  {
+   "id": "zb:L12-D1",
+   "day": "星期一",
+   "page": 72,
+   "ex": 4,
+   "title": "找出不同类的词，写在括号里",
+   "title_en": "Find the odd words out and write in the brackets",
+   "items": [
+    "zc:L12-01",
+    "zc:L12-02",
+    "zc:L12-03",
+    "zc:L12-04"
+   ],
+   "scope_note": "Four groups of four (pp. 72–73), one word in each that is not like the others; she writes it in the bracket. Each group is one four-choice item whose choices are the group itself, reordered so the keys spread over A–D."
+  },
+  {
+   "id": "zb:L12-D2",
+   "day": "星期二",
+   "page": 73,
+   "ex": 2,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L12-05",
+    "zc:L12-06",
+    "zc:L12-07",
+    "zc:L12-08"
+   ],
+   "scope_note": "The book letters its word box A 实现 B 正式 C 安全 D 知道, and every item keeps those letters, so the choices read as the book prints them."
+  },
+  {
+   "id": "zb:L12-D3",
+   "day": "星期三",
+   "page": 77,
+   "ex": 4,
+   "title": "根据课文选词填空",
+   "title_en": "Choose the right words to fill in the blanks according to the text",
+   "items": [
+    "zc:L12-09",
+    "zc:L12-10",
+    "zc:L12-11",
+    "zc:L12-12",
+    "zc:L12-13"
+   ],
+   "scope_note": "The book offers five words (A 宇航员 B 声音 C 明白 D 植物 E 荒凉) for the five blanks of one short retelling of the 课文. As in L03's 星期四 block, each item carries four of them in the book's order — the one left off is 声音 on items 09 and 12 (on 12 it is spent on the last blank, and 没有水、声音和动物 would otherwise be a second right answer) and 明白 on 10, 11 and 13 — so the letters are not the book's."
+  },
+  {
+   "id": "zb:L12-D4",
+   "day": "星期四",
+   "page": 77,
+   "ex": 1,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L12-14",
+    "zc:L12-15",
+    "zc:L12-16",
+    "zc:L12-17"
+   ],
+   "scope_note": "The word box (实现 飞船 荒凉 梦想, unlettered in the book) fills the four blanks of a 方方/云云 dialogue; the second line has two blanks, 实现 and 梦想, made two items, each showing the other blank filled."
+  },
+  {
+   "id": "zb:L12-D5",
+   "day": "星期五",
+   "page": 80,
+   "ex": 3,
+   "title": "读一读，补全对话",
+   "title_en": "Read and complete the dialogue",
+   "items": [
+    "zc:L12-18",
+    "zc:L12-19",
+    "zc:L12-20",
+    "zc:L12-21"
+   ],
+   "note": {
+    "zh": "练习册第80页练习3的对话里印着\"2014年中国正式开展了嫦娥探月工程\"，这是印错了：课本第125页写的是二〇〇四年，练习册第73页和第76页也都是2004年。2004年才对。",
+    "en": "The dialogue in exercise 3 on workbook p. 80 prints 2014 as the year China began the Chang'e moon program. That is a misprint: the textbook (p. 125, 二〇〇四年) and workbook pp. 73 and 76 all say 2004, which is right."
+   },
+   "scope_note": "The book letters its word box A 工程 B 美国 C 探月 D 月亮, kept on every item. The dialogue's third line says 2014年中国正式开展了嫦娥探月工程 — the 课文 (p. 125) and this workbook's own p. 73 and p. 76 say 2004 — so that clause is kept out of the prompt for zc:L12-19."
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L12-D1-01w",
+   "day": "星期一",
+   "page": 71,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看旁边的词想字，用笔写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "The word beside the box tells you the character; write it with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "shape_note": "The page prints the eight characters to trace and copy (row by row: 探 员 / 次 船 / 达 植 / 式 器). As in L03 and L04, each box is cued by its pinyin and a word from the textbook 读一读 on p. 129 (探月, 宇航员, 一次, 飞船, 到达, 植物, 正式, 机器), since showing the character would leave nothing to write.",
+   "items": [
+    {
+     "id": "zx:L12-D1-01w-1",
+     "py": "tàn",
+     "context": "＿月",
+     "key": "探",
+     "explanation": {
+      "zh": "探月：tàn。",
+      "en": "探月 — tàn, exploring the moon."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01w-2",
+     "py": "yuán",
+     "context": "宇航＿",
+     "key": "员",
+     "explanation": {
+      "zh": "宇航员：yuán。",
+      "en": "宇航员 — yuán, astronaut."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01w-3",
+     "py": "cì",
+     "context": "一＿",
+     "key": "次",
+     "explanation": {
+      "zh": "一次：cì。",
+      "en": "一次 — cì, once."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01w-4",
+     "py": "chuán",
+     "context": "飞＿",
+     "key": "船",
+     "explanation": {
+      "zh": "飞船：chuán。",
+      "en": "飞船 — chuán, spaceship."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01w-5",
+     "py": "dá",
+     "context": "到＿",
+     "key": "达",
+     "explanation": {
+      "zh": "到达：dá。",
+      "en": "到达 — dá, arrive."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01w-6",
+     "py": "zhí",
+     "context": "＿物",
+     "key": "植",
+     "explanation": {
+      "zh": "植物：zhí。",
+      "en": "植物 — zhí, plants."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01w-7",
+     "py": "shì",
+     "context": "正＿",
+     "key": "式",
+     "explanation": {
+      "zh": "正式：shì。",
+      "en": "正式 — shì, formal, official."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01w-8",
+     "py": "qì",
+     "context": "机＿",
+     "key": "器",
+     "explanation": {
+      "zh": "机器：qì。",
+      "en": "机器 — qì, machine."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D1-01s",
+   "day": "星期一",
+   "page": 71,
+   "ex": 1,
+   "type": "sort",
+   "title": "左右、上下、半包围，还是上中下结构？",
+   "title_en": "Left–right, top–bottom, half-enclosed, or top–middle–bottom?",
+   "scope_note": "The four lines under the grid on p. 71, in the book's order: 左右结构, 上下结构, 半包围结构, 上中下结构. Each of the four gets at least one of the eight characters. 式 is filed 半包围 (弋 encloses 工 from the top right): it is the only one of the four groups it can go in, and p. 72 练习2 offers the same choice without 上中下.",
+   "groups": [
+    "左右结构",
+    "上下结构",
+    "半包围结构",
+    "上中下结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L12-D1-01s-1",
+     "text": "探",
+     "key": 0,
+     "explanation": {
+      "zh": "扌在左、罙在右：左右结构。",
+      "en": "扌 on the left, 罙 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01s-2",
+     "text": "员",
+     "key": 1,
+     "explanation": {
+      "zh": "口在上、贝在下：上下结构。",
+      "en": "口 above, 贝 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01s-3",
+     "text": "次",
+     "key": 0,
+     "explanation": {
+      "zh": "冫在左、欠在右：左右结构。",
+      "en": "冫 on the left, 欠 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01s-4",
+     "text": "船",
+     "key": 0,
+     "explanation": {
+      "zh": "舟字旁在左，右边是几和口：左右结构。",
+      "en": "舟 on the left, 几 over 口 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01s-5",
+     "text": "达",
+     "key": 2,
+     "explanation": {
+      "zh": "辶从左边和下面包住大：半包围结构。",
+      "en": "辶 wraps 大 from the left and below: half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01s-6",
+     "text": "植",
+     "key": 0,
+     "explanation": {
+      "zh": "木在左、直在右：左右结构。",
+      "en": "木 on the left, 直 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01s-7",
+     "text": "式",
+     "key": 2,
+     "explanation": {
+      "zh": "弋从上面和右边包住工：半包围结构。",
+      "en": "弋 wraps 工 from the top and the right: half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L12-D1-01s-8",
+     "text": "器",
+     "key": 3,
+     "explanation": {
+      "zh": "上面两个口，中间是犬，下面两个口：上中下结构。",
+      "en": "Two 口 on top, 犬 in the middle, two 口 below: top–middle–bottom."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D1-02",
+   "day": "星期一",
+   "page": 72,
+   "ex": 2,
+   "type": "sort",
+   "title": "找出结构相同的字",
+   "title_en": "Find the characters with the same structures",
+   "note": {
+    "zh": "把每个字放进它的结构里。",
+    "en": "Put each character under its structure."
+   },
+   "groups": [
+    "上下结构",
+    "左右结构",
+    "半包围结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L12-D1-02-1",
+     "text": "实",
+     "key": 0,
+     "explanation": {
+      "zh": "宀在上、头在下：上下结构。",
+      "en": "宀 above, 头 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L12-D1-02-2",
+     "text": "达",
+     "key": 2,
+     "explanation": {
+      "zh": "辶从左边和下面包住大：半包围结构。",
+      "en": "辶 wraps 大 from the left and below: half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L12-D1-02-3",
+     "text": "类",
+     "key": 0,
+     "explanation": {
+      "zh": "米在上、大在下：上下结构。",
+      "en": "米 above, 大 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L12-D1-02-4",
+     "text": "船",
+     "key": 1,
+     "explanation": {
+      "zh": "舟字旁在左，右边是几和口：左右结构。",
+      "en": "舟 on the left, 几 over 口 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L12-D1-02-5",
+     "text": "陆",
+     "key": 1,
+     "explanation": {
+      "zh": "阝在左、击在右：左右结构。",
+      "en": "阝 on the left, 击 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L12-D1-02-6",
+     "text": "式",
+     "key": 2,
+     "explanation": {
+      "zh": "弋从上面和右边包住工：半包围结构。",
+      "en": "弋 wraps 工 from the top and the right: half-enclosed."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D1-03",
+   "day": "星期一",
+   "page": 72,
+   "ex": 3,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match to form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：明—白。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 明—白."
+   },
+   "left": [
+    "明",
+    "安",
+    "以",
+    "实",
+    "开"
+   ],
+   "right": [
+    "白",
+    "前",
+    "展",
+    "现",
+    "全"
+   ],
+   "pairs": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     4,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L12-D1-03-1",
+     "left": "明",
+     "key": 0,
+     "word": "明白",
+     "explanation": {
+      "zh": "明—白：明白——课本给的例子。",
+      "en": "明 + 白 = 明白, understand — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L12-D1-03-2",
+     "left": "安",
+     "key": 4,
+     "word": "安全",
+     "explanation": {
+      "zh": "安—全：安全。",
+      "en": "安 + 全 = 安全, safe."
+     }
+    },
+    {
+     "id": "zx:L12-D1-03-3",
+     "left": "以",
+     "key": 1,
+     "word": "以前",
+     "explanation": {
+      "zh": "以—前：以前。",
+      "en": "以 + 前 = 以前, before."
+     }
+    },
+    {
+     "id": "zx:L12-D1-03-4",
+     "left": "实",
+     "key": 3,
+     "word": "实现",
+     "explanation": {
+      "zh": "实—现：实现。",
+      "en": "实 + 现 = 实现, make come true."
+     }
+    },
+    {
+     "id": "zx:L12-D1-03-5",
+     "left": "开",
+     "key": 2,
+     "word": "开展",
+     "explanation": {
+      "zh": "开—展：开展。",
+      "en": "开 + 展 = 开展, launch, carry out."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D1-03w",
+   "day": "星期一",
+   "page": 72,
+   "ex": 3,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match to form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把四个词各写一遍（课本已写好：明白）。",
+    "en": "The matching was done on the site; here write each of the four words once (the book has written 明白 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L12-D1-03w-1",
+     "prompt": "安＋全 → 写出词语",
+     "prompt_en": "安 + 全 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L12-D1-03w-2",
+     "prompt": "以＋前 → 写出词语",
+     "prompt_en": "以 + 前 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L12-D1-03w-3",
+     "prompt": "实＋现 → 写出词语",
+     "prompt_en": "实 + 现 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L12-D1-03w-4",
+     "prompt": "开＋展 → 写出词语",
+     "prompt_en": "开 + 展 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D2-01",
+   "day": "星期二",
+   "page": 73,
+   "ex": 1,
+   "type": "free",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "note": {
+    "zh": "例：人 → 人类、大人。每个字组两个词。",
+    "en": "Example: 人 → 人类, 大人. Make two words with each character."
+   },
+   "items": [
+    {
+     "id": "zx:L12-D2-01-1",
+     "prompt": "明：＿＿、＿＿",
+     "prompt_en": "明: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L12-D2-01-2",
+     "prompt": "船：＿＿、＿＿",
+     "prompt_en": "船: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L12-D2-01-3",
+     "prompt": "式：＿＿、＿＿",
+     "prompt_en": "式: two words",
+     "blanks": 2,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D2-03",
+   "day": "星期二",
+   "page": 74,
+   "ex": 3,
+   "type": "match",
+   "title": "连一连",
+   "title_en": "Match",
+   "note": {
+    "zh": "四张图在练习册第74页，从上到下是图（1）到图（4）。先点图，再点说它的那句话。",
+    "en": "The four pictures are on workbook p. 74, numbered (1) to (4) from top to bottom. Tap a picture, then the sentence that goes with it."
+   },
+   "left": [
+    "图（1）",
+    "图（2）",
+    "图（3）",
+    "图（4）"
+   ],
+   "right": [
+    "我的梦想是成为一名宇航员。",
+    "那里真荒凉啊！",
+    "他穿得很正式。",
+    "这里有许多植物。"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L12-D2-03-1",
+     "left": "图（1）",
+     "key": 2,
+     "explanation": {
+      "zh": "图（1）是穿西装、打领带的男孩：他穿得很正式。",
+      "en": "Picture (1) is a boy in a suit and tie: 他穿得很正式, he is dressed formally."
+     }
+    },
+    {
+     "id": "zx:L12-D2-03-2",
+     "left": "图（2）",
+     "key": 3,
+     "explanation": {
+      "zh": "图（2）是一丛绿色的植物：这里有许多植物。",
+      "en": "Picture (2) is a clump of green plants: 这里有许多植物, there are many plants here."
+     }
+    },
+    {
+     "id": "zx:L12-D2-03-3",
+     "left": "图（3）",
+     "key": 0,
+     "explanation": {
+      "zh": "图（3）是一位宇航员：我的梦想是成为一名宇航员。",
+      "en": "Picture (3) is an astronaut: 我的梦想是成为一名宇航员, my dream is to become an astronaut."
+     }
+    },
+    {
+     "id": "zx:L12-D2-03-4",
+     "left": "图（4）",
+     "key": 1,
+     "explanation": {
+      "zh": "图（4）是一棵枯树和光秃秃的地：那里真荒凉啊！",
+      "en": "Picture (4) is a dead tree on bare ground: 那里真荒凉啊！ How desolate it is there!"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D2-04",
+   "day": "星期二",
+   "page": 75,
+   "ex": 4,
+   "type": "order",
+   "title": "连词成句",
+   "title_en": "Write the words in the correct order to make sentences",
+   "note": {
+    "zh": "例：正式　探月工程　开展　中国 → 中国正式开展探月工程。",
+    "en": "Example: 正式 探月工程 开展 中国 → 中国正式开展探月工程."
+   },
+   "items": [
+    {
+     "id": "zx:L12-D2-04-1",
+     "pieces": [
+      "登上了",
+      "宇航员",
+      "月球"
+     ],
+     "key": [
+      1,
+      0,
+      2
+     ],
+     "explanation": {
+      "zh": "正确的顺序：宇航员登上了月球。",
+      "en": "In order: 宇航员登上了月球 — the astronauts landed on the moon."
+     }
+    },
+    {
+     "id": "zx:L12-D2-04-2",
+     "pieces": [
+      "月球",
+      "一个",
+      "世界",
+      "是",
+      "荒凉的"
+     ],
+     "key": [
+      0,
+      3,
+      1,
+      4,
+      2
+     ],
+     "explanation": {
+      "zh": "正确的顺序：月球是一个荒凉的世界。",
+      "en": "In order: 月球是一个荒凉的世界 — the moon is a desolate world."
+     }
+    },
+    {
+     "id": "zx:L12-D2-04-3",
+     "pieces": [
+      "人类",
+      "登月",
+      "梦想",
+      "实现了",
+      "的"
+     ],
+     "key": [
+      0,
+      3,
+      1,
+      4,
+      2
+     ],
+     "explanation": {
+      "zh": "正确的顺序：人类实现了登月的梦想。",
+      "en": "In order: 人类实现了登月的梦想 — humankind made its dream of landing on the moon come true."
+     }
+    },
+    {
+     "id": "zx:L12-D2-04-4",
+     "pieces": [
+      "坐",
+      "他们",
+      "飞船",
+      "地球",
+      "离开了"
+     ],
+     "key": [
+      1,
+      0,
+      2,
+      4,
+      3
+     ],
+     "explanation": {
+      "zh": "正确的顺序：他们坐飞船离开了地球。",
+      "en": "In order: 他们坐飞船离开了地球 — they left the Earth in a spaceship."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D3-02",
+   "day": "星期三",
+   "page": 76,
+   "ex": 2,
+   "type": "free",
+   "title": "完成句子",
+   "title_en": "Complete the sentences with the specified words",
+   "note": {
+    "zh": "先读课本的句子，再用同一个词写一句新的：词前面和后面的空格写你自己的话。",
+    "en": "Read the book's sentence first, then write a new one with the same word: fill the gaps before and after it with your own words."
+   },
+   "items": [
+    {
+     "id": "zx:L12-D3-02-1",
+     "prompt": "（1）宇航员安全回到了地球。→ ＿＿安全回到了＿＿。",
+     "prompt_en": "(1) 宇航员安全回到了地球。 → …安全回到了…。",
+     "blanks": 2,
+     "cells": 8
+    },
+    {
+     "id": "zx:L12-D3-02-2",
+     "prompt": "（2）云云实现了去北京的愿望。→ ＿＿实现了＿＿。",
+     "prompt_en": "(2) 云云实现了去北京的愿望。 → …实现了…。",
+     "blanks": 2,
+     "cells": 8
+    },
+    {
+     "id": "zx:L12-D3-02-3",
+     "prompt": "（3）飞船安全到达月球。→ ＿＿到达＿＿。",
+     "prompt_en": "(3) 飞船安全到达月球。 → …到达…。",
+     "blanks": 2,
+     "cells": 8
+    },
+    {
+     "id": "zx:L12-D3-02-4",
+     "prompt": "（4）爸爸以前住在北京。→ ＿＿以前＿＿。",
+     "prompt_en": "(4) 爸爸以前住在北京。 → …以前…。",
+     "blanks": 2,
+     "cells": 8
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D3-03",
+   "day": "星期三",
+   "page": 76,
+   "ex": 3,
+   "type": "order",
+   "title": "按照时间顺序给下列句子排序",
+   "title_en": "Sequence the sentences to match the time line",
+   "note": {
+    "zh": "把四件事按发生的先后排好，就是课本表格\"探月时间记录\"的第1到第4行。",
+    "en": "Put the four events in the order they happened — rows 1 to 4 of the book's table, 探月时间记录, a record of moon exploration."
+   },
+   "items": [
+    {
+     "id": "zx:L12-D3-03-1",
+     "pieces": [
+      "2019年1月3日，“嫦娥四号”实现了人类航天器首次在月球背面着陆。",
+      "1969年7月21日，美国宇航员第一次登上了月球。",
+      "2004年，中国正式开展嫦娥探月工程。",
+      "1969年7月16日，宇航员坐“阿波罗号”飞船离开了地球。"
+     ],
+     "labels": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "key": [
+      3,
+      1,
+      2,
+      0
+     ],
+     "explanation": {
+      "zh": "时间的先后：1969年7月16日离开地球（D），7月21日登上月球（B），2004年中国开展嫦娥探月工程（C），2019年1月3日嫦娥四号在月球背面着陆（A）。",
+      "en": "In time order: they left the Earth on 16 July 1969 (D), landed on the moon on 21 July (B), China began the Chang'e moon program in 2004 (C), and Chang'e 4 touched down on the far side on 3 January 2019 (A)."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D4-02",
+   "day": "星期四",
+   "page": 78,
+   "ex": 2,
+   "type": "free",
+   "title": "动动小脑筋，完成句子",
+   "title_en": "Think and complete the sentences",
+   "note": {
+    "zh": "课本的表格第一行是：他们 坐飞船 离开了地球。下一行只给了\"坐飞机 去北京了\"，再下面三行只给了怎么去。照第一行的样子，把每一句补完整。",
+    "en": "The first row of the book's table reads 他们 坐飞船 离开了地球 (they left the Earth in a spaceship). The next row gives only 坐飞机 去北京了, and the three rows under it only how to travel. Complete each sentence the way the first row does."
+   },
+   "items": [
+    {
+     "id": "zx:L12-D4-02-1",
+     "prompt": "（1）＿＿坐飞机去北京了。",
+     "prompt_en": "(1) …坐飞机去北京了。 (who)",
+     "blanks": 1,
+     "cells": 4
+    },
+    {
+     "id": "zx:L12-D4-02-2",
+     "prompt": "（2）＿＿坐校车＿＿。",
+     "prompt_en": "(2) …坐校车…。 (who, and where to)",
+     "blanks": 2,
+     "cells": 6
+    },
+    {
+     "id": "zx:L12-D4-02-3",
+     "prompt": "（3）＿＿骑自行车＿＿。",
+     "prompt_en": "(3) …骑自行车…。 (who, and where to)",
+     "blanks": 2,
+     "cells": 6
+    },
+    {
+     "id": "zx:L12-D4-02-4",
+     "prompt": "（4）＿＿开汽车＿＿。",
+     "prompt_en": "(4) …开汽车…。 (who, and where to)",
+     "blanks": 2,
+     "cells": 6
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D4-04",
+   "day": "星期四",
+   "page": 78,
+   "ex": 4,
+   "type": "speak",
+   "title": "把课文读给爸爸妈妈听，请他们评评分",
+   "title_en": "Read the text to your parents and ask them to grade",
+   "question": {
+    "zh": "把《探月》读给爸爸妈妈听。读完请他们评评分：读得流利吗？有没有读错的字？",
+    "en": "Read 探月 aloud to your parents. Then ask them to grade it: was it fluent, and were any characters misread?"
+   },
+   "note": {
+    "zh": "课文在课本第125–126页，看着书读。读的时候会录下来；读完请爸爸妈妈评个分，再点一下\"家长已听\"。",
+    "en": "The text is on textbook pp. 125–126; read it from the book. Your reading is recorded; afterwards have your parents give it a grade and tap Listened."
+   },
+   "shape_note": "Not `read`: a read exercise carries the text she reads, and the 课文 is held back (docs/chinese.md § 8). `speak` records her and takes the parent's tap as the 家长签名 the book asks for; the book's 评分 box has no field and is left to the parent to say."
+  },
+  {
+   "id": "zx:L12-D5-01",
+   "day": "星期五",
+   "page": 79,
+   "ex": 1,
+   "type": "order",
+   "title": "听句子，按顺序选择图片",
+   "title_en": "Listen to the sentences and choose the pictures in order",
+   "note": {
+    "zh": "请爸爸妈妈读练习册第84页第12课的听力文本（或放录音）。四张图在练习册第79页，从上到下是图①到图④；按你听到的先后，把图排好。",
+    "en": "Ask a parent to read the Lesson 12 listening script on workbook p. 84 (or play the recording). The four pictures are on workbook p. 79, ① to ④ from top to bottom; put them in the order you hear them."
+   },
+   "script_note": "The four sentences are in the appendix 听力文本 for 第12课 on 练习册B p. 84 (not pp. 82–83, which end at 第10课), for a parent to read aloud; the publisher's recording is a download from jnupress.com. The script is not printed before she answers, so the exercise stays a listening one; the item's explanation quotes the four sentences after she answers, as zx:L03-D5-01 quotes its dialogue. The book has her write the sentence number in the bracket beside each picture; putting the pictures in the order heard is the same answer.",
+   "items": [
+    {
+     "id": "zx:L12-D5-01-1",
+     "pieces": [
+      "图①（坐在车里的男孩）",
+      "图②（石头边的植物）",
+      "图③（宇航员）",
+      "图④（看书的女孩）"
+     ],
+     "key": [
+      1,
+      2,
+      3,
+      0
+     ],
+     "explanation": {
+      "zh": "听到的顺序：（1）很早以前这里就有许多植物——图②；（2）我的梦想是当一名宇航员——图③；（3）为了实现梦想，我要努力学习——图④，看书的女孩；（4）坐车要系好安全带——图①，系着安全带坐在车里的男孩。",
+      "en": "The order heard: (1) 很早以前这里就有许多植物, there were many plants here long ago — picture ②; (2) 我的梦想是当一名宇航员, my dream is to be an astronaut — picture ③; (3) 为了实现梦想，我要努力学习, I will study hard to make my dream come true — picture ④, the girl reading; (4) 坐车要系好安全带, buckle up in the car — picture ①, the boy in his seat belt."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D5-02",
+   "day": "星期五",
+   "page": 80,
+   "ex": 2,
+   "type": "match",
+   "title": "读一读，连一连",
+   "title_en": "Read and match",
+   "note": {
+    "zh": "左边是问题，右边是回答。先点问题，再点它的回答。另外：练习册第80页练习3的对话里印着\"2014年中国正式开展了嫦娥探月工程\"，这是印错了：课本第125页写的是二〇〇四年，练习册第73页和第76页也都是2004年。2004年才对。",
+    "en": "Questions on the left, answers on the right. Tap a question, then its answer. Also: The dialogue in exercise 3 on workbook p. 80 prints 2014 as the year China began the Chang'e moon program. That is a misprint: the textbook (p. 125, 二〇〇四年) and workbook pp. 73 and 76 all say 2004, which is right."
+   },
+   "left": [
+    "月球是什么样的呢？",
+    "你怎么去北京？",
+    "这些字我怎么看不明白？",
+    "你的梦想是什么？"
+   ],
+   "right": [
+    "我坐飞机去北京。",
+    "月球是一个荒凉的世界。",
+    "我的梦想是登上月球。",
+    "这些字里有一些是错别字。"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L12-D5-02-1",
+     "left": "月球是什么样的呢？",
+     "key": 1,
+     "explanation": {
+      "zh": "问月球是什么样的，答：月球是一个荒凉的世界。",
+      "en": "Asked what the moon is like, the answer is 月球是一个荒凉的世界 — a desolate world."
+     }
+    },
+    {
+     "id": "zx:L12-D5-02-2",
+     "left": "你怎么去北京？",
+     "key": 0,
+     "explanation": {
+      "zh": "\"怎么去\"问的是坐什么去：我坐飞机去北京。",
+      "en": "怎么去 asks how you travel, so the answer names the way: 我坐飞机去北京, by plane."
+     }
+    },
+    {
+     "id": "zx:L12-D5-02-3",
+     "left": "这些字我怎么看不明白？",
+     "key": 3,
+     "explanation": {
+      "zh": "看不明白的原因：这些字里有一些是错别字。",
+      "en": "Why the characters make no sense: 这些字里有一些是错别字 — some of them are written wrongly."
+     }
+    },
+    {
+     "id": "zx:L12-D5-02-4",
+     "left": "你的梦想是什么？",
+     "key": 2,
+     "explanation": {
+      "zh": "问梦想，答：我的梦想是登上月球。",
+      "en": "Asked about a dream, the answer is 我的梦想是登上月球, to land on the moon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D5-04",
+   "day": "星期五",
+   "page": 81,
+   "ex": 4,
+   "type": "free",
+   "title": "你知道太空中有什么吗？请写一写（五十字以上）",
+   "title_en": "Do you know what's in space? Please write with more than 50 characters",
+   "note": {
+    "zh": "提示：（1）太空中有哪些星球？（2）地球周围有什么星球？（3）你是怎么知道的？知道后你的感受是什么？",
+    "en": "Prompts: (1) What heavenly bodies are there in space? (2) What heavenly bodies are around the Earth? (3) How do you know? How do you feel about it now that you know?"
+   },
+   "items": [
+    {
+     "id": "zx:L12-D5-04-1",
+     "prompt": "写一写太空中有什么（五十字以上）。",
+     "prompt_en": "Write about what is in space (more than 50 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

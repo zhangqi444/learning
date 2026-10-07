@@ -1,0 +1,1661 @@
+{
+ "lesson": "L02",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》",
+ "file_note": "The workbook's exercises for 第二课, typed from 练习册B pp. 1–15 (PDF index = printed + 4, verified on p. 1, whose header reads 2 故宫 The Forbidden City). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; speak is the parent-signed retell; the three word-box exercises are `blocks` naming zh-word items. Left out, with their keys so a type can be added: 星期五 练习1 (pp. 11–12, listen and choose, two options each — the script is in the appendix on p. 82: (1) 墙上挂着一张世界地图 → A 世界地图 (2) 哥哥在国外留学 → B 国外 (3) 故宫是中国明朝和清朝的皇宫 → A 明朝和清朝 (4) 故宫又叫紫禁城 → A 紫禁城), as L04 left out its two-option listening; a two-choice `pick` type would take it. Also left out: 内 from the 星期一 练习1 structure sorting (see that exercise's scope_note — its key would be 独体字 if the book means what its empty line suggests); the two pinyin-writing gourds of 星期三 练习1 (p. 6: 清 → qīng, 筑 → zhù). 星期二 练习4 (p. 6, 选择正确的句子并读一读) is a tf exercise followed by a read of the five right sentences, since the book asks for both. 星期四 练习3 (pp. 9–10) is split four ways; see the shape_note on zx:L02-D4-03. Note the workbook's p. 7–8 sentence 以后有机会我还想来故宫逛逛 has 想 where the 课文's 句子 has 要; each is typed as its own page prints it.",
+ "blocks": [
+  {
+   "id": "zb:L02-D1",
+   "day": "星期一",
+   "page": 3,
+   "ex": 5,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L02-01",
+    "zc:L02-02",
+    "zc:L02-03",
+    "zc:L02-04"
+   ]
+  },
+  {
+   "id": "zb:L02-D3",
+   "day": "星期三",
+   "page": 7,
+   "ex": 3,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L02-05",
+    "zc:L02-06",
+    "zc:L02-07",
+    "zc:L02-08",
+    "zc:L02-09",
+    "zc:L02-10"
+   ],
+   "scope_note": "The book offers six words (A 机会 B 游客 C 吸引 D 珍贵 E 展览 F 参观) for the six blanks of one passage. Each item carries four of them; the two left off each time are the ones that could also be argued into that blank on grammar alone (for instance 展览 after 以后有, or 机会 after 还有很多), so every wrong choice is plainly wrong and the task she faces is still the book's: which of the box fills this blank. The passage's other blanks are shown filled where the sentence needs them, as L03 did."
+  },
+  {
+   "id": "zb:L02-D4",
+   "day": "星期四",
+   "page": 9,
+   "ex": 2,
+   "title": "选择恰当的词语完成对话",
+   "title_en": "Choose the correct words to complete the dialogue",
+   "items": [
+    "zc:L02-11",
+    "zc:L02-12",
+    "zc:L02-13",
+    "zc:L02-14",
+    "zc:L02-15"
+   ],
+   "scope_note": "The book offers five words (A 哪儿 B 看看 C 著名 D 珍贵 E 世界) for five blanks in one dialogue. Each item carries four; the one left off is the word that could also be argued into that blank (著名 before 的历史文物, 珍贵 after 最, 哪儿 as 'somewhere' at the end), or, where none could, the weakest. A word-box exercise, so bank items, as the contract maps them; the dialogue lines are the workbook's own."
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L02-D1-01w",
+   "day": "星期一",
+   "page": 1,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看旁边的词想字，用笔写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "The word beside the box tells you the character; write it with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D1-01w-1",
+     "py": "cháo",
+     "context": "明＿",
+     "key": "朝",
+     "explanation": {
+      "zh": "明朝：cháo。",
+      "en": "明朝 — cháo, the Ming dynasty."
+     }
+    },
+    {
+     "id": "zx:L02-D1-01w-2",
+     "py": "qīng",
+     "context": "＿朝",
+     "key": "清",
+     "explanation": {
+      "zh": "清朝：qīng。",
+      "en": "清朝 — qīng, the Qing dynasty."
+     }
+    },
+    {
+     "id": "zx:L02-D1-01w-3",
+     "py": "jiān",
+     "context": "房＿",
+     "key": "间",
+     "explanation": {
+      "zh": "房间：jiān。",
+      "en": "房间 — jiān, a room."
+     }
+    },
+    {
+     "id": "zx:L02-D1-01w-4",
+     "py": "nèi",
+     "context": "国＿",
+     "key": "内",
+     "explanation": {
+      "zh": "国内：nèi。",
+      "en": "国内 — nèi, inside the country."
+     }
+    },
+    {
+     "id": "zx:L02-D1-01w-5",
+     "py": "wài",
+     "context": "＿边",
+     "key": "外",
+     "explanation": {
+      "zh": "外边：wài。",
+      "en": "外边 — wài, outside."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D1-01s",
+   "day": "星期一",
+   "page": 1,
+   "ex": 1,
+   "type": "sort",
+   "title": "左右结构、半包围结构，还是独体字？",
+   "title_en": "Left–right, half-enclosed, or a single-body character?",
+   "scope_note": "The book lists five characters (朝 清 间 内 外) under three lines: 左右结构, 半包围结构, 独体字. 内 is left out of the sorting: 朝 清 外 are plainly left–right and 间 half-enclosed, so the book's empty 独体字 line suggests it means 内 as 独体字, but dictionaries and school lists commonly file 内 as 半包围结构 (上三包围, like 同 and 问). The page does not settle which the book intends, and a wrong key is worse than a missing item — the same call L03 made over 寿. 内 is still written in zx:L02-D1-01w. The 独体字 group is kept because the book prints it.",
+   "groups": [
+    "左右结构",
+    "半包围结构",
+    "独体字"
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D1-01s-1",
+     "text": "朝",
+     "key": 0,
+     "explanation": {
+      "zh": "龺在左、月在右：左右结构。",
+      "en": "龺 on the left, 月 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L02-D1-01s-2",
+     "text": "清",
+     "key": 0,
+     "explanation": {
+      "zh": "氵在左、青在右：左右结构。",
+      "en": "氵 on the left, 青 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L02-D1-01s-3",
+     "text": "间",
+     "key": 1,
+     "explanation": {
+      "zh": "门从上面和两边包住日：半包围结构。",
+      "en": "门 wraps 日 from the top and both sides: half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L02-D1-01s-4",
+     "text": "外",
+     "key": 0,
+     "explanation": {
+      "zh": "夕在左、卜在右：左右结构。",
+      "en": "夕 on the left, 卜 on the right: left–right."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D1-02",
+   "day": "星期一",
+   "page": 2,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，写一写",
+   "title_en": "Match and write",
+   "note": {
+    "zh": "先点上面的部件，再点下面能和它合成字的那一半。课本已连好一组：门—日。",
+    "en": "Tap a part on the top row, then the half below that makes a character with it. The book has drawn one line already: 门—日."
+   },
+   "shape_note": "The fifth bottom card is the left-hand part of 朝 (十 日 十). At 600 dpi its top is a cross, not the 卜 of 卓, so it is typed as 龺 (U+9FBA, the BMP code point GB 18030 gives this component; 𠦝 U+2099D is the same shape outside the BMP). The bamboo top is typed as the radical form ⺮ (U+2EAE).",
+   "left": [
+    "尸",
+    "⺮",
+    "门",
+    "夕",
+    "月"
+   ],
+   "right": [
+    "卜",
+    "日",
+    "古",
+    "巩",
+    "龺"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     4,
+     4
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D1-02-1",
+     "left": "尸",
+     "key": 2,
+     "word": "居",
+     "explanation": {
+      "zh": "尸和古合成\"居\"。",
+      "en": "尸 and 古 make 居."
+     }
+    },
+    {
+     "id": "zx:L02-D1-02-2",
+     "left": "⺮",
+     "key": 3,
+     "word": "筑",
+     "explanation": {
+      "zh": "⺮和巩合成\"筑\"。",
+      "en": "⺮ and 巩 make 筑."
+     }
+    },
+    {
+     "id": "zx:L02-D1-02-3",
+     "left": "门",
+     "key": 1,
+     "word": "间",
+     "explanation": {
+      "zh": "门和日合成\"间\"——课本给的例子。",
+      "en": "门 and 日 make 间 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D1-02-4",
+     "left": "夕",
+     "key": 0,
+     "word": "外",
+     "explanation": {
+      "zh": "夕和卜合成\"外\"。",
+      "en": "夕 and 卜 make 外."
+     }
+    },
+    {
+     "id": "zx:L02-D1-02-5",
+     "left": "月",
+     "key": 4,
+     "word": "朝",
+     "explanation": {
+      "zh": "龺和月合成\"朝\"，龺在左，月在右。",
+      "en": "龺 and 月 make 朝, with 龺 on the left and 月 on the right."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D1-02w",
+   "day": "星期一",
+   "page": 2,
+   "ex": 2,
+   "type": "write",
+   "title": "连一连，写一写：把字写出来",
+   "title_en": "Match and write: write the characters",
+   "outline": false,
+   "items": [
+    {
+     "id": "zx:L02-D1-02w-1",
+     "parts": "门＋日",
+     "key": "间",
+     "explanation": {
+      "zh": "门在外面，日在里面：间——课本给的例子。",
+      "en": "门 outside, 日 inside: 间 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D1-02w-2",
+     "parts": "尸＋古",
+     "key": "居",
+     "explanation": {
+      "zh": "尸在上面和左面，古在里面：居。",
+      "en": "尸 over the top and down the left, 古 inside: 居."
+     }
+    },
+    {
+     "id": "zx:L02-D1-02w-3",
+     "parts": "⺮＋巩",
+     "key": "筑",
+     "explanation": {
+      "zh": "⺮在上，巩在下：筑。",
+      "en": "⺮ above, 巩 below: 筑."
+     }
+    },
+    {
+     "id": "zx:L02-D1-02w-4",
+     "parts": "夕＋卜",
+     "key": "外",
+     "explanation": {
+      "zh": "夕在左，卜在右：外。",
+      "en": "夕 on the left, 卜 on the right: 外."
+     }
+    },
+    {
+     "id": "zx:L02-D1-02w-5",
+     "parts": "龺＋月",
+     "key": "朝",
+     "explanation": {
+      "zh": "龺在左，月在右：朝。",
+      "en": "龺 on the left, 月 on the right: 朝."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D1-03",
+   "day": "星期一",
+   "page": 2,
+   "ex": 3,
+   "type": "sort",
+   "title": "根据提示找出部首相同的字",
+   "title_en": "Follow the prompts to find the characters with the same radicals",
+   "note": {
+    "zh": "把每个字放进它部首的格子里。课本已写好一个：氵——游。",
+    "en": "Put each character in the box of its radical. The book has placed one already: 氵 — 游."
+   },
+   "groups": [
+    "氵",
+    "艹",
+    "亻"
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D1-03-1",
+     "text": "游",
+     "key": 0,
+     "explanation": {
+      "zh": "游的部首是氵——课本给的例子。",
+      "en": "The radical of 游 is 氵 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D1-03-2",
+     "text": "蓝",
+     "key": 1,
+     "explanation": {
+      "zh": "蓝的部首是艹，在最上面。",
+      "en": "The radical of 蓝 is 艹, the grass top."
+     }
+    },
+    {
+     "id": "zx:L02-D1-03-3",
+     "text": "藏",
+     "key": 1,
+     "explanation": {
+      "zh": "藏的部首是艹，在最上面。",
+      "en": "The radical of 藏 is 艹, the grass top."
+     }
+    },
+    {
+     "id": "zx:L02-D1-03-4",
+     "text": "他",
+     "key": 2,
+     "explanation": {
+      "zh": "他的部首是亻，单人旁。",
+      "en": "The radical of 他 is 亻, the standing person."
+     }
+    },
+    {
+     "id": "zx:L02-D1-03-5",
+     "text": "位",
+     "key": 2,
+     "explanation": {
+      "zh": "位的部首是亻，单人旁。",
+      "en": "The radical of 位 is 亻, the standing person."
+     }
+    },
+    {
+     "id": "zx:L02-D1-03-6",
+     "text": "清",
+     "key": 0,
+     "explanation": {
+      "zh": "清的部首是氵，三点水。",
+      "en": "The radical of 清 is 氵, the three drops of water."
+     }
+    },
+    {
+     "id": "zx:L02-D1-03-7",
+     "text": "艺",
+     "key": 1,
+     "explanation": {
+      "zh": "艺的部首是艹，在最上面。",
+      "en": "The radical of 艺 is 艹, the grass top."
+     }
+    },
+    {
+     "id": "zx:L02-D1-03-8",
+     "text": "代",
+     "key": 2,
+     "explanation": {
+      "zh": "代的部首是亻，单人旁。",
+      "en": "The radical of 代 is 亻, the standing person."
+     }
+    },
+    {
+     "id": "zx:L02-D1-03-9",
+     "text": "汽",
+     "key": 0,
+     "explanation": {
+      "zh": "汽的部首是氵，三点水。",
+      "en": "The radical of 汽 is 氵, the three drops of water."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D1-04",
+   "day": "星期一",
+   "page": 3,
+   "ex": 4,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match to form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：世—界。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 世—界."
+   },
+   "left": [
+    "艺",
+    "内",
+    "世",
+    "参"
+   ],
+   "right": [
+    "界",
+    "观",
+    "外",
+    "术"
+   ],
+   "pairs": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D1-04-1",
+     "left": "艺",
+     "key": 3,
+     "word": "艺术",
+     "explanation": {
+      "zh": "艺—术：艺术。",
+      "en": "艺 + 术 = 艺术, art."
+     }
+    },
+    {
+     "id": "zx:L02-D1-04-2",
+     "left": "内",
+     "key": 2,
+     "word": "内外",
+     "explanation": {
+      "zh": "内—外：内外。",
+      "en": "内 + 外 = 内外, inside and outside."
+     }
+    },
+    {
+     "id": "zx:L02-D1-04-3",
+     "left": "世",
+     "key": 0,
+     "word": "世界",
+     "explanation": {
+      "zh": "世—界：世界——课本给的例子。",
+      "en": "世 + 界 = 世界, the world — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D1-04-4",
+     "left": "参",
+     "key": 1,
+     "word": "参观",
+     "explanation": {
+      "zh": "参—观：参观。",
+      "en": "参 + 观 = 参观, visit and look round."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D1-04w",
+   "day": "星期一",
+   "page": 3,
+   "ex": 4,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match to form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把三个词各写一遍（课本已写好：世界）。",
+    "en": "The matching was done on the site; here write each of the three words once (the book has written 世界 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D1-04w-1",
+     "prompt": "艺＋术 → 写出词语",
+     "prompt_en": "艺 + 术 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L02-D1-04w-2",
+     "prompt": "内＋外 → 写出词语",
+     "prompt_en": "内 + 外 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L02-D1-04w-3",
+     "prompt": "参＋观 → 写出词语",
+     "prompt_en": "参 + 观 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D2-01w",
+   "day": "星期二",
+   "page": 4,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看着部件，用笔把字写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "Look at the parts and write the character with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D2-01w-1",
+     "parts": "白＋王",
+     "key": "皇",
+     "explanation": {
+      "zh": "白在上，王在下：皇。",
+      "en": "白 above, 王 below: 皇."
+     }
+    },
+    {
+     "id": "zx:L02-D2-01w-2",
+     "parts": "亻＋立",
+     "key": "位",
+     "explanation": {
+      "zh": "亻在左，立在右：位。",
+      "en": "亻 on the left, 立 on the right: 位."
+     }
+    },
+    {
+     "id": "zx:L02-D2-01w-3",
+     "parts": "尸＋古",
+     "key": "居",
+     "explanation": {
+      "zh": "尸在上面和左面，古在里面：居。",
+      "en": "尸 over the top and down the left, 古 inside: 居."
+     }
+    },
+    {
+     "id": "zx:L02-D2-01w-4",
+     "parts": "⺮＋巩",
+     "key": "筑",
+     "explanation": {
+      "zh": "⺮在上，巩在下：筑。",
+      "en": "⺮ above, 巩 below: 筑."
+     }
+    },
+    {
+     "id": "zx:L02-D2-01w-5",
+     "parts": "艹＋臧",
+     "key": "藏",
+     "explanation": {
+      "zh": "艹在上，臧在下：藏。",
+      "en": "艹 above, 臧 below: 藏."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D2-01s",
+   "day": "星期二",
+   "page": 4,
+   "ex": 1,
+   "type": "sort",
+   "title": "左右结构、上下结构，还是半包围结构？",
+   "title_en": "Left–right, top–bottom, or half-enclosed?",
+   "groups": [
+    "左右结构",
+    "上下结构",
+    "半包围结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D2-01s-1",
+     "text": "皇",
+     "key": 1,
+     "explanation": {
+      "zh": "白在上、王在下：上下结构。",
+      "en": "白 above, 王 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L02-D2-01s-2",
+     "text": "位",
+     "key": 0,
+     "explanation": {
+      "zh": "亻在左、立在右：左右结构。",
+      "en": "亻 on the left, 立 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L02-D2-01s-3",
+     "text": "居",
+     "key": 2,
+     "explanation": {
+      "zh": "尸从上面和左面包住古：半包围结构。星期四的练习里，课本自己就把\"居\"写在半包围结构后面。",
+      "en": "尸 wraps 古 from the top and the left: half-enclosed. On Thursday the workbook itself writes 居 as its example of half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L02-D2-01s-4",
+     "text": "筑",
+     "key": 1,
+     "explanation": {
+      "zh": "⺮在上、巩在下：上下结构。",
+      "en": "⺮ above, 巩 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L02-D2-01s-5",
+     "text": "藏",
+     "key": 1,
+     "explanation": {
+      "zh": "艹在上、臧在下：上下结构。",
+      "en": "艹 above, 臧 below: top–bottom."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D2-02",
+   "day": "星期二",
+   "page": 5,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match to form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：皇—帝。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 皇—帝."
+   },
+   "left": [
+    "吸",
+    "著",
+    "机",
+    "皇"
+   ],
+   "right": [
+    "帝",
+    "会",
+    "引",
+    "名"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D2-02-1",
+     "left": "吸",
+     "key": 2,
+     "word": "吸引",
+     "explanation": {
+      "zh": "吸—引：吸引。",
+      "en": "吸 + 引 = 吸引, attract."
+     }
+    },
+    {
+     "id": "zx:L02-D2-02-2",
+     "left": "著",
+     "key": 3,
+     "word": "著名",
+     "explanation": {
+      "zh": "著—名：著名。",
+      "en": "著 + 名 = 著名, famous."
+     }
+    },
+    {
+     "id": "zx:L02-D2-02-3",
+     "left": "机",
+     "key": 1,
+     "word": "机会",
+     "explanation": {
+      "zh": "机—会：机会。",
+      "en": "机 + 会 = 机会, a chance."
+     }
+    },
+    {
+     "id": "zx:L02-D2-02-4",
+     "left": "皇",
+     "key": 0,
+     "word": "皇帝",
+     "explanation": {
+      "zh": "皇—帝：皇帝——课本给的例子。",
+      "en": "皇 + 帝 = 皇帝, emperor — the book's own example."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D2-02w",
+   "day": "星期二",
+   "page": 5,
+   "ex": 2,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match to form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把三个词各写一遍（课本已写好：皇帝）。",
+    "en": "The matching was done on the site; here write each of the three words once (the book has written 皇帝 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D2-02w-1",
+     "prompt": "吸＋引 → 写出词语",
+     "prompt_en": "吸 + 引 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L02-D2-02w-2",
+     "prompt": "著＋名 → 写出词语",
+     "prompt_en": "著 + 名 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L02-D2-02w-3",
+     "prompt": "机＋会 → 写出词语",
+     "prompt_en": "机 + 会 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D2-03",
+   "day": "星期二",
+   "page": 5,
+   "ex": 3,
+   "type": "free",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "note": {
+    "zh": "例：里 → 这里、里面。每个字组两个词。",
+    "en": "Example: 里 → 这里, 里面. Make two words with each character."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D2-03-1",
+     "prompt": "游：＿＿、＿＿",
+     "prompt_en": "游: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L02-D2-03-2",
+     "prompt": "机：＿＿、＿＿",
+     "prompt_en": "机: two words",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L02-D2-03-3",
+     "prompt": "殿：＿＿、＿＿",
+     "prompt_en": "殿: two words",
+     "blanks": 2,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D2-04",
+   "day": "星期二",
+   "page": 6,
+   "ex": 4,
+   "type": "tf",
+   "title": "选择正确的句子并读一读",
+   "title_en": "Choose the correct sentences and read",
+   "note": {
+    "zh": "每组两句，一句对、一句错。课本给的例子：有机会我要去故宫逛逛。（对）",
+    "en": "Each pair has one right sentence and one wrong. The book's example: 有机会我要去故宫逛逛 is the right one."
+   },
+   "scope_note": "The book ticks the example's first sentence and leaves the rest blank. In every pair the right sentence is the one that doubles its verb (逛逛, 看看, 用用, 看看, 走走), the lesson's own pattern (以后有机会我还要来故宫逛逛); the example settles the key for the four pairs. The example pair is kept as two items, as L03 and L04 kept a book's drawn line.",
+   "items": [
+    {
+     "id": "zx:L02-D2-04-1",
+     "text": "有机会我要去故宫逛逛。",
+     "key": true,
+     "explanation": {
+      "zh": "\"逛逛\"把\"逛\"说两遍，意思是随便走走、看一看——课本给的例子。",
+      "en": "逛逛 says the verb twice, which makes it a relaxed 'have a stroll round' — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D2-04-2",
+     "text": "有机会我要去故宫逛。",
+     "key": false,
+     "explanation": {
+      "zh": "句子停在一个\"逛\"上，听起来没说完；要说\"逛逛\"。",
+      "en": "Stopping on a single 逛 sounds unfinished; the sentence wants 逛逛."
+     }
+    },
+    {
+     "id": "zx:L02-D2-04-3",
+     "text": "奶奶对爸爸说：“常回家看看。”",
+     "key": true,
+     "explanation": {
+      "zh": "\"看看\"：回家来看一看，说得亲切自然。",
+      "en": "看看 — come home and look in on us — is the warm, natural way to say it."
+     }
+    },
+    {
+     "id": "zx:L02-D2-04-4",
+     "text": "奶奶对爸爸说：“常回家看。”",
+     "key": false,
+     "explanation": {
+      "zh": "一个\"看\"放在句尾，话像没说完；要说\"看看\"。",
+      "en": "A single 看 at the end leaves the sentence hanging; it wants 看看."
+     }
+    },
+    {
+     "id": "zx:L02-D2-04-5",
+     "text": "哥哥，我借你的铅笔用，好吗？",
+     "key": false,
+     "explanation": {
+      "zh": "借来用一下，要说\"用用\"；只说一个\"用\"，听起来不自然。",
+      "en": "Borrowing something for a moment is 用用, use it for a bit; a single 用 sounds abrupt."
+     }
+    },
+    {
+     "id": "zx:L02-D2-04-6",
+     "text": "哥哥，我借你的铅笔用用，好吗？",
+     "key": true,
+     "explanation": {
+      "zh": "\"用用\"是用一下，说得轻、有礼貌。",
+      "en": "用用 means use it for a little while — light and polite."
+     }
+    },
+    {
+     "id": "zx:L02-D2-04-7",
+     "text": "放假我也要去长城看看。",
+     "key": true,
+     "explanation": {
+      "zh": "\"看看\"是去看一看，和\"去故宫逛逛\"一样。",
+      "en": "看看 is go and have a look, just like 去故宫逛逛."
+     }
+    },
+    {
+     "id": "zx:L02-D2-04-8",
+     "text": "放假我也要去长城看。",
+     "key": false,
+     "explanation": {
+      "zh": "句尾只有一个\"看\"，话没说完；要说\"看看\"。",
+      "en": "Ending on a single 看 leaves it unfinished; the sentence wants 看看."
+     }
+    },
+    {
+     "id": "zx:L02-D2-04-9",
+     "text": "早上我会和姐姐在花园走。",
+     "key": false,
+     "explanation": {
+      "zh": "在花园里随便走一走，要说\"走走\"；一个\"走\"放在句尾不自然。",
+      "en": "A stroll round the garden is 走走; a single 走 at the end does not sound right."
+     }
+    },
+    {
+     "id": "zx:L02-D2-04-10",
+     "text": "早上我会和姐姐在花园走走。",
+     "key": true,
+     "explanation": {
+      "zh": "\"走走\"是散散步、随便走一走。",
+      "en": "走走 means take a little walk, a stroll."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D2-04r",
+   "day": "星期二",
+   "page": 6,
+   "ex": 4,
+   "type": "read",
+   "title": "选择正确的句子并读一读：把对的句子读一读",
+   "title_en": "Choose the correct sentences and read: read the right ones aloud",
+   "note": {
+    "zh": "先在上一题选好，再把对的五句读出来，录下来就行，不打分。对照在批改的时候看。",
+    "en": "Choose in the exercise before this one first, then read the five right sentences aloud; it is recorded, not scored. The comparison is for the evaluation."
+   },
+   "text": "有机会我要去故宫逛逛。\n奶奶对爸爸说：“常回家看看。”\n哥哥，我借你的铅笔用用，好吗？\n放假我也要去长城看看。\n早上我会和姐姐在花园走走。"
+  },
+  {
+   "id": "zx:L02-D3-01",
+   "day": "星期三",
+   "page": 6,
+   "ex": 1,
+   "type": "write",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "outline": false,
+   "note": {
+    "zh": "葫芦上面是拼音，下面是字。课本给的例子：nèi—内。看拼音，写出这一课的生字。",
+    "en": "Each gourd has the pinyin on top and the character below. The book's example: nèi — 内. From the pinyin, write this lesson's character."
+   },
+   "scope_note": "The book's five gourds are nèi/内 (the example), jiān/—, —/清, —/筑 and cáng/—. Two ask for the character from the pinyin and are kept; the two that ask for the pinyin of 清 (qīng) and 筑 (zhù) are left out, as L04 left out its pinyin item: a 米字格 is no place for pinyin. The context names the lesson because the gourd gives the pinyin alone and the book relies on the lesson's 生字 list to make it one character.",
+   "items": [
+    {
+     "id": "zx:L02-D3-01-1",
+     "py": "jiān",
+     "context": "（本课生字）",
+     "key": "间",
+     "explanation": {
+      "zh": "jiān：房间、时间的\"间\"。",
+      "en": "jiān — 间, as in 房间."
+     }
+    },
+    {
+     "id": "zx:L02-D3-01-2",
+     "py": "cáng",
+     "context": "（本课生字）",
+     "key": "藏",
+     "explanation": {
+      "zh": "cáng：收藏、藏起来的\"藏\"。",
+      "en": "cáng — 藏, as in 收藏."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D3-02",
+   "day": "星期三",
+   "page": 7,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match to form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：宫—殿。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 宫—殿."
+   },
+   "left": [
+    "皇",
+    "宫",
+    "一",
+    "世",
+    "居"
+   ],
+   "right": [
+    "殿",
+    "共",
+    "帝",
+    "住",
+    "界"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     4,
+     3
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D3-02-1",
+     "left": "皇",
+     "key": 2,
+     "word": "皇帝",
+     "explanation": {
+      "zh": "皇—帝：皇帝。",
+      "en": "皇 + 帝 = 皇帝, emperor."
+     }
+    },
+    {
+     "id": "zx:L02-D3-02-2",
+     "left": "宫",
+     "key": 0,
+     "word": "宫殿",
+     "explanation": {
+      "zh": "宫—殿：宫殿——课本给的例子。",
+      "en": "宫 + 殿 = 宫殿, palace — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D3-02-3",
+     "left": "一",
+     "key": 1,
+     "word": "一共",
+     "explanation": {
+      "zh": "一—共：一共。",
+      "en": "一 + 共 = 一共, altogether."
+     }
+    },
+    {
+     "id": "zx:L02-D3-02-4",
+     "left": "世",
+     "key": 4,
+     "word": "世界",
+     "explanation": {
+      "zh": "世—界：世界。",
+      "en": "世 + 界 = 世界, the world."
+     }
+    },
+    {
+     "id": "zx:L02-D3-02-5",
+     "left": "居",
+     "key": 3,
+     "word": "居住",
+     "explanation": {
+      "zh": "居—住：居住。",
+      "en": "居 + 住 = 居住, live, reside."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D3-02w",
+   "day": "星期三",
+   "page": 7,
+   "ex": 2,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match to form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把四个词各写一遍（课本已写好：宫殿）。",
+    "en": "The matching was done on the site; here write each of the four words once (the book has written 宫殿 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D3-02w-1",
+     "prompt": "皇＋帝 → 写出词语",
+     "prompt_en": "皇 + 帝 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L02-D3-02w-2",
+     "prompt": "一＋共 → 写出词语",
+     "prompt_en": "一 + 共 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L02-D3-02w-3",
+     "prompt": "世＋界 → 写出词语",
+     "prompt_en": "世 + 界 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L02-D3-02w-4",
+     "prompt": "居＋住 → 写出词语",
+     "prompt_en": "居 + 住 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D3-04",
+   "day": "星期三",
+   "page": 7,
+   "ex": 4,
+   "type": "order",
+   "title": "把下面的句子排成一段话",
+   "title_en": "Sequence the sentences to make a paragraph",
+   "note": {
+    "zh": "按故事的先后排好四句话。",
+    "en": "Put the four sentences in the order the visit happened."
+   },
+   "page_note": "The exercise starts at the foot of p. 7 and its last two sentences are at the top of p. 8; the pieces are in the book's printed order. The workbook's own wording (还想来, 只参观了著名的太和殿) differs from the 课文's and is typed as the workbook prints it.",
+   "items": [
+    {
+     "id": "zx:L02-D3-04-1",
+     "pieces": [
+      "故宫真的很大，我们只参观了著名的太和殿。",
+      "今天妈妈带我去游故宫。",
+      "以后有机会我还想来故宫逛逛。",
+      "我们以天安门为起点，一路向北，从午门进入故宫。"
+     ],
+     "key": [
+      1,
+      3,
+      0,
+      2
+     ],
+     "explanation": {
+      "zh": "故事的顺序：先说今天妈妈带我去游故宫，再说从天安门一路向北、从午门进去，然后说故宫很大、只参观了太和殿，最后说以后还想再来。",
+      "en": "The order of the visit: Mother takes me to the palace today; we start at Tiananmen and go in by the Meridian Gate; the palace is huge and we see only the Hall of Supreme Harmony; and last, I want to come back."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D4-01",
+   "day": "星期四",
+   "page": 8,
+   "ex": 1,
+   "type": "sort",
+   "title": "根据提示找出结构相同的字",
+   "title_en": "Follow the prompts to find the characters with the same structures",
+   "note": {
+    "zh": "把每个字放进它结构的格子里。课本已在每一行写好一个：外、筑、居。",
+    "en": "Put each character in the box of its structure. The book has written one on each line already: 外, 筑, 居."
+   },
+   "groups": [
+    "左右结构",
+    "上下结构",
+    "半包围结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D4-01-1",
+     "text": "筑",
+     "key": 1,
+     "explanation": {
+      "zh": "⺮在上、巩在下：上下结构——课本给的例子。",
+      "en": "⺮ above, 巩 below: top–bottom — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D4-01-2",
+     "text": "展",
+     "key": 2,
+     "explanation": {
+      "zh": "尸从上面和左面包住下面的部分：半包围结构，和\"居\"一样。",
+      "en": "尸 wraps the rest from the top and the left: half-enclosed, like 居."
+     }
+    },
+    {
+     "id": "zx:L02-D4-01-3",
+     "text": "清",
+     "key": 0,
+     "explanation": {
+      "zh": "氵在左、青在右：左右结构。",
+      "en": "氵 on the left, 青 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L02-D4-01-4",
+     "text": "藏",
+     "key": 1,
+     "explanation": {
+      "zh": "艹在上、臧在下：上下结构。",
+      "en": "艹 above, 臧 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L02-D4-01-5",
+     "text": "朝",
+     "key": 0,
+     "explanation": {
+      "zh": "龺在左、月在右：左右结构。",
+      "en": "龺 on the left, 月 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L02-D4-01-6",
+     "text": "居",
+     "key": 2,
+     "explanation": {
+      "zh": "尸从上面和左面包住古：半包围结构——课本给的例子。",
+      "en": "尸 wraps 古 from the top and the left: half-enclosed — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D4-01-7",
+     "text": "皇",
+     "key": 1,
+     "explanation": {
+      "zh": "白在上、王在下：上下结构。",
+      "en": "白 above, 王 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L02-D4-01-8",
+     "text": "位",
+     "key": 0,
+     "explanation": {
+      "zh": "亻在左、立在右：左右结构。",
+      "en": "亻 on the left, 立 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L02-D4-01-9",
+     "text": "外",
+     "key": 0,
+     "explanation": {
+      "zh": "夕在左、卜在右：左右结构——课本给的例子。",
+      "en": "夕 on the left, 卜 on the right: left–right — the book's own example."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D4-03",
+   "day": "星期四",
+   "page": 9,
+   "ex": 3,
+   "type": "slots",
+   "title": "根据课文回答问题（1）",
+   "title_en": "Answer the questions according to the text (1)",
+   "shape_note": "练习3 on pp. 9–10 is four questions of three kinds, so it is four site exercises: (1) has one answer among four, a slots item with the book's own four options; (2) and (3) ask 哪些 and have two and three right options, so each option is a true/false item (D4-03b, D4-03c); (4) is an open answer (D4-03d). Not bank items: one weekday holds one block, and 星期四's is 练习2.",
+   "options": [
+    "爸爸",
+    "爷爷",
+    "妈妈",
+    "奶奶"
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D4-03-1",
+     "before": "（1）谁带\"我\"去游故宫？",
+     "slot": "答",
+     "key": 2,
+     "explanation": {
+      "zh": "课文第一句：今天妈妈带我去游故宫。",
+      "en": "The text's first line: 今天妈妈带我去游故宫 — Mother takes me."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D4-03b",
+   "day": "星期四",
+   "page": 9,
+   "ex": 3,
+   "type": "tf",
+   "title": "根据课文回答问题（2）",
+   "title_en": "Answer the questions according to the text (2)",
+   "note": {
+    "zh": "（2）故宫是中国哪些朝代的皇宫？答案不止一个：是的点\"对\"，不是的点\"错\"。",
+    "en": "(2) Which Chinese dynasties was the Forbidden City the imperial palace of? There is more than one answer: tap True for each that is, False for each that is not."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D4-03b-1",
+     "text": "秦朝",
+     "key": false,
+     "explanation": {
+      "zh": "课文说故宫是明朝和清朝的皇宫，没有说秦朝。",
+      "en": "The text says it was the palace of the Ming and the Qing — not the Qin."
+     }
+    },
+    {
+     "id": "zx:L02-D4-03b-2",
+     "text": "明朝",
+     "key": true,
+     "explanation": {
+      "zh": "课文：故宫是中国明朝和清朝的皇宫。",
+      "en": "The text: 故宫是中国明朝和清朝的皇宫 — the Ming is one."
+     }
+    },
+    {
+     "id": "zx:L02-D4-03b-3",
+     "text": "唐朝",
+     "key": false,
+     "explanation": {
+      "zh": "课文说的是明朝和清朝，没有唐朝。",
+      "en": "The text names the Ming and the Qing; the Tang is not one of them."
+     }
+    },
+    {
+     "id": "zx:L02-D4-03b-4",
+     "text": "清朝",
+     "key": true,
+     "explanation": {
+      "zh": "课文：故宫是中国明朝和清朝的皇宫。",
+      "en": "The text: 故宫是中国明朝和清朝的皇宫 — the Qing is the other."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D4-03c",
+   "day": "星期四",
+   "page": 9,
+   "ex": 3,
+   "type": "tf",
+   "title": "根据课文回答问题（3）",
+   "title_en": "Answer the questions according to the text (3)",
+   "note": {
+    "zh": "（3）故宫最著名的三座大殿是哪些？是的点\"对\"，不是的点\"错\"。",
+    "en": "(3) Which are the three most famous halls of the Forbidden City? Tap True for each that is one, False for each that is not."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D4-03c-1",
+     "text": "太和殿",
+     "key": true,
+     "explanation": {
+      "zh": "课文：今天我们只参观了它最著名的三座大殿：太和殿、中和殿和保和殿。",
+      "en": "The text names 太和殿, 中和殿 and 保和殿 — 太和殿 is one."
+     }
+    },
+    {
+     "id": "zx:L02-D4-03c-2",
+     "text": "中和殿",
+     "key": true,
+     "explanation": {
+      "zh": "课文：今天我们只参观了它最著名的三座大殿：太和殿、中和殿和保和殿。",
+      "en": "The text names 太和殿, 中和殿 and 保和殿 — 中和殿 is one."
+     }
+    },
+    {
+     "id": "zx:L02-D4-03c-3",
+     "text": "交泰殿",
+     "key": false,
+     "explanation": {
+      "zh": "课文说的三座大殿是太和殿、中和殿和保和殿，没有交泰殿。",
+      "en": "The three halls the text names are 太和殿, 中和殿 and 保和殿; 交泰殿 is not among them."
+     }
+    },
+    {
+     "id": "zx:L02-D4-03c-4",
+     "text": "保和殿",
+     "key": true,
+     "explanation": {
+      "zh": "课文：今天我们只参观了它最著名的三座大殿：太和殿、中和殿和保和殿。",
+      "en": "The text names 太和殿, 中和殿 and 保和殿 — 保和殿 is one."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D4-03d",
+   "day": "星期四",
+   "page": 10,
+   "ex": 3,
+   "type": "free",
+   "title": "根据课文回答问题（4）",
+   "title_en": "Answer the questions according to the text (4)",
+   "items": [
+    {
+     "id": "zx:L02-D4-03d-1",
+     "prompt": "（4）以后有机会\"我\"还要怎样？",
+     "prompt_en": "(4) Given the chance later on, what does the writer still want to do?",
+     "blanks": 1,
+     "cells": 24
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D4-04",
+   "day": "星期四",
+   "page": 10,
+   "ex": 4,
+   "type": "free",
+   "title": "根据提示完成对话",
+   "title_en": "Follow the prompts to complete the dialogue",
+   "note": {
+    "zh": "亮亮游北京路线——路线一：天安门广场、故宫、景山公园；路线二：南锣鼓巷、鼓楼、什刹海；路线三：长城、圆明园、颐和园。云云问：亮亮，你寒假去哪里玩儿了？……北京好多景点呢，你都去哪儿了？",
+    "en": "Liangliang's routes round Beijing — Route 1: 天安门广场, 故宫, 景山公园; Route 2: 南锣鼓巷, 鼓楼, 什刹海; Route 3: 长城, 圆明园, 颐和园. Yunyun asks where he went in the winter holiday, and then which of Beijing's sights he saw."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D4-04-1",
+     "prompt": "亮亮：我去＿＿了。",
+     "prompt_en": "亮亮：我去＿＿了。 (where he went)",
+     "blanks": 1,
+     "cells": 4
+    },
+    {
+     "id": "zx:L02-D4-04-2",
+     "prompt": "亮亮：我去了好多地方，有＿＿呀、＿＿呀、＿＿呀……我照了照片，你看！",
+     "prompt_en": "亮亮：我去了好多地方，有＿＿呀、＿＿呀、＿＿呀…… (three places on one route)",
+     "blanks": 3,
+     "cells": 5
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D4-05",
+   "day": "星期四",
+   "page": 11,
+   "ex": 5,
+   "type": "free",
+   "title": "根据提示写一写你出去玩儿的一天（四十字以上）",
+   "title_en": "Follow the prompts to write about a day out with more than 40 characters",
+   "note": {
+    "zh": "提示表：去（　　）玩。日期、天气、人物、地点、看了什么、玩儿了什么、吃了什么、心情怎么样。",
+    "en": "The prompt table: 去（　）玩 — where you went; then the date, the weather, who was there, the place, what you saw, played and ate, and how you felt."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D4-05-1",
+     "prompt": "写一写你出去玩儿的一天（四十字以上）。",
+     "prompt_en": "Write about a day out (more than 40 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D5-02",
+   "day": "星期五",
+   "page": 12,
+   "ex": 2,
+   "type": "tf",
+   "title": "看图，判断正误",
+   "title_en": "Look and check",
+   "note": {
+    "zh": "图在练习册第12页。每组两句，一句对、一句错。课本给的例子：爸爸在开车。（对）",
+    "en": "The pictures are on workbook p. 12. Each pair has one right sentence and one wrong. The book's example: 爸爸在开车 is the right one."
+   },
+   "items": [
+    {
+     "id": "zx:L02-D5-02-1",
+     "text": "爸爸在开车。",
+     "key": true,
+     "explanation": {
+      "zh": "图上是爸爸在开车——课本给的例子。",
+      "en": "The picture shows the father driving — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D5-02-2",
+     "text": "妈妈在开车。",
+     "key": false,
+     "explanation": {
+      "zh": "开车的是爸爸，不是妈妈——课本给的例子。",
+      "en": "The driver is the father, not the mother — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L02-D5-02-3",
+     "text": "一位女老师",
+     "key": true,
+     "explanation": {
+      "zh": "图上的女士站在讲桌后面，一手拿书，一手拿教鞭：是老师。",
+      "en": "The woman stands behind a desk with a book in one hand and a pointer in the other: a teacher."
+     }
+    },
+    {
+     "id": "zx:L02-D5-02-4",
+     "text": "一位女医生",
+     "key": false,
+     "explanation": {
+      "zh": "她拿着书和教鞭站在讲桌后面，是在上课，不是在看病。",
+      "en": "With a book and a pointer behind a desk she is teaching, not treating patients."
+     }
+    },
+    {
+     "id": "zx:L02-D5-02-5",
+     "text": "我要看看美丽的花。",
+     "key": true,
+     "explanation": {
+      "zh": "图上是几朵红花，花是用眼睛看的：看看美丽的花。",
+      "en": "The picture shows red flowers, and flowers are for looking at: 看看美丽的花."
+     }
+    },
+    {
+     "id": "zx:L02-D5-02-6",
+     "text": "我要听听中文歌。",
+     "key": false,
+     "explanation": {
+      "zh": "图上没有歌，只有花；歌是听的，花是看的。",
+      "en": "There is no song in the picture, only flowers; songs are heard, flowers are seen."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D5-03",
+   "day": "星期五",
+   "page": 13,
+   "ex": 3,
+   "type": "match",
+   "title": "连一连",
+   "title_en": "Match",
+   "note": {
+    "zh": "左边是问的话，右边是回答。先点左边一句，再点右边回答它的那一句。",
+    "en": "On the left, the questions; on the right, the answers. Tap a question, then the answer that goes with it."
+   },
+   "left": [
+    "你去哪儿了？",
+    "看！这是长城！",
+    "你和谁去的故宫？",
+    "北京好玩儿吗？"
+   ],
+   "right": [
+    "真好看！我也要去看看。",
+    "和妈妈。",
+    "我去北京看望爷爷奶奶了。",
+    "好玩儿！有机会你也去逛逛吧。"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     3
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L02-D5-03-1",
+     "left": "你去哪儿了？",
+     "key": 2,
+     "explanation": {
+      "zh": "问去哪儿，答一个地方：我去北京看望爷爷奶奶了。",
+      "en": "Asked where, the answer names a place: 我去北京看望爷爷奶奶了."
+     }
+    },
+    {
+     "id": "zx:L02-D5-03-2",
+     "left": "看！这是长城！",
+     "key": 0,
+     "explanation": {
+      "zh": "看到长城，就说：真好看！我也要去看看。",
+      "en": "Shown the Great Wall, you say how lovely it is and that you want to go and see it too."
+     }
+    },
+    {
+     "id": "zx:L02-D5-03-3",
+     "left": "你和谁去的故宫？",
+     "key": 1,
+     "explanation": {
+      "zh": "问\"和谁\"，答一个人：和妈妈。",
+      "en": "Asked 'with whom', the answer is a person: 和妈妈."
+     }
+    },
+    {
+     "id": "zx:L02-D5-03-4",
+     "left": "北京好玩儿吗？",
+     "key": 3,
+     "explanation": {
+      "zh": "问好不好玩儿，答：好玩儿！有机会你也去逛逛吧。",
+      "en": "Asked whether it is fun, the answer begins 好玩儿 — yes, it is."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D5-04",
+   "day": "星期五",
+   "page": 13,
+   "ex": 4,
+   "type": "speak",
+   "title": "父母读给孩子听，听后一起说一说感想",
+   "title_en": "Ask your parents to read, listen and tell what you think",
+   "question": {
+    "zh": "听了《爱旅行的小火车》，你有什么感想？",
+    "en": "After hearing 爱旅行的小火车, what do you think?"
+   },
+   "note": {
+    "zh": "请爸爸妈妈读练习册第13–15页的《爱旅行的小火车》给你听。听完说说你的感想，录下来，再请他们点一下\"家长已听\"。",
+    "en": "Have a parent read 爱旅行的小火车 on workbook pp. 13–15 to you. Then say what you think and it is recorded; have them tap Listened."
+   }
+  },
+  {
+   "id": "zx:L02-D5-05",
+   "day": "星期五",
+   "page": 15,
+   "ex": 5,
+   "type": "free",
+   "title": "根据提示写一写你的旅游日记（四十字以上）",
+   "title_en": "Follow the prompts to write a travel diary with more than 40 characters",
+   "note": {
+    "zh": "提示：谁带你去的？你们什么时候去的？去了哪里？有什么好玩儿的东西吗？有什么美食吗？你们吃了什么？你喜欢那里的景色和美食吗？……",
+    "en": "Prompts: Who took you? When did you go? Where did you go? Was there anything fun? Was there good food, and what did you eat? Did you like the scenery and the food there? …"
+   },
+   "items": [
+    {
+     "id": "zx:L02-D5-05-1",
+     "prompt": "写一写你的旅游日记（四十字以上）。",
+     "prompt_en": "Write your travel diary (more than 40 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

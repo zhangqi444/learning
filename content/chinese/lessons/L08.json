@@ -1,0 +1,327 @@
+{
+ "id": "L08",
+ "no": 8,
+ "title": "数星星的孩子",
+ "title_en": "The Boy Who Counted Stars",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "82–83",
+  "生字·词语·句子": "84",
+  "课堂练习": "85–88",
+  "阅读": "89–91"
+ },
+ "pages_note": "Read off the 目录 (教材 PDF index 12–13: the lesson at the foot of index 12, its 阅读 at the head of index 13) and confirmed on each rendered page: 第八课 runs pp. 82–91, 第九课 starts p. 92. p. 84 carries 生字, 词语, 专有名词 and 句子. 课堂练习 is pp. 85–88 (描一描写一写 85, 读一读 85–86, 用一用 86, 扩展与替换 86–87, 想一想说一说 87, 对话 87–88, 课堂游戏 88); the 阅读 text is pp. 89–90 with its 想一想 and 日积月累 on p. 91.",
+ "课文": {
+  "where": {
+   "zh": "课本第82–83页",
+   "en": "Textbook pp. 82–83"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第84页",
+   "en": "Textbook p. 84"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. 数 is listed as shǔ, the verb to count, which is how the 课文 uses it throughout (数星星, 数得清); the noun reading shù is not taught here.",
+  "items": [
+   {
+    "zi": "数",
+    "py": "shǔ",
+    "gloss": {
+     "zh": "一个一个地点数目：数星星",
+     "en": "count, as in 数星星, count the stars"
+    }
+   },
+   {
+    "zi": "靠",
+    "py": "kào",
+    "gloss": {
+     "zh": "身体挨着别的人或东西：靠着奶奶",
+     "en": "lean against, as in 靠着奶奶"
+    }
+   },
+   {
+    "zi": "仰",
+    "py": "yǎng",
+    "gloss": {
+     "zh": "抬起头，脸向上",
+     "en": "face upward, tilt the head back"
+    }
+   },
+   {
+    "zi": "颗",
+    "py": "kē",
+    "gloss": {
+     "zh": "量词：一颗星、一颗牙齿",
+     "en": "measure word for small round things: a star, a tooth"
+    }
+   },
+   {
+    "zi": "连",
+    "py": "lián",
+    "gloss": {
+     "zh": "把东西接在一起",
+     "en": "join, link"
+    }
+   },
+   {
+    "zi": "勺",
+    "py": "sháo",
+    "gloss": {
+     "zh": "舀汤、舀饭用的东西；勺子",
+     "en": "spoon, ladle"
+    }
+   },
+   {
+    "zi": "斗",
+    "py": "dǒu",
+    "gloss": {
+     "zh": "北斗星的\"斗\"；从前量米用的器具",
+     "en": "as in 北斗星, the Big Dipper; an old measure for grain"
+    }
+   },
+   {
+    "zi": "离",
+    "py": "lí",
+    "gloss": {
+     "zh": "两个地方隔着一段路：离它不远；离开",
+     "en": "be away from, as in 离它不远, not far from it; leave"
+    }
+   },
+   {
+    "zi": "远",
+    "py": "yuǎn",
+    "gloss": {
+     "zh": "隔得长，跟\"近\"相对",
+     "en": "far"
+    }
+   },
+   {
+    "zi": "衡",
+    "py": "héng",
+    "gloss": {
+     "zh": "张衡的\"衡\"；平衡",
+     "en": "as in 张衡, Zhang Heng; balance (平衡)"
+    }
+   },
+   {
+    "zi": "努",
+    "py": "nǔ",
+    "gloss": {
+     "zh": "努力的\"努\"：使出力气，用心去做",
+     "en": "as in 努力, make an effort, work hard"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "非",
+    "zi": "靠"
+   },
+   {
+    "bu": "斗",
+    "zi": "斗"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第84页",
+   "en": "Textbook p. 84"
+  },
+  "items": [
+   {
+    "w": "星星",
+    "py": "xīngxing"
+   },
+   {
+    "w": "夜晚",
+    "py": "yèwǎn"
+   },
+   {
+    "w": "天空",
+    "py": "tiānkōng"
+   },
+   {
+    "w": "明亮",
+    "py": "míngliàng"
+   },
+   {
+    "w": "院子",
+    "py": "yuànzi"
+   },
+   {
+    "w": "努力",
+    "py": "nǔlì"
+   }
+  ]
+ },
+ "专有名词": {
+  "where": {
+   "zh": "课本第84页",
+   "en": "Textbook p. 84"
+  },
+  "section_note": "As in L03: the book prints 专有名词 (Proper nouns) between 词语 and 句子 on p. 84, with the pinyin capitalised as a name. Kept as the book has it; the lesson page may ignore it.",
+  "items": [
+   {
+    "w": "北斗星",
+    "py": "Běidǒuxīng"
+   },
+   {
+    "w": "北极星",
+    "py": "Běijíxīng"
+   },
+   {
+    "w": "张衡",
+    "py": "Zhāng Héng"
+   }
+  ]
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第84页",
+   "en": "Textbook p. 84"
+  },
+  "zh": "那么多星星，你能数得清吗？",
+  "py": "nà me duō xīng xing, nǐ néng shǔ de qīng ma?"
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第86–87页 扩展与替换",
+   "en": "Textbook pp. 86–87, Expand and substitute"
+  },
+  "pattern": "……能……得……吗？",
+  "ladder": [
+   "数",
+   "数得清",
+   "数得清吗？",
+   "你能数得清吗？",
+   "那么多星星，你能数得清吗？"
+  ],
+  "substitutions": {
+   "frame": [
+    "那么多星星",
+    "，",
+    "你能数",
+    "得",
+    "清",
+    "吗？"
+   ],
+   "rows": [
+    [
+     "那么多水",
+     "你能喝",
+     "完"
+    ],
+    [
+     "字那么小",
+     "你能看",
+     "见"
+    ],
+    [
+     "他说得那么快",
+     "你能听",
+     "懂"
+    ]
+   ]
+  },
+  "substitutions_note": "The ladder is on p. 86 and the blue 替换 table on p. 87: the sentence split as 那么多星星 / ， / 你能数 / 得 / 清 / 吗？, with 那么多星星, 你能数 and 清 underlined (the comma is not underlined, so it is a part of its own) and 得 and 吗 printed in red as the fixed parts; each row swaps the three underlined parts. Added as the book prints it, as in L03 and L04. The pattern label is authored, from the red 得 and the ladder."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第85–86页",
+   "en": "Textbook pp. 85–86"
+  },
+  "rows": [
+   [
+    "数星星",
+    "数一数",
+    "数得清",
+    "数不清"
+   ],
+   [
+    "靠着",
+    "背靠背",
+    "可靠",
+    "仰头",
+    "仰望",
+    "仰面"
+   ],
+   [
+    "一颗星",
+    "一颗牙齿",
+    "一颗汗珠"
+   ],
+   [
+    "连起来",
+    "连接",
+    "连一连"
+   ],
+   [
+    "勺子",
+    "饭勺",
+    "汤勺",
+    "北斗星"
+   ],
+   [
+    "离得近",
+    "离得远",
+    "离开",
+    "分离",
+    "离别"
+   ],
+   [
+    "远近",
+    "远处",
+    "远方"
+   ],
+   [
+    "张衡",
+    "平衡",
+    "努力"
+   ]
+  ],
+  "page_break_note": "the first three rows are on p. 85, under 描一描写一写; the last five on p. 86, above 用一用"
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第86页",
+   "en": "Textbook p. 86"
+  },
+  "rows": [
+   [
+    "夏天的夜晚"
+   ],
+   [
+    "夜晚的天空",
+    "天空中",
+    "飞过天空"
+   ],
+   [
+    "明亮的教室",
+    "明亮的大眼睛"
+   ],
+   [
+    "很努力",
+    "努力学习"
+   ]
+  ]
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第89–91页",
+   "en": "Textbook pp. 89–91"
+  },
+  "title": "聪明的爱迪生",
+  "title_en": "Clever Edison",
+  "sidebar": [
+   "急病：突然发作的比较严重的病。",
+   "手术（动手术　做手术　大手术）",
+   "着急（别着急　很着急　着什么急）"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The text runs pp. 89–90; all three margin entries are on p. 89, each after a ★, and p. 90 has none. 手术 and 着急 carry example phrases under them rather than a gloss, kept here in brackets as L04 did with 帮忙. p. 91 carries the reading's 想一想，说一说 (three questions) and 日积月累 (兴趣是最好的老师。——［美国、瑞士］爱因斯坦), neither reproduced."
+ }
+}

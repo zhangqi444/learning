@@ -1,0 +1,1354 @@
+{
+ "lesson": "L08",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》",
+ "file_note": "The workbook's exercises for 第八课, typed from 练习册B pp. 46–58 (PDF index = printed + 4, verified on p. 46, where the lesson's title page and 星期一 open), with the 星期五 练习1 listening sentences read from the appendix 听力文本 on p. 83. Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; the four-choice exercises are `blocks` naming zh-word items. 星期三 has two four-choice exercises (练习2 找出不同类的词 on p. 51 and 练习3 选词填空 on p. 52), so it has two blocks, zb:L08-D3 and zb:L08-D3b; the site sorts blocks and exercises together by day and exercise number, so they sit in the book's order. 星期四 练习4 is 连一连，读一读, so it is a match (zx:L08-D4-04) followed by a read of the four matched sentences (zx:L08-D4-04r). Left out because no type fits, with their keys so a type can be added: 星期一 练习3's pinyin half (p. 47 — 靠 kào under 靠着, 元 yuán under 一元, 吓 xià under 吓人; the word half is kept as zx:L08-D1-03); 星期四 练习1 (p. 53, tick one of two in each bracket, the example 他在（数✓ 书）星星 given: (1) 靠 not 告 (2) 仰 not 样 (3) 一颗一颗 not 一棵一棵 (4) 清 not 睛); 星期四 练习3 (p. 54, choose A or B according to the text: (1) A 夏天的夜晚 (2) A 院子里 (3) B 北斗星 (4) B 中国人). A two-choice `pick` type with the book's own options per item would take both. 星期五 练习3 (pp. 57–58) is a passage of the workbook's own about Newton and the falling apple; it is not typed, under the hold on every text of the book, so only its writing half (人物、事件、感想) is kept, as zx:L08-D5-03.",
+ "blocks": [
+  {
+   "id": "zb:L08-D2",
+   "day": "星期二",
+   "page": 49,
+   "ex": 3,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L08-01",
+    "zc:L08-02",
+    "zc:L08-03",
+    "zc:L08-04",
+    "zc:L08-05"
+   ],
+   "scope_note": "The book offers five measure words (把 位 颗 本 件) for five sentences, each used once. Each item carries the right word and three of the other four, so the task she faces is the book's: which of the box fits this sentence."
+  },
+  {
+   "id": "zb:L08-D3",
+   "day": "星期三",
+   "page": 51,
+   "ex": 2,
+   "title": "找出不同类的词，写在括号里",
+   "title_en": "Find the odd words out and write in the brackets",
+   "items": [
+    "zc:L08-06",
+    "zc:L08-07",
+    "zc:L08-08",
+    "zc:L08-09"
+   ],
+   "scope_note": "Four words a row, one of which is not the same kind as the other three; the book's example is 教室 学校 动物园 走路 → 走路. Each row is one four-choice item whose choices are the row's own four words, reordered so the keys are not the book's C, D, C, D. Writing the chosen word into the brackets is copying it, so no writing half is added."
+  },
+  {
+   "id": "zb:L08-D3b",
+   "day": "星期三",
+   "page": 52,
+   "ex": 3,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L08-10",
+    "zc:L08-11",
+    "zc:L08-12",
+    "zc:L08-13",
+    "zc:L08-14"
+   ],
+   "scope_note": "A second block on 星期三, because the day has two four-choice exercises (练习2 on p. 51 and this one on p. 52); the site sorts blocks with the exercises by day and exercise number, so the two sit in the book's order. The book offers five words (星星 夜晚 靠着 明亮 院子) for five blanks in one passage, the 课文's first paragraph. Each item carries the right word and three of the other four, with the rest of the passage filled in around its blank."
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L08-D1-01w",
+   "day": "星期一",
+   "page": 46,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看着部件，用笔把字写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "Look at the parts and write the character with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L08-D1-01w-1",
+     "parts": "娄＋攵",
+     "key": "数",
+     "explanation": {
+      "zh": "娄在左，攵在右：数。",
+      "en": "娄 on the left, 攵 on the right: 数."
+     }
+    },
+    {
+     "id": "zx:L08-D1-01w-2",
+     "parts": "告＋非",
+     "key": "靠",
+     "explanation": {
+      "zh": "告在上，非在下：靠。",
+      "en": "告 above, 非 below: 靠."
+     }
+    },
+    {
+     "id": "zx:L08-D1-01w-3",
+     "parts": "亻＋卬",
+     "key": "仰",
+     "explanation": {
+      "zh": "亻在左，卬在右：仰。",
+      "en": "亻 on the left, 卬 on the right: 仰."
+     }
+    },
+    {
+     "id": "zx:L08-D1-01w-4",
+     "parts": "果＋页",
+     "key": "颗",
+     "explanation": {
+      "zh": "果在左，页在右：颗。",
+      "en": "果 on the left, 页 on the right: 颗."
+     }
+    },
+    {
+     "id": "zx:L08-D1-01w-5",
+     "parts": "辶＋车",
+     "key": "连",
+     "explanation": {
+      "zh": "辶从左边包到下面，车在里面：连。",
+      "en": "辶 wraps round the left and the bottom, 车 sits inside: 连."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D1-01s",
+   "day": "星期一",
+   "page": 46,
+   "ex": 1,
+   "type": "sort",
+   "title": "左右结构、上下结构，还是半包围结构？",
+   "title_en": "Left–right, top–bottom, or half-enclosed?",
+   "groups": [
+    "左右结构",
+    "上下结构",
+    "半包围结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D1-01s-1",
+     "text": "数",
+     "key": 0,
+     "explanation": {
+      "zh": "娄在左、攵在右：左右结构。",
+      "en": "娄 on the left, 攵 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L08-D1-01s-2",
+     "text": "靠",
+     "key": 1,
+     "explanation": {
+      "zh": "告在上、非在下：上下结构。",
+      "en": "告 above, 非 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L08-D1-01s-3",
+     "text": "仰",
+     "key": 0,
+     "explanation": {
+      "zh": "亻在左、卬在右：左右结构。",
+      "en": "亻 on the left, 卬 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L08-D1-01s-4",
+     "text": "颗",
+     "key": 0,
+     "explanation": {
+      "zh": "果在左、页在右：左右结构。",
+      "en": "果 on the left, 页 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L08-D1-01s-5",
+     "text": "连",
+     "key": 2,
+     "explanation": {
+      "zh": "辶从左边包到下面，车在里面：半包围结构。",
+      "en": "辶 wraps round the left and the bottom with 车 inside: half-enclosed."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D1-02",
+   "day": "星期一",
+   "page": 47,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，帮小蘑菇找到自己的伙伴",
+   "title_en": "Match to make characters",
+   "note": {
+    "zh": "先点上面蘑菇上的部件，再点下面能和它合成字的那一半。课本已连好一组：勹—丶，勺。",
+    "en": "Tap the part on a mushroom cap in the top row, then the half below that makes a character with it. The book has drawn one line already: 勹—丶, 勺."
+   },
+   "left": [
+    "勹",
+    "辶",
+    "奴",
+    "攵",
+    "非"
+   ],
+   "right": [
+    "告",
+    "丶",
+    "元",
+    "力",
+    "娄"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     4,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D1-02-1",
+     "left": "勹",
+     "key": 1,
+     "word": "勺",
+     "explanation": {
+      "zh": "勹和丶合成\"勺\"——课本给的例子。",
+      "en": "勹 and 丶 make 勺 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L08-D1-02-2",
+     "left": "辶",
+     "key": 2,
+     "word": "远",
+     "explanation": {
+      "zh": "辶和元合成\"远\"。",
+      "en": "辶 and 元 make 远."
+     }
+    },
+    {
+     "id": "zx:L08-D1-02-3",
+     "left": "奴",
+     "key": 3,
+     "word": "努",
+     "explanation": {
+      "zh": "奴和力合成\"努\"：奴在上，力在下。",
+      "en": "奴 and 力 make 努: 奴 above, 力 below."
+     }
+    },
+    {
+     "id": "zx:L08-D1-02-4",
+     "left": "攵",
+     "key": 4,
+     "word": "数",
+     "explanation": {
+      "zh": "攵和娄合成\"数\"：娄在左，攵在右。",
+      "en": "攵 and 娄 make 数: 娄 on the left, 攵 on the right."
+     }
+    },
+    {
+     "id": "zx:L08-D1-02-5",
+     "left": "非",
+     "key": 0,
+     "word": "靠",
+     "explanation": {
+      "zh": "非和告合成\"靠\"：告在上，非在下。",
+      "en": "非 and 告 make 靠: 告 above, 非 below."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D1-02w",
+   "day": "星期一",
+   "page": 47,
+   "ex": 2,
+   "type": "write",
+   "title": "连一连，帮小蘑菇找到自己的伙伴：把字写出来",
+   "title_en": "Match to make characters: write the characters",
+   "outline": false,
+   "note": {
+    "zh": "连线在前面做过了；这里按部件把五个字写出来（课本已写好：勺）。",
+    "en": "The matching was done on the site; here write the five characters from their parts (the book has written 勺 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L08-D1-02w-1",
+     "parts": "告＋非",
+     "key": "靠",
+     "explanation": {
+      "zh": "告在上，非在下：靠。",
+      "en": "告 above, 非 below: 靠."
+     }
+    },
+    {
+     "id": "zx:L08-D1-02w-2",
+     "parts": "勹＋丶",
+     "key": "勺",
+     "explanation": {
+      "zh": "勹在外面，丶在里面：勺——课本给的例子。",
+      "en": "勹 outside, 丶 inside: 勺 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L08-D1-02w-3",
+     "parts": "辶＋元",
+     "key": "远",
+     "explanation": {
+      "zh": "辶从左边包到下面，元在里面：远。",
+      "en": "辶 wraps round the left and the bottom, 元 sits inside: 远."
+     }
+    },
+    {
+     "id": "zx:L08-D1-02w-4",
+     "parts": "奴＋力",
+     "key": "努",
+     "explanation": {
+      "zh": "奴在上，力在下：努。",
+      "en": "奴 above, 力 below: 努."
+     }
+    },
+    {
+     "id": "zx:L08-D1-02w-5",
+     "parts": "娄＋攵",
+     "key": "数",
+     "explanation": {
+      "zh": "娄在左，攵在右：数。",
+      "en": "娄 on the left, 攵 on the right: 数."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D1-03",
+   "day": "星期一",
+   "page": 47,
+   "ex": 3,
+   "type": "free",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "note": {
+    "zh": "例：青 qīng 青蛙；情 qíng 心情。每组两个字读音相近。给标了拼音的那个字组一个词。",
+    "en": "Example: 青 qīng 青蛙; 情 qíng 心情. The two characters in each pair sound alike. Make a word with the one whose pinyin is given."
+   },
+   "scope_note": "The other character of each pair already has its word printed and asks for its pinyin instead — 靠 kào (靠着), 元 yuán (一元), 吓 xià (吓人) — and a grid of 米字格 is no place for pinyin, so that half is left out, as L04 left out 模 mú.",
+   "items": [
+    {
+     "id": "zx:L08-D1-03-1",
+     "prompt": "告 gào：＿＿",
+     "prompt_en": "告 read gào: a word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L08-D1-03-2",
+     "prompt": "远 yuǎn：＿＿",
+     "prompt_en": "远 read yuǎn: a word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L08-D1-03-3",
+     "prompt": "下 xià：＿＿",
+     "prompt_en": "下 read xià: a word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D1-04",
+   "day": "星期一",
+   "page": 47,
+   "ex": 4,
+   "type": "match",
+   "title": "看图选词语",
+   "title_en": "Look at the pictures and choose the correct words",
+   "note": {
+    "zh": "五张图在练习册第47–48页：第47页左右两张，第48页左上、右上和下面三张。先点图，再点说它的词。",
+    "en": "The five pictures are on workbook pp. 47–48: two side by side on p. 47, then top left, top right and bottom on p. 48. Tap a picture, then the word for it."
+   },
+   "scope_note": "Pictures ① and ③ both show a night sky with a moon. ① has a row of city buildings under it and ③ is nothing but stars; the same starry picture is reused on p. 50 for 那么多星星, which settles ③ as 星星 and ① as 夜晚.",
+   "left": [
+    "图①（第47页左）",
+    "图②（第47页右）",
+    "图③（第48页左上）",
+    "图④（第48页右上）",
+    "图⑤（第48页下）"
+   ],
+   "right": [
+    "夜晚",
+    "院子",
+    "北极星",
+    "天空",
+    "星星"
+   ],
+   "pairs": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     4,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D1-04-1",
+     "left": "图①（第47页左）",
+     "key": 0,
+     "explanation": {
+      "zh": "图上是天黑以后的城市，天上有月亮——夜晚。",
+      "en": "A city after dark, with the moon out — 夜晚, night."
+     }
+    },
+    {
+     "id": "zx:L08-D1-04-2",
+     "left": "图②（第47页右）",
+     "key": 3,
+     "explanation": {
+      "zh": "图上是蓝天、白云和飞着的小鸟——天空。",
+      "en": "Blue sky, clouds and birds flying — 天空, the sky."
+     }
+    },
+    {
+     "id": "zx:L08-D1-04-3",
+     "left": "图③（第48页左上）",
+     "key": 4,
+     "explanation": {
+      "zh": "图上满是星星——星星。练习册第50页\"那么多星星\"用的也是这张图。",
+      "en": "Stars all over — 星星. Workbook p. 50 uses the same picture for 那么多星星."
+     }
+    },
+    {
+     "id": "zx:L08-D1-04-4",
+     "left": "图④（第48页右上）",
+     "key": 2,
+     "explanation": {
+      "zh": "七颗星连起来像一把勺子，是北斗星；离它不远的那颗星就是北极星。",
+      "en": "Seven stars joined up like a spoon are the Big Dipper, 北斗星; the star not far from it is the Pole Star, 北极星."
+     }
+    },
+    {
+     "id": "zx:L08-D1-04-5",
+     "left": "图⑤（第48页下）",
+     "key": 1,
+     "explanation": {
+      "zh": "房子前面用篱笆围起来的一块地——院子。",
+      "en": "The fenced ground in front of the house — 院子, a yard."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D2-01",
+   "day": "星期二",
+   "page": 48,
+   "ex": 1,
+   "type": "match",
+   "title": "找一找部首相同的字，并把它们涂成一样的颜色",
+   "title_en": "Find the characters with the same radicals and color with the same color",
+   "note": {
+    "zh": "课本里要把部首相同的两个字涂成一样的颜色。这里先点上面一行的字，再点下面一行和它部首相同的字。",
+    "en": "The book has you color the two characters that share a radical the same color. Here tap a character in the top row, then the one in the bottom row with the same radical."
+   },
+   "shape_note": "A match rather than a sort: the book names no radicals, it only asks for the same-radical pairs, and each of the four top-row characters has exactly one partner among the four below.",
+   "left": [
+    "句",
+    "离",
+    "衡",
+    "收"
+   ],
+   "right": [
+    "勺",
+    "数",
+    "交",
+    "街"
+   ],
+   "pairs": [
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D2-01-1",
+     "left": "句",
+     "key": 0,
+     "explanation": {
+      "zh": "句和勺都有\"勹\"，部首相同。",
+      "en": "句 and 勺 both have 勹: the same radical."
+     }
+    },
+    {
+     "id": "zx:L08-D2-01-2",
+     "left": "离",
+     "key": 2,
+     "explanation": {
+      "zh": "离和交上面都是\"亠\"，部首相同。",
+      "en": "离 and 交 both have 亠 on top: the same radical."
+     }
+    },
+    {
+     "id": "zx:L08-D2-01-3",
+     "left": "衡",
+     "key": 3,
+     "explanation": {
+      "zh": "衡和街都把中间的部分夹在\"彳\"和\"亍\"中间，部首相同。",
+      "en": "衡 and 街 both hold their middle between 彳 and 亍: the same radical."
+     }
+    },
+    {
+     "id": "zx:L08-D2-01-4",
+     "left": "收",
+     "key": 1,
+     "explanation": {
+      "zh": "收和数右边都是\"攵\"，部首相同。",
+      "en": "收 and 数 both have 攵 on the right: the same radical."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D2-02",
+   "day": "星期二",
+   "page": 49,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连，写一写",
+   "title_en": "Match and write",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：远—处，远处。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 远—处, 远处."
+   },
+   "left": [
+    "离",
+    "努",
+    "远",
+    "明",
+    "平"
+   ],
+   "right": [
+    "处",
+    "开",
+    "衡",
+    "亮",
+    "力"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     4,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D2-02-1",
+     "left": "离",
+     "key": 1,
+     "word": "离开",
+     "explanation": {
+      "zh": "离—开：离开。",
+      "en": "离 + 开 = 离开, leave."
+     }
+    },
+    {
+     "id": "zx:L08-D2-02-2",
+     "left": "努",
+     "key": 4,
+     "word": "努力",
+     "explanation": {
+      "zh": "努—力：努力。",
+      "en": "努 + 力 = 努力, work hard."
+     }
+    },
+    {
+     "id": "zx:L08-D2-02-3",
+     "left": "远",
+     "key": 0,
+     "word": "远处",
+     "explanation": {
+      "zh": "远—处：远处——课本给的例子。",
+      "en": "远 + 处 = 远处, far away — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L08-D2-02-4",
+     "left": "明",
+     "key": 3,
+     "word": "明亮",
+     "explanation": {
+      "zh": "明—亮：明亮。",
+      "en": "明 + 亮 = 明亮, bright."
+     }
+    },
+    {
+     "id": "zx:L08-D2-02-5",
+     "left": "平",
+     "key": 2,
+     "word": "平衡",
+     "explanation": {
+      "zh": "平—衡：平衡。",
+      "en": "平 + 衡 = 平衡, balance."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D2-02w",
+   "day": "星期二",
+   "page": 49,
+   "ex": 2,
+   "type": "free",
+   "title": "连一连，写一写：把词写下来",
+   "title_en": "Match and write: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把四个词各写一遍（课本已写好：远处）。",
+    "en": "The matching was done on the site; here write each of the four words once (the book has written 远处 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L08-D2-02w-1",
+     "prompt": "离＋开 → 写出词语",
+     "prompt_en": "离 + 开 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L08-D2-02w-2",
+     "prompt": "努＋力 → 写出词语",
+     "prompt_en": "努 + 力 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L08-D2-02w-3",
+     "prompt": "明＋亮 → 写出词语",
+     "prompt_en": "明 + 亮 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L08-D2-02w-4",
+     "prompt": "平＋衡 → 写出词语",
+     "prompt_en": "平 + 衡 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D2-04",
+   "day": "星期二",
+   "page": 50,
+   "ex": 4,
+   "type": "match",
+   "title": "连一连",
+   "title_en": "Match",
+   "note": {
+    "zh": "四张图在练习册第50页，标着（1）到（4）。先点图，再点说它的那句话。",
+    "en": "The four pictures are on workbook p. 50, numbered (1) to (4). Tap a picture, then the sentence that goes with it."
+   },
+   "left": [
+    "图（1）",
+    "图（2）",
+    "图（3）",
+    "图（4）"
+   ],
+   "right": [
+    "那么多巧克力，你能吃得完吗？",
+    "字那么小，你能看得见吗？",
+    "河水那么深，你能过得去吗？",
+    "那么多星星，你能数得清吗？"
+   ],
+   "pairs": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D2-04-1",
+     "left": "图（1）",
+     "key": 3,
+     "explanation": {
+      "zh": "图（1）是满天的星星：那么多星星，你能数得清吗？",
+      "en": "Picture (1) is a sky full of stars: 那么多星星，你能数得清吗？"
+     }
+    },
+    {
+     "id": "zx:L08-D2-04-2",
+     "left": "图（2）",
+     "key": 0,
+     "explanation": {
+      "zh": "图（2）是一大块巧克力：那么多巧克力，你能吃得完吗？",
+      "en": "Picture (2) is a big bar of chocolate: 那么多巧克力，你能吃得完吗？"
+     }
+    },
+    {
+     "id": "zx:L08-D2-04-3",
+     "left": "图（3）",
+     "key": 1,
+     "explanation": {
+      "zh": "图（3）是一张纸，上面的字小得几乎看不清：字那么小，你能看得见吗？",
+      "en": "Picture (3) is a sheet of paper with tiny writing on it: 字那么小，你能看得见吗？"
+     }
+    },
+    {
+     "id": "zx:L08-D2-04-4",
+     "left": "图（4）",
+     "key": 2,
+     "explanation": {
+      "zh": "图（4）是一条河：河水那么深，你能过得去吗？",
+      "en": "Picture (4) is a river: 河水那么深，你能过得去吗？"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D3-01",
+   "day": "星期三",
+   "page": 51,
+   "ex": 1,
+   "type": "sort",
+   "title": "找出结构相同的字",
+   "title_en": "Find the characters with the same structures",
+   "groups": [
+    "上下结构",
+    "左右结构",
+    "半包围结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D3-01-1",
+     "text": "数",
+     "key": 1,
+     "explanation": {
+      "zh": "娄在左、攵在右：左右结构。",
+      "en": "娄 on the left, 攵 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L08-D3-01-2",
+     "text": "靠",
+     "key": 0,
+     "explanation": {
+      "zh": "告在上、非在下：上下结构。",
+      "en": "告 above, 非 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L08-D3-01-3",
+     "text": "仰",
+     "key": 1,
+     "explanation": {
+      "zh": "亻在左、卬在右：左右结构。",
+      "en": "亻 on the left, 卬 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L08-D3-01-4",
+     "text": "颗",
+     "key": 1,
+     "explanation": {
+      "zh": "果在左、页在右：左右结构。",
+      "en": "果 on the left, 页 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L08-D3-01-5",
+     "text": "连",
+     "key": 2,
+     "explanation": {
+      "zh": "辶从左边包到下面，车在里面：半包围结构。",
+      "en": "辶 wraps round the left and the bottom with 车 inside: half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L08-D3-01-6",
+     "text": "远",
+     "key": 2,
+     "explanation": {
+      "zh": "辶从左边包到下面，元在里面：半包围结构。",
+      "en": "辶 wraps round the left and the bottom with 元 inside: half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L08-D3-01-7",
+     "text": "星",
+     "key": 0,
+     "explanation": {
+      "zh": "日在上、生在下：上下结构。",
+      "en": "日 above, 生 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L08-D3-01-8",
+     "text": "努",
+     "key": 0,
+     "explanation": {
+      "zh": "奴在上、力在下：上下结构。",
+      "en": "奴 above, 力 below: top–bottom."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D3-04",
+   "day": "星期三",
+   "page": 52,
+   "ex": 4,
+   "type": "free",
+   "title": "动动小脑筋，完成句子",
+   "title_en": "Think and complete the sentences",
+   "note": {
+    "zh": "课本的表格：哥哥 喝 得 完 这杯水。照这样把下面三句补完整，整句写在格子里。",
+    "en": "The book's table reads 哥哥 喝 得 完 这杯水. Complete the three sentences below the same way, writing each whole sentence in the cells."
+   },
+   "items": [
+    {
+     "id": "zx:L08-D3-04-1",
+     "prompt": "（1）＿＿数得清＿＿",
+     "prompt_en": "(1) … 数得清 …",
+     "blanks": 1,
+     "cells": 16
+    },
+    {
+     "id": "zx:L08-D3-04-2",
+     "prompt": "（2）＿＿听得见＿＿",
+     "prompt_en": "(2) … 听得见 …",
+     "blanks": 1,
+     "cells": 16
+    },
+    {
+     "id": "zx:L08-D3-04-3",
+     "prompt": "（3）＿＿＿＿得＿＿＿＿",
+     "prompt_en": "(3) … 得 … (a sentence of your own)",
+     "blanks": 1,
+     "cells": 16
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D3-05",
+   "day": "星期三",
+   "page": 52,
+   "ex": 5,
+   "type": "tf",
+   "title": "根据课文判断正误",
+   "title_en": "Decide whether the statements are true or false according to the text",
+   "items": [
+    {
+     "id": "zx:L08-D3-05-1",
+     "text": "北极星像一把勺子。",
+     "key": false,
+     "explanation": {
+      "zh": "像勺子的是北斗星：七颗星连起来像一把勺子。北极星是离北斗星不远的那颗星。",
+      "en": "It is the Big Dipper, 北斗星, that looks like a spoon — seven stars joined up. 北极星 is the one star not far from it."
+     }
+    },
+    {
+     "id": "zx:L08-D3-05-2",
+     "text": "天上有很多星星，张衡数不完。",
+     "key": true,
+     "explanation": {
+      "zh": "课文说：他一颗一颗地数，数了很久，还是数不完。",
+      "en": "The text says so: he counted them one by one for a long time and still could not finish — 还是数不完."
+     }
+    },
+    {
+     "id": "zx:L08-D3-05-3",
+     "text": "张衡是一千九百多年前的中国人。",
+     "key": true,
+     "explanation": {
+      "zh": "课文说：这个数星星的孩子叫张衡，是一千九百多年前的中国人。",
+      "en": "The text says so: the boy was Zhang Heng, who lived in China more than 1,900 years ago."
+     }
+    },
+    {
+     "id": "zx:L08-D3-05-4",
+     "text": "张衡长大后成了著名的发明家。",
+     "key": false,
+     "explanation": {
+      "zh": "课文说张衡长大后成了著名的天文学家，没有说发明家。",
+      "en": "The text says he grew up to be a famous astronomer, 天文学家; it does not say inventor."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D4-02",
+   "day": "星期四",
+   "page": 53,
+   "ex": 2,
+   "type": "free",
+   "title": "照例子，写句子",
+   "title_en": "Follow the example to write sentences",
+   "note": {
+    "zh": "例：张衡靠着奶奶数星星。云云靠着妈妈听故事。每一题上面一行是例句，照它换上别的词，写出自己的句子。",
+    "en": "Example: 张衡靠着奶奶数星星。云云靠着妈妈听故事。 In each one the top line is the model; swap in words of your own and write the sentence."
+   },
+   "items": [
+    {
+     "id": "zx:L08-D4-02-1",
+     "prompt": "（1）北斗星离北极星不远。→ ＿＿离＿＿不远。",
+     "prompt_en": "(1) 北斗星离北极星不远。→ … 离 … 不远。",
+     "blanks": 1,
+     "cells": 16
+    },
+    {
+     "id": "zx:L08-D4-02-2",
+     "prompt": "（2）哥哥要努力工作。→ ＿＿＿＿努力＿＿。",
+     "prompt_en": "(2) 哥哥要努力工作。→ … 努力 …。",
+     "blanks": 1,
+     "cells": 16
+    },
+    {
+     "id": "zx:L08-D4-02-3",
+     "prompt": "（3）你能看得见黑板上的字吗？→ ＿＿＿＿吃得完＿＿",
+     "prompt_en": "(3) 你能看得见黑板上的字吗？→ … 吃得完 …",
+     "blanks": 1,
+     "cells": 16
+    },
+    {
+     "id": "zx:L08-D4-02-4",
+     "prompt": "（4）这个数星星的孩子叫张衡。→ ＿＿叫爱迪生。",
+     "prompt_en": "(4) 这个数星星的孩子叫张衡。→ … 叫爱迪生。",
+     "blanks": 1,
+     "cells": 16
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D4-04",
+   "day": "星期四",
+   "page": 55,
+   "ex": 4,
+   "type": "match",
+   "title": "连一连，读一读",
+   "title_en": "Match and read",
+   "note": {
+    "zh": "点左边的半句，再点右边接得上的半句。",
+    "en": "Tap a half-sentence on the left, then the half on the right that finishes it."
+   },
+   "left": [
+    "那么多牛奶，",
+    "中文学校的作业，",
+    "这么大声，",
+    "那么多故事书，"
+   ],
+   "right": [
+    "我做得完。",
+    "你能喝得完吗？",
+    "你能看得完吗？",
+    "我当然听得见。"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D4-04-1",
+     "left": "那么多牛奶，",
+     "key": 1,
+     "explanation": {
+      "zh": "牛奶是喝的：那么多牛奶，你能喝得完吗？",
+      "en": "Milk is something you drink: 那么多牛奶，你能喝得完吗？"
+     }
+    },
+    {
+     "id": "zx:L08-D4-04-2",
+     "left": "中文学校的作业，",
+     "key": 0,
+     "explanation": {
+      "zh": "作业是做的：中文学校的作业，我做得完。",
+      "en": "Homework is something you do: 中文学校的作业，我做得完。"
+     }
+    },
+    {
+     "id": "zx:L08-D4-04-3",
+     "left": "这么大声，",
+     "key": 3,
+     "explanation": {
+      "zh": "声音是听的：这么大声，我当然听得见。",
+      "en": "A sound is something you hear: 这么大声，我当然听得见。"
+     }
+    },
+    {
+     "id": "zx:L08-D4-04-4",
+     "left": "那么多故事书，",
+     "key": 2,
+     "explanation": {
+      "zh": "书是看的：那么多故事书，你能看得完吗？",
+      "en": "Books are something you read: 那么多故事书，你能看得完吗？"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D4-04r",
+   "day": "星期四",
+   "page": 55,
+   "ex": 4,
+   "type": "read",
+   "title": "连一连，读一读：读出来",
+   "title_en": "Match and read: read aloud",
+   "note": {
+    "zh": "连好以后，把四句话读出来，录下来就行，不打分。",
+    "en": "Once they are matched, read the four sentences aloud; it is recorded, not scored."
+   },
+   "text": "那么多牛奶，你能喝得完吗？\n中文学校的作业，我做得完。\n这么大声，我当然听得见。\n那么多故事书，你能看得完吗？"
+  },
+  {
+   "id": "zx:L08-D4-05",
+   "day": "星期四",
+   "page": 55,
+   "ex": 5,
+   "type": "free",
+   "title": "根据实际情况写一写你看到的夜空",
+   "title_en": "Write about the night sky you see",
+   "note": {
+    "zh": "今晚看一看夜空，按表格一项一项写下来。",
+    "en": "Look at the night sky tonight and fill in the table, one line at a time."
+   },
+   "items": [
+    {
+     "id": "zx:L08-D4-05-1",
+     "prompt": "日期：",
+     "prompt_en": "Date:",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L08-D4-05-2",
+     "prompt": "地点：",
+     "prompt_en": "Place:",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L08-D4-05-3",
+     "prompt": "人物：",
+     "prompt_en": "Who was there:",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L08-D4-05-4",
+     "prompt": "看到了哪些星星：",
+     "prompt_en": "Which stars you saw:",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L08-D4-05-5",
+     "prompt": "心情：",
+     "prompt_en": "How you felt:",
+     "blanks": 1,
+     "cells": 10
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D5-01",
+   "day": "星期五",
+   "page": 56,
+   "ex": 1,
+   "type": "match",
+   "title": "听句子选择正确的图片",
+   "title_en": "Listen to the sentences and choose the correct pictures",
+   "note": {
+    "zh": "请爸爸妈妈读练习册第83页第8课的听力文本（或放录音）。每听一句，先点它的编号，再点它说的那张图。四张图在练习册第56页，标着A、B、C、D。",
+    "en": "Ask a parent to read the Lesson 8 listening script on workbook p. 83 (or play the recording). After each sentence, tap its number, then the picture it describes. The four pictures are on workbook p. 56, lettered A to D."
+   },
+   "script_note": "The four sentences are typed from the appendix 听力文本 for 第8课 on 练习册B p. 83 into the explanations only, so a miss can say what was heard; the left column carries just the numbers, so the screen does not read the sentences to her. Note that sentence (1) in the script is 那么多星星，你能数得完吗？ — 数得完, not the 课文's 数得清.",
+   "left": [
+    "第（1）句",
+    "第（2）句",
+    "第（3）句",
+    "第（4）句"
+   ],
+   "right": [
+    "图A",
+    "图B",
+    "图C",
+    "图D"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D5-01-1",
+     "left": "第（1）句",
+     "key": 1,
+     "explanation": {
+      "zh": "第（1）句是：那么多星星，你能数得完吗？——满天星星的图B。",
+      "en": "Sentence (1): 那么多星星，你能数得完吗？ — picture B, the sky full of stars."
+     }
+    },
+    {
+     "id": "zx:L08-D5-01-2",
+     "left": "第（2）句",
+     "key": 3,
+     "explanation": {
+      "zh": "第（2）句是：牛伯伯的房子像一朵花儿。——图D，牛伯伯站在花一样的房子旁边。",
+      "en": "Sentence (2): 牛伯伯的房子像一朵花儿。 — picture D, Uncle Ox beside a house shaped like a flower."
+     }
+    },
+    {
+     "id": "zx:L08-D5-01-3",
+     "left": "第（3）句",
+     "key": 0,
+     "explanation": {
+      "zh": "第（3）句是：妈妈有一双明亮的眼睛。——图A，妈妈指着自己的眼睛。",
+      "en": "Sentence (3): 妈妈有一双明亮的眼睛。 — picture A, a mother pointing to her eye."
+     }
+    },
+    {
+     "id": "zx:L08-D5-01-4",
+     "left": "第（4）句",
+     "key": 2,
+     "explanation": {
+      "zh": "第（4）句是：爷爷戴着眼镜看报纸。——图C。",
+      "en": "Sentence (4): 爷爷戴着眼镜看报纸。 — picture C, Grandpa in glasses reading the paper."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D5-02",
+   "day": "星期五",
+   "page": 57,
+   "ex": 2,
+   "type": "slots",
+   "title": "读一读，选择正确的句子",
+   "title_en": "Read and choose the correct sentences",
+   "note": {
+    "zh": "每个问题选一句话来回答。例子课本已填好：宝贝长大后想做什么呢？——我长大后想做一名医生。",
+    "en": "Choose the sentence that answers each question. The book has done the example: 宝贝长大后想做什么呢？ — 我长大后想做一名医生。"
+   },
+   "options": [
+    "那颗星叫北极星。",
+    "我在数星星。",
+    "我长大后想做一名医生。",
+    "看得见就数得清。",
+    "像一把勺子。"
+   ],
+   "items": [
+    {
+     "id": "zx:L08-D5-02-1",
+     "before": "例：宝贝长大后想做什么呢？",
+     "slot": "答",
+     "key": 2,
+     "explanation": {
+      "zh": "问长大后想做什么，答：我长大后想做一名医生——课本给的例子。",
+      "en": "Asked what she wants to be when she grows up, the answer is 我长大后想做一名医生 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L08-D5-02-2",
+     "before": "（1）你在做什么？",
+     "slot": "答",
+     "key": 1,
+     "explanation": {
+      "zh": "问在做什么，答正在做的事：我在数星星。",
+      "en": "Asked what he is doing, he says what he is doing now: 我在数星星。"
+     }
+    },
+    {
+     "id": "zx:L08-D5-02-3",
+     "before": "（2）那么多星星，你能数得清吗？",
+     "slot": "答",
+     "key": 3,
+     "explanation": {
+      "zh": "问数得清数不清，答：看得见就数得清。课文里张衡说的是：看得见就能数得清。",
+      "en": "Asked whether he can count them all, the answer is 看得见就数得清 — if I can see them, I can count them. In the text Zhang Heng says 看得见就能数得清."
+     }
+    },
+    {
+     "id": "zx:L08-D5-02-4",
+     "before": "（3）那七颗星连起来像什么？",
+     "slot": "答",
+     "key": 4,
+     "explanation": {
+      "zh": "问像什么，答：像一把勺子。那七颗星就是北斗星。",
+      "en": "Asked what they look like: 像一把勺子, like a spoon. Those seven stars are the Big Dipper."
+     }
+    },
+    {
+     "id": "zx:L08-D5-02-5",
+     "before": "（4）离北斗星不远的那颗星叫什么呢？",
+     "slot": "答",
+     "key": 0,
+     "explanation": {
+      "zh": "问那颗星叫什么，答：那颗星叫北极星。",
+      "en": "Asked what that star is called: 那颗星叫北极星, the Pole Star."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D5-03",
+   "day": "星期五",
+   "page": 57,
+   "ex": 3,
+   "type": "free",
+   "title": "读一读，写一写",
+   "title_en": "Read and write",
+   "note": {
+    "zh": "先读练习册第57–58页牛顿和苹果的故事，再写一写故事中的人物、事件和你的感想。",
+    "en": "First read the story of Newton and the apple on workbook pp. 57–58, then write the people in it, what happened, and what you think."
+   },
+   "scope_note": "The passage (pp. 57–58, the workbook's own, about Newton under the apple tree and the law of gravitation) is not typed, under the same hold as every text of the book; she reads it from the workbook. Its reading is not a `read` exercise here because that type needs the text on the page.",
+   "items": [
+    {
+     "id": "zx:L08-D5-03-1",
+     "prompt": "人物：",
+     "prompt_en": "People in the story:",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L08-D5-03-2",
+     "prompt": "事件：",
+     "prompt_en": "What happened:",
+     "blanks": 1,
+     "cells": 30
+    },
+    {
+     "id": "zx:L08-D5-03-3",
+     "prompt": "感想：",
+     "prompt_en": "What you think:",
+     "blanks": 1,
+     "cells": 30
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D5-04",
+   "day": "星期五",
+   "page": 58,
+   "ex": 4,
+   "type": "free",
+   "title": "请写一写你的梦想（五十字以上）",
+   "title_en": "Write about your dream with more than 50 characters",
+   "note": {
+    "zh": "提示：（1）你的兴趣爱好是什么？（2）你长大后想做什么？（3）你长大后想成为什么样的人？（4）为此你现在要怎么做？",
+    "en": "Prompts: (1) What are your interests and hobbies? (2) What do you want to do when you grow up? (3) What kind of person do you want to become? (4) What will you do now to get there?"
+   },
+   "items": [
+    {
+     "id": "zx:L08-D5-04-1",
+     "prompt": "写一写你的梦想（五十字以上）。",
+     "prompt_en": "Write about your dream (more than 50 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

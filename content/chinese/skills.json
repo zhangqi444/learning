@@ -24,6 +24,22 @@
   "de-particles": {
    "zh": "的、地、得",
    "en": "The three de particles"
+  },
+  "word-groups": {
+   "zh": "词语归类",
+   "en": "Word groups"
+  },
+  "char-choice": {
+   "zh": "选字",
+   "en": "Character choice"
+  },
+  "directional-complements": {
+   "zh": "趋向补语",
+   "en": "Directional complements"
+  },
+  "measure-words": {
+   "zh": "量词",
+   "en": "Measure words"
   }
  }
 }

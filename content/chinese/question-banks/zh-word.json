@@ -1022,6 +1022,3950 @@
     "D": "\"抬头\"是另一个动作，\"钻不\"后面要说钻的结果。"
    },
    "content_hash": "bcbd40cdfa9ed846"
+  },
+  {
+   "id": "zc:L01-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词（1）",
+   "prompt_en": "Find the odd word out (1)",
+   "choices": {
+    "A": "长城",
+    "B": "故宫",
+    "C": "颐和园",
+    "D": "现金"
+   },
+   "correct": "D",
+   "explanation": "长城, 故宫 and 颐和园 are all famous places in Beijing, places you can go and see. 现金 is cash, money, so it is the one that is not a place.",
+   "explanation_zh": "长城、故宫、颐和园都是北京有名的地方，是可以去看的地方。现金是钱，不是地方，所以它和别的不是一类。",
+   "why": {
+    "A": "长城 is the Great Wall, a famous place in Beijing, so it belongs with 故宫 and 颐和园.",
+    "B": "故宫 is the Forbidden City, another famous place in Beijing, so it is one of the group.",
+    "C": "颐和园 is the Summer Palace, a park in Beijing, and it goes with the Great Wall and the Forbidden City."
+   },
+   "why_zh": {
+    "A": "长城是北京有名的地方，和故宫、颐和园是一类。",
+    "B": "故宫也是北京有名的地方，和长城、颐和园是一类。",
+    "C": "颐和园是北京的公园，也是有名的地方，和长城、故宫是一类。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期一，练习4（printed p.3）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "7bdeca90fa8bcade"
+  },
+  {
+   "id": "zc:L01-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词（2）",
+   "prompt_en": "Find the odd word out (2)",
+   "choices": {
+    "A": "阳光",
+    "B": "今年",
+    "C": "明天",
+    "D": "今天"
+   },
+   "correct": "A",
+   "explanation": "今年, 明天 and 今天 all tell you when: this year, tomorrow, today. 阳光 is sunshine, the light of the sun, so it is the one that is not a time.",
+   "explanation_zh": "今年、明天、今天都是说时间的词。阳光是太阳的光，不是时间，所以它和别的不是一类。",
+   "why": {
+    "B": "今年 means this year. It is a time word, like 明天 and 今天.",
+    "C": "明天 means tomorrow. It is a time word, like 今年 and 今天.",
+    "D": "今天 means today. It is a time word, like 今年 and 明天."
+   },
+   "why_zh": {
+    "B": "\"今年\"说的是哪一年，是时间词，和明天、今天一类。",
+    "C": "\"明天\"说的是哪一天，是时间词，和今年、今天一类。",
+    "D": "\"今天\"也是时间词，和今年、明天一类。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期一，练习4（printed p.3）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "1711ab6d61cc2edd"
+  },
+  {
+   "id": "zc:L01-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词（3）",
+   "prompt_en": "Find the odd word out (3)",
+   "choices": {
+    "A": "风",
+    "B": "雨",
+    "C": "暖",
+    "D": "雪"
+   },
+   "correct": "C",
+   "explanation": "风, 雨 and 雪 (wind, rain and snow) are kinds of weather: things that blow or fall from the sky. 暖 means warm, a word that describes how something feels, so it is the odd one out.",
+   "explanation_zh": "风、雨、雪都是天气里的东西，会刮、会下。暖是说暖和，是形容冷热的词，所以它和别的不是一类。",
+   "why": {
+    "A": "风 is wind, one of the kinds of weather, like rain and snow.",
+    "B": "雨 is rain, weather that falls from the sky, like snow.",
+    "D": "雪 is snow, weather that falls from the sky, like rain."
+   },
+   "why_zh": {
+    "A": "风是一种天气，和雨、雪一类。",
+    "B": "雨是从天上下来的，和雪一样，是一种天气。",
+    "D": "雪也是从天上下来的，和雨一类。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期一，练习4（printed p.3）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "445f406e7a503c3e"
+  },
+  {
+   "id": "zc:L01-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词（4）",
+   "prompt_en": "Find the odd word out (4)",
+   "choices": {
+    "A": "爸爸",
+    "B": "胡同",
+    "C": "奶奶",
+    "D": "爷爷"
+   },
+   "correct": "B",
+   "explanation": "爸爸, 奶奶 and 爷爷 are all people in the family. 胡同 is a hutong, one of Beijing's narrow old lanes, a place and not a person.",
+   "explanation_zh": "爸爸、奶奶、爷爷都是家里的人。胡同是北京的小巷子，是地方，不是人。",
+   "why": {
+    "A": "爸爸 is Dad, a person in the family, like Grandma and Grandpa.",
+    "C": "奶奶 is Grandma, Dad's mother, one of the family.",
+    "D": "爷爷 is Grandpa, Dad's father, one of the family."
+   },
+   "why_zh": {
+    "A": "爸爸是家里的人，和奶奶、爷爷一类。",
+    "C": "奶奶是爸爸的妈妈，是家里的人。",
+    "D": "爷爷是爸爸的爸爸，是家里的人，和爸爸、奶奶一类。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期一，练习4（printed p.3）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "0ae5f7e53d581f20"
+  },
+  {
+   "id": "zc:L01-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：亮亮：你知道吗，云云？北京的交通______方便。",
+   "prompt_en": "Fill the blank: 亮亮：你知道吗，云云？北京的交通______方便。",
+   "choices": {
+    "A": "到处",
+    "B": "现金",
+    "C": "非常",
+    "D": "图书馆"
+   },
+   "correct": "C",
+   "explanation": "非常 means very, and it goes right in front of a describing word: 非常方便, very convenient. The text says the same thing: 交通非常方便.",
+   "explanation_zh": "\"非常\"就是\"很\"，放在形容词前面：非常方便。课文里也是这么说的：交通非常方便。",
+   "why": {
+    "A": "到处 means everywhere. It tells where, but in front of 方便 the sentence needs a word that says how much; 到处 has a blank of its own later, in 到处都是共享单车.",
+    "B": "现金 is cash, a thing. It cannot say how convenient the traffic is.",
+    "D": "图书馆 is a library, a place, and 交通图书馆方便 makes no sense."
+   },
+   "why_zh": {
+    "A": "\"到处\"说的是哪里都有，可\"方便\"前面要的是说程度的词；\"到处\"在后面那一空：到处都是共享单车。",
+    "B": "\"现金\"是钱，是东西，不能说交通有多方便。",
+    "D": "\"图书馆\"是一个地方，\"交通图书馆方便\"不通。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期四，练习1（printed p.10）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "03ce7fc94a5eff52"
+  },
+  {
+   "id": "zc:L01-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：因为______都是共享单车、共享汽车，人们出门不用带现金，去哪儿都可以用手机付款。",
+   "prompt_en": "Fill the blank: 因为______都是共享单车、共享汽车，人们出门不用带现金，去哪儿都可以用手机付款。",
+   "choices": {
+    "A": "非常",
+    "B": "到处",
+    "C": "图书馆",
+    "D": "现金"
+   },
+   "correct": "B",
+   "explanation": "到处 means everywhere. There are shared bikes and shared cars everywhere, and that is why getting around is so easy. The text says 到处都有共享单车.",
+   "explanation_zh": "\"到处\"就是哪里都是。到处都是共享单车、共享汽车，所以出门方便。课文里说：到处都有共享单车。",
+   "why": {
+    "A": "非常 means very and needs a describing word after it, as in 非常方便; 非常都是 does not work.",
+    "C": "A library is full of books, not bikes and cars; the shared bikes are out on the streets, everywhere.",
+    "D": "现金 is cash, and the sentence already says people need not carry it. Cash cannot be all shared bikes."
+   },
+   "why_zh": {
+    "A": "\"非常\"后面要跟形容词，像\"非常方便\"；\"非常都是\"不通。",
+    "C": "图书馆里是书，不是单车和汽车；共享单车是在街上，到处都有。",
+    "D": "\"现金\"是钱，句子后面已经说了不用带现金；钱不会\"都是共享单车\"。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期四，练习1（printed p.10）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "b8a09472733b4300"
+  },
+  {
+   "id": "zc:L01-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：因为到处都是共享单车、共享汽车，人们出门不用带______，去哪儿都可以用手机付款。",
+   "prompt_en": "Fill the blank: 因为到处都是共享单车、共享汽车，人们出门不用带______，去哪儿都可以用手机付款。",
+   "choices": {
+    "A": "现金",
+    "B": "图书馆",
+    "C": "到处",
+    "D": "非常"
+   },
+   "correct": "A",
+   "explanation": "现金 is cash. You can pay with your phone anywhere, so you do not need to carry cash. The text puts it this way: 现在人们出门不用带现金.",
+   "explanation_zh": "\"现金\"就是钱。去哪儿都可以用手机付款，所以出门不用带现金。课文原句：现在人们出门不用带现金。",
+   "why": {
+    "B": "带 means to carry something with you, and nobody carries a library; when you pay by phone, what you leave at home is cash.",
+    "C": "到处 tells where, but 带 needs a thing to carry after it.",
+    "D": "非常 means very. It describes; it is not something you can carry."
+   },
+   "why_zh": {
+    "B": "\"带\"是随身拿着，没有人会带着图书馆出门；用手机付款，不用带的是现金。",
+    "C": "\"到处\"说的是地方，\"带\"后面要跟随身拿的东西。",
+    "D": "\"非常\"是\"很\"，不是能带在身上的东西。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期四，练习1（printed p.10）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "a4ae0f2f8d162280"
+  },
+  {
+   "id": "zc:L01-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：我最喜欢的是小区门口的自助______，奶奶用手机扫了一下，我就借到了想看的书！",
+   "prompt_en": "Fill the blank: 我最喜欢的是小区门口的自助______，奶奶用手机扫了一下，我就借到了想看的书！",
+   "choices": {
+    "A": "非常",
+    "B": "现金",
+    "C": "到处",
+    "D": "图书馆"
+   },
+   "correct": "D",
+   "explanation": "图书馆 is a library, the place you borrow books from. The end of the sentence, 借到了想看的书, tells you what kind of place it is, and the text names it: 小区门口的自助图书馆.",
+   "explanation_zh": "\"图书馆\"是借书的地方。后半句说\"借到了想看的书\"，就知道是什么地方；课文里就是：小区门口的自助图书馆。",
+   "why": {
+    "A": "非常 means very and needs a describing word after it; after 自助 the sentence needs a place.",
+    "B": "自助现金 is not a place, and books are borrowed from a library, not from cash.",
+    "C": "到处 means everywhere, but this sentence is about one place, the one at the gate of the neighborhood (小区门口)."
+   },
+   "why_zh": {
+    "A": "\"非常\"后面要跟形容词；\"自助\"后面要的是一个地方。",
+    "B": "\"自助现金\"不是一个地方，借书要去图书馆。",
+    "C": "\"到处\"是哪里都是，可这句说的是小区门口的一个地方。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期四，练习1（printed p.10）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "0a34cc1e7be388c3"
+  },
+  {
+   "id": "zc:L01-09",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：爸爸：迈克，这个寒假我们一起去旅游吧！你想去哪里呀？迈克：______旅行都可以。",
+   "prompt_en": "Fill the blank: 爸爸：迈克，这个寒假我们一起去旅游吧！你想去哪里呀？迈克：______旅行都可以。",
+   "choices": {
+    "A": "最",
+    "B": "去哪儿",
+    "C": "到处",
+    "D": "故宫"
+   },
+   "correct": "B",
+   "explanation": "去哪儿……都…… means wherever, any place at all. It is the lesson's own pattern, 去哪儿都可以用手机付款. Dad asks where Mike wants to go, and Mike answers that wherever they travel is fine with him.",
+   "explanation_zh": "\"去哪儿……都……\"是不管去什么地方都……，就是课文的句型：去哪儿都可以用手机付款。爸爸问想去哪里，迈克说去哪儿旅行都可以。",
+   "why": {
+    "A": "最 means most and has to sit in front of a verb or a describing word, as in 最想去; 最旅行都可以 makes no sense.",
+    "C": "到处 means everywhere, and 都可以 here answers where he wants to go, which needs a question word: 去哪儿, any place at all. 到处 belongs in Dad's later line, 我们到处走走、看看.",
+    "D": "故宫 is one place, the Forbidden City, and 都可以 means any place is fine. Mike names 故宫 later, in his list of places he wants to see."
+   },
+   "why_zh": {
+    "A": "\"最\"要放在动词或形容词前面，像\"最想去\"；\"最旅行都可以\"不通。",
+    "C": "\"到处\"是哪里都是，可这里回答的是想去哪里，要用\"去哪儿……都可以\"——什么地方都行。\"到处\"在爸爸后面那句：我们到处走走、看看。",
+    "D": "\"故宫\"只是一个地方，\"都可以\"说的是哪里都行；故宫是迈克后面说想去的地方。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期五，练习3（printed p.14）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "4ea6f4925dd5b3c7"
+  },
+  {
+   "id": "zc:L01-10",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：爸爸：那你______想去北京的哪里呢？",
+   "prompt_en": "Fill the blank: 爸爸：那你______想去北京的哪里呢？",
+   "choices": {
+    "A": "最",
+    "B": "去哪儿",
+    "C": "到处",
+    "D": "故宫"
+   },
+   "correct": "A",
+   "explanation": "最 means most. 最想去 is the place you want to go most of all: Mike has said anywhere is fine, so Dad asks which place in Beijing he wants most.",
+   "explanation_zh": "\"最\"是比别的都更。\"最想去\"就是最想去的地方。迈克说去哪儿都可以，爸爸就问他最想去北京的哪里。",
+   "why": {
+    "B": "去哪儿 already asks where, and 哪里 is at the end of the sentence, so the question would be asked twice.",
+    "C": "到处想去 would mean wanting to go everywhere, but Dad is asking for one choice, 哪里, which place.",
+    "D": "你故宫想去北京的哪里 makes no sense; 故宫 is one of the answers, and Mike gives it in his next line."
+   },
+   "why_zh": {
+    "B": "\"去哪儿\"已经在问地方，句子后面又有\"哪里\"，问了两遍，不通。",
+    "C": "\"到处想去\"是哪里都想去，可爸爸问的是最想去哪一个地方。",
+    "D": "\"你故宫想去北京的哪里\"不通；故宫是迈克下一句说的地方。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期五，练习3（printed p.15）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "d9cd1466127a5971"
+  },
+  {
+   "id": "zc:L01-11",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：迈克：天安门广场、______和颐和园，我都想去。",
+   "prompt_en": "Fill the blank: 迈克：天安门广场、______和颐和园，我都想去。",
+   "choices": {
+    "A": "最",
+    "B": "去哪儿",
+    "C": "到处",
+    "D": "故宫"
+   },
+   "correct": "D",
+   "explanation": "故宫 is the Forbidden City. The blank sits in a list of places in Beijing, 天安门广场, ___ and 颐和园, so it needs another place, and 故宫 is one.",
+   "explanation_zh": "\"故宫\"是北京有名的地方。空在一串地名中间——天安门广场、___和颐和园——要填的也是一个地方。",
+   "why": {
+    "A": "最 means most. It is not a place, and the list is all places.",
+    "B": "去哪儿 asks where; it cannot stand in a list of the places he wants to see.",
+    "C": "到处 means everywhere, not the name of one place, and the list names particular places."
+   },
+   "why_zh": {
+    "A": "\"最\"不是地方，这里是一串地名。",
+    "B": "\"去哪儿\"是问话，不能放在地名中间。",
+    "C": "\"到处\"是哪里都是，不是一个地方的名字。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期五，练习3（printed p.15）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "a87ff06172830429"
+  },
+  {
+   "id": "zc:L01-12",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：爸爸：可以啊！我们______走走、看看。",
+   "prompt_en": "Fill the blank: 爸爸：可以啊！我们______走走、看看。",
+   "choices": {
+    "A": "最",
+    "B": "去哪儿",
+    "C": "到处",
+    "D": "故宫"
+   },
+   "correct": "C",
+   "explanation": "到处 means everywhere, all around. 到处走走、看看 is to walk around and look at everything, the same 到处 as in 到处逛逛 on the textbook's 用一用 list.",
+   "explanation_zh": "\"到处\"是哪里都去。\"到处走走、看看\"就是到各个地方走一走、看一看，像课本\"用一用\"里的\"到处逛逛\"。",
+   "why": {
+    "A": "最走走 does not work: 最 goes in front of a describing word or a word like 想, as in 最想去.",
+    "B": "去哪儿 reads as a question, where shall we go, but Dad is not asking: Mike has just named the places, and Dad agrees to walk around them all.",
+    "D": "我们故宫走走 is not how it is said; it would need 去, as in 去故宫走走. And Dad means walking around everywhere, not in one place."
+   },
+   "why_zh": {
+    "A": "\"最走走\"不通：\"最\"要放在形容词或\"想\"这样的词前面，像\"最想去\"。",
+    "B": "\"去哪儿\"听起来是在问去哪里，可迈克刚说完想去的地方，爸爸是在答应他，说到处走走、看看。",
+    "D": "\"我们故宫走走\"不通，要说\"去故宫走走\"；爸爸说的是到处走走，不是一个地方。"
+   },
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》 星期五，练习3（printed p.15）",
+   "form": "L01",
+   "lesson": "L01",
+   "content_hash": "1ac165db9db0f579"
+  },
+  {
+   "id": "zc:L02-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：爷爷______在北京。",
+   "choices": {
+    "A": "展览",
+    "B": "居住",
+    "C": "珍贵",
+    "D": "参观"
+   },
+   "correct": "B",
+   "explanation": "居住 means to live somewhere. 在北京 says where, and 居住在 + a place is how you say where someone lives — the textbook's 用一用 has 在这里居住过一年.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期一，练习5（printed p.3）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "展览 is an exhibition, things put out on show; a grandfather is not put on show in Beijing.",
+    "C": "珍贵 (precious) is a describing word; after 爷爷 the sentence needs an action — what he does in Beijing.",
+    "D": "参观 is visiting a place to look round it, and it takes the place straight after it, as in 参观故宫, never 参观在; living somewhere is 居住在."
+   },
+   "prompt_en": "Fill the blank: 爷爷______在北京。",
+   "explanation_zh": "\"居住\"就是住。\"在北京\"说的是地方，\"居住在＋地方\"说一个人住在哪儿——课本\"用一用\"里有\"在这里居住过一年\"。",
+   "why_zh": {
+    "A": "\"展览\"是把东西摆出来给人看，爷爷不是摆在北京给人看的。",
+    "C": "\"珍贵\"是形容词，\"爷爷\"后面要一个动作——他在北京做什么。",
+    "D": "\"参观\"是去一个地方看一看，后面直接跟地方，像\"参观故宫\"，不说\"参观在\"；住在哪儿才是\"居住在\"。"
+   },
+   "content_hash": "588b416a90449222"
+  },
+  {
+   "id": "zc:L02-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：妈妈带我______了太和殿。",
+   "choices": {
+    "A": "展览",
+    "B": "居住",
+    "C": "珍贵",
+    "D": "参观"
+   },
+   "correct": "D",
+   "explanation": "参观 is to visit a place and look round it. Mother took me round the Hall of Supreme Harmony — the text says 今天我们只参观了它最著名的三座大殿.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期一，练习5（printed p.3）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "展览 means putting things on show; we did not put the hall on show, we went to see it.",
+    "B": "居住 means living somewhere, and it needs 在 before the place; a mother taking her child round a hall is a visit, not living there.",
+    "C": "珍贵 (precious) describes a thing; after 带我 the sentence needs what we did, an action."
+   },
+   "prompt_en": "Fill the blank: 妈妈带我______了太和殿。",
+   "explanation_zh": "\"参观\"是到一个地方去看一看。妈妈带我去看了太和殿——课文说：今天我们只参观了它最著名的三座大殿。",
+   "why_zh": {
+    "A": "\"展览\"是把东西摆出来给人看，我们没有把太和殿摆出来，是去看它。",
+    "B": "\"居住\"是住在一个地方，后面要先说\"在\"；妈妈带我去看太和殿是参观，不是住在那儿。",
+    "C": "\"珍贵\"是形容词，\"带我\"后面要说我们做了什么，是一个动作。"
+   },
+   "content_hash": "e11584365e2c4da2"
+  },
+  {
+   "id": "zc:L02-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：故宫有许多______。",
+   "choices": {
+    "A": "展览",
+    "B": "居住",
+    "C": "珍贵",
+    "D": "参观"
+   },
+   "correct": "A",
+   "explanation": "展览 are exhibitions. 许多 needs things after it, and the text says the palace has many of them: 有很多展览.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期一，练习5（printed p.3）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "B": "居住 is an action, living somewhere; 许多 needs things after it, not an action.",
+    "C": "珍贵 is a describing word and needs a thing after it, as in 许多珍贵的文物; after 许多 on its own the sentence is not finished.",
+    "D": "参观 is an action, visiting; 许多 counts things, so 许多参观 does not work."
+   },
+   "prompt_en": "Fill the blank: 故宫有许多______。",
+   "explanation_zh": "\"展览\"是摆出来给人看的东西。\"许多\"后面要跟东西，课文说故宫\"有很多展览\"。",
+   "why_zh": {
+    "B": "\"居住\"是动作，\"许多\"后面要跟东西，不跟动作。",
+    "C": "\"珍贵\"是形容词，后面还要跟东西，像\"许多珍贵的文物\"；只说\"许多珍贵\"，话没说完。",
+    "D": "\"参观\"是动作，\"许多\"数的是东西，不能说\"许多参观\"。"
+   },
+   "content_hash": "c548e68d8a4d314d"
+  },
+  {
+   "id": "zc:L02-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：故宫里收藏了许多______的历史文物。",
+   "choices": {
+    "A": "展览",
+    "B": "居住",
+    "C": "珍贵",
+    "D": "参观"
+   },
+   "correct": "C",
+   "explanation": "珍贵 means precious, worth a great deal. 的 joins a describing word to 历史文物, and the text says exactly this: 收藏了许多珍贵的历史文物.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期一，练习5（printed p.3）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "展览 is the word for sentence (3), 故宫有许多展览; before 的历史文物 the sentence wants a word that says what the relics are like, and the text's word is 珍贵.",
+    "B": "居住 is living somewhere; relics do not live anywhere, and it does not say what they are like.",
+    "D": "参观 is what visitors do; it does not say what the relics themselves are like."
+   },
+   "prompt_en": "Fill the blank: 故宫里收藏了许多______的历史文物。",
+   "explanation_zh": "\"珍贵\"是价值很高、很难得。\"的\"把形容词和\"历史文物\"连起来，课文就是这么说的：收藏了许多珍贵的历史文物。",
+   "why_zh": {
+    "A": "\"展览\"是第（3）句的词——故宫有许多展览；\"的历史文物\"前面要一个说文物怎么样的词，课文用的是\"珍贵\"。",
+    "B": "\"居住\"是住在一个地方，文物不会\"住\"，这个词也说不出文物怎么样。",
+    "D": "\"参观\"是游客做的事，说不出文物本身怎么样。"
+   },
+   "content_hash": "f3b603c2d7464b75"
+  },
+  {
+   "id": "zc:L02-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：今年暑假，我们一家人去北京看望爷爷奶奶。爷爷奶奶带我们______了故宫。",
+   "choices": {
+    "A": "游客",
+    "B": "吸引",
+    "C": "参观",
+    "D": "展览"
+   },
+   "correct": "C",
+   "explanation": "参观 is to go and look round a place. The grandparents took us round the palace — 带我们参观了故宫, the same word the text uses for the visitors: 前去参观.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期三，练习3（printed p.7）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "游客 is a visitor, a person; after 带我们 the sentence needs what we did, an action.",
+    "B": "吸引 means to draw people in; the grandparents did not draw the palace anywhere — the palace is what draws visitors.",
+    "D": "展览 means putting things on show; nobody put the palace on show, we went to see it."
+   },
+   "prompt_en": "Fill the blank: 今年暑假，我们一家人去北京看望爷爷奶奶。爷爷奶奶带我们______了故宫。",
+   "explanation_zh": "\"参观\"是到一个地方去看一看。爷爷奶奶带我们去看了故宫——带我们参观了故宫，课文说游客也是\"前去参观\"。",
+   "why_zh": {
+    "A": "\"游客\"是来玩的人，\"带我们\"后面要说我们做了什么，是一个动作。",
+    "B": "\"吸引\"是把人引过来，爷爷奶奶没有\"吸引\"故宫——是故宫吸引游客。",
+    "D": "\"展览\"是把东西摆出来给人看，没有人把故宫摆出来，是我们去看它。"
+   },
+   "content_hash": "514dbdc3d201b657"
+  },
+  {
+   "id": "zc:L02-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：故宫里收藏了许多______的历史文物，……",
+   "choices": {
+    "A": "珍贵",
+    "B": "机会",
+    "C": "游客",
+    "D": "吸引"
+   },
+   "correct": "A",
+   "explanation": "珍贵 means precious. 许多___的 wants a word that says what the relics are like, and the text has it: 收藏了许多珍贵的历史文物.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期三，练习3（printed p.7）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "B": "机会 is a chance; a chance cannot say what a relic is like.",
+    "C": "游客 are the visitors; the relics belong to the palace, not to them, and the blank wants a word that says what the relics are like.",
+    "D": "吸引 means to draw people in, and it needs someone to draw, as in 吸引人; it cannot stand alone before 的 here."
+   },
+   "prompt_en": "Fill the blank: 故宫里收藏了许多______的历史文物，……",
+   "explanation_zh": "\"珍贵\"是价值很高、很难得。\"许多___的\"要一个说文物怎么样的词，课文说：收藏了许多珍贵的历史文物。",
+   "why_zh": {
+    "B": "\"机会\"是时机，说不出文物怎么样。",
+    "C": "\"游客\"是来参观的人，文物是故宫收藏的，不是游客的；这里要一个说文物怎么样的词。",
+    "D": "\"吸引\"后面要跟被吸引的人，像\"吸引人\"，不能单独放在\"的\"前面。"
+   },
+   "content_hash": "b118a76d40b5b7ae"
+  },
+  {
+   "id": "zc:L02-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：故宫里收藏了许多珍贵的历史文物，还有很多______，吸引了许多游客前去参观。",
+   "choices": {
+    "A": "参观",
+    "B": "珍贵",
+    "C": "游客",
+    "D": "展览"
+   },
+   "correct": "D",
+   "explanation": "展览 are exhibitions. 很多 needs a thing after it, and it is the exhibitions that draw the visitors in — the text: 有很多展览，吸引了许多国内外的游客前去参观.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期三，练习3（printed p.7）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "参观 is the visiting itself, which the sentence already says at its end — 前去参观; what draws the visitors must be a thing.",
+    "B": "珍贵 is a describing word; 很多 needs a thing after it.",
+    "C": "游客 are the visitors the sentence goes on to name; visitors cannot draw in visitors."
+   },
+   "prompt_en": "Fill the blank: 故宫里收藏了许多珍贵的历史文物，还有很多______，吸引了许多游客前去参观。",
+   "explanation_zh": "\"展览\"是摆出来给人看的东西。\"很多\"后面要跟东西，是展览把游客吸引来的——课文说：有很多展览，吸引了许多国内外的游客前去参观。",
+   "why_zh": {
+    "A": "\"参观\"是游客做的事，句尾已经说了\"前去参观\"；吸引游客的应该是一样东西。",
+    "B": "\"珍贵\"是形容词，\"很多\"后面要跟东西。",
+    "C": "\"游客\"是后面被吸引来的人，游客不能吸引游客。"
+   },
+   "content_hash": "9da22faaf4929355"
+  },
+  {
+   "id": "zc:L02-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：故宫里收藏了许多珍贵的历史文物，还有很多展览，______了许多游客前去参观。",
+   "choices": {
+    "A": "机会",
+    "B": "吸引",
+    "C": "珍贵",
+    "D": "参观"
+   },
+   "correct": "B",
+   "explanation": "吸引 means to attract, to draw people in. The exhibitions draw many visitors to come and look — 吸引了许多游客前去参观.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期三，练习3（printed p.7）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "机会 is a chance, a thing; before 了许多游客 the sentence needs an action.",
+    "C": "珍贵 is a describing word and cannot take 了 and the visitors after it.",
+    "D": "参观 is what the visitors do, and the sentence ends with it; you 参观 a place, not 参观了许多游客."
+   },
+   "prompt_en": "Fill the blank: 故宫里收藏了许多珍贵的历史文物，还有很多展览，______了许多游客前去参观。",
+   "explanation_zh": "\"吸引\"是把人引过来。展览把许多游客引来参观——吸引了许多游客前去参观。",
+   "why_zh": {
+    "A": "\"机会\"是一样东西，\"了许多游客\"前面要一个动作。",
+    "C": "\"珍贵\"是形容词，后面不能跟\"了许多游客\"。",
+    "D": "\"参观\"是游客做的事，句尾已经有了；参观的是地方，不能说\"参观了许多游客\"。"
+   },
+   "content_hash": "f04027977c9e19ec"
+  },
+  {
+   "id": "zc:L02-09",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：故宫里收藏了许多珍贵的历史文物，还有很多展览，吸引了许多______前去参观。",
+   "choices": {
+    "A": "珍贵",
+    "B": "机会",
+    "C": "展览",
+    "D": "游客"
+   },
+   "correct": "D",
+   "explanation": "游客 are visitors, tourists. 前去参观 needs people who go and look round, and the text says it: 吸引了许多国内外的游客前去参观.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期三，练习3（printed p.7）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "珍贵 is a describing word; 许多 needs people after it, the ones who go.",
+    "B": "机会 is a chance; a chance cannot go and look round.",
+    "C": "展览 is what is being visited; exhibitions do not travel to the palace — people do."
+   },
+   "prompt_en": "Fill the blank: 故宫里收藏了许多珍贵的历史文物，还有很多展览，吸引了许多______前去参观。",
+   "explanation_zh": "\"游客\"是来游玩、参观的人。\"前去参观\"要有人去，课文说：吸引了许多国内外的游客前去参观。",
+   "why_zh": {
+    "A": "\"珍贵\"是形容词，\"许多\"后面要跟去参观的人。",
+    "B": "\"机会\"是时机，时机不会\"前去参观\"。",
+    "C": "\"展览\"是被参观的东西，展览不会自己去参观，去的是人。"
+   },
+   "content_hash": "e18f062af0e0d8c1"
+  },
+  {
+   "id": "zc:L02-10",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：我也去看了这些历史文物，真好看！以后有______我还想来故宫逛逛。",
+   "choices": {
+    "A": "机会",
+    "B": "吸引",
+    "C": "游客",
+    "D": "珍贵"
+   },
+   "correct": "A",
+   "explanation": "机会 is a chance. 以后有机会 — when there is a chance later on — is the lesson's own sentence: 以后有机会我还要来故宫逛逛.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期三，练习3（printed p.7）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "B": "吸引 is an action, drawing people in; after 有 the sentence needs a thing to have.",
+    "C": "游客 are visitors; whether there are visitors does not decide whether I come back — a chance does.",
+    "D": "珍贵 is a describing word; 有 needs a thing after it."
+   },
+   "prompt_en": "Fill the blank: 我也去看了这些历史文物，真好看！以后有______我还想来故宫逛逛。",
+   "explanation_zh": "\"机会\"是时机。\"以后有机会\"就是这一课的句子：以后有机会我还要来故宫逛逛。",
+   "why_zh": {
+    "B": "\"吸引\"是动作，\"有\"后面要跟一样东西。",
+    "C": "\"游客\"是来参观的人，有没有游客不决定我来不来，要看有没有机会。",
+    "D": "\"珍贵\"是形容词，\"有\"后面要跟东西。"
+   },
+   "content_hash": "8c751e0a889449d9"
+  },
+  {
+   "id": "zc:L02-11",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选择恰当的词语完成对话。云云：亮亮，你是从______来美国的？　亮亮：我是从北京来的。",
+   "choices": {
+    "A": "哪儿",
+    "B": "看看",
+    "C": "世界",
+    "D": "著名"
+   },
+   "correct": "A",
+   "explanation": "哪儿 means where. Yunyun is asking about a place, and Liangliang answers with one: 我是从北京来的.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期四，练习2（printed p.9）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "B": "看看 is an action, having a look; 从 needs a place after it.",
+    "C": "世界 is the whole world, and America is in the world too, so 从世界来美国 says nothing — Liangliang's answer names a city.",
+    "D": "著名 (famous) is a describing word; 从 needs a place after it."
+   },
+   "prompt_en": "Complete the dialogue: 云云：亮亮，你是从______来美国的？　亮亮：我是从北京来的。",
+   "explanation_zh": "\"哪儿\"是问地方。云云问亮亮从什么地方来，亮亮回答了一个地方：我是从北京来的。",
+   "why_zh": {
+    "B": "\"看看\"是一个动作，\"从\"后面要跟地方。",
+    "C": "\"世界\"是全世界，美国也在世界上，\"从世界来美国\"等于没说；亮亮回答的是一个城市。",
+    "D": "\"著名\"是形容词，\"从\"后面要跟地方。"
+   },
+   "content_hash": "db277f8dabb0d8b4"
+  },
+  {
+   "id": "zc:L02-12",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选择恰当的词语完成对话。云云：那你去过故宫吗？　亮亮：去过，故宫是______上最大的古代宫殿，……",
+   "choices": {
+    "A": "珍贵",
+    "B": "哪儿",
+    "C": "世界",
+    "D": "著名"
+   },
+   "correct": "C",
+   "explanation": "世界 is the world. 世界上最大 means the biggest in the world — the text says the palace is 世界上最大的古代宫殿.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期四，练习2（printed p.9）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "珍贵 (precious) is a describing word; 上 needs a place before it, and 珍贵上 is not a place.",
+    "B": "哪儿 asks where, but Liangliang is answering, not asking.",
+    "D": "著名 (famous) is a describing word; 著名上 is not a place you can be the biggest in."
+   },
+   "prompt_en": "Complete the dialogue: 云云：那你去过故宫吗？　亮亮：去过，故宫是______上最大的古代宫殿，……",
+   "explanation_zh": "\"世界\"是全世界。\"世界上最大\"就是全世界最大——课文说故宫\"也是世界上最大的古代宫殿\"。",
+   "why_zh": {
+    "A": "\"珍贵\"是形容词，\"上\"前面要一个地方，\"珍贵上\"不是地方。",
+    "B": "\"哪儿\"是问地方，亮亮是在回答，不是在问。",
+    "D": "\"著名\"是形容词，\"著名上\"不是一个地方。"
+   },
+   "content_hash": "6c6c88c6394b333a"
+  },
+  {
+   "id": "zc:L02-13",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选择恰当的词语完成对话。亮亮：去过，故宫是世界上最大的古代宫殿，收藏了许多______的历史文物。",
+   "choices": {
+    "A": "看看",
+    "B": "世界",
+    "C": "哪儿",
+    "D": "珍贵"
+   },
+   "correct": "D",
+   "explanation": "珍贵 means precious. 许多___的 wants a word that says what the relics are like: 收藏了许多珍贵的历史文物, as the text has it.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期四，练习2（printed p.9）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "看看 is an action, having a look; it does not say what the relics are like.",
+    "B": "世界 has already filled this line's first blank — 世界上最大的古代宫殿 — and it names a place rather than saying what the relics are like.",
+    "C": "哪儿 asks where; it cannot describe the relics."
+   },
+   "prompt_en": "Complete the dialogue: 亮亮：去过，故宫是世界上最大的古代宫殿，收藏了许多______的历史文物。",
+   "explanation_zh": "\"珍贵\"是价值很高、很难得。\"许多___的\"要一个说文物怎么样的词：收藏了许多珍贵的历史文物，课文就是这么说的。",
+   "why_zh": {
+    "A": "\"看看\"是一个动作，说不出文物怎么样。",
+    "B": "\"世界\"已经填在这句话的第一个空里了——世界上最大的古代宫殿；它说的是地方，说不出文物怎么样。",
+    "C": "\"哪儿\"是问地方的，不能用来说文物。"
+   },
+   "content_hash": "0a9a10bf7b383154"
+  },
+  {
+   "id": "zc:L02-14",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选择恰当的词语完成对话。云云：那儿是不是有许多宫殿啊？　亮亮：对啊。最______的三座大殿是太和殿、中和殿和保和殿。",
+   "choices": {
+    "A": "世界",
+    "B": "著名",
+    "C": "看看",
+    "D": "哪儿"
+   },
+   "correct": "B",
+   "explanation": "著名 means famous. 最著名的 — the most famous — three halls are the ones the text names: 它最著名的三座大殿：太和殿、中和殿和保和殿.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期四，练习2（printed p.9）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "世界 is a place, the world; 最 needs a describing word after it, and 最世界 is not something you can say.",
+    "C": "看看 is an action, having a look; 最 does not go in front of it.",
+    "D": "哪儿 asks where; 最 needs a describing word after it, not a question word."
+   },
+   "prompt_en": "Complete the dialogue: 云云：那儿是不是有许多宫殿啊？　亮亮：对啊。最______的三座大殿是太和殿、中和殿和保和殿。",
+   "explanation_zh": "\"著名\"是很有名。最著名的三座大殿就是课文说的：太和殿、中和殿和保和殿。",
+   "why_zh": {
+    "A": "\"世界\"是地方，\"最\"后面要跟形容词，不能说\"最世界\"。",
+    "C": "\"看看\"是一个动作，\"最\"不能放在它前面。",
+    "D": "\"哪儿\"是问地方的，\"最\"后面要跟形容词。"
+   },
+   "content_hash": "81c3d8a4cca7e038"
+  },
+  {
+   "id": "zc:L02-15",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选择恰当的词语完成对话。亮亮：对啊。最著名的三座大殿是太和殿、中和殿和保和殿。　云云：啊，我真想去______。",
+   "choices": {
+    "A": "珍贵",
+    "B": "世界",
+    "C": "看看",
+    "D": "著名"
+   },
+   "correct": "C",
+   "explanation": "看看 is have a look, the verb said twice to make it light and friendly. After 去 the sentence needs what she wants to do there, and in the textbook's own dialogue Yunyun says it the same way: 我也想去看看.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》 星期四，练习2（printed p.9）",
+   "form": "L02",
+   "lesson": "L02",
+   "why": {
+    "A": "珍贵 (precious) is a describing word; after 去 the sentence needs what she will do.",
+    "B": "世界 is the whole world, and she is already in it; what she wants is to go and see the palace, which needs an action.",
+    "D": "著名 (famous) is a describing word; after 去 the sentence needs an action."
+   },
+   "prompt_en": "Complete the dialogue: 亮亮：对啊。最著名的三座大殿是太和殿、中和殿和保和殿。　云云：啊，我真想去______。",
+   "explanation_zh": "\"看看\"是看一看，说两遍显得轻松、亲切。\"去\"后面要说去做什么，课本\"对话\"里云云也是这么说的：我也想去看看。",
+   "why_zh": {
+    "A": "\"珍贵\"是形容词，\"去\"后面要说去做什么。",
+    "B": "\"世界\"是全世界，她本来就在世界上；她想的是去看故宫，要一个动作。",
+    "D": "\"著名\"是形容词，\"去\"后面要说去做什么。"
+   },
+   "content_hash": "f78b550e7e0c1dfb"
+  },
+  {
+   "id": "zc:L06-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：这里有______羊。",
+   "choices": {
+    "A": "跟着",
+    "B": "一群",
+    "C": "下面",
+    "D": "月亮"
+   },
+   "correct": "B",
+   "explanation": "一群 counts many animals together: 一群羊 is a flock of sheep, the way the text says 一群猴子.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期二，练习2（printed p.33）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "跟着 is following someone, an action; after 这里有 the sentence needs to say how many sheep are here.",
+    "C": "下面 is a place, underneath, and the place is already given by 这里; 下面羊 counts nothing.",
+    "D": "月亮 is the moon, a thing, and it cannot count sheep."
+   },
+   "prompt_en": "Fill the blank: 这里有______羊。",
+   "explanation_zh": "\"一群\"数在一起的很多动物：一群羊，课文里也说\"一群猴子\"。",
+   "why_zh": {
+    "A": "\"跟着\"是动作，\"这里有\"后面要说有多少羊。",
+    "C": "\"下面\"是位置，地方已经说了是\"这里\"，\"下面羊\"说不通。",
+    "D": "\"月亮\"是东西，不能用来数羊。"
+   },
+   "content_hash": "24c58de1e2b60dfa"
+  },
+  {
+   "id": "zc:L06-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：我家的猫总爱______我。",
+   "choices": {
+    "A": "下面",
+    "B": "月亮",
+    "C": "一群",
+    "D": "跟着"
+   },
+   "correct": "D",
+   "explanation": "跟着 means following close behind. 总爱跟着我: the cat always likes to follow me around, the way the monkeys 都跟着说 in the text.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期二，练习2（printed p.33）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "下面 is a place, underneath; after 总爱 the sentence needs something the cat likes to do.",
+    "B": "月亮 is the moon, a thing, not something a cat can do to me.",
+    "C": "一群 counts a group and needs a noun after it, like 一群猴子; here there is one cat."
+   },
+   "prompt_en": "Fill the blank: 我家的猫总爱______我。",
+   "explanation_zh": "\"跟着\"是在后面紧紧地走。猫总爱跟着我，课文里猴子们也\"都跟着说\"。",
+   "why_zh": {
+    "A": "\"下面\"是位置，\"总爱\"后面要说猫爱做什么。",
+    "B": "\"月亮\"是东西，不是猫对我做的事。",
+    "C": "\"一群\"后面要跟东西，像\"一群猴子\"；这里只有一只猫。"
+   },
+   "content_hash": "5d0fddb530b35df1"
+  },
+  {
+   "id": "zc:L06-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：桌子______有一把椅子。",
+   "choices": {
+    "A": "下面",
+    "B": "跟着",
+    "C": "一群",
+    "D": "月亮"
+   },
+   "correct": "A",
+   "explanation": "下面 means underneath. 桌子下面 is the space under the table, and that is where the chair is.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期二，练习2（printed p.33）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "B": "跟着 is following; a table follows nobody, and this sentence is saying where the chair is.",
+    "C": "一群 means many together, but there is only 一把椅子, and 一群 would have to stand right before its noun.",
+    "D": "月亮 is the moon, up in the sky, and no part of a table."
+   },
+   "prompt_en": "Fill the blank: 桌子______有一把椅子。",
+   "explanation_zh": "\"下面\"是底下。桌子下面就是桌子底下，椅子就在那里。",
+   "why_zh": {
+    "B": "\"跟着\"是在后面走，桌子不会跟着谁；这句话说的是椅子在哪儿。",
+    "C": "\"一群\"是很多个，可这里只有一把椅子，而且\"一群\"要放在东西前面。",
+    "D": "\"月亮\"在天上，和桌子没有关系。"
+   },
+   "content_hash": "72851e35b2a8be56"
+  },
+  {
+   "id": "zc:L06-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：今晚的______又大又圆。",
+   "choices": {
+    "A": "一群",
+    "B": "下面",
+    "C": "月亮",
+    "D": "跟着"
+   },
+   "correct": "C",
+   "explanation": "月亮 is the moon. Big and round, 又大又圆, is how a full moon looks at night.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期二，练习2（printed p.33）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "一群 counts a group and needs a noun after it, like 一群羊; it cannot be big and round by itself.",
+    "B": "下面 is a place word; 今晚的下面 is not something you can see.",
+    "D": "跟着 is an action, following, and an action cannot be big and round."
+   },
+   "prompt_en": "Fill the blank: 今晚的______又大又圆。",
+   "explanation_zh": "\"月亮\"又大又圆，就是晚上圆圆的满月。",
+   "why_zh": {
+    "A": "\"一群\"后面要跟东西，像\"一群羊\"，它自己不能又大又圆。",
+    "B": "\"下面\"是位置，\"今晚的下面\"不是能看见的东西。",
+    "D": "\"跟着\"是动作，动作不能又大又圆。"
+   },
+   "content_hash": "81bfe9a75a45f5a9"
+  },
+  {
+   "id": "zc:L06-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "根据图片选择正确的词语填空（练习册第36页）：小雪在方方的______。",
+   "choices": {
+    "A": "前面",
+    "B": "左面",
+    "C": "后面",
+    "D": "右面"
+   },
+   "correct": "C",
+   "explanation": "后面 means behind. 小雪 stands further back than 方方: her feet are higher up the page, on the far side of 方方 from 小雨, who is in front.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期三，练习3（printed p.36）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "前面 is 小雨's place: she is drawn over 方方's side, closest to us. 小雪 is the one further back.",
+    "B": "方方's left is where 小花 stands, on the right of the picture; 小雪 is behind her, not beside her.",
+    "D": "右面 is 云云's place, the book's own example; 小雪 is behind 方方, not at her side."
+   },
+   "prompt_en": "Look at the picture on workbook p. 36 and fill the blank: 小雪在方方的______。",
+   "explanation_zh": "\"后面\"就是背后。小雪站得比方方靠后：她的脚在图上更高，在方方的另一边，和前面的小雨正好相对。",
+   "why_zh": {
+    "A": "\"前面\"是小雨的位置：小雨挡住了方方的一边，离我们最近；小雪是站在后面的那个。",
+    "B": "方方的左面站的是小花（在图的右边）；小雪在方方背后，不在旁边。",
+    "D": "\"右面\"是云云的位置，课本的例子已经写了；小雪在方方背后，不在旁边。"
+   },
+   "content_hash": "6d733557d340aa21"
+  },
+  {
+   "id": "zc:L06-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "根据图片选择正确的词语填空（练习册第36页）：小雨在方方的______。",
+   "choices": {
+    "A": "前面",
+    "B": "右面",
+    "C": "左面",
+    "D": "后面"
+   },
+   "correct": "A",
+   "explanation": "前面 means in front. 小雨 is drawn over 方方's side and stands lowest on the page, closest to us: she is in front of 方方.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期三，练习3（printed p.36）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "B": "右面 is where 云云 stands, as the book's example says; 小雨 is not at 方方's side but in front of her.",
+    "C": "左面 is 小花's place, off to the side; 小雨 stands right in front of 方方.",
+    "D": "后面 is 小雪, further back than 方方; 小雨 is the one drawn over 方方, closest to us."
+   },
+   "prompt_en": "Look at the picture on workbook p. 36 and fill the blank: 小雨在方方的______。",
+   "explanation_zh": "\"前面\"就是前边。小雨挡住了方方的一边，站得离我们最近，所以在方方的前面。",
+   "why_zh": {
+    "B": "\"右面\"是云云站的地方，课本的例子写了；小雨不在方方旁边，在她前面。",
+    "C": "\"左面\"是小花的位置，在旁边；小雨就站在方方前面。",
+    "D": "\"后面\"是小雪，她站得比方方靠后；小雨挡住了方方的一边，离我们最近。"
+   },
+   "content_hash": "7ef488dd8645fb6e"
+  },
+  {
+   "id": "zc:L06-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "根据图片选择正确的词语填空（练习册第36页）：小花在方方的______。",
+   "choices": {
+    "A": "后面",
+    "B": "前面",
+    "C": "右面",
+    "D": "左面"
+   },
+   "correct": "D",
+   "explanation": "左面 means on the left, and here it is 方方's own left. 方方 faces us, so her left is our right, which the book's example shows: 云云, on our left, is on 方方's 右面. 小花 is on the other side, so she is on 方方's 左面.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期三，练习3（printed p.36）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "后面 is 小雪, who stands further back than 方方; 小花 stands off to the side, with nobody in front of her.",
+    "B": "前面 is 小雨, the girl closest to us; 小花 is beside 方方, not in front of her.",
+    "C": "小花 is on our right, but left and right here are 方方's own. 方方 faces us, so our right is her left, which is why the book puts 云云, on our left, on her 右面."
+   },
+   "prompt_en": "Look at the picture on workbook p. 36 and fill the blank: 小花在方方的______。",
+   "explanation_zh": "\"左面\"说的是方方自己的左边。方方面对着我们，她的左边在我们看来是右边——课本的例子就是这样：云云在图的左边，却在方方的右面。小花在另一边，所以在方方的左面。",
+   "why_zh": {
+    "A": "\"后面\"是小雪，她站在方方后面、离我们更远；小花站在旁边，没有被谁挡住。",
+    "B": "\"前面\"是小雨，离我们最近；小花在方方旁边，不在前面。",
+    "C": "小花在图的右边，可这里的左右是方方自己的。方方面对着我们，我们的右边是她的左边——所以课本说图左边的云云在她的右面。"
+   },
+   "content_hash": "a9da453df6bbead7"
+  },
+  {
+   "id": "zc:L06-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：小猫生病了，______我和妈妈带它去了医院。",
+   "choices": {
+    "A": "于是",
+    "B": "伸手",
+    "C": "月亮",
+    "D": "跟着"
+   },
+   "correct": "A",
+   "explanation": "于是 means so, and then: it joins what happened to what was done about it. The kitten fell ill, so we took it to the hospital. The text uses it the same way: 于是，猴子们爬到树上.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期三，练习4（printed p.36）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "B": "伸手 is stretching out a hand, and it cannot link the kitten being ill to the trip to the hospital.",
+    "C": "月亮 is the moon, a thing; the blank sits between two parts of a story and needs a joining word.",
+    "D": "跟着 is about going along with someone, as 云云跟着爸爸妈妈 does; here the kitten's illness is the reason for the trip, and the word that says so is 于是."
+   },
+   "prompt_en": "Fill the blank: 小猫生病了，______我和妈妈带它去了医院。",
+   "explanation_zh": "\"于是\"把前面发生的事和因此做的事连起来：小猫病了，于是带它去医院。课文里也这么用：于是，猴子们爬到树上。",
+   "why_zh": {
+    "B": "\"伸手\"是把手伸出去，连不起\"小猫病了\"和\"去医院\"。",
+    "C": "\"月亮\"是东西，这个空在两件事中间，要一个连接的词。",
+    "D": "\"跟着\"是和别人一起走，像\"云云跟着爸爸妈妈\"；这里小猫生病是去医院的原因，说\"所以\"的词是\"于是\"。"
+   },
+   "content_hash": "6b7ba2dab941e2a7"
+  },
+  {
+   "id": "zc:L06-09",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：昨晚，我和妈妈趴在窗边看______。",
+   "choices": {
+    "A": "跟着",
+    "B": "于是",
+    "C": "伸手",
+    "D": "月亮"
+   },
+   "correct": "D",
+   "explanation": "月亮 is the moon. At night, leaning on the window sill, what you watch is up in the sky: 看月亮.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期三，练习4（printed p.36）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "跟着 is following and needs a person after it; 看跟着 says nothing.",
+    "B": "于是 joins two events, so, then; it is not a thing you can look at.",
+    "C": "伸手 is an action, stretching out a hand; after 看 the sentence needs the thing being watched."
+   },
+   "prompt_en": "Fill the blank: 昨晚，我和妈妈趴在窗边看______。",
+   "explanation_zh": "\"月亮\"晚上挂在天上，趴在窗边看的就是月亮。",
+   "why_zh": {
+    "A": "\"跟着\"后面要跟一个人，\"看跟着\"说不通。",
+    "B": "\"于是\"连接两件事，不是能看的东西。",
+    "C": "\"伸手\"是动作，\"看\"后面要的是看的东西。"
+   },
+   "content_hash": "8cad821d9698254d"
+  },
+  {
+   "id": "zc:L06-10",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：过年的时候，云云______爸爸妈妈回到了北京。",
+   "choices": {
+    "A": "伸手",
+    "B": "跟着",
+    "C": "月亮",
+    "D": "于是"
+   },
+   "correct": "B",
+   "explanation": "跟着 means going along with someone: 云云 went back to Beijing with her parents, 跟着爸爸妈妈.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期三，练习4（printed p.36）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "伸手 is stretching out a hand; you cannot 伸手 your parents back to Beijing.",
+    "C": "月亮 is the moon, a thing; the blank, between 云云 and her parents, needs what she did.",
+    "D": "于是 joins an earlier event to what followed, so it opens a clause; it cannot sit between 云云 and her parents."
+   },
+   "prompt_en": "Fill the blank: 过年的时候，云云______爸爸妈妈回到了北京。",
+   "explanation_zh": "\"跟着\"是和别人一起、在后面走：云云跟着爸爸妈妈回到了北京。",
+   "why_zh": {
+    "A": "\"伸手\"是把手伸出去，不能\"伸手爸爸妈妈\"。",
+    "C": "\"月亮\"是东西，这个空夹在云云和爸爸妈妈中间，要说云云做了什么。",
+    "D": "\"于是\"连接前后两件事，要放在一句话的开头，不能夹在云云和爸爸妈妈中间。"
+   },
+   "content_hash": "947340986a7f2274"
+  },
+  {
+   "id": "zc:L06-11",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：她就坐在我前面，我一______就能碰到她。",
+   "choices": {
+    "A": "月亮",
+    "B": "于是",
+    "C": "伸手",
+    "D": "跟着"
+   },
+   "correct": "C",
+   "explanation": "伸手 is stretching out a hand. She sits right in front of me, so the moment I reach out I can touch her: 一伸手就能碰到她, like the little monkey who 伸手去捞月亮.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》 星期三，练习4（printed p.36）",
+   "form": "L06",
+   "lesson": "L06",
+   "why": {
+    "A": "月亮 is the moon, a thing; 一……就 needs an action in the middle: do one thing and the next happens.",
+    "B": "于是 links two events and cannot follow 一; 一……就 wants something I do.",
+    "D": "跟着 means following and needs a person after it; reaching her from my seat takes a hand, not following."
+   },
+   "prompt_en": "Fill the blank: 她就坐在我前面，我一______就能碰到她。",
+   "explanation_zh": "\"伸手\"是把手伸出去。她就坐在我前面，我一伸手就能碰到她——就像小猴子伸手去捞月亮。",
+   "why_zh": {
+    "A": "\"月亮\"是东西，\"一……就……\"中间要一个动作。",
+    "B": "\"于是\"连接两件事，不能放在\"一\"后面；\"一……就……\"要的是我做的动作。",
+    "D": "\"跟着\"后面要有人；坐着就能碰到她，靠的是伸手，不是跟着走。"
+   },
+   "content_hash": "33967169a822a0af"
+  },
+  {
+   "id": "zc:L07-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：过马路的时候要______。",
+   "choices": {
+    "A": "花园",
+    "B": "惊慌",
+    "C": "小心",
+    "D": "扑通"
+   },
+   "correct": "C",
+   "explanation": "小心 means careful. Crossing the road is the moment to watch out for cars, so you must be careful: 过马路的时候要小心.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习1（printed p.48）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "A": "花园 is a garden, a place. 要花园 would mean wanting a garden, which has nothing to do with crossing the road.",
+    "B": "惊慌 means panicking. Nobody should panic crossing the road — panicking is what makes it dangerous.",
+    "D": "扑通 is the sound of a splash; a sound cannot be what you must do at a crossing."
+   },
+   "prompt_en": "Fill the blank: 过马路的时候要______。",
+   "explanation_zh": "\"小心\"是注意、留神。过马路的时候要看车，所以要小心。",
+   "why_zh": {
+    "A": "\"花园\"是一个地方，\"要花园\"成了想要一个花园，跟过马路没关系。",
+    "B": "\"惊慌\"是又怕又慌，过马路可不能慌，慌了更危险。",
+    "D": "\"扑通\"是东西掉进水里的声音，不是过马路时要做的事。"
+   },
+   "content_hash": "622d870d8ee76105"
+  },
+  {
+   "id": "zc:L07-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：春天来了，______里的花都开了。",
+   "choices": {
+    "A": "花园",
+    "B": "小心",
+    "C": "扑通",
+    "D": "只有"
+   },
+   "correct": "A",
+   "explanation": "花园 is a garden, a place where flowers grow. 里 needs a place in front of it, and in spring the garden's flowers open: 花园里的花都开了.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习1（printed p.48）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "B": "小心 means careful; it is not a place, so no flower can open 'inside careful'.",
+    "C": "扑通 is a splashing sound, not a place where flowers grow.",
+    "D": "只有 means only; it is not a place, and 只有里 is not something you can say."
+   },
+   "prompt_en": "Fill the blank: 春天来了，______里的花都开了。",
+   "explanation_zh": "\"花园\"是种花的地方。\"里\"前面要有一个地方；春天来了，花园里的花都开了。",
+   "why_zh": {
+    "B": "\"小心\"是留神，不是一个地方，花不会开在\"小心里\"。",
+    "C": "\"扑通\"是落水的声音，不是长花的地方。",
+    "D": "\"只有\"是\"仅仅\"的意思，不是地方，不能说\"只有里\"。"
+   },
+   "content_hash": "71be50b67f40051d"
+  },
+  {
+   "id": "zc:L07-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：他“______”一声跳进了水里。",
+   "choices": {
+    "A": "惊慌",
+    "B": "只有",
+    "C": "小心",
+    "D": "扑通"
+   },
+   "correct": "D",
+   "explanation": "扑通 is the sound of something falling into water. Inside the quotation marks, before 一声, the blank needs a sound — and jumping into water makes exactly this one.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习1（printed p.48）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "A": "惊慌 is a feeling, panic; it makes no sound, so it cannot be 一声.",
+    "B": "只有 means only — a word that links ideas, not a sound.",
+    "C": "小心 means careful — what you should be near water, not the noise of landing in it."
+   },
+   "prompt_en": "Fill the blank: 他“______”一声跳进了水里。",
+   "explanation_zh": "\"扑通\"是东西掉进水里的声音。引号里、\"一声\"前面要填一个声音，跳进水里就是\"扑通\"一声。",
+   "why_zh": {
+    "A": "\"惊慌\"是一种心情，不是声音，不能\"惊慌一声\"。",
+    "B": "\"只有\"是\"仅仅\"，不是声音。",
+    "C": "\"小心\"是留神，在水边要小心，可它不是跳进水里的声音。"
+   },
+   "content_hash": "0ff5570f232807ca"
+  },
+  {
+   "id": "zc:L07-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "function-words",
+   "difficulty": "E",
+   "prompt": "选词填空：现在______我和妈妈在家。",
+   "choices": {
+    "A": "小心",
+    "B": "只有",
+    "C": "花园",
+    "D": "惊慌"
+   },
+   "correct": "B",
+   "explanation": "只有 means only. It goes in front of the people it counts: right now only Mother and I are at home, and nobody else.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习1（printed p.48）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "A": "小心 means careful; 小心我和妈妈在家 would be a warning, and nothing here needs a warning.",
+    "C": "花园 is a place, and the sentence already has its place — 在家, at home.",
+    "D": "惊慌 says how someone feels; it cannot stand in front of 我和妈妈 like this."
+   },
+   "prompt_en": "Fill the blank: 现在______我和妈妈在家。",
+   "explanation_zh": "\"只有\"是\"仅仅\"，放在人的前面：现在只有我和妈妈在家，别的人都不在。",
+   "why_zh": {
+    "A": "\"小心\"是提醒人留神，\"小心我和妈妈在家\"说不通。",
+    "C": "\"花园\"是一个地方，句子里已经有地方了——在家。",
+    "D": "\"惊慌\"说的是心情，不能这样放在\"我和妈妈\"前面。"
+   },
+   "content_hash": "1659b7aa4a1bde6c"
+  },
+  {
+   "id": "zc:L07-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：无论发生什么事情，都不要______。",
+   "choices": {
+    "A": "惊慌",
+    "B": "小心",
+    "C": "扑通",
+    "D": "只有"
+   },
+   "correct": "A",
+   "explanation": "惊慌 means panicking. Whatever happens, don't panic — just what Sima Guang shows in the story: 只有司马光不惊慌.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习1（printed p.48）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "B": "不要小心 would tell you NOT to be careful, which is the opposite of good advice.",
+    "C": "扑通 is a sound; 不要扑通 is not something you can tell a person.",
+    "D": "只有 means only, and it needs more words after it; it cannot end the sentence."
+   },
+   "prompt_en": "Fill the blank: 无论发生什么事情，都不要______。",
+   "explanation_zh": "\"惊慌\"是又怕又慌。不管发生什么事，都不要惊慌——司马光就是这样：只有司马光不惊慌。",
+   "why_zh": {
+    "B": "\"不要小心\"是叫人别留神，正好说反了。",
+    "C": "\"扑通\"是声音，不能说\"不要扑通\"。",
+    "D": "\"只有\"后面要跟别的词，不能放在句子最后。"
+   },
+   "content_hash": "2ab585e023bc37df"
+  },
+  {
+   "id": "zc:L07-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "directional-complements",
+   "difficulty": "E",
+   "prompt": "选词填空：房门开了，妈妈从里面走了______。",
+   "choices": {
+    "A": "进来",
+    "B": "回来",
+    "C": "下来",
+    "D": "出来"
+   },
+   "correct": "D",
+   "explanation": "出来 means coming out. 从里面 — from inside — says she is coming out of the room, the way the water came out of the vat: 水流了出来.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习5（printed p.50）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "A": "进来 is coming in, from outside to inside; but she starts 从里面, already inside.",
+    "B": "回来 is coming back to where you started; the sentence is about the open door and walking out through it.",
+    "C": "下来 is coming down from somewhere high; nothing here is high up."
+   },
+   "prompt_en": "Fill the blank: 房门开了，妈妈从里面走了______。",
+   "explanation_zh": "\"出来\"是从里面到外面。\"从里面\"走，就是走出来，就像水缸破了，水流了出来。",
+   "why_zh": {
+    "A": "\"进来\"是从外面到里面，可妈妈是\"从里面\"走的，本来就在里面。",
+    "B": "\"回来\"是回到原来的地方；这句说的是门开了，从里面走出来。",
+    "C": "\"下来\"是从高处到低处，这里没有高的地方。"
+   },
+   "content_hash": "9cfac137a69af11a"
+  },
+  {
+   "id": "zc:L07-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "directional-complements",
+   "difficulty": "M",
+   "prompt": "选词填空：看，爸爸从山上走______了。",
+   "choices": {
+    "A": "上来",
+    "B": "下来",
+    "C": "出来",
+    "D": "进来"
+   },
+   "correct": "B",
+   "explanation": "下来 means coming down. 山上 is up on the hill, so walking from there toward us is walking down: 爸爸从山上走下来了.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习5（printed p.50）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "A": "上来 means coming up, and there is no further up from the top of a hill.",
+    "C": "出来 needs an inside to come out of, like 从里面 in the sentence about the door; 山上 is the top of a hill, not an inside.",
+    "D": "进来 means coming in through a door; walking off a hill is not going in anywhere."
+   },
+   "prompt_en": "Fill the blank: 看，爸爸从山上走______了。",
+   "explanation_zh": "\"下来\"是从高处到低处。山上是高的地方，从山上走过来，就是走下来了。",
+   "why_zh": {
+    "A": "\"上来\"是从低处到高处，从山上不能再往上走。",
+    "C": "\"出来\"要从里面出来，像\"从里面走了出来\"；\"山上\"不是里面。",
+    "D": "\"进来\"是进到屋子里，从山上走下来不是进门。"
+   },
+   "content_hash": "aa962f0bda268cdc"
+  },
+  {
+   "id": "zc:L07-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "directional-complements",
+   "difficulty": "M",
+   "prompt": "选词填空：你在哪里呀？快点______吧，我们都在家等你吃饭呢。",
+   "choices": {
+    "A": "回来",
+    "B": "上来",
+    "C": "进来",
+    "D": "下来"
+   },
+   "correct": "A",
+   "explanation": "回来 means coming back. The family is at home waiting with dinner and the person is somewhere else, so they are asked to come back home.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习5（printed p.51）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "B": "上来 means coming up; nothing in the sentence is high or low.",
+    "D": "下来 means coming down from a height; the sentence never says he is up high.",
+    "C": "进来 means stepping in through the door, but 你在哪里呀 shows the speaker does not even know where the person is — they are away, not at the door, so they must come back."
+   },
+   "prompt_en": "Fill the blank: 你在哪里呀？快点______吧，我们都在家等你吃饭呢。",
+   "explanation_zh": "\"回来\"是回到原来的地方。家里人在等他吃饭，他在外面，所以叫他快点回来。",
+   "why_zh": {
+    "B": "\"上来\"是往上走，句子里没有高低。",
+    "D": "\"下来\"是从高处下来，句子里没说他在高的地方。",
+    "C": "\"进来\"是从门外进到屋里，可是\"你在哪里呀\"说明他不在门口，不知道在哪儿，所以要叫他回来。"
+   },
+   "content_hash": "2ac53673131715b5"
+  },
+  {
+   "id": "zc:L07-09",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "directional-complements",
+   "difficulty": "E",
+   "prompt": "选词填空：外面雨好大呀，你快______吧。",
+   "choices": {
+    "A": "上来",
+    "B": "出来",
+    "C": "进来",
+    "D": "下来"
+   },
+   "correct": "C",
+   "explanation": "进来 means coming in. The rain is outside, so the speaker, who is indoors, tells the person to come inside: 你快进来吧.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习5（printed p.51）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "B": "出来 would send the person out into the rain — the opposite of what the speaker wants.",
+    "D": "下来 means coming down; again the sentence is about inside and outside.",
+    "A": "上来 means coming up; the rain makes this a matter of inside and outside, not up and down."
+   },
+   "prompt_en": "Fill the blank: 外面雨好大呀，你快______吧。",
+   "explanation_zh": "\"进来\"是从外面到里面。外面下大雨，说话的人在屋里，叫他快进来。",
+   "why_zh": {
+    "B": "\"出来\"是到外面去，那就淋雨了，正好说反了。",
+    "D": "\"下来\"也是说上下，下雨要说里外。",
+    "A": "\"上来\"说的是上下，这句说的是里外。"
+   },
+   "content_hash": "f81ce776c02ccfc4"
+  },
+  {
+   "id": "zc:L07-10",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "directional-complements",
+   "difficulty": "M",
+   "prompt": "选词填空：好漂亮的风景呀，你也______看看吧，站得高才能看得远。",
+   "choices": {
+    "A": "下来",
+    "B": "上来",
+    "C": "回来",
+    "D": "进来"
+   },
+   "correct": "B",
+   "explanation": "上来 means coming up. 站得高才能看得远 — you see far only from up high — so the speaker, already up there, asks the friend to come up too.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期三，练习5（printed p.51）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "A": "下来 would bring the friend down, and from lower down they would see less, not more.",
+    "C": "回来 means coming back; the sentence is about standing high, and 回来 says nothing about height.",
+    "D": "进来 means coming indoors; to see a long way you go up, not in."
+   },
+   "prompt_en": "Fill the blank: 好漂亮的风景呀，你也______看看吧，站得高才能看得远。",
+   "explanation_zh": "\"上来\"是从低处到高处。\"站得高才能看得远\"，说话的人在高处，叫朋友也上来看看。",
+   "why_zh": {
+    "A": "\"下来\"是往下走，站得低就看不远了。",
+    "C": "\"回来\"是回到原来的地方，跟站得高没关系。",
+    "D": "\"进来\"是进到屋里，要看得远得往高处走，不是往里走。"
+   },
+   "content_hash": "0121776adafd4f62"
+  },
+  {
+   "id": "zc:L07-11",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：一天，司马光和小朋友们在______里玩儿，有的做游戏，有的爬树。",
+   "choices": {
+    "A": "花园",
+    "B": "水缸",
+    "C": "扑通",
+    "D": "惊慌"
+   },
+   "correct": "A",
+   "explanation": "花园 is a garden. The children are playing games and climbing trees, and the text puts them in the garden: 他和小朋友们在花园里玩儿.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期四，练习1（printed p.51）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "C": "扑通 is a sound, not a place to play in.",
+    "D": "惊慌 is a feeling, not a place, so 在惊慌里玩儿 makes no sense.",
+    "B": "水缸 is the water vat — nobody plays games and climbs trees inside a vat; it is where one child falls in later."
+   },
+   "prompt_en": "Fill the blank: 一天，司马光和小朋友们在______里玩儿，有的做游戏，有的爬树。",
+   "explanation_zh": "\"花园\"是种花种树的地方。小朋友们在做游戏、爬树，课文里说：他和小朋友们在花园里玩儿。",
+   "why_zh": {
+    "C": "\"扑通\"是声音，不是玩儿的地方。",
+    "D": "\"惊慌\"是心情，不是地方，不能说\"在惊慌里玩儿\"。",
+    "B": "\"水缸\"是装水的大缸，不能在里面做游戏、爬树；后来有个小朋友掉了进去。"
+   },
+   "content_hash": "2b910a5a99060fde"
+  },
+  {
+   "id": "zc:L07-12",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：突然，大家听到“______”一声。",
+   "choices": {
+    "A": "花园",
+    "B": "吓哭",
+    "C": "扑通",
+    "D": "惊慌"
+   },
+   "correct": "C",
+   "explanation": "扑通 is the splash of something falling into water — the sound of the child landing in the vat.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期四，练习1（printed p.51）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "A": "花园 is the garden where they are playing; a place makes no sound.",
+    "B": "吓哭 is being frightened into tears; it happens after the splash, and it is not a sound.",
+    "D": "惊慌 is a feeling; 一声 needs a sound in front of it."
+   },
+   "prompt_en": "Fill the blank: 突然，大家听到“______”一声。",
+   "explanation_zh": "\"扑通\"是东西掉进水里的声音——就是那个小朋友掉进水缸的声音。",
+   "why_zh": {
+    "A": "\"花园\"是他们玩儿的地方，地方不会发出声音。",
+    "B": "\"吓哭\"是被吓得哭了，是听到声音以后的事，不是那一声。",
+    "D": "\"惊慌\"是心情，\"一声\"前面要的是声音。"
+   },
+   "content_hash": "9827b28827f4c337"
+  },
+  {
+   "id": "zc:L07-13",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：原来，树下有一个大______，有个小朋友不小心从树上掉到水缸里了。",
+   "choices": {
+    "A": "扑通",
+    "B": "水缸",
+    "C": "花园",
+    "D": "吓哭"
+   },
+   "correct": "B",
+   "explanation": "水缸 is a big vat for water. The same sentence goes on to say where the child fell: 掉到水缸里了.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期四，练习1（printed p.51）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "C": "The children are already in the garden; what stands under the tree is the vat.",
+    "D": "吓哭 is being frightened into tears; it is not a thing, so it cannot be 一个大.",
+    "A": "扑通 is the sound, not the thing under the tree; 一个大 needs a thing after it."
+   },
+   "prompt_en": "Fill the blank: 原来，树下有一个大______，有个小朋友不小心从树上掉到水缸里了。",
+   "explanation_zh": "\"水缸\"是装水的大缸。这句后面就说了，小朋友掉到水缸里了。",
+   "why_zh": {
+    "C": "小朋友们本来就在花园里，树下的是水缸。",
+    "D": "\"吓哭\"是被吓哭了，不是东西，不能说\"一个大吓哭\"。",
+    "A": "\"扑通\"是声音，\"一个大\"后面要的是东西。"
+   },
+   "content_hash": "adb664374d000d0c"
+  },
+  {
+   "id": "zc:L07-14",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：水缸又大又深，里面装满了水。别的小朋友都______了，不知道怎么办。",
+   "choices": {
+    "A": "扑通",
+    "B": "水缸",
+    "C": "花园",
+    "D": "吓哭"
+   },
+   "correct": "D",
+   "explanation": "吓哭 means frightened into tears. The other children are so scared that they cry and don't know what to do — the text's own words: 别的小朋友都吓哭了.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期四，练习1（printed p.51）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "A": "扑通 is the splash they heard; 都______了 needs what happened to the children.",
+    "B": "水缸 is the vat, a thing; the children cannot all 'vat'.",
+    "C": "花园 is where they were playing, not what happened to them."
+   },
+   "prompt_en": "Fill the blank: 水缸又大又深，里面装满了水。别的小朋友都______了，不知道怎么办。",
+   "explanation_zh": "\"吓哭\"是被吓得哭了。别的小朋友害怕得哭了，不知道怎么办——课文里说：别的小朋友都吓哭了。",
+   "why_zh": {
+    "A": "\"扑通\"是他们听到的声音，这里要说小朋友们怎么了。",
+    "B": "\"水缸\"是东西，不能说\"小朋友都水缸了\"。",
+    "C": "\"花园\"是玩儿的地方，不是小朋友们怎么了。"
+   },
+   "content_hash": "898b3163adae669c"
+  },
+  {
+   "id": "zc:L07-15",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：只有司马光不______。",
+   "choices": {
+    "A": "吓哭",
+    "B": "花园",
+    "C": "惊慌",
+    "D": "水缸"
+   },
+   "correct": "C",
+   "explanation": "惊慌 means panicking. Everyone else is crying with fright; only Sima Guang stays calm — 只有司马光不惊慌 — and that is why he can think of a way.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》 星期四，练习1（printed p.51）",
+   "form": "L07",
+   "lesson": "L07",
+   "why": {
+    "A": "吓哭 tells what has already happened, so the way to say he did not cry is 没吓哭, not 不吓哭.",
+    "D": "水缸 is a thing, and 不 cannot be put in front of a thing like this.",
+    "B": "花园 is a place; 不花园 is not something you can say."
+   },
+   "prompt_en": "Fill the blank: 只有司马光不______。",
+   "explanation_zh": "\"惊慌\"是又怕又慌。别人都吓哭了，只有司马光不惊慌，所以他能想出办法。",
+   "why_zh": {
+    "A": "\"吓哭\"说的是已经发生的事，没哭要说\"没吓哭\"，这里不能说\"不吓哭\"。",
+    "D": "\"水缸\"是东西，\"不\"不能放在东西前面。",
+    "B": "\"花园\"是地方，不能说\"不花园\"。"
+   },
+   "content_hash": "923ca93c936c7554"
+  },
+  {
+   "id": "zc:L08-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "measure-words",
+   "difficulty": "E",
+   "prompt": "选词填空：离北斗星不远的那______星，叫北极星。",
+   "choices": {
+    "A": "位",
+    "B": "本",
+    "C": "颗",
+    "D": "把"
+   },
+   "correct": "C",
+   "explanation": "颗 counts small, round things — a star, a tooth, a drop of sweat. The text says it this way: 离它不远的那颗星，叫北极星.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期二，练习3（printed p.49）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "位 is a polite word for counting people, as in 一位天文学家; a star is not a person.",
+    "B": "本 counts books and notebooks — things with pages — and a star has none.",
+    "D": "把 counts things you hold by a handle, like a spoon; the seven stars together look like 一把勺子, but one star on its own is 一颗."
+   },
+   "prompt_en": "Fill the blank: 离北斗星不远的那______星，叫北极星。",
+   "explanation_zh": "\"颗\"用来数小而圆的东西：一颗星、一颗牙齿、一颗汗珠。课文就是这么说的：离它不远的那颗星，叫北极星。",
+   "why_zh": {
+    "A": "\"位\"是客气地数人，像\"一位天文学家\"；星星不是人。",
+    "B": "\"本\"数书和本子这种有很多页的东西，星星没有页。",
+    "D": "\"把\"数有把手、能拿在手里的东西，像勺子；七颗星连起来像\"一把勺子\"，可单独一颗星要说\"一颗\"。"
+   },
+   "content_hash": "2f5f877800accf0a"
+  },
+  {
+   "id": "zc:L08-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "measure-words",
+   "difficulty": "E",
+   "prompt": "选词填空：张衡是一______著名的天文学家。",
+   "choices": {
+    "A": "位",
+    "B": "件",
+    "C": "颗",
+    "D": "本"
+   },
+   "correct": "A",
+   "explanation": "位 counts people, and it is the polite one — the word to use for someone you respect, like a famous astronomer.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期二，练习3（printed p.49）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "B": "件 counts matters and pieces of clothing — 一件事, 一件衣服 — not people.",
+    "C": "颗 counts small round things like stars and teeth, and Zhang Heng is a person.",
+    "D": "本 counts books; 一本 would turn the astronomer into something on a shelf."
+   },
+   "prompt_en": "Fill the blank: 张衡是一______著名的天文学家。",
+   "explanation_zh": "\"位\"用来数人，而且很客气，说一个让人尊敬的人就用它，像一位著名的天文学家。",
+   "why_zh": {
+    "B": "\"件\"数事情和衣服——一件事、一件衣服——不数人。",
+    "C": "\"颗\"数星星、牙齿这种小而圆的东西，张衡是人。",
+    "D": "\"本\"数书，\"一本\"好像天文学家是书架上的东西。"
+   },
+   "content_hash": "288bdc159816453c"
+  },
+  {
+   "id": "zc:L08-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "measure-words",
+   "difficulty": "E",
+   "prompt": "选词填空：妈妈告诉我一______事。",
+   "choices": {
+    "A": "把",
+    "B": "颗",
+    "C": "本",
+    "D": "件"
+   },
+   "correct": "D",
+   "explanation": "件 counts matters and happenings, and pieces of clothing too: 一件事, 一件衣服. Something Mother tells you is 一件事.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期二，练习3（printed p.49）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "把 counts things you hold by a handle — a spoon, a chair, an umbrella — and you cannot hold a piece of news.",
+    "B": "颗 counts small round things like stars; a matter has no shape to count that way.",
+    "C": "本 counts books; 事 is something that happened, not something with pages."
+   },
+   "prompt_en": "Fill the blank: 妈妈告诉我一______事。",
+   "explanation_zh": "\"件\"用来数事情，也数衣服：一件事、一件衣服。妈妈告诉我的是一件事。",
+   "why_zh": {
+    "A": "\"把\"数有把手、能拿着的东西——勺子、椅子、雨伞——事情是拿不住的。",
+    "B": "\"颗\"数星星这种小而圆的东西，事情没有形状。",
+    "C": "\"本\"数书，\"事\"是发生的事情，不是有页的东西。"
+   },
+   "content_hash": "db902f561cde1ef0"
+  },
+  {
+   "id": "zc:L08-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "measure-words",
+   "difficulty": "E",
+   "prompt": "选词填空：昨天爸爸给我买了一______故事书。",
+   "choices": {
+    "A": "件",
+    "B": "本",
+    "C": "位",
+    "D": "把"
+   },
+   "correct": "B",
+   "explanation": "本 counts books and notebooks — anything bound with pages. A storybook is 一本故事书.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期二，练习3（printed p.49）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "件 counts matters and clothes; a book is neither.",
+    "C": "位 counts people, politely; a storybook is a thing.",
+    "D": "把 counts things held by a handle, and a book has no handle."
+   },
+   "prompt_en": "Fill the blank: 昨天爸爸给我买了一______故事书。",
+   "explanation_zh": "\"本\"用来数书和本子这种订在一起、有很多页的东西。故事书就是一本故事书。",
+   "why_zh": {
+    "A": "\"件\"数事情和衣服，书两样都不是。",
+    "C": "\"位\"客气地数人，故事书是东西。",
+    "D": "\"把\"数有把手的东西，书没有把手。"
+   },
+   "content_hash": "7c43b9d871e05be4"
+  },
+  {
+   "id": "zc:L08-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "measure-words",
+   "difficulty": "E",
+   "prompt": "选词填空：碗里有一______勺子。",
+   "choices": {
+    "A": "把",
+    "B": "位",
+    "C": "颗",
+    "D": "本"
+   },
+   "correct": "A",
+   "explanation": "把 counts things you pick up by a handle — a spoon, a knife, a chair. The text uses it too: 那七颗星连起来像一把勺子.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期二，练习3（printed p.49）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "B": "位 counts people, politely, and a spoon is not a person.",
+    "C": "颗 counts small round things like stars or teeth; a spoon is long, with a handle.",
+    "D": "本 counts books; a spoon has no pages."
+   },
+   "prompt_en": "Fill the blank: 碗里有一______勺子。",
+   "explanation_zh": "\"把\"用来数有把手、能拿在手里的东西：勺子、刀、椅子。课文里也这么说：那七颗星连起来像一把勺子。",
+   "why_zh": {
+    "B": "\"位\"客气地数人，勺子不是人。",
+    "C": "\"颗\"数星星、牙齿这种小而圆的东西，勺子长长的，有个把儿。",
+    "D": "\"本\"数书，勺子没有页。"
+   },
+   "content_hash": "a3ea58a03c73326d"
+  },
+  {
+   "id": "zc:L08-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词：星星　月亮　仰头　太阳",
+   "choices": {
+    "A": "星星",
+    "B": "仰头",
+    "C": "太阳",
+    "D": "月亮"
+   },
+   "correct": "B",
+   "explanation": "仰头 is an action — tipping your head back to look up, the way Zhang Heng does to count the stars. 星星, 月亮 and 太阳 are all things in the sky.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期三，练习2（printed p.51）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "星星 are in the sky, just like 月亮 and 太阳, so it belongs with them.",
+    "C": "太阳, the sun, is in the sky like 星星 and 月亮 — the three go together.",
+    "D": "月亮, the moon, is another thing in the sky, so it belongs with 星星 and 太阳."
+   },
+   "prompt_en": "Find the odd one out: 星星　月亮　仰头　太阳",
+   "explanation_zh": "\"仰头\"是一个动作——把头抬起来往上看，张衡数星星就是仰着头。星星、月亮、太阳都是天上的东西。",
+   "why_zh": {
+    "A": "星星在天上，和月亮、太阳一样，是同一类。",
+    "C": "太阳在天上，和星星、月亮是一类的。",
+    "D": "月亮也是天上的东西，和星星、太阳是一类。"
+   },
+   "content_hash": "cda5fb2d6b19e860"
+  },
+  {
+   "id": "zc:L08-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词：努力　认真　聪明　名字",
+   "choices": {
+    "A": "认真",
+    "B": "努力",
+    "C": "聪明",
+    "D": "名字"
+   },
+   "correct": "D",
+   "explanation": "名字 is a thing — what someone is called. 努力, 认真 and 聪明 all describe what a person is like or how they work: hard-working, careful, clever.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期三，练习2（printed p.51）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "认真, careful and serious, describes how someone works, like 努力 and 聪明.",
+    "B": "努力, hard-working, describes a person, like 认真 and 聪明 — 他努力学习.",
+    "C": "聪明, clever, describes what someone is like, the same kind of word as 努力 and 认真."
+   },
+   "prompt_en": "Find the odd one out: 努力　认真　聪明　名字",
+   "explanation_zh": "\"名字\"是一样东西——人叫什么。努力、认真、聪明都是说一个人怎么样、做事怎么样。",
+   "why_zh": {
+    "A": "\"认真\"说一个人做事怎么样，和努力、聪明是一类。",
+    "B": "\"努力\"说一个人怎么做事，和认真、聪明一样——他努力学习。",
+    "C": "\"聪明\"说一个人怎么样，和努力、认真是一类的词。"
+   },
+   "content_hash": "92d8a0e8ea110531"
+  },
+  {
+   "id": "zc:L08-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词：早晨　夜晚　吃饭　中午",
+   "choices": {
+    "A": "吃饭",
+    "B": "中午",
+    "C": "早晨",
+    "D": "夜晚"
+   },
+   "correct": "A",
+   "explanation": "吃饭 is something you do — eating a meal. 早晨, 中午 and 夜晚 are all times of the day: morning, noon and night.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期三，练习2（printed p.51）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "B": "中午, noon, is a time of day like 早晨 and 夜晚.",
+    "C": "早晨, morning, is a time of day, the same kind as 中午 and 夜晚.",
+    "D": "夜晚, night, is a time of day — the text begins with one: 夏天的夜晚."
+   },
+   "prompt_en": "Find the odd one out: 早晨　夜晚　吃饭　中午",
+   "explanation_zh": "\"吃饭\"是一件要做的事。早晨、中午、夜晚都是一天里的时候。",
+   "why_zh": {
+    "B": "\"中午\"是一天里的一个时候，和早晨、夜晚一样。",
+    "C": "\"早晨\"是一天里的时候，和中午、夜晚是一类。",
+    "D": "\"夜晚\"是一天里的时候——课文开头就是\"夏天的夜晚\"。"
+   },
+   "content_hash": "b0cd7eb2e1fc83be"
+  },
+  {
+   "id": "zc:L08-09",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词：天文学家　科学家　发明家　伟大",
+   "choices": {
+    "A": "科学家",
+    "B": "发明家",
+    "C": "伟大",
+    "D": "天文学家"
+   },
+   "correct": "C",
+   "explanation": "伟大 means great — it is a describing word. 天文学家, 科学家 and 发明家 are all kinds of people: an astronomer, a scientist, an inventor.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期三，练习2（printed p.51）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "科学家, a scientist, is a person, like 天文学家 and 发明家.",
+    "B": "发明家, an inventor, is a person — Edison in the reading is one: 一位伟大的发明家.",
+    "D": "天文学家, an astronomer, is a person — it is what Zhang Heng became."
+   },
+   "prompt_en": "Find the odd one out: 天文学家　科学家　发明家　伟大",
+   "explanation_zh": "\"伟大\"是形容词，说一个人或一件事很了不起。天文学家、科学家、发明家都是人。",
+   "why_zh": {
+    "A": "\"科学家\"是人，和天文学家、发明家一样。",
+    "B": "\"发明家\"是人——阅读里的爱迪生就是\"一位伟大的发明家\"。",
+    "D": "\"天文学家\"是人——张衡长大后就成了天文学家。"
+   },
+   "content_hash": "a9913daaab7fbab3"
+  },
+  {
+   "id": "zc:L08-10",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：夏天的______，天空布满了明亮的星星。",
+   "choices": {
+    "A": "院子",
+    "B": "靠着",
+    "C": "星星",
+    "D": "夜晚"
+   },
+   "correct": "D",
+   "explanation": "夜晚 is night-time. The stars are out, so this is a summer night — the text's own opening: 夏天的夜晚.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期三，练习3（printed p.52）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "院子 is a place on the ground, and this opening says when the sky is full of stars — that is a time, night, not a place.",
+    "B": "靠着 means leaning against, an action; after 夏天的 the sentence needs a thing, not something someone does.",
+    "C": "星星 are already in the sentence — the sky is full of them; the blank asks when, and the answer is night."
+   },
+   "prompt_en": "Fill the blank: 夏天的______，天空布满了明亮的星星。",
+   "explanation_zh": "\"夜晚\"就是晚上。天上布满了星星，说的是夏天的晚上——课文开头就是\"夏天的夜晚\"。",
+   "why_zh": {
+    "A": "\"院子\"是地上的一个地方，这一句开头说的是什么时候天上布满星星——要填时间，是晚上，不是地方。",
+    "B": "\"靠着\"是动作，\"夏天的\"后面要跟名词，不是动作。",
+    "C": "\"星星\"句子里已经有了——天空布满了星星；这个空问的是什么时候，答案是晚上。"
+   },
+   "content_hash": "d8e0d9941059284f"
+  },
+  {
+   "id": "zc:L08-11",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：夏天的夜晚，天空布满了______的星星。",
+   "choices": {
+    "A": "院子",
+    "B": "明亮",
+    "C": "星星",
+    "D": "靠着"
+   },
+   "correct": "B",
+   "explanation": "明亮 means bright. Before 的星星 the sentence needs a word that says what the stars are like: 明亮的星星, bright stars.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期三，练习3（printed p.52）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "院子的星星 would be the yard's stars, but stars are up in the sky, not in a yard; the blank wants how they look.",
+    "C": "星星的星星 says the same word twice and means nothing; the blank needs a word that describes the stars.",
+    "D": "靠着 is an action, leaning on something; it cannot describe what stars look like."
+   },
+   "prompt_en": "Fill the blank: 夏天的夜晚，天空布满了______的星星。",
+   "explanation_zh": "\"明亮\"就是很亮。\"的星星\"前面要一个说星星样子的词：明亮的星星。",
+   "why_zh": {
+    "A": "\"院子的星星\"是院子里的星星，可星星在天上；这里要说星星的样子。",
+    "C": "\"星星的星星\"重复了，说不通；这里要一个形容星星的词。",
+    "D": "\"靠着\"是动作，不能说星星是什么样的。"
+   },
+   "content_hash": "253abdc7dfa59a8f"
+  },
+  {
+   "id": "zc:L08-12",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：一个孩子坐在______里，靠着奶奶，仰着头数天上的星星。",
+   "choices": {
+    "A": "院子",
+    "B": "夜晚",
+    "C": "明亮",
+    "D": "靠着"
+   },
+   "correct": "A",
+   "explanation": "院子 is the yard in front of a house. 坐在……里 needs a place to sit in, and the text puts the boy there: 一个孩子坐在院子里.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期三，练习3（printed p.52）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "B": "夜晚 is a time, not a place; you sit in a yard at night, but you cannot sit inside the night.",
+    "C": "明亮 (bright) describes something; 坐在……里 needs a place.",
+    "D": "靠着 is an action and already comes next in the sentence — 靠着奶奶; the blank is where he sits."
+   },
+   "prompt_en": "Fill the blank: 一个孩子坐在______里，靠着奶奶，仰着头数天上的星星。",
+   "explanation_zh": "\"院子\"是房子前面的空地。\"坐在……里\"要一个地方，课文说：一个孩子坐在院子里。",
+   "why_zh": {
+    "B": "\"夜晚\"是时间，不是地方；晚上坐在院子里，可不能坐在\"夜晚里\"。",
+    "C": "\"明亮\"是形容词，\"坐在……里\"要一个地方。",
+    "D": "\"靠着\"是动作，句子后面已经有了——靠着奶奶；这个空是他坐的地方。"
+   },
+   "content_hash": "e6689272471db286"
+  },
+  {
+   "id": "zc:L08-13",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：一个孩子坐在院子里，______奶奶，仰着头数天上的星星。",
+   "choices": {
+    "A": "明亮",
+    "B": "星星",
+    "C": "靠着",
+    "D": "夜晚"
+   },
+   "correct": "C",
+   "explanation": "靠着 means leaning against. The boy sits close to Grandma, leaning on her — the text's own words: 靠着奶奶.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期三，练习3（printed p.52）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "明亮奶奶 would be a bright grandma; the blank needs what the boy does with Grandma.",
+    "B": "星星 are what he counts at the end of the sentence; before 奶奶 the sentence needs an action.",
+    "D": "夜晚奶奶 means nothing; night is when this happens, and the blank is what the boy does."
+   },
+   "prompt_en": "Fill the blank: 一个孩子坐在院子里，______奶奶，仰着头数天上的星星。",
+   "explanation_zh": "\"靠着\"就是身体挨着。孩子挨着奶奶坐——课文原句：靠着奶奶。",
+   "why_zh": {
+    "A": "\"明亮奶奶\"不通，这里要填孩子对奶奶做的动作。",
+    "B": "\"星星\"是句子最后他数的东西，\"奶奶\"前面要一个动作。",
+    "D": "\"夜晚奶奶\"不通，夜晚是时间，这里要填孩子做什么。"
+   },
+   "content_hash": "5bde0d8e9ee1f84b"
+  },
+  {
+   "id": "zc:L08-14",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：一个孩子坐在院子里，靠着奶奶，仰着头数天上的______。他一颗一颗地数，数了很久，还是数不完。",
+   "choices": {
+    "A": "夜晚",
+    "B": "星星",
+    "C": "院子",
+    "D": "明亮"
+   },
+   "correct": "B",
+   "explanation": "星星 are the stars. 天上的 means up in the sky, and 一颗一颗 counts them one at a time — only stars fit both.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》 星期三，练习3（printed p.52）",
+   "form": "L08",
+   "lesson": "L08",
+   "why": {
+    "A": "夜晚 is a time; you cannot count a night 一颗一颗.",
+    "C": "院子 is the yard he is sitting in, down on the ground — not 天上的.",
+    "D": "明亮 (bright) is a describing word; after 天上的 the sentence needs the things he counts."
+   },
+   "prompt_en": "Fill the blank: 一个孩子坐在院子里，靠着奶奶，仰着头数天上的______。他一颗一颗地数，数了很久，还是数不完。",
+   "explanation_zh": "\"星星\"在天上。\"天上的\"说在天上，\"一颗一颗\"是一个一个地数——只有星星两样都对得上。",
+   "why_zh": {
+    "A": "\"夜晚\"是时间，不能一颗一颗地数。",
+    "C": "\"院子\"是他坐的地方，在地上，不在天上。",
+    "D": "\"明亮\"是形容词，\"天上的\"后面要跟他数的东西。"
+   },
+   "content_hash": "2968e57871ec88be"
+  },
+  {
+   "id": "zc:L09-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词：下面哪个词和另外三个不是一类？",
+   "choices": {
+    "A": "早餐",
+    "B": "辛苦",
+    "C": "午餐",
+    "D": "晚餐"
+   },
+   "correct": "B",
+   "explanation": "早餐, 午餐 and 晚餐 are the three meals of the day — breakfast, lunch and dinner — and all three end in 餐, a meal. 辛苦 means hard work, toil; it is not a meal at all.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第九课《古诗二首》 星期二，练习3（printed p.58）",
+   "form": "L09",
+   "lesson": "L09",
+   "why": {
+    "A": "早餐 is breakfast, one of the three meals, so it belongs with 午餐 and 晚餐.",
+    "C": "午餐 is lunch — 午 is noon, as in 锄禾日当午 — and it is a meal like the other two.",
+    "D": "晚餐 is dinner, the evening meal, the third of the three."
+   },
+   "prompt_en": "Find the odd word out: which word does not belong with the other three?",
+   "explanation_zh": "早餐、午餐、晚餐是一天的三顿饭，都有\"餐\"字。\"辛苦\"是很累、很费力，不是饭。",
+   "why_zh": {
+    "A": "\"早餐\"是早饭，和午餐、晚餐是一类。",
+    "C": "\"午餐\"是中午吃的饭——\"锄禾日当午\"的\"午\"就是中午——也是一顿饭。",
+    "D": "\"晚餐\"是晚上吃的饭，三顿饭里的一顿。"
+   },
+   "content_hash": "99a75bfefd4e1187"
+  },
+  {
+   "id": "zc:L09-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词：下面哪个词和另外三个不是一类？",
+   "choices": {
+    "A": "春天",
+    "B": "夏天",
+    "C": "秋天",
+    "D": "今天"
+   },
+   "correct": "D",
+   "explanation": "春天, 夏天 and 秋天 are seasons — spring, summer and autumn. 今天 means today: it is a day, not a season, even though it ends in 天 like the others.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第九课《古诗二首》 星期二，练习3（printed p.58）",
+   "form": "L09",
+   "lesson": "L09",
+   "why": {
+    "A": "春天 is spring, a season — the season of 春晓.",
+    "B": "夏天 is summer, a season like 春天 and 秋天.",
+    "C": "秋天 is autumn, a season too; the fourth season would be 冬天, not 今天."
+   },
+   "prompt_en": "Find the odd word out: which word does not belong with the other three?",
+   "explanation_zh": "春天、夏天、秋天都是季节。\"今天\"是说今天这一天，不是季节，虽然也有\"天\"字。",
+   "why_zh": {
+    "A": "\"春天\"是季节，《春晓》写的就是春天。",
+    "B": "\"夏天\"是季节，和春天、秋天一类。",
+    "C": "\"秋天\"也是季节；第四个季节是冬天，不是今天。"
+   },
+   "content_hash": "16d3dcbd5bf3be3b"
+  },
+  {
+   "id": "zc:L09-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "M",
+   "prompt": "找出不同类的词：下面哪个词和另外三个不是一类？",
+   "choices": {
+    "A": "开心",
+    "B": "快乐",
+    "C": "汗水",
+    "D": "可爱"
+   },
+   "correct": "C",
+   "explanation": "开心, 快乐 and 可爱 are describing words — happy, joyful, lovely — words that tell how someone feels or what someone is like. 汗水 is a thing, sweat: the drops in 汗滴禾下土.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第九课《古诗二首》 星期二，练习3（printed p.58）",
+   "form": "L09",
+   "lesson": "L09",
+   "why": {
+    "A": "开心 means happy; it describes how someone feels, just as 快乐 does.",
+    "B": "快乐 means joyful, almost the same as 开心.",
+    "D": "可爱 means lovely or cute; it describes someone, the way 开心 and 快乐 do, so it is not the odd one."
+   },
+   "prompt_en": "Find the odd word out: which word does not belong with the other three?",
+   "explanation_zh": "开心、快乐、可爱都是说心情怎么样、人怎么样的词。\"汗水\"是一样东西，就是\"汗滴禾下土\"的汗。",
+   "why_zh": {
+    "A": "\"开心\"是高兴，说的是心情，和快乐一类。",
+    "B": "\"快乐\"也是高兴，和开心意思差不多。",
+    "D": "\"可爱\"是说人或东西招人喜欢，也是说\"怎么样\"的词，和开心、快乐一类。"
+   },
+   "content_hash": "d7184214ad5e227b"
+  },
+  {
+   "id": "zc:L09-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词：下面哪个词和另外三个不是一类？",
+   "choices": {
+    "A": "盘子",
+    "B": "姐姐",
+    "C": "哥哥",
+    "D": "爸爸"
+   },
+   "correct": "A",
+   "explanation": "姐姐, 哥哥 and 爸爸 are people in a family — big sister, big brother, dad. 盘子 is a plate, a thing you put food on, as in 盘中餐.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第九课《古诗二首》 星期二，练习3（printed p.58）",
+   "form": "L09",
+   "lesson": "L09",
+   "why": {
+    "B": "姐姐 is an older sister, a family member like 哥哥 and 爸爸.",
+    "C": "哥哥 is an older brother, another person in the family.",
+    "D": "爸爸 is dad, a family member too."
+   },
+   "prompt_en": "Find the odd word out: which word does not belong with the other three?",
+   "explanation_zh": "姐姐、哥哥、爸爸都是家里的人。\"盘子\"是装饭菜的东西，就是\"盘中餐\"的盘。",
+   "why_zh": {
+    "B": "\"姐姐\"是家里的人，和哥哥、爸爸一类。",
+    "C": "\"哥哥\"也是家里的人。",
+    "D": "\"爸爸\"也是家里的人。"
+   },
+   "content_hash": "a6c5b01aa948037a"
+  },
+  {
+   "id": "zc:L10-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：许多动物______来当地球清洁工。",
+   "choices": {
+    "A": "生活",
+    "B": "地面",
+    "C": "报名",
+    "D": "消化"
+   },
+   "correct": "C",
+   "explanation": "报名 means to sign up. Earth Grandpa hung up a sign asking for cleaners, and the animals came to put their names down: 许多动物报名来当地球清洁工.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期二，练习3（printed p.62）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "A": "生活 means to live, and it wants a place after it, as in 生活在淡水里; it says nothing about coming to be a cleaner.",
+    "B": "地面 is the ground, a thing, not something the animals do; before 来当 the sentence needs an action.",
+    "D": "消化 is what a stomach does to food; it has nothing to do with coming to take a job."
+   },
+   "prompt_en": "Fill the blank: 许多动物______来当地球清洁工。",
+   "explanation_zh": "\"报名\"是报上自己的名字，要参加。地球公公挂出了\"地球清洁工报名处\"的牌子，许多动物就报名来当清洁工。",
+   "why_zh": {
+    "A": "\"生活\"是住在哪里、怎么过日子，后面要跟地方，比如\"生活在淡水里\"，跟\"来当清洁工\"连不上。",
+    "B": "\"地面\"是地上，是一样东西，不是动物做的事；\"来当\"前面要一个动作。",
+    "D": "\"消化\"是肚子把吃下去的东西变掉，跟来当清洁工没有关系。"
+   },
+   "content_hash": "cf1bedbbc6b4bda8"
+  },
+  {
+   "id": "zc:L10-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：乌鸦会让______变干净。",
+   "choices": {
+    "A": "地面",
+    "B": "消化",
+    "C": "生活",
+    "D": "报名"
+   },
+   "correct": "A",
+   "explanation": "地面 is the ground. 让……变干净 needs a thing that gets clean, and the crow cleans the ground: it eats what falls there, and 地面就会干净多了.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期二，练习3（printed p.62）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "B": "消化 is an action, digesting; it is not a thing that can become clean.",
+    "C": "生活 is the way one lives; the crow does not clean 'living', it cleans the ground.",
+    "D": "报名 is signing up, an action; signing up cannot become clean."
+   },
+   "prompt_en": "Fill the blank: 乌鸦会让______变干净。",
+   "explanation_zh": "\"地面\"就是地上。\"让……变干净\"中间要一样能变干净的东西。乌鸦吃掉落在地上的东西，地面就干净多了。",
+   "why_zh": {
+    "B": "\"消化\"是一个动作，不是能变干净的东西。",
+    "C": "\"生活\"是过日子，乌鸦打扫的是地面，不是生活。",
+    "D": "\"报名\"是一个动作，不能\"变干净\"。"
+   },
+   "content_hash": "6b19f23d1b486d3b"
+  },
+  {
+   "id": "zc:L10-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：清道夫鱼______在淡水里。",
+   "choices": {
+    "A": "报名",
+    "B": "消化",
+    "C": "地面",
+    "D": "生活"
+   },
+   "correct": "D",
+   "explanation": "生活 means to live. 生活在 + a place says where an animal lives, and the fish says it itself: 我生活在淡水里.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期二，练习3（printed p.62）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "A": "报名 is signing up for something; 报名在淡水里 says nothing — the fish signs up as a cleaner, not 'in fresh water'.",
+    "B": "消化 (digest) works on food, not on a place; 消化在淡水里 is not a sentence.",
+    "C": "地面 is the ground, a thing; after 清道夫鱼 the sentence needs what the fish does."
+   },
+   "prompt_en": "Fill the blank: 清道夫鱼______在淡水里。",
+   "explanation_zh": "\"生活\"是住、过日子。\"生活在＋地方\"说动物住在哪里，清道夫鱼自己说：我生活在淡水里。",
+   "why_zh": {
+    "A": "\"报名\"是报上名字参加什么，\"报名在淡水里\"说不通。",
+    "B": "\"消化\"后面跟吃下去的东西，不跟地方，\"消化在淡水里\"说不通。",
+    "C": "\"地面\"是地上，是东西；\"清道夫鱼\"后面要说它做什么。"
+   },
+   "content_hash": "979f9f388d3c968f"
+  },
+  {
+   "id": "zc:L10-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：蚯蚓可以______垃圾。",
+   "choices": {
+    "A": "地面",
+    "B": "消化",
+    "C": "报名",
+    "D": "生活"
+   },
+   "correct": "B",
+   "explanation": "消化 means to digest. The earthworm eats rubbish and digests it into fertilizer: 经过我的消化后，垃圾就变成了肥料.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期二，练习3（printed p.62）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "A": "地面 is a thing, the ground; after 可以 the sentence needs an action.",
+    "C": "报名 is signing up for something, and nobody signs up for rubbish.",
+    "D": "生活 takes a place, as in 生活在地下; it cannot take 垃圾 straight after it."
+   },
+   "prompt_en": "Fill the blank: 蚯蚓可以______垃圾。",
+   "explanation_zh": "\"消化\"是把吃下去的东西在肚子里变掉。蚯蚓吃垃圾，经过它的消化，垃圾就变成了肥料。",
+   "why_zh": {
+    "A": "\"地面\"是东西，\"可以\"后面要跟一个动作。",
+    "C": "\"报名\"是报名参加什么，不能说\"报名垃圾\"。",
+    "D": "\"生活\"后面要跟\"在＋地方\"，比如\"生活在地下\"，不能直接跟\"垃圾\"。"
+   },
+   "content_hash": "ef44ca91273594eb"
+  },
+  {
+   "id": "zc:L10-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：清道夫鱼：我也要报名，河里的水草、水虫和垃圾都是我的______，我能把河水打扫得干干净净。",
+   "choices": {
+    "A": "垃圾",
+    "B": "食物",
+    "C": "地面",
+    "D": "了不起"
+   },
+   "correct": "B",
+   "explanation": "食物 is food. Water weeds, water insects and rubbish are what the fish eats — 都是我的食物 — and eating them is how it cleans the river.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期四，练习1（printed p.66）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "A": "垃圾 is already one of the three things in the list; 'weeds, insects and rubbish are all my rubbish' makes no sense.",
+    "C": "地面 is the ground; weeds and insects in a river cannot be a fish's ground — it lives in water.",
+    "D": "了不起 describes someone and needs 的 and a noun after it; 我的了不起 is not a phrase."
+   },
+   "prompt_en": "Fill the blank: 清道夫鱼：我也要报名，河里的水草、水虫和垃圾都是我的______，我能把河水打扫得干干净净。",
+   "explanation_zh": "\"食物\"是吃的东西。水草、水虫和垃圾都是清道夫鱼吃的，它把这些吃掉，河水就干净了。",
+   "why_zh": {
+    "A": "\"垃圾\"前面已经说过了，\"水草、水虫和垃圾都是我的垃圾\"说不通。",
+    "C": "\"地面\"是地上，河里的水草和水虫不是鱼的地面，鱼住在水里。",
+    "D": "\"了不起\"是夸人的词，后面要跟\"的＋名词\"，\"我的了不起\"说不通。"
+   },
+   "content_hash": "19fcbbe692a4dcec"
+  },
+  {
+   "id": "zc:L10-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：乌鸦：我也会打扫。我能打扫地面。我来当______清洁工！",
+   "choices": {
+    "A": "了不起",
+    "B": "食物",
+    "C": "垃圾",
+    "D": "地面"
+   },
+   "correct": "D",
+   "explanation": "地面清洁工 is a ground cleaner. The crow has just said what it sweeps — 我能打扫地面 — so it is the ground's cleaner, the way the seagull is the 海面清洁工.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期四，练习1（printed p.66）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "A": "了不起 needs 的 before 清洁工 (了不起的清洁工), and it is Earth Grandpa who praises them that way, not the crow praising itself.",
+    "B": "食物 is food; a cleaner here is named for the place it cleans, not for food.",
+    "C": "垃圾 is what the crow clears away; the cleaner is named for the place it keeps clean, the ground."
+   },
+   "prompt_en": "Fill the blank: 乌鸦：我也会打扫。我能打扫地面。我来当______清洁工！",
+   "explanation_zh": "\"地面清洁工\"就是打扫地面的清洁工。乌鸦刚说了\"我能打扫地面\"，就像海鸥是\"海面清洁工\"一样。",
+   "why_zh": {
+    "A": "\"了不起\"后面要加\"的\"才能说\"了不起的清洁工\"，而且这是地球公公夸大家的话，不是乌鸦夸自己。",
+    "B": "\"食物\"是吃的东西，这里的清洁工是按打扫的地方叫的，不是按食物。",
+    "C": "\"垃圾\"是乌鸦要清走的东西，清洁工要按它打扫的地方来叫——地面。"
+   },
+   "content_hash": "df0fda13f7abd4bc"
+  },
+  {
+   "id": "zc:L10-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：蚯蚓：我在地下吃的是______，我也要报名！",
+   "choices": {
+    "A": "垃圾",
+    "B": "地面",
+    "C": "了不起",
+    "D": "食物"
+   },
+   "correct": "A",
+   "explanation": "垃圾 is rubbish. The earthworm can sign up as a cleaner because what it eats underground is rubbish. The textbook's dialogue on p. 111 prints this very line, 蚯蚓：我在地下吃的是垃圾, and workbook p. 69 says it again: 蚯蚓在地下吃的是垃圾.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期四，练习1（printed p.66）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "B": "地面 is the surface of the ground, and the worm is under it (在地下); it does not eat the ground.",
+    "C": "了不起 is a word of praise; it is not something you can eat.",
+    "D": "Whatever you eat is 食物, so 吃的是食物 tells nothing new — and nothing about why the worm can be a cleaner. What it eats is rubbish; 食物 is the word for the fish's line."
+   },
+   "prompt_en": "Fill the blank: 蚯蚓：我在地下吃的是______，我也要报名！",
+   "explanation_zh": "\"垃圾\"是没有用的脏东西。蚯蚓能报名当清洁工，是因为它在地下吃的是垃圾。课本第111页的对话就是这一句：蚯蚓：我在地下吃的是垃圾；练习册第69页也说：蚯蚓在地下吃的是垃圾。",
+   "why_zh": {
+    "B": "\"地面\"是地上，蚯蚓在地下，它吃的不是地面。",
+    "C": "\"了不起\"是夸人的话，不是能吃的东西。",
+    "D": "吃的东西都是食物，说\"吃的是食物\"等于没说，也说不出蚯蚓为什么能当清洁工。它吃的是垃圾；\"食物\"是清道夫鱼那一句要填的。"
+   },
+   "content_hash": "7b6bfaac8dbe7aac"
+  },
+  {
+   "id": "zc:L10-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：地球公公：太好啦！欢迎你们来报名！你们都是______的地球清洁工啊！",
+   "choices": {
+    "A": "食物",
+    "B": "垃圾",
+    "C": "了不起",
+    "D": "地面"
+   },
+   "correct": "C",
+   "explanation": "了不起 means amazing, remarkable. Earth Grandpa is praising all of them, and 了不起的 describes the cleaners: 你们都是了不起的地球清洁工.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期四，练习1（printed p.66）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "A": "食物的地球清洁工 would mean food's Earth cleaners, which says nothing; Earth Grandpa is praising them.",
+    "B": "垃圾的地球清洁工 would call them rubbish's cleaners — not a phrase, and no praise at all.",
+    "D": "地面 names only the crow's job, and Earth Grandpa is speaking to all of them; 地面的地球清洁工 is not a phrase."
+   },
+   "prompt_en": "Fill the blank: 地球公公：太好啦！欢迎你们来报名！你们都是______的地球清洁工啊！",
+   "explanation_zh": "\"了不起\"是很棒、很厉害。地球公公在夸大家：你们都是了不起的地球清洁工。",
+   "why_zh": {
+    "A": "\"食物的地球清洁工\"说不通，地球公公是在夸大家。",
+    "B": "\"垃圾的地球清洁工\"说不通，也不是夸奖的话。",
+    "D": "\"地面\"只说乌鸦打扫的地方，地球公公是对大家说的，\"地面的地球清洁工\"也说不通。"
+   },
+   "content_hash": "10fd3ed4b4093993"
+  },
+  {
+   "id": "zc:L10-09",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：云云：妈妈，我今天认识了许多______。它们好厉害呀，可以打扫地球。　妈妈：哦？是吗？它们都是谁呀？　云云：有海鸥、清道夫鱼、乌鸦，还有蚯蚓。",
+   "choices": {
+    "A": "乌鸦",
+    "B": "地面",
+    "C": "打扫",
+    "D": "动物"
+   },
+   "correct": "D",
+   "explanation": "动物 means animals. Yunyun met seagulls, cleaner fish, crows and earthworms — four different kinds — and the one word that covers them all is 动物.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期五，练习3（printed p.69）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "A": "乌鸦 is only one of them; when Mother asks who they are, Yunyun names four kinds, not just crows.",
+    "B": "地面 is the ground; you cannot get to know many grounds, and the ground does not sweep the Earth.",
+    "C": "打扫 is an action; after 许多 the sentence needs who she met."
+   },
+   "prompt_en": "Fill the blank: 云云：妈妈，我今天认识了许多______。它们好厉害呀，可以打扫地球。　妈妈：哦？是吗？它们都是谁呀？　云云：有海鸥、清道夫鱼、乌鸦，还有蚯蚓。",
+   "explanation_zh": "\"动物\"包括各种鸟、鱼、虫。云云认识的有海鸥、清道夫鱼、乌鸦和蚯蚓，能把它们都包括进去的词是\"动物\"。",
+   "why_zh": {
+    "A": "\"乌鸦\"只是其中一种；妈妈问它们是谁，云云说了四种，不只是乌鸦。",
+    "B": "\"地面\"是地上，不能说\"认识了许多地面\"，地面也不会打扫地球。",
+    "C": "\"打扫\"是动作，\"许多\"后面要跟她认识的是什么。"
+   },
+   "content_hash": "b82669adefd3dece"
+  },
+  {
+   "id": "zc:L10-10",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：云云：有海鸥、清道夫鱼、乌鸦，还有蚯蚓。　妈妈：那______是怎么打扫地球的呢？　云云：乌鸦可以吃掉……我要向乌鸦学习！",
+   "choices": {
+    "A": "动物",
+    "B": "乌鸦",
+    "C": "地面",
+    "D": "打扫"
+   },
+   "correct": "B",
+   "explanation": "乌鸦 is the crow. Mother asks who sweeps the Earth and how, and Yunyun's answer is all about the crow — 乌鸦可以吃掉……我要向乌鸦学习 — so the blank is 乌鸦.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期五，练习3（printed p.69）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "A": "动物 is the word for all four together, but Yunyun's answer that follows is about the crow alone.",
+    "C": "地面 is the ground, the place that gets cleaned, not the one who cleans; 地面是怎么打扫地球的 makes no sense.",
+    "D": "打扫 is already in the question (怎么打扫); the blank needs who is doing the sweeping."
+   },
+   "prompt_en": "Fill the blank: 云云：有海鸥、清道夫鱼、乌鸦，还有蚯蚓。　妈妈：那______是怎么打扫地球的呢？　云云：乌鸦可以吃掉……我要向乌鸦学习！",
+   "explanation_zh": "妈妈问谁是怎么打扫地球的，云云回答的全是乌鸦：乌鸦可以吃掉……我要向乌鸦学习。所以要填\"乌鸦\"。",
+   "why_zh": {
+    "A": "\"动物\"是四种合在一起的说法，可是后面云云的回答只说乌鸦。",
+    "C": "\"地面\"是被打扫的地方，不是打扫的那一个，\"地面是怎么打扫地球的\"说不通。",
+    "D": "问句里已经有\"怎么打扫\"了，空里要填谁在打扫。"
+   },
+   "content_hash": "1c01e88729173007"
+  },
+  {
+   "id": "zc:L10-11",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：云云：乌鸦可以吃掉落在______上的各种东西，……",
+   "choices": {
+    "A": "打扫",
+    "B": "乌鸦",
+    "C": "地面",
+    "D": "动物"
+   },
+   "correct": "C",
+   "explanation": "地面 is the ground. 落在……上 needs a surface for things to fall onto, and the crow eats what falls on the ground: 落在地面上的各种东西.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期五，练习3（printed p.69）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "A": "打扫 is an action; nothing can fall 'on sweeping'.",
+    "B": "乌鸦 is the one doing the eating; what it eats has fallen on the ground, not on the crow.",
+    "D": "动物 are living creatures; the crow eats what falls on the ground, not what falls on animals."
+   },
+   "prompt_en": "Fill the blank: 云云：乌鸦可以吃掉落在______上的各种东西，……",
+   "explanation_zh": "\"落在……上\"中间要一个能让东西掉在上面的地方。乌鸦吃的是落在地面上的各种东西。",
+   "why_zh": {
+    "A": "\"打扫\"是动作，东西不能\"落在打扫上\"。",
+    "B": "乌鸦是吃东西的那一个，它吃的东西落在地面上，不是落在乌鸦身上。",
+    "D": "乌鸦吃的是落在地上的东西，不是落在动物身上的。"
+   },
+   "content_hash": "14b70545f95a7089"
+  },
+  {
+   "id": "zc:L10-12",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：云云：乌鸦可以吃掉落在地面上的各种东西，把地面______得干干净净。",
+   "choices": {
+    "A": "打扫",
+    "B": "动物",
+    "C": "乌鸦",
+    "D": "地面"
+   },
+   "correct": "A",
+   "explanation": "打扫 means to sweep, to clean. Between 把地面 and 得干干净净 the sentence needs the action that left the ground spotless — 把地面打扫得干干净净, the lesson's own pattern.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》 星期五，练习3（printed p.69）",
+   "form": "L10",
+   "lesson": "L10",
+   "why": {
+    "B": "动物 is a naming word; between 把地面 and 得 the sentence needs an action.",
+    "C": "乌鸦 is who does the sweeping, and it already opens the line; the blank needs the action.",
+    "D": "地面 is already there in 把地面; 把地面地面得干干净净 repeats the word and has no action."
+   },
+   "prompt_en": "Fill the blank: 云云：乌鸦可以吃掉落在地面上的各种东西，把地面______得干干净净。",
+   "explanation_zh": "\"把地面\"和\"得干干净净\"中间要一个动作，打扫完了，地面才干干净净——\"打扫得干干净净\"就是这一课的句子。",
+   "why_zh": {
+    "B": "\"动物\"是名词，\"把地面\"和\"得\"中间要一个动作。",
+    "C": "乌鸦是打扫的那一个，句子开头已经有了，空里要一个动作。",
+    "D": "前面已经有\"把地面\"了，再填\"地面\"就重复了，也没有动作。"
+   },
+   "content_hash": "9c6421a01d677970"
+  },
+  {
+   "id": "zc:L11-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：世界上有很多种语______。",
+   "choices": {
+    "A": "考",
+    "B": "搬",
+    "C": "伞",
+    "D": "言"
+   },
+   "correct": "D",
+   "explanation": "语言 is language — the words people speak and write. There are many languages in the world, and 言 is the character that completes 语言.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期一，练习3（printed p.69）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "A": "考 makes 思考 (think over) or 考试 (a test); 语考 is not a word.",
+    "B": "搬 means to move things, as in 搬家; 语搬 is not a word.",
+    "C": "伞 is the umbrella in 雨伞; 语伞 is not a word."
+   },
+   "prompt_en": "Fill the blank: 世界上有很多种语______。",
+   "explanation_zh": "\"语言\"是人说的话、写的字。世界上有很多种语言，所以填\"言\"。",
+   "why_zh": {
+    "A": "\"考\"组成\"思考\"\"考试\"，没有\"语考\"这个词。",
+    "B": "\"搬\"是把东西移到别处，像\"搬家\"，没有\"语搬\"这个词。",
+    "C": "\"伞\"是雨伞的\"伞\"，没有\"语伞\"这个词。"
+   },
+   "content_hash": "af874e7812823731"
+  },
+  {
+   "id": "zc:L11-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：下雨天要记得带雨______。",
+   "choices": {
+    "A": "察",
+    "B": "考",
+    "C": "伞",
+    "D": "言"
+   },
+   "correct": "C",
+   "explanation": "雨伞 is an umbrella. On a rainy day you remember to take one with you: 下雨天要记得带雨伞.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期一，练习3（printed p.69）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "A": "察 belongs in 观察, to observe; there is no such thing as a 雨察 to carry.",
+    "B": "考 belongs in 思考 and 考试; 雨考 is not something you can take outside.",
+    "D": "言 belongs in 语言, language; 雨言 is not a word."
+   },
+   "prompt_en": "Fill the blank: 下雨天要记得带雨______。",
+   "explanation_zh": "\"雨伞\"是下雨时挡雨的东西。下雨天要记得带雨伞。",
+   "why_zh": {
+    "A": "\"察\"是观察的\"察\"，没有\"雨察\"这个东西。",
+    "B": "\"考\"是思考、考试的\"考\"，没有\"雨考\"这个东西。",
+    "D": "\"言\"是语言的\"言\"，没有\"雨言\"这个词。"
+   },
+   "content_hash": "60933080030e0170"
+  },
+  {
+   "id": "zc:L11-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：我们在生活中要多观______，多思______。",
+   "choices": {
+    "A": "察；考",
+    "B": "考；察",
+    "C": "察；言",
+    "D": "搬；考"
+   },
+   "correct": "A",
+   "explanation": "观察 means to look at something closely, and 思考 means to think it over. In daily life we should observe more and think more: 多观察，多思考.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期一，练习3（printed p.69）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "B": "考；察 puts the two the wrong way round: 观考 and 思察 are not words — it is 观察 and 思考.",
+    "C": "察 is right for 观察, but 思言 is not a word; the second blank needs 考, for 思考.",
+    "D": "思考 is right, but 观搬 is not a word, since 搬 means to move things; the first blank needs 察, for 观察."
+   },
+   "prompt_en": "Fill both blanks: 我们在生活中要多观______，多思______。",
+   "explanation_zh": "\"观察\"是仔细地看，\"思考\"是认真地想。生活中要多观察，多思考。",
+   "why_zh": {
+    "B": "两个字放反了：\"观考\"\"思察\"都不是词，应该是\"观察\"\"思考\"。",
+    "C": "第一个空\"察\"对了，可是没有\"思言\"这个词，第二个空要填\"考\"，是\"思考\"。",
+    "D": "第二个空\"考\"对了，可是没有\"观搬\"这个词，\"搬\"是移东西；第一个空要填\"察\"，是\"观察\"。"
+   },
+   "content_hash": "d2c20f4094a01f1a"
+  },
+  {
+   "id": "zc:L11-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：我们要______新家了，好开心！",
+   "choices": {
+    "A": "考",
+    "B": "搬",
+    "C": "伞",
+    "D": "言"
+   },
+   "correct": "B",
+   "explanation": "搬 means to move things from one place to another. 搬新家 is moving into a new home — which is why everyone is so happy.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期一，练习3（printed p.69）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "A": "考 is to test or to think over (考试, 思考); you cannot 考 a new home.",
+    "C": "伞 is an umbrella — a thing, not something you can do to a new home.",
+    "D": "言 means words or speech, as in 语言; it is not something you can do to a home."
+   },
+   "prompt_en": "Fill the blank: 我们要______新家了，好开心！",
+   "explanation_zh": "\"搬\"是把东西从一个地方移到另一个地方。\"搬新家\"就是住进新的家，所以好开心。",
+   "why_zh": {
+    "A": "\"考\"是考试、思考的\"考\"，不能\"考新家\"。",
+    "C": "\"伞\"是一样东西，不是一个动作，不能\"伞新家\"。",
+    "D": "\"言\"是语言的\"言\"，是说的话，不能\"言新家\"。"
+   },
+   "content_hash": "29c445e4b007b8d5"
+  },
+  {
+   "id": "zc:L11-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词（1）：哪个词和另外三个不是一类？",
+   "choices": {
+    "A": "公园",
+    "B": "蓝天",
+    "C": "花园",
+    "D": "动物园"
+   },
+   "correct": "B",
+   "explanation": "公园, 花园 and 动物园 all end in 园 — each is a place with grounds you can walk into. 蓝天, the blue sky, is not a place you visit, so it is the odd one out.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期二，练习4（printed p.72）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "A": "公园 is a park — a 园 you can walk into, the same kind as 花园 and 动物园.",
+    "C": "花园 is a garden — another 园, like 公园 and 动物园.",
+    "D": "动物园 is a zoo — a 园 too, so it belongs with 公园 and 花园."
+   },
+   "prompt_en": "Odd one out (1): which word is not the same kind as the other three?",
+   "explanation_zh": "公园、花园、动物园都有\"园\"字，都是人可以走进去玩的地方；蓝天是天空，不是这样的地方，所以它和别的不是一类。",
+   "why_zh": {
+    "A": "\"公园\"是可以走进去玩的园子，和花园、动物园是一类。",
+    "C": "\"花园\"也是园子，和公园、动物园是一类。",
+    "D": "\"动物园\"也是园子，和公园、花园是一类。"
+   },
+   "content_hash": "5ef3b14fe1d51c0b"
+  },
+  {
+   "id": "zc:L11-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词（2）：哪个词和另外三个不是一类？",
+   "choices": {
+    "A": "晴天",
+    "B": "春天",
+    "C": "夏天",
+    "D": "冬天"
+   },
+   "correct": "A",
+   "explanation": "春天, 夏天 and 冬天 are seasons of the year. 晴天 is a sunny day — it is about the weather, and a sunny day can come in any season, so it is the odd one out.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期二，练习4（printed p.72）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "B": "春天 is spring, a season of the year — like 夏天 and 冬天.",
+    "C": "夏天 is summer, a season of the year — like 春天 and 冬天.",
+    "D": "冬天 is winter, a season of the year — like 春天 and 夏天."
+   },
+   "prompt_en": "Odd one out (2): which word is not the same kind as the other three?",
+   "explanation_zh": "春天、夏天、冬天都是一年里的季节；晴天说的是天气，哪个季节都会有晴天，所以它和别的不是一类。",
+   "why_zh": {
+    "B": "\"春天\"是季节，和夏天、冬天是一类。",
+    "C": "\"夏天\"是季节，和春天、冬天是一类。",
+    "D": "\"冬天\"是季节，和春天、夏天是一类。"
+   },
+   "content_hash": "86a3924ab5c07183"
+  },
+  {
+   "id": "zc:L11-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词（3）：哪个词和另外三个不是一类？",
+   "choices": {
+    "A": "小草",
+    "B": "树叶",
+    "C": "蚂蚁",
+    "D": "花朵"
+   },
+   "correct": "C",
+   "explanation": "小草, 树叶 and 花朵 all belong to plants that grow in one place. 蚂蚁, the ant, is a small animal that walks about, so it is the odd one out.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期二，练习4（printed p.72）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "A": "小草, little grass, is a plant — the same kind as the leaves and the flowers.",
+    "B": "树叶, leaves, grow on trees — plants, like the grass and the flowers.",
+    "D": "花朵, flowers, grow on plants — the same kind as the grass and the leaves."
+   },
+   "prompt_en": "Odd one out (3): which word is not the same kind as the other three?",
+   "explanation_zh": "小草、树叶、花朵都是植物上长的；蚂蚁是会走来走去的小动物，所以它和别的不是一类。",
+   "why_zh": {
+    "A": "\"小草\"是植物，和树叶、花朵是一类。",
+    "B": "\"树叶\"长在树上，是植物的一部分，和小草、花朵是一类。",
+    "D": "\"花朵\"长在植物上，和小草、树叶是一类。"
+   },
+   "content_hash": "512943d71f38cb9f"
+  },
+  {
+   "id": "zc:L11-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词（4）：哪个词和另外三个不是一类？",
+   "choices": {
+    "A": "月亮",
+    "B": "星星",
+    "C": "语言",
+    "D": "太阳"
+   },
+   "correct": "C",
+   "explanation": "月亮, 星星 and 太阳 — the moon, the stars and the sun — are all things you see in the sky. 语言 is language, what people speak, so it is the odd one out.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期二，练习4（printed p.72）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "A": "月亮, the moon, is up in the sky — like the stars and the sun.",
+    "B": "星星, the stars, are up in the sky — like the moon and the sun.",
+    "D": "太阳, the sun, is up in the sky — like the moon and the stars."
+   },
+   "prompt_en": "Odd one out (4): which word is not the same kind as the other three?",
+   "explanation_zh": "月亮、星星、太阳都是天上的东西；语言是人说的话，所以它和别的不是一类。",
+   "why_zh": {
+    "A": "\"月亮\"在天上，和星星、太阳是一类。",
+    "B": "\"星星\"在天上，和月亮、太阳是一类。",
+    "D": "\"太阳\"在天上，和月亮、星星是一类。"
+   },
+   "content_hash": "1ed6f5b598179eeb"
+  },
+  {
+   "id": "zc:L11-09",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：如果明天是______，我们就去公园玩儿。",
+   "choices": {
+    "A": "丰富",
+    "B": "晴天",
+    "C": "观察",
+    "D": "多么"
+   },
+   "correct": "B",
+   "explanation": "晴天 is a sunny day — just the day for the park. 如果明天是晴天: if tomorrow is sunny, we will go and play in the park.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期三，练习1（printed p.73）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "A": "丰富 means rich or plentiful; it describes how much there is, and 明天是 needs a kind of day after it.",
+    "C": "观察 means to observe, an action; 明天是观察 says nothing about what the day will be like.",
+    "D": "多么 means how, and it must go in front of a describing word, as in 多么好; it cannot finish 明天是 on its own."
+   },
+   "prompt_en": "Fill the blank: 如果明天是______，我们就去公园玩儿。",
+   "explanation_zh": "\"晴天\"是有太阳、不下雨的日子，正好去公园玩儿。如果明天是晴天，我们就去公园玩儿。",
+   "why_zh": {
+    "A": "\"丰富\"是说东西多，\"明天是\"后面要跟一种天气。",
+    "C": "\"观察\"是一个动作，\"明天是观察\"说不通。",
+    "D": "\"多么\"后面要跟形容词，像\"多么好\"，不能单独放在\"明天是\"后面。"
+   },
+   "content_hash": "c687a963e63c2b7f"
+  },
+  {
+   "id": "zc:L11-10",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：今天的天气______好啊！",
+   "choices": {
+    "A": "丰富",
+    "B": "晴天",
+    "C": "观察",
+    "D": "多么"
+   },
+   "correct": "D",
+   "explanation": "多么 means how — 多么好啊 is how lovely! It goes right in front of a describing word like 好 and turns the sentence into a happy exclamation.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期三，练习1（printed p.73）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "A": "丰富 means rich or plentiful; weather is not 丰富, and 丰富好 is not something people say.",
+    "B": "晴天 is a sunny day, a thing; 天气晴天好 does not make sense in front of 好.",
+    "C": "观察 means to observe; the weather does not observe, and 观察好 changes the meaning to observing well."
+   },
+   "prompt_en": "Fill the blank: 今天的天气______好啊！",
+   "explanation_zh": "\"多么\"放在形容词前面，表示程度很高——\"多么好啊\"就是\"真好啊\"。",
+   "why_zh": {
+    "A": "\"丰富\"是说东西多，天气不能说\"丰富\"，\"丰富好\"也不通。",
+    "B": "\"晴天\"是一种天气，\"天气晴天好\"说不通。",
+    "C": "\"观察\"是看，天气不会观察，\"天气观察好\"说不通。"
+   },
+   "content_hash": "f740466959fed379"
+  },
+  {
+   "id": "zc:L11-11",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：大自然的语言多么______、多么奇妙啊！",
+   "choices": {
+    "A": "丰富",
+    "B": "晴天",
+    "C": "观察",
+    "D": "多么"
+   },
+   "correct": "A",
+   "explanation": "丰富 means rich and plentiful. After 多么 comes a describing word, just as 奇妙 follows the second 多么, and the text says exactly this: 大自然的语言多么丰富、多么奇妙啊！",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期三，练习1（printed p.73）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "B": "晴天 is a sunny day, a thing, not a describing word; it cannot follow 多么 the way 奇妙 does.",
+    "C": "观察 is an action, to observe; 多么 goes in front of a describing word, not an action like this.",
+    "D": "多么 is already right in front of the blank; 多么多么 would just say it twice."
+   },
+   "prompt_en": "Fill the blank: 大自然的语言多么______、多么奇妙啊！",
+   "explanation_zh": "\"丰富\"是种类多、数量多。\"多么\"后面跟形容词，和后面的\"多么奇妙\"一样。课文里就是这么说的：大自然的语言多么丰富、多么奇妙啊！",
+   "why_zh": {
+    "B": "\"晴天\"是一种天气，不是形容词，不能像\"奇妙\"那样放在\"多么\"后面。",
+    "C": "\"观察\"是一个动作，\"多么\"后面要跟形容词。",
+    "D": "空前面已经有\"多么\"了，\"多么多么\"就重复了。"
+   },
+   "content_hash": "357377d77e86be2d"
+  },
+  {
+   "id": "zc:L11-12",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：我们要学会______身边的事物。",
+   "choices": {
+    "A": "丰富",
+    "B": "晴天",
+    "C": "观察",
+    "D": "多么"
+   },
+   "correct": "C",
+   "explanation": "观察 means to look at something carefully. 学会观察身边的事物 is learning to observe the things around us — what the whole lesson is about.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》 星期三，练习1（printed p.73）",
+   "form": "L11",
+   "lesson": "L11",
+   "why": {
+    "A": "丰富 means to make rich or plentiful, but 学会丰富身边的事物 (learn to enrich the things around us) makes no sense here; the blank wants a way of looking — 观察.",
+    "B": "晴天 is a sunny day; you cannot 学会晴天, learn to sunny-day, anything.",
+    "D": "多么 means how, and it needs a describing word after it; 多么身边的事物 makes no sense."
+   },
+   "prompt_en": "Fill the blank: 我们要学会______身边的事物。",
+   "explanation_zh": "\"观察\"是仔细地看。学会观察身边的事物，就是这一课讲的道理。",
+   "why_zh": {
+    "A": "\"学会丰富身边的事物\"说不通；这里要的是仔细看的意思——观察。",
+    "B": "\"晴天\"是一种天气，不能\"学会晴天\"。",
+    "D": "\"多么\"后面要跟形容词，\"多么身边的事物\"说不通。"
+   },
+   "content_hash": "83cfc6b3b342aa4e"
+  },
+  {
+   "id": "zc:L12-01",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词：月球　地球　足球　星球",
+   "choices": {
+    "A": "足球",
+    "B": "地球",
+    "C": "星球",
+    "D": "月球"
+   },
+   "correct": "A",
+   "explanation": "月球, 地球 and 星球 are all bodies out in space — the moon, the Earth, and the word for any such world. 足球 is a football: a ball you kick, not a world.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期一，练习4（printed p.72）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "B": "地球 is the planet we live on, a body in space just like 月球 — it belongs with them.",
+    "C": "星球 is the name for any body out in space, so it is the very group 月球 and 地球 belong to.",
+    "D": "月球 is the moon, a body in space like 地球 — the 课文 is all about it."
+   },
+   "prompt_en": "Find the word that does not belong: 月球 地球 足球 星球",
+   "explanation_zh": "月球、地球、星球都是太空里的星球；足球是用脚踢的球，不是星球。",
+   "why_zh": {
+    "B": "地球是我们住的星球，和月球是一类。",
+    "C": "星球就是太空里的球体，月球、地球都是星球，它们是一类。",
+    "D": "月球是太空里的星球，和地球是一类，课文写的就是它。"
+   },
+   "content_hash": "c29288c533b3a34b"
+  },
+  {
+   "id": "zc:L12-02",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "E",
+   "prompt": "找出不同类的词：花　草　树　人",
+   "choices": {
+    "A": "花",
+    "B": "草",
+    "C": "人",
+    "D": "树"
+   },
+   "correct": "C",
+   "explanation": "花, 草 and 树 are all plants — 植物, one of this lesson's words. 人, a person, is not a plant.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期一，练习4（printed p.72）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "花, a flower, is a plant, like grass and trees.",
+    "B": "草, grass, is a plant too — it grows out of the ground like 花 and 树.",
+    "D": "树, a tree, is a plant, the biggest of the three."
+   },
+   "prompt_en": "Find the word that does not belong: 花 草 树 人",
+   "explanation_zh": "花、草、树都是植物；人不是植物。",
+   "why_zh": {
+    "A": "花是植物，和草、树是一类。",
+    "B": "草也是植物，和花、树一样从地里长出来。",
+    "D": "树是植物，和花、草是一类。"
+   },
+   "content_hash": "bed8bedf72ee0cfb"
+  },
+  {
+   "id": "zc:L12-03",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "M",
+   "prompt": "找出不同类的词：宇航员　飞行员　运动员　动物园",
+   "choices": {
+    "A": "宇航员",
+    "B": "运动员",
+    "C": "飞行员",
+    "D": "动物园"
+   },
+   "correct": "D",
+   "explanation": "宇航员, 飞行员 and 运动员 are people — 员 at the end means a person who does that job. 动物园 is a zoo, a place: its last character is 园, a garden, not 员.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期一，练习4（printed p.73）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "宇航员 is a person, an astronaut — 员 marks someone who does a job.",
+    "B": "运动员 is a person too, an athlete, and it ends in the same 员.",
+    "C": "飞行员 is a pilot, a person who flies planes; it ends in 员 like the others."
+   },
+   "prompt_en": "Find the word that does not belong: 宇航员 飞行员 运动员 动物园",
+   "explanation_zh": "宇航员、飞行员、运动员都是人，\"员\"是做某种工作的人；动物园是一个地方，最后一个字是\"园\"，不是\"员\"。",
+   "why_zh": {
+    "A": "宇航员是人，\"员\"是做某种工作的人。",
+    "B": "运动员也是人，最后一个字也是\"员\"。",
+    "C": "飞行员是开飞机的人，也是\"员\"。"
+   },
+   "content_hash": "40c6ef09c39cb4f2"
+  },
+  {
+   "id": "zc:L12-04",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-groups",
+   "difficulty": "M",
+   "prompt": "找出不同类的词：火箭　飞机　汽车　飞船",
+   "choices": {
+    "A": "火箭",
+    "B": "汽车",
+    "C": "飞船",
+    "D": "飞机"
+   },
+   "correct": "B",
+   "explanation": "火箭, 飞机 and 飞船 all fly — up into the sky or out into space. 汽车, a car, runs along the road.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期一，练习4（printed p.73）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "火箭, a rocket, flies — it carries spaceships and satellites up into space.",
+    "C": "飞船, a spaceship, flies into space — the 阿波罗号 took the astronauts to the moon.",
+    "D": "飞机, a plane, flies through the sky — 飞 is right there in its name."
+   },
+   "prompt_en": "Find the word that does not belong: 火箭 飞机 汽车 飞船",
+   "explanation_zh": "火箭、飞机、飞船都会飞，在天上或者太空里；汽车在路上跑。",
+   "why_zh": {
+    "A": "火箭会飞，能把飞船、卫星送上太空。",
+    "C": "飞船会飞到太空去，\"阿波罗号\"就是飞船。",
+    "D": "飞机在天上飞，名字里就有\"飞\"。"
+   },
+   "content_hash": "ccaefb486bfd173c"
+  },
+  {
+   "id": "zc:L12-05",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：宇航员______回到了地球。",
+   "choices": {
+    "A": "实现",
+    "B": "正式",
+    "C": "安全",
+    "D": "知道"
+   },
+   "correct": "C",
+   "explanation": "安全 means safe and sound. The 课文 says the astronauts came home with moon soil and rocks, 安全回到了地球 — back on Earth unharmed.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期二，练习2（printed p.73）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "实现 means to make a dream or a wish come true; it needs the dream after it, as in 实现了梦想, not 回到.",
+    "B": "正式 means officially, the way China 正式开展 its moon program; nobody comes home officially.",
+    "D": "知道 means to know; 宇航员知道回到了地球 would say what they knew, not how they came back."
+   },
+   "prompt_en": "Fill the blank: 宇航员______回到了地球。",
+   "explanation_zh": "\"安全\"是没有危险、平平安安。课文说宇航员带着月球上的泥土和石块，安全回到了地球。",
+   "why_zh": {
+    "A": "\"实现\"后面要跟梦想、愿望，像\"实现了梦想\"，不能说\"实现回到\"。",
+    "B": "\"正式\"说的是一件事正式开始，像\"正式开展\"；回家不说\"正式回到\"。",
+    "D": "\"知道\"是心里明白，\"宇航员知道回到了地球\"说不通。"
+   },
+   "content_hash": "5732b2541993ad82"
+  },
+  {
+   "id": "zc:L12-06",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：人们很早以前就想______月亮上有什么。",
+   "choices": {
+    "A": "实现",
+    "B": "正式",
+    "C": "安全",
+    "D": "知道"
+   },
+   "correct": "D",
+   "explanation": "知道 means to know. For a very long time people wondered what is on the moon — they wanted to know.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期二，练习2（printed p.73）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "实现 is for a dream coming true; 想实现月亮上有什么 makes no sense.",
+    "B": "正式 means officially, as in 正式开始; it cannot stand between 想 and what people wondered about.",
+    "C": "安全 means safe; 想安全月亮上有什么 is not a sentence."
+   },
+   "prompt_en": "Fill the blank: 人们很早以前就想______月亮上有什么。",
+   "explanation_zh": "\"知道\"是明白、了解。人们很早以前就想知道月亮上有什么。",
+   "why_zh": {
+    "A": "\"实现\"说的是梦想成真，\"想实现月亮上有什么\"说不通。",
+    "B": "\"正式\"是正式开始、正式比赛，不能放在\"想\"和\"月亮上有什么\"中间。",
+    "C": "\"安全\"是没有危险，\"想安全月亮上有什么\"不成句子。"
+   },
+   "content_hash": "39ad6fe4c5885ee1"
+  },
+  {
+   "id": "zc:L12-07",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：2004年，中国______开展嫦娥探月工程。",
+   "choices": {
+    "A": "实现",
+    "B": "正式",
+    "C": "安全",
+    "D": "知道"
+   },
+   "correct": "B",
+   "explanation": "正式 means officially, properly begun. The 课文 says that in 2004 China officially started the Chang'e moon program: 中国正式开展嫦娥探月工程.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期二，练习2（printed p.73）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "实现 means a dream came true; it cannot sit in front of 开展, starting something.",
+    "C": "安全 is the word for the astronauts coming home safely in the first sentence; the 课文 says China started its program 正式, officially.",
+    "D": "知道 means to know; 中国知道开展嫦娥探月工程 does not make sense."
+   },
+   "prompt_en": "Fill the blank: 2004年，中国______开展嫦娥探月工程。",
+   "explanation_zh": "\"正式\"就是按照规定、郑重地开始。课文说：二〇〇四年，中国正式开展嫦娥探月工程。",
+   "why_zh": {
+    "A": "\"实现\"是梦想成真，不能放在\"开展\"前面。",
+    "C": "\"安全\"是宇航员平安回来用的词；课文说的是中国\"正式\"开展探月工程。",
+    "D": "\"知道\"是明白，\"中国知道开展嫦娥探月工程\"说不通。"
+   },
+   "content_hash": "2c9d3310d6554057"
+  },
+  {
+   "id": "zc:L12-08",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：人类______了登月的梦想。",
+   "choices": {
+    "A": "实现",
+    "B": "正式",
+    "C": "安全",
+    "D": "知道"
+   },
+   "correct": "A",
+   "explanation": "实现 means to make come true, and a dream is what comes true: 人类实现了登月的梦想, humankind's dream of landing on the moon came true.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期二，练习2（printed p.73）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "B": "正式 needs an action after it, as in 正式开展; nobody says 正式了梦想.",
+    "C": "安全 means safe; you cannot 安全 a dream.",
+    "D": "知道了登月的梦想 would only mean people heard about the dream — the 课文 says the dream came true."
+   },
+   "prompt_en": "Fill the blank: 人类______了登月的梦想。",
+   "explanation_zh": "\"实现\"是让梦想变成真的。梦想是可以实现的：人类实现了登月的梦想。",
+   "why_zh": {
+    "B": "\"正式\"后面要跟动作，像\"正式开展\"，没有\"正式了梦想\"的说法。",
+    "C": "\"安全\"是没有危险，不能\"安全了梦想\"。",
+    "D": "\"知道了登月的梦想\"只是听说了这个梦想；课文说的是梦想实现了。"
+   },
+   "content_hash": "61fa6d741bf14d0e"
+  },
+  {
+   "id": "zc:L12-09",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：月亮上有什么？人们很早以前就想看个______。",
+   "choices": {
+    "A": "宇航员",
+    "B": "明白",
+    "C": "植物",
+    "D": "荒凉"
+   },
+   "correct": "B",
+   "explanation": "看个明白 means to look until you understand. The 课文 opens the same way: long, long ago people already wanted 看个明白 what is on the moon.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期三，练习4（printed p.77）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "宇航员 are the astronauts who went in 1969; people long before them wanted to understand the moon, not to look at an astronaut.",
+    "C": "植物: there are no plants on the moon, and the sentence is about wanting to see clearly what is up there.",
+    "D": "荒凉 is what the astronauts found much later; long ago nobody knew it yet — they only wanted 看个明白."
+   },
+   "prompt_en": "Fill the blank: 月亮上有什么？人们很早以前就想看个______。",
+   "explanation_zh": "\"看个明白\"就是看清楚、弄懂。课文开头就说：人们很早很早以前就想看个明白。",
+   "why_zh": {
+    "A": "\"宇航员\"是后来登上月球的人；很早以前的人想的是把月亮看明白，不是看宇航员。",
+    "C": "月球上根本没有植物；句子说的是想把月亮上有什么看清楚。",
+    "D": "\"荒凉\"是宇航员后来才发现的；很早以前人们还不知道，只想看个明白。"
+   },
+   "content_hash": "8d99ae81793b4671"
+  },
+  {
+   "id": "zc:L12-10",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：1969年，美国______成功登上月球。",
+   "choices": {
+    "A": "宇航员",
+    "B": "声音",
+    "C": "植物",
+    "D": "荒凉"
+   },
+   "correct": "A",
+   "explanation": "宇航员 are astronauts. Someone has to step onto the moon, and in 1969 it was American astronauts: 美国宇航员第一次登上了月球.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期三，练习4（printed p.77）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "B": "声音 is a sound; a sound cannot step onto the moon.",
+    "C": "植物 are plants; plants did not fly to the moon, and the astronauts found none there.",
+    "D": "荒凉 describes a bare, lonely place; it cannot be the one who lands."
+   },
+   "prompt_en": "Fill the blank: 1969年，美国______成功登上月球。",
+   "explanation_zh": "\"宇航员\"是坐飞船去太空的人。登上月球的是人——一九六九年，美国宇航员第一次登上了月球。",
+   "why_zh": {
+    "B": "\"声音\"是听到的，不会登上月球。",
+    "C": "植物不会坐飞船；宇航员在月球上也没看到植物。",
+    "D": "\"荒凉\"是说地方冷冷清清，不能当登上月球的人。"
+   },
+   "content_hash": "c0c06477d150ff04"
+  },
+  {
+   "id": "zc:L12-11",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：1969年，美国宇航员成功登上月球。他们发现月球是一个______的世界。",
+   "choices": {
+    "A": "宇航员",
+    "B": "声音",
+    "C": "植物",
+    "D": "荒凉"
+   },
+   "correct": "D",
+   "explanation": "荒凉 means bare and lifeless. With no water, no plants or animals and no sound at all, the moon is 一个荒凉的世界.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期三，练习4（printed p.77）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "宇航员 are only visitors who came and went; the moon is not a world of astronauts.",
+    "B": "声音: the astronauts could not hear a single sound on the moon, so it is no world of sound.",
+    "C": "植物: there are no plants on the moon at all, so it is no world of plants."
+   },
+   "prompt_en": "Fill the blank: 1969年，美国宇航员成功登上月球。他们发现月球是一个______的世界。",
+   "explanation_zh": "\"荒凉\"是什么都没有、冷冷清清。月球上没有水，没有动物和植物，听不到一点儿声音，是一个荒凉的世界。",
+   "why_zh": {
+    "A": "宇航员只是去月球看看的人，月球不是\"宇航员的世界\"。",
+    "B": "月球上听不到一点儿声音，不是\"声音的世界\"。",
+    "C": "月球上没有植物，不是\"植物的世界\"。"
+   },
+   "content_hash": "eee44a6ec79a43b3"
+  },
+  {
+   "id": "zc:L12-12",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：他们发现月球是一个荒凉的世界，没有水、______和动物。",
+   "choices": {
+    "A": "宇航员",
+    "B": "明白",
+    "C": "植物",
+    "D": "荒凉"
+   },
+   "correct": "C",
+   "explanation": "植物 are plants. The list is of things the moon does not have: 没有水，没有动物和植物 — no water, no animals and no plants.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期三，练习4（printed p.77）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "宇航员: the astronauts were standing on the moon when they looked, so they cannot be one of the things it lacked.",
+    "B": "明白 means to understand; it is not a thing, so it cannot stand in a list beside 水 and 动物.",
+    "D": "荒凉 describes the place; it cannot stand in a list of things between 水 and 动物."
+   },
+   "prompt_en": "Fill the blank: 他们发现月球是一个荒凉的世界，没有水、______和动物。",
+   "explanation_zh": "\"植物\"是花草树木。月球上没有的东西：没有水，没有动物和植物。",
+   "why_zh": {
+    "A": "宇航员就站在月球上，不能说月球上没有宇航员。",
+    "B": "\"明白\"是懂了的意思，不是东西，不能和水、动物排在一起。",
+    "D": "\"荒凉\"是说地方的样子，不能和水、动物排在一起。"
+   },
+   "content_hash": "746064c80e8437ab"
+  },
+  {
+   "id": "zc:L12-13",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：他们发现月球是一个荒凉的世界，没有水、植物和动物，听不到一点儿______。",
+   "choices": {
+    "A": "宇航员",
+    "B": "声音",
+    "C": "植物",
+    "D": "荒凉"
+   },
+   "correct": "B",
+   "explanation": "声音 is sound, the thing you hear — and 听 means to listen. On the moon 听不到一点儿声音: not a single sound.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期三，练习4（printed p.77）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "宇航员 are people you see, not something you hear.",
+    "C": "植物 are seen, not heard — and the sentence has already said there are none.",
+    "D": "荒凉 is how a place looks; you cannot hear it."
+   },
+   "prompt_en": "Fill the blank: 他们发现月球是一个荒凉的世界，没有水、植物和动物，听不到一点儿______。",
+   "explanation_zh": "\"声音\"是耳朵听到的。\"听不到一点儿声音\"：月球上一点儿声音也没有。",
+   "why_zh": {
+    "A": "\"宇航员\"是看得见的人，不是用耳朵听的。",
+    "C": "植物是看的，不是听的，前面也已经说没有植物了。",
+    "D": "\"荒凉\"是地方的样子，听不到。"
+   },
+   "content_hash": "784bd02a9ab46278"
+  },
+  {
+   "id": "zc:L12-14",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：方方：那儿有植物或者小动物吗？云云：没有。月球是一个______的世界。",
+   "choices": {
+    "A": "实现",
+    "B": "飞船",
+    "C": "荒凉",
+    "D": "梦想"
+   },
+   "correct": "C",
+   "explanation": "荒凉 means empty and lifeless — no plants, no animals. That is just what 云云 has said: 月球是一个荒凉的世界.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期四，练习1（printed p.77）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "实现 is a verb for a dream coming true; it cannot describe what a world is like.",
+    "B": "飞船 is the spaceship that goes there; the moon is not a world of spaceships.",
+    "D": "梦想 is a dream; going to the moon may be a dream, but 一个梦想的世界 does not say what the moon is like."
+   },
+   "prompt_en": "Fill the blank: 方方：那儿有植物或者小动物吗？云云：没有。月球是一个______的世界。",
+   "explanation_zh": "\"荒凉\"是冷冷清清、什么也没有。没有植物，也没有小动物，所以说月球是一个荒凉的世界。",
+   "why_zh": {
+    "A": "\"实现\"是让梦想成真，不能用来说世界是什么样。",
+    "B": "\"飞船\"是坐着去太空的，月球不是\"飞船的世界\"。",
+    "D": "\"梦想\"是心里想做的事，说不出月球是什么样子。"
+   },
+   "content_hash": "87f6cec97d089379"
+  },
+  {
+   "id": "zc:L12-15",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：云云：好呀！那我们要努力学习才能______去月球的梦想。",
+   "choices": {
+    "A": "实现",
+    "B": "飞船",
+    "C": "荒凉",
+    "D": "梦想"
+   },
+   "correct": "A",
+   "explanation": "实现 means to make a dream come true. 实现……的梦想 is the pair the lesson teaches: 人类实现了登月的梦想.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期四，练习1（printed p.77）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "B": "飞船 is a thing, a spaceship; after 才能 the sentence needs an action.",
+    "C": "荒凉 describes a place; studying hard cannot make you 荒凉.",
+    "D": "梦想 is already at the end of the sentence; 梦想去月球的梦想 says dream twice."
+   },
+   "prompt_en": "Fill the blank: 云云：好呀！那我们要努力学习才能______去月球的梦想。",
+   "explanation_zh": "\"实现\"是让梦想变成真的。\"实现……的梦想\"课文里就有：人类实现了登月的梦想。",
+   "why_zh": {
+    "B": "\"飞船\"是东西，\"才能\"后面要跟一个动作。",
+    "C": "\"荒凉\"是地方的样子，努力学习不是为了\"荒凉\"。",
+    "D": "句子最后已经有\"梦想\"了，\"梦想去月球的梦想\"重复了。"
+   },
+   "content_hash": "4590a0a60dcd2f4c"
+  },
+  {
+   "id": "zc:L12-16",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：云云：好呀！那我们要努力学习才能实现去月球的______。",
+   "choices": {
+    "A": "实现",
+    "B": "飞船",
+    "C": "荒凉",
+    "D": "梦想"
+   },
+   "correct": "D",
+   "explanation": "梦想 is a dream, something you hope to do one day. A dream is what 实现 makes come true: 实现去月球的梦想.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期四，练习1（printed p.77）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "实现 is already in the sentence, just before; the gap needs the thing that comes true.",
+    "B": "飞船: you can ride a spaceship to the moon, but you cannot make a spaceship come true.",
+    "C": "荒凉 describes the moon itself; 实现荒凉 does not make sense."
+   },
+   "prompt_en": "Fill the blank: 云云：好呀！那我们要努力学习才能实现去月球的______。",
+   "explanation_zh": "\"梦想\"是心里很想做到的事。\"实现\"的就是梦想：实现去月球的梦想。",
+   "why_zh": {
+    "A": "\"实现\"前面已经有了，空里要填的是实现什么。",
+    "B": "飞船可以坐，不能\"实现\"飞船。",
+    "C": "\"荒凉\"说的是月球的样子，\"实现荒凉\"说不通。"
+   },
+   "content_hash": "48f21f3ad5279fef"
+  },
+  {
+   "id": "zc:L12-17",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：方方：好！但是我们要怎么去呢？云云：我们可以坐______去月球呀！",
+   "choices": {
+    "A": "实现",
+    "B": "飞船",
+    "C": "荒凉",
+    "D": "梦想"
+   },
+   "correct": "B",
+   "explanation": "飞船 is a spaceship, and 坐 goes with something you ride in: 坐飞船去月球, the way the astronauts went in the 阿波罗号.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期四，练习1（printed p.77）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "实现 is an action, not something you can sit in.",
+    "C": "荒凉 describes a place; you cannot ride in it.",
+    "D": "梦想 is a dream; you can have one, but you cannot ride it to the moon."
+   },
+   "prompt_en": "Fill the blank: 方方：好！但是我们要怎么去呢？云云：我们可以坐______去月球呀！",
+   "explanation_zh": "\"飞船\"是去太空坐的。\"坐\"后面要跟交通工具：坐飞船去月球，就像宇航员坐\"阿波罗号\"飞船。",
+   "why_zh": {
+    "A": "\"实现\"是动作，不能坐。",
+    "C": "\"荒凉\"是地方的样子，不能坐着去。",
+    "D": "梦想可以有，却不能坐着它去月球。"
+   },
+   "content_hash": "8ac4c91bf0227dfc"
+  },
+  {
+   "id": "zc:L12-18",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：方方：妈妈，我们今天学了关于人类______的事。",
+   "choices": {
+    "A": "工程",
+    "B": "美国",
+    "C": "探月",
+    "D": "月亮"
+   },
+   "correct": "C",
+   "explanation": "探月 is exploring the moon — the title of this lesson. What 方方 learned today is about people exploring the moon.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期五，练习3（printed p.80）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "工程 is a big project; 人类工程的事 does not say what they learned — the 工程 comes later, in 探月工程.",
+    "B": "美国 is the answer to Mom's next question; 人类美国 is not a phrase.",
+    "D": "月亮 is the moon itself; what people did there is 探月, not 人类月亮."
+   },
+   "prompt_en": "Fill the blank: 方方：妈妈，我们今天学了关于人类______的事。",
+   "explanation_zh": "\"探月\"是探索月球，就是这一课的题目。今天学的是人类探月的事。",
+   "why_zh": {
+    "A": "\"工程\"是很大的项目，\"人类工程的事\"说不清学了什么；后面才说到\"探月工程\"。",
+    "B": "\"美国\"是后面回答妈妈的话，\"人类美国\"不成词。",
+    "D": "\"月亮\"是月球本身，没有\"人类月亮\"的说法；人类做的事是探月。"
+   },
+   "content_hash": "c0ac235565ed61a0"
+  },
+  {
+   "id": "zc:L12-19",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：妈妈：第一次成功登月的宇航员是哪个国家的啊？方方：是______的！",
+   "choices": {
+    "A": "工程",
+    "B": "美国",
+    "C": "探月",
+    "D": "月亮"
+   },
+   "correct": "B",
+   "explanation": "美国 is the United States. Mom asks which country, so the answer is a country — the 课文 says 美国宇航员第一次登上了月球.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期五，练习3（printed p.80）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "工程 is a project, not a country.",
+    "C": "探月 is what the astronauts did, not where they came from.",
+    "D": "月亮 is where they landed, not their country."
+   },
+   "prompt_en": "Fill the blank: 妈妈：第一次成功登月的宇航员是哪个国家的啊？方方：是______的！",
+   "explanation_zh": "\"美国\"是一个国家。妈妈问哪个国家，回答要说国家的名字——课文说：美国宇航员第一次登上了月球。",
+   "why_zh": {
+    "A": "\"工程\"是项目，不是国家。",
+    "C": "\"探月\"是宇航员做的事，不是国家。",
+    "D": "\"月亮\"是他们去的地方，不是他们的国家。"
+   },
+   "content_hash": "f5809ea7a7a3083e"
+  },
+  {
+   "id": "zc:L12-20",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "M",
+   "prompt": "选词填空：方方：但是妈妈，我有个问题，为什么中国的探月______叫“嫦娥”呢？",
+   "choices": {
+    "A": "工程",
+    "B": "美国",
+    "C": "探月",
+    "D": "月亮"
+   },
+   "correct": "A",
+   "explanation": "工程 is a big project. China's moon project in the 课文 is the 嫦娥探月工程, so the word after 探月 is 工程.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期五，练习3（printed p.80）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "B": "美国 is a country, and the moon program here is China's, not America's.",
+    "C": "探月 is already right before the gap; 探月探月 says it twice.",
+    "D": "探月月亮 is not a word; what is named 嫦娥 is the project."
+   },
+   "prompt_en": "Fill the blank: 方方：但是妈妈，我有个问题，为什么中国的探月______叫“嫦娥”呢？",
+   "explanation_zh": "\"工程\"是很大的项目。课文里中国的是\"嫦娥探月工程\"，所以\"探月\"后面是\"工程\"。",
+   "why_zh": {
+    "B": "\"美国\"是国家，这里说的是中国的探月工程。",
+    "C": "\"探月\"前面已经有了，\"探月探月\"重复了。",
+    "D": "没有\"探月月亮\"这个说法，叫\"嫦娥\"的是探月工程。"
+   },
+   "content_hash": "39bae2f4b0bccc51"
+  },
+  {
+   "id": "zc:L12-21",
+   "schema_version": "1.0",
+   "content_version": "2026.10.07",
+   "subject": "zh-word",
+   "skill": "word-choice",
+   "difficulty": "E",
+   "prompt": "选词填空：妈妈：这是因为在中国神话中嫦娥是一位仙女，她就住在______上。",
+   "choices": {
+    "A": "工程",
+    "B": "美国",
+    "C": "探月",
+    "D": "月亮"
+   },
+   "correct": "D",
+   "explanation": "月亮 is the moon. In the Chinese legend Chang'e is a fairy who lives on the moon, which is why the moon program carries her name.",
+   "misconceptions": "",
+   "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》 星期五，练习3（printed p.80）",
+   "form": "L12",
+   "lesson": "L12",
+   "why": {
+    "A": "工程 is a project; a fairy cannot live on a project.",
+    "B": "美国 is a country on Earth; the legend puts Chang'e up in the sky.",
+    "C": "探月 is something people do, exploring the moon; nobody can live on it."
+   },
+   "prompt_en": "Fill the blank: 妈妈：这是因为在中国神话中嫦娥是一位仙女，她就住在______上。",
+   "explanation_zh": "\"月亮\"就是月球。中国神话里，嫦娥是一位仙女，住在月亮上，所以探月工程叫\"嫦娥\"。",
+   "why_zh": {
+    "A": "\"工程\"是项目，仙女不能住在工程上。",
+    "B": "\"美国\"是地球上的国家，神话里嫦娥住在天上。",
+    "C": "\"探月\"是一件事，不能住在上面。"
+   },
+   "content_hash": "80392993c2e90f91"
   }
  ]
 }

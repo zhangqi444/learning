@@ -1,0 +1,359 @@
+{
+ "id": "L07",
+ "no": 7,
+ "title": "司马光",
+ "title_en": "Sima Guang",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "71–72",
+  "生字·词语·句子": "72–73",
+  "课堂练习": "74–78",
+  "阅读": "79–81"
+ },
+ "pages_note": "Read off the 目录 (教材 PDF index 12) and confirmed on each rendered page: 第七课 runs pp. 71–81, 第八课 starts p. 82. The 课文 is pp. 71–72 with the 生字 under its last lines on p. 72; 词语, 专有名词 and 句子 are on p. 73. 课堂练习 is pp. 74–78 (描一描写一写 74, 读一读/用一用 75, 扩展与替换/想一想说一说 76, 对话 77, 课堂游戏 78); the 阅读 text is pp. 79–81 with its 想一想 and 日积月累 on p. 81.",
+ "课文": {
+  "where": {
+   "zh": "课本第71–72页",
+   "en": "Textbook pp. 71–72"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第72页",
+   "en": "Textbook p. 72"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. The thirteen characters are printed in two rows (eight, then five) under the end of the 课文 on p. 72, with 耳 → 聪 and 衣 → 装 below them.",
+  "items": [
+   {
+    "zi": "司",
+    "py": "sī",
+    "gloss": {
+     "zh": "复姓\"司马\"的\"司\"",
+     "en": "as in 司马, a two-character family name"
+    }
+   },
+   {
+    "zi": "聪",
+    "py": "cōng",
+    "gloss": {
+     "zh": "聪明的\"聪\"",
+     "en": "as in 聪明, clever"
+    }
+   },
+   {
+    "zi": "扑",
+    "py": "pū",
+    "gloss": {
+     "zh": "\"扑通\"是东西掉进水里的声音",
+     "en": "as in 扑通, the splash of something falling into water"
+    }
+   },
+   {
+    "zi": "缸",
+    "py": "gāng",
+    "gloss": {
+     "zh": "装水、装米用的大罐子",
+     "en": "a big jar or vat for water or rice"
+    }
+   },
+   {
+    "zi": "装",
+    "py": "zhuāng",
+    "gloss": {
+     "zh": "把东西放进去",
+     "en": "fill, put in"
+    }
+   },
+   {
+    "zi": "吓",
+    "py": "xià",
+    "gloss": {
+     "zh": "害怕；让人害怕",
+     "en": "frighten; be frightened"
+    }
+   },
+   {
+    "zi": "哭",
+    "py": "kū",
+    "gloss": {
+     "zh": "伤心或害怕的时候流着眼泪出声",
+     "en": "cry"
+    }
+   },
+   {
+    "zi": "慌",
+    "py": "huāng",
+    "gloss": {
+     "zh": "心里着急，不知道怎么办",
+     "en": "flustered, in a panic"
+    }
+   },
+   {
+    "zi": "法",
+    "py": "fǎ",
+    "gloss": {
+     "zh": "办法、方法",
+     "en": "way, method (as in 办法)"
+    }
+   },
+   {
+    "zi": "块",
+    "py": "kuài",
+    "gloss": {
+     "zh": "量词：一块石头",
+     "en": "measure word for a lump or piece: 一块石头"
+    }
+   },
+   {
+    "zi": "使",
+    "py": "shǐ",
+    "gloss": {
+     "zh": "用；使劲就是用力",
+     "en": "use; 使劲 is to use all your strength"
+    }
+   },
+   {
+    "zi": "劲",
+    "py": "jìn",
+    "gloss": {
+     "zh": "力气",
+     "en": "strength, effort"
+    }
+   },
+   {
+    "zi": "砸",
+    "py": "zá",
+    "gloss": {
+     "zh": "用重的东西对准了打下去",
+     "en": "smash with something heavy"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "耳",
+    "zi": "聪"
+   },
+   {
+    "bu": "衣",
+    "zi": "装"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第73页",
+   "en": "Textbook p. 73"
+  },
+  "items": [
+   {
+    "w": "聪明",
+    "py": "cōngming"
+   },
+   {
+    "w": "花园",
+    "py": "huāyuán"
+   },
+   {
+    "w": "扑通",
+    "py": "pūtōng"
+   },
+   {
+    "w": "小心",
+    "py": "xiǎoxīn"
+   },
+   {
+    "w": "只有",
+    "py": "zhǐyǒu"
+   },
+   {
+    "w": "惊慌",
+    "py": "jīnghuāng"
+   },
+   {
+    "w": "办法",
+    "py": "bànfǎ"
+   },
+   {
+    "w": "石头",
+    "py": "shítou"
+   },
+   {
+    "w": "使劲",
+    "py": "shǐjìn"
+   }
+  ]
+ },
+ "专有名词": {
+  "where": {
+   "zh": "课本第73页",
+   "en": "Textbook p. 73"
+  },
+  "section_note": "As in L03: the book prints 专有名词 (Proper nouns) between 词语 and 句子 on p. 73, with the pinyin capitalised as a name. Kept as the book has it; the lesson page may ignore it.",
+  "items": [
+   {
+    "w": "司马光",
+    "py": "Sīmǎ Guāng"
+   }
+  ]
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第73页",
+   "en": "Textbook p. 73"
+  },
+  "zh": "水缸破了，水流了出来。",
+  "py": "shuǐ gāng pò le, shuǐ liú le chu lai."
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第76页 扩展与替换",
+   "en": "Textbook p. 76, Expand and substitute"
+  },
+  "pattern": "……了出来",
+  "pattern_note": "The book prints no name for the pattern. It is read off the page: the ladder grows from 流 to 流了出来, and in the 替换 table 出来 is the one part printed in red and never swapped, while every swapped second half ends in 了 (水流了, 酒流了, 老师从教室里走了, 妈妈从家里跑了).",
+  "ladder": [
+   "流",
+   "流了出来",
+   "水流了出来",
+   "水缸破了，水流了出来。"
+  ],
+  "substitutions": {
+   "frame": [
+    "水缸破了，",
+    "水流了",
+    "出来。"
+   ],
+   "rows": [
+    [
+     "酒瓶倒了",
+     "酒流了"
+    ],
+    [
+     "门开了",
+     "老师从教室里走了"
+    ],
+    [
+     "听到我的声音",
+     "妈妈从家里跑了"
+    ]
+   ]
+  },
+  "substitutions_note": "The blue 替换 table under the ladder on p. 76: 水缸破了， and 水流了 are underlined and swapped row by row; 出来。 is printed in red and stays. Added as the book prints it, as in L03 and L04."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第75页",
+   "en": "Textbook p. 75"
+  },
+  "rows": [
+   [
+    "司马",
+    "司徒",
+    "聪明",
+    "耳聪目明",
+    "扑通"
+   ],
+   [
+    "水缸",
+    "米缸",
+    "鱼缸",
+    "装满",
+    "装进去"
+   ],
+   [
+    "吓人",
+    "吓了一跳",
+    "惊吓"
+   ],
+   [
+    "大哭",
+    "哭鼻子",
+    "哭声",
+    "哭叫"
+   ],
+   [
+    "惊慌",
+    "不慌不忙"
+   ],
+   [
+    "办法",
+    "方法",
+    "用法",
+    "想法"
+   ],
+   [
+    "一块",
+    "石块",
+    "一块石头"
+   ],
+   [
+    "使劲",
+    "使用",
+    "有劲",
+    "没劲"
+   ],
+   [
+    "砸缸",
+    "砸开",
+    "砸破"
+   ]
+  ],
+  "page_break_note": "all nine rows are on p. 75, above 用一用"
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第75页",
+   "en": "Textbook p. 75"
+  },
+  "rows": [
+   [
+    "很聪明",
+    "聪明的孩子"
+   ],
+   [
+    "扑通扑通",
+    "“扑通”一声跳进了水里"
+   ],
+   [
+    "很小心",
+    "小心一点儿",
+    "不小心摔了一跤"
+   ],
+   [
+    "上山只有一条路",
+    "只有他知道"
+   ],
+   [
+    "不要惊慌",
+    "很惊慌"
+   ],
+   [
+    "一个好办法",
+    "没有办法"
+   ],
+   [
+    "使劲地砸",
+    "使足了劲"
+   ]
+  ],
+  "rows_note": "The book's own curly quotation marks around 扑通 are kept."
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第79–81页",
+   "en": "Textbook pp. 79–81"
+  },
+  "title": "路边李苦",
+  "title_en": "Bitter Plum on the Roadside",
+  "sidebar": [
+   "争先恐后：抢着向前，生怕落后了。",
+   "采摘（采摘葡萄　采摘苹果）",
+   "一动不动：静止不动。"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The margin of p. 79 prints ★ before each entry; 采摘 carries two example phrases under it rather than a gloss, kept here in brackets. p. 81 ends with the reading's 想一想，说一说 (four questions) and 日积月累 (勇气是智慧和一定程度教养的必然结果。——［俄国］列夫·托尔斯泰), neither reproduced."
+ }
+}

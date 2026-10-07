@@ -22,7 +22,7 @@
  * light), a dictation word shown and rated by hand (a tick on a five-character
  * phrase says nothing about which characters), and the zh-char bank's
  * questions (they ask about tone and stroke count, not for the character). */
-import { D } from "./content"
+import { D, zhHomework } from "./content"
 import { dayKey, rec, recordAttempts } from "./engine"
 import { Store, ts } from "./store"
 import { strokeData, writtenWell } from "./strokes"
@@ -39,6 +39,19 @@ export function glimChars() {
   return out
 }
 export const isGlimChar = (ch) => glimChars().includes(ch)
+/** The 生字 the book has taught her so far: every lesson up to the one the class is on (the
+ *  newest homework note's, as currentZhLesson reads it), and any later character she has
+ *  already written. The whole volume is in the bundle — a lesson can be opened before the class
+ *  reaches it — but a count over all twelve lessons would hold some 150 characters nobody has
+ *  taught her yet: the shelf cats.md § 8 refused, as a number. The Glimbook counts over these. */
+export function taughtChars() {
+  const note = zhHomework()[0], cur = note && ((D.zh || {}).lessons || {})[note.lesson], upTo = cur ? cur.no : Infinity
+  const out = []
+  for (const l of Object.values((D.zh || {}).lessons || {}).sort((a, b) => a.no - b.no)) {
+    for (const z of ((l["生字"] || {}).items || [])) if (z && z.zi && !out.includes(z.zi) && (l.no <= upTo || charStatus(z.zi).attempts > 0)) out.push(z.zi)
+  }
+  return out
+}
 export function lessonChars(lesson) {
   const l = ((D.zh || {}).lessons || {})[lesson]
   return l ? ((l["生字"] || {}).items || []).map((z) => z.zi) : []

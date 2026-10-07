@@ -1,0 +1,1482 @@
+{
+ "lesson": "L09",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册A 第九课《古诗二首》",
+ "file_note": "The workbook's exercises for 第九课, typed from 练习册A pp. 55–67 (PDF index = printed + 4; the lesson opens on p. 55 with the heading 古诗二首, and p. 68 is already 第十一课). Same shapes as L03–L05. The workbook prints no answers; every key here follows from the page, from the two poems on textbook pp. 92–93, or from the stroke data. The book has more choose-A-or-B(-or-C) questions than L03–L05, and like theirs they are left out because no type fits a pick among the book's own two or three options; their keys, so a `pick` type can take them: 星期三 练习1 (p. 59, choose the meaning of the underlined character, three options each: (1) 锄禾日当午, 日 → B 太阳 (2) 春眠不觉晓, 晓 → A 天亮 (3) 处处闻啼鸟, 闻 → B 听见 (4) 粒粒皆辛苦, 皆 → C 都); 星期四 练习1 (p. 62, choose according to the text, three options each: (1) who wrote 春晓 → C 孟浩然 (2) the line about hearing birds everywhere → B 处处闻啼鸟 (3) 李绅's dynasty → A 唐 (4) the line about the farmer's sweat on the soil → B 汗滴禾下土); 星期五 练习1 (pp. 64–65, listen and choose the picture, two pictures each — the script is in the appendix, 第9课 on p. 83: (1) 我们都是小学生 → A, two schoolboys, not B, a boy and a man (2) 小鸟在树上啼叫 → B, the bird, not A, a monkey (3) 米饭是一粒一粒的 → B, the bowl of rice, not A, noodles (4) 农民伯伯种田很辛苦 → A, the man planting seedlings, not B, a boy eating on a stool); 星期五 练习3 (p. 66, choose by the rhyme, two options each, and color the crown: (1) 春天的风 → B 绿色 (2) 夏天的风为什么是黑色的 → A 因为天上的云是黑色的 (3) 冬天的风为什么是白色的 → B 因为天上飘着雪花 (4) 这首儿歌都写了些什么 → A 写了一年四季的风 — the likelier reading, though each verse does give the wind a color, so B is not absurd; settle (4) before a type takes it). 星期五 练习2 (pp. 65–66, 读一读《四季风》, a twelve-line nursery rhyme of the workbook's own) is left out as L03 left out 《故宫》: a passage stays in the book, by the owner's decision of 2 October (docs/chinese.md § 8); she reads it from the workbook. Two book exercises are split, as L04 split its 描一描写一写: 星期一 练习1 into a write and a sort, and 星期一/星期二 练习4 into a match and the writing of what was matched; 星期三 练习2, three 选词填空 groups with their own two or three characters, is three match exercises, as L03 did its 完、玩、晚. There is no 父母读给孩子听 or retell in this lesson's workbook, so no speak exercise.",
+ "blocks": [
+  {
+   "id": "zb:L09-D2",
+   "day": "星期二",
+   "page": 58,
+   "ex": 3,
+   "title": "找出不同类的词",
+   "title_en": "Find the odd words out",
+   "items": [
+    "zc:L09-01",
+    "zc:L09-02",
+    "zc:L09-03",
+    "zc:L09-04"
+   ],
+   "scope_note": "The book prints four words A–D per row and asks for the one that does not belong; the bank items keep the book's words in the book's letter order, so the keys (B, D, C, A) are the book's own positions."
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L09-D1-01w",
+   "day": "星期一",
+   "page": 55,
+   "ex": 1,
+   "type": "write",
+   "title": "按照汉字结构写一写",
+   "title_en": "Follow the structures to write",
+   "outline": false,
+   "note": {
+    "zh": "看着部件，用笔把字写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "Look at the parts and write the character with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L09-D1-01w-1",
+     "parts": "日＋尧",
+     "key": "晓",
+     "explanation": {
+      "zh": "日在左，尧在右：晓。",
+      "en": "日 on the left, 尧 on the right: 晓."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01w-2",
+     "parts": "目＋民",
+     "key": "眠",
+     "explanation": {
+      "zh": "目在左，民在右：眠。",
+      "en": "目 on the left, 民 on the right: 眠."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01w-3",
+     "parts": "口＋帝",
+     "key": "啼",
+     "explanation": {
+      "zh": "口在左，帝在右：啼。",
+      "en": "口 on the left, 帝 on the right: 啼."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01w-4",
+     "parts": "忄＋闵",
+     "key": "悯",
+     "explanation": {
+      "zh": "忄在左，闵在右：悯。",
+      "en": "忄 on the left, 闵 on the right: 悯."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01w-5",
+     "parts": "纟＋申",
+     "key": "绅",
+     "explanation": {
+      "zh": "纟在左，申在右：绅。",
+      "en": "纟 on the left, 申 on the right: 绅."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01w-6",
+     "parts": "米＋立",
+     "key": "粒",
+     "explanation": {
+      "zh": "米在左，立在右：粒。",
+      "en": "米 on the left, 立 on the right: 粒."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01w-7",
+     "parts": "比＋白",
+     "key": "皆",
+     "explanation": {
+      "zh": "比在上，白在下：皆。",
+      "en": "比 above, 白 below: 皆."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01w-8",
+     "parts": "艹＋古",
+     "key": "苦",
+     "explanation": {
+      "zh": "艹在上，古在下：苦。",
+      "en": "艹 above, 古 below: 苦."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D1-01s",
+   "day": "星期一",
+   "page": 55,
+   "ex": 1,
+   "type": "sort",
+   "title": "左右结构，还是上下结构？",
+   "title_en": "Left–right structure, or top–bottom?",
+   "groups": [
+    "左右结构",
+    "上下结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L09-D1-01s-1",
+     "text": "晓",
+     "key": 0,
+     "explanation": {
+      "zh": "日在左、尧在右：左右结构。",
+      "en": "日 on the left, 尧 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01s-2",
+     "text": "眠",
+     "key": 0,
+     "explanation": {
+      "zh": "目在左、民在右：左右结构。",
+      "en": "目 on the left, 民 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01s-3",
+     "text": "啼",
+     "key": 0,
+     "explanation": {
+      "zh": "口在左、帝在右：左右结构。",
+      "en": "口 on the left, 帝 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01s-4",
+     "text": "悯",
+     "key": 0,
+     "explanation": {
+      "zh": "忄在左、闵在右：左右结构。",
+      "en": "忄 on the left, 闵 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01s-5",
+     "text": "绅",
+     "key": 0,
+     "explanation": {
+      "zh": "纟在左、申在右：左右结构。",
+      "en": "纟 on the left, 申 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01s-6",
+     "text": "粒",
+     "key": 0,
+     "explanation": {
+      "zh": "米在左、立在右：左右结构。",
+      "en": "米 on the left, 立 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01s-7",
+     "text": "皆",
+     "key": 1,
+     "explanation": {
+      "zh": "比在上、白在下：上下结构。",
+      "en": "比 above, 白 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L09-D1-01s-8",
+     "text": "苦",
+     "key": 1,
+     "explanation": {
+      "zh": "艹在上、古在下：上下结构。",
+      "en": "艹 above, 古 below: top–bottom."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D1-02",
+   "day": "星期一",
+   "page": 56,
+   "ex": 2,
+   "type": "free",
+   "title": "填写正确答案",
+   "title_en": "Fill in the correct answers",
+   "note": {
+    "zh": "先写部首，再写笔画数或者那一笔的名字（比如：横、竖、撇、点、横折）。",
+    "en": "Write the radical first, then the number of strokes or the name of that stroke (such as 横, 竖, 撇, 点, 横折)."
+   },
+   "key_note": "Keys, settled by the radicals the textbook prints and by the stroke data in content/chinese/strokes (hanzi-writer medians checked stroke by stroke): (1) 闻 — radical 门, 9 strokes (门 3 + 耳 6). (2) 皆 — radical 白; the textbook p. 94 prints 白、比——皆, so 比 is right as well; the fourth stroke is 竖弯钩, the last stroke of 比 on top (横, 竖提, 撇, 竖弯钩, then 白). (3) 辛 — radical 辛, it is its own radical; 7 strokes. (4) 苦 — radical 艹; the seventh stroke is 横折 (艹 横 竖 竖, then 古 横 竖, 口 竖 横折 横 — eight in all). A free item, not a four-choice one, because the book gives no choices to choose from.",
+   "items": [
+    {
+     "id": "zx:L09-D1-02-1",
+     "prompt": "（1）“闻”的部首是＿＿，共＿＿画。",
+     "prompt_en": "(1) The radical of 闻 is ＿＿, and it has ＿＿ strokes.",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D1-02-2",
+     "prompt": "（2）“皆”的部首是＿＿，第四画是＿＿。",
+     "prompt_en": "(2) The radical of 皆 is ＿＿, and its fourth stroke is ＿＿.",
+     "blanks": 2,
+     "cells": 3
+    },
+    {
+     "id": "zx:L09-D1-02-3",
+     "prompt": "（3）“辛”的部首是＿＿，共＿＿画。",
+     "prompt_en": "(3) The radical of 辛 is ＿＿, and it has ＿＿ strokes.",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D1-02-4",
+     "prompt": "（4）“苦”的部首是＿＿，第七画是＿＿。",
+     "prompt_en": "(4) The radical of 苦 is ＿＿, and its seventh stroke is ＿＿.",
+     "blanks": 2,
+     "cells": 3
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D1-03",
+   "day": "星期一",
+   "page": 56,
+   "ex": 3,
+   "type": "tf",
+   "title": "选出带有下列偏旁部首的字",
+   "title_en": "Select the characters with the following radicals",
+   "note": {
+    "zh": "课本的例子：纟——抗、红、块，勾的是\"红\"。每行三个字，带有这个偏旁部首的就勾上。这里每个字判断一次：带有，选\"对\"；不带，选\"错\"。",
+    "en": "The book's example: 纟 — 抗, 红, 块, and 红 is ticked. Each row has three characters; tick the ones that have the radical. Here each character is one true-or-false: true if it has it, false if not."
+   },
+   "shape_note": "A row of three checkboxes per radical, and the instruction is to tick the characters that carry it — a tick per box, not one answer per row, so each box is one tf item. The text is authored as a statement about the box; the characters and radicals are the book's. In the book each row has exactly one: 眠, 闻, 铁, 盘.",
+   "items": [
+    {
+     "id": "zx:L09-D1-03-1",
+     "text": "\"晓\"带有\"目\"。",
+     "key": false,
+     "explanation": {
+      "zh": "晓的左边是日字旁，不是目：日＋尧。",
+      "en": "晓 has 日, the sun, on the left — not 目, the eye: 日 + 尧."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-2",
+     "text": "\"皆\"带有\"目\"。",
+     "key": false,
+     "explanation": {
+      "zh": "皆是比在上、白在下，里面没有目。",
+      "en": "皆 is 比 over 白; there is no 目 in it."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-3",
+     "text": "\"眠\"带有\"目\"。",
+     "key": true,
+     "explanation": {
+      "zh": "眠的左边是目字旁：睡觉要闭上眼睛。",
+      "en": "眠 has 目 on the left: you close your eyes to sleep."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-4",
+     "text": "\"闻\"带有\"门\"。",
+     "key": true,
+     "explanation": {
+      "zh": "闻是门字框，里面是耳：门＋耳。",
+      "en": "闻 is 耳 inside 门, so it has 门."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-5",
+     "text": "\"国\"带有\"门\"。",
+     "key": false,
+     "explanation": {
+      "zh": "国的外面是四面围起来的囗，不是门。",
+      "en": "国 is closed in on all four sides by 囗, not by 门."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-6",
+     "text": "\"凶\"带有\"门\"。",
+     "key": false,
+     "explanation": {
+      "zh": "凶的外面是凵，从下面包着，不是门。",
+      "en": "凶 is held from below by 凵, not by 门."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-7",
+     "text": "\"滴\"带有\"钅\"。",
+     "key": false,
+     "explanation": {
+      "zh": "滴的左边是三点水（氵）：水滴是水，不是金属。",
+      "en": "滴 has 氵, the water radical — a drop is water — not 钅."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-8",
+     "text": "\"铁\"带有\"钅\"。",
+     "key": true,
+     "explanation": {
+      "zh": "铁的左边是金字旁（钅）：铁是一种金属。",
+      "en": "铁 has 钅, the metal radical: iron is a metal."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-9",
+     "text": "\"饭\"带有\"钅\"。",
+     "key": false,
+     "explanation": {
+      "zh": "饭的左边是食字旁（饣），不是钅：饭是吃的。两个偏旁长得像，看清楚下面。",
+      "en": "饭 has 饣, the food radical, not 钅: rice is food. The two look alike, so look at the bottom of the radical."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-10",
+     "text": "\"盘\"带有\"皿\"。",
+     "key": true,
+     "explanation": {
+      "zh": "盘的下面是皿：盘子是装东西的器皿。",
+      "en": "盘 has 皿 at the bottom: a plate is a dish for holding things."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-11",
+     "text": "\"李\"带有\"皿\"。",
+     "key": false,
+     "explanation": {
+      "zh": "李是木在上、子在下，没有皿。",
+      "en": "李 is 木 over 子; there is no 皿."
+     }
+    },
+    {
+     "id": "zx:L09-D1-03-12",
+     "text": "\"杏\"带有\"皿\"。",
+     "key": false,
+     "explanation": {
+      "zh": "杏是木在上、口在下，没有皿。",
+      "en": "杏 is 木 over 口; there is no 皿."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D1-04",
+   "day": "星期一",
+   "page": 56,
+   "ex": 4,
+   "type": "match",
+   "title": "连一连，写一写",
+   "title_en": "Match and write",
+   "note": {
+    "zh": "先点上面的部件，再点下面能和它合成字的那一半。课本已连好一组：目—民，眠。",
+    "en": "Tap a part on the top row, then the half below that makes a character with it. The book has drawn one line already: 目—民, 眠."
+   },
+   "left": [
+    "日",
+    "目",
+    "门",
+    "艹",
+    "子"
+   ],
+   "right": [
+    "民",
+    "洛",
+    "尧",
+    "皿",
+    "耳"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L09-D1-04-1",
+     "left": "日",
+     "key": 2,
+     "word": "晓",
+     "explanation": {
+      "zh": "日和尧合成\"晓\"。",
+      "en": "日 and 尧 make 晓."
+     }
+    },
+    {
+     "id": "zx:L09-D1-04-2",
+     "left": "目",
+     "key": 0,
+     "word": "眠",
+     "explanation": {
+      "zh": "目和民合成\"眠\"——课本已连好的一组。",
+      "en": "目 and 民 make 眠 — the line the book has drawn."
+     }
+    },
+    {
+     "id": "zx:L09-D1-04-3",
+     "left": "门",
+     "key": 4,
+     "word": "闻",
+     "explanation": {
+      "zh": "门和耳合成\"闻\"。",
+      "en": "门 and 耳 make 闻."
+     }
+    },
+    {
+     "id": "zx:L09-D1-04-4",
+     "left": "艹",
+     "key": 1,
+     "word": "落",
+     "explanation": {
+      "zh": "艹和洛合成\"落\"。",
+      "en": "艹 and 洛 make 落."
+     }
+    },
+    {
+     "id": "zx:L09-D1-04-5",
+     "left": "子",
+     "key": 3,
+     "word": "孟",
+     "explanation": {
+      "zh": "子和皿合成\"孟\"。",
+      "en": "子 and 皿 make 孟."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D1-04w",
+   "day": "星期一",
+   "page": 56,
+   "ex": 4,
+   "type": "write",
+   "title": "连一连，写一写：把字写出来",
+   "title_en": "Match and write: write the characters",
+   "outline": false,
+   "items": [
+    {
+     "id": "zx:L09-D1-04w-1",
+     "parts": "目＋民",
+     "key": "眠",
+     "explanation": {
+      "zh": "目在左，民在右：眠——课本已写好的一个。",
+      "en": "目 on the left, 民 on the right: 眠 — the one the book has written."
+     }
+    },
+    {
+     "id": "zx:L09-D1-04w-2",
+     "parts": "日＋尧",
+     "key": "晓",
+     "explanation": {
+      "zh": "日在左，尧在右：晓。",
+      "en": "日 on the left, 尧 on the right: 晓."
+     }
+    },
+    {
+     "id": "zx:L09-D1-04w-3",
+     "parts": "门＋耳",
+     "key": "闻",
+     "explanation": {
+      "zh": "门在外，耳在里：闻。",
+      "en": "门 outside, 耳 inside: 闻."
+     }
+    },
+    {
+     "id": "zx:L09-D1-04w-4",
+     "parts": "艹＋洛",
+     "key": "落",
+     "explanation": {
+      "zh": "艹在上，洛在下：落。",
+      "en": "艹 above, 洛 below: 落."
+     }
+    },
+    {
+     "id": "zx:L09-D1-04w-5",
+     "parts": "子＋皿",
+     "key": "孟",
+     "explanation": {
+      "zh": "子在上，皿在下：孟。",
+      "en": "子 above, 皿 below: 孟."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D1-05",
+   "day": "星期一",
+   "page": 57,
+   "ex": 5,
+   "type": "write",
+   "title": "根据拼音写汉字",
+   "title_en": "Write characters below Pinyin",
+   "outline": false,
+   "note": {
+    "zh": "读音相近，字不一样——看旁边的字想词。",
+    "en": "Similar sounds, different characters — the character beside the blank tells you the word."
+   },
+   "items": [
+    {
+     "id": "zx:L09-D1-05-1",
+     "py": "shī",
+     "context": "古＿",
+     "key": "诗",
+     "explanation": {
+      "zh": "古诗：shī。",
+      "en": "古诗 — shī, ancient poems."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-2",
+     "py": "sī",
+     "context": "＿念",
+     "key": "思",
+     "explanation": {
+      "zh": "思念：sī。",
+      "en": "思念 — sī, to miss someone."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-3",
+     "py": "sì",
+     "context": "＿个",
+     "key": "四",
+     "explanation": {
+      "zh": "四个：sì。",
+      "en": "四个 — sì, four of them."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-4",
+     "py": "xiǎo",
+     "context": "春＿",
+     "key": "晓",
+     "explanation": {
+      "zh": "春晓：xiǎo。",
+      "en": "春晓 — xiǎo, spring dawn."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-5",
+     "py": "xiǎo",
+     "context": "＿孩",
+     "key": "小",
+     "explanation": {
+      "zh": "小孩：xiǎo。",
+      "en": "小孩 — xiǎo, a child."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-6",
+     "py": "xiào",
+     "context": "＿容",
+     "key": "笑",
+     "explanation": {
+      "zh": "笑容：xiào。",
+      "en": "笑容 — xiào, a smile."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-7",
+     "py": "xīn",
+     "context": "＿苦",
+     "key": "辛",
+     "explanation": {
+      "zh": "辛苦：xīn。",
+      "en": "辛苦 — xīn, hard work."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-8",
+     "py": "xīn",
+     "context": "＿年",
+     "key": "新",
+     "explanation": {
+      "zh": "新年：xīn。",
+      "en": "新年 — xīn, the New Year."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-9",
+     "py": "xīng",
+     "context": "＿星",
+     "key": "星",
+     "explanation": {
+      "zh": "星星：xīng。",
+      "en": "星星 — xīng, stars."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-10",
+     "py": "kǔ",
+     "context": "辛＿",
+     "key": "苦",
+     "explanation": {
+      "zh": "辛苦：kǔ。",
+      "en": "辛苦 — kǔ, hard work."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-11",
+     "py": "kū",
+     "context": "大＿",
+     "key": "哭",
+     "explanation": {
+      "zh": "大哭：kū。",
+      "en": "大哭 — kū, to cry loudly."
+     }
+    },
+    {
+     "id": "zx:L09-D1-05-12",
+     "py": "gǔ",
+     "context": "＿代",
+     "key": "古",
+     "explanation": {
+      "zh": "古代：gǔ。",
+      "en": "古代 — gǔ, ancient times."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D2-01",
+   "day": "星期二",
+   "page": 57,
+   "ex": 1,
+   "type": "read",
+   "title": "读一读",
+   "title_en": "Read aloud",
+   "note": {
+    "zh": "读出来，录下来就行，不打分。对照在批改的时候看。",
+    "en": "Just read it aloud; it is recorded, not scored. The comparison is for the evaluation."
+   },
+   "text": "春晓 破晓 睡眠 失眠 无眠\n啼叫 啼哭 怜悯 悯农 农民 农业\n米粒 颗粒 一粒米 一粒饭\n皆是 皆大欢喜 辛苦 辛劳",
+   "items": []
+  },
+  {
+   "id": "zx:L09-D2-02",
+   "day": "星期二",
+   "page": 57,
+   "ex": 2,
+   "type": "free",
+   "title": "比一比，组词语",
+   "title_en": "Compare and form words",
+   "note": {
+    "zh": "每组两个字长得像，各组一个词。",
+    "en": "The two in each pair look alike; make one word with each."
+   },
+   "page_break_note": "pairs (1) and (2) are on p. 57, (3) and (4) on p. 58",
+   "items": [
+    {
+     "id": "zx:L09-D2-02-1",
+     "prompt": "眼／眠",
+     "prompt_en": "眼 / 眠",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-02-2",
+     "prompt": "汗／干",
+     "prompt_en": "汗 / 干",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-02-3",
+     "prompt": "粒／立",
+     "prompt_en": "粒 / 立",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-02-4",
+     "prompt": "古／苦",
+     "prompt_en": "古 / 苦",
+     "blanks": 2,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D2-04",
+   "day": "星期二",
+   "page": 58,
+   "ex": 4,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match and form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：盘—子，盘子。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 盘—子, 盘子."
+   },
+   "left": [
+    "午",
+    "盘",
+    "汗",
+    "辛",
+    "下"
+   ],
+   "right": [
+    "子",
+    "苦",
+    "来",
+    "餐",
+    "水"
+   ],
+   "pairs": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L09-D2-04-1",
+     "left": "午",
+     "key": 3,
+     "word": "午餐",
+     "explanation": {
+      "zh": "午—餐：午餐，中午吃的饭。",
+      "en": "午 + 餐 = 午餐, lunch."
+     }
+    },
+    {
+     "id": "zx:L09-D2-04-2",
+     "left": "盘",
+     "key": 0,
+     "word": "盘子",
+     "explanation": {
+      "zh": "盘—子：盘子——课本已连好的一组。",
+      "en": "盘 + 子 = 盘子, a plate — the line the book has drawn."
+     }
+    },
+    {
+     "id": "zx:L09-D2-04-3",
+     "left": "汗",
+     "key": 4,
+     "word": "汗水",
+     "explanation": {
+      "zh": "汗—水：汗水。",
+      "en": "汗 + 水 = 汗水, sweat."
+     }
+    },
+    {
+     "id": "zx:L09-D2-04-4",
+     "left": "辛",
+     "key": 1,
+     "word": "辛苦",
+     "explanation": {
+      "zh": "辛—苦：辛苦。",
+      "en": "辛 + 苦 = 辛苦, hard work."
+     }
+    },
+    {
+     "id": "zx:L09-D2-04-5",
+     "left": "下",
+     "key": 2,
+     "word": "下来",
+     "explanation": {
+      "zh": "下—来：下来。\"下水\"也是一个词，可是那样\"汗\"就只剩下\"来\"，\"汗来\"不成词。",
+      "en": "下 + 来 = 下来, come down. 下水 is a word too, but then 汗 would be left with 来, and 汗来 is not a word."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D2-04w",
+   "day": "星期二",
+   "page": 58,
+   "ex": 4,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match and form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把四个词各写一遍（课本已写好：盘子）。",
+    "en": "The matching was done on the site; here write each of the four words once (the book has written 盘子 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L09-D2-04w-1",
+     "prompt": "午＋餐 → 写出词语",
+     "prompt_en": "午 + 餐 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-04w-2",
+     "prompt": "汗＋水 → 写出词语",
+     "prompt_en": "汗 + 水 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-04w-3",
+     "prompt": "辛＋苦 → 写出词语",
+     "prompt_en": "辛 + 苦 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-04w-4",
+     "prompt": "下＋来 → 写出词语",
+     "prompt_en": "下 + 来 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D2-05",
+   "day": "星期二",
+   "page": 59,
+   "ex": 5,
+   "type": "free",
+   "title": "组词造句",
+   "title_en": "Form words and make sentences",
+   "note": {
+    "zh": "例：晚 → 晚上 → 今天晚上我和妈妈去公园玩儿。先用这个字组一个词，再用这个词造一个句子。",
+    "en": "Example: 晚 → 晚上 → 今天晚上我和妈妈去公园玩儿。 First make a word with the character, then make a sentence with that word."
+   },
+   "shape_note": "Each of the book's four lines (餐, 汗, 处, 苦) is two items here, the word on a run of two cells and the sentence on a strip, because a free item has one cell count for all its blanks.",
+   "items": [
+    {
+     "id": "zx:L09-D2-05-1",
+     "prompt": "餐 → 组一个词",
+     "prompt_en": "餐 → a word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-05-2",
+     "prompt": "餐 → 用这个词造一个句子",
+     "prompt_en": "餐 → a sentence with that word",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L09-D2-05-3",
+     "prompt": "汗 → 组一个词",
+     "prompt_en": "汗 → a word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-05-4",
+     "prompt": "汗 → 用这个词造一个句子",
+     "prompt_en": "汗 → a sentence with that word",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L09-D2-05-5",
+     "prompt": "处 → 组一个词",
+     "prompt_en": "处 → a word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-05-6",
+     "prompt": "处 → 用这个词造一个句子",
+     "prompt_en": "处 → a sentence with that word",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L09-D2-05-7",
+     "prompt": "苦 → 组一个词",
+     "prompt_en": "苦 → a word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D2-05-8",
+     "prompt": "苦 → 用这个词造一个句子",
+     "prompt_en": "苦 → a sentence with that word",
+     "blanks": 1,
+     "cells": 20
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D3-02",
+   "day": "星期三",
+   "page": 60,
+   "ex": 2,
+   "type": "match",
+   "title": "选词填空（1）：师、诗",
+   "title_en": "Choose the right words to fill in the blanks (1)",
+   "note": {
+    "zh": "每句用一个字。点句子，再点填进去的字。",
+    "en": "One character per sentence. Tap a sentence, then the character that goes in it."
+   },
+   "left": [
+    "孟浩然写了很多______。",
+    "见了老______说：“早上好！”"
+   ],
+   "right": [
+    "师",
+    "诗"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L09-D3-02-1",
+     "left": "孟浩然写了很多______。",
+     "key": 1,
+     "explanation": {
+      "zh": "孟浩然是诗人，他写的是诗：诗 shī，言字旁。",
+      "en": "孟浩然 was a poet, so what he wrote was 诗, poems — with 讠, the word radical."
+     }
+    },
+    {
+     "id": "zx:L09-D3-02-2",
+     "left": "见了老______说：“早上好！”",
+     "key": 0,
+     "explanation": {
+      "zh": "老师：师 shī，教我们的人。",
+      "en": "老师, teacher: 师."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D3-02b",
+   "day": "星期三",
+   "page": 60,
+   "ex": 2,
+   "type": "match",
+   "title": "选词填空（2）：面、眠",
+   "title_en": "Choose the right words to fill in the blanks (2)",
+   "note": {
+    "zh": "每句用一个字。点句子，再点填进去的字。",
+    "en": "One character per sentence. Tap a sentence, then the character that goes in it."
+   },
+   "left": [
+    "春______不觉晓，处处闻啼鸟。",
+    "不知道什么时候才能和他见______。"
+   ],
+   "right": [
+    "面",
+    "眠"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L09-D3-02b-1",
+     "left": "春______不觉晓，处处闻啼鸟。",
+     "key": 1,
+     "explanation": {
+      "zh": "春眠：眠是睡觉，目字旁——睡觉要闭上眼睛。",
+      "en": "春眠, sleeping in spring: 眠, with 目, the eye."
+     }
+    },
+    {
+     "id": "zx:L09-D3-02b-2",
+     "left": "不知道什么时候才能和他见______。",
+     "key": 0,
+     "explanation": {
+      "zh": "见面：面 miàn，见到对方。",
+      "en": "见面, to meet someone: 面."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D3-02c",
+   "day": "星期三",
+   "page": 60,
+   "ex": 2,
+   "type": "match",
+   "title": "选词填空（3）：小、笑、晓",
+   "title_en": "Choose the right words to fill in the blanks (3)",
+   "note": {
+    "zh": "每句用一个字。点句子，再点填进去的字。",
+    "en": "One character per sentence. Tap a sentence, then the character that goes in it."
+   },
+   "left": [
+    "我会背《春______》这首诗。",
+    "我是一名______学生。",
+    "听了他的话，爸爸______了。"
+   ],
+   "right": [
+    "小",
+    "笑",
+    "晓"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L09-D3-02c-1",
+     "left": "我会背《春______》这首诗。",
+     "key": 2,
+     "explanation": {
+      "zh": "诗的名字是《春晓》：晓是天亮。",
+      "en": "The poem is 春晓: 晓, dawn."
+     }
+    },
+    {
+     "id": "zx:L09-D3-02c-2",
+     "left": "我是一名______学生。",
+     "key": 0,
+     "explanation": {
+      "zh": "小学生：小 xiǎo，跟\"大\"相对。",
+      "en": "小学生, a primary-school pupil: 小, small."
+     }
+    },
+    {
+     "id": "zx:L09-D3-02c-3",
+     "left": "听了他的话，爸爸______了。",
+     "key": 1,
+     "explanation": {
+      "zh": "笑了：笑 xiào，高兴的时候会笑。",
+      "en": "笑了, laughed: 笑."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D3-03",
+   "day": "星期三",
+   "page": 60,
+   "ex": 3,
+   "type": "order",
+   "title": "连词成句",
+   "title_en": "Write the words in the correct order to make sentences",
+   "items": [
+    {
+     "id": "zx:L09-D3-03-1",
+     "pieces": [
+      "汗水",
+      "落",
+      "从",
+      "下来",
+      "头上"
+     ],
+     "key": [
+      0,
+      2,
+      4,
+      1,
+      3
+     ],
+     "explanation": {
+      "zh": "正确的顺序：汗水从头上落下来。",
+      "en": "In order: 汗水从头上落下来 — sweat drips down from his head."
+     }
+    },
+    {
+     "id": "zx:L09-D3-03-2",
+     "pieces": [
+      "下去",
+      "从",
+      "落",
+      "西边",
+      "太阳"
+     ],
+     "key": [
+      4,
+      1,
+      3,
+      2,
+      0
+     ],
+     "explanation": {
+      "zh": "正确的顺序：太阳从西边落下去。",
+      "en": "In order: 太阳从西边落下去 — the sun sets in the west."
+     }
+    },
+    {
+     "id": "zx:L09-D3-03-3",
+     "pieces": [
+      "雪花",
+      "天上",
+      "从",
+      "下来",
+      "落"
+     ],
+     "key": [
+      0,
+      2,
+      1,
+      4,
+      3
+     ],
+     "explanation": {
+      "zh": "正确的顺序：雪花从天上落下来。",
+      "en": "In order: 雪花从天上落下来 — snowflakes fall from the sky."
+     }
+    },
+    {
+     "id": "zx:L09-D3-03-4",
+     "pieces": [
+      "从",
+      "雨珠",
+      "落",
+      "树叶上",
+      "下来"
+     ],
+     "key": [
+      1,
+      0,
+      3,
+      2,
+      4
+     ],
+     "explanation": {
+      "zh": "正确的顺序：雨珠从树叶上落下来。",
+      "en": "In order: 雨珠从树叶上落下来 — raindrops fall from the leaves."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D3-04",
+   "day": "星期三",
+   "page": 61,
+   "ex": 4,
+   "type": "order",
+   "title": "给下面的诗句排序",
+   "title_en": "Put the following lines in the correct order",
+   "note": {
+    "zh": "《春晓》的四句被打乱了，按诗里的顺序排好。",
+    "en": "The four lines of 春晓 are out of order; put them back in the poem's order."
+   },
+   "items": [
+    {
+     "id": "zx:L09-D3-04-1",
+     "pieces": [
+      "处处闻啼鸟",
+      "花落知多少",
+      "春眠不觉晓",
+      "夜来风雨声"
+     ],
+     "key": [
+      2,
+      0,
+      3,
+      1
+     ],
+     "explanation": {
+      "zh": "《春晓》的顺序：春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。先是早上醒来，再听到鸟叫，然后想起夜里的风雨，最后想到落了多少花。",
+      "en": "The order of 春晓: 春眠不觉晓，处处闻啼鸟。夜来风雨声，花落知多少。 — waking late on a spring morning, then the birds everywhere, then remembering the wind and rain of the night, and last wondering how many flowers fell."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D3-05",
+   "day": "星期三",
+   "page": 61,
+   "ex": 5,
+   "type": "free",
+   "title": "猜谜语",
+   "title_en": "Guess the riddle",
+   "key_note": "The answer is 雪 (雪花 is as good): a \"flower\" with no leaves, fruit or roots that comes in winter, not summer, and falls as white flakes. The page draws two snowflakes on the left of the riddle and a white flower on the right.",
+   "items": [
+    {
+     "id": "zx:L09-D3-05-1",
+     "prompt": "说是花，不是花，不长叶子不结果，没有树根没有瓜，夏天不开冬天开，一片一片飘白花。（猜一物）＿＿",
+     "prompt_en": "A riddle: they call it a flower, but it is not one; it grows no leaves and bears no fruit, has no roots and no melons; it does not bloom in summer but in winter, and white petals drift down one by one. (Guess the thing) ＿＿",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D4-02",
+   "day": "星期四",
+   "page": 62,
+   "ex": 2,
+   "type": "free",
+   "title": "读课文，填一填",
+   "title_en": "Read the text and fill",
+   "note": {
+    "zh": "《悯农》缺了一些字，把缺的字写进格子里。",
+    "en": "Some characters of 悯农 are missing; write them into the cells."
+   },
+   "key_note": "Keys, from 《悯农》 on textbook p. 93: (1) 锄、当 (2) 汗滴 (3) 盘、餐 (4) 粒粒皆辛苦. Free rather than write because the workbook gives no pinyin and a write item shows one, which would turn recall into 看拼音写汉字.",
+   "items": [
+    {
+     "id": "zx:L09-D4-02-1",
+     "prompt": "＿禾日＿午，",
+     "prompt_en": "＿禾日＿午， (two missing characters)",
+     "blanks": 2,
+     "cells": 1
+    },
+    {
+     "id": "zx:L09-D4-02-2",
+     "prompt": "＿＿禾下土。",
+     "prompt_en": "＿＿禾下土。 (the first two characters)",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L09-D4-02-3",
+     "prompt": "谁知＿中＿，",
+     "prompt_en": "谁知＿中＿， (two missing characters)",
+     "blanks": 2,
+     "cells": 1
+    },
+    {
+     "id": "zx:L09-D4-02-4",
+     "prompt": "＿＿＿＿＿。",
+     "prompt_en": "＿＿＿＿＿。 (the whole last line, five characters)",
+     "blanks": 1,
+     "cells": 5
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D4-03",
+   "day": "星期四",
+   "page": 63,
+   "ex": 3,
+   "type": "tf",
+   "title": "读课文，判断正误",
+   "title_en": "Read the text and decide whether the statements are true or false",
+   "items": [
+    {
+     "id": "zx:L09-D4-03-1",
+     "text": "《春晓》和《悯农》这两首诗都是唐代诗人写的。",
+     "key": true,
+     "explanation": {
+      "zh": "课本上两首诗都标着（唐）：孟浩然和李绅都是唐代诗人。",
+      "en": "Both poems are marked （唐） in the book: 孟浩然 and 李绅 were both Tang-dynasty poets."
+     }
+    },
+    {
+     "id": "zx:L09-D4-03-2",
+     "text": "“春眠不觉晓”这句的意思是：春天的时候睡觉，天亮了还不知道。",
+     "key": true,
+     "explanation": {
+      "zh": "春眠是春天睡觉，不觉晓是不知道天已经亮了。",
+      "en": "春眠 is sleeping in spring, and 不觉晓 is not noticing that it is already light."
+     }
+    },
+    {
+     "id": "zx:L09-D4-03-3",
+     "text": "“谁知盘中餐”这句的意思是：谁都不知道盘子去哪儿了。",
+     "key": false,
+     "explanation": {
+      "zh": "\"盘中餐\"是盘子里的饭菜，下一句接着说\"粒粒皆辛苦\"——每一粒都来得很辛苦。诗里没有说盘子去哪儿了。",
+      "en": "盘中餐 is the food on the plate, and the next line goes on: 粒粒皆辛苦, every grain of it came from hard work. Nothing in the poem is about where a plate went."
+     }
+    },
+    {
+     "id": "zx:L09-D4-03-4",
+     "text": "《悯农》这首诗是让我们知道农民伯伯种地辛苦，要好好珍惜粮食。",
+     "key": true,
+     "explanation": {
+      "zh": "前两句写农民中午还在锄地，汗滴到土里；后两句说每一粒粮食都来得辛苦，所以要珍惜。",
+      "en": "The first two lines show the farmer hoeing at noon with his sweat dripping into the soil; the last two say every grain was hard to grow, so we should not waste food."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D4-04",
+   "day": "星期四",
+   "page": 63,
+   "ex": 4,
+   "type": "slots",
+   "title": "选择相应的语句补全对话",
+   "title_en": "Choose the correct expressions to complete the dialogue",
+   "note": {
+    "zh": "朵朵考方方三个问题，方方的三句回答缺了，从三句里选。对话最后朵朵说：哈哈，你都答对了。真棒！",
+    "en": "Duoduo asks Fangfang three questions and Fangfang's three answers are missing; choose each from the three lines. At the end Duoduo says: 哈哈，你都答对了。真棒！"
+   },
+   "options": [
+    "意思是“谁知道我们盘中的粮食，它们每一粒都是农民的辛苦换来的”",
+    "农民伯伯劳作不容易，我们要珍惜粮食",
+    "锄禾日当午，汗滴禾下土"
+   ],
+   "items": [
+    {
+     "id": "zx:L09-D4-04-1",
+     "before": "朵朵：方方，我来考考你，你知道《悯农》这首诗里哪一句是写农民伯伯中午还在劳作，汗水都滴落在田里的吗？　方方：我知道，是“______”。",
+     "slot": "方方",
+     "key": 2,
+     "explanation": {
+      "zh": "写农民中午还在劳作、汗水滴在田里的，是前两句：锄禾日当午，汗滴禾下土。",
+      "en": "The farmer still working at noon with his sweat dripping on the field is the first two lines: 锄禾日当午，汗滴禾下土."
+     }
+    },
+    {
+     "id": "zx:L09-D4-04-2",
+     "before": "朵朵：那你知道“谁知盘中餐，粒粒皆辛苦”是什么意思吗？　方方：______。",
+     "slot": "方方",
+     "key": 0,
+     "explanation": {
+      "zh": "问的是这两句的意思，回答就从\"意思是\"说起：谁知道我们盘中的粮食，每一粒都是农民的辛苦换来的。",
+      "en": "She asks what the two lines mean, so the answer starts 意思是: who knows that every grain on our plate was earned by the farmers' hard work."
+     }
+    },
+    {
+     "id": "zx:L09-D4-04-3",
+     "before": "朵朵：你知道这首诗想要告诉我们什么吗？　方方：这首诗想要告诉我们______。",
+     "slot": "方方",
+     "key": 1,
+     "explanation": {
+      "zh": "这首诗想告诉我们的道理：农民伯伯劳作不容易，我们要珍惜粮食。",
+      "en": "What the poem wants to tell us: the farmers' work is hard, so we should treasure our food."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D5-04",
+   "day": "星期五",
+   "page": 67,
+   "ex": 4,
+   "type": "write",
+   "title": "读拼音，写出相应的汉字",
+   "title_en": "Read Pinyin and write characters",
+   "outline": false,
+   "note": {
+    "zh": "看拼音和句子，把字写出来。",
+    "en": "From the pinyin and the sentence, write the character."
+   },
+   "items": [
+    {
+     "id": "zx:L09-D5-04-1",
+     "py": "tí",
+     "context": "到处都能听到鸟儿的＿叫声。",
+     "key": "啼",
+     "explanation": {
+      "zh": "啼叫：tí，鸟叫——处处闻啼鸟。",
+      "en": "啼叫 — tí, a bird's call, as in 处处闻啼鸟."
+     }
+    },
+    {
+     "id": "zx:L09-D5-04-2",
+     "py": "tí",
+     "context": "我的汉语水平有很大的＿高。",
+     "key": "提",
+     "explanation": {
+      "zh": "提高：tí，提手旁（扌）。和\"啼\"同音，可这是提高的\"提\"。",
+      "en": "提高 — tí, to raise. Same sound as 啼, but this is 提, with 扌, the hand radical."
+     }
+    },
+    {
+     "id": "zx:L09-D5-04-3",
+     "py": "hàn",
+     "context": "天气太热了，＿水不停地往下掉。",
+     "key": "汗",
+     "explanation": {
+      "zh": "汗水：hàn——汗滴禾下土。",
+      "en": "汗水 — hàn, sweat, as in 汗滴禾下土."
+     }
+    },
+    {
+     "id": "zx:L09-D5-04-4",
+     "py": "cān",
+     "context": "我已经吃完早＿了。",
+     "key": "餐",
+     "explanation": {
+      "zh": "早餐：cān——谁知盘中餐。",
+      "en": "早餐 — cān, breakfast; 餐 as in 谁知盘中餐."
+     }
+    },
+    {
+     "id": "zx:L09-D5-04-5",
+     "py": "kǔ",
+     "context": "爸爸妈妈平时工作都很辛＿。",
+     "key": "苦",
+     "explanation": {
+      "zh": "辛苦：kǔ——粒粒皆辛苦。",
+      "en": "辛苦 — kǔ, hard work, as in 粒粒皆辛苦."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L09-D5-05",
+   "day": "星期五",
+   "page": 67,
+   "ex": 5,
+   "type": "free",
+   "title": "春天、夏天、秋天和冬天，你最喜欢哪个季节？为什么？请你写一写",
+   "title_en": "Spring, summer, autumn and winter, which season do you like best and why? Please write",
+   "note": {
+    "zh": "提示：（1）现在是什么季节？风景怎么样？有什么是你喜欢的？（2）你在这个季节可以做什么？（3）你的心情怎么样？（用中文表达，50字以上）",
+    "en": "Prompts: (1) What season is it now? What does it look like? What do you like about it? (2) What can you do in this season? (3) How do you feel? (Write in Chinese, more than 50 characters.)"
+   },
+   "items": [
+    {
+     "id": "zx:L09-D5-05-1",
+     "prompt": "写一写你最喜欢的季节，说说为什么（50字以上）。",
+     "prompt_en": "Write about your favorite season and why (more than 50 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

@@ -70,7 +70,10 @@ function syntheticNote(lesson) {
   const r = l["阅读"] || {}, words = ((l["词语"] || {}).items || []).map((w) => w.w)
   const tasks = []
   if (r.title) tasks.push({ kind: "read_aloud", what: `阅读《${r.title}》`, what_en: `Reading: ${r.title_en || r.title}`, pages: tf(r.where) || "", pages_en: (r.where || {}).en || "" })
-  if (rows.length) tasks.push({ kind: "workbook", what: `练习册A 第${l.no}课`, what_en: `Workbook A, Lesson ${l.no}`, pages: `练习册A 第${lo}–${hi}页`, pages_en: `Workbook A, pp. ${lo}–${hi}`, on_paper: [] })
+  // 练习册A holds the odd lessons and 练习册B the even ones (content/chinese/manifest.json); the
+  // exercises file's own source line says which, and the lesson's parity is the fallback.
+  const wb = /练习册B/.test(ex.source || "") ? "B" : /练习册A/.test(ex.source || "") ? "A" : l.no % 2 ? "A" : "B"
+  if (rows.length) tasks.push({ kind: "workbook", what: `练习册${wb} 第${l.no}课`, what_en: `Workbook ${wb}, Lesson ${l.no}`, pages: `练习册${wb} 第${lo}–${hi}页`, pages_en: `Workbook ${wb}, pp. ${lo}–${hi}`, on_paper: [] })
   if (words.length) tasks.push({ kind: "dictation", what: `第${l.no}课的词语`, what_en: `Lesson ${l.no}'s words`, words: { "词语": words }, sections_en: { "词语": "Words" }, pages: `课本第${l.pages["生字·词语·句子"] || ""}页`, pages_en: `Textbook p. ${l.pages["生字·词语·句子"] || ""}` })
   return { set: lesson, lesson, synthetic: true, tasks }
 }
@@ -386,7 +389,7 @@ export function Lesson({ id }) {
           <CardTitle>{t(`第${l.no}课`, `Lesson ${l.no}`)} · {t(l.title, l.title_en)}</CardTitle>
           <CardDescription>{t("课文", "Text")} p.{l.pages["课文"]} · {t("生字", "Characters")} p.{l.pages["生字·词语·句子"]} · {t("阅读", "Reading")} p.{l.pages["阅读"]}</CardDescription>
         </CardHeader>
-        <CardContent className="flex flex-col gap-2">{l["课文"].text ? null : <span className="text-muted-foreground text-sm">{t("课文请看课本。", "The text is read from the book, not from here.")}</span>}<LessonTabs lesson={id} path={(x) => `/chinese/l/${x}`} /></CardContent>
+        <CardContent className="flex flex-col gap-2">{(l["课文"] || {}).text ? null : <span className="text-muted-foreground text-sm">{t("课文请看课本。", "The text is read from the book, not from here.")}</span>}<LessonTabs lesson={id} path={(x) => `/chinese/l/${x}`} /></CardContent>
       </Card>
       <Card>
         <CardHeader><CardTitle>{t("生字", "New characters")}</CardTitle><CardDescription>{tf(l["生字"].where)} · {t("会写的字会来找你——点「写」，默写一个试试。", "A character you can write comes to you — tap Write and write one from memory.")}</CardDescription></CardHeader>
@@ -425,25 +428,31 @@ export function Lesson({ id }) {
           {l["生字"]["部首"] ? <p className="text-muted-foreground mt-3 text-xs">{t("部首", "Radicals")} · {l["生字"]["部首"].map((b) => `${b.bu} → ${b.zi}`).join(" · ")}</p> : null}
         </CardContent>
       </Card>
-      <Card>
-        <CardHeader><CardTitle>{t("词语", "Words")}</CardTitle><CardDescription>{tf(l["词语"].where)}</CardDescription></CardHeader>
-        <CardContent className="flex flex-wrap gap-2">
-          {l["词语"].items.map((w) => (
-            <span key={w.w} className="flex items-center gap-1 rounded-lg border px-2 py-1" data-testid="zh-word">
-              <span className="text-lg">{w.w}</span><span className="text-muted-foreground text-xs">{w.py}</span><Speak text={w.w} />
-            </span>
-          ))}
-        </CardContent>
-      </Card>
-      <Card>
-        <CardHeader><CardTitle>{t("句子", "Sentence")}</CardTitle><CardDescription>{tf(l["句子"].where)} · {t("句型", "Pattern")} <span data-testid="zh-pattern">{l["句型"].pattern}</span></CardDescription></CardHeader>
-        <CardContent className="flex flex-col gap-2">
-          <p className="flex items-center gap-2 text-lg">{l["句子"].zh} <Speak text={l["句子"].zh} /></p>
-          <p className="text-muted-foreground text-sm">{l["句子"].py}</p>
-          <p className="text-muted-foreground text-sm">{l["句型"].ladder.join(" → ")}</p>
-        </CardContent>
-      </Card>
-      {["读一读", "用一用"].map((k) => (
+      {/* A section the book does not print for a lesson is not drawn: 第九课, two poems, has
+          no 词语, 句子, 句型 or 用一用, and nothing is invented to fill the space. */}
+      {((l["词语"] || {}).items || []).length ? (
+        <Card>
+          <CardHeader><CardTitle>{t("词语", "Words")}</CardTitle><CardDescription>{tf(l["词语"].where)}</CardDescription></CardHeader>
+          <CardContent className="flex flex-wrap gap-2">
+            {l["词语"].items.map((w) => (
+              <span key={w.w} className="flex items-center gap-1 rounded-lg border px-2 py-1" data-testid="zh-word">
+                <span className="text-lg">{w.w}</span><span className="text-muted-foreground text-xs">{w.py}</span><Speak text={w.w} />
+              </span>
+            ))}
+          </CardContent>
+        </Card>
+      ) : null}
+      {l["句子"] ? (
+        <Card>
+          <CardHeader><CardTitle>{t("句子", "Sentence")}</CardTitle><CardDescription>{tf(l["句子"].where)}{l["句型"] && l["句型"].pattern ? <> · {t("句型", "Pattern")} <span data-testid="zh-pattern">{l["句型"].pattern}</span></> : null}</CardDescription></CardHeader>
+          <CardContent className="flex flex-col gap-2">
+            <p className="flex items-center gap-2 text-lg">{l["句子"].zh} <Speak text={l["句子"].zh} /></p>
+            <p className="text-muted-foreground text-sm">{l["句子"].py}</p>
+            {l["句型"] && (l["句型"].ladder || []).length ? <p className="text-muted-foreground text-sm">{l["句型"].ladder.join(" → ")}</p> : null}
+          </CardContent>
+        </Card>
+      ) : null}
+      {["读一读", "用一用"].filter((k) => ((l[k] || {}).rows || []).length).map((k) => (
         <Card key={k}>
           <CardHeader><CardTitle>{t(k, SECTION_EN[k])}</CardTitle><CardDescription>{tf(l[k].where)}</CardDescription></CardHeader>
           <CardContent className="flex flex-col gap-1.5">

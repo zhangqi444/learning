@@ -1,0 +1,1205 @@
+{
+ "lesson": "L01",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》",
+ "file_note": "The workbook's exercises for 第一课, typed from 练习册A pp. 1–15 (PDF index = printed + 4, verified on p. 1; 第三课 starts p. 16), with the listening script from the appendix on p. 82 (p. 83 holds lessons 5–11 only). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; the three four-choice exercises are `blocks` naming zh-word items. Left out because no type fits, with their keys so a type can be added: 星期二 练习3 (p. 5, choose the correct word and color it, two options each: (1) 哪里 (2) 看望 (3) 方便 (4) 阳光); 星期三 练习1 (p. 7, choose the correct word to complete the sentence, two options each, example 学校里有学生 (有/是): (1) 寒假 (2) 成为 (3) 现金 (4) 回来). A two-choice `pick` type with the book's own options per item would take both; their options are single words, not statements a tf can judge. 星期四 练习2 (A/B answers that are full sentences) is a tf, and 星期四 练习4 (read the 课文 to your parents) a speak, as L12 does it; see their shape_notes. The pinyin half of 星期一 练习5 is left out; see that exercise's scope_note.",
+ "blocks": [
+  {
+   "id": "zb:L01-D1",
+   "day": "星期一",
+   "page": 3,
+   "ex": 4,
+   "title": "找出不同类的词",
+   "title_en": "Find the odd words out",
+   "items": [
+    "zc:L01-01",
+    "zc:L01-02",
+    "zc:L01-03",
+    "zc:L01-04"
+   ],
+   "scope_note": "The book letters the four words of each row A–D and gives one example (单车 汽车 火车 手机 → D). The items keep the book's letters, so the keys are the book's: D, A, C, B."
+  },
+  {
+   "id": "zb:L01-D4",
+   "day": "星期四",
+   "page": 10,
+   "ex": 1,
+   "title": "选择恰当的词语完成对话",
+   "title_en": "Choose the correct words to complete the dialogue",
+   "items": [
+    "zc:L01-05",
+    "zc:L01-06",
+    "zc:L01-07",
+    "zc:L01-08"
+   ],
+   "scope_note": "Four words (到处 非常 图书馆 现金) for the four blanks of one dialogue, each used once. Every item carries all four; the blanks it does not ask about are filled with the book's answers, as L03 did."
+  },
+  {
+   "id": "zb:L01-D5",
+   "day": "星期五",
+   "page": 14,
+   "ex": 3,
+   "title": "读一读，根据图中的情境和词语提示完成对话",
+   "title_en": "Read and use the picture clue and the given words to complete the dialogue",
+   "items": [
+    "zc:L01-09",
+    "zc:L01-10",
+    "zc:L01-11",
+    "zc:L01-12"
+   ],
+   "scope_note": "The book letters its word box A 最, B 去哪儿, C 到处, D 故宫, for four blanks on pp. 14–15, each word used once; the items keep those letters, so the keys are B, A, D, C. The picture (a father and son talking on a sofa) settles nothing a word does not."
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L01-D1-01w",
+   "day": "星期一",
+   "page": 1,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看旁边的词想字，用笔写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "The word beside the box tells you the character; write it with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L01-D1-01w-1",
+     "py": "wén",
+     "context": "见＿",
+     "key": "闻",
+     "explanation": {
+      "zh": "见闻：wén。",
+      "en": "见闻 — wén, what one sees and hears."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01w-2",
+     "py": "chéng",
+     "context": "长＿",
+     "key": "城",
+     "explanation": {
+      "zh": "长城：chéng。",
+      "en": "长城 — chéng, the Great Wall."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01w-3",
+     "py": "qiè",
+     "context": "亲＿",
+     "key": "切",
+     "explanation": {
+      "zh": "亲切：qiè。",
+      "en": "亲切 — qiè, warm and familiar."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01w-4",
+     "py": "guàng",
+     "context": "＿街",
+     "key": "逛",
+     "explanation": {
+      "zh": "逛街：guàng。",
+      "en": "逛街 — guàng, stroll along the streets."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01w-5",
+     "py": "hé",
+     "context": "四＿院",
+     "key": "合",
+     "explanation": {
+      "zh": "四合院：hé。",
+      "en": "四合院 — hé, a courtyard house."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01w-6",
+     "py": "nuǎn",
+     "context": "＿和",
+     "key": "暖",
+     "explanation": {
+      "zh": "暖和：nuǎn。",
+      "en": "暖和 — nuǎn, warm."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01w-7",
+     "py": "qū",
+     "context": "弯＿",
+     "key": "曲",
+     "explanation": {
+      "zh": "弯曲：qū。",
+      "en": "弯曲 — qū, winding."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01w-8",
+     "py": "jì",
+     "context": "北京＿古老，又现代",
+     "key": "既",
+     "explanation": {
+      "zh": "北京既古老，又现代：jì。",
+      "en": "北京既古老，又现代 — jì: Beijing is both old and modern."
+     }
+    }
+   ],
+   "context_note": "The book prints the eight characters to trace; as in L03, each box here is cued by its pinyin from the 生字 list (教材 p. 4) and a word from 读一读 (教材 p. 6). 既 has no 读一读 word, so its cue is the 课文 line the textbook quotes in 想一想 (p. 7): 北京既古老，又现代."
+  },
+  {
+   "id": "zx:L01-D1-01s",
+   "day": "星期一",
+   "page": 1,
+   "ex": 1,
+   "type": "sort",
+   "title": "半包围结构、左右结构、上下结构，还是独体字？",
+   "title_en": "Half-enclosed, left–right, top–bottom, or a single-body character?",
+   "groups": [
+    "半包围结构",
+    "左右结构",
+    "上下结构",
+    "独体字"
+   ],
+   "items": [
+    {
+     "id": "zx:L01-D1-01s-1",
+     "text": "闻",
+     "key": 0,
+     "explanation": {
+      "zh": "门从上面和两边包住耳：半包围结构。",
+      "en": "门 wraps 耳 from the top and both sides: half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01s-2",
+     "text": "城",
+     "key": 1,
+     "explanation": {
+      "zh": "土在左、成在右：左右结构。",
+      "en": "土 on the left, 成 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01s-3",
+     "text": "切",
+     "key": 1,
+     "explanation": {
+      "zh": "七在左、刀在右：左右结构。",
+      "en": "七 on the left, 刀 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01s-4",
+     "text": "逛",
+     "key": 0,
+     "explanation": {
+      "zh": "辶从左边和下面包住狂：半包围结构。",
+      "en": "辶 wraps 狂 along the left and the bottom: half-enclosed."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01s-5",
+     "text": "合",
+     "key": 2,
+     "explanation": {
+      "zh": "人在上，一和口在下：上下结构。",
+      "en": "人 on top, 一 and 口 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01s-6",
+     "text": "暖",
+     "key": 1,
+     "explanation": {
+      "zh": "日在左、爰在右：左右结构。",
+      "en": "日 on the left, 爰 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01s-7",
+     "text": "曲",
+     "key": 3,
+     "explanation": {
+      "zh": "曲不能拆成两部分：独体字。",
+      "en": "曲 cannot be split into parts: a single-body character."
+     }
+    },
+    {
+     "id": "zx:L01-D1-01s-8",
+     "text": "既",
+     "key": 1,
+     "explanation": {
+      "zh": "左边一半，右边是旡：左右结构。",
+      "en": "One half on the left, 旡 on the right: left–right."
+     }
+    }
+   ],
+   "scope_note": "The four lines under the grid on p. 1 (半包围结构 / 左右结构 / 上下结构 / 独体字), in the book's order. Each of the eight has one home: 合 is the only top–bottom character and 曲 the only single-body one, so the two lines the book offers for them are theirs; 闻 (门 frame) and 逛 (辶) are the two half-enclosed."
+  },
+  {
+   "id": "zx:L01-D1-02",
+   "day": "星期一",
+   "page": 2,
+   "ex": 2,
+   "type": "write",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "outline": false,
+   "note": {
+    "zh": "例：口＋那 → 哪。看着两个部件，用笔把字写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "Example: 口 + 那 → 哪. Look at the two parts and write the character with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "items": [
+    {
+     "id": "zx:L01-D1-02-1",
+     "parts": "亻＋昔",
+     "key": "借",
+     "explanation": {
+      "zh": "亻在左，昔在右：借。",
+      "en": "亻 on the left, 昔 on the right: 借."
+     }
+    },
+    {
+     "id": "zx:L01-D1-02-2",
+     "parts": "艹＋监",
+     "key": "蓝",
+     "explanation": {
+      "zh": "艹在上，监在下：蓝。",
+      "en": "艹 on top, 监 below: 蓝."
+     }
+    },
+    {
+     "id": "zx:L01-D1-02-3",
+     "parts": "辶＋狂",
+     "key": "逛",
+     "explanation": {
+      "zh": "辶在左边和下面，狂在里面：逛。",
+      "en": "辶 along the left and the bottom, 狂 inside: 逛."
+     }
+    },
+    {
+     "id": "zx:L01-D1-02-4",
+     "parts": "日＋爰",
+     "key": "暖",
+     "explanation": {
+      "zh": "日在左，爰在右：暖。",
+      "en": "日 on the left, 爰 on the right: 暖."
+     }
+    },
+    {
+     "id": "zx:L01-D1-02-5",
+     "parts": "王＋见",
+     "key": "现",
+     "explanation": {
+      "zh": "王字旁在左（最后一笔写成提），见在右：现。",
+      "en": "王 on the left, its last stroke turned into a rising tick, and 见 on the right: 现."
+     }
+    },
+    {
+     "id": "zx:L01-D1-02-6",
+     "parts": "土＋成",
+     "key": "城",
+     "explanation": {
+      "zh": "土字旁在左（最后一笔写成提），成在右：城。",
+      "en": "土 on the left, its last stroke turned into a rising tick, and 成 on the right: 城."
+     }
+    }
+   ],
+   "order_note": "The book sets the six sums in two columns of three; they are taken row by row, left then right."
+  },
+  {
+   "id": "zx:L01-D1-03",
+   "day": "星期一",
+   "page": 2,
+   "ex": 3,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match to form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：寒—假。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 寒—假."
+   },
+   "left": [
+    "介",
+    "寒",
+    "非",
+    "印",
+    "现"
+   ],
+   "right": [
+    "假",
+    "象",
+    "绍",
+    "金",
+    "常"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     3
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L01-D1-03-1",
+     "left": "介",
+     "key": 2,
+     "word": "介绍",
+     "explanation": {
+      "zh": "介—绍：介绍。",
+      "en": "介 + 绍 = 介绍, introduce."
+     }
+    },
+    {
+     "id": "zx:L01-D1-03-2",
+     "left": "寒",
+     "key": 0,
+     "word": "寒假",
+     "explanation": {
+      "zh": "寒—假：寒假——课本给的例子。",
+      "en": "寒 + 假 = 寒假, winter vacation — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L01-D1-03-3",
+     "left": "非",
+     "key": 4,
+     "word": "非常",
+     "explanation": {
+      "zh": "非—常：非常。",
+      "en": "非 + 常 = 非常, very."
+     }
+    },
+    {
+     "id": "zx:L01-D1-03-4",
+     "left": "印",
+     "key": 1,
+     "word": "印象",
+     "explanation": {
+      "zh": "印—象：印象。",
+      "en": "印 + 象 = 印象, impression."
+     }
+    },
+    {
+     "id": "zx:L01-D1-03-5",
+     "left": "现",
+     "key": 3,
+     "word": "现金",
+     "explanation": {
+      "zh": "现—金：现金。\"现象\"也是一个词，可那样\"印\"就没有字可连了。",
+      "en": "现 + 金 = 现金, cash. 现象 is a word too, but then 印 would have nothing left to join."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D1-03w",
+   "day": "星期一",
+   "page": 2,
+   "ex": 3,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match to form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把四个词各写一遍（课本已写好：寒假）。",
+    "en": "The matching was done on the site; here write each of the four words once (the book has written 寒假 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L01-D1-03w-1",
+     "prompt": "介＋绍 → 写出词语",
+     "prompt_en": "介 + 绍 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L01-D1-03w-2",
+     "prompt": "非＋常 → 写出词语",
+     "prompt_en": "非 + 常 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L01-D1-03w-3",
+     "prompt": "印＋象 → 写出词语",
+     "prompt_en": "印 + 象 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L01-D1-03w-4",
+     "prompt": "现＋金 → 写出词语",
+     "prompt_en": "现 + 金 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D1-05",
+   "day": "星期一",
+   "page": 3,
+   "ex": 5,
+   "type": "free",
+   "title": "照例子，写一写",
+   "title_en": "Follow the example and write",
+   "note": {
+    "zh": "例：帽子上写拼音 lán，头上是\"蓝\"，身子上写\"蓝天\"。每个字组一个词，写在格子里。",
+    "en": "Example: the hat has the pinyin lán, the head the character 蓝, and the body the word 蓝天. Make one word with each character and write it in the cells."
+   },
+   "scope_note": "Each snowman on p. 3 asks for the pinyin on its hat as well as a word on its body. The pinyin half is left out: a 米字格 grid is no place for pinyin, as L04 left out 模 mú. Its keys, for a type that can take pinyin: 切 qiè (qiē if the word she makes is a cutting one, such as 切菜), 既 jì, 闻 wén, 借 jiè, 逛 guàng. The order is the book's: 切, 既 on the top row, 闻, 借, 逛 below.",
+   "items": [
+    {
+     "id": "zx:L01-D1-05-1",
+     "prompt": "切 → 组一个词",
+     "prompt_en": "切 → one word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L01-D1-05-2",
+     "prompt": "既 → 组一个词",
+     "prompt_en": "既 → one word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L01-D1-05-3",
+     "prompt": "闻 → 组一个词",
+     "prompt_en": "闻 → one word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L01-D1-05-4",
+     "prompt": "借 → 组一个词",
+     "prompt_en": "借 → one word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L01-D1-05-5",
+     "prompt": "逛 → 组一个词",
+     "prompt_en": "逛 → one word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D2-01",
+   "day": "星期二",
+   "page": 4,
+   "ex": 1,
+   "type": "read",
+   "title": "读一读",
+   "title_en": "Read aloud",
+   "note": {
+    "zh": "读出来，录下来就行，不打分。对照在批改的时候看。",
+    "en": "Just read it aloud; it is recorded, not scored. The comparison is for the evaluation."
+   },
+   "text": "蓝蓝的天 暖暖的阳光 弯弯曲曲的胡同\n逛胡同 带现金 付款\n看望老师 看望病人 看望爷爷和奶奶"
+  },
+  {
+   "id": "zx:L01-D2-02",
+   "day": "星期二",
+   "page": 4,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连",
+   "title_en": "Match",
+   "note": {
+    "zh": "四张图在练习册第4页，标着A、B、C、D。先点词语，再点它说的那张图。课本已连好一组：汽车—A。",
+    "en": "The four pictures are on workbook p. 4, lettered A to D. Tap a word, then the picture it names. The book has drawn one line already: 汽车—A."
+   },
+   "left": [
+    "图书馆",
+    "阳光",
+    "汽车",
+    "现金"
+   ],
+   "right": [
+    "图A",
+    "图B",
+    "图C",
+    "图D"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L01-D2-02-1",
+     "left": "图书馆",
+     "key": 1,
+     "explanation": {
+      "zh": "小男孩坐在书架前看书——图B。",
+      "en": "A boy reading at a table in front of the bookshelves — picture B."
+     }
+    },
+    {
+     "id": "zx:L01-D2-02-2",
+     "left": "阳光",
+     "key": 3,
+     "explanation": {
+      "zh": "太阳放出光来——图D。",
+      "en": "The sun with its rays — picture D."
+     }
+    },
+    {
+     "id": "zx:L01-D2-02-3",
+     "left": "汽车",
+     "key": 0,
+     "explanation": {
+      "zh": "一辆汽车——图A，课本连好的一组。",
+      "en": "A car — picture A, the line the book drew."
+     }
+    },
+    {
+     "id": "zx:L01-D2-02-4",
+     "left": "现金",
+     "key": 2,
+     "explanation": {
+      "zh": "钱包里装着钱——图C。",
+      "en": "A wallet with money in it — picture C."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D2-04",
+   "day": "星期二",
+   "page": 5,
+   "ex": 4,
+   "type": "tf",
+   "title": "根据图片选择正确的句子",
+   "title_en": "Choose the correct sentences for the pictures",
+   "note": {
+    "zh": "图在练习册第5页。每组两句，一句对、一句错。",
+    "en": "The pictures are on workbook p. 5. Each pair has one true sentence and one false."
+   },
+   "items": [
+    {
+     "id": "zx:L01-D2-04-1",
+     "text": "今年寒假我们看望爷爷奶奶。",
+     "key": true,
+     "explanation": {
+      "zh": "图上小女孩张开手跑向爷爷奶奶：他们去看望爷爷奶奶了。",
+      "en": "In the picture the girl runs with open arms to her grandparents: they are visiting them."
+     }
+    },
+    {
+     "id": "zx:L01-D2-04-2",
+     "text": "今年寒假我在家做作业。",
+     "key": false,
+     "explanation": {
+      "zh": "图上没有书桌，也没有作业，是小女孩在见爷爷奶奶。",
+      "en": "There is no desk and no homework in the picture; the girl is greeting her grandparents."
+     }
+    },
+    {
+     "id": "zx:L01-D2-04-3",
+     "text": "我和爸爸很喜欢到处走走。",
+     "key": true,
+     "explanation": {
+      "zh": "图上爸爸拉着孩子的手在走路。",
+      "en": "In the picture the father holds the child's hand and they are walking."
+     }
+    },
+    {
+     "id": "zx:L01-D2-04-4",
+     "text": "我和爸爸很喜欢在家里看电视。",
+     "key": false,
+     "explanation": {
+      "zh": "图上没有电视，爸爸和孩子是在走路。",
+      "en": "There is no television in the picture; father and child are out walking."
+     }
+    },
+    {
+     "id": "zx:L01-D2-04-5",
+     "text": "人们去哪儿都可以用手机付款。",
+     "key": true,
+     "explanation": {
+      "zh": "图上的人拿手机对着柜台上的二维码付款，就像课文说的：去哪儿都可以用手机付款。",
+      "en": "In the picture someone holds a phone to the code on the counter to pay, just as the text says: 去哪儿都可以用手机付款."
+     }
+    },
+    {
+     "id": "zx:L01-D2-04-6",
+     "text": "人们去哪儿都用现金付款。",
+     "key": false,
+     "explanation": {
+      "zh": "图上的人用的是手机，不是现金。",
+      "en": "The person in the picture pays with a phone, not with cash."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D2-05",
+   "day": "星期二",
+   "page": 6,
+   "ex": 5,
+   "type": "free",
+   "title": "将指定词语填写在句子的合适位置",
+   "title_en": "Put the given words in the appropriate positions in the sentences",
+   "note": {
+    "zh": "例：她喜欢你。（不）→ 她不喜欢你。把括号里的词放进句子里，再把整句写下来。图在练习册第6–7页。",
+    "en": "Example: 她喜欢你。 (不) → 她不喜欢你。 Put the word in brackets into the sentence and write the whole sentence out. The pictures are on workbook pp. 6–7."
+   },
+   "scope_note": "Each sentence has one placement the grammar fixes, given here for the reviewer: (1) 她既喜欢唱歌，又喜欢跳舞。 (2) 人们出行非常方便。 (3) 我最喜欢吃的水果是西瓜。 (4) 我非常喜欢这个书包，因为那是爸爸送给我的。 Item (4) is at the top of p. 7. Kept as free writing because the book asks for the sentence written out; an `order` would mark the placement but drop the writing.",
+   "items": [
+    {
+     "id": "zx:L01-D2-05-1",
+     "prompt": "（1）她喜欢唱歌，喜欢跳舞。（既……又……）",
+     "prompt_en": "(1) 她喜欢唱歌，喜欢跳舞。 (既……又……) — the whole sentence",
+     "blanks": 1,
+     "cells": 14
+    },
+    {
+     "id": "zx:L01-D2-05-2",
+     "prompt": "（2）人们出行方便。（非常）",
+     "prompt_en": "(2) 人们出行方便。 (非常) — the whole sentence",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L01-D2-05-3",
+     "prompt": "（3）我喜欢吃的水果是西瓜。（最）",
+     "prompt_en": "(3) 我喜欢吃的水果是西瓜。 (最) — the whole sentence",
+     "blanks": 1,
+     "cells": 12
+    },
+    {
+     "id": "zx:L01-D2-05-4",
+     "prompt": "（4）我非常喜欢这个书包，那是爸爸送给我的。（因为）",
+     "prompt_en": "(4) 我非常喜欢这个书包，那是爸爸送给我的。 (因为) — the whole sentence",
+     "blanks": 1,
+     "cells": 22
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D3-02",
+   "day": "星期三",
+   "page": 8,
+   "ex": 2,
+   "type": "free",
+   "title": "照例子，写句子",
+   "title_en": "Follow the example to write the sentences",
+   "note": {
+    "zh": "例：我 是 小学生。→ 妈妈 是 医生。中间的词不变，换掉别的词，写一个新句子。",
+    "en": "Example: 我 是 小学生。 → 妈妈 是 医生。 Keep the word in the middle, change the others, and write a new sentence."
+   },
+   "items": [
+    {
+     "id": "zx:L01-D3-02-1",
+     "prompt": "（1）我喜欢北京。→ ＿＿喜欢＿＿。",
+     "prompt_en": "(1) 我喜欢北京。 → a new sentence with 喜欢",
+     "blanks": 1,
+     "cells": 12
+    },
+    {
+     "id": "zx:L01-D3-02-2",
+     "prompt": "（2）交通非常方便。→ ＿＿非常＿＿。",
+     "prompt_en": "(2) 交通非常方便。 → a new sentence with 非常",
+     "blanks": 1,
+     "cells": 12
+    },
+    {
+     "id": "zx:L01-D3-02-3",
+     "prompt": "（3）我想成为一名老师。→ ＿＿＿＿成为＿＿＿＿。",
+     "prompt_en": "(3) 我想成为一名老师。 → a new sentence with 成为",
+     "blanks": 1,
+     "cells": 16
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D3-03",
+   "day": "星期三",
+   "page": 9,
+   "ex": 3,
+   "type": "tf",
+   "title": "根据课文判断正误",
+   "title_en": "Decide whether the statements are true or false according to the text",
+   "items": [
+    {
+     "id": "zx:L01-D3-03-1",
+     "text": "今年暑假，我们全家回北京看望了爷爷奶奶。",
+     "key": false,
+     "explanation": {
+      "zh": "课文第一句是\"今年寒假\"，不是暑假。",
+      "en": "The text opens with 今年寒假 — this winter vacation, not the summer one (暑假)."
+     }
+    },
+    {
+     "id": "zx:L01-D3-03-2",
+     "text": "爷爷奶奶带我去了天安门、故宫和长城。",
+     "key": true,
+     "explanation": {
+      "zh": "课文说：爷爷奶奶带着我们去了好多地方，天安门、故宫、长城……",
+      "en": "The text says the grandparents took them to many places: 天安门、故宫、长城……"
+     }
+    },
+    {
+     "id": "zx:L01-D3-03-3",
+     "text": "北京的交通不方便。",
+     "key": false,
+     "explanation": {
+      "zh": "课文说的正相反：交通非常方便。",
+      "en": "The text says the opposite: 交通非常方便, getting around is very convenient."
+     }
+    },
+    {
+     "id": "zx:L01-D3-03-4",
+     "text": "在北京我借到了想看的动画片。",
+     "key": false,
+     "explanation": {
+      "zh": "课文说\"我就借到了想看的书\"，借到的是书，不是动画片。",
+      "en": "The text says 我就借到了想看的书 — what he borrowed was a book, not a cartoon."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D3-04",
+   "day": "星期三",
+   "page": 9,
+   "ex": 4,
+   "type": "match",
+   "title": "根据句子选择正确的图片",
+   "title_en": "Choose the correct pictures for the sentences",
+   "note": {
+    "zh": "四张图在练习册第9页，标着A、B、C、D。先点句子，再点它说的那张图。",
+    "en": "The four pictures are on workbook p. 9, lettered A to D. Tap a sentence, then the picture it describes."
+   },
+   "left": [
+    "吃饭的时候，我们全家计划去旅行。",
+    "我们想先坐飞机去北京。",
+    "然后一起去逛故宫。",
+    "最后一起去吃北京的冰糖葫芦。"
+   ],
+   "right": [
+    "图A",
+    "图B",
+    "图C",
+    "图D"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     3
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L01-D3-04-1",
+     "left": "吃饭的时候，我们全家计划去旅行。",
+     "key": 2,
+     "explanation": {
+      "zh": "一家人围着桌子吃饭——图C。",
+      "en": "A family eating around a table — picture C."
+     }
+    },
+    {
+     "id": "zx:L01-D3-04-2",
+     "left": "我们想先坐飞机去北京。",
+     "key": 1,
+     "explanation": {
+      "zh": "机场和飞机——图B。",
+      "en": "An airport and planes — picture B."
+     }
+    },
+    {
+     "id": "zx:L01-D3-04-3",
+     "left": "然后一起去逛故宫。",
+     "key": 0,
+     "explanation": {
+      "zh": "图A是一座古代的城楼，样子更像天安门；不过另外三句已经各有各的图（C吃饭、B飞机、D冰糖葫芦），剩下的就是图A。",
+      "en": "Picture A is an old gate tower, and it looks more like 天安门 than a building inside the Forbidden City; but the other three sentences already have their pictures (C the meal, B the plane, D the 冰糖葫芦), so A is the one left."
+     }
+    },
+    {
+     "id": "zx:L01-D3-04-4",
+     "left": "最后一起去吃北京的冰糖葫芦。",
+     "key": 3,
+     "explanation": {
+      "zh": "一串串红红的冰糖葫芦——图D。",
+      "en": "Skewers of red candied haws, 冰糖葫芦 — picture D."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D4-02",
+   "day": "星期四",
+   "page": 10,
+   "ex": 2,
+   "type": "tf",
+   "title": "根据课文，给正确的答案涂色",
+   "title_en": "Color the correct answers according to the text",
+   "note": {
+    "zh": "每个问题下面有两个回答，一个对、一个错。根据课文判断。",
+    "en": "Each question has two answers, one true and one false. Decide by the text."
+   },
+   "shape_note": "The book asks her to color the right one of two answers, A or B, to each of four questions (pp. 10–11). Every answer is a full statement, so each becomes one true/false item carrying its question, as L04 D2-04 did with its sentence pairs; in each pair exactly one is true.",
+   "items": [
+    {
+     "id": "zx:L01-D4-02-1",
+     "text": "（1）他们寒假去哪里了？A．他们去了北京。",
+     "key": true,
+     "explanation": {
+      "zh": "课文第一句：今年寒假，我们全家回北京看望了爷爷奶奶。他们去的是北京。",
+      "en": "The text's first line: 今年寒假，我们全家回北京看望了爷爷奶奶 — they went to Beijing."
+     }
+    },
+    {
+     "id": "zx:L01-D4-02-2",
+     "text": "（1）他们寒假去哪里了？B．他们去了广州。",
+     "key": false,
+     "explanation": {
+      "zh": "课文里去的是北京，没有说广州。",
+      "en": "The text is about Beijing; Guangzhou (广州) is never mentioned."
+     }
+    },
+    {
+     "id": "zx:L01-D4-02-3",
+     "text": "（2）他们去看望谁？A．他们去看望姑姑。",
+     "key": false,
+     "explanation": {
+      "zh": "课文说看望的是爷爷奶奶，不是姑姑。",
+      "en": "The text says they visited Grandpa and Grandma, not an aunt (姑姑)."
+     }
+    },
+    {
+     "id": "zx:L01-D4-02-4",
+     "text": "（2）他们去看望谁？B．他们去看望爷爷奶奶。",
+     "key": true,
+     "explanation": {
+      "zh": "课文说：回北京看望了爷爷奶奶。",
+      "en": "The text says so: 回北京看望了爷爷奶奶."
+     }
+    },
+    {
+     "id": "zx:L01-D4-02-5",
+     "text": "（3）到达北京后，他们去故宫了吗？A．他们去故宫了。",
+     "key": true,
+     "explanation": {
+      "zh": "课文说：爷爷奶奶带着我们去了好多地方，天安门、故宫、长城……他们去了故宫。",
+      "en": "The text lists 故宫 among the places the grandparents took them: 天安门、故宫、长城……"
+     }
+    },
+    {
+     "id": "zx:L01-D4-02-6",
+     "text": "（3）到达北京后，他们去故宫了吗？B．他们没去故宫。",
+     "key": false,
+     "explanation": {
+      "zh": "故宫就在爷爷奶奶带他们去的地方里，说没去是错的。",
+      "en": "故宫 is one of the places the grandparents took them, so saying they did not go is false."
+     }
+    },
+    {
+     "id": "zx:L01-D4-02-7",
+     "text": "（4）人们大都用什么付款？A．去哪儿都可以用手机付款。",
+     "key": true,
+     "explanation": {
+      "zh": "课文说：现在人们出门不用带现金，去哪儿都可以用手机付款。",
+      "en": "The text says: 现在人们出门不用带现金，去哪儿都可以用手机付款 — people can pay by phone anywhere."
+     }
+    },
+    {
+     "id": "zx:L01-D4-02-8",
+     "text": "（4）人们大都用什么付款？B．他们用现金付款。",
+     "key": false,
+     "explanation": {
+      "zh": "课文说出门不用带现金，大家用手机付款，不是用现金。",
+      "en": "The text says people no longer need to carry cash; they pay by phone, not with cash."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D4-03",
+   "day": "星期四",
+   "page": 11,
+   "ex": 3,
+   "type": "free",
+   "title": "根据你旅游过的一个地方，填写表格",
+   "title_en": "Fill in the form to describe a place that you visited",
+   "note": {
+    "zh": "想一个你去旅游过的地方，把表格的六行填好。",
+    "en": "Think of a place you have visited, and fill in the six rows of the form."
+   },
+   "items": [
+    {
+     "id": "zx:L01-D4-03-1",
+     "prompt": "日期",
+     "prompt_en": "Date",
+     "blanks": 1,
+     "cells": 8
+    },
+    {
+     "id": "zx:L01-D4-03-2",
+     "prompt": "地点",
+     "prompt_en": "Place",
+     "blanks": 1,
+     "cells": 8
+    },
+    {
+     "id": "zx:L01-D4-03-3",
+     "prompt": "人物",
+     "prompt_en": "People",
+     "blanks": 1,
+     "cells": 10
+    },
+    {
+     "id": "zx:L01-D4-03-4",
+     "prompt": "天气",
+     "prompt_en": "Weather",
+     "blanks": 1,
+     "cells": 6
+    },
+    {
+     "id": "zx:L01-D4-03-5",
+     "prompt": "活动",
+     "prompt_en": "Activities",
+     "blanks": 1,
+     "cells": 16
+    },
+    {
+     "id": "zx:L01-D4-03-6",
+     "prompt": "心情",
+     "prompt_en": "How you felt",
+     "blanks": 1,
+     "cells": 8
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D4-04",
+   "day": "星期四",
+   "page": 12,
+   "ex": 4,
+   "type": "speak",
+   "title": "把课文读给爸爸妈妈听，请他们评评分",
+   "title_en": "Read the text aloud to your parents and ask them to grade",
+   "question": {
+    "zh": "把《寒假见闻》读给爸爸妈妈听。读完请他们评评分：读得流利吗？有没有读错的字？",
+    "en": "Read 寒假见闻 aloud to your parents. Then ask them to grade it: was it fluent, and were any characters misread?"
+   },
+   "note": {
+    "zh": "课文在课本第2–3页，看着书读。读的时候会录下来；读完请爸爸妈妈评个分，再点一下\"家长已听\"。",
+    "en": "The text is on textbook pp. 2–3; read it from the book. Your reading is recorded; afterwards have your parents give it a grade and tap Listened."
+   },
+   "shape_note": "Not `read`: a read exercise carries the text she reads, and the 课文 is held back (docs/chinese.md § 8). `speak` records her and takes the parent's tap as the 家长签名 the book asks for; the book's 评分 box has no field and is left to the parent to say. Shaped as L12 zx:L12-D4-04."
+  },
+  {
+   "id": "zx:L01-D5-01",
+   "day": "星期五",
+   "page": 12,
+   "ex": 1,
+   "type": "tf",
+   "title": "听录音判断对错",
+   "title_en": "Listen and check",
+   "note": {
+    "zh": "请爸爸妈妈读练习册第82页第1课的听力文本（或放录音）。每听一句，看练习册第12–13页那一题的两张图：图和句子说的一样就选\"对\"，不一样就选\"错\"。",
+    "en": "Ask a parent to read the Lesson 1 listening script on workbook p. 82 (or play the recording). After each sentence, look at that question's two pictures on workbook pp. 12–13: mark a picture true if it shows what the sentence says, false if it does not."
+   },
+   "script_note": "The four sentences are on 练习册A p. 82 (附录 听力文本, 第1课) for a parent to read aloud; the publisher's recording is a download from jnupress.com. Not kept here, under the same hold as every text of the book, as L03 did; the explanations quote each line. The book prints a ( ) beside each of the two pictures of every question, so each picture is one true/false item; in each pair exactly one picture fits.",
+   "items": [
+    {
+     "id": "zx:L01-D5-01-1",
+     "text": "第（1）句 · 图A",
+     "key": true,
+     "explanation": {
+      "zh": "录音第（1）句：今天早上我七点就起床了。图A的男孩在床上坐起来伸懒腰，旁边有闹钟——起床了，对。",
+      "en": "Sentence (1): 今天早上我七点就起床了 — I got up at seven. Picture A shows the boy sitting up and stretching beside an alarm clock: getting up. True."
+     }
+    },
+    {
+     "id": "zx:L01-D5-01-2",
+     "text": "第（1）句 · 图B",
+     "key": false,
+     "explanation": {
+      "zh": "图B的男孩还躺着睡觉，没有起床，错。",
+      "en": "In picture B the boy is still asleep, not getting up. False."
+     }
+    },
+    {
+     "id": "zx:L01-D5-01-3",
+     "text": "第（2）句 · 图A",
+     "key": false,
+     "explanation": {
+      "zh": "录音第（2）句：然后我和爸爸妈妈一起吃早饭。图A是两个人在刷牙，不是吃饭，错。",
+      "en": "Sentence (2): 然后我和爸爸妈妈一起吃早饭 — then I had breakfast with Mom and Dad. Picture A shows two people brushing their teeth, not eating. False."
+     }
+    },
+    {
+     "id": "zx:L01-D5-01-4",
+     "text": "第（2）句 · 图B",
+     "key": true,
+     "explanation": {
+      "zh": "图B是爸爸、妈妈和孩子一起在桌边吃饭，对。",
+      "en": "Picture B shows father, mother and child eating together at the table. True."
+     }
+    },
+    {
+     "id": "zx:L01-D5-01-5",
+     "text": "第（3）句 · 图A",
+     "key": false,
+     "explanation": {
+      "zh": "录音第（3）句：吃完饭后，爸爸开车带我们出去玩儿。图A是男孩在扫地，不是开车出去，错。",
+      "en": "Sentence (3): 吃完饭后，爸爸开车带我们出去玩儿 — after the meal Dad drove us out to have fun. Picture A shows the boy sweeping the floor. False."
+     }
+    },
+    {
+     "id": "zx:L01-D5-01-6",
+     "text": "第（3）句 · 图B",
+     "key": true,
+     "explanation": {
+      "zh": "图B是一辆汽车开在路上——爸爸开车带我们出去，对。",
+      "en": "Picture B shows a car on the road — Dad driving them out. True."
+     }
+    },
+    {
+     "id": "zx:L01-D5-01-7",
+     "text": "第（4）句 · 图A",
+     "key": true,
+     "explanation": {
+      "zh": "录音第（4）句：我们玩得非常开心。图A的爸爸和孩子拿着气球跑，笑得很开心，对。",
+      "en": "Sentence (4): 我们玩得非常开心 — we had a great time. In picture A father and son run along with a balloon, laughing. True."
+     }
+    },
+    {
+     "id": "zx:L01-D5-01-8",
+     "text": "第（4）句 · 图B",
+     "key": false,
+     "explanation": {
+      "zh": "图B的男孩在哭，不开心，错。",
+      "en": "The boy in picture B is crying — not happy. False."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D5-02",
+   "day": "星期五",
+   "page": 13,
+   "ex": 2,
+   "type": "tf",
+   "title": "读一读，判断句子的正误",
+   "title_en": "Read the sentences and decide whether the statements below are true or false",
+   "note": {
+    "zh": "每题先读第一句，再判断☆后面的句子对不对。例：我会跳舞，但是跳得不怎么样。☆我跳舞跳得很好。（×）",
+    "en": "Read the first sentence of each, then decide whether the starred sentence is true. Example: 我会跳舞，但是跳得不怎么样。 ☆我跳舞跳得很好。 (false)"
+   },
+   "scope_note": "The example is on p. 13 and the four items on p. 14. Item (1) is the only true one; its key rests on 特别 = 非常 and on 亲切 being praise, which is the pairing the item is built to test.",
+   "items": [
+    {
+     "id": "zx:L01-D5-02-1",
+     "text": "我觉得奶奶特别亲切。☆我觉得奶奶非常好。",
+     "key": true,
+     "explanation": {
+      "zh": "\"特别\"就是\"非常\"；觉得奶奶特别亲切，就是觉得奶奶非常好，对。",
+      "en": "特别 means the same as 非常, very. Finding Grandma especially warm and dear is thinking she is very nice. True."
+     }
+    },
+    {
+     "id": "zx:L01-D5-02-2",
+     "text": "现在去哪儿都不用现金付款。☆我们用现金付款买东西。",
+     "key": false,
+     "explanation": {
+      "zh": "上面说不用现金付款，☆后面说用现金付款，正好相反，错。",
+      "en": "The first sentence says you need no cash to pay anywhere; the starred one says we pay with cash — the opposite. False."
+     }
+    },
+    {
+     "id": "zx:L01-D5-02-3",
+     "text": "长大后，我想成为一名教师。☆我是一名教师。",
+     "key": false,
+     "explanation": {
+      "zh": "\"想成为\"是长大后的愿望，现在还不是教师，错。",
+      "en": "想成为 is a wish for when I grow up; I am not a teacher yet. False."
+     }
+    },
+    {
+     "id": "zx:L01-D5-02-4",
+     "text": "我经常去图书馆学习。☆我很少去图书馆学习。",
+     "key": false,
+     "explanation": {
+      "zh": "\"经常\"是常常去，\"很少\"是不常去，意思相反，错。",
+      "en": "经常 means often and 很少 means seldom — opposite meanings. False."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D5-04",
+   "day": "星期五",
+   "page": 15,
+   "ex": 4,
+   "type": "free",
+   "title": "写一写你寒假中一天的活动（四十字以上）",
+   "title_en": "Write about your daily activities during the winter vacation with more than 40 characters",
+   "note": {
+    "zh": "提示：（1）你几点起床？（2）上午和谁在一起？做了什么？（3）中午是谁做的午饭？（4）午饭你吃了什么？最喜欢吃什么？（5）下午又有什么有趣的活动？（6）你一天的心情怎么样？",
+    "en": "Prompts: (1) What time did you get up? (2) Who were you with in the morning, and what did you do? (3) Who made lunch? (4) What did you eat for lunch, and what did you like best? (5) What fun things did you do in the afternoon? (6) How did you feel that day?"
+   },
+   "items": [
+    {
+     "id": "zx:L01-D5-04-1",
+     "prompt": "写一写你寒假中一天的活动（四十字以上）。",
+     "prompt_en": "Write about one day of your winter vacation (more than 40 characters).",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

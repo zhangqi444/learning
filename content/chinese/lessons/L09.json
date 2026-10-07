@@ -1,0 +1,225 @@
+{
+ "id": "L09",
+ "no": 9,
+ "title": "古诗二首（春晓　悯农）",
+ "title_en": "Two Ancient Poems",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "92–93",
+  "生字·词语·句子": "94",
+  "课堂练习": "95–97",
+  "阅读": "98–100"
+ },
+ "pages_note": "Read off the 目录 (its third page, printed p. 3) and confirmed on each rendered page: 第九课 runs pp. 92–100, 综合练习（三） starts p. 101. The 目录 prints the title as 古诗二首（春晓　悯农） with the English Two Ancient Poems, and the reading the same way, 古诗二首（敕勒歌　绝句）, also Two Ancient Poems; the lesson's own opening page prints only 古诗二首 above the two poem titles. A poetry lesson, and the book prints fewer sections than L03–L05: p. 94 carries 生字 (with two 部首 marks) and 专有名词, and there is no 词语 list, no 句子, no 扩展与替换 (so no 句型) and no 用一用 anywhere in pp. 92–100, so those keys are left out rather than invented. The pages key 生字·词语·句子 is kept under that name because the lesson page reads it; it points at p. 94, which here holds only 生字 and 专有名词. 课堂练习 is pp. 95–97 (描一描写一写 95, 读一读 and 想一想说一说 96, 对话 96–97, 课堂游戏 97 — learn to sing 春晓, the poem reprinted without pinyin); the 阅读 is pp. 98–99, with its 想一想，说一说 and 日积月累 on p. 100.",
+ "课文": {
+  "where": {
+   "zh": "课本第92–93页",
+   "en": "Textbook pp. 92–93"
+  },
+  "text": null,
+  "text_note": "Two Tang poems, each fully pinyin-annotated: 《春晓》 by （唐）孟浩然 on p. 92 and 《悯农》 by （唐）李绅 on p. 93, four lines of five characters each. Both poems are public domain (Tang dynasty, eighth and ninth century), but they are held back by the same decision as L03–L05: docs/chinese.md § 8 keeps every 课文 out of the repository until the owner says where lesson texts may live, and this file does not make an exception for age. Single lines of both poems do appear in the exercises file, where a workbook exercise is built out of them (the 排序 on workbook p. 61, the 对话 options on p. 63), because there they are the exercise."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第94页",
+   "en": "Textbook p. 94"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. Two of the thirteen are only ever names in this lesson — 孟 (孟浩然) and 绅 (李绅) — and 浩 is part of a name in the poem and appears as 浩大 in 读一读, so their glosses say so.",
+  "items": [
+   {
+    "zi": "晓",
+    "py": "xiǎo",
+    "gloss": {
+     "zh": "天刚亮的时候；也是\"知道\"（晓得）",
+     "en": "dawn, daybreak; also to know, as in 晓得"
+    }
+   },
+   {
+    "zi": "孟",
+    "py": "mèng",
+    "gloss": {
+     "zh": "姓，孟浩然的\"孟\"",
+     "en": "a family name, as in 孟浩然"
+    }
+   },
+   {
+    "zi": "浩",
+    "py": "hào",
+    "gloss": {
+     "zh": "水大，很大（浩大）；孟浩然的\"浩\"",
+     "en": "vast, as in 浩大; also in the poet's name 孟浩然"
+    }
+   },
+   {
+    "zi": "眠",
+    "py": "mián",
+    "gloss": {
+     "zh": "睡觉（睡眠、冬眠）",
+     "en": "sleep, as in 睡眠 and 冬眠"
+    }
+   },
+   {
+    "zi": "啼",
+    "py": "tí",
+    "gloss": {
+     "zh": "鸟叫；哭（啼哭）",
+     "en": "(of a bird) call, sing; to cry, as in 啼哭"
+    }
+   },
+   {
+    "zi": "悯",
+    "py": "mǐn",
+    "gloss": {
+     "zh": "可怜，同情（怜悯）",
+     "en": "to pity, to feel for someone, as in 怜悯"
+    }
+   },
+   {
+    "zi": "农",
+    "py": "nóng",
+    "gloss": {
+     "zh": "种地的事；种地的人（农民）",
+     "en": "farming; a farmer, as in 农民"
+    }
+   },
+   {
+    "zi": "绅",
+    "py": "shēn",
+    "gloss": {
+     "zh": "李绅的\"绅\"",
+     "en": "as in 李绅, the poet's name"
+    }
+   },
+   {
+    "zi": "锄",
+    "py": "chú",
+    "gloss": {
+     "zh": "锄头；用锄头松土、除草（锄禾）",
+     "en": "a hoe; to hoe, loosening the soil and pulling weeds, as in 锄禾"
+    }
+   },
+   {
+    "zi": "粒",
+    "py": "lì",
+    "gloss": {
+     "zh": "小而圆的颗粒；量词：一粒米",
+     "en": "a grain; measure word for grains: 一粒米"
+    }
+   },
+   {
+    "zi": "皆",
+    "py": "jiē",
+    "gloss": {
+     "zh": "都",
+     "en": "all, every one"
+    }
+   },
+   {
+    "zi": "辛",
+    "py": "xīn",
+    "gloss": {
+     "zh": "辛苦的\"辛\"，很累",
+     "en": "toil, as in 辛苦"
+    }
+   },
+   {
+    "zi": "苦",
+    "py": "kǔ",
+    "gloss": {
+     "zh": "味道苦，跟\"甜\"相对；辛苦",
+     "en": "bitter, the opposite of sweet; hard, as in 辛苦"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "皿",
+    "zi": "孟"
+   },
+   {
+    "bu": "白、比",
+    "zi": "皆"
+   }
+  ],
+  "radical_note": "p. 94 prints two radical marks under the list: 皿——孟, and 白、比——皆, two radical tiles joined by 、 pointing at the one character (dictionaries file 皆 under either). Kept as one entry with bu \"白、比\" so the page prints it as the book does, 白、比 → 皆."
+ },
+ "专有名词": {
+  "where": {
+   "zh": "课本第94页",
+   "en": "Textbook p. 94"
+  },
+  "section_note": "As in L03: the book prints 专有名词 (Proper nouns) on p. 94 under the 生字, the two poets' names with the pinyin capitalised as a name. Kept as the book has it; the lesson page may ignore it.",
+  "items": [
+   {
+    "w": "孟浩然",
+    "py": "Mèng Hàorán"
+   },
+   {
+    "w": "李绅",
+    "py": "Lǐ Shēn"
+   }
+  ]
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第96页",
+   "en": "Textbook p. 96"
+  },
+  "rows": [
+   [
+    "春晓",
+    "晓得",
+    "孟浩然",
+    "姓孟",
+    "浩大"
+   ],
+   [
+    "睡眠",
+    "失眠",
+    "冬眠",
+    "入眠"
+   ],
+   [
+    "啼叫",
+    "啼哭",
+    "悯农",
+    "农民",
+    "农业",
+    "农活"
+   ],
+   [
+    "锄草",
+    "锄禾",
+    "锄地"
+   ],
+   [
+    "米粒",
+    "颗粒",
+    "一粒米",
+    "一粒饭"
+   ],
+   [
+    "皆是",
+    "辛苦"
+   ],
+   [
+    "吃苦",
+    "痛苦",
+    "苦处",
+    "苦笑",
+    "苦日子"
+   ]
+  ],
+  "page_break_note": "all seven rows are on p. 96, above 想一想，说一说"
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第98–99页",
+   "en": "Textbook pp. 98–99"
+  },
+  "title": "古诗二首（敕勒歌　绝句）",
+  "title_en": "Two Ancient Poems",
+  "text": null,
+  "text_note": "same hold as the 课文, and the same note: both poems are public domain. 《敕勒歌》 is on p. 98, printed with no author or dynasty line, seven lines; 《绝句》 by （唐）杜甫 is on p. 99, four lines of seven characters; both fully pinyin-annotated. The margin carries no ★ glosses, so there is no sidebar. p. 100 has the reading's 想一想，说一说 (two questions, on 敕勒歌 and 绝句) and 日积月累 (一粥一饭，当思来处不易；半丝半缕，恒念物力维艰。——（清）朱柏庐), neither reproduced."
+ }
+}

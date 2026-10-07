@@ -1,0 +1,386 @@
+{
+ "id": "L10",
+ "no": 10,
+ "title": "地球清洁工",
+ "title_en": "Earth Cleaners",
+ "edition": "2023年第三版",
+ "pages": {
+  "课文": "105–106",
+  "生字·词语·句子": "107",
+  "课堂练习": "108–111",
+  "阅读": "112–114"
+ },
+ "pages_note": "Read off the 目录 (教材 PDF index 13, printed p. 3) and confirmed on each rendered page: 第十课 runs pp. 105–114, 第十一课 starts p. 115. 课堂练习 is pp. 108–111 (描一描写一写 108, 读一读/用一用 109, 扩展与替换/想一想 110, 对话/课堂游戏 111); the 阅读 text is pp. 112–114 with its 想一想 and 日积月累 on p. 114.",
+ "课文": {
+  "where": {
+   "zh": "课本第105–106页",
+   "en": "Textbook pp. 105–106"
+  },
+  "text": null,
+  "text_note": "Fully pinyin-annotated in the book. Not reproduced, by the same decision as L05: docs/chinese.md § 8 holds every 课文 back until the owner says where it may live."
+ },
+ "生字": {
+  "where": {
+   "zh": "课本第107页",
+   "en": "Textbook p. 107"
+  },
+  "gloss_note": "character and 拼音 are the book's; the gloss is authored here in both languages and is not printed in the book. The two radical tags under the grid (片 → 牌, 鸟 → 鸦) are kept as 部首.",
+  "items": [
+   {
+    "zi": "球",
+    "py": "qiú",
+    "gloss": {
+     "zh": "圆的东西；地球、皮球的\"球\"",
+     "en": "ball; globe, as in 地球, the Earth"
+    }
+   },
+   {
+    "zi": "洁",
+    "py": "jié",
+    "gloss": {
+     "zh": "干净",
+     "en": "clean, as in 清洁"
+    }
+   },
+   {
+    "zi": "牌",
+    "py": "pái",
+    "gloss": {
+     "zh": "上面写着字的板子：牌子",
+     "en": "a sign, a board with words on it: 牌子"
+    }
+   },
+   {
+    "zi": "报",
+    "py": "bào",
+    "gloss": {
+     "zh": "把事情告诉别人；报上自己的名字：报名、报告",
+     "en": "report; hand in (your name): 报名, sign up; 报告, report"
+    }
+   },
+   {
+    "zi": "半",
+    "py": "bàn",
+    "gloss": {
+     "zh": "一半，分成两份中的一份",
+     "en": "half"
+    }
+   },
+   {
+    "zi": "漂",
+    "py": "piāo",
+    "gloss": {
+     "zh": "浮在水面上",
+     "en": "float (on water)"
+    }
+   },
+   {
+    "zi": "剩",
+    "py": "shèng",
+    "gloss": {
+     "zh": "用过以后还留下来",
+     "en": "be left over"
+    }
+   },
+   {
+    "zi": "夫",
+    "py": "fū",
+    "gloss": {
+     "zh": "成年男子；丈夫；做某种活儿的人：清道夫、农夫",
+     "en": "a man; husband, as in 丈夫; a man who does a job, as in 清道夫, a street sweeper"
+    }
+   },
+   {
+    "zi": "鸦",
+    "py": "yā",
+    "gloss": {
+     "zh": "乌鸦的\"鸦\"",
+     "en": "as in 乌鸦, crow"
+    }
+   },
+   {
+    "zi": "泥",
+    "py": "ní",
+    "gloss": {
+     "zh": "和着水的土",
+     "en": "mud, wet earth"
+    }
+   },
+   {
+    "zi": "肥",
+    "py": "féi",
+    "gloss": {
+     "zh": "胖；肥料的\"肥\"",
+     "en": "fat; as in 肥料, fertilizer"
+    }
+   },
+   {
+    "zi": "料",
+    "py": "liào",
+    "gloss": {
+     "zh": "做东西用的材料；肥料的\"料\"",
+     "en": "material; as in 肥料, fertilizer"
+    }
+   },
+   {
+    "zi": "环",
+    "py": "huán",
+    "gloss": {
+     "zh": "圆圈；环境的\"环\"",
+     "en": "ring; as in 环境, the environment"
+    }
+   },
+   {
+    "zi": "境",
+    "py": "jìng",
+    "gloss": {
+     "zh": "环境的\"境\"；地方的边界",
+     "en": "as in 环境, the environment; a border"
+    }
+   }
+  ],
+  "部首": [
+   {
+    "bu": "片",
+    "zi": "牌"
+   },
+   {
+    "bu": "鸟",
+    "zi": "鸦"
+   }
+  ]
+ },
+ "词语": {
+  "where": {
+   "zh": "课本第107页",
+   "en": "Textbook p. 107"
+  },
+  "items": [
+   {
+    "w": "时间",
+    "py": "shíjiān"
+   },
+   {
+    "w": "动物",
+    "py": "dòngwù"
+   },
+   {
+    "w": "海鸥",
+    "py": "hǎi'ōu"
+   },
+   {
+    "w": "生活",
+    "py": "shēnghuó"
+   },
+   {
+    "w": "垃圾",
+    "py": "lājī"
+   },
+   {
+    "w": "食物",
+    "py": "shíwù"
+   },
+   {
+    "w": "乌鸦",
+    "py": "wūyā"
+   },
+   {
+    "w": "说话",
+    "py": "shuōhuà"
+   },
+   {
+    "w": "苍蝇",
+    "py": "cāngying"
+   },
+   {
+    "w": "地面",
+    "py": "dìmiàn"
+   },
+   {
+    "w": "蚯蚓",
+    "py": "qiūyǐn"
+   },
+   {
+    "w": "经过",
+    "py": "jīngguò"
+   },
+   {
+    "w": "消化",
+    "py": "xiāohuà"
+   },
+   {
+    "w": "了不起",
+    "py": "liǎobuqǐ"
+   }
+  ],
+  "py_note": "海鸥 is printed hǎi'ōu with the syllable-dividing apostrophe; 苍蝇 is printed with a light second syllable, cāngying, and 了不起 as liǎobuqǐ."
+ },
+ "句子": {
+  "where": {
+   "zh": "课本第107页",
+   "en": "Textbook p. 107"
+  },
+  "zh": "这里被我打扫得干干净净。",
+  "py": "zhè li bèi wǒ dǎ sǎo de gān gān jìng jìng."
+ },
+ "句型": {
+  "where": {
+   "zh": "课本第110页 扩展与替换",
+   "en": "Textbook p. 110, Expand and substitute"
+  },
+  "pattern": "……被……",
+  "ladder": [
+   "打扫",
+   "打扫得干干净净",
+   "被我打扫得干干净净",
+   "房间被我打扫得干干净净。"
+  ],
+  "substitutions": {
+   "frame": [
+    "这里",
+    "被",
+    "我",
+    "打扫得干干净净。"
+   ],
+   "rows": [
+    [
+     "房间",
+     "我",
+     "打扫得干干净净"
+    ],
+    [
+     "牛奶",
+     "他",
+     "喝完了"
+    ],
+    [
+     "自行车",
+     "哥哥",
+     "骑走了"
+    ]
+   ]
+  },
+  "substitutions_note": "The blue 替换 table under the ladder on p. 110: 这里 被 我 打扫得干干净净 with the three underlined parts swapped row by row; 被 is printed in red and stays. Added as the book prints it, as in L03 and L04. The book's own ladder ends on 房间, not on the 句子's 这里."
+ },
+ "读一读": {
+  "where": {
+   "zh": "课本第109页",
+   "en": "Textbook p. 109"
+  },
+  "rows": [
+   [
+    "地球",
+    "篮球",
+    "足球",
+    "皮球"
+   ],
+   [
+    "清洁",
+    "洁白",
+    "洁净"
+   ],
+   [
+    "牌子",
+    "站牌",
+    "名牌"
+   ],
+   [
+    "报名",
+    "报告",
+    "报到"
+   ],
+   [
+    "半天",
+    "一半",
+    "半边",
+    "半年",
+    "半圆"
+   ],
+   [
+    "漂着",
+    "漂流",
+    "剩下",
+    "剩饭",
+    "剩菜"
+   ],
+   [
+    "清道夫",
+    "乌鸦"
+   ],
+   [
+    "泥土",
+    "泥巴",
+    "泥沙"
+   ],
+   [
+    "肥胖",
+    "肥肉",
+    "肥料"
+   ],
+   [
+    "环境",
+    "出入境",
+    "边境"
+   ]
+  ],
+  "page_break_note": "all ten rows are on p. 109, above 用一用"
+ },
+ "用一用": {
+  "where": {
+   "zh": "课本第109页",
+   "en": "Textbook p. 109"
+  },
+  "rows": [
+   [
+    "北京时间",
+    "吃饭时间",
+    "时间到了",
+    "有时间",
+    "没有时间"
+   ],
+   [
+    "动物园",
+    "动物世界",
+    "小动物",
+    "保护动物"
+   ],
+   [
+    "美好的生活",
+    "生活在水里"
+   ],
+   [
+    "别说话",
+    "爱说话",
+    "说一句话",
+    "说的什么话"
+   ],
+   [
+    "消化食物",
+    "消化知识"
+   ],
+   [
+    "太了不起了",
+    "一个了不起的人"
+   ]
+  ]
+ },
+ "阅读": {
+  "where": {
+   "zh": "课本第112–114页",
+   "en": "Textbook pp. 112–114"
+  },
+  "title": "会发光的动物",
+  "title_en": "Glowing Animals",
+  "sidebar": [
+   "引人注目：引起人注意。",
+   "透明（透明的玻璃　透明的液体）",
+   "流动（空气流动　流动的河水）",
+   "传递：由一方交给另一方。",
+   "信息（打听信息　传递信息　网络信息）",
+   "防御（加强防御　防御不了　防御战）",
+   "信号（信号灯　发出信号）"
+  ],
+  "text": null,
+  "text_note": "same copyright hold as the 课文. The margin prints ★ before each entry: 引人注目 on p. 112, the other six on p. 113; 透明, 流动, 信息, 防御 and 信号 carry example phrases under them rather than a gloss, kept here in brackets. p. 114 ends with the reading's 想一想，说一说 (two questions) and 日积月累 (大自然的每一个领域都是美妙绝伦的。——［古希腊］亚里士多德), neither reproduced."
+ }
+}

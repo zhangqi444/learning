@@ -1,0 +1,1331 @@
+{
+ "lesson": "L07",
+ "edition": "2023年第三版",
+ "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》",
+ "file_note": "The workbook's exercises for 第七课, typed from 练习册A pp. 43–54 (PDF index = printed + 4, verified on p. 43, which opens 第七课 under 星期一). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; speak is the retell, signed by a parent; the 选词填空 exercises are `blocks` naming zh-word items. Wednesday carries two 选词填空 (练习1 and 练习5), so it has two blocks: zb:L07-D3 and zb:L07-D3b, the second suffixed the way L03 suffixed a second site exercise (zx:L03-D5-02b). Left out because no type fits, with their keys so a type can be added: 星期二 练习4 (p. 47, color the correct word, two options each: (1) 他想出了一个好____ 办法/希望 → 办法 (2) ____多动脑，才能想出好办法 只要/只有 → 只有, because 才 pairs with 只有 (3) 我们都是____的孩子 聪明/小心 → 聪明 (4) 司马光____地砸着水缸 使劲/慢慢 → 使劲); 星期三 练习4 (p. 50, choose A or B according to the text: (1) B 花园 (2) A 一个小孩掉进了水缸 (3) B 拿石头砸缸 (4) B 救出来了); 星期五 练习1 (pp. 52–53, listen and choose, three options each — the script is in the appendix on p. 83 under 第7课: (1) C 星期日 (2) B 四口人, read off 爸爸妈妈带我和弟弟, four people (3) B 九点 (4) A 草地和花朵 (5) A 放风筝). A two- or three-choice `pick` type with the book's own options per item would take all three. 星期五 练习2's passage 《乌鸦喝水》 (pp. 53–54, the workbook's own) is not typed: the site holds no text of the book, by the owner's decision of 2 October (docs/chinese.md § 8); she reads it in the workbook, and its four true/false sentences are kept. Item (5) of 星期一 练习5 is left out of that exercise; its scope_note says why.",
+ "blocks": [
+  {
+   "id": "zb:L07-D3",
+   "day": "星期三",
+   "page": 48,
+   "ex": 1,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L07-01",
+    "zc:L07-02",
+    "zc:L07-03",
+    "zc:L07-04",
+    "zc:L07-05"
+   ],
+   "scope_note": "The book offers five words (花园 惊慌 只有 小心 扑通) for five sentences, one each. Each item carries four of them — the one left off is a word the sentence's grammar or the book's one-word-per-blank pairing already rules out — so the task she faces is the book's: which of the box fills this blank."
+  },
+  {
+   "id": "zb:L07-D3b",
+   "day": "星期三",
+   "page": 50,
+   "ex": 5,
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "items": [
+    "zc:L07-06",
+    "zc:L07-07",
+    "zc:L07-08",
+    "zc:L07-09",
+    "zc:L07-10"
+   ],
+   "scope_note": "pp. 50–51. The box is 上来 下来 进来 出来 回来, one per sentence, under the example 水缸破了，水流了出来。 Each item carries four of the five; the one left off is the word that would also read sensibly in that sentence once the book's one-word-per-blank pairing is forgotten (回来 in (2) and (4); 出来 in (3), where 你在哪里呀？快点出来吧 is what a child says in hide-and-seek, and in (5)), so no item has two defensible answers. (1) leaves off 上来."
+  },
+  {
+   "id": "zb:L07-D4",
+   "day": "星期四",
+   "page": 51,
+   "ex": 1,
+   "title": "选词填空，填写序号",
+   "title_en": "Choose the right words and fill in the blanks with the numbers",
+   "items": [
+    "zc:L07-11",
+    "zc:L07-12",
+    "zc:L07-13",
+    "zc:L07-14",
+    "zc:L07-15"
+   ],
+   "scope_note": "One paragraph retelling the 课文 with five blanks and a numbered box (①水缸 ②惊慌 ③吓哭 ④花园 ⑤扑通). On the site she picks the word rather than writing its number. Each item carries four of the five; in (4) 惊慌 is left off because 别的小朋友都惊慌了 would also be a sentence — the book saves 惊慌 for the last blank."
+  }
+ ],
+ "exercises": [
+  {
+   "id": "zx:L07-D1-01w",
+   "day": "星期一",
+   "page": 43,
+   "ex": 1,
+   "type": "write",
+   "title": "描一描，写一写",
+   "title_en": "Trace and write",
+   "outline": false,
+   "note": {
+    "zh": "看旁边的词想字，用笔写出来。点\"写好了\"以后，标准写法会显示在你写的字下面，对照一下；笔顺按规则判。",
+    "en": "The word beside the box tells you the character; write it with the Pencil. When you tap Done, the standard form appears beneath what you wrote so you can compare; stroke order is judged by rule."
+   },
+   "context_note": "The page prints the eight characters to trace with no word beside them; each context word is taken from the textbook's 词语 and 读一读 (pp. 73, 75), as L03 and L04 did.",
+   "items": [
+    {
+     "id": "zx:L07-D1-01w-1",
+     "py": "sī",
+     "context": "＿马",
+     "key": "司",
+     "explanation": {
+      "zh": "司马：sī。",
+      "en": "司马 — sī, as in Sima Guang."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01w-2",
+     "py": "cōng",
+     "context": "＿明",
+     "key": "聪",
+     "explanation": {
+      "zh": "聪明：cōng。",
+      "en": "聪明 — cōng, clever."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01w-3",
+     "py": "pū",
+     "context": "＿通",
+     "key": "扑",
+     "explanation": {
+      "zh": "扑通：pū。",
+      "en": "扑通 — pū, splash."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01w-4",
+     "py": "gāng",
+     "context": "水＿",
+     "key": "缸",
+     "explanation": {
+      "zh": "水缸：gāng。",
+      "en": "水缸 — gāng, a water vat."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01w-5",
+     "py": "zhuāng",
+     "context": "＿满",
+     "key": "装",
+     "explanation": {
+      "zh": "装满：zhuāng。",
+      "en": "装满 — zhuāng, filled up."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01w-6",
+     "py": "huāng",
+     "context": "惊＿",
+     "key": "慌",
+     "explanation": {
+      "zh": "惊慌：huāng。",
+      "en": "惊慌 — huāng, panic."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01w-7",
+     "py": "jìn",
+     "context": "使＿",
+     "key": "劲",
+     "explanation": {
+      "zh": "使劲：jìn。",
+      "en": "使劲 — jìn, use all your strength."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01w-8",
+     "py": "zá",
+     "context": "＿缸",
+     "key": "砸",
+     "explanation": {
+      "zh": "砸缸：zá。",
+      "en": "砸缸 — zá, smash the vat."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D1-01s",
+   "day": "星期一",
+   "page": 43,
+   "ex": 1,
+   "type": "sort",
+   "title": "左右结构、上下结构，还是半包围结构？",
+   "title_en": "Left–right, top–bottom, or half-enclosed?",
+   "scope_note": "The book prints three lines under the eight characters — 左右结构, 上下结构, 半包围结构 — for her to sort them onto. 司 is keyed 半包围结构 from the page itself: the book offers that group, and none of the other seven can go in it (six are plainly left–right and 装 is top–bottom).",
+   "groups": [
+    "左右结构",
+    "上下结构",
+    "半包围结构"
+   ],
+   "items": [
+    {
+     "id": "zx:L07-D1-01s-1",
+     "text": "司",
+     "key": 2,
+     "explanation": {
+      "zh": "司的第一笔横折钩从上面和右边包住里面的一和口：半包围结构。这八个字里只有它是。",
+      "en": "司's first stroke hooks over the top and down the right, around 一 and 口 inside: half-enclosed. It is the only one of the eight."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01s-2",
+     "text": "聪",
+     "key": 0,
+     "explanation": {
+      "zh": "耳在左、总在右：左右结构。",
+      "en": "耳 on the left, 总 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01s-3",
+     "text": "扑",
+     "key": 0,
+     "explanation": {
+      "zh": "扌在左、卜在右：左右结构。",
+      "en": "扌 on the left, 卜 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01s-4",
+     "text": "缸",
+     "key": 0,
+     "explanation": {
+      "zh": "缶在左、工在右：左右结构。",
+      "en": "缶 on the left, 工 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01s-5",
+     "text": "装",
+     "key": 1,
+     "explanation": {
+      "zh": "壮在上、衣在下：上下结构。",
+      "en": "壮 above, 衣 below: top–bottom."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01s-6",
+     "text": "慌",
+     "key": 0,
+     "explanation": {
+      "zh": "忄在左、荒在右：左右结构。",
+      "en": "忄 on the left, 荒 on the right: left–right."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01s-7",
+     "text": "劲",
+     "key": 0,
+     "explanation": {
+      "zh": "力在右边，另一半在左边：左右结构。",
+      "en": "力 on the right, the other half on the left: left–right."
+     }
+    },
+    {
+     "id": "zx:L07-D1-01s-8",
+     "text": "砸",
+     "key": 0,
+     "explanation": {
+      "zh": "石在左、匝在右：左右结构。",
+      "en": "石 on the left, 匝 on the right: left–right."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D1-02",
+   "day": "星期一",
+   "page": 44,
+   "ex": 2,
+   "type": "match",
+   "title": "找朋友，连成字",
+   "title_en": "Look for friends, make characters",
+   "note": {
+    "zh": "先点上面的部件，再点下面能和它合成字的那一半。课本已连好一组：氵—去。",
+    "en": "Tap a part on the top row, then the half below that makes a character with it. The book has drawn one line already: 氵—去."
+   },
+   "left": [
+    "口",
+    "扌",
+    "氵",
+    "亻",
+    "石",
+    "耳"
+   ],
+   "right": [
+    "去",
+    "吏",
+    "总",
+    "下",
+    "卜",
+    "匝"
+   ],
+   "pairs": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     5,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L07-D1-02-1",
+     "left": "口",
+     "key": 3,
+     "word": "吓",
+     "explanation": {
+      "zh": "口和下合成\"吓\"。",
+      "en": "口 and 下 make 吓."
+     }
+    },
+    {
+     "id": "zx:L07-D1-02-2",
+     "left": "扌",
+     "key": 4,
+     "word": "扑",
+     "explanation": {
+      "zh": "扌和卜合成\"扑\"。",
+      "en": "扌 and 卜 make 扑."
+     }
+    },
+    {
+     "id": "zx:L07-D1-02-3",
+     "left": "氵",
+     "key": 0,
+     "word": "法",
+     "explanation": {
+      "zh": "氵和去合成\"法\"——课本给的例子。",
+      "en": "氵 and 去 make 法 — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L07-D1-02-4",
+     "left": "亻",
+     "key": 1,
+     "word": "使",
+     "explanation": {
+      "zh": "亻和吏合成\"使\"。",
+      "en": "亻 and 吏 make 使."
+     }
+    },
+    {
+     "id": "zx:L07-D1-02-5",
+     "left": "石",
+     "key": 5,
+     "word": "砸",
+     "explanation": {
+      "zh": "石和匝合成\"砸\"。",
+      "en": "石 and 匝 make 砸."
+     }
+    },
+    {
+     "id": "zx:L07-D1-02-6",
+     "left": "耳",
+     "key": 2,
+     "word": "聪",
+     "explanation": {
+      "zh": "耳和总合成\"聪\"。",
+      "en": "耳 and 总 make 聪."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D1-02w",
+   "day": "星期一",
+   "page": 44,
+   "ex": 2,
+   "type": "free",
+   "title": "找朋友：写下来并组词",
+   "title_en": "Look for friends: write the characters and form words",
+   "note": {
+    "zh": "连线在前面做过了；这里把五个字各写一遍，再各组一个词。课本已写好一个：法 → 办法。",
+    "en": "The matching was done on the site; here write each of the five characters once and make one word with each. The book has done one already: 法 → 办法."
+   },
+   "items": [
+    {
+     "id": "zx:L07-D1-02w-1",
+     "key": "吓",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "吓 → 组一个词",
+     "prompt_en": "吓 → one word"
+    },
+    {
+     "id": "zx:L07-D1-02w-2",
+     "key": "扑",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "扑 → 组一个词",
+     "prompt_en": "扑 → one word"
+    },
+    {
+     "id": "zx:L07-D1-02w-3",
+     "key": "使",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "使 → 组一个词",
+     "prompt_en": "使 → one word"
+    },
+    {
+     "id": "zx:L07-D1-02w-4",
+     "key": "砸",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "砸 → 组一个词",
+     "prompt_en": "砸 → one word"
+    },
+    {
+     "id": "zx:L07-D1-02w-5",
+     "key": "聪",
+     "blanks": 1,
+     "cells": 2,
+     "prompt": "聪 → 组一个词",
+     "prompt_en": "聪 → one word"
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D1-03",
+   "day": "星期一",
+   "page": 44,
+   "ex": 3,
+   "type": "write",
+   "title": "根据拼音写汉字",
+   "title_en": "Write characters below Pinyin",
+   "outline": false,
+   "note": {
+    "zh": "读音相同或相近，字不一样——看括号旁边的字想词。",
+    "en": "Same or similar sound, different characters — the character beside the blank tells you the word."
+   },
+   "items": [
+    {
+     "id": "zx:L07-D1-03-1",
+     "py": "xí",
+     "context": "学＿",
+     "key": "习",
+     "explanation": {
+      "zh": "学习：xí。",
+      "en": "学习 — xí, study."
+     }
+    },
+    {
+     "id": "zx:L07-D1-03-2",
+     "py": "xǐ",
+     "context": "＿欢",
+     "key": "喜",
+     "explanation": {
+      "zh": "喜欢：xǐ。",
+      "en": "喜欢 — xǐ, like."
+     }
+    },
+    {
+     "id": "zx:L07-D1-03-3",
+     "py": "xì",
+     "context": "游＿",
+     "key": "戏",
+     "explanation": {
+      "zh": "游戏：xì。",
+      "en": "游戏 — xì, game."
+     }
+    },
+    {
+     "id": "zx:L07-D1-03-4",
+     "py": "xià",
+     "context": "＿哭了",
+     "key": "吓",
+     "explanation": {
+      "zh": "吓哭了：xià。",
+      "en": "吓哭了 — xià, so frightened they cried."
+     }
+    },
+    {
+     "id": "zx:L07-D1-03-5",
+     "py": "xià",
+     "context": "＿课",
+     "key": "下",
+     "explanation": {
+      "zh": "下课：xià。",
+      "en": "下课 — xià, class is over."
+     }
+    },
+    {
+     "id": "zx:L07-D1-03-6",
+     "py": "xià",
+     "context": "＿天",
+     "key": "夏",
+     "explanation": {
+      "zh": "夏天：xià。",
+      "en": "夏天 — xià, summer."
+     }
+    },
+    {
+     "id": "zx:L07-D1-03-7",
+     "py": "jìn",
+     "context": "使＿",
+     "key": "劲",
+     "explanation": {
+      "zh": "使劲：jìn。",
+      "en": "使劲 — jìn, use all your strength."
+     }
+    },
+    {
+     "id": "zx:L07-D1-03-8",
+     "py": "jīn",
+     "context": "＿天",
+     "key": "今",
+     "explanation": {
+      "zh": "今天：jīn。",
+      "en": "今天 — jīn, today."
+     }
+    },
+    {
+     "id": "zx:L07-D1-03-9",
+     "py": "jìn",
+     "context": "＿出",
+     "key": "进",
+     "explanation": {
+      "zh": "进出：jìn。",
+      "en": "进出 — jìn, go in and out."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D1-04",
+   "day": "星期一",
+   "page": 45,
+   "ex": 4,
+   "type": "match",
+   "title": "连一连，组词语",
+   "title_en": "Match to form words",
+   "note": {
+    "zh": "先点上面的字，再点下面能和它组成词的字。课本已连好一组：只—有。",
+    "en": "Tap a character on the top row, then the one below that makes a word with it. The book has drawn one line already: 只—有."
+   },
+   "left": [
+    "使",
+    "只",
+    "惊",
+    "办",
+    "扑"
+   ],
+   "right": [
+    "有",
+    "法",
+    "通",
+    "劲",
+    "慌"
+   ],
+   "pairs": [
+    [
+     0,
+     3
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     2
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L07-D1-04-1",
+     "left": "使",
+     "key": 3,
+     "word": "使劲",
+     "explanation": {
+      "zh": "使—劲：使劲。",
+      "en": "使 + 劲 = 使劲, use all your strength."
+     }
+    },
+    {
+     "id": "zx:L07-D1-04-2",
+     "left": "只",
+     "key": 0,
+     "word": "只有",
+     "explanation": {
+      "zh": "只—有：只有——课本给的例子。",
+      "en": "只 + 有 = 只有, only — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L07-D1-04-3",
+     "left": "惊",
+     "key": 4,
+     "word": "惊慌",
+     "explanation": {
+      "zh": "惊—慌：惊慌。",
+      "en": "惊 + 慌 = 惊慌, panic."
+     }
+    },
+    {
+     "id": "zx:L07-D1-04-4",
+     "left": "办",
+     "key": 1,
+     "word": "办法",
+     "explanation": {
+      "zh": "办—法：办法。",
+      "en": "办 + 法 = 办法, a way to deal with something."
+     }
+    },
+    {
+     "id": "zx:L07-D1-04-5",
+     "left": "扑",
+     "key": 2,
+     "word": "扑通",
+     "explanation": {
+      "zh": "扑—通：扑通。",
+      "en": "扑 + 通 = 扑通, splash."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D1-04w",
+   "day": "星期一",
+   "page": 45,
+   "ex": 4,
+   "type": "free",
+   "title": "连一连，组词语：把词写下来",
+   "title_en": "Match to form words: write the words",
+   "note": {
+    "zh": "连线在前面做过了；这里把四个词各写一遍（课本已写好：只有）。",
+    "en": "The matching was done on the site; here write each of the four words once (the book has written 只有 already)."
+   },
+   "items": [
+    {
+     "id": "zx:L07-D1-04w-1",
+     "prompt": "使＋劲 → 写出词语",
+     "prompt_en": "使 + 劲 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L07-D1-04w-2",
+     "prompt": "惊＋慌 → 写出词语",
+     "prompt_en": "惊 + 慌 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L07-D1-04w-3",
+     "prompt": "办＋法 → 写出词语",
+     "prompt_en": "办 + 法 → the word",
+     "blanks": 1,
+     "cells": 2
+    },
+    {
+     "id": "zx:L07-D1-04w-4",
+     "prompt": "扑＋通 → 写出词语",
+     "prompt_en": "扑 + 通 → the word",
+     "blanks": 1,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D1-05",
+   "day": "星期一",
+   "page": 45,
+   "ex": 5,
+   "type": "free",
+   "title": "填写正确答案",
+   "title_en": "Fill in the correct answers",
+   "note": {
+    "zh": "每题有两个空，把答案写在格子里；笔画数用汉字写，比如\"九\"。",
+    "en": "Each line has two blanks; write the answers in the cells, and write a stroke count in characters, such as 九."
+   },
+   "scope_note": "The book's item (5) — \"块\"的读音是____，第三画是____ — is left out: its first blank asks for pinyin (kuài), and a grid of 米字格 is no place for pinyin, as L04 decided for 模. Its second blank would be 提 (土 on the left of a character is written 横、竖、提).",
+   "answers_note": "Keys for the reviewer, worked out from the characters and the textbook (no key is printed anywhere): (1) 部首 衣 — p. 72 prints 衣 → 装 — and 12 strokes (丬3 + 士3 + 衣6); (2) 口 on the left, 下 on the right; (3) 12 strokes (忄3 + 艹3 + 亡3 + 川-shaped part 3), and the 12th, the last stroke of 荒, is 竖弯钩; (4) 部首 口, 10 strokes (口口6 + 犬4) — 口 is how 新华字典 files 哭, though the book itself prints no radical for it.",
+   "items": [
+    {
+     "id": "zx:L07-D1-05-1",
+     "prompt": "（1）\"装\"的部首是＿＿，一共＿＿画。",
+     "prompt_en": "(1) The radical of 装 is ＿＿, and it has ＿＿ strokes in all.",
+     "blanks": 2,
+     "cells": 2
+    },
+    {
+     "id": "zx:L07-D1-05-2",
+     "prompt": "（2）\"吓\"的左边是＿＿，右边是＿＿。",
+     "prompt_en": "(2) The left side of 吓 is ＿＿, and the right side is ＿＿.",
+     "blanks": 2,
+     "cells": 1
+    },
+    {
+     "id": "zx:L07-D1-05-3",
+     "prompt": "（3）\"慌\"一共＿＿画，第十二画是＿＿。",
+     "prompt_en": "(3) 慌 has ＿＿ strokes in all, and the twelfth stroke is ＿＿.",
+     "blanks": 2,
+     "cells": 3
+    },
+    {
+     "id": "zx:L07-D1-05-4",
+     "prompt": "（4）\"哭\"是上下结构，部首是＿＿，一共＿＿画。",
+     "prompt_en": "(4) 哭 is a top–bottom character; its radical is ＿＿, and it has ＿＿ strokes in all.",
+     "blanks": 2,
+     "cells": 2
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D2-01",
+   "day": "星期二",
+   "page": 46,
+   "ex": 1,
+   "type": "read",
+   "title": "读一读",
+   "title_en": "Read aloud",
+   "note": {
+    "zh": "读出来，录下来就行，不打分。对照在批改的时候看。",
+    "en": "Just read it aloud; it is recorded, not scored. The comparison is for the evaluation."
+   },
+   "text": "上来 下来 出来 进来 回来\n妈妈从房子里走出来了。我从万寿山上走下来。\n快回来吧，我们等你吃饭呢。外面下雨了，你进来吧。\n月亮掉到水里了，我们把它捞上来吧。"
+  },
+  {
+   "id": "zx:L07-D2-02",
+   "day": "星期二",
+   "page": 46,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连",
+   "title_en": "Match",
+   "note": {
+    "zh": "四张图在练习册第46页，标着A、B、C、D。先点词语，再点它说的那张图。课本已连好一组：石头—B。",
+    "en": "The four pictures are on workbook p. 46, lettered A to D. Tap a word, then the picture it names. The book has drawn one line already: 石头—B."
+   },
+   "left": [
+    "石头",
+    "花园",
+    "扑通",
+    "惊慌"
+   ],
+   "right": [
+    "图A",
+    "图B",
+    "图C",
+    "图D"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L07-D2-02-1",
+     "left": "石头",
+     "key": 1,
+     "explanation": {
+      "zh": "一堆石头——图B，课本给的例子。",
+      "en": "A pile of stones — picture B, the book's own example."
+     }
+    },
+    {
+     "id": "zx:L07-D2-02-2",
+     "left": "花园",
+     "key": 3,
+     "explanation": {
+      "zh": "开满了花的花坛——图D。",
+      "en": "A bed full of flowers — picture D."
+     }
+    },
+    {
+     "id": "zx:L07-D2-02-3",
+     "left": "扑通",
+     "key": 2,
+     "explanation": {
+      "zh": "\"扑通\"是东西掉进水里的声音——图C是溅起来的水花。",
+      "en": "扑通 is the sound of something falling into water — picture C is the splash."
+     }
+    },
+    {
+     "id": "zx:L07-D2-02-4",
+     "left": "惊慌",
+     "key": 0,
+     "explanation": {
+      "zh": "男孩双手捧着脸、张大了嘴，又吃惊又害怕——图A。",
+      "en": "The boy with his hands on his cheeks and his mouth wide open, startled and scared — picture A."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D2-03",
+   "day": "星期二",
+   "page": 47,
+   "ex": 3,
+   "type": "match",
+   "title": "词语连线并造句",
+   "title_en": "Match to form words and make sentences",
+   "note": {
+    "zh": "先点左边的字，再点右边能和它组成词的字。课本已连好一组：办—法。",
+    "en": "Tap a character on the left, then the one on the right that makes a word with it. The book has drawn one line already: 办—法."
+   },
+   "left": [
+    "聪",
+    "惊",
+    "办",
+    "使"
+   ],
+   "right": [
+    "法",
+    "劲",
+    "明",
+    "慌"
+   ],
+   "pairs": [
+    [
+     0,
+     2
+    ],
+    [
+     1,
+     3
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     1
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L07-D2-03-1",
+     "left": "聪",
+     "key": 2,
+     "word": "聪明",
+     "explanation": {
+      "zh": "聪—明：聪明。",
+      "en": "聪 + 明 = 聪明, clever."
+     }
+    },
+    {
+     "id": "zx:L07-D2-03-2",
+     "left": "惊",
+     "key": 3,
+     "word": "惊慌",
+     "explanation": {
+      "zh": "惊—慌：惊慌。",
+      "en": "惊 + 慌 = 惊慌, panic."
+     }
+    },
+    {
+     "id": "zx:L07-D2-03-3",
+     "left": "办",
+     "key": 0,
+     "word": "办法",
+     "explanation": {
+      "zh": "办—法：办法——课本给的例子。",
+      "en": "办 + 法 = 办法, a way to deal with something — the book's own example."
+     }
+    },
+    {
+     "id": "zx:L07-D2-03-4",
+     "left": "使",
+     "key": 1,
+     "word": "使劲",
+     "explanation": {
+      "zh": "使—劲：使劲。",
+      "en": "使 + 劲 = 使劲, use all your strength."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D2-03w",
+   "day": "星期二",
+   "page": 47,
+   "ex": 3,
+   "type": "free",
+   "title": "词语连线并造句：造句",
+   "title_en": "Match to form words and make sentences: the sentences",
+   "note": {
+    "zh": "连线在前面做过了。课本已写好第（1）句：我想到了一个好办法。用另外三个词各造一个句子。",
+    "en": "The matching was done on the site. The book has written sentence (1): 我想到了一个好办法。 Make one sentence with each of the other three words."
+   },
+   "scope_note": "The book's lines (2)–(4) do not say which word goes on which line; they are given here in the order of the left-hand column, 办法 aside.",
+   "items": [
+    {
+     "id": "zx:L07-D2-03w-1",
+     "prompt": "（2）用\"聪明\"造句",
+     "prompt_en": "(2) A sentence with 聪明",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L07-D2-03w-2",
+     "prompt": "（3）用\"惊慌\"造句",
+     "prompt_en": "(3) A sentence with 惊慌",
+     "blanks": 1,
+     "cells": 20
+    },
+    {
+     "id": "zx:L07-D2-03w-3",
+     "prompt": "（4）用\"使劲\"造句",
+     "prompt_en": "(4) A sentence with 使劲",
+     "blanks": 1,
+     "cells": 20
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D2-05",
+   "day": "星期二",
+   "page": 48,
+   "ex": 5,
+   "type": "order",
+   "title": "连词成句",
+   "title_en": "Write the words in the correct order to make sentences",
+   "items": [
+    {
+     "id": "zx:L07-D2-05-1",
+     "pieces": [
+      "教室里",
+      "同学们",
+      "从",
+      "出来",
+      "走"
+     ],
+     "key": [
+      1,
+      2,
+      0,
+      4,
+      3
+     ],
+     "explanation": {
+      "zh": "正确的顺序：同学们从教室里走出来。",
+      "en": "In order: 同学们从教室里走出来 — the classmates walk out of the classroom."
+     }
+    },
+    {
+     "id": "zx:L07-D2-05-2",
+     "pieces": [
+      "惊慌",
+      "不",
+      "只有",
+      "司马光"
+     ],
+     "key": [
+      2,
+      3,
+      1,
+      0
+     ],
+     "explanation": {
+      "zh": "正确的顺序：只有司马光不惊慌。",
+      "en": "In order: 只有司马光不惊慌 — only Sima Guang does not panic."
+     }
+    },
+    {
+     "id": "zx:L07-D2-05-3",
+     "pieces": [
+      "一个",
+      "树下",
+      "有",
+      "大水缸"
+     ],
+     "key": [
+      1,
+      2,
+      0,
+      3
+     ],
+     "explanation": {
+      "zh": "正确的顺序：树下有一个大水缸。",
+      "en": "In order: 树下有一个大水缸 — under the tree there is a big water vat."
+     }
+    },
+    {
+     "id": "zx:L07-D2-05-4",
+     "pieces": [
+      "孩子",
+      "是",
+      "聪明的",
+      "真",
+      "个",
+      "他"
+     ],
+     "key": [
+      5,
+      3,
+      1,
+      4,
+      2,
+      0
+     ],
+     "explanation": {
+      "zh": "正确的顺序：他真是个聪明的孩子。这里的\"真\"是在感叹整句话——他真是个聪明的孩子！所以它放在\"是\"前面，不放进\"聪明的孩子\"里。",
+      "en": "In order: 他真是个聪明的孩子 — he really is a clever child. Here 真 exclaims about the whole sentence, so it goes before 是, not inside 聪明的孩子."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D3-02",
+   "day": "星期三",
+   "page": 49,
+   "ex": 2,
+   "type": "tf",
+   "title": "根据课文判断正误",
+   "title_en": "Decide whether the sentences are true or false according to the text",
+   "items": [
+    {
+     "id": "zx:L07-D3-02-1",
+     "text": "小朋友们在花园里面玩儿，没有听见有人“扑通”一声掉进水缸的声音。",
+     "key": false,
+     "explanation": {
+      "zh": "课文里说：突然，大家听到“扑通”一声。大家都听见了。",
+      "en": "The text says 大家听到“扑通”一声 — everyone heard the splash."
+     }
+    },
+    {
+     "id": "zx:L07-D3-02-2",
+     "text": "水缸又大又深，装满了水。",
+     "key": true,
+     "explanation": {
+      "zh": "课文里说：水缸又大又深，里面装满了水。",
+      "en": "The text says so: 水缸又大又深，里面装满了水 — the vat was big and deep and full of water."
+     }
+    },
+    {
+     "id": "zx:L07-D3-02-3",
+     "text": "小朋友们都哭了，司马光也很惊慌。",
+     "key": false,
+     "explanation": {
+      "zh": "别的小朋友都吓哭了，只有司马光不惊慌。",
+      "en": "The other children cried with fright, but only Sima Guang did not panic: 只有司马光不惊慌."
+     }
+    },
+    {
+     "id": "zx:L07-D3-02-4",
+     "text": "司马光找来一块大石头，使劲向水缸砸去。",
+     "key": true,
+     "explanation": {
+      "zh": "这就是他想出的办法：找来一块大石头，使劲向水缸砸去。",
+      "en": "That was his idea: he found a big stone and smashed it hard against the vat."
+     }
+    },
+    {
+     "id": "zx:L07-D3-02-5",
+     "text": "司马光是个聪明的孩子。",
+     "key": true,
+     "explanation": {
+      "zh": "课文第一句就说他是一个聪明的孩子；最后大家都说：\"司马光真聪明！\"",
+      "en": "The first line calls him a clever child, and at the end everyone says 司马光真聪明 — how clever Sima Guang is."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D3-03",
+   "day": "星期三",
+   "page": 49,
+   "ex": 3,
+   "type": "slots",
+   "title": "选择相应的句子补全对话",
+   "title_en": "Choose the correct sentences to complete the dialogue",
+   "note": {
+    "zh": "对话里缺了四句，司马光说三句，小朋友说一句。对话从练习册第49页接到第50页。",
+    "en": "Four lines are missing: three for Sima Guang and one for the children. The dialogue runs from workbook p. 49 onto p. 50."
+   },
+   "options": [
+    "大家别慌，我来想想办法！",
+    "太好了！你真聪明啊！",
+    "好啊，但是大家要小心一点儿。",
+    "快帮我找一块大石头。"
+   ],
+   "items": [
+    {
+     "id": "zx:L07-D3-03-1",
+     "before": "小朋友：我们一起去花园里玩儿吧！",
+     "slot": "司马光",
+     "key": 2,
+     "explanation": {
+      "zh": "朋友叫他一起去玩儿，他答应了，还提醒大家：好啊，但是大家要小心一点儿。",
+      "en": "Asked to come and play, he agrees and reminds everyone to be careful: 好啊，但是大家要小心一点儿."
+     }
+    },
+    {
+     "id": "zx:L07-D3-03-2",
+     "before": "（司马光正在和小朋友们玩耍。）小朋友：快来人啊，有人掉到水缸里面了！　司马光：______啊，我想出来了！",
+     "slot": "司马光",
+     "key": 0,
+     "explanation": {
+      "zh": "有人掉进了水缸，他先让大家别慌，再想办法——后面的\"啊，我想出来了！\"就是想出了办法。",
+      "en": "Someone has fallen into the vat; he first tells everyone not to panic and to let him think — then 啊，我想出来了, he has the idea."
+     }
+    },
+    {
+     "id": "zx:L07-D3-03-3",
+     "before": "小朋友：怎么办呢？",
+     "slot": "司马光",
+     "key": 3,
+     "explanation": {
+      "zh": "他的办法要用大石头：快帮我找一块大石头。下一行小朋友就拿来了大石头。",
+      "en": "His idea needs a big stone: 快帮我找一块大石头. In the next line the children bring one."
+     }
+    },
+    {
+     "id": "zx:L07-D3-03-4",
+     "before": "（小朋友拿来了大石头，司马光拿起石头使劲向水缸砸去。）",
+     "slot": "小朋友",
+     "key": 1,
+     "explanation": {
+      "zh": "水缸砸破了，大家夸他：太好了！你真聪明啊！",
+      "en": "The vat breaks, and the children praise him: 太好了！你真聪明啊！"
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D4-02",
+   "day": "星期四",
+   "page": 51,
+   "ex": 2,
+   "type": "match",
+   "title": "连一连",
+   "title_en": "Match",
+   "note": {
+    "zh": "左边是问题，右边是回答。先点问题，再点它的回答。",
+    "en": "Questions on the left, answers on the right. Tap a question, then its answer."
+   },
+   "left": [
+    "司马光为什么砸缸？",
+    "司马光用什么砸的缸？",
+    "他救出朋友了吗？"
+   ],
+   "right": [
+    "他成功救出了朋友。",
+    "因为有人掉到水缸里了。",
+    "他用大石头砸的缸。"
+   ],
+   "pairs": [
+    [
+     0,
+     1
+    ],
+    [
+     1,
+     2
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "items": [
+    {
+     "id": "zx:L07-D4-02-1",
+     "left": "司马光为什么砸缸？",
+     "key": 1,
+     "explanation": {
+      "zh": "问\"为什么\"，答\"因为……\"：有人掉进了水缸，司马光砸缸是为了救他。",
+      "en": "A why-question takes a because-answer: someone had fallen into the vat, and Sima Guang broke it to save him."
+     }
+    },
+    {
+     "id": "zx:L07-D4-02-2",
+     "left": "司马光用什么砸的缸？",
+     "key": 2,
+     "explanation": {
+      "zh": "问\"用什么\"，答的是用的东西：大石头。",
+      "en": "Asked what he used, the answer names the thing: a big stone."
+     }
+    },
+    {
+     "id": "zx:L07-D4-02-3",
+     "left": "他救出朋友了吗？",
+     "key": 0,
+     "explanation": {
+      "zh": "问\"……了吗\"，答\"救出了\"：水流了出来，那个小朋友得救了。",
+      "en": "A yes-or-no question about the rescue: yes — the water ran out and the child was saved."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D4-03",
+   "day": "星期四",
+   "page": 52,
+   "ex": 3,
+   "type": "free",
+   "title": "根据课文回答问题",
+   "title_en": "Answer the questions according to the text",
+   "items": [
+    {
+     "id": "zx:L07-D4-03-1",
+     "prompt": "司马光和小朋友们遇到了什么问题？",
+     "prompt_en": "What problem did Sima Guang and the other children run into?",
+     "blanks": 1,
+     "cells": 24
+    },
+    {
+     "id": "zx:L07-D4-03-2",
+     "prompt": "司马光是怎么解决的呢？",
+     "prompt_en": "How did Sima Guang solve it?",
+     "blanks": 1,
+     "cells": 24
+    },
+    {
+     "id": "zx:L07-D4-03-3",
+     "prompt": "司马光遇事惊慌吗？",
+     "prompt_en": "Did Sima Guang panic when it happened?",
+     "blanks": 1,
+     "cells": 24
+    },
+    {
+     "id": "zx:L07-D4-03-4",
+     "prompt": "我们遇事应该怎么办呢？",
+     "prompt_en": "What should we do when something like this happens?",
+     "blanks": 1,
+     "cells": 24
+    }
+   ],
+   "table_note": "The book prints the four questions as the left column of a two-column table (问题 | 回答), unnumbered, with the answer cell beside each."
+  },
+  {
+   "id": "zx:L07-D4-04",
+   "day": "星期四",
+   "page": 52,
+   "ex": 4,
+   "type": "speak",
+   "title": "把故事讲给爸爸妈妈听，考考他们",
+   "title_en": "Tell the story to your parents and test them",
+   "question": {
+    "zh": "\"司马光砸缸\"告诉了我们什么道理？",
+    "en": "What does the story of Sima Guang breaking the vat teach us?"
+   },
+   "note": {
+    "zh": "把故事讲一遍，录下来；讲完问爸爸妈妈这个问题，再请他们点一下\"家长已听\"。",
+    "en": "Tell the story and it is recorded; then ask your parents the question, and have them tap Listened."
+   }
+  },
+  {
+   "id": "zx:L07-D5-02",
+   "day": "星期五",
+   "page": 53,
+   "ex": 2,
+   "type": "tf",
+   "title": "读短文，判断对错",
+   "title_en": "Read the passage and decide whether the statements are true or false",
+   "note": {
+    "zh": "短文《乌鸦喝水》在练习册第53–54页。先读短文，再判断对错。",
+    "en": "The passage 乌鸦喝水 is on workbook pp. 53–54. Read it first, then mark each sentence."
+   },
+   "scope_note": "The passage is the workbook's own and is not typed (file_note). The four sentences are on p. 54, under its last paragraph.",
+   "items": [
+    {
+     "id": "zx:L07-D5-02-1",
+     "text": "乌鸦口渴了，想要喝水。",
+     "key": true,
+     "explanation": {
+      "zh": "短文一开头，乌鸦就渴了，正到处找水。",
+      "en": "Right at the start of the passage the crow is thirsty and out looking for water."
+     }
+    },
+    {
+     "id": "zx:L07-D5-02-2",
+     "text": "瓶子里面没有水。",
+     "key": false,
+     "explanation": {
+      "zh": "瓶子里面有半瓶水，只是乌鸦喝不着。",
+      "en": "The bottle was half full of water; the crow just could not reach it."
+     }
+    },
+    {
+     "id": "zx:L07-D5-02-3",
+     "text": "瓶口小，乌鸦喝不到水。",
+     "key": true,
+     "explanation": {
+      "zh": "短文里说乌鸦\"喝不着\"——\"喝不着\"就是\"喝不到\"。",
+      "en": "The passage says the crow 喝不着 — and 喝不着 means the same as 喝不到, could not get a drink."
+     }
+    },
+    {
+     "id": "zx:L07-D5-02-4",
+     "text": "乌鸦最后没有喝到水。",
+     "key": false,
+     "explanation": {
+      "zh": "最后乌鸦用小石子让水升高，喝到了水。",
+      "en": "In the end the crow used pebbles to make the water rise, and it did get its drink."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L07-D5-03",
+   "day": "星期五",
+   "page": 54,
+   "ex": 3,
+   "type": "free",
+   "title": "上面这篇短文告诉了我们什么道理？请你写一写",
+   "title_en": "Write about what the story tells us",
+   "items": [
+    {
+     "id": "zx:L07-D5-03-1",
+     "prompt": "《乌鸦喝水》告诉了我们什么道理？写一写。",
+     "prompt_en": "What does 乌鸦喝水 teach us? Write about it.",
+     "blanks": 2,
+     "cells": 40
+    }
+   ]
+  }
+ ]
+}

@@ -426,7 +426,17 @@ is the right size for a first commit because it proves the whole path with conte
 that is real, and because the alternative — a placeholder bank — would put invented
 Chinese in front of a child to test a router.
 
-Phase 2 authors the rest of her volume's lessons. Phase 3 puts 汉字 into the
+Phase 2 authors the rest of her volume's lessons. **Done 7 October 2026:** all twelve
+lessons of 第四册 are in — 153 生字, 243 workbook exercises and 154 four-choice items — each
+read off the scans by one author and checked by a second reader who worked every key out
+blind before looking. Every key agreed; the readers' fixes were one item with a second
+defensible answer, a cycle in one lesson's answer letters, and explanations and glosses. Lessons nobody has assigned are there to open; the Glimbook counts only the
+characters up to the lesson the class is on (`taughtChars` in lib/zi.js), and a section a
+lesson does not print — 第九课 is two poems and has no 词语, 句型 or 用一用 — is not drawn.
+Exercises whose only shape is a pick between two or three printed options (and the
+listening ones) are left out with their keys in each file's `file_note`: there are many
+more of them in the later lessons, and a two- or three-option `pick` type would take them.
+The four 综合练习 between the units are not lessons and are not in. Phase 3 puts 汉字 into the
 Wordwood. Phase 4 extends the two Claude skills (`essay-review`,
 `progress-digest`), both of which are ISEE-shaped today and would otherwise go on
 reporting half of what she did.
@@ -507,7 +517,8 @@ reproduction is fine. Until that is settled, no lesson text is committed.
    official band specifications, then recommend.
 3. Whether 练习册（一） in the homework note means the A book. The reading is almost
    certain and it is still a reading.
-4. The lesson count per volume, confirmed from the book rather than a search result.
+4. ~~The lesson count per volume~~ — settled from the 目录: 第四册 has twelve lessons in
+   four units, with a 综合练习 after each unit.
 5. Whether a 课文 may be committed to a public repository (§ 8).
 
 ## 10. The game, in the Chinese half
