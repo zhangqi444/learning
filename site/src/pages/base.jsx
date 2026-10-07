@@ -263,7 +263,7 @@ export function Base() {
             </div>
           ) : null}
           <Progress value={(counts.built / counts.total) * 100} className="h-2" />
-          <p className="text-muted-foreground mt-2 text-xs tabular-nums">
+          <p className="text-muted-foreground mt-2 text-xs tabular-nums" data-testid="base-spend">
             {w.lifetime} made all time{w.onBase ? ` · ${w.onBase} spent on things they need` : ""}{w.onRewards ? ` · ${w.onRewards} on rewards` : ""}
           </p>
         </CardContent>

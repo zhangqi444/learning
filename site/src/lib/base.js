@@ -15,7 +15,7 @@
  *    thing a child should meet is a game that repossesses her work.
  */
 import { D, ORDER } from "./content"
-import { Store } from "./store"
+import { Store, ts } from "./store"
 import { allWordEntries, masteryOf, skillsFor, wordStatus } from "./engine"
 import { finishedBooks, readingDays } from "./books"
 
@@ -111,7 +111,17 @@ export function spends() {
 }
 /** Which rooms exist. Derived, so two devices can never disagree about it. */
 export function built() { return new Set(spends().map((s) => s.item)) }
-export function spentOnBase() { return spends().reduce((n, s) => n + (PRICES[s.item] || 0), 0) }
+/** What she has got for the Den, oldest first, each priced ONCE at its published price.
+ *  Two devices that were apart when she bought the same thing leave two rows in the
+ *  ledger — merging keeps both, as it must — but one thing is one thing, and charging
+ *  for it twice would spend Hum she never agreed to spend. `kind: "room"` is the
+ *  ledger's word for it; the page says "things they need". */
+export function roomLedger() {
+  const first = new Map(), names = Object.fromEntries(roomList().map((r) => [r.id, r.name]))
+  for (const s of [...spends()].sort((a, b) => ts(a.at) - ts(b.at))) if (!first.has(s.item)) first.set(s.item, s)
+  return [...first.values()].map((s) => ({ kind: "room", key: s.key, id: s.item, name: names[s.item] || s.item, cost: PRICES[s.item], at: s.at }))
+}
+export function spentOnBase() { return roomLedger().reduce((n, r) => n + r.cost, 0) }
 
 const newId = () => Date.now().toString(36) + Math.floor(Math.random() * 1e4).toString(36)
 

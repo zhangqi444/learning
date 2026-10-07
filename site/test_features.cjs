@@ -2223,6 +2223,65 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=rewards-card]');
   check('a badge stays earned even if the work behind it is gone', (await pg.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('isee.v1')).badges).length)) === pinned, pinned + ' pinned');
 
+  /* ---- one wallet, and it has to add up ----
+     Hum made is derived live from her records; Hum spent is a ledger of absolute
+     costs. The two come apart: two devices that have not seen each other's
+     purchases each say yes, and merging keeps both (hard rule 1), while undoing
+     work lowers earnings a purchase was already paid out of. Clamping the
+     difference to zero hid it — a real wallet read "552 made · 560 spent · 0 to
+     spend", and every Hum she earned after that disappeared into the hole. */
+  const walletOf = async () => {
+    const t = await body(pg);
+    const n = (re) => +((t.match(re) || [])[1] || 0);
+    // the Rewards page has to account for BOTH halves of the one wallet: a lump
+    // "spent so far" left the Hum that went into rooms invisible here, so the
+    // page could not be reconciled with the Claimed list underneath it
+    const onRewards = n(/· (\d+) spent on rewards/), onRooms = n(/· (\d+) on the Den/);
+    return { made: n(/(\d+) \S+ made/), onRewards, onRooms, spent: onRewards + onRooms, bal: +(await pg.textContent('[data-testid=wallet-balance]')) };
+  };
+  await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    for (let i = 0; i < 12; i++) s.results['wallet-test:' + i] = { n: 8, right: 8, at: '2026-09-01T10:00:00Z', wrong: [] };
+    // the same room recorded twice, the way two devices that were apart record it
+    s.base['spend:twin-a'] = { item: 'word-lab', cost: 60, at: '2026-09-02T10:00:00Z' };
+    s.base['spend:twin-b'] = { item: 'word-lab', cost: 60, at: '2026-09-02T11:00:00Z' };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    location.hash = '#/base';
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=rooms]');
+  const spendLine = await pg.textContent('[data-testid=base-spend]');
+  check('the same room recorded twice is still paid for once', /· 60 spent on things they need/.test(spendLine), spendLine.trim());
+  // a purchase the other device had already made unaffordable
+  await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.rewards['item:day-out'] = { name: 'A day out', cost: 900, at: '2026-09-02T09:00:00Z' };
+    s.rewards['claim:day-out'] = { rewardId: 'day-out', name: 'A day out', cost: 900, status: 'claimed', claimedAt: '2026-09-03T10:00:00Z', at: '2026-09-03T10:00:00Z' };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    location.hash = '#/rewards';
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=wallet-balance]');
+  const over = await walletOf();
+  // keyed on the number and the control, never the world's nouns — those are still hers to change
+  check('the rewards page says what the rooms took, not only what was claimed', over.onRooms === 60 && (await pg.$('[data-testid=to-base]')) !== null, JSON.stringify(over));
+  check('a spend can never take Hum she never made', over.spent <= over.made && over.bal >= 0, JSON.stringify(over));
+  check('and made minus spent is exactly what is left to spend', over.made - over.spent === over.bal, JSON.stringify(over));
+  const partial = (await body(pg)).match(/\d+ of 900 pts/);
+  check('a claim that could not be met in full says what it actually took', !!partial, (partial || ['no partial claim shown'])[0]);
+  // The claim stands (nothing is repossessed), and the shortfall is written off
+  // rather than charged to work she does afterwards.
+  await pg.evaluate(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.results['wallet-test:after'] = { n: 8, right: 8, at: new Date().toISOString(), wrong: [] };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=wallet-balance]');
+  const after10 = await walletOf();
+  check('Hum earned after an overspend is hers, not swallowed paying it off', after10.bal === over.bal + 10, `${JSON.stringify(over)} -> ${JSON.stringify(after10)}`);
+  check('and the reward stays claimed — nothing is repossessed', /A day out/.test(await body(pg)) && (await pg.$('[data-testid=claim-row]')) !== null);
+
   /* ---- everything below runs LAST, and must stay last ----
      These sections write learner records (word casts, throwaway review history).
      The stubbed Drive keeps whatever they write and the merge unions it back on

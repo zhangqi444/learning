@@ -145,6 +145,7 @@ function Gathering() {
 function Shelf() {
   const w = wallet()
   const list = shelf()
+  const took = Object.fromEntries(w.ledger.filter((r) => r.kind === "reward").map((r) => [r.id, r]))
   const cs = claims()
   const [name, setName] = React.useState("")
   const [cost, setCost] = React.useState(200)
@@ -207,8 +208,12 @@ function Shelf() {
               {cs.map((c) => (
                 <li key={c.id} className="flex flex-wrap items-center gap-3 px-3 py-2.5" data-testid="claim-row" data-status={c.status}>
                   {c.status === "given" ? <Check className="text-success size-4 shrink-0" /> : <Gift className="text-warning size-4 shrink-0" />}
-                  <span className="min-w-0 flex-1 text-sm font-medium">{c.name}</span>
-                  <span className="text-muted-foreground text-xs tabular-nums">{c.cost} pts · {fmtDate(c.at)}</span>
+                  {/* the name keeps a readable width and the row wraps instead — otherwise
+                      a phone squeezes "sleep over with hannah." into one word per line */}
+                  <span className="min-w-40 flex-1 text-sm font-medium">{c.name}</span>
+                  <span className="text-muted-foreground text-xs tabular-nums">
+                    {took[c.id] && took[c.id].short > 0 ? `${took[c.id].charged} of ${c.cost}` : c.cost} pts · {fmtDate(c.claimedAt)}
+                  </span>
                   {c.status === "given" ? (
                     <Badge variant="success">Given</Badge>
                   ) : (
@@ -221,6 +226,14 @@ function Shelf() {
               ))}
             </ul>
           </CardContent>
+          {w.onBase ? (
+            <CardFooter className="text-muted-foreground px-5 text-xs">
+              <span className="tabular-nums">
+                The things the cats need at {W.home} have taken {w.onBase} {W.currency} too — the shelf and {W.home} spend the same {W.currency}.{" "}
+                <button className="underline underline-offset-2" onClick={() => go("/base")} data-testid="to-base">Open {W.homeTitle}</button>
+              </span>
+            </CardFooter>
+          ) : null}
         </Card>
       ) : null}
     </div>
@@ -255,7 +268,7 @@ export function Rewards() {
             </div>
             <Progress value={w.level.pct} className="h-1.5" />
             <span className="text-muted-foreground text-xs tabular-nums">
-              {w.level.next ? `${w.level.next.at - w.lifetime} ${W.currency} to Level ${w.level.next.n} · ${w.level.next.title}` : "Top level reached"} · {week} earned this week{w.spent ? ` · ${w.spent} spent so far` : ""}
+              {w.level.next ? `${w.level.next.at - w.lifetime} ${W.currency} to Level ${w.level.next.n} · ${w.level.next.title}` : "Top level reached"} · {week} earned this week{w.onRewards ? ` · ${w.onRewards} spent on rewards` : ""}{w.onBase ? ` · ${w.onBase} on ${W.home}` : ""}
             </span>
           </div>
         </CardContent>
