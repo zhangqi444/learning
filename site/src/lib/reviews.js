@@ -150,7 +150,11 @@ export function paperFromPayload(obj) {
         return b
       }
       const where = box(v.where, "place"), ctx = box(v.ctx, "figure")
-      notes[`${sec}:${k}`] = { why: v.why.trim().slice(0, 400), ...(v.pick ? { pick: v.pick } : {}), ...(v.key ? { key: v.key } : {}), ...(where ? { where } : {}), ...(ctx ? { ctx } : {}) }
+      // `word`: the word a Verbal miss turned on ("adorn"), so review asks that word's own
+      // questions in its place (lib/engine.js, reviewStandIns). One word or a short phrase.
+      if (v.word != null && !(typeof v.word === "string" && /^[A-Za-z][A-Za-z' -]{0,38}[A-Za-z]$/.test(v.word.trim()))) throw new Error(`The note on ${s.name} question ${n} names "${v.word}" as its word; a word is letters, at most 40.`)
+      const word = v.word ? v.word.trim().toLowerCase() : null
+      notes[`${sec}:${k}`] = { why: v.why.trim().slice(0, 400), ...(v.pick ? { pick: v.pick } : {}), ...(v.key ? { key: v.key } : {}), ...(where ? { where } : {}), ...(ctx ? { ctx } : {}), ...(word ? { word } : {}) }
     }
   }
   if (p.analysis != null && !Array.isArray(p.analysis)) throw new Error("The link's analysis must be a list of lines.")

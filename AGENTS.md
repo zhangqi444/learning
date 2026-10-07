@@ -417,7 +417,10 @@ question: `reviewItems` serves `REVIEW_PER_MISS = 2` different questions of the 
 place (`reviewStandIns`), at every return including the check-in, and their answers move the miss
 through the entry's `for` (the owner, 4 October 2026: "the review should not do the same
 questions. should do different questions. you should double the workload"). A wrong one is a miss
-of its own. Precision words keep their own rebuilt question, and a Chinese miss is the Chinese
+of its own. A Verbal miss on a paper whose note names the word it turned on (`word`, through
+the results link) is asked through that word's own questions first, and its skill's after them:
+two random synonyms were practising "tenaciously" for a missed "adorn" (the owner, 7 October
+2026). Precision words keep their own rebuilt question, and a Chinese miss is the Chinese
 review's business. The rule that carries the weight is which answers
 count as evidence: `LEARN_CTX` admits `set`, `review`, `mixed`, `mock`, `vocab` and `again`, and
 excludes `corr`. A corrections pass re-asks the question whose answer she has just been shown, so

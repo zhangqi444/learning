@@ -156,7 +156,10 @@ And it may carry what went wrong, which the paper's page shows above and under t
 `pick` and `key` are letters; `why` is the marker's own words, never the question's text.
 A note may also say where the question sits on the paper's PDF — `"where": [page, x0, y0,
 x1, y1]`, fractions of the page, and `"ctx"` for the figure or passage it refers to — and
-the paper's page then shows the question cut out of that PDF.
+the paper's page then shows the question cut out of that PDF. On a Verbal miss that turned
+on one word, `"word": "adorn"` names it: review then asks that word's own questions in the
+miss's place — its synonym, its completion and its phrase completion — before any other
+question on the skill, and the paper's page links to the word.
 `python3 tools/paper_boxes.py paper.pdf --sections VR=…,QR=… --into result.json` adds
 them. A link with notes and no scores adds the notes to results already in, and no entry.
 

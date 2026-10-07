@@ -19,7 +19,9 @@ practice bank's skills, so review can ask about it; a paper the site ships alrea
 has its own map, and Verbal is filed by position.
 
 `notes` says what went wrong on a miss — the letter she chose, the right one, and a
-line on the mistake — and `analysis` a few lines on what the misses have in common;
+line on the mistake; on a Verbal miss that turned on one word, `word` names it
+("adorn") and review then asks that word's own questions in its place — and
+`analysis` a few lines on what the misses have in common;
 both show on the paper's page. The paper is a published book, so nothing of its text
 goes in: the notes are in the marker's own words, and the question stays in the
 booklet. This checks it all against the paper's own sections in
@@ -82,6 +84,8 @@ def main(path):
             if len(v["why"]) > 400: sys.exit(f"notes {k} {n}: keep the why under 400 characters")
             for f in ("pick", "key"):
                 if v.get(f) is not None and v[f] not in list("ABCDE"): sys.exit(f"notes {k} {n}: {f} must be a letter A–E")
+            w = v.get("word")   # the word a Verbal miss turned on, which review asks through its own questions
+            if w is not None and not (isinstance(w, str) and re.fullmatch(r"[A-Za-z][A-Za-z' -]{0,38}[A-Za-z]", w.strip())): sys.exit(f"notes {k} {n}: word must be letters, at most 40")
             for f in ("where", "ctx"):   # where the question (or its figure) sits on the paper's PDF
                 b = v.get(f)
                 if b is not None and not (isinstance(b, list) and len(b) == 5 and isinstance(b[0], int) and b[0] >= 1

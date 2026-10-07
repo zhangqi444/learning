@@ -726,6 +726,49 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.evaluate((p) => { location.hash = '#/import/' + p; }, paperLink);
   await pg.waitForSelector('[data-testid=paper-add]'); await pg.click('[data-testid=paper-add]'); await pg.waitForSelector('[data-testid=offline-save]');
   check('and the same link opened twice adds nothing', (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).mocks.TPR.entries.length)) === nEntries);
+  /* A Verbal miss that turned on one word, named in its note: review and Try one like
+     it ask that word's own questions — its synonym, its completion, its phrase
+     completion — and not any synonym (the owner, 7 October 2026: a missed "adorn" was
+     being practised as "tenaciously"). Read from the bundle, not written in here. */
+  const adornQs = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    return b.subjects.vr.filter((it) => it.vw === 'adorn' || /^ADORN most nearly means/.test(it.q) || String(it.c['ABCD'.indexOf(it.k)] || '').toLowerCase() === 'adorn').map((it) => it.id);
+  });
+  const wordLink = Buffer.from(JSON.stringify({ paper: { form: 'TPR', sat: '2026-10-03', missed: { VR: [5] }, notes: { VR: { 5: { pick: 'A', key: 'B', why: "Didn't know adorn: to decorate.", word: 'Adorn' } } } } })).toString('base64url');
+  await pg.evaluate((p) => { location.hash = '#/import/' + p; }, wordLink);
+  await pg.waitForSelector('[data-testid=paper-add]'); await pg.click('[data-testid=paper-add]'); await pg.waitForSelector('[data-testid=paper-miss][data-sec=VR][data-n="5"]');
+  check('a note can name the word a Verbal miss turned on, and the paper says review asks it',
+    adornQs.length >= 2 && /Review asks about “adorn”/.test(await pg.textContent('[data-testid=paper-miss][data-sec=VR][data-n="5"] [data-testid=paper-miss-word]').catch(() => '')), `${adornQs.length} adorn questions`);
+  await pg.click('[data-testid=paper-miss][data-sec=VR][data-n="5"] [data-testid=paper-miss-try]');
+  await pg.waitForSelector('[data-testid=question]');
+  const likeWord = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid || '');
+  check('and Try one like it asks one of that word\'s own questions', adornQs.includes(likeWord), `${likeWord} of ${adornQs.join(',')}`);
+  await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]');
+  await pg.waitForSelector('text=Back to the paper'); await pg.click('text=Back to the paper'); await pg.waitForSelector('[data-testid=offline-save]');
+  const wordNarrowed = await setLs(pg, () => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    localStorage.setItem('test.itemsnap', JSON.stringify(Object.fromEntries(Object.entries(s.items || {}).map(([k, r]) => [k, { due: (r && r.due) || null, cleared: (r && r.cleared) || null }]))));
+    for (const [k, r] of Object.entries(s.items || {})) if (k !== 'off:TPR:VR:5' && r && r.due) { r.due = null; r.cleared = r.cleared || new Date().toISOString(); }
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, () => { const s = JSON.parse(localStorage.getItem('isee.v1')); return !!(s.items['off:TPR:VR:5'] || {}).due && Object.entries(s.items || {}).every(([k, r]) => k === 'off:TPR:VR:5' || !r || !r.due); });
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.evaluate(() => { location.hash = '#/review/vr'; }); await pg.waitForSelector('[data-testid=question]');
+  const wordRun = [];
+  for (let k = 0; k < 4 && (await pg.$('[data-testid=question]')); k++) {
+    wordRun.push(await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null })));
+    const before = await pg.textContent('[data-testid=counter]');
+    await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]');
+    await pg.waitForFunction((b) => { const c = document.querySelector('[data-testid=counter]'); return !c || c.textContent !== b || !!document.querySelector('[data-testid=score]'); }, before, { timeout: 15000 });
+  }
+  check('and review asks two of that word\'s own questions for the miss, never a stranger\'s',
+    wordNarrowed === true && wordRun.length === 2 && wordRun.every((x) => x.standsFor === 'off:TPR:VR:5' && adornQs.includes(x.qid)) && wordRun[0].qid !== wordRun[1].qid, JSON.stringify(wordRun));
+  const wordRestored = await setLs(pg, () => {
+    const s = JSON.parse(localStorage.getItem('isee.v1')), snap = JSON.parse(localStorage.getItem('test.itemsnap') || '{}');
+    for (const [k, v] of Object.entries(snap)) if (!k.startsWith('off:') && s.items[k]) { s.items[k].due = v.due; s.items[k].cleared = v.cleared; }
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, () => { const s = JSON.parse(localStorage.getItem('isee.v1')), snap = JSON.parse(localStorage.getItem('test.itemsnap') || '{}'); return Object.entries(snap).every(([k, v]) => k.startsWith('off:') || !s.items[k] || (s.items[k].due || null) === v.due); });
+  await pg.evaluate(() => localStorage.removeItem('test.itemsnap'));
+  await pg.reload({ waitUntil: 'networkidle' });
+  check('and the rest of the pile is put back', wordRestored === true);
 
   /* A paper a parent adds (pages/mock.jsx, AddPaper) — the owner's ask of 5 October
      2026: "allow the user to attach offline mock test … track the wrong questions,

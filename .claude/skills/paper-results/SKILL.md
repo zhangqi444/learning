@@ -79,7 +79,10 @@ attached, read each missed question and her bubble, and give:
 - `notes` — per miss, `{"pick": "C", "key": "B", "why": "…"}`: the letter she chose, the
   right one, and one or two sentences on the mistake, **in your own words** — what she
   did, not what the question says. A word or a number is fine; the question's sentence,
-  its choices written out, or a passage is not.
+  its choices written out, or a passage is not. On a Verbal miss that turned on one word
+  (a synonym's headword, a completion's answer), add `"word": "adorn"`: review then asks
+  that word's own questions in the miss's place instead of any synonym. Check the word is
+  in the bank first — `/vocab/<word>` on the site, or grep `site/content/bundle.json`.
 - `analysis` — three to six lines on what the misses have in common: a trap that
   recurs, a figure misread the same way, a skill that went wrong in both sections.
 

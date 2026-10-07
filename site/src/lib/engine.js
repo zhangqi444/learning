@@ -6,6 +6,7 @@ import { D, ORDER, SUBJ, LTR, keyOf, setId, setsFor, currentWeek, isZh, exItems 
 import { Store, ts } from "./store"
 import { aopsFor, learnName } from "./aops"
 import { W, atLeast } from "./world"
+import { vocabWord } from "./wordindex"
 
 /* ---------- constants ---------- */
 /* The four reasons a question went wrong, and the one colour each of them wears.
@@ -91,7 +92,13 @@ function offlineItem(id) {
   const sec = (p.sections || []).find((x) => x.id === m[2])
   const n = Number(m[3]), sk = sec ? paperSkill(p, m[2], n) : null
   if (!sk) return null
-  return { sub: SEC2SUB[m[2]] || "vr", src: "offline", form: m[1], it: { id, sk, q: `${p.name} · ${sec.name} question ${n}`, c: [], k: null } }
+  return { sub: SEC2SUB[m[2]] || "vr", src: "offline", form: m[1], word: paperWord(p, m[2], n), it: { id, sk, q: `${p.name} · ${sec.name} question ${n}`, c: [], k: null } }
+}
+/** The bank's questions that test a word (lib/wordindex.js): the synonym, the completion and
+ *  the phrase completion that turns on it. Practice-set questions only; a mock's stay its own. */
+function wordAsks(word) {
+  const v = word ? vocabWord(word) : null
+  return v ? [...new Set(v.refs.filter((r) => r.role === "asked" && r.src === "set").map((r) => r.id))] : []
 }
 export function findItem(id) {
   if (typeof id !== "string") return null
@@ -397,12 +404,19 @@ export function reviewStandIns(id, n = REVIEW_PER_MISS, exclude = [], seed = tod
     const where = [hit.sub, ...ORDER.filter((x) => x !== hit.sub)].find((x) => ((skillTable(x)[nm] || {}).ids || []).some(free))
     if (where) { pool = skillTable(where)[nm].ids.filter(free); break }
   }
-  if (!pool.length) return []
+  // A paper's miss whose note names the word it turned on ("adorn"): that word's own questions
+  // come first and the skill's after them. Two random synonyms were practising some other
+  // word — "tenaciously" for a missed "adorn" — while adorn's three questions sat in Week 5
+  // (the owner, 7 October 2026).
+  const own = wordAsks(hit.word).filter(free)
+  if (!pool.length && !own.length) return []
   const at = (x) => { const o = items[x]; const h = (o && o.hist) || []; return h.length ? ts(h[h.length - 1].at) : 0 }
-  const unseen = pool.filter((x) => !at(x)).map((x) => [hash(seed + id + x), x]).sort((p, q) => p[0] - q[0]).map((p) => p[1])
-  const seen = pool.filter((x) => at(x)).sort((p, q) => at(p) - at(q))
+  const order = (ids) => [
+    ...ids.filter((x) => !at(x)).map((x) => [hash(seed + id + x), x]).sort((p, q) => p[0] - q[0]).map((p) => p[1]),
+    ...ids.filter((x) => at(x)).sort((p, q) => at(p) - at(q)),
+  ]
   const byId = index()
-  return [...unseen, ...seen].slice(0, n).map((x) => (byId[x] && byId[x].it ? { ...byId[x].it, standsFor: id } : null)).filter(Boolean)
+  return [...order(own), ...order(pool.filter((x) => !own.includes(x)))].slice(0, n).map((x) => (byId[x] && byId[x].it ? { ...byId[x].it, standsFor: id } : null)).filter(Boolean)
 }
 export function reviewStandIn(id, seed = todayKey()) { return reviewStandIns(id, 1, [], seed)[0] || null }
 
@@ -484,14 +498,16 @@ export function anotherLike(id) {
      exponents is a question about exponents — so the search widens to the other
      subjects rather than giving up. Its own subject is always tried first. */
   const where = [sub, ...ORDER.filter((x) => x !== sub)].find((x) => ((skillTable(x)[sk] || {}).ids || []).length > (x === sub ? 1 : 0))
-  const pool = where ? ((skillTable(where)[sk] || {}).ids || []).filter((x) => x !== id) : []
+  // A paper's miss that names its word is tried again on that word first, as review asks it.
+  const own = wordAsks(hit.word).filter((x) => x !== id)
+  const pool = own.length ? own : where ? ((skillTable(where)[sk] || {}).ids || []).filter((x) => x !== id) : []
   if (!pool.length) return null
   const byId = index()
   const at = (x) => { const r = rec(x); const h = (r && r.hist) || []; return h.length ? ts(h[h.length - 1].at) : 0 }
   const unseen = pool.filter((x) => !at(x))
   const pick = unseen.length ? unseen[0] : pool.slice().sort((a, b) => at(a) - at(b))[0]
   const row = byId[pick]
-  return row && row.it ? { sub: byId[pick].sub, sk, it: row.it, left: unseen.length } : null
+  return row && row.it ? { sub: byId[pick].sub, sk: own.length ? skillOf(byId[pick].sub, row.it) : sk, it: row.it, left: unseen.length } : null
 }
 
 /** How far a miss has been worked, and nothing about how far it should have been.
@@ -1033,6 +1049,9 @@ export function setPaperNotes(id, { notes = {}, analysis = [], by = "" } = {}) {
   }))
 }
 export function paperNote(p, secId, n) { const r = ((p && p.rec && p.rec.notes) || {})[`${secId}:${n}`]; return r && r.why ? r : null }
+/** The word a Verbal miss turned on, when the marker's note names it ("adorn"). Review then
+ *  asks that word's own questions in its place (reviewStandIns), not any synonym's. */
+export function paperWord(p, secId, n) { const r = ((p && p.rec && p.rec.notes) || {})[`${secId}:${n}`]; return r && typeof r.word === "string" && r.word.trim() ? r.word.trim().toLowerCase() : null }
 export function paperAnalysis(p) { const a = p && p.rec && p.rec.analysis; return a && Array.isArray(a.points) && a.points.length ? a : null }
 /** Where a question sits on the paper's own PDF, so its page can show it cut out of
  *  the family's copy (components/paper-question.jsx): `q` the question, `ctx` the

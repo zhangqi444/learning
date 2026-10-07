@@ -23,6 +23,7 @@ import { ReviewCard } from "@/components/review-card"
 import { learnName } from "@/lib/aops"
 import { LearnCard } from "@/components/learn-card"
 import { PaperQuestion } from "@/components/paper-question"
+import { vocabPath } from "@/lib/vocab"
 import { ISEE_LOWER_SECTIONS, STANINE, addPaperAttachment, createOfflinePaper, markRedone, paperAnalysis, paperAttachments, paperBoxes, paperNote, paperPdf, removePaperAttachment, mockBand, mockNextSteps, offlinePaper, offlinePapers, offlineResult, paperRedone, paperSkill, paperSkillOptions, recordMockForm, recordOfflineMisses, removePaper, setPaperFile, setPaperLink, skillOf, tagPaperMiss } from "@/lib/engine"
 
 /* ---------- state helpers ---------- */
@@ -544,6 +545,7 @@ function PaperMissesCard({ p, sc }) {
                       <p className="text-muted-foreground order-1 basis-full @3xl/main:order-3" data-testid="paper-miss-note">
                         {r.note.pick || r.note.key ? <span className="text-foreground mr-2 font-medium tabular-nums" data-testid="paper-miss-letters">{[r.note.pick ? `Chose ${r.note.pick}` : "", r.note.key ? `Answer ${r.note.key}` : ""].filter(Boolean).join(" · ")}</span> : null}
                         {r.note.why}
+                        {r.note.word ? <> <Button variant="link" className="h-auto p-0 align-baseline" onClick={() => go(vocabPath(r.note.word))} data-testid="paper-miss-word">Review asks about “{r.note.word}”</Button></> : null}
                       </p>
                     ) : null}
                     {r.mapped && pdf && isOpen(r) ? <div className="order-4 basis-full pt-1"><PaperQuestion p={p} secId={s.id} n={r.n} /></div> : null}
