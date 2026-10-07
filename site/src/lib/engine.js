@@ -159,6 +159,46 @@ export function setTag(id, patch) {
   next.hist = hist
   Store.setMany("items", { [id]: next })
 }
+/** She says a right answer was a guess, or takes that back. The owner, 6 October 2026: "need
+ *  to allow the kids to mark the right answered question as guess or not". A guess that lands
+ *  is right on the paper, so the set keeps it as right; but it is no evidence she knows the
+ *  question, so it raises no level (`known`) and the question goes into the review pile for
+ *  tomorrow as a miss would — where, by the review's rule, two others on its skill are asked
+ *  in its place. The schedule the right answer had earned is kept beside it (`beforeGuess`),
+ *  so taking the mark back restores exactly that. `via`: the stand-in that answered for this
+ *  question in a review, whose answer was written here too and is marked with it. */
+export function markGuess(id, on, via = null) {
+  const prev = rec(id)
+  if (!prev || !prev.hist) return false
+  const hist = [...prev.hist]
+  let k = -1
+  for (let i = hist.length - 1; i >= 0; i--) { const h = hist[i]; if (h && h.ok && LEARN_CTX[h.ctx] && (via ? h.via === via : !h.via)) { k = i; break } }
+  if (k < 0 || !!hist[k].guess === !!on) return false
+  const h = { ...hist[k] }
+  if (on) h.guess = true; else delete h.guess
+  hist[k] = h
+  const r = { ...prev, hist }
+  if (on) {
+    r.beforeGuess = { step: prev.step ?? null, streak: prev.streak ?? null, due: prev.due ?? null, cleared: prev.cleared ?? null }
+    const t = plusDays(h.at, INTERVALS[0])
+    r.step = 0; r.streak = 0; r.cleared = null
+    r.due = prev.due && !prev.cleared && ts(prev.due) < ts(t) ? prev.due : t   // never later than it already was
+    r.guesses = (prev.guesses || 0) + 1
+  } else {
+    const b = prev.beforeGuess
+    if (b) { r.step = b.step; r.streak = b.streak; r.due = b.due; r.cleared = b.cleared }
+    delete r.beforeGuess
+    r.guesses = Math.max(0, (prev.guesses || 1) - 1)
+  }
+  Store.setMany("items", { [id]: r })
+  return true
+}
+/** The latest right answer on a question, as markGuess finds it: for the score card's toggle. */
+export function lastRight(id, via = null) {
+  const hs = ((rec(id) || {}).hist || [])
+  for (let i = hs.length - 1; i >= 0; i--) { const h = hs[i]; if (h && h.ok && LEARN_CTX[h.ctx] && (via ? h.via === via : !h.via)) return h }
+  return null
+}
 /** A precision word was rated: 1 → review tomorrow, 2 → in three days, 3 → only the quiz. */
 export function scheduleWord(word, conf, when = nowIso()) {
   const id = "w:" + word, prev = rec(id) || { hist: [] }
@@ -502,7 +542,7 @@ export function missStage(id) {
   let missAt = null
   for (let i = hs.length - 1; i >= 0; i--) if (!hs[i].ok) { missAt = ts(hs[i].at); break }
   if (missAt == null) return null
-  const after = (h) => h.ok && ts(h.at) > missAt
+  const after = (h) => known(h) && ts(h.at) > missAt
   const redone = hs.some(after)
   let practised = hs.some((h) => h.ctx === "again" && after(h))
   if (!practised) {
@@ -555,6 +595,10 @@ export function skillTable(sub) {
   return (SK_CACHE[sub] = t)
 }
 function attemptsOf(r, asOf) { return (r && r.hist ? r.hist : []).filter((h) => LEARN_CTX[h.ctx] && (!asOf || ts(h.at) <= asOf)) }
+/** A right answer she did not mark as a guess — the only kind that says she knows it.
+ *  A guess that lands is right on the paper and stays right in the set, but it raises
+ *  no level, promotes nothing and redoes no miss (markGuess). */
+export const known = (h) => !!(h && h.ok && !h.guess)
 /** Level of one skill, from the latest learning attempt on each of its questions.
  *  Mastered needs Proficient plus two correct answers in a mixed set or a mock on a later day. */
 /** The skill's own cat: the same animal the Glimbook holds, at the brightness
@@ -580,10 +624,10 @@ export function skillLevel(sub, sk, asOf) {
     const hs = attemptsOf(r, asOf)
     if (!hs.length) continue
     attempted++
-    if (hs[hs.length - 1].ok) cur++
+    if (known(hs[hs.length - 1])) cur++
     if (r.due && !r.cleared && ts(r.due) <= now) overdue++
     const firstDay = dayKey(hs[0].at)
-    if (hs.some((h) => h.ok && (h.ctx === "mixed" || h.ctx === "mock") && dayKey(h.at) !== firstDay)) promoted++
+    if (hs.some((h) => known(h) && (h.ctx === "mixed" || h.ctx === "mock") && dayKey(h.at) !== firstDay)) promoted++
   }
   const acc = attempted ? cur / attempted : null
   let level = "Not started"
@@ -668,7 +712,7 @@ export function promotionsIn(items, asOf) {
     if (!hs.length) continue
     const firstDay = dayKey(hs[0].at)
     if (firstDay === todayKey()) continue
-    const already = hs.some((h) => h.ok && (h.ctx === "mixed" || h.ctx === "mock") && dayKey(h.at) !== firstDay)
+    const already = hs.some((h) => known(h) && (h.ctx === "mixed" || h.ctx === "mock") && dayKey(h.at) !== firstDay)
     if (!already) g.eligible++
   }
   return [...by.values()].map((g) => {
@@ -861,7 +905,7 @@ export function wordStatus(word) {
   const quiz = (r.hist || []).filter((h) => h.ctx === "vocab" || h.ctx === "review")
   const lastQuiz = quiz[quiz.length - 1]
   const explained = r.explain && r.explain.conf >= 2
-  const quizRight = lastQuiz && lastQuiz.ok && quiz.some((h) => h.ok && (!r.explain || dayKey(h.at) !== dayKey(r.explain.at)))
+  const quizRight = known(lastQuiz) && quiz.some((h) => known(h) && (!r.explain || dayKey(h.at) !== dayKey(r.explain.at)))
   if (r.due && !r.cleared && ts(r.due) <= now) return { status: "due", rec: r }
   if (r.due && r.cleared && ts(r.due) <= now) return { status: "brushup", rec: r }
   if (explained && quizRight) return { status: "known", rec: r }

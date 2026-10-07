@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Eye, Gauge, Home, Ro
 
 import { D, LTR, isZh, keyOf, zhSkillName } from "@/lib/content"
 import { getLang, useLang } from "@/lib/lang"
-import { BUDGET, CAUSES, findItem, paceFlag, passageWords, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast, words } from "@/lib/engine"
+import { BUDGET, CAUSES, LEARN_CTX, findItem, lastRight, markGuess, paceFlag, passageWords, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast, words } from "@/lib/engine"
 import { LearnCard } from "@/components/learn-card"
 import { syncBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
@@ -230,6 +230,25 @@ export function CauseTags({ id, compact }) {
   )
 }
 
+/** A right answer, and whether it was a guess. One tap, and the same tap takes it back: a
+ *  guess still counts as right in the set, but the question comes back tomorrow as two
+ *  others on its skill, so a lucky guess is not taken for knowing (engine.js, markGuess). */
+export function GuessMark({ id, standsFor }) {
+  useStore(); useLang()
+  const last = lastRight(id)
+  if (!last) return null
+  const on = !!last.guess
+  const zh = zhUi((findItem(id) || {}).sub)
+  const flip = () => { markGuess(id, !on); if (standsFor && standsFor !== id) markGuess(standsFor, !on, id) }
+  return (
+    <div className="flex flex-wrap items-center gap-1.5" data-testid="guess-mark" data-qid={id} data-on={on ? "1" : "0"}>
+      <span className="text-muted-foreground mr-1 text-xs">{zh ? "是猜对的吗？" : "Did you guess it?"}</span>
+      <Button size="sm" variant={on ? "default" : "outline"} className="h-7 px-2.5 text-xs" aria-pressed={on} onClick={flip} data-testid="guess-mark-toggle">{zh ? "猜的" : "I guessed"}</Button>
+      {on ? <span className="text-muted-foreground text-xs">{zh ? "明天再问两道同类的题。" : "Two like it come back tomorrow."}</span> : null}
+    </div>
+  )
+}
+
 /* The Chinese half carries its prompt, explanation and `why` in both languages;
  * which one is shown follows the page's language (lib/lang.js), with English as
  * the fallback where a Chinese version is absent — so an ISEE item, which has
@@ -306,6 +325,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   const [done, setDone] = useState(() => (back ? null : prior ? { right: prior.right, at: prior.at, attempts: prior.attempts || 1, reopened: true, times: prior.times || null } : null))
   const [won, setWon] = useState([])           // badges earned by finishing this set
   const [shown, setShown] = useState(() => (back ? { ...(back.shown || {}) } : {}))       // question index -> revealed, instant mode only
+  // question index -> she marked it "I'm guessing" as she answered (kept in the draft)
+  const [guesses, setGuesses] = useState(() => (back && Array.isArray(back.guesses) ? back.guesses.slice() : []))
   const spent = useRef(back ? { ...(back.spent || {}) } : {})                    // question index -> ms
   const entered = useRef(Date.now())
   const finished = useRef(false)
@@ -330,7 +351,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   const counted = useCountUp(done ? done.right : 0)
 
   function leave() { spent.current[i] = (spent.current[i] || 0) + (Date.now() - entered.current); entered.current = Date.now() }
-  function retry() { Store.dropDraft(draftKey); finished.current = false; setPicks([]); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
+  function retry() { Store.dropDraft(draftKey); finished.current = false; setPicks([]); setGuesses([]); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
 
   /* One tap reaches here twice: the choice's own onClick and the radio group's
    * onValueChange both fire for a single click, and the second call lands
@@ -397,6 +418,13 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
       Store.recordSet(setId, res)
     }
     if (record) recordAttempts(entries, kind)
+    // What she marked as a guess while answering. A right one is marked on its record (and
+    // on the miss it stood in for, in a review); a wrong one is a miss she was not sure of.
+    if (record && LEARN_CTX[kind]) items.forEach((q, j) => {
+      if (!guesses[j] || picks[j] == null) return
+      if (LTR[picks[j]] === keyOf(q)) { markGuess(q.id, true); if (q.standsFor && q.standsFor !== q.id) markGuess(q.standsFor, true, q.id) }
+      else setTag(q.id, { sure: false })
+    })
     if (onFinish) onFinish({ right, n: items.length, at, wrong, bySub, times })
     const badges = record ? syncBadges() : []
     if (record) setWon(badges)
@@ -434,8 +462,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   const answered = picks.filter((p) => p != null).length
   React.useEffect(() => {
     if (!draftKey || done || !answered) return
-    Store.saveDraft(draftKey, { sig, picks, i, shown, spent: spent.current, n: items.length, answered, title: title || null, path: exitPath || null })
-  }, [answered, picks, i, shown, done])
+    Store.saveDraft(draftKey, { sig, picks, guesses, i, shown, spent: spent.current, n: items.length, answered, title: title || null, path: exitPath || null })
+  }, [answered, picks, guesses, i, shown, done])
 
   /* Leaving the page mid-set. The per-answer save above already has her
    * answers; what it cannot have is the time spent on the question she was
@@ -444,13 +472,13 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
    * gap in the pacing figures — it is a wrong number in them, and it is the
    * kind that makes a median look better than the truth. */
   const latest = useRef(null)
-  latest.current = { picks, i, shown, answered, done }
+  latest.current = { picks, guesses, i, shown, answered, done }
   React.useEffect(() => () => {
     const l = latest.current
     if (!draftKey || !l || l.done || finished.current || !l.answered) return
     const sp = { ...spent.current }
     sp[l.i] = (sp[l.i] || 0) + (Date.now() - entered.current)
-    Store.saveDraft(draftKey, { sig, picks: l.picks, i: l.i, shown: l.shown, spent: sp, n: items.length, answered: l.answered, title: title || null, path: exitPath || null })
+    Store.saveDraft(draftKey, { sig, picks: l.picks, guesses: l.guesses, i: l.i, shown: l.shown, spent: sp, n: items.length, answered: l.answered, title: title || null, path: exitPath || null })
   }, [])
 
   /* ABOVE the finished-state return on purpose. A hook after that `return` is a
@@ -607,6 +635,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                   ) : null}
                   {eOf(q) ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{eOf(q)}</div> : null}
                   {!ok && canTag ? <CauseTags id={q.id} /> : null}
+                  {ok && canTag ? <GuessMark id={q.id} standsFor={q.standsFor} /> : null}
                   {/* Open where she missed it, folded where she did not. A
                       question she got right still gets the offer — knowing the
                       answer and knowing the method are different things, and the
@@ -788,6 +817,19 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             ))}
           </RadioGroup>
           </div>
+          {/* Flag it the way she would flag a question on the paper. Before or after she picks,
+              and on the reveal too: a guess that lands still counts as right, and comes back
+              tomorrow as two others on its skill; a guess that misses is a miss she was not
+              sure of. Nothing else changes — no score, no Hum, no cat. */}
+          {record && kind !== "corr" ? (
+            <div className="-mt-1 flex items-center gap-2">
+              <Button size="sm" variant={guesses[i] ? "default" : "ghost"} className="h-7 px-2.5 text-xs" aria-pressed={!!guesses[i]}
+                onClick={() => { const g = guesses.slice(); g[i] = !g[i]; setGuesses(g) }} data-testid="guess-toggle">
+                {zh ? "我是猜的" : "I'm guessing"}
+              </Button>
+              {guesses[i] ? <span className="text-muted-foreground text-xs">{zh ? "做完后会再练同类的题。" : "Marked — it will come back for practice."}</span> : null}
+            </div>
+          ) : null}
           {revealed ? (
             <div className="motion-safe:animate-[pop_260ms_ease-out_both]" data-testid="reveal">
               <div className="flex items-start gap-3">

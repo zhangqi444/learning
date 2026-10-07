@@ -23,24 +23,25 @@ export function answersOn(id) {
   return ((rec(id) || {}).hist || []).filter((h) => h && LEARN_CTX[h.ctx] && !h.via)
 }
 
-/** One question: how many answers she gave it, how many were right and wrong, and the latest. */
+/** One question: how many answers she gave it, how many were right and wrong, the latest, and
+ *  how many of the right ones she marked as a guess (counted right, and not taken for knowing). */
 export function questionResult(id) {
   const hs = answersOn(id)
   const right = hs.filter((h) => h.ok).length
-  return { done: hs.length, right, wrong: hs.length - right, last: hs.length ? hs[hs.length - 1] : null }
+  return { done: hs.length, right, wrong: hs.length - right, guessed: hs.filter((h) => h.ok && h.guess).length, last: hs.length ? hs[hs.length - 1] : null }
 }
 
 /** Questions taken together — a skill, a part of one, the questions that test a word. Each id is
  *  counted once however often it is passed. `tried`: questions with an answer; `missed`: questions
  *  with a wrong one; `last`: the latest answer on any of them. */
 export function tally(ids) {
-  const out = { questions: 0, tried: 0, missed: 0, done: 0, right: 0, wrong: 0, last: null }
+  const out = { questions: 0, tried: 0, missed: 0, done: 0, right: 0, wrong: 0, guessed: 0, last: null }
   for (const id of new Set(ids)) {
     const x = questionResult(id)
     out.questions++
     if (x.done) out.tried++
     if (x.wrong) out.missed++
-    out.done += x.done; out.right += x.right; out.wrong += x.wrong
+    out.done += x.done; out.right += x.right; out.wrong += x.wrong; out.guessed += x.guessed
     if (x.last && (!out.last || ts(x.last.at) > ts(out.last.at))) out.last = x.last
   }
   return out
@@ -51,6 +52,7 @@ export const QUESTION_SHOWS = [
   { id: "all", label: "All", keep: () => true },
   { id: "tried", label: "Tried", keep: (x) => x.done > 0 },
   { id: "missed", label: "Missed", keep: (x) => x.wrong > 0 },
+  { id: "guessed", label: "Guessed", keep: (x) => x.guessed > 0 },
   { id: "untried", label: "Not tried yet", keep: (x) => x.done === 0 },
 ]
 /** And a subject's skills, by her answers on each skill's questions (`tally`) — the word bank's

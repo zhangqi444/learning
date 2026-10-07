@@ -38,18 +38,21 @@ export function TallyStats({ t, questions, extra, testid }) {
       <Stat n={t.done} label="answers she gave" />
       <Stat n={t.right} label="right" tone={t.right ? "text-success" : undefined} />
       <Stat n={t.wrong} label="wrong" />
+      {t.guessed ? <Stat n={t.guessed} label="right, but guessed" testid="tally-guessed" /> : null}
       <Stat n={lastSeen(t)} label="last answered" tone={t.last ? undefined : "text-muted-foreground"} />
       {extra}
     </div>
   )
 }
 
-/** Her answers on one question or a group of them, in one line: "done 3 · 2 right · 1 wrong". */
+/** Her answers on one question or a group of them, in one line: "done 3 · 2 right · 1 wrong",
+ *  and " · 1 guessed" when she marked a right one as a guess. */
 export function TallyLine({ x, testid, untried = "not tried yet" }) {
   if (!x.done) return <span className="text-muted-foreground" data-testid={testid}>{untried}</span>
   return (
     <span data-testid={testid}>
       done {x.done} · <span className={x.right ? "text-success" : "text-muted-foreground"}>{x.right} right</span> · <span className={x.wrong ? undefined : "text-muted-foreground"}>{x.wrong} wrong</span>
+      {x.guessed ? <span className="text-muted-foreground" data-testid="tally-line-guessed"> · {x.guessed} guessed</span> : null}
     </span>
   )
 }

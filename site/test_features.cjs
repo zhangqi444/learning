@@ -1764,6 +1764,29 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   check('a phrase completion is filed under the word its sentence turns on', !!vw.futile && !!(await pg.$(`[data-testid=vocab-question][data-qid="${vw.futile}"][data-role=asked]`)), vw.futile);
   }
   {
+  /* A right answer can be marked as a guess (the owner, 6 October 2026: "need to allow the
+     kids to mark the right answered question as guess or not"). It stays right in the set, is
+     no evidence she knows it, and goes into the review pile for tomorrow; taking the mark back
+     on the score card restores the schedule the right answer had earned. */
+  await pg.goto('http://localhost:8143/learning/#/run/qr/W8/0', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=question]');
+  const gq = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
+  const gk = await pg.evaluate(async (id) => { const b = await (await fetch('./content/bundle.json')).json(); return 'ABCD'.indexOf(b.subjects.qr.find((q) => q.id === id).k); }, gq);
+  await pg.click('[data-testid=guess-toggle]');
+  check('"I\'m guessing" can be marked before she answers', (await pg.getAttribute('[data-testid=guess-toggle]', 'aria-pressed')) === 'true');
+  await pg.click(`[data-testid=choice] >> nth=${gk}`);
+  await pg.click('[data-testid=next]');
+  await runThrough(pg, 0);
+  await pg.waitForSelector('[data-testid=score]');
+  const gRec = () => pg.evaluate((id) => { const s = JSON.parse(localStorage.getItem('isee.v1')); const r = s.items[id] || {}; const h = (r.hist || []).filter((x) => x.ok); return { guess: !!(h[h.length - 1] || {}).guess, due: r.due || null, cleared: r.cleared || null, step: r.step == null ? null : r.step, before: !!r.beforeGuess }; }, gq);
+  const g1 = await gRec();
+  check('a right answer marked as a guess stays right, is kept as a guess, and comes back for review tomorrow', g1.guess && !!g1.due && !g1.cleared && g1.step === 0 && g1.before, JSON.stringify(g1));
+  const markSel = `[data-testid=guess-mark][data-qid="${gq}"]`;
+  check('and the score card shows it marked', (await pg.getAttribute(markSel, 'data-on')) === '1');
+  await pg.click(`${markSel} [data-testid=guess-mark-toggle]`); await pg.waitForSelector(`${markSel}[data-on="0"]`);
+  const g2 = await gRec();
+  check('taking the mark back restores what the right answer had earned', !g2.guess && !g2.due && !g2.before, JSON.stringify(g2));
+  }
+  {
   /* A skill and a word count her answers one way (lib/tally.js), and show them in the same
      shapes (components/tally.jsx). The owner, 6 October 2026: "to the skills, should follow the
      vocabulary list, to see more statistic data? or can you make the two features more

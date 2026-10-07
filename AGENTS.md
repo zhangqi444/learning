@@ -144,7 +144,7 @@ Everything derived lives in `src/lib/engine.js` and is computed, never stored:
 
 - `Store.s.results[setId]` — a finished practice set: `{n, right, at, wrong[], picks{}, times{}}`.
 - `Store.s.items[questionId]` — the **learning record**: `{hist[], step, due, cleared,
-  tag, sure, misses}`. Spaced review, mastery, pacing and the readiness score all
+  tag, sure, misses, guesses, beforeGuess}`; an answer in `hist` may carry `guess`. Spaced review, mastery, pacing and the readiness score all
   read from here. `backfill()` creates records for older work; it only ever adds.
 - Badges (`Store.s.badges`) are **pinned on first earning** and never recomputed away.
 
@@ -423,6 +423,17 @@ count as evidence: `LEARN_CTX` admits `set`, `review`, `mixed`, `mock`, `vocab` 
 excludes `corr`. A corrections pass re-asks the question whose answer she has just been shown, so
 it proves nothing; `again` asks a *different* question on the same skill, so it proves something.
 Adding a new context means deciding which of those two it is.
+
+**A guess that lands is right, and not known.** The owner, 6 October 2026: "need to allow the kids
+to mark the right answered question as guess or not". She can flag "I'm guessing" on a question as
+she answers it, the way she would flag one on the paper, and change her mind on the score card
+("Did you guess it?"). A right answer so marked stays right in the set, because it is right on the
+test; but `known()` in engine.js leaves it out of everything that says she knows a question: a
+skill's level, its promotion to Mastered, a miss counted as redone, a list word counted as known.
+And `markGuess` puts the question into the review pile for tomorrow as a miss would, so the review
+asks two others on its skill. The schedule the right answer had earned is kept as `beforeGuess`, so
+taking the mark back restores it exactly. A guess that misses is simply a miss she was not sure of
+(`sure: false`). The mark costs nothing: no Hum, no score, no cat.
 
 **The mastery ladder refuses to brighten on thin evidence.** Fewer than three questions attempted
 caps a skill at Started. Mastered needs `PROMOTE_AT = 2` questions right in a **mixed** set or a
