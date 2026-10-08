@@ -34,7 +34,7 @@ in to the site with** (the test user in `site/oauth.json`). Search
     writing `submitted: true` and `items[itemId] = { png, strokes, n }` where
     `png` and `strokes` are Drive file ids (`zh-ink-<set>-<item>-<time>.png` and
     `.json`); for the retell `told { transcript, ms, fileId }` and
-    `parent { at, by }`; for a 读一读 exercise she read aloud, `read { transcript,
+    `parent { at, by }`; for a 读一读 exercise she read aloud — and for a `read_words` task, under its id (`rw:L06`) — `read { transcript,
     matched, total, heard, ms, fileId }` — the same shape as a reading attempt.
 - The exercises themselves — prompts, keys, explanations — are in the repo at
   `content/chinese/exercises/L05.json`; the lesson's 生字, 词语 and 读一读 lists at
@@ -60,6 +60,8 @@ as she wrote them. Judge three things, each in a sentence she can act on:
 The `strokes` file (same base name, `.json`) holds the point sequences with
 pressure and time if a stroke-order question needs settling; it is not needed
 for a judgment of the page.
+
+A reading task may carry the teacher's time (`target_s` on the task, e.g. 75 for 课文考试1分15); the attempt's `ms` is her time — say how it compares, in a line, without making it the point.
 
 For the retell, read `told.transcript` — what the recogniser heard, so treat an
 odd character as the recogniser's before hers — and judge whether the story is

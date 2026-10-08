@@ -1,0 +1,121 @@
+{
+ "set": "2026-10-07",
+ "lesson": "L06",
+ "edition": "2023年第三版",
+ "verbatim_note": [
+  "10月7日作业",
+  "第六课课文考试1分15",
+  "第六课读一读的词语22秒",
+  "第六课练习册周二✍️",
+  "听写课本52页的词语和以下词语：",
+  "喝汤。那样。前面。所以。既然。草原。永远。家乡。",
+  "谢谢"
+ ],
+ "tasks": [
+  {
+   "line": "第六课课文考试1分15",
+   "kind": "read_aloud",
+   "what": "课文《猴子捞月亮》",
+   "what_en": "The text: The Monkeys and the Moon",
+   "target_s": 75,
+   "rule": {
+    "zh": "课文考试：1分15秒内读完。对着课本读，录下来；读完会显示用了多久。",
+    "en": "The text test: read it within 1 minute 15 seconds. Read it from the book; it is recorded, and the time shows when you stop."
+   },
+   "pages": "课本第58–59页",
+   "pages_en": "Textbook pp. 58–59",
+   "scope_note": "The teacher's 课文考试 is a timed reading of the lesson's text, target 1分15秒. The site still holds no text of the book (docs/chinese.md § 8), so she reads from the book; what the site adds is the clock and the recording."
+  },
+  {
+   "line": "第六课读一读的词语22秒",
+   "kind": "read_words",
+   "id": "rw:L06",
+   "section": "读一读",
+   "what": "第六课 读一读的词语",
+   "what_en": "Lesson 6: the Read Aloud words",
+   "target_s": 22,
+   "rule": {
+    "zh": "22秒内把读一读的词语读完。词语就在下面，读完按停止。",
+    "en": "Read all the Read Aloud words within 22 seconds. The words are below; press Stop at the end."
+   },
+   "pages": "课本第60页",
+   "pages_en": "Textbook p. 60",
+   "scope_note": "The 读一读 rows are the lesson file's own (content/chinese/lessons/L06.json), so the words are shown and her reading is aligned to them; the recording and the alignment are kept under exercises[rw:L06].read, the shape the chinese-review skill already reads for a 读一读 exercise."
+  },
+  {
+   "line": "第六课练习册周二✍️",
+   "kind": "workbook",
+   "what": "练习册B 第六课，星期二",
+   "what_en": "Workbook B, Lesson 6, Tuesday",
+   "days": [
+    "星期二"
+   ],
+   "banks": [
+    "zh-char",
+    "zh-word"
+   ],
+   "on_paper": [],
+   "pages": "练习册B 第33–34页",
+   "pages_en": "Workbook B, pp. 33–34",
+   "exercises": "content/chinese/exercises/L06.json",
+   "scope_note": "Only Tuesday this week: the checklist lists the four Tuesday rows (the 选词填空 block, the write, the match and the free writing). The rest of the lesson's workbook stays open on the workbook page."
+  },
+  {
+   "line": "听写课本52页的词语和以下词语：喝汤。那样。前面。所以。既然。草原。永远。家乡。",
+   "kind": "dictation",
+   "what": "课本第52页的词语和老师加的词语",
+   "what_en": "The words on textbook p. 52 and the teacher's extra words",
+   "rule": {
+    "zh": "先听，再用笔在格子里写——点\"写好了\"会显示标准写法，按笔顺判；也可以在纸上写，显示对照，自己或家长打分。",
+    "en": "Listen, then write it with the Pencil in the box — the standard form appears when you tap Done and the strokes are judged by rule; or write it on paper, show it, and rate it yourself or with a parent."
+   },
+   "words": {
+    "读一读（第52页）": [
+     "松树",
+     "松鼠",
+     "老鼠",
+     "田鼠",
+     "淹死了",
+     "一定",
+     "肯定",
+     "必定"
+    ],
+    "用一用（第52页）": [
+     "很突然",
+     "突然停电了",
+     "突然站了起来",
+     "只好去",
+     "只好请别人帮忙",
+     "那么多",
+     "那么好",
+     "那么大",
+     "一定要来",
+     "一定会去的",
+     "最好不要迟到",
+     "最好别去",
+     "那样大",
+     "那样红",
+     "那样深"
+    ],
+    "老师加的词语": [
+     "喝汤",
+     "那样",
+     "前面",
+     "所以",
+     "既然",
+     "草原",
+     "永远",
+     "家乡"
+    ]
+   },
+   "sections_en": {
+    "读一读（第52页）": "Read aloud (p. 52)",
+    "用一用（第52页）": "Use it (p. 52)",
+    "老师加的词语": "The teacher's extra words"
+   },
+   "pages": "课本第52页",
+   "pages_en": "Textbook p. 52",
+   "scope_note": "p. 52 is 第五课's page (读一读 last rows and 用一用), dictated again this week; listed as in the 2026-09-30 note, which read it literally. The eight added words are the teacher's own, in the note's order."
+  }
+ ]
+}

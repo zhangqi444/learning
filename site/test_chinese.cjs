@@ -14,10 +14,17 @@ const { stubGoogle, signIn } = require('./test_google.cjs');
 const http = require('http'), fs = require('fs'), path = require('path');
 const DIST = path.join(__dirname, 'dist');
 const MIME = { '.html': 'text/html', '.json': 'application/json', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.webmanifest': 'application/manifest+json' };
+// The suite's week is the teacher's note of 30 September (第五课): every check below until the
+// last block reads it as hers. Later notes are taken out of the bundle it is served, so a new
+// week landing in content/ does not move the fixture under it; the last block switches this off
+// and checks the newest week against the real bundle.
+let FIXTURE = '2026-09-30';
+const pinned = (b) => (FIXTURE ? { ...b, zh: { ...b.zh, homework: Object.fromEntries(Object.entries(b.zh.homework).filter(([k]) => k <= FIXTURE)) } } : b);
 const srv = http.createServer((req, res) => {
   let p = decodeURIComponent(req.url.split('?')[0]);
   if (!p.startsWith('/learning')) { res.writeHead(404); return res.end(); }
   p = p.slice('/learning'.length) || '/'; if (p === '/') p = '/index.html';
+  if (p === '/content/bundle.json' && FIXTURE) { res.writeHead(200, { 'content-type': 'application/json' }); return res.end(JSON.stringify(pinned(JSON.parse(fs.readFileSync(path.join(DIST, p), 'utf8'))))); }
   const f = path.join(DIST, p);
   if (!fs.existsSync(f)) { res.writeHead(404); return res.end(); }
   res.writeHead(200, { 'content-type': MIME[path.extname(f)] || 'application/octet-stream' }); res.end(fs.readFileSync(f));
@@ -47,7 +54,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   pg.on('pageerror', (e) => errs.push('PAGEERR ' + e.message));
   // The voice: record what would have been said instead of saying it. Only
   // `speak` is replaced, so cancel() and getVoices() stay real.
-  await pg.addInitScript(() => {
+  const INIT = () => {
     window.__spoken = []; const s = window.speechSynthesis; if (s) s.speak = (u) => window.__spoken.push({ text: u.text, lang: u.lang });
     // Headless Chromium has no microphone and no recogniser. Both are faked at
     // the shape lib/reading.js uses: a recogniser that reports window.__asr as
@@ -73,13 +80,14 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
       createBiquadFilter() { return { type: '', Q: { value: 0 }, frequency: { setValueAtTime() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} }, connect: (n) => n }; }
     }
     window.AudioContext = FakeCtx; window.webkitAudioContext = FakeCtx;
-  });
+  };
+  await pg.addInitScript(INIT);
   await pg.goto('http://localhost:8149/learning/', { waitUntil: 'networkidle' });
   await signIn(pg);
   await pg.waitForSelector('[data-testid=today]');
   const titleOf = (sel) => pg.evaluate((s) => { const h = document.querySelector(s); const t = h && h.querySelector('[data-slot=card-title]'); return t ? t.textContent.trim() : ''; }, sel);
   const before = await titleOf('[data-testid=today]');
-  const bundle = JSON.parse(fs.readFileSync(path.join(DIST, 'content/bundle.json'), 'utf8'));
+  const bundle = pinned(JSON.parse(fs.readFileSync(path.join(DIST, 'content/bundle.json'), 'utf8')));
   // Handwriting, judged stroke by stroke. The reference medians are in the
   // bundle and the box's SVG carries its own transform, so the test traces each
   // stroke with real mouse events along the reference path; she writes freely
@@ -364,7 +372,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   const att = ((st.zh['hw:2026-09-30'] || {}).read || {}).attempts || [];
   check('the reading is kept: transcript, counts, file id, done', att.length === 1 && att[0].transcript === '河水是深还是浅最好你自己去试试突然只好请别人帮忙' && !('matched' in att[0]) && att[0].fileId === 'media1' && st.zh['hw:2026-09-30'].read.done === true, JSON.stringify(att[0] || null));
   await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-subjects]');
-  check('the dashboard\'s reading row shows it read, with the last reading and no text of the book', /上次 \d+ 秒/.test(await pg.textContent('[data-testid=zh-subject-row][data-id=read]')) && !/河水是深还是浅/.test(await pg.textContent('[data-testid=zh-home]')));
+  check('the dashboard\'s reading row shows it read, with the last reading and no text of the book', /上次 \d+(分(\d+秒)?|秒)/.test(await pg.textContent('[data-testid=zh-subject-row][data-id=read]')) && !/河水是深还是浅/.test(await pg.textContent('[data-testid=zh-home]')));
   check('and the dictation row counts the rating', /已评 1 \/ 23/.test(await pg.textContent('[data-testid=zh-subject-row][data-id=dictation]')));
   await pg.evaluate(() => { location.hash = '#/chinese/checklist'; }); await pg.waitForSelector('[data-testid=zh-checklist]');
   check('and the checklist ticks the reading', (await pg.getAttribute('[data-testid=zh-ck-item][data-id=read]', 'data-done')) === '1');
@@ -625,6 +633,48 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForTimeout(300); await pg.click('[data-testid=cat-isee]'); await pg.waitForSelector('[data-testid=today]');
   check('and the ISEE dashboard card still reads the same after all of it', before === (await titleOf('[data-testid=today]')), `${before} → ${await titleOf('[data-testid=today]')}`);
   check('no page errors', errs.length === 0, errs.join(' | '));
+
+  // -- the newest week, from the real bundle: the teacher's note of 7 October for 第六课 —
+  // 课文考试 in 1分15, 读一读的词语 in 22秒, the workbook for Tuesday only, and a dictation with
+  // her own words added. The owner, 8 October: what the site can do that the book cannot is the
+  // reading, the writing and the dictation; the clock beside a reading is one of those.
+  FIXTURE = null;
+  const real = JSON.parse(fs.readFileSync(path.join(DIST, 'content/bundle.json'), 'utf8'));
+  const newest = Object.values(real.zh.homework).sort((a, b) => (a.set < b.set ? 1 : -1))[0];
+  const rw = newest.tasks.find((x) => x.kind === 'read_words'), ra = newest.tasks.find((x) => x.kind === 'read_aloud' && x.target_s), wb = newest.tasks.find((x) => x.kind === 'workbook' && x.days);
+  check('the newest note carries a timed text, timed words and a one-day workbook', !!rw && !!ra && !!wb, newest.set);
+  if (rw && ra && wb) {
+    const ctx2 = await b.newContext({ viewport: { width: 1280, height: 860 } }); await stubGoogle(ctx2);
+    const p2 = await ctx2.newPage(), errs2 = []; p2.on('pageerror', (e) => errs2.push(e.message));
+    await p2.addInitScript(INIT);
+    await p2.goto('http://localhost:8149/learning/', { waitUntil: 'networkidle' }); await signIn(p2);
+    await p2.evaluate(() => { location.hash = '#/chinese/checklist'; }); await p2.waitForSelector('[data-testid=zh-checklist]');
+    const row = async (id) => (await p2.textContent(`[data-testid=zh-ck-item][data-id="${id}"]`).catch(() => '')).replace(/\s+/g, ' ');
+    const fmt = (s) => (Math.floor(s / 60) ? `${Math.floor(s / 60)}分${s % 60 ? (s % 60) + '秒' : ''}` : `${s}秒`);
+    check('the week lists the text test with its target', new RegExp(fmt(ra.target_s)).test(await row('read')), await row('read'));
+    check('and the words to read against the clock', new RegExp(fmt(rw.target_s)).test(await row(rw.id)), await row(rw.id));
+    const lid = newest.lesson, wbIds = await p2.$$eval('[data-testid=zh-ck-item]', (els, lid) => els.map((e) => e.dataset.id).filter((id) => new RegExp(`^z[xb]:${lid}-`).test(id)), lid);
+    const days = real.zh.exercises[lid], want = [...days.blocks, ...days.exercises].filter((x) => wb.days.includes(x.day)).map((x) => x.id).sort();
+    check('and only the workbook days the note names', JSON.stringify(wbIds.slice().sort()) === JSON.stringify(want), `${wbIds.length} rows, ${want.length} wanted`);
+    await p2.evaluate((l) => { location.hash = '#/chinese/read/' + l; }, lid); await p2.waitForSelector('[data-testid=zh-read-page]');
+    check('the text test shows its target before she reads', new RegExp(fmt(ra.target_s)).test(await p2.textContent('[data-testid=zh-target]').catch(() => '')));
+    await p2.evaluate((l) => { location.hash = '#/chinese/words/' + l; }, lid); await p2.waitForSelector('[data-testid=zh-words-page]');
+    const shown = (await p2.textContent('[data-testid=zh-rd-text]')).replace(/\s+/g, '');
+    const rows = real.zh.lessons[lid][rw.section].rows.flat();
+    check('the words page shows every word of the section, from the lesson file', rows.every((w) => shown.includes(w)), `${rows.length} words`);
+    await p2.evaluate((t) => { window.__asr = t; }, rows.join(''));
+    await p2.click('[data-testid=zh-rd-start]'); await p2.waitForTimeout(400); await p2.click('[data-testid=zh-rd-stop]'); await p2.waitForSelector('[data-testid=zh-rd-done]');
+    const tgt = await p2.$eval('[data-testid=zh-target]', (e) => ({ within: e.dataset.within, s: e.dataset.s, text: e.textContent }));
+    check('read in time, the page says how long she took beside the target, plainly', tgt.within === '1' && new RegExp(fmt(rw.target_s)).test(tgt.text) && !(await p2.$('[data-testid=zh-target].text-destructive')), JSON.stringify(tgt));
+    const kept = await p2.evaluate(({ set, id }) => ((((JSON.parse(localStorage.getItem('isee.v1')).zh || {})['hw:' + set] || {}).exercises || {})[id] || {}).read || null, { set: newest.set, id: rw.id });
+    check('and the reading is kept where a 读一读 reading is, aligned to the words', !!kept && kept.ms >= 0 && kept.total > 0 && kept.matched === kept.total, JSON.stringify(kept && { ms: kept.ms, matched: kept.matched, total: kept.total }));
+    await p2.evaluate((l) => { location.hash = '#/chinese/dictation/' + l; }, lid); await p2.waitForSelector('[data-testid=zh-dictation]').catch(() => {});
+    const dict = newest.tasks.find((x) => x.kind === 'dictation'), added = Object.keys(dict.words).pop();
+    const dictWords = await p2.$$eval('[data-testid=zh-dict-row]', (els) => els.map((e) => e.dataset.word));
+    check('the dictation carries the words the teacher added', dict.words[added].every((w) => dictWords.includes(w)) && dictWords.length === Object.values(dict.words).flat().length, `${dictWords.length} rows · ${added}`);
+    check('no page errors in the newest week', errs2.length === 0, errs2.join(' | '));
+    await ctx2.close();
+  }
 
   await b.close(); srv.close();
   console.log(failures ? `\n${failures} FAILURE(S)` : '\nall chinese checks passed');

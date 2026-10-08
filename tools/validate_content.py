@@ -404,7 +404,17 @@ if os.path.isdir(HWDIR):
             w=f'{f} {t.get("kind","?")}'
             errs+=pair_errors(t, 'what', w, label=True)
             errs+=pair_errors(t, 'pages', w, label=True)
-            if t.get('kind') in ('read_aloud','dictation'): errs+=both_errors(t, 'rule', w)
+            if t.get('kind') in ('read_aloud','dictation','read_words'): errs+=both_errors(t, 'rule', w)
+            # A timed reading (the teacher's 课文考试 1分15, 读一读 22秒): a whole number of seconds.
+            if 'target_s' in t and not (isinstance(t['target_s'],int) and not isinstance(t['target_s'],bool) and 5<=t['target_s']<=1800): errs.append(f'{w}: target_s must be whole seconds, 5 to 1800')
+            # A workbook task for some days only ("练习册周二"): the book's own weekday names.
+            if t.get('kind')=='workbook' and 'days' in t and not (isinstance(t['days'],list) and t['days'] and all(d in ZH_DAYS for d in t['days'])): errs.append(f'{w}: days must be a list of {ZH_DAYS}')
+            # Words read aloud off the lesson page: the section has to be one the lesson prints with rows.
+            if t.get('kind')=='read_words':
+                _hw=json.load(open(f'{HWDIR}/{f}')); _l=f"content/chinese/lessons/{_hw.get('lesson')}.json"
+                _sec=(json.load(open(_l)).get(t.get('section') or '') if os.path.exists(_l) else None) or {}
+                if not (_sec.get('rows') or []): errs.append(f"{w}: read_words names section {t.get('section')!r}, which {_hw.get('lesson')} does not print with rows")
+                if not str(t.get('id') or '').startswith(f"rw:{_hw.get('lesson')}"): errs.append(f"{w}: read_words id must start with rw:{_hw.get('lesson')}")
             if t.get('kind')=='workbook':
                     for e in t.get('on_paper',[]) or []: errs+=pair_errors(e, 'what', f'{w} on_paper')
             if t.get('kind')=='dictation':

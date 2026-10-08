@@ -479,6 +479,16 @@ being dictation.
 
 Two consequences worth writing down:
 
+**A reading can carry the teacher's clock.** The note of 7 October set 第六课课文考试1分15 and
+第六课读一读的词语22秒 — reading against a time, which a book cannot keep and a recording can.
+A `read_aloud` task may carry `target_s`, and the page shows the target before she reads and
+her time beside it after, plainly and in no colour. A `read_words` task reads a section the
+lesson file already holds (`section`, e.g. 读一读): the words are on screen, the clock runs,
+and the reading is kept and aligned the way a 读一读 exercise's is, under `exercises[<id>].read`.
+A `workbook` task may name `days` ("练习册周二"), and the week then lists those days only. The
+owner, 8 October: the site's real help is the reading, the writing and the 听写 — what the
+book cannot cover well.
+
 **This answers the open question the first draft could not.** It asked whether
 Chinese wanted a weekly cadence or only a lesson pointer. It has one already: the
 homework note carries its own date and its own lesson, so a Chinese "week" is a

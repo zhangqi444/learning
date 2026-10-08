@@ -97,6 +97,16 @@ function readTitle(lesson, task) {
   return t(task.what, task.what_en)
 }
 const readWhere = (task) => t(task.pages, task.pages_en)
+/** A reading's length the way the teacher's note writes it — 1分15秒, 22秒 — and 1:15, 22 s. */
+const fmtTime = (sec) => { const s = Math.round(sec), m = Math.floor(s / 60), r = s % 60; return t(m ? `${m}分${r ? r + "秒" : ""}` : `${r}秒`, m ? `${m}:${String(r).padStart(2, "0")}` : `${r} s`) }
+/** Her time beside the teacher's target (课文考试 1分15, 读一读 22秒), said plainly and in no
+ *  colour: a target is information for her and the parent, not a verdict the page passes. */
+function TargetTime({ ms, target }) {
+  if (!target) return null
+  if (ms == null) return <span data-testid="zh-target" data-target={target}>{t(`目标：${fmtTime(target)}内读完`, `Target: within ${fmtTime(target)}`)}</span>
+  const s = Math.round(ms / 1000), within = s <= target
+  return <span data-testid="zh-target" data-target={target} data-s={s} data-within={within ? "1" : "0"}>{within ? t(`用了 ${fmtTime(s)}，在 ${fmtTime(target)} 以内`, `${fmtTime(s)}, within ${fmtTime(target)}`) : t(`用了 ${fmtTime(s)}，目标是 ${fmtTime(target)}`, `${fmtTime(s)}; the target is ${fmtTime(target)}`)}</span>
+}
 const blockSetId = (b) => setId("zh-block", b.id.replace(/^zb:/, ""), 0)
 /** The lesson the Chinese half is on: the newest note's, else the last lesson in the bundle. */
 export function currentZhLesson() { const n = zhHomework()[0]; return (n && D.zh.lessons[n.lesson]) || zhLessons().slice(-1)[0] || null }
@@ -115,10 +125,19 @@ export function zhWeekItems(note) {
     if (task.kind === "read_aloud") {
       const r = st.read || {}, att = r.attempts || [], last = att[att.length - 1]
       items.push({ id: "read", kind: "read", group: t("阅读", "Reading"), label: `${readTitle(lesson, task)} · ${readWhere(task)}`, short: t("朗读", "Read aloud"), path: `/chinese/read/${note.lesson}`, done: !!r.done, auto: true,
-        sub: last ? t(`上次 ${Math.round(last.ms / 1000)} 秒 · 共 ${att.length} 次${notes.read ? " · 已批改" : ""}`, `last ${Math.round(last.ms / 1000)} s · ${att.length} reading${att.length === 1 ? "" : "s"}${notes.read ? " · evaluated" : ""}`) : t("对着课本读，录下来", "Read it from the book; it is recorded") })
+        sub: last ? t(`上次 ${fmtTime(last.ms / 1000)}${task.target_s ? `（目标 ${fmtTime(task.target_s)}）` : ""} · 共 ${att.length} 次${notes.read ? " · 已批改" : ""}`, `last ${fmtTime(last.ms / 1000)}${task.target_s ? ` (target ${fmtTime(task.target_s)})` : ""} · ${att.length} reading${att.length === 1 ? "" : "s"}${notes.read ? " · evaluated" : ""}`)
+          : task.target_s ? t(`对着课本读，目标 ${fmtTime(task.target_s)}`, `Read it from the book; target ${fmtTime(task.target_s)}`) : t("对着课本读，录下来", "Read it from the book; it is recorded") })
+    } else if (task.kind === "read_words") {
+      // Words read off the lesson page against the teacher's clock — the reading the book
+      // cannot time, kept the way a 读一读 exercise's reading is (exercises[id].read).
+      const r = ((st.exercises || {})[task.id] || {}).read
+      items.push({ id: task.id, kind: "read", group: t("阅读", "Reading"), label: `${t(task.what, task.what_en)} · ${readWhere(task)}`, short: t("读词语", "Read the words"), path: `/chinese/words/${note.lesson}`, done: !!r, auto: true,
+        sub: r ? `${fmtTime(r.ms / 1000)}${task.target_s ? t(`（目标 ${fmtTime(task.target_s)}）`, ` (target ${fmtTime(task.target_s)})`) : ""}${notes[task.id] ? t(" · 已批改", " · evaluated") : ""}`
+          : task.target_s ? t(`读出来，目标 ${fmtTime(task.target_s)}`, `Read them aloud; target ${fmtTime(task.target_s)}`) : t("读出来，录下来", "Read them aloud; it is recorded") })
     } else if (task.kind === "workbook") {
       const exSt = st.exercises || {}
-      for (const row of zhWorkbook(note.lesson)) {
+      // "练习册周二": a note may set some days only; the rest of the lesson stays on the workbook page.
+      for (const row of zhWorkbook(note.lesson).filter((x) => !task.days || task.days.includes(x.day))) {
         const isBlock = row.kind === "block", r = isBlock ? Store.s.results[blockSetId(row)] : exSt[row.id]
         const reviewed = !isBlock && row.type === "free" && (row.items || []).some((it) => notes[it.id])
         const done = isBlock ? !!r : !!(r && (r.n != null || r.submitted || r.told || r.read))
@@ -647,7 +666,7 @@ export function ReadAloud({ set }) {
       <Card>
         <CardHeader>
           <CardTitle>{t("阅读", "Reading")}</CardTitle>
-          <CardDescription>{readTitle(lesson, task)} · {readWhere(task)}</CardDescription>
+          <CardDescription>{readTitle(lesson, task)} · {readWhere(task)}{task.target_s ? <> · <TargetTime target={task.target_s} /></> : null}</CardDescription>
           <CardAction>
             {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-rec-stop"><Square /> {t("停止", "Stop")} · {sec} {t("秒", "s")}</Button>
               : mode === "saving" ? <Button size="sm" disabled>{t("保存中…", "Saving…")}</Button>
@@ -667,7 +686,7 @@ export function ReadAloud({ set }) {
         <Card data-testid="zh-read-result">
           <CardHeader>
             <CardTitle>{t(`已录好 · ${Math.round(last.ms / 1000)} 秒`, `Recorded · ${Math.round(last.ms / 1000)} s`)}</CardTitle>
-            <CardDescription>{evalNote ? t("已批改。", "Evaluated.") : t("交给批改。", "Handed in for evaluation.")}</CardDescription>
+            <CardDescription>{task.target_s ? <><TargetTime ms={last.ms} target={task.target_s} /> · </> : null}{evalNote ? t("已批改。", "Evaluated.") : t("交给批改。", "Handed in for evaluation.")}</CardDescription>
             <CardAction><Button size="sm" variant="ghost" onClick={() => setParent((v) => !v)} data-testid="zh-parent-toggle">{parent ? t("收起", "Hide") : t("家长视图", "Parent view")}</Button></CardAction>
           </CardHeader>
           <CardContent className="flex flex-col gap-3 text-sm">
@@ -1102,7 +1121,7 @@ function SpeakWidget({ ex, set, exId }) {
 }
 /** The workbook's own 读一读: read aloud, transcribed, aligned to the strips — the
  *  reading page's mechanism on an exercise, never scored, the unheard dotted. */
-function ReadWidget({ ex, set, exId }) {
+function ReadWidget({ ex, set, exId, target }) {
   useStore()
   const st = (hwState(set).exercises || {})[exId] || {}
   const [mode, setMode] = useState("idle"), [finals, setFinals] = useState(""), [interim, setInterim] = useState("")
@@ -1133,7 +1152,7 @@ function ReadWidget({ ex, set, exId }) {
       <Card>
         <CardHeader>
           <CardTitle>{t("朗读", "Read it aloud")}</CardTitle>
-          <CardDescription>{st.read && !res ? t(`上次读了 ${Math.round(st.read.ms / 1000)} 秒`, `last read in ${Math.round(st.read.ms / 1000)} s`) : t("不打分。", "Not scored.")}</CardDescription>
+          <CardDescription>{target ? <TargetTime ms={(res || st.read) ? (res || st.read).ms : null} target={target} /> : st.read && !res ? t(`上次读了 ${Math.round(st.read.ms / 1000)} 秒`, `last read in ${Math.round(st.read.ms / 1000)} s`) : t("不打分。", "Not scored.")}</CardDescription>
           <CardAction>
             {mode === "recording" ? <Button size="sm" variant="destructive" onClick={stop} data-testid="zh-rd-stop"><Square /> {t("停止", "Stop")}</Button>
               : mode === "saving" ? <Button size="sm" disabled>{t("保存中…", "Saving…")}</Button>
@@ -1148,6 +1167,25 @@ function ReadWidget({ ex, set, exId }) {
           {parent && (res || st.read) && !zhNotes(set)[exId] ? <div className="mt-2" data-testid="zh-rd-parentview"><Compared passage={ex.text} transcript={(res || st.read).transcript} /></div> : null}
         </CardContent>
       </Card>
+    </div>
+  )
+}
+/** The words of a lesson section read aloud against the teacher's clock ("读一读的词语22秒"). The
+ *  rows are the lesson file's own — the lesson page already shows them — so they are on screen
+ *  here, and her reading is kept and aligned the way a 读一读 exercise's is. */
+export function ReadWords({ set }) {
+  useStore(); useLang()
+  const note = noteFor(set), task = note && note.tasks.find((x) => x.kind === "read_words")
+  const lesson = note && D.zh.lessons[note.lesson], sec = lesson && task ? lesson[task.section] : null
+  if (!task || !sec || !(sec.rows || []).length) return <ChineseHome />
+  const ex = { id: task.id, text: sec.rows.map((r) => r.join("　")).join("\n") }
+  return (
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-words-page">
+      <Card>
+        <CardHeader><CardTitle>{t(task.what, task.what_en)}</CardTitle><CardDescription>{readWhere(task)}</CardDescription></CardHeader>
+        <CardContent className="text-muted-foreground text-sm">{tf(task.rule)}</CardContent>
+      </Card>
+      <ReadWidget ex={ex} set={set} exId={task.id} target={task.target_s} />
     </div>
   )
 }
@@ -1265,6 +1303,7 @@ export function ChineseScreen({ rest }) {
   const n = noteFor(a)
   if (top === "dictation" && n) return <Dictation key={n.set} set={n.set} />
   if (top === "read" && n) return <ReadAloud key={n.set} set={n.set} />
+  if (top === "words" && n) return <ReadWords key={n.set} set={n.set} />
   if (top === "ex" && n && (b || a)) return <Exercise key={n.set + (b || a)} set={n.set} exId={b || a} />
   if (top === "block" && n && (b || a)) return <ZhBlockRun key={n.set + (b || a)} set={n.set} id={b || a} />
   if (top === "review") return <ZhReview />
@@ -1282,6 +1321,7 @@ export function zhCrumbs(rest) {
   else if (top === "run" && ZH[a] && l(b)) { out.push({ label: zhLessonLabel(l(b)), path: `/chinese/l/${b}` }); out.push({ label: `${zhSubName(a)} · ${t(`第 ${(+c || 0) + 1} 组`, `Set ${(+c || 0) + 1}`)}`, path: `/chinese/run/${a}/${b}/${c || 0}` }) }
   else if (top === "dictation" && a) out.push({ label: t("听写", "Dictation"), path: `/chinese/dictation/${a}` })
   else if (top === "read" && a) out.push({ label: t("阅读", "Reading"), path: `/chinese/read/${a}` })
+  else if (top === "words" && a) out.push({ label: t("读词语", "Read the words"), path: `/chinese/words/${a}` })
   else if (top === "ex" && a) { const id = b || a, n = noteFor(a), e = n && zhExercises(n.lesson).find((x) => x.id === id); out.push({ label: e ? t(e.title, e.title_en) : t("练习", "Exercise"), path: `/chinese/ex/${id}` }) }
   else if (top === "block" && a) { const id = b || a, n = noteFor(a), bl = n && zhBlock(n.lesson, id); out.push({ label: bl ? `${t(bl.title, bl.title_en)} · ${zhDay(bl.day)}` : t("练习", "Exercise"), path: `/chinese/block/${id}` }) }
   else if (top === "review") out.push({ label: t("复习", "Review"), path: "/chinese/review" })
