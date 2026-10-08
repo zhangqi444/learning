@@ -235,6 +235,8 @@ export function reviewTargetLabel(r) {
  *  header. A link that does not parse is not one, and is not an error here —
  *  the import page says what is wrong with it. */
 export function importIsZh(payload) {
+  // a workbook marking (lib/zhwork.js) is Chinese too
+  try { const m = String(payload || "").match(/([A-Za-z0-9_-]{16,})\s*$/); if (m && (decodePayload(m[1]) || {}).zhwork) return true } catch { /* not one */ }
   try { const list = Object.values(parseImport(payload)); return list.length > 0 && list.every((r) => r.target.kind === "zh") } catch { return false }
 }
 export function reviewPath(r) {

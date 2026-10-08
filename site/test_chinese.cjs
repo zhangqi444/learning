@@ -137,7 +137,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // element that carries them is left out by test id. Names stay names in
   // either language (Drive, Google, ISEE, Sheila), as the toggle itself says 中
   // and EN; the signed-in account's own name and address are not chrome either.
-  const SKIP = ['lang-toggle', 'english-toggle', 'english', 'badges-won', 'set-came', 'hear-glim', 'glim', 'essay-review', 'zh-speak', 'zh-piece', 'zh-option', 'zh-pick-option', 'zh-left', 'zh-right', 'zh-fill-option', 'zh-sort-item', 'zh-order-answer', 'zh-tell-question', 'zh-pattern', 'zh-compare', 'zh-marked', 'zh-transcript', 'zh-tell-transcript', 'zh-passage', 'zh-home-passage', 'zh-rd-text', 'zh-zi-cue', 'zh-wr-cue', 'zh-zi-char', 'gate-wanted', 'choice', 'question']
+  const SKIP = ['lang-toggle', 'english-toggle', 'english', 'badges-won', 'set-came', 'hear-glim', 'glim', 'essay-review', 'zh-speak', 'zh-piece', 'zh-option', 'zh-pick-option', 'zh-left', 'zh-right', 'zh-fill-option', 'zh-sort-item', 'zh-order-answer', 'zh-tell-question', 'zh-pattern', 'zh-compare', 'zh-marked', 'zh-transcript', 'zh-tell-transcript', 'zh-passage', 'zh-home-passage', 'zh-rd-text', 'zh-zi-cue', 'zh-wr-cue', 'zh-photo-name', 'zh-zi-char', 'gate-wanted', 'choice', 'question']
     .map((x) => `[data-testid=${x}]`).concat(['[data-sidebar=trigger]', '[data-sidebar=rail]']).join(', ');
   // Two accessible names come from @zhangqi444/ui and are not this repo's to
   // change: the sidebar trigger's "Toggle Sidebar" (skipped above, with the
@@ -665,6 +665,38 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('and it opens the Chinese review', (await pg.evaluate(() => location.hash)) === '#/chinese/review' && /复习/.test(await pg.textContent('[data-testid=run-title]')));
   await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForTimeout(300); await pg.click('[data-testid=cat-isee]'); await pg.waitForSelector('[data-testid=today]');
   check('and the ISEE dashboard card still reads the same after all of it', before === (await titleOf('[data-testid=today]')), `${before} → ${await titleOf('[data-testid=today]')}`);
+  // -- the workbook done on paper (the owner, 8 October: "mostly the students will do it
+  // offline and post picture … similar to how we support isee offline taken mock test"): a
+  // photo goes into her Drive from the workbook page, and a marking link — made by the
+  // workbook-results skill against the lesson's own keys — puts the marks in her record.
+  await pg.evaluate(() => { location.hash = '#/chinese/workbook/L06'; }); await pg.waitForSelector('[data-testid=zh-wb-photos]');
+  await pg.setInputFiles('[data-testid=zh-wb-photos-input]', { name: 'page33.jpg', mimeType: 'image/jpeg', buffer: Buffer.from('fake jpeg bytes') });
+  await pg.waitForSelector('[data-testid=zh-photo]', { timeout: 10000 }).catch(() => {});
+  check('a photo of the workbook goes into her Drive, and waits to be marked', (await pg.$$('[data-testid=zh-photo]')).length === 1 && /1 张等批改/.test(await pg.textContent('[data-testid=zh-wb-photos-state]').catch(() => '')), await pg.textContent('[data-testid=zh-wb-photos]').then((x) => x.replace(/\s+/g, ' ').slice(0, 120)));
+  await both('the workbook page, with a photo', ['[data-testid=zh-wb-photos] [data-slot=card-title]', '[data-testid=zh-wb-photos] [data-slot=card-description]', '[data-testid=zh-wb-photos] [data-slot=badge]', '[data-testid=zh-wb-photos] label']);
+  const L6 = bundle.zh.exercises.L06, tfEx = L6.exercises.find((e) => e.type === 'tf'), blk = L6.blocks[0];
+  const bankKey = Object.fromEntries(Object.values(bundle.zh.banks).flat().map((i) => [i.id, i.k]));
+  const wrongPick = (k) => [...'ABCD'].find((l) => l !== k);
+  const marking = { zhwork: { lesson: 'L06', by: 'Claude, asked by Dad',
+    marks: { [tfEx.id]: Object.fromEntries(tfEx.items.map((it, i) => [it.id, i !== 0])),
+             [blk.id]: Object.fromEntries(blk.items.map((id, i) => [id, i === 0 ? { ok: false, pick: wrongPick(bankKey[id]) } : { ok: true, pick: bankKey[id] }])) } } };
+  const markLink = Buffer.from(JSON.stringify(marking)).toString('base64url');
+  await pg.evaluate((p) => { location.hash = '#/import/' + p; }, markLink); await pg.waitForSelector('[data-testid=zhwork-preview]');
+  const prows = await pg.$$eval('[data-testid=zhwork-row]', (els) => els.map((e) => e.dataset.id + ' ' + e.textContent.replace(/\s+/g, ' ')));
+  check('the marking link previews each exercise and block with its score', prows.length === 2 && prows.some((r) => r.startsWith(tfEx.id) && new RegExp(`${tfEx.items.length - 1} / ${tfEx.items.length}`).test(r)) && prows.some((r) => r.startsWith(blk.id) && new RegExp(`${blk.items.length - 1} / ${blk.items.length}`).test(r)), JSON.stringify(prows));
+  await pg.click('[data-testid=zhwork-add]'); await pg.waitForSelector('[data-testid=zh-workbook]');
+  const tfRow = (await pg.textContent(`[data-testid=zh-exercise][data-id="${tfEx.id}"]`).catch(() => '')).replace(/\s+/g, ' ');
+  check('Add puts the marks on the workbook page: the score, and that it was done on paper', new RegExp(`${tfEx.items.length - 1}/${tfEx.items.length} · 纸上`).test(tfRow) && /已批改/.test(await pg.textContent('[data-testid=zh-wb-photos-state]')), tfRow);
+  await pg.evaluate((id) => { location.hash = '#/chinese/ex/' + id; }, tfEx.id); await pg.waitForSelector('[data-testid=zh-ex-photo]');
+  const photoCard = (await pg.textContent('[data-testid=zh-ex-photo]')).replace(/\s+/g, ' ');
+  check('the exercise says what went wrong on paper, with the lesson\'s own explanation', (await pg.$$('[data-testid=zh-ex-photo] [data-testid=zh-ex-miss]')).length === 1 && photoCard.includes(tfEx.items[0].explanation.zh), photoCard.slice(0, 120));
+  st = await ls(pg);
+  const wrongItem = st.items[blk.items[0]] || {};
+  check('a four-choice item marked wrong on paper joins the Chinese review, as a miss on the site does', !!wrongItem.due && !wrongItem.cleared && ((wrongItem.hist || []).slice(-1)[0] || {}).ok === false, JSON.stringify(wrongItem).slice(0, 100));
+  const histLen = (wrongItem.hist || []).length;
+  await pg.evaluate((p) => { location.hash = '#/import/' + p; }, markLink); await pg.waitForSelector('[data-testid=zhwork-add]'); await pg.click('[data-testid=zhwork-add]'); await pg.waitForSelector('[data-testid=zh-workbook]');
+  st = await ls(pg);
+  check('and the same marking opened twice counts nothing twice', ((st.items[blk.items[0]] || {}).hist || []).length === histLen);
   check('no page errors', errs.length === 0, errs.join(' | '));
 
   // -- the newest week, from the real bundle: the teacher's note of 7 October for 第六课 —

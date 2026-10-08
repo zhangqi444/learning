@@ -499,6 +499,18 @@ schedule: it is read off the judged attempts already kept, plus `zw:<word>` reco
 written again on the page, so two devices cannot disagree about it. 继续 offers it after the
 four-choice 复习, and the lesson card shows it with its count.
 
+**The workbook done on paper (8 October).** The owner: "mostly the students will do it
+offline and post picture, we need such feature. similar to how we support isee offline taken
+mock test". A lesson's 练习册 page takes photos (or a scanned PDF) of the pages she did, into
+her Drive folder (`zh["wbp:<lesson>"].files`, merged file by file). The `workbook-results`
+skill reads them and marks every item against the keys the lesson's exercises file holds; one
+link (`tools/zh_marks_link.py`, which checks each id and each chosen letter against the key)
+brings the marks back. An exercise then carries its score and `via: "photo"` in the week, as if
+done on the site, and its page lists what went wrong with the lesson's own explanations; a
+four-choice item marked wrong is answered as in a sitting, so it joins the Chinese review the
+next day. Notes on her free writing ride in the same link as a review. The workbook page lists
+every day of the lesson, whatever days the week's note names.
+
 **This answers the open question the first draft could not.** It asked whether
 Chinese wanted a weekly cadence or only a lesson pointer. It has one already: the
 homework note carries its own date and its own lesson, so a Chinese "week" is a

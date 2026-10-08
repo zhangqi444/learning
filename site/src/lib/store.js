@@ -407,6 +407,17 @@ export const Store = {
           ls[k] = out
           continue
         }
+        // A lesson's workbook photos (lib/zhwork.js) are added a file at a time, often from a
+        // phone while the laptop is open too: the files are merged one by one, and so are the
+        // markings already applied, so neither device's photo or marking is lost to the other.
+        if (slice === "zh" && k.startsWith("wbp:") && ls[k]) {
+          const L = ls[k], R = rs[k], later = (a, b) => (!a ? b : !b ? a : ts(b.at) > ts(a.at) ? b : a)
+          const files = { ...(L.files || {}) }
+          for (const id of Object.keys(R.files || {})) files[id] = later(files[id], R.files[id])
+          const newer = ts(R.at) > ts(L.at) ? R : L
+          ls[k] = { ...newer, files, applied: { ...(L.applied || {}), ...(R.applied || {}) } }
+          continue
+        }
         if (!ls[k] || ts(rs[k].at) > ts(ls[k].at)) ls[k] = rs[k]
       }
     }

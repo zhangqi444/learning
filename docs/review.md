@@ -115,7 +115,11 @@ Repo skills: `.claude/skills/essay-review/` for one essay,
 `.claude/skills/progress-digest/` for a week or a month (the one the scheduled
 Routines run), `.claude/skills/chinese-review/` for a week of Chinese homework, and
 `.claude/skills/paper-results/` for a paper sat on paper — it reads the photos of the
-marked sheet a parent adds on the paper's page and hands back the results link below.
+marked sheet a parent adds on the paper's page and hands back the results link below —
+and `.claude/skills/workbook-results/` for the Chinese workbook done on paper: it reads
+the photos posted on a lesson's 练习册 page, marks each item against the lesson's own keys,
+and hands back a marking link (`{"zhwork": {lesson, by, marks, review?}}`, made and
+checked by `tools/zh_marks_link.py`; applied by `site/src/lib/zhwork.js`).
 In short: find the essay (in `progress.json` under `essays[wk]` / `mocks[form].essay`,
 or in the **Sheila ISEE Essay** workbook for weeks done on paper or in Sheets), read
 the week's prompt, focus and rubric from `content/essay.json`, write the review to

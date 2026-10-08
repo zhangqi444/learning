@@ -134,8 +134,9 @@ review can carry follow-up `actions` that become rows on a named week's
 checklist. A Google Doc copy goes in the Drive folder. Contract:
 [docs/review.md](docs/review.md); workflows: `.claude/skills/essay-review/` for
 one essay, `.claude/skills/progress-digest/` for a week or month — the latter is
-what the scheduled Routines run — and `.claude/skills/paper-results/` for the marked
-sheet of a paper sat on paper. Reviews are written to Sheila, never grade-like,
+what the scheduled Routines run — `.claude/skills/paper-results/` for the marked
+sheet of a paper sat on paper, and `.claude/skills/workbook-results/` for the Chinese
+workbook done on paper and photographed. Reviews are written to Sheila, never grade-like,
 and never deleted by the app.
 
 ## Data model

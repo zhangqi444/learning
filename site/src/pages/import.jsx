@@ -3,7 +3,9 @@ import { ChevronRight, Inbox, MessageSquareText } from "lucide-react"
 
 import { fmtDate } from "@/lib/content"
 import { t, useLang } from "@/lib/lang"
-import { addReviews, parseImport, parsePaperImport, reviewPath, reviewTargetLabel } from "@/lib/reviews"
+import { addReviews, parseImport, parsePaperImport, reviewPath, reviewTargetLabel, reviewsFromPayload } from "@/lib/reviews"
+import { applyZhWork, parseZhWork } from "@/lib/zhwork"
+import { D } from "@/lib/content"
 import { addOfflineEntry, setPaperNotes } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { DRIVE_ENABLED, useStore } from "@/lib/store"
@@ -23,6 +25,8 @@ export function Import({ payload }) {
     if (!payload) return null
     // A paper's results first: they are not a review and have no summary to show.
     try { const paper = parsePaperImport(payload); if (paper) return { paper } } catch (e) { return { err: e.message } }
+    // The workbook done on paper, marked from her photos (lib/zhwork.js).
+    try { const work = parseZhWork(payload); if (work) return { work } } catch (e) { return { err: e.message } }
     try { return { map: parseImport(payload) } } catch (e) { return { err: e.message } }
   }, [payload])
   function addPaper(paper) {
@@ -33,6 +37,11 @@ export function Import({ payload }) {
     go("/mock/" + paper.form.id)
   }
 
+  function addWork(w) {
+    applyZhWork(w)
+    if (w.review) { try { addReviews(reviewsFromPayload(w.review)) } catch { /* the marks are in; a malformed review is left out */ } }
+    go(`/chinese/workbook/${w.lesson}`)
+  }
   function add(map) {
     const list = Object.values(map)
     addReviews(map)
@@ -40,7 +49,7 @@ export function Import({ payload }) {
     if (list.length === 1) go(reviewPath(list[0]))
   }
   function addPasted() {
-    try { const paper = parsePaperImport(text); if (paper) return addPaper(paper); add(parseImport(text)) } catch (e) { setErr(e.message) }
+    try { const paper = parsePaperImport(text); if (paper) return addPaper(paper); const work = parseZhWork(text); if (work) return addWork(work); add(parseImport(text)) } catch (e) { setErr(e.message) }
   }
   const preview = fromLink && fromLink.map ? Object.values(fromLink.map) : []
   /* A link of Chinese reviews, and nothing else, makes this a Chinese page:
@@ -52,6 +61,28 @@ export function Import({ payload }) {
   const s = (zhText, en) => (zh ? t(zhText, en) : en)
   const mirrored = DRIVE_ENABLED && store.s.driveGranted
   const paperIn = fromLink && fromLink.paper
+  const workIn = fromLink && fromLink.work
+  if (workIn) {
+    const l = D.zh.lessons[workIn.lesson]
+    const rows = [...workIn.blocks.map((b) => ({ id: b.block.id, title: t(b.block.title, b.block.title_en), day: b.block.day, marks: Object.values(b.marks) })), ...workIn.exercises.map((e) => ({ id: e.ex.id, title: t(e.ex.title, e.ex.title_en), day: e.ex.day, marks: Object.values(e.marks) }))]
+    return (
+      <div className="mx-auto flex w-full max-w-2xl flex-col gap-4">
+        <Card className="gap-4" data-testid="zhwork-preview">
+          <CardHeader>
+            <CardDescription className="flex items-center gap-2"><Inbox className="size-4" /> {t("练习册批改", "Workbook marking")}</CardDescription>
+            <CardTitle className="text-2xl font-semibold tracking-tight">{t(`第${l.no}课 · 纸上做的练习册`, `Lesson ${l.no} · the workbook on paper`)}</CardTitle>
+            <CardDescription>{workIn.by ? t(`从照片批改 · ${workIn.by}`, `Marked from her photos · ${workIn.by}`) : t("从照片批改", "Marked from her photos")}{workIn.review ? t(" · 还有写的部分的批语", " · with notes on her writing") : ""}</CardDescription>
+          </CardHeader>
+          <CardContent className="flex flex-col gap-3">
+            <ul className="divide-y rounded-md border">
+              {rows.map((r) => <li key={r.id} className="flex items-center justify-between gap-3 px-3 py-2 text-sm" data-testid="zhwork-row" data-id={r.id}><span>{r.title}</span><span className="text-muted-foreground tabular-nums">{r.marks.filter((m) => m.ok).length} / {r.marks.length}</span></li>)}
+            </ul>
+            <div><Button onClick={() => addWork(workIn)} data-testid="zhwork-add"><Inbox /> {t("加到她的记录里", "Add to her record")}</Button></div>
+          </CardContent>
+        </Card>
+      </div>
+    )
+  }
 
   return (
     <div className="mx-auto flex w-full max-w-2xl flex-col gap-4">
