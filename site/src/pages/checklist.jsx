@@ -518,7 +518,10 @@ export function WeekChecklistCard() {
   )
 }
 
-function CustomItems({ listKey }) {
+const CUSTOM_LABELS = { title: "Your own items", desc: "Anything else for this period — a tutor session, a book to finish, a reward. Saved and synced.", placeholder: "Add an item and press Enter", add: "Add", done: "Done", notDone: "Not done", remove: "Remove" }
+/** The period's own to-dos, ticked by hand. Shared with the Chinese checklist, which hands in
+ *  its own labels so its page stays in one language at a time. */
+export function CustomItems({ listKey, labels = CUSTOM_LABELS }) {
   useStore()
   const st = listState(listKey)
   const [text, setText] = React.useState("")
@@ -532,24 +535,24 @@ function CustomItems({ listKey }) {
   return (
     <Card className="gap-3 py-5">
       <CardHeader className="px-5">
-        <CardTitle>Your own items</CardTitle>
-        <CardDescription>Anything else for this period — a tutor session, a book to finish, a reward. Saved and synced.</CardDescription>
+        <CardTitle>{labels.title}</CardTitle>
+        <CardDescription>{labels.desc}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-2 px-5">
         {st.custom.length ? (
           <ul className="divide-y rounded-md border">
             {st.custom.map((c) => (
               <li key={c.id} className="flex items-center gap-3 px-3 py-2" data-testid="ck-custom">
-                <button type="button" onClick={() => toggle(c.id)} aria-label={c.done ? "Done" : "Not done"}>{c.done ? <CheckCircle2 className="text-success size-5" /> : <Circle className="text-muted-foreground size-5" />}</button>
+                <button type="button" onClick={() => toggle(c.id)} aria-label={c.done ? labels.done : labels.notDone}>{c.done ? <CheckCircle2 className="text-success size-5" /> : <Circle className="text-muted-foreground size-5" />}</button>
                 <span className={cn("flex-1 text-sm", c.done && "text-muted-foreground line-through")}>{c.text}</span>
-                <Button size="icon-sm" variant="ghost" onClick={() => remove(c.id)} aria-label="Remove"><Trash2 /></Button>
+                <Button size="icon-sm" variant="ghost" onClick={() => remove(c.id)} aria-label={labels.remove}><Trash2 /></Button>
               </li>
             ))}
           </ul>
         ) : null}
         <div className="flex gap-2">
-          <Input value={text} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") add() }} placeholder="Add an item and press Enter" data-testid="ck-add" />
-          <Button variant="outline" onClick={add}><Plus /> Add</Button>
+          <Input value={text} onChange={(e) => setText(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") add() }} placeholder={labels.placeholder} data-testid="ck-add" />
+          <Button variant="outline" onClick={add}><Plus /> {labels.add}</Button>
         </div>
       </CardContent>
     </Card>

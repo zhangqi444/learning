@@ -722,7 +722,9 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
       check('the home page names the earlier week that still has work, and opens it', !!(await p2.$(`[data-testid=zh-earlier-week][data-set="${prevNote.set}"]`)), await p2.textContent('[data-testid=zh-earlier]').catch(() => 'no earlier-weeks card'));
       await p2.click(`[data-testid=zh-earlier-week][data-set="${prevNote.set}"] [data-testid=zh-earlier-open]`); await p2.waitForSelector('[data-testid=zh-checklist]');
       const prevIds = await p2.$$eval('[data-testid=zh-ck-item]', (els) => els.map((e) => e.dataset.id));
-      check('and the checklist shows that week\'s own work, with a tab for each week', prevIds.some((id) => id.startsWith(`zx:${prevNote.lesson}-`)) && (await p2.$$('[data-testid=zh-week-tab]')).length === Object.keys(real.zh.homework).length && (await p2.getAttribute('[data-testid=zh-week-tab][aria-current=page]', 'data-set')) === prevNote.set, `${prevIds.length} rows`);
+      check('and the checklist shows that week\'s own work, in the ISEE checklist\'s shape: the week card, no 本周 on an earlier week, a way back', prevIds.some((id) => id.startsWith(`zx:${prevNote.lesson}-`)) && (await p2.getAttribute('[data-testid=zh-week-recap]', 'data-set')) === prevNote.set && !(await p2.$('[data-testid=zh-span-now]')) && !!(await p2.$('[data-testid=zh-back-to-week]')) && !!(await p2.$('[data-testid=ck-add]')), `${prevIds.length} rows`);
+      await p2.click('[data-testid=zh-week-next]'); await p2.waitForSelector(`[data-testid=zh-week-recap][data-set="${newest.set}"]`);
+      check('and › steps to the next week, which is this week, where › stops', !!(await p2.$('[data-testid=zh-span-now]')) && await p2.isDisabled('[data-testid=zh-week-next]') && !(await p2.isDisabled('[data-testid=zh-week-prev]')));
     }
     await p2.evaluate(() => { location.hash = '#/chinese/checklist'; }); await p2.waitForSelector('[data-testid=zh-checklist]');
     const row = async (id) => (await p2.textContent(`[data-testid=zh-ck-item][data-id="${id}"]`).catch(() => '')).replace(/\s+/g, ' ');
