@@ -713,6 +713,17 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     const p2 = await ctx2.newPage(), errs2 = []; p2.on('pageerror', (e) => errs2.push(e.message));
     await p2.addInitScript(INIT);
     await p2.goto('http://localhost:8149/learning/', { waitUntil: 'networkidle' }); await signIn(p2);
+    // last week's homework stays in reach once a newer note lands (the owner, 8 October:
+    // "where is last week's homework?"): the home page names the earlier week with what is
+    // left, and the checklist has a tab for every week
+    const prevNote = Object.values(real.zh.homework).sort((a, b) => (a.set < b.set ? 1 : -1))[1];
+    if (prevNote) {
+      await p2.evaluate(() => { location.hash = '#/chinese'; }); await p2.waitForSelector('[data-testid=zh-home]');
+      check('the home page names the earlier week that still has work, and opens it', !!(await p2.$(`[data-testid=zh-earlier-week][data-set="${prevNote.set}"]`)), await p2.textContent('[data-testid=zh-earlier]').catch(() => 'no earlier-weeks card'));
+      await p2.click(`[data-testid=zh-earlier-week][data-set="${prevNote.set}"] [data-testid=zh-earlier-open]`); await p2.waitForSelector('[data-testid=zh-checklist]');
+      const prevIds = await p2.$$eval('[data-testid=zh-ck-item]', (els) => els.map((e) => e.dataset.id));
+      check('and the checklist shows that week\'s own work, with a tab for each week', prevIds.some((id) => id.startsWith(`zx:${prevNote.lesson}-`)) && (await p2.$$('[data-testid=zh-week-tab]')).length === Object.keys(real.zh.homework).length && (await p2.getAttribute('[data-testid=zh-week-tab][aria-current=page]', 'data-set')) === prevNote.set, `${prevIds.length} rows`);
+    }
     await p2.evaluate(() => { location.hash = '#/chinese/checklist'; }); await p2.waitForSelector('[data-testid=zh-checklist]');
     const row = async (id) => (await p2.textContent(`[data-testid=zh-ck-item][data-id="${id}"]`).catch(() => '')).replace(/\s+/g, ' ');
     const fmt = (s) => (Math.floor(s / 60) ? `${Math.floor(s / 60)}分${s % 60 ? (s % 60) + '秒' : ''}` : `${s}秒`);
