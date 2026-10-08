@@ -744,6 +744,17 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     const weekCount = newest.tasks.filter((x) => x.kind !== 'workbook').length + want.length;
     await p2.evaluate(() => { location.hash = '#/chinese'; }); await p2.waitForSelector('[data-testid=zh-today]');
     check('and 今天 keeps to the week: only the workbook days the note names', new RegExp(`/ ${weekCount} 项`).test(await p2.textContent('[data-testid=zh-today]')), (await p2.textContent('[data-testid=zh-today] [data-slot=card-description]')).slice(0, 60));
+    // a day of the workbook done in the book is handed in as photos, from 今天 itself (the owner,
+    // 8 October: "to each week's workbook homework, allow upload screenshots to track the
+    // progress"): the day's rows tick, the week's count moves, and the marking comes later
+    const day = wb.days[0], dayInput = `[data-testid=zh-today-photos] [data-testid=zh-day-photos][data-day="${day}"] [data-testid=zh-day-photos-input]`;
+    await p2.waitForSelector(dayInput, { state: 'attached', timeout: 15000 }).catch(() => {});
+    await p2.setInputFiles(dayInput, [{ name: 'tue-1.jpg', mimeType: 'image/jpeg', buffer: Buffer.from('a') }, { name: 'tue-2.jpg', mimeType: 'image/jpeg', buffer: Buffer.from('b') }]);
+    await p2.waitForFunction((n) => /还剩 (\d+) \//.test(document.querySelector('[data-testid=zh-today]').textContent) && +/还剩 (\d+) \//.exec(document.querySelector('[data-testid=zh-today]').textContent)[1] === n, weekCount - want.length, { timeout: 15000 }).catch(() => {});
+    check(`photos of ${day}'s pages hand that day in from 今天: its ${want.length} rows tick and the week's count moves`, new RegExp(`还剩 ${weekCount - want.length} / ${weekCount} 项`).test(await p2.textContent('[data-testid=zh-today]')) && !(await p2.$(`[data-testid=zh-today-photos] [data-day="${day}"]`)), (await p2.textContent('[data-testid=zh-today] [data-slot=card-description]')).slice(0, 60));
+    await p2.evaluate(() => { location.hash = '#/chinese/checklist'; }); await p2.waitForSelector('[data-testid=zh-checklist]');
+    const handed = await p2.$$eval(`[data-testid=zh-ck-group][data-day="${day}"] [data-testid=zh-ck-item]`, (els) => els.map((e) => e.dataset.done + ':' + /照片已交/.test(e.textContent)));
+    check('and on the checklist the day says so, with its photos counted', handed.length === want.length && handed.every((x) => x === '1:true') && /2 张照片/.test(await p2.textContent(`[data-testid=zh-ck-group][data-day="${day}"] [data-testid=zh-day-photos]`)), JSON.stringify(handed));
     await p2.evaluate((l) => { location.hash = '#/chinese/read/' + l; }, lid); await p2.waitForSelector('[data-testid=zh-read-page]');
     check('the text test shows its target before she reads', new RegExp(fmt(ra.target_s)).test(await p2.textContent('[data-testid=zh-target]').catch(() => '')));
     await p2.evaluate((l) => { location.hash = '#/chinese/words/' + l; }, lid); await p2.waitForSelector('[data-testid=zh-words-page]');

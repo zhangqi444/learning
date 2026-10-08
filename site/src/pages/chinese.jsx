@@ -9,7 +9,7 @@ import { speak, canSpeak } from "@/lib/speech"
 import { alignChars, canRecognize, canRecord, markPassage, startRecognition, startRecorder } from "@/lib/reading"
 import { boxToChar, drawReference, hasStrokes, judgeStrokes, strokeData, writtenWell } from "@/lib/strokes"
 import { DRIVE_ENABLED, Store, ts, useStore } from "@/lib/store"
-import { addWorkbookPhoto, photosMarked, removeWorkbookPhoto, workbookPhotos } from "@/lib/zhwork"
+import { addWorkbookPhoto, photosByDay, photosMarked, removeWorkbookPhoto, workbookPhotos } from "@/lib/zhwork"
 import { cn } from "@/lib/utils"
 import { atLeast } from "@/lib/world"
 import { sfx } from "@/lib/sfx"
@@ -137,14 +137,18 @@ export function zhWeekItems(note, { allDays = false } = {}) {
         sub: r ? `${fmtTime(r.ms / 1000)}${task.target_s ? t(`（目标 ${fmtTime(task.target_s)}）`, ` (target ${fmtTime(task.target_s)})`) : ""}${notes[task.id] ? t(" · 已批改", " · evaluated") : ""}`
           : task.target_s ? t(`读出来，目标 ${fmtTime(task.target_s)}`, `Read them aloud; target ${fmtTime(task.target_s)}`) : t("读出来，录下来", "Read them aloud; it is recorded") })
     } else if (task.kind === "workbook") {
-      const exSt = st.exercises || {}
+      const exSt = st.exercises || {}, dayPhotos = photosByDay(note.lesson)
       // "练习册周二": a note may set some days only; the rest of the lesson stays on the workbook page.
       for (const row of zhWorkbook(note.lesson).filter((x) => allDays || !task.days || task.days.includes(x.day))) {
         const isBlock = row.kind === "block", r = isBlock ? Store.s.results[blockSetId(row)] : exSt[row.id]
         const reviewed = !isBlock && row.type === "free" && (row.items || []).some((it) => notes[it.id])
-        const done = isBlock ? !!r : !!(r && (r.n != null || r.submitted || r.told || r.read))
+        // A day she did in the book and photographed is handed in: its rows tick now, and the
+        // marking, when it comes, puts the scores on them (the owner, 8 October: "to each week's
+        // workbook homework, allow upload screenshots to track the progress").
+        const onPaper = !!dayPhotos[row.day]
+        const done = (isBlock ? !!r : !!(r && (r.n != null || r.submitted || r.told || r.read))) || onPaper
         const paper = r && r.via === "photo" ? t(" · 纸上", " · on paper") : ""
-        const state = isBlock ? (r ? `${r.right}/${r.n}${paper}` : t(`${row.items.length} 题`, `${row.items.length} questions`))
+        const state = !r && onPaper ? t("照片已交", "photo handed in") : isBlock ? (r ? `${r.right}/${r.n}${paper}` : t(`${row.items.length} 题`, `${row.items.length} questions`))
           : r && r.n != null ? `${r.right}/${r.n}${paper}` : reviewed ? t("已批改", "reviewed") : r && r.submitted ? t("待批改", "awaiting review")
           : r && (r.told || r.parent) ? (r.parent ? t("家长已听", "parent listened") : t("已录", "recorded")) : r && r.read ? t("已读", "read") : ""
         items.push({ id: row.id, kind: "workbook", isBlock, type: row.type, day: row.day, group: zhDay(row.day), label: t(row.title, row.title_en), short: t(row.title, row.title_en),
@@ -226,10 +230,48 @@ function PhotoTile({ f, onRemove }) {
         {pdf ? <FileText className="text-muted-foreground size-7" /> : src ? <img src={src} alt="" className="h-full w-full object-cover" /> : <ImageIcon className="text-muted-foreground size-7" />}
       </a>
       <div className="flex items-center justify-between gap-1 text-xs">
-        <span className="text-muted-foreground truncate" data-testid="zh-photo-name" title={f.name}>{f.name}</span>
+        <span className="text-muted-foreground truncate" title={f.name}>{f.day ? <span className="text-foreground mr-1">{zhDay(f.day)}</span> : null}<span data-testid="zh-photo-name">{f.name}</span></span>
         <button type="button" className="text-muted-foreground hover:text-destructive shrink-0" onClick={onRemove} aria-label={t("拿掉这张", "Remove this one")} data-testid="zh-photo-remove"><Trash2 className="size-3.5" /></button>
       </div>
     </li>
+  )
+}
+/** Upload files into her Drive and attach them to the lesson's workbook, for a day or for none.
+ *  Resolves to how many arrived. */
+async function uploadWorkbookFiles(lesson, files, day = null) {
+  let ok = 0
+  for (const f of files) {
+    const mime = isPdfFile(f) ? "application/pdf" : f.type || "image/jpeg"
+    const up = f.size > MULTIPART_MAX ? Store.uploadLarge : Store.uploadMedia
+    const fid = await up.call(Store, f.name || "workbook.jpg", f, mime)
+    if (fid) { addWorkbookPhoto(lesson, { id: fid, name: f.name, size: f.size, mime }, day); ok++ }
+  }
+  return ok
+}
+/** One day's photos, where that day is listed — the checklist, the workbook page, 今天: how many
+ *  are in, and a way to add them. A day with photos counts as handed in (zhWeekItems). */
+function DayPhotos({ lesson, day, compact }) {
+  useStore()
+  const n = (photosByDay(lesson)[day] || []).length
+  const [busy, setBusy] = useState(false), [err, setErr] = useState(false)
+  if (!(DRIVE_ENABLED && Store.folderId)) return null
+  async function onFiles(e) {
+    const files = [...(e.target.files || [])]
+    e.target.value = ""
+    if (!files.length) return
+    setBusy(true); setErr(false)
+    const ok = await uploadWorkbookFiles(lesson, files, day)
+    setBusy(false); setErr(ok < files.length)
+  }
+  return (
+    <span className="flex items-center gap-2" data-testid="zh-day-photos" data-lesson={lesson} data-day={day} data-n={n}>
+      {n ? <button type="button" className="text-muted-foreground hover:text-foreground text-xs tabular-nums" onClick={() => go(`/chinese/workbook/${lesson}`)} data-testid="zh-day-photos-n">{t(`${n} 张照片`, `${n} photo${n === 1 ? "" : "s"}`)}</button> : null}
+      <label className={cn("border-input hover:bg-accent inline-flex h-7 cursor-pointer items-center gap-1.5 rounded-md border px-2 text-xs font-medium", busy && "pointer-events-none opacity-60")}>
+        <Camera className="size-3.5" /> {busy ? t("上传中…", "Uploading…") : n ? t("再加", "Add") : compact ? zhDay(day) : t("上传照片", "Upload photos")}
+        <input type="file" accept={PHOTO_ACCEPT} multiple className="sr-only" onChange={onFiles} data-testid="zh-day-photos-input" />
+      </label>
+      {err ? <span className="text-destructive text-xs">{t("有的没传上去", "Some did not upload")}</span> : null}
+    </span>
   )
 }
 function WorkbookPhotos({ lesson }) {
@@ -243,13 +285,7 @@ function WorkbookPhotos({ lesson }) {
     e.target.value = ""
     if (!files.length) return
     setBusy(true); setMsg({ err: false, text: t(`正在上传 ${files.length} 个文件到她的 Google Drive…`, `Uploading ${files.length} file${files.length === 1 ? "" : "s"} to her Google Drive…`) })
-    let ok = 0
-    for (const f of files) {
-      const mime = isPdfFile(f) ? "application/pdf" : f.type || "image/jpeg"
-      const up = f.size > MULTIPART_MAX ? Store.uploadLarge : Store.uploadMedia
-      const fid = await up.call(Store, f.name || "workbook.jpg", f, mime)
-      if (fid) { addWorkbookPhoto(lesson, { id: fid, name: f.name, size: f.size, mime }); ok++ }
-    }
+    const ok = await uploadWorkbookFiles(lesson, files)
     setBusy(false)
     setMsg(ok === files.length ? { err: false, text: t("传好了，在她的 Google Drive 里，等批改。", "In her Google Drive, waiting to be marked.") } : { err: true, text: t(`${files.length - ok} 个没有传上去，再试一次。`, `${files.length - ok} did not upload; try them again.`) })
   }
@@ -288,6 +324,9 @@ export function ChineseHome() {
   const chars = lessonChars(lesson.id), can = writtenCount(lesson.id)
   const items = zhWeekItems(note), left = items.filter((i) => !i.done), next = zhNextUp(note)
   const jobs = left.filter((i) => !next || i.path !== next.path).slice(0, 5)
+  // the week's workbook days not yet handed in, each with its own camera: most weeks she does the
+  // workbook in the book, and a day's photos tick that day off
+  const wbDays = [...new Set(left.filter((i) => i.kind === "workbook").map((i) => i.day))]
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-home">
       <Card className="from-primary/5 to-card bg-gradient-to-t gap-4" data-testid="zh-today">
@@ -309,6 +348,12 @@ export function ChineseHome() {
                 </li>) })}
             </ul>
           ) : <div className="text-success flex items-center gap-2 rounded-md border px-3 py-2.5 text-sm font-medium"><CheckCircle2 className="size-4" /> {t("今天没有欠着的了。", "Nothing hanging over today.")}</div>}
+          {wbDays.length && DRIVE_ENABLED && Store.folderId ? (
+            <div className="flex flex-wrap items-center gap-2 text-sm" data-testid="zh-today-photos">
+              <span className="text-muted-foreground">{t("练习册在纸上做的？拍照交上来：", "Did the workbook on paper? Hand it in as photos:")}</span>
+              {wbDays.map((d) => <DayPhotos key={d} lesson={lesson.id} day={d} compact />)}
+            </div>
+          ) : null}
         </CardContent>
       </Card>
       <EarlierLessons />
@@ -378,7 +423,7 @@ export function WorkbookPage({ lesson: lessonId }) {
       <WorkbookPhotos lesson={lessonId} />
       {days.map((d) => { const dDone = d.items.filter((i) => i.done).length; return (
         <Card key={d.day} className="gap-2 py-4" data-testid="zh-day-card" data-day={d.day}>
-          <CardHeader className="px-5"><CardTitle className="text-base" data-testid="zh-day">{zhDay(d.day)}</CardTitle><CardAction><Badge variant={dDone === d.items.length ? "success" : "outline"} className="tabular-nums">{dDone}/{d.items.length}</Badge></CardAction></CardHeader>
+          <CardHeader className="px-5"><CardTitle className="text-base" data-testid="zh-day">{zhDay(d.day)}</CardTitle><CardAction className="flex items-center gap-2"><DayPhotos lesson={lessonId} day={d.day} /><Badge variant={dDone === d.items.length ? "success" : "outline"} className="tabular-nums">{dDone}/{d.items.length}</Badge></CardAction></CardHeader>
           <CardContent className="px-2"><ul className="divide-y">{d.items.map((it) => <Row key={it.id} item={it} testId={it.isBlock ? "zh-sitting" : "zh-exercise"} labels={rowLabels()} attrs={{ "data-id": it.id }} />)}</ul></CardContent>
         </Card>) })}
       {task.on_paper && task.on_paper.length ? <details className="text-sm">
@@ -469,7 +514,7 @@ export function ZhChecklist({ lesson: param }) {
       {note.synthetic ? null : <ReviewCards set={note.set} />}
       {groups.map((g) => (
         <Card key={g.name} className="gap-2 py-4" data-testid="zh-ck-group" data-day={g.day || undefined}>
-          <CardHeader className="px-5"><CardTitle className="text-base">{g.name}{g.day && assigned && assigned.includes(g.day) ? <span className="text-muted-foreground ml-2 text-sm font-normal" data-testid="zh-ck-assigned">{t("· 老师布置", "· set by the teacher")}</span> : null}</CardTitle></CardHeader>
+          <CardHeader className="px-5"><CardTitle className="text-base">{g.name}{g.day && assigned && assigned.includes(g.day) ? <span className="text-muted-foreground ml-2 text-sm font-normal" data-testid="zh-ck-assigned">{t("· 老师布置", "· set by the teacher")}</span> : null}</CardTitle>{g.day ? <CardAction><DayPhotos lesson={lesson.id} day={g.day} /></CardAction> : null}</CardHeader>
           <CardContent className="px-2"><ul className="divide-y">{g.items.map((it) => <Row key={it.id} item={it} testId="zh-ck-item" labels={rowLabels()} attrs={{ "data-id": it.id }} />)}</ul></CardContent>
         </Card>
       ))}

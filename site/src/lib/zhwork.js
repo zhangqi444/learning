@@ -25,9 +25,17 @@ const rec = (lesson) => (Store.s.zh || {})[photoKey(lesson)] || {}
 export function workbookPhotos(lesson) {
   return Object.values(rec(lesson).files || {}).filter((f) => f && f.id && !f.removed).sort((a, b) => ts(a.addedAt) - ts(b.addedAt))
 }
-export function addWorkbookPhoto(lesson, file) {
+/** `day` (星期一…星期五) when the photo is of one day's pages — uploaded from that day's row on
+ *  the checklist, the workbook page or 今天 — so the day can count as handed in on paper. */
+export function addWorkbookPhoto(lesson, file, day = null) {
   const at = new Date().toISOString()
-  Store.setSlice("zh", photoKey(lesson), (c) => ({ ...c, files: { ...(c.files || {}), [file.id]: { id: file.id, name: String(file.name || "photo").slice(0, 120), size: file.size || 0, mime: file.mime || "", addedAt: at, at } } }))
+  Store.setSlice("zh", photoKey(lesson), (c) => ({ ...c, files: { ...(c.files || {}), [file.id]: { id: file.id, name: String(file.name || "photo").slice(0, 120), size: file.size || 0, mime: file.mime || "", ...(day ? { day } : {}), addedAt: at, at } } }))
+}
+/** The days of a lesson's workbook that have photos: { 星期二: [files] }. */
+export function photosByDay(lesson) {
+  const out = {}
+  for (const f of workbookPhotos(lesson)) if (f.day) (out[f.day] = out[f.day] || []).push(f)
+  return out
 }
 export function removeWorkbookPhoto(lesson, fid) {
   const at = new Date().toISOString()
