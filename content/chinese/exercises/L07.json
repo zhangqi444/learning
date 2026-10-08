@@ -2,7 +2,7 @@
  "lesson": "L07",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册A 第七课《司马光》",
- "file_note": "The workbook's exercises for 第七课, typed from 练习册A pp. 43–54 (PDF index = printed + 4, verified on p. 43, which opens 第七课 under 星期一). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; speak is the retell, signed by a parent; the 选词填空 exercises are `blocks` naming zh-word items. Wednesday carries two 选词填空 (练习1 and 练习5), so it has two blocks: zb:L07-D3 and zb:L07-D3b, the second suffixed the way L03 suffixed a second site exercise (zx:L03-D5-02b). Left out because no type fits, with their keys so a type can be added: 星期二 练习4 (p. 47, color the correct word, two options each: (1) 他想出了一个好____ 办法/希望 → 办法 (2) ____多动脑，才能想出好办法 只要/只有 → 只有, because 才 pairs with 只有 (3) 我们都是____的孩子 聪明/小心 → 聪明 (4) 司马光____地砸着水缸 使劲/慢慢 → 使劲); 星期三 练习4 (p. 50, choose A or B according to the text: (1) B 花园 (2) A 一个小孩掉进了水缸 (3) B 拿石头砸缸 (4) B 救出来了); 星期五 练习1 (pp. 52–53, listen and choose, three options each — the script is in the appendix on p. 83 under 第7课: (1) C 星期日 (2) B 四口人, read off 爸爸妈妈带我和弟弟, four people (3) B 九点 (4) A 草地和花朵 (5) A 放风筝). A two- or three-choice `pick` type with the book's own options per item would take all three. 星期五 练习2's passage 《乌鸦喝水》 (pp. 53–54, the workbook's own) is not typed: the site holds no text of the book, by the owner's decision of 2 October (docs/chinese.md § 8); she reads it in the workbook, and its four true/false sentences are kept. Item (5) of 星期一 练习5 is left out of that exercise; its scope_note says why.",
+ "file_note": "The workbook's exercises for 第七课, typed from 练习册A pp. 43–54 (PDF index = printed + 4, verified on p. 43, which opens 第七课 under 星期一). Same shapes as L03–L05: tf/order/slots/match/sort/pick are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; speak is the retell, signed by a parent; the 选词填空 exercises are `blocks` naming zh-word items. Wednesday carries two 选词填空 (练习1 and 练习5), so it has two blocks: zb:L07-D3 and zb:L07-D3b, the second suffixed the way L03 suffixed a second site exercise (zx:L03-D5-02b). The three choose-between-printed-options exercises (星期二 练习4, 星期三 练习4, 星期五 练习1) are `pick` exercises per zh4/PICK.md, all items kept. Still out: item (5) of 星期一 练习5 (pinyin in a 米字格; see its scope_note); the passage 《乌鸦喝水》 of 星期五 练习2 (pp. 53–54, the workbook's own) is not typed — the site holds no text of the book, by the owner's decision of 2 October (docs/chinese.md § 8) — and its four true/false sentences are kept; the listening script on p. 83 is not typed.",
  "blocks": [
   {
    "id": "zb:L07-D3",
@@ -925,6 +925,73 @@
    ]
   },
   {
+   "id": "zx:L07-D2-04",
+   "day": "星期二",
+   "page": 47,
+   "ex": 4,
+   "type": "pick",
+   "title": "给正确的词语涂色",
+   "title_en": "Choose the correct words and color",
+   "note": {
+    "zh": "每句选一个对的词。（练习册上是给它涂上颜色。）",
+    "en": "Pick the right word for each sentence. (In the workbook you color it in.)"
+   },
+   "items": [
+    {
+     "id": "zx:L07-D2-04-1",
+     "text": "（1）他想出了一个好（　）。",
+     "options": [
+      "办法",
+      "希望"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "\"想出\"来的是办法：想出了一个好办法。\"希望\"是心里盼着的事，不是想出来的。",
+      "en": "What you think up is a way to solve something — 办法. 希望 is a hope, not something you work out."
+     }
+    },
+    {
+     "id": "zx:L07-D2-04-2",
+     "text": "（2）（　）多动脑，才能想出好办法。",
+     "options": [
+      "只要",
+      "只有"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "后面有\"才\"，前面就用\"只有\"：只有……才……。\"只要\"跟的是\"就\"。",
+      "en": "才 later in the sentence pairs with 只有: 只有……才…… means only if … can. 只要 pairs with 就."
+     }
+    },
+    {
+     "id": "zx:L07-D2-04-3",
+     "text": "（3）我们都是（　）的孩子，都能学好汉语。",
+     "options": [
+      "聪明",
+      "小心"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "能学好汉语，说的是聪明：我们都是聪明的孩子。\"小心\"是留神，跟学得好没有关系。",
+      "en": "Learning Chinese well goes with being clever — 聪明. 小心 means careful, which is not what makes you learn well."
+     }
+    },
+    {
+     "id": "zx:L07-D2-04-4",
+     "text": "（4）司马光（　）地砸着水缸。",
+     "options": [
+      "使劲",
+      "慢慢"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "要砸破又大又深的水缸，得用大力气：课文里说他使劲向水缸砸去。",
+      "en": "To break a big, deep vat you have to hit hard — the text says he smashed it 使劲, with all his strength."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L07-D2-05",
    "day": "星期二",
    "page": 48,
@@ -1135,6 +1202,73 @@
    ]
   },
   {
+   "id": "zx:L07-D3-04",
+   "day": "星期三",
+   "page": 50,
+   "ex": 4,
+   "type": "pick",
+   "title": "根据课文选择正确的答案，并涂上你喜欢的颜色",
+   "title_en": "Choose the correct answers according to the text and color with your favorite color",
+   "note": {
+    "zh": "根据课文选一个答案。（练习册上还要给选中的王冠涂上你喜欢的颜色。）",
+    "en": "Choose the answer from the text. (In the workbook you also color the crown beside it.)"
+   },
+   "items": [
+    {
+     "id": "zx:L07-D3-04-1",
+     "text": "（1）小朋友们去哪里玩儿了？",
+     "options": [
+      "广场",
+      "花园"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "课文里说，他和小朋友们在花园里玩儿。",
+      "en": "The text says they were playing in the garden: 在花园里玩儿."
+     }
+    },
+    {
+     "id": "zx:L07-D3-04-2",
+     "text": "（2）发生了什么事情？",
+     "options": [
+      "一个小孩掉进了水缸",
+      "他们一起去爬树"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "出的事是：有个小朋友不小心从树上掉进了水缸。有的孩子在爬树，那只是在玩儿。",
+      "en": "What happened is that a child slipped from the tree into the vat. Some children were climbing trees, but that was only their game."
+     }
+    },
+    {
+     "id": "zx:L07-D3-04-3",
+     "text": "（3）司马光想出了什么办法？",
+     "options": [
+      "去叫大人",
+      "拿石头砸缸"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "他找来一块大石头，使劲向水缸砸去。课文里没有去叫大人。",
+      "en": "He found a big stone and smashed the vat with it; in the text nobody runs for a grown-up."
+     }
+    },
+    {
+     "id": "zx:L07-D3-04-4",
+     "text": "（4）最后小孩被救出来了吗？",
+     "options": [
+      "没有",
+      "救出来了"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "水缸破了，水流了出来，那个小朋友得救了。",
+      "en": "The vat broke, the water ran out, and the child was saved: 得救了."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L07-D4-02",
    "day": "星期四",
    "page": 51,
@@ -1256,6 +1390,92 @@
     "zh": "把故事讲一遍，录下来；讲完问爸爸妈妈这个问题，再请他们点一下\"家长已听\"。",
     "en": "Tell the story and it is recorded; then ask your parents the question, and have them tap Listened."
    }
+  },
+  {
+   "id": "zx:L07-D5-01",
+   "day": "星期五",
+   "page": 52,
+   "ex": 1,
+   "type": "pick",
+   "title": "根据录音回答问题",
+   "title_en": "Listen and answer the questions",
+   "note": {
+    "zh": "请爸爸妈妈读一读练习册第83页附录里第7课的听力文本（或放录音），听完再选。",
+    "en": "Ask a parent to read the Lesson 7 listening script in the appendix on workbook p. 83 (or play the recording), then choose."
+   },
+   "scope_note": "pp. 52–53; the script (附录 听力文本, 第7课, p. 83) is not typed. Item (2) is kept: the script names the picnic party as 爸爸妈妈 + 我 + 弟弟, and the book's own question (1) calls that party 我们家, so the count is four; 三 and 五 have nothing in the script to rest on.",
+   "items": [
+    {
+     "id": "zx:L07-D5-01-1",
+     "text": "（1）我们家哪一天去野餐了？",
+     "options": [
+      "星期五",
+      "星期六",
+      "星期日"
+     ],
+     "key": 2,
+     "explanation": {
+      "zh": "录音一开头就说了：是星期日去公园野餐的。",
+      "en": "The recording says it at the very start: the picnic was on Sunday."
+     }
+    },
+    {
+     "id": "zx:L07-D5-01-2",
+     "text": "（2）我们家一共几口人？",
+     "options": [
+      "三口人",
+      "四口人",
+      "五口人"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "录音里去野餐的是爸爸、妈妈、我和弟弟，第（1）题说这是\"我们家\"去野餐：一共四口人。",
+      "en": "The picnic party in the recording is Dad, Mom, me and my little brother, and question (1) calls them 我们家, our family: four people."
+     }
+    },
+    {
+     "id": "zx:L07-D5-01-3",
+     "text": "（3）我们几点出发的？",
+     "options": [
+      "八点",
+      "九点",
+      "十点"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "录音里说，他们九点就出发了。",
+      "en": "The recording says they set off at nine o'clock."
+     }
+    },
+    {
+     "id": "zx:L07-D5-01-4",
+     "text": "（4）我们看见了什么？",
+     "options": [
+      "草地和花朵",
+      "树林和长椅",
+      "跑步的人"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "到了公园，他们看见的是草地和花朵。",
+      "en": "At the park they saw grass and flowers."
+     }
+    },
+    {
+     "id": "zx:L07-D5-01-5",
+     "text": "（5）我们玩什么了？",
+     "options": [
+      "放风筝",
+      "追蝴蝶",
+      "跑步"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "录音里说，他们一起放风筝，玩得非常开心。",
+      "en": "The recording says they flew a kite together and had a great time."
+     }
+    }
+   ]
   },
   {
    "id": "zx:L07-D5-02",

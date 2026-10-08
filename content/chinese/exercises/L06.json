@@ -2,7 +2,7 @@
  "lesson": "L06",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册B 第六课《猴子捞月亮》",
- "file_note": "The workbook's exercises for 第六课, typed from 练习册B pp. 31–45 (PDF index = printed + 4, verified on p. 31; p. 46 opens 第八课). Same shapes as L04. Left out because no type fits, with their keys so a type can be added: 星期五 练习2 (pp. 40–41, listen and answer, two options each — the script is in the appendix on p. 83: (1) 猴子们说：\"我们把月亮捞上来吧。\" → B 把月亮捞上来 (2) 猫咪总爱趴在我的椅子下面 → A \"我\"的椅子下面 (3) 我们不是在学校吗？ → A 学校 (4) 我刚碰到小狗，它就跑了 → B 它就跑了); 星期五 练习3 (p. 41, read and choose, three options for (1) and (2), two for (3): (1) 什么掉到水里了 → B 月亮; (2) 问题1 哪只小猴子去捞月亮 → A 最下面, 问题2 捞月亮的动作 → B 伸手; (3) 问题1 \"月亮不是还在天上吗？\"是什么意思 → B 月亮还在天上, 问题2 水里的月亮是什么 → B 是月亮的倒影). A two- or three-choice `pick` type with the book's own options per item would take both. Left out inside exercises that are otherwise typed, each named in that exercise's scope_note: 星期二 练习1's fourth house (write the pinyin of 接, jiē); 星期四 练习3's matching (four birds to three bowls, and 小鸟 is 天上 or 树上); 星期五 练习6 (2) (跟着 我们 都 叫了起来 → 我们都跟着叫了起来, but 我们跟着都叫了起来 is also said) and (4) (不是 哥哥 开车 会 吗 → 哥哥不是会开车吗？, but 不是哥哥会开车吗？ is also good Chinese). 星期四 练习5 is typed as free writing although its heading says 说一说, because the page prints five ruled lines for it. 星期五 练习5 is the song 《春天在哪里》 (pp. 43–44), recorded as `speak` with its words held back.",
+ "file_note": "The workbook's exercises for 第六课, typed from 练习册B pp. 31–45 (PDF index = printed + 4, verified on p. 31; p. 46 opens 第八课). Same shapes as L04. 星期五 练习2 (listening, script on p. 83) and 练习3 (read and choose) are `pick` exercises with the book's own two or three options. Left out inside exercises that are otherwise typed, each named in that exercise's scope_note: 星期二 练习1's fourth house (write the pinyin of 接, jiē); 星期四 练习3's matching (four birds to three bowls, and 小鸟 is 天上 or 树上); 星期五 练习6 (2) (跟着 我们 都 叫了起来 → 我们都跟着叫了起来, but 我们跟着都叫了起来 is also said) and (4) (不是 哥哥 开车 会 吗 → 哥哥不是会开车吗？, but 不是哥哥会开车吗？ is also good Chinese). 星期四 练习5 is typed as free writing although its heading says 说一说, because the page prints five ruled lines for it. 星期五 练习5 is the song 《春天在哪里》 (pp. 43–44), recorded as `speak` with its words held back.",
  "blocks": [
   {
    "id": "zb:L06-D2",
@@ -1114,6 +1114,158 @@
      "explanation": {
       "zh": "录音的顺序：一群、晚上、下面、伸手、这时、跟着、于是。",
       "en": "The order on the recording: 一群, 晚上, 下面, 伸手, 这时, 跟着, 于是."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D5-02",
+   "day": "星期五",
+   "page": 40,
+   "ex": 2,
+   "type": "pick",
+   "title": "听录音回答问题",
+   "title_en": "Listen and answer the questions",
+   "note": {
+    "zh": "请爸爸妈妈先读练习册第83页第6课听力文本的第2题（或放录音），每句听完再选。例：问：爸爸在哪里？——在家。",
+    "en": "Ask a parent to read item 2 of the Lesson 6 listening script on workbook p. 83 aloud (or play the recording), then choose after each sentence. Example: 问：爸爸在哪里？ — 在家."
+   },
+   "scope_note": "Items (1)–(3) are on p. 40 and (4) on p. 41; the script is 练习册B p. 83, 第6课 item 2. The book's example (爸爸在家 → A 在家) is not asked. All four keys follow from the script, so none is left out.",
+   "items": [
+    {
+     "id": "zx:L06-D5-02-1",
+     "text": "（1）问：猴子们要做什么？",
+     "options": [
+      "把月亮捞下来",
+      "把月亮捞上来"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "录音里猴子们说要把月亮捞上来。月亮在水里，要从水里往上捞，所以是\"捞上来\"，不是\"捞下来\"。",
+      "en": "On the recording the monkeys say they will scoop the moon up. The moon is in the water, and you scoop up out of water: 捞上来, not 捞下来."
+     }
+    },
+    {
+     "id": "zx:L06-D5-02-2",
+     "text": "（2）问：猫咪爱趴在哪里？",
+     "options": [
+      "“我”的椅子下面",
+      "“我”的床下面"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "录音说猫咪总爱趴在\"我\"的椅子下面，没有说床。",
+      "en": "The recording says the cat likes to lie under \"my\" chair; it says nothing about a bed."
+     }
+    },
+    {
+     "id": "zx:L06-D5-02-3",
+     "text": "（3）问：“我们”在哪里？",
+     "options": [
+      "学校",
+      "商店"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "录音里用的是这一课的\"不是……吗\"：\"我们不是在学校吗？\"意思就是\"我们在学校\"。",
+      "en": "The recording uses this lesson's 不是……吗: 我们不是在学校吗？ asks \"aren't we at school?\", which means we are at school."
+     }
+    },
+    {
+     "id": "zx:L06-D5-02-4",
+     "text": "（4）问：“我”刚碰到小狗，它就怎么样了？",
+     "options": [
+      "它就不动了",
+      "它就跑了"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "录音说\"我\"刚碰到小狗，它就跑了。\"刚……就……\"是说一碰到，小狗马上就跑了。",
+      "en": "On the recording the puppy runs off the moment \"I\" touch it: 刚……就 means one thing happens and the next follows at once."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L06-D5-03",
+   "day": "星期五",
+   "page": 41,
+   "ex": 3,
+   "type": "pick",
+   "title": "读一读，选一选",
+   "title_en": "Read and choose",
+   "note": {
+    "zh": "先读练习册第41页每道题上面的句子，再回答问题。",
+    "en": "First read the lines above each question on workbook p. 41, then answer it."
+   },
+   "scope_note": "Each question on p. 41 follows a few lines that are lines taken or adapted from the 课文; those lines are held back with the 课文, so only the printed questions are typed and she reads the lines in her workbook. The book's example (C 晚上) is not asked. All five keys are settled by the lines and the 课文, so none is left out.",
+   "items": [
+    {
+     "id": "zx:L06-D5-03-1",
+     "text": "（1）问：什么掉到水里了？",
+     "options": [
+      "太阳",
+      "月亮",
+      "星星"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "小猴子喊的是\"月亮掉到水里了\"：掉到水里的是月亮。",
+      "en": "The little monkey cries that the moon has fallen into the water: 月亮掉到水里了."
+     }
+    },
+    {
+     "id": "zx:L06-D5-03-2",
+     "text": "（2）问题1：哪只小猴子去捞月亮？",
+     "options": [
+      "最下面",
+      "最上面",
+      "中间"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "挂在最下面的小猴子伸手去捞月亮——最下面的那只离水最近。",
+      "en": "The monkey hanging at the very bottom reaches for the moon: 挂在最下面的小猴子, the one closest to the water."
+     }
+    },
+    {
+     "id": "zx:L06-D5-03-3",
+     "text": "（2）问题2：小猴子捞月亮的动作是怎样的？",
+     "options": [
+      "抬手",
+      "伸手",
+      "举手"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "课文用的词是\"伸手\"：把手伸出去捞月亮。",
+      "en": "The text's word is 伸手: he stretches his hand out to scoop up the moon."
+     }
+    },
+    {
+     "id": "zx:L06-D5-03-4",
+     "text": "（3）问题1：“月亮不是还在天上吗？”这句话是什么意思？",
+     "options": [
+      "月亮没在天上",
+      "月亮还在天上"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "\"不是……吗\"用问的样子说一件肯定的事：\"月亮不是还在天上吗？\"意思是月亮还在天上。",
+      "en": "不是……吗 asks a question that means yes: 月亮不是还在天上吗？ means the moon is still in the sky."
+     }
+    },
+    {
+     "id": "zx:L06-D5-03-5",
+     "text": "（3）问题2：水里的月亮是什么？",
+     "options": [
+      "是月亮",
+      "是月亮的倒影"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "月亮还在天上，水里的那个只是月亮照在水里的样子，是月亮的倒影。",
+      "en": "The moon is still in the sky, so the one in the water is only its picture on the surface: 月亮的倒影, its reflection."
      }
     }
    ]

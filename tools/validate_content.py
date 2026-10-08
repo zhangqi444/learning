@@ -367,6 +367,17 @@ def ex_errors(ex):
                 if k in it and not (isinstance(it[k],int) and 1<=it[k]<=hi): out.append(f"{it.get('id',i)}: {k} must be an integer from 1 to {hi}")
             if 'key' in it and (not isinstance(it['key'],str) or len(it['key'])!=1): out.append(f"{it.get('id',i)}: key must be one character")
             elif 'key' in it and not os.path.exists(f"content/chinese/strokes/{it['key']}.json"): out.append(f"{it.get('id',i)}: no stroke data for {it['key']} in content/chinese/strokes/")
+    elif t=='pick':
+        # The book's own two to four options per item — 选一选, 圈一圈, 涂颜色, 根据课文选择 A
+        # or B, and listening (a parent reads the script from the workbook's appendix). One key
+        # each; an item whose key the page does not settle is left out, not guessed.
+        for it in ex.get('items',[]):
+            o=it.get('options')
+            if not str(it.get('text') or '').strip(): out.append(f"{it.get('id',i)}: pick needs the item's text (the sentence, the question, or its number)")
+            if not (isinstance(o,list) and 2<=len(o)<=4 and all(isinstance(x,str) and x.strip() for x in o)): out.append(f"{it.get('id',i)}: pick options must be 2 to 4 non-blank strings")
+            elif len({x.strip() for x in o})!=len(o): out.append(f"{it.get('id',i)}: pick options repeat")
+            elif not (isinstance(it.get('key'),int) and not isinstance(it.get('key'),bool) and 0<=it['key']<len(o)): out.append(f"{it.get('id',i)}: pick key {it.get('key')!r} is not one of its {len(o)} options")
+            need_expl(it)
     elif t=='read':
         if not str(ex.get('text') or '').strip(): out.append(f'{i}: read needs text to read')
     elif t=='speak':

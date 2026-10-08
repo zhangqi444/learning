@@ -289,7 +289,7 @@ where it cannot. Seven of 第五课's fifteen paper exercises have one answer th
 book fixes — true/false, word order, sequencing, a sentence into a slot, parts
 into pairs, a character into a structure group — and they live in
 `content/chinese/exercises/L05.json` as typed exercises (`tf`, `order`,
-`slots`, `match`, `sort`), each item under a `zx:` id with its key and a
+`slots`, `match`, `sort`, and since 7 October `pick`), each item under a `zx:` id with its key and a
 two-language explanation for a miss, marked on the device. The validator checks
 each type's own shape: a key that is not a permutation of its pieces, a pair
 past the right-hand column, a miss with nothing to say. They record as evidence
@@ -433,9 +433,12 @@ blind before looking. Every key agreed; the readers' fixes were one item with a 
 defensible answer, a cycle in one lesson's answer letters, and explanations and glosses. Lessons nobody has assigned are there to open; the Glimbook counts only the
 characters up to the lesson the class is on (`taughtChars` in lib/zi.js), and a section a
 lesson does not print — 第九课 is two poems and has no 词语, 句型 or 用一用 — is not drawn.
-Exercises whose only shape is a pick between two or three printed options (and the
-listening ones) are left out with their keys in each file's `file_note`: there are many
-more of them in the later lessons, and a two- or three-option `pick` type would take them.
+Exercises whose only shape is a pick between the book's own two to four printed options —
+circle the word, colour the answer, choose A or B from the text, listen and choose — are
+the `pick` type (added the same day, when the owner said to go on), marked by rule with the
+book's letters; a listening pick asks a parent to read the script from the workbook's 附录,
+which the site does not hold. An item whose key the page does not settle stays out, named
+in its exercise's `scope_note`.
 The four 综合练习 between the units are not lessons and are not in. Phase 3 puts 汉字 into the
 Wordwood. Phase 4 extends the two Claude skills (`essay-review`,
 `progress-digest`), both of which are ISEE-shaped today and would otherwise go on

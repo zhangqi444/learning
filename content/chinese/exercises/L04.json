@@ -2,7 +2,7 @@
  "lesson": "L04",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册B 第四课《骆驼和羊》",
- "file_note": "The workbook's exercises for 第四课, typed from 练习册B pp. 16–30 (PDF index = printed + 4, verified on p. 16: 练习册A holds the odd lessons only, 1·3·5·7·9·11, and 练习册B the even ones). Same shapes as L05. Left out because no type fits, with their keys so a type can be added: 星期一 练习3 (p. 17–18, choose the word for a picture, two options each: 这是一匹骆驼 / 他俩在玩游戏 / 妈妈有两件漂亮的大衣 / 弟弟个子矮); 星期五 练习1 (p. 27, listen and choose, two options each — the script is in the appendix on p. 82: (1) 羊比骆驼矮 → A 羊 (2) 坐在我旁边的是云云 → A \"我\"旁边 (3) 画画儿是我的长处 → A 画画儿 (4) 园子四面有围墙 → A 围墙; 门又矮又窄 → B 又矮又窄). A two-choice `pick` type with the book's own options per item would take both.",
+ "file_note": "The workbook's exercises for 第四课, typed from 练习册B pp. 16–30 (PDF index = printed + 4, verified on p. 16: 练习册A holds the odd lessons only, 1·3·5·7·9·11, and 练习册B the even ones). Same shapes as L05. 星期一 练习3 (pp. 17–18, the word for a picture) and 星期五 练习1 (p. 27, listening; the script is in the appendix on p. 82, read aloud by a parent and not kept here) are `pick` exercises, the book's own two options per item. No whole exercise is left out now; the single items still out are named in their exercise's scope_note (星期二 练习4 pair (2), 星期四 练习1 item 4).",
  "blocks": [
   {
    "id": "zb:L04-D2",
@@ -252,6 +252,73 @@
      "explanation": {
       "zh": "长的反义词是短：长处和短处。",
       "en": "The opposite of 长 (long) is 短 (short), as in 长处 and 短处."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D1-03",
+   "day": "星期一",
+   "page": 17,
+   "ex": 3,
+   "type": "pick",
+   "title": "看图，选词填空",
+   "title_en": "Look at the pictures and choose the right words to fill in the blanks",
+   "note": {
+    "zh": "图在练习册上：前两句在第17页，后两句在第18页。看图，选出填在句子里的词。",
+    "en": "The pictures are in the workbook: the first two sentences on p. 17, the last two on p. 18. Look at each picture and choose the word that fills the blank."
+   },
+   "items": [
+    {
+     "id": "zx:L04-D1-03-1",
+     "text": "这是一匹（　）。",
+     "options": [
+      "骆驼",
+      "马"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "图上的动物背上有驼峰，是骆驼，不是马。",
+      "en": "The animal in the picture has humps on its back: a camel, 骆驼, not a horse."
+     }
+    },
+    {
+     "id": "zx:L04-D1-03-2",
+     "text": "他（　）在玩游戏。",
+     "options": [
+      "俩",
+      "两"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "“俩”就是“两个”，可以直接说“他俩”。“两”后面要有量词，要说“他们两个”，不能说“他两”。",
+      "en": "俩 means 'two people' by itself, so 他俩 is 'the two of them'. 两 needs a measure word after it (他们两个); 他两 is not Chinese."
+     }
+    },
+    {
+     "id": "zx:L04-D1-03-3",
+     "text": "妈妈有两（　）漂亮的大衣。",
+     "options": [
+      "件",
+      "牛"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "衣服的量词是“件”：两件大衣。“牛”是一种动物，不是量词。",
+      "en": "件 is the measure word for clothes: 两件大衣. 牛 is an animal (an ox), not a measure word."
+     }
+    },
+    {
+     "id": "zx:L04-D1-03-4",
+     "text": "哥哥个子高，弟弟个子（　）。",
+     "options": [
+      "矮",
+      "大"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "“高”的反义词是“矮”。图上弟弟比哥哥矮。",
+      "en": "The opposite of 高 is 矮, and in the picture the younger brother is the shorter one."
      }
     }
    ]
@@ -1148,6 +1215,86 @@
      "prompt_en": "Write about your family (more than 40 characters).",
      "blanks": 2,
      "cells": 40
+    }
+   ]
+  },
+  {
+   "id": "zx:L04-D5-01",
+   "day": "星期五",
+   "page": 27,
+   "ex": 1,
+   "type": "pick",
+   "title": "根据录音回答问题",
+   "title_en": "Listen and answer the questions",
+   "note": {
+    "zh": "请爸爸妈妈读一读练习册第82页第4课的听力文本（或放录音），听完再选。例题书上已经做好：森林深处有一个园子，选A。",
+    "en": "Ask a parent to read the Lesson 4 listening script on workbook p. 82 (or play the recording), then choose. The book has done the example for you: A, a garden."
+   },
+   "items": [
+    {
+     "id": "zx:L04-D5-01-1",
+     "text": "（1）问：谁长得矮？",
+     "options": [
+      "羊",
+      "骆驼"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "录音说：羊比骆驼矮。课文里也说：骆驼长得高，羊长得矮。",
+      "en": "The recording says the sheep is shorter than the camel, as the lesson does: 骆驼长得高，羊长得矮."
+     }
+    },
+    {
+     "id": "zx:L04-D5-01-2",
+     "text": "（2）问：云云坐在哪儿？",
+     "options": [
+      "“我”旁边",
+      "“我”前边"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "录音说：坐在“我”旁边的是云云。",
+      "en": "The recording says the one sitting beside 'me' is Yunyun: 旁边, not 前边."
+     }
+    },
+    {
+     "id": "zx:L04-D5-01-3",
+     "text": "（3）问：“我”的长处是什么？",
+     "options": [
+      "画画儿",
+      "唱歌"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "录音说：“我”喜欢画画儿，画画儿是“我”的长处。唱歌没有说到。",
+      "en": "The recording says drawing is what 'I' am good at (长处). Singing is not mentioned."
+     }
+    },
+    {
+     "id": "zx:L04-D5-01-4",
+     "text": "（4）问：①园子四面有什么？",
+     "options": [
+      "围墙",
+      "大树"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "录音说：园子四面有围墙。",
+      "en": "The recording says there are walls on all four sides of the garden: 围墙."
+     }
+    },
+    {
+     "id": "zx:L04-D5-01-5",
+     "text": "②门是什么样子的？",
+     "options": [
+      "又高又宽",
+      "又矮又窄"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "录音说：围墙上有一个又矮又窄的门。所以骆驼钻不进去。",
+      "en": "The recording says the gate in the wall is low and narrow, 又矮又窄 — which is why the camel cannot get through it."
+     }
     }
    ]
   },

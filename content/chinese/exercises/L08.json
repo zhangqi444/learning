@@ -2,7 +2,7 @@
  "lesson": "L08",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册B 第八课《数星星的孩子》",
- "file_note": "The workbook's exercises for 第八课, typed from 练习册B pp. 46–58 (PDF index = printed + 4, verified on p. 46, where the lesson's title page and 星期一 open), with the 星期五 练习1 listening sentences read from the appendix 听力文本 on p. 83. Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; the four-choice exercises are `blocks` naming zh-word items. 星期三 has two four-choice exercises (练习2 找出不同类的词 on p. 51 and 练习3 选词填空 on p. 52), so it has two blocks, zb:L08-D3 and zb:L08-D3b; the site sorts blocks and exercises together by day and exercise number, so they sit in the book's order. 星期四 练习4 is 连一连，读一读, so it is a match (zx:L08-D4-04) followed by a read of the four matched sentences (zx:L08-D4-04r). Left out because no type fits, with their keys so a type can be added: 星期一 练习3's pinyin half (p. 47 — 靠 kào under 靠着, 元 yuán under 一元, 吓 xià under 吓人; the word half is kept as zx:L08-D1-03); 星期四 练习1 (p. 53, tick one of two in each bracket, the example 他在（数✓ 书）星星 given: (1) 靠 not 告 (2) 仰 not 样 (3) 一颗一颗 not 一棵一棵 (4) 清 not 睛); 星期四 练习3 (p. 54, choose A or B according to the text: (1) A 夏天的夜晚 (2) A 院子里 (3) B 北斗星 (4) B 中国人). A two-choice `pick` type with the book's own options per item would take both. 星期五 练习3 (pp. 57–58) is a passage of the workbook's own about Newton and the falling apple; it is not typed, under the hold on every text of the book, so only its writing half (人物、事件、感想) is kept, as zx:L08-D5-03.",
+ "file_note": "The workbook's exercises for 第八课, typed from 练习册B pp. 46–58 (PDF index = printed + 4, verified on p. 46, where the lesson's title page and 星期一 open), with the 星期五 练习1 listening sentences read from the appendix 听力文本 on p. 83. Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; the four-choice exercises are `blocks` naming zh-word items. 星期三 has two four-choice exercises (练习2 找出不同类的词 on p. 51 and 练习3 选词填空 on p. 52), so it has two blocks, zb:L08-D3 and zb:L08-D3b; the site sorts blocks and exercises together by day and exercise number, so they sit in the book's order. 星期四 练习4 is 连一连，读一读, so it is a match (zx:L08-D4-04) followed by a read of the four matched sentences (zx:L08-D4-04r). 星期四 练习1 (p. 53) and 练习3 (p. 54), once left out as two-choice, are now `pick` exercises (zx:L08-D4-01, zx:L08-D4-03), every item's key settled by the page or the 课文. Still left out: 星期一 练习3's pinyin half (p. 47 — 靠 kào under 靠着, 元 yuán under 一元, 吓 xià under 吓人; pinyin has no place on 米字格; the word half is kept as zx:L08-D1-03). 星期五 练习3 (pp. 57–58) is a passage of the workbook's own about Newton and the falling apple; it is not typed, under the hold on every text of the book, so only its writing half (人物、事件、感想) is kept, as zx:L08-D5-03.",
  "blocks": [
   {
    "id": "zb:L08-D2",
@@ -950,6 +950,73 @@
    ]
   },
   {
+   "id": "zx:L08-D4-01",
+   "day": "星期四",
+   "page": 53,
+   "ex": 1,
+   "type": "pick",
+   "title": "选择正确的词语完成句子",
+   "title_en": "Choose the correct words to complete the sentences",
+   "note": {
+    "zh": "每句从括号里的两个中选一个。例：他在（数✓　书）星星。",
+    "en": "Choose one of the two in the brackets for each sentence. Example: 他在（数✓　书）星星。"
+   },
+   "items": [
+    {
+     "id": "zx:L08-D4-01-1",
+     "text": "（1）小时候我喜欢（　）着妈妈听故事。",
+     "options": [
+      "靠",
+      "告"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "\"靠着\"是身体挨着，像课文里张衡靠着奶奶。\"告\"是告诉的\"告\"，没有\"告着\"。",
+      "en": "靠着 means leaning against someone, as Zhang Heng leans on his grandmother in the text. 告 is the 告 of 告诉, to tell; there is no 告着."
+     }
+    },
+    {
+     "id": "zx:L08-D4-01-2",
+     "text": "（2）哥哥很高，我要（　）着头和他说话。",
+     "options": [
+      "仰",
+      "样"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "\"仰着头\"是把头抬起来往上看——哥哥高，要抬头看他。课文里张衡也是仰着头数星星。\"样\"是样子的\"样\"。",
+      "en": "仰着头 is tipping your head back to look up — the brother is tall, so you look up at him, as Zhang Heng 仰着头 to count the stars. 样 is the 样 of 样子, a look or shape."
+     }
+    },
+    {
+     "id": "zx:L08-D4-01-3",
+     "text": "（3）张衡在（　）地数星星。",
+     "options": [
+      "一棵一棵",
+      "一颗一颗"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "\"颗\"数星星这种小而圆的东西：一颗星。\"棵\"是木字旁，数树：一棵树。课文说：他一颗一颗地数。",
+      "en": "颗 counts small round things like stars: 一颗星. 棵, with 木 for wood, counts trees: 一棵树. The text says 他一颗一颗地数."
+     }
+    },
+    {
+     "id": "zx:L08-D4-01-4",
+     "text": "（4）字太小啦！我看不（　）。",
+     "options": [
+      "睛",
+      "清"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "\"看不清\"是看不清楚。\"睛\"是眼睛的\"睛\"，不能放在\"看不\"后面。",
+      "en": "看不清 means cannot see clearly. 睛 is the 睛 of 眼睛, the eye, and cannot follow 看不."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L08-D4-02",
    "day": "星期四",
    "page": 53,
@@ -989,6 +1056,69 @@
      "prompt_en": "(4) 这个数星星的孩子叫张衡。→ … 叫爱迪生。",
      "blanks": 1,
      "cells": 16
+    }
+   ]
+  },
+  {
+   "id": "zx:L08-D4-03",
+   "day": "星期四",
+   "page": 54,
+   "ex": 3,
+   "type": "pick",
+   "title": "根据课文选择正确的选项",
+   "title_en": "Choose the correct options according to the text",
+   "items": [
+    {
+     "id": "zx:L08-D4-03-1",
+     "text": "（1）张衡在什么时候数星星？",
+     "options": [
+      "夏天的夜晚",
+      "春天的夜晚"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "课文第一句：夏天的夜晚，天空布满了明亮的星星。",
+      "en": "The text's first line: 夏天的夜晚，天空布满了明亮的星星 — a summer night."
+     }
+    },
+    {
+     "id": "zx:L08-D4-03-2",
+     "text": "（2）张衡在哪里数星星？",
+     "options": [
+      "院子里",
+      "小区里"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "课文说：一个孩子坐在院子里，靠着奶奶，仰着头数天上的星星。",
+      "en": "The text says the boy sat in the yard: 一个孩子坐在院子里."
+     }
+    },
+    {
+     "id": "zx:L08-D4-03-3",
+     "text": "（3）什么星连起来像一把勺子？",
+     "options": [
+      "北极星",
+      "北斗星"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "爷爷说：那七颗星连起来像一把勺子，那是北斗星。北极星是离它不远的那颗星。",
+      "en": "Grandpa says the seven stars joined up look like a spoon, and that is 北斗星. 北极星 is the one star not far from it."
+     }
+    },
+    {
+     "id": "zx:L08-D4-03-4",
+     "text": "（4）张衡是哪国人？",
+     "options": [
+      "美国人",
+      "中国人"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "课文说：张衡是一千九百多年前的中国人。",
+      "en": "The text says Zhang Heng lived in China more than 1,900 years ago: 一千九百多年前的中国人."
+     }
     }
    ]
   },

@@ -2,7 +2,7 @@
  "lesson": "L12",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册B 第十二课《探月》",
- "file_note": "The workbook's exercises for 第十二课, typed from 练习册B pp. 71–81 (PDF index = printed + 4, verified on p. 71; the listening script for 第12课 is on p. 84, the page after pp. 82–83). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; speak is recorded and signed by a parent; the four-choice exercises are `blocks` naming zh-word items. Left out because no type fits, with their keys so a type can be added: 星期三 练习1 (p. 75, choose one of two words in brackets: (1) 人们很早___（以前 从前）就想知道月亮上有什么 → 以前 (2) 人类___（开展 实现）了登月的梦想 → 实现 (3) 月球上没有___（动物 石头） → 动物 (4) 宇航员___（坐 座）飞船离开了地球 → 坐); 星期四 练习3 (p. 78, answer by choosing A or B according to the text: (1) 月亮上面有什么 → A 泥土和石块 (2) 美国宇航员是怎样离开地球的 → A 坐飞船 (3) 嫦娥探月工程是哪个国家正式开展的 → B 中国 (4) 哪艘飞船实现了人类航天器首次在月球背面着陆 → B 嫦娥四号). A two-choice `pick` type with the book's own options per item would take both. 星期四 练习4 (read the 课文 to a parent for a grade) is a `speak`, since the 课文 is held back and a `read` carries its text. Workbook misprint: p. 80's dialogue dates the Chang'e programme 2014; the textbook says 2004.",
+ "file_note": "The workbook's exercises for 第十二课, typed from 练习册B pp. 71–81 (PDF index = printed + 4, verified on p. 71; the listening script for 第12课 is on p. 84, the page after pp. 82–83). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; speak is recorded and signed by a parent; the four-choice exercises are `blocks` naming zh-word items; pick is the book's own two options per item, in the book's order. Nothing on pp. 71–81 is left out: 星期三 练习1 (p. 75) and 星期四 练习3 (p. 78), left out until the `pick` type existed, are zx:L12-D3-01 and zx:L12-D4-03, all four items each. 星期四 练习4 (read the 课文 to a parent for a grade) is a `speak`, since the 课文 is held back and a `read` carries its text. Workbook misprint: p. 80's dialogue dates the Chang'e programme 2014; the textbook says 2004.",
  "blocks": [
   {
    "id": "zb:L12-D1",
@@ -704,6 +704,73 @@
    ]
   },
   {
+   "id": "zx:L12-D3-01",
+   "day": "星期三",
+   "page": 75,
+   "ex": 1,
+   "type": "pick",
+   "title": "选词填空",
+   "title_en": "Choose the right words to fill in the blanks",
+   "note": {
+    "zh": "每句括号里有两个词，选一个填进（　）。",
+    "en": "Each sentence offers two words in brackets; choose the one that goes in the gap."
+   },
+   "items": [
+    {
+     "id": "zx:L12-D3-01-1",
+     "text": "（1）人们很早（　）就想知道月亮上有什么。",
+     "options": [
+      "以前",
+      "从前"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "\"很早以前\"是说过去很久的时候，课文里就是\"很早很早以前\"。\"从前\"本身就是过去的意思，前面不再加\"很早\"。",
+      "en": "很早以前 means a very long time ago, and the 课文 says 很早很早以前. 从前 already means \"in the past\" on its own, so it does not take 很早 in front of it."
+     }
+    },
+    {
+     "id": "zx:L12-D3-01-2",
+     "text": "（2）人类（　）了登月的梦想。",
+     "options": [
+      "开展",
+      "实现"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "梦想是\"实现\"的：人类实现了登月的梦想。\"开展\"的是工程、活动，不是梦想。",
+      "en": "A dream is something you 实现, make come true: 人类实现了登月的梦想. You 开展 a program or an activity, not a dream."
+     }
+    },
+    {
+     "id": "zx:L12-D3-01-3",
+     "text": "（3）月球上没有（　）。",
+     "options": [
+      "动物",
+      "石头"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "课文说月球上到处都是石头和泥土，没有动物和植物，所以月球上没有的是动物。",
+      "en": "The 课文 says the moon is rocks and soil everywhere, with no animals or plants — so what the moon has none of is 动物."
+     }
+    },
+    {
+     "id": "zx:L12-D3-01-4",
+     "text": "（4）宇航员（　）飞船离开了地球。",
+     "options": [
+      "坐",
+      "座"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "\"坐\"是动作：坐飞船、坐飞机。\"座\"是量词或座位，像\"一座山\"，不能当动作用。",
+      "en": "坐 is the action of riding: 坐飞船, 坐飞机. 座 is a measure word or a seat, as in 一座山, and cannot be the action."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L12-D3-02",
    "day": "星期三",
    "page": 76,
@@ -826,6 +893,73 @@
      "prompt_en": "(4) …开汽车…。 (who, and where to)",
      "blanks": 2,
      "cells": 6
+    }
+   ]
+  },
+  {
+   "id": "zx:L12-D4-03",
+   "day": "星期四",
+   "page": 78,
+   "ex": 3,
+   "type": "pick",
+   "title": "根据课文选择正确的选项",
+   "title_en": "Choose the correct options according to the text",
+   "note": {
+    "zh": "想一想课文（课本第125–126页）是怎么说的，再选A或B。",
+    "en": "Think about what the text (textbook pp. 125–126) says, then choose A or B."
+   },
+   "items": [
+    {
+     "id": "zx:L12-D4-03-1",
+     "text": "（1）月亮上面有什么？",
+     "options": [
+      "泥土和石块",
+      "动物和植物"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "课文说月球上到处都是石头和泥土，没有动物和植物；宇航员还带回了月球上的泥土和石块。",
+      "en": "The 课文 says the moon is rocks and soil everywhere, with no animals or plants — the astronauts even brought its soil and rocks home."
+     }
+    },
+    {
+     "id": "zx:L12-D4-03-2",
+     "text": "（2）美国宇航员是怎样离开地球的？",
+     "options": [
+      "坐飞船",
+      "坐飞机"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "课文说：他们坐\"阿波罗号\"飞船离开了地球。",
+      "en": "The 课文 says 他们坐\"阿波罗号\"飞船离开了地球 — they left the Earth in the Apollo spaceship."
+     }
+    },
+    {
+     "id": "zx:L12-D4-03-3",
+     "text": "（3）嫦娥探月工程是哪个国家正式开展的？",
+     "options": [
+      "美国",
+      "中国"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "课文说：二〇〇四年，中国正式开展嫦娥探月工程。",
+      "en": "The 课文 says that in 2004 China officially began the Chang'e moon program: 中国正式开展嫦娥探月工程."
+     }
+    },
+    {
+     "id": "zx:L12-D4-03-4",
+     "text": "（4）哪艘飞船实现了人类航天器首次在月球背面着陆？",
+     "options": [
+      "阿波罗号",
+      "嫦娥四号"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "课文说：\"嫦娥四号\"实现了人类航天器首次在月球背面着陆。\"阿波罗号\"是送美国宇航员去月球的飞船。",
+      "en": "The 课文 says 嫦娥四号 made the first landing by any spacecraft on the moon's far side; 阿波罗号 was the spaceship that took the American astronauts."
+     }
     }
    ]
   },

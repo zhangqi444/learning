@@ -2,7 +2,7 @@
  "lesson": "L02",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册B 第二课《故宫》",
- "file_note": "The workbook's exercises for 第二课, typed from 练习册B pp. 1–15 (PDF index = printed + 4, verified on p. 1, whose header reads 2 故宫 The Forbidden City). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; speak is the parent-signed retell; the three word-box exercises are `blocks` naming zh-word items. Left out, with their keys so a type can be added: 星期五 练习1 (pp. 11–12, listen and choose, two options each — the script is in the appendix on p. 82: (1) 墙上挂着一张世界地图 → A 世界地图 (2) 哥哥在国外留学 → B 国外 (3) 故宫是中国明朝和清朝的皇宫 → A 明朝和清朝 (4) 故宫又叫紫禁城 → A 紫禁城), as L04 left out its two-option listening; a two-choice `pick` type would take it. Also left out: 内 from the 星期一 练习1 structure sorting (see that exercise's scope_note — its key would be 独体字 if the book means what its empty line suggests); the two pinyin-writing gourds of 星期三 练习1 (p. 6: 清 → qīng, 筑 → zhù). 星期二 练习4 (p. 6, 选择正确的句子并读一读) is a tf exercise followed by a read of the five right sentences, since the book asks for both. 星期四 练习3 (pp. 9–10) is split four ways; see the shape_note on zx:L02-D4-03. Note the workbook's p. 7–8 sentence 以后有机会我还想来故宫逛逛 has 想 where the 课文's 句子 has 要; each is typed as its own page prints it.",
+ "file_note": "The workbook's exercises for 第二课, typed from 练习册B pp. 1–15 (PDF index = printed + 4, verified on p. 1, whose header reads 2 故宫 The Forbidden City). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; speak is the parent-signed retell; the three word-box exercises are `blocks` naming zh-word items. 星期五 练习1 (pp. 11–12, listening, two options each) is a `pick`; a parent reads the p. 82 script, which is not typed here. Left out: 内 from the 星期一 练习1 structure sorting (see that exercise's scope_note — its key would be 独体字 if the book means what its empty line suggests); the two pinyin-writing gourds of 星期三 练习1 (p. 6: 清 → qīng, 筑 → zhù). 星期二 练习4 (p. 6, 选择正确的句子并读一读) is a tf exercise followed by a read of the five right sentences, since the book asks for both. 星期四 练习3 (pp. 9–10) is split four ways; see the shape_note on zx:L02-D4-03. Note the workbook's p. 7–8 sentence 以后有机会我还想来故宫逛逛 has 想 where the 课文's 句子 has 要; each is typed as its own page prints it.",
  "blocks": [
   {
    "id": "zb:L02-D1",
@@ -1465,6 +1465,74 @@
      "prompt_en": "Write about a day out (more than 40 characters).",
      "blanks": 2,
      "cells": 40
+    }
+   ]
+  },
+  {
+   "id": "zx:L02-D5-01",
+   "day": "星期五",
+   "page": 11,
+   "ex": 1,
+   "type": "pick",
+   "title": "听句子，选择正确答案",
+   "title_en": "Listen to the sentences and choose the correct answers",
+   "note": {
+    "zh": "请爸爸妈妈先读一读练习册第82页附录\"听力文本\"里第2课的句子（或放录音），每读一句，你选一个答案。练习册上的例子：问：爷爷居住在哪里？答：A．北京市。",
+    "en": "Ask a parent to read the Lesson 2 sentences in the 附录 listening scripts on workbook p. 82 (or play the recording), one at a time, and choose an answer after each. The book's example: 爷爷居住在哪里? Answer: A, 北京市."
+   },
+   "scope_note": "The book's example (爷爷居住在北京市 → A 北京市) is printed with its answer and is not an item. All four keys are settled by the p. 82 script, which the text never types.",
+   "items": [
+    {
+     "id": "zx:L02-D5-01-1",
+     "text": "（1）问：墙上挂着什么？",
+     "options": [
+      "世界地图",
+      "中国地图"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "听到的句子说，墙上挂着一张世界地图。",
+      "en": "The sentence you heard says a world map hangs on the wall."
+     }
+    },
+    {
+     "id": "zx:L02-D5-01-2",
+     "text": "（2）问：哥哥在哪里上学？",
+     "options": [
+      "国内",
+      "国外"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "听到的句子说哥哥在国外留学：\"留学\"就是到外国去上学。",
+      "en": "The sentence you heard says the brother 在国外留学 — 留学 is going to another country to study."
+     }
+    },
+    {
+     "id": "zx:L02-D5-01-3",
+     "text": "（3）问：故宫是什么朝代的皇宫？",
+     "options": [
+      "明朝和清朝",
+      "明朝和汉朝"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "听到的句子说故宫是中国明朝和清朝的皇宫，课文第一段也是这么说的。",
+      "en": "The sentence you heard says it was the palace of the Ming and the Qing, just as the text's first paragraph says."
+     }
+    },
+    {
+     "id": "zx:L02-D5-01-4",
+     "text": "（4）问：故宫又叫什么？",
+     "options": [
+      "紫禁城",
+      "长城"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "听到的句子说故宫又叫紫禁城，课文里也有：又叫紫禁城。长城是另一个地方。",
+      "en": "The sentence you heard says the palace is also called 紫禁城, as the text does; 长城 is the Great Wall, somewhere else."
+     }
     }
    ]
   },

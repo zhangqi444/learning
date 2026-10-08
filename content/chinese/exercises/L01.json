@@ -2,7 +2,7 @@
  "lesson": "L01",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册A 第一课《寒假见闻》",
- "file_note": "The workbook's exercises for 第一课, typed from 练习册A pp. 1–15 (PDF index = printed + 4, verified on p. 1; 第三课 starts p. 16), with the listening script from the appendix on p. 82 (p. 83 holds lessons 5–11 only). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; the three four-choice exercises are `blocks` naming zh-word items. Left out because no type fits, with their keys so a type can be added: 星期二 练习3 (p. 5, choose the correct word and color it, two options each: (1) 哪里 (2) 看望 (3) 方便 (4) 阳光); 星期三 练习1 (p. 7, choose the correct word to complete the sentence, two options each, example 学校里有学生 (有/是): (1) 寒假 (2) 成为 (3) 现金 (4) 回来). A two-choice `pick` type with the book's own options per item would take both; their options are single words, not statements a tf can judge. 星期四 练习2 (A/B answers that are full sentences) is a tf, and 星期四 练习4 (read the 课文 to your parents) a speak, as L12 does it; see their shape_notes. The pinyin half of 星期一 练习5 is left out; see that exercise's scope_note.",
+ "file_note": "The workbook's exercises for 第一课, typed from 练习册A pp. 1–15 (PDF index = printed + 4, verified on p. 1; 第三课 starts p. 16), with the listening script from the appendix on p. 82 (p. 83 holds lessons 5–11 only). Same shapes as L03–L05: tf/order/slots/match/sort/pick are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; the three four-choice exercises are `blocks` naming zh-word items. 星期二 练习3 (p. 5) and 星期三 练习1 (p. 7), two printed words per item, are `pick` exercises (zh4/PICK.md); all eight keys are settled. 星期四 练习2 (A/B answers that are full sentences) is a tf, and 星期四 练习4 (read the 课文 to your parents) a speak, as L12 does it; see their shape_notes. Still out: the pinyin half of 星期一 练习5; see that exercise's scope_note.",
  "blocks": [
   {
    "id": "zb:L01-D1",
@@ -600,6 +600,73 @@
    ]
   },
   {
+   "id": "zx:L01-D2-03",
+   "day": "星期二",
+   "page": 5,
+   "ex": 3,
+   "type": "pick",
+   "title": "选择正确的词语并涂色",
+   "title_en": "Choose the correct words and color",
+   "note": {
+    "zh": "每句后面有两个词，选那个放进（　）里读得通的。",
+    "en": "Each sentence offers two words; choose the one that makes the sentence right."
+   },
+   "items": [
+    {
+     "id": "zx:L01-D2-03-1",
+     "text": "（1）爸爸，我们寒假去（　）玩儿啊？",
+     "options": [
+      "哪里",
+      "那里"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "这句是问话（句末是\"啊？\"），问去什么地方玩，要用问地方的\"哪里\"。\"那里\"是\"那个地方\"，不是问话的词。",
+      "en": "The sentence is a question (it ends in 啊？) asking where to go, so it needs the question word 哪里, where. 那里 means 'that place'; it does not ask a question."
+     }
+    },
+    {
+     "id": "zx:L01-D2-03-2",
+     "text": "（2）我和爸爸妈妈去北京（　）爷爷和奶奶。",
+     "options": [
+      "介绍",
+      "看望"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "去北京是为了去看爷爷奶奶，\"看望\"就是去看人；课文说：回北京看望了爷爷奶奶。\"介绍\"是让人认识，不是去北京做的事。",
+      "en": "They go to Beijing to see the grandparents, and 看望 is to visit someone; the text says 回北京看望了爷爷奶奶. 介绍 means to introduce, which is not why they went."
+     }
+    },
+    {
+     "id": "zx:L01-D2-03-3",
+     "text": "（3）现在中国交通非常（　）。",
+     "options": [
+      "方便",
+      "美丽"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "交通说的是出门坐车、走路，好不好走要说\"方便\"；课文说：交通非常方便。\"美丽\"说的是好看。",
+      "en": "交通 is getting around, and how easy that is gets 方便, convenient; the text says 交通非常方便. 美丽 means beautiful, a word for how things look."
+     }
+    },
+    {
+     "id": "zx:L01-D2-03-4",
+     "text": "（4）（　）洒在大地上，好温暖啊！",
+     "options": [
+      "阳光",
+      "月亮"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "洒在大地上、让人觉得温暖的，是太阳的光——阳光。月亮不会让大地暖和。",
+      "en": "What spreads over the ground and feels warm is sunshine, 阳光. The moon does not warm the ground."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L01-D2-04",
    "day": "星期二",
    "page": 5,
@@ -709,6 +776,73 @@
      "prompt_en": "(4) 我非常喜欢这个书包，那是爸爸送给我的。 (因为) — the whole sentence",
      "blanks": 1,
      "cells": 22
+    }
+   ]
+  },
+  {
+   "id": "zx:L01-D3-01",
+   "day": "星期三",
+   "page": 7,
+   "ex": 1,
+   "type": "pick",
+   "title": "选择正确的词语完成句子",
+   "title_en": "Choose the correct words to complete the sentences",
+   "note": {
+    "zh": "例：学校里有学生。（有　是）每句后面有两个词，选一个放进（　）里。",
+    "en": "Example: 学校里有学生。 (有 / 是) Each sentence offers two words; choose the one for the blank."
+   },
+   "items": [
+    {
+     "id": "zx:L01-D3-01-1",
+     "text": "（1）（　）来了，我想去爷爷家玩儿。",
+     "options": [
+      "寒假",
+      "北京"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "\"寒假来了\"是放寒假的时候到了，所以想去爷爷家玩儿。北京是一个地方，不会\"来了\"。",
+      "en": "寒假来了 means the winter vacation has come, so there is time to visit Grandpa. 北京 is a city, and a city does not come."
+     }
+    },
+    {
+     "id": "zx:L01-D3-01-2",
+     "text": "（2）长大后，我想（　）一名科学家。",
+     "options": [
+      "作为",
+      "成为"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "\"成为一名科学家\"是长大后变成科学家，课本\"用一用\"里就有这一句。\"作为\"是\"以……的身份\"，后面还要说做什么，不能这样用。",
+      "en": "成为一名科学家 is to become a scientist, and the textbook's 用一用 list has it word for word. 作为 means as, in the role of, and needs more after it."
+     }
+    },
+    {
+     "id": "zx:L01-D3-01-3",
+     "text": "（3）请用（　）付款。",
+     "options": [
+      "杯子",
+      "现金"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "付款要用钱，\"现金\"就是钱；杯子不能用来付款。",
+      "en": "To pay you need money, and 现金 is cash. A cup (杯子) cannot pay for anything."
+     }
+    },
+    {
+     "id": "zx:L01-D3-01-4",
+     "text": "（4）爸爸，我放学（　）了。",
+     "options": [
+      "回来",
+      "上去"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "放学回到家，对爸爸说\"我放学回来了\"。\"上去\"是往高处去，放在这里不通。",
+      "en": "Home from school, you tell Dad 我放学回来了, I am back. 上去 means going up somewhere higher, which does not fit."
+     }
     }
    ]
   },

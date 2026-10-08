@@ -2,7 +2,7 @@
  "lesson": "L03",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册A 第三课《颐和园》",
- "file_note": "The workbook's exercises for 第三课, typed from 练习册A pp. 16–29 (PDF index = printed + 4, verified on p. 16). Same shapes as L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; the four-choice exercises are `blocks` naming zh-word items. Left out because no type fits, with their keys so a type can be added: 星期二 练习2 (p. 19–20, choose the word for a picture, two options each: (1) 石桥 (2) 狮子 (3) 站立 (4) 绿草); 星期三 练习2 (p. 22, color the correct word, two options each: (1) 终于 (2) 中心 (3) 生动 (4) 景色 (5) 栏杆); 星期四 练习2 (p. 24–25, answer by choosing A or B: (1) A 我去了北京颐和园 (2) A 有昆明湖、十七孔桥和长廊 (3) B 因为有十七个桥洞 (4) B 登上万寿山); 星期四 练习4 (p. 26, draw a sketch map of the visit — a drawing, not writing). A two-choice `pick` type with the book's own options per item would take the first three. 星期五 练习3 (pp. 27–28, 读一读《故宫》, a passage of the workbook's own) is left out: the site holds no text of the book, by the owner's decision of 2 October (docs/chinese.md § 8); she reads it from the workbook, and a reading of it can be recorded under 阅读 once a note assigns it.",
+ "file_note": "The workbook's exercises for 第三课, typed from 练习册A pp. 16–29 (PDF index = printed + 4, verified on p. 16). Same shapes as L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill; read is recorded; the four-choice exercises are `blocks` naming zh-word items. 星期二 练习2, 星期三 练习2 and 星期四 练习2 are `pick` exercises, the book's own two options per item; one item is still out: 星期三 练习2 (4) (p. 22, 景色/景点), whose key the page does not settle — see that exercise's scope_note. Left out because no type fits: 星期四 练习4 (p. 26, draw a sketch map of the visit — a drawing, not writing). 星期五 练习3 (pp. 27–28, 读一读《故宫》, a passage of the workbook's own) is left out: the site holds no text of the book, by the owner's decision of 2 October (docs/chinese.md § 8); she reads it from the workbook, and a reading of it can be recorded under 阅读 once a note assigns it.",
  "blocks": [
   {
    "id": "zb:L03-D1",
@@ -488,6 +488,73 @@
    ]
   },
   {
+   "id": "zx:L03-D2-02",
+   "day": "星期二",
+   "page": 19,
+   "ex": 2,
+   "type": "pick",
+   "title": "根据图片提示选择正确的词语",
+   "title_en": "Use the picture clues to choose the correct words",
+   "note": {
+    "zh": "图在练习册上：（1）（2）在第19页，（3）（4）在第20页。看图，选出说的是图上东西的那个词语。",
+    "en": "The pictures are in the workbook: (1) and (2) on p. 19, (3) and (4) on p. 20. Look at each one and choose the word that names it."
+   },
+   "items": [
+    {
+     "id": "zx:L03-D2-02-1",
+     "text": "（1）",
+     "options": [
+      "石桥",
+      "花园"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "图上是一座有很多桥洞的长石桥，就是课文里的十七孔桥。花园里有花，图上没有。",
+      "en": "The picture is a long stone bridge with many arches, the Seventeen-Arch Bridge of the lesson: 石桥. A garden (花园) has flowers, and there are none."
+     }
+    },
+    {
+     "id": "zx:L03-D2-02-2",
+     "text": "（2）",
+     "options": [
+      "狮子",
+      "狐狸"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "图上是一头长着大鬃毛的狮子。狐狸个子小，没有鬃毛。",
+      "en": "The picture is a lion with a big mane: 狮子. A fox (狐狸) is small and has no mane."
+     }
+    },
+    {
+     "id": "zx:L03-D2-02-3",
+     "text": "（3）",
+     "options": [
+      "站立",
+      "坐下"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "图上的男孩站着，没有坐下：站立。",
+      "en": "The boy in the picture is standing up, not sitting down: 站立."
+     }
+    },
+    {
+     "id": "zx:L03-D2-02-4",
+     "text": "（4）",
+     "options": [
+      "绿草",
+      "花朵"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "图上是一丛绿色的草，没有花：绿草。",
+      "en": "The picture is a clump of green grass with no flowers on it: 绿草."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L03-D2-03",
    "day": "星期二",
    "page": 20,
@@ -658,6 +725,74 @@
    "text": "中心 湖中心 广场中心 文化中心\n十分美丽 十分生动 十分可爱 十分难忘\n绿色 红色 白色 蓝色\n小桥 孔桥 桥洞 一座桥"
   },
   {
+   "id": "zx:L03-D3-02",
+   "day": "星期三",
+   "page": 22,
+   "ex": 2,
+   "type": "pick",
+   "title": "给正确的词语涂上你喜欢的颜色",
+   "title_en": "Color the correct words with your favorite color",
+   "note": {
+    "zh": "每句给了两个词语，选出对的那个。练习册上，把它涂上你喜欢的颜色。",
+    "en": "Each sentence offers two words; choose the right one. In the workbook, colour it in with your favourite colour."
+   },
+   "scope_note": "The book's sentence (4), 北京颐和园的____（景色 景点）很美丽, is left out. The intended key is 景色 — the lesson's own word (课文: 颐和园到处都有美丽的景色) — but the page does not settle it beyond doubt: two pages later the workbook itself asks 颐和园有哪些美丽的景点？ (p. 24, 星期四 练习2 (2)), pairing 美丽 with 景点, so 颐和园的景点很美丽 cannot be marked wrong by grammar, and marking it wrong would teach her a rule the book breaks. The other four keys are settled by grammar and the lesson text: (1) 终于 (非常 cannot go before 找到), (2) 中心 (a place; 重点 is not), (3) 生动 (课文: 它们都很生动; 难忘 is said of an experience), (5) 栏杆 (课文: 红色的栏杆).",
+   "items": [
+    {
+     "id": "zx:L03-D3-02-1",
+     "text": "（1）我（　）找到了我的书包。",
+     "options": [
+      "非常",
+      "终于"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "找了很久，最后找到了，用“终于”。“非常”说的是很、特别，后面跟“好、喜欢”这样的词，不能说“非常找到”。",
+      "en": "终于 means 'at last': after a long search, the bag was found. 非常 means 'very' and goes before words like 好 or 喜欢; 非常找到 is not Chinese."
+     }
+    },
+    {
+     "id": "zx:L03-D3-02-2",
+     "text": "（2）城市的（　）有很多高楼。",
+     "options": [
+      "中心",
+      "重点"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "城市的中心是城市中间的地方，那里才能有高楼。“重点”是最要紧的部分，不是一个地方。",
+      "en": "中心 is the centre, a place in the city where tall buildings can stand. 重点 means 'the key point'; it is not a place."
+     }
+    },
+    {
+     "id": "zx:L03-D3-02-3",
+     "text": "（3）这位画家的画儿十分（　）。",
+     "options": [
+      "难忘",
+      "生动"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "说画儿画得像活的一样，用“生动”。课文说桥上的小石狮子“都很生动”。“难忘”说的是让人忘不了的事情，像课文最后的“让人十分难忘”。",
+      "en": "生动 means lifelike, vivid: the word for a painting or a carving. The lesson says the little stone lions 都很生动. 难忘, 'unforgettable', is said of something you lived through, as at the end of the lesson: 让人十分难忘."
+     }
+    },
+    {
+     "id": "zx:L03-D3-02-5",
+     "text": "（5）长廊的两边有很多红色的（　）。",
+     "options": [
+      "洞口",
+      "栏杆"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "课文说长廊上是“绿色的柱子，红色的栏杆”。洞口是山洞或桥洞的口，长廊两边没有。",
+      "en": "The lesson describes the Long Corridor as 绿色的柱子，红色的栏杆: green pillars, red railings. A 洞口 is the mouth of a cave or a hole, and the corridor has none."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L03-D3-03",
    "day": "星期三",
    "page": 22,
@@ -774,6 +909,73 @@
      "prompt_en": "(4) What is on the stone pillars at the two sides of the Seventeen-Arch Bridge?",
      "blanks": 1,
      "cells": 24
+    }
+   ]
+  },
+  {
+   "id": "zx:L03-D4-02",
+   "day": "星期四",
+   "page": 24,
+   "ex": 2,
+   "type": "pick",
+   "title": "根据课文回答问题",
+   "title_en": "Answer the questions according to the text",
+   "note": {
+    "zh": "根据课文《颐和园》（课本第22–23页），每题选A或B。第（3）（4）题在练习册第25页。",
+    "en": "Answer from the lesson text, 颐和园 (textbook pp. 22–23), by choosing A or B. Questions (3) and (4) are on workbook p. 25."
+   },
+   "items": [
+    {
+     "id": "zx:L03-D4-02-1",
+     "text": "（1）“我”寒假去哪里玩儿了？",
+     "options": [
+      "我去了北京颐和园。",
+      "我是学生。"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "课文第一句：今年寒假，我终于来到了向往已久的颐和园。B说的是“我”是谁，没有回答去了哪里。",
+      "en": "The lesson's first sentence: 今年寒假，我终于来到了向往已久的颐和园. B says who 'I' am, and does not answer where 'I' went."
+     }
+    },
+    {
+     "id": "zx:L03-D4-02-2",
+     "text": "（2）颐和园有哪些美丽的景点？",
+     "options": [
+      "有昆明湖、十七孔桥和长廊。",
+      "有天坛和故宫。"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "课文里写到的是昆明湖、十七孔桥和长廊。天坛和故宫也在北京，可是不在颐和园里，课文也没有写。",
+      "en": "The lesson walks past 昆明湖, 十七孔桥 and 长廊. The Temple of Heaven and the Palace Museum are in Beijing too, but not in the Summer Palace, and the lesson does not mention them."
+     }
+    },
+    {
+     "id": "zx:L03-D4-02-3",
+     "text": "（3）为什么那座长长的石桥叫“十七孔桥”？",
+     "options": [
+      "因为是十七个人建的。",
+      "因为有十七个桥洞。"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "课文说：这座桥有十七个桥洞，叫十七孔桥。“孔”就是洞。",
+      "en": "The lesson says 这座桥有十七个桥洞，叫十七孔桥: it has seventeen arches. 孔 means a hole or an opening."
+     }
+    },
+    {
+     "id": "zx:L03-D4-02-4",
+     "text": "（4）在哪里可以看见颐和园的全部景色？",
+     "options": [
+      "在万寿山脚下。",
+      "登上万寿山。"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "课文说：登上万寿山，颐和园的景色尽收眼底。走完长廊只是来到万寿山脚下，还看不到全部。",
+      "en": "The lesson says 登上万寿山，颐和园的景色尽收眼底: from the top of Longevity Hill you see it all. At the end of the corridor you are only at the foot of the hill."
+     }
     }
    ]
   },

@@ -129,7 +129,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // element that carries them is left out by test id. Names stay names in
   // either language (Drive, Google, ISEE, Sheila), as the toggle itself says 中
   // and EN; the signed-in account's own name and address are not chrome either.
-  const SKIP = ['lang-toggle', 'english-toggle', 'english', 'badges-won', 'set-came', 'hear-glim', 'glim', 'essay-review', 'zh-speak', 'zh-piece', 'zh-option', 'zh-left', 'zh-right', 'zh-fill-option', 'zh-sort-item', 'zh-order-answer', 'zh-tell-question', 'zh-pattern', 'zh-compare', 'zh-marked', 'zh-transcript', 'zh-tell-transcript', 'zh-passage', 'zh-home-passage', 'zh-rd-text', 'zh-zi-cue', 'zh-zi-char', 'gate-wanted', 'choice', 'question']
+  const SKIP = ['lang-toggle', 'english-toggle', 'english', 'badges-won', 'set-came', 'hear-glim', 'glim', 'essay-review', 'zh-speak', 'zh-piece', 'zh-option', 'zh-pick-option', 'zh-left', 'zh-right', 'zh-fill-option', 'zh-sort-item', 'zh-order-answer', 'zh-tell-question', 'zh-pattern', 'zh-compare', 'zh-marked', 'zh-transcript', 'zh-tell-transcript', 'zh-passage', 'zh-home-passage', 'zh-rd-text', 'zh-zi-cue', 'zh-zi-char', 'gate-wanted', 'choice', 'question']
     .map((x) => `[data-testid=${x}]`).concat(['[data-sidebar=trigger]', '[data-sidebar=rail]']).join(', ');
   // Two accessible names come from @zhangqi444/ui and are not this repo's to
   // change: the sidebar trigger's "Toggle Sidebar" (skipped above, with the
@@ -406,6 +406,23 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   for (const [i, k] of [[0, 2], [1, 1], [2, 0]]) await pg.click(`[data-testid=zh-slot-${i}] [data-testid=zh-option] >> nth=${k}`);
   await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
   check('补全对话 gives each speaker their line', /3 \/ 3/.test(await pg.textContent('[data-testid=zh-ex-result]')));
+  // 选一选 (pick): the book's own two to four options per item, marked by rule — the shape the
+  // later lessons lean on (circle the word, choose A or B from the text, listen and choose).
+  // Read from the bundle, so the check follows whichever lesson carries the first one.
+  const pickEx = Object.values(bundle.zh.exercises).flatMap((e) => e.exercises).find((e) => e.type === 'pick' && e.items.length >= 2);
+  check('the workbook carries pick exercises', !!pickEx);
+  if (pickEx) {
+    await pg.evaluate((id) => { location.hash = '#/chinese/ex/' + id; }, pickEx.id); await pg.waitForSelector('[data-testid=zh-ex]');
+    await both('选一选 (pick)', EX);
+    const n = pickEx.items.length, last = pickEx.items[n - 1];
+    check('each item offers the book\'s own options, lettered as the book letters them',
+      (await pg.$$eval('[data-testid=zh-pick-0] [data-testid=zh-pick-option]', (els) => els.map((e) => e.textContent))).join('|') === pickEx.items[0].options.map((o, k) => 'ABCD'[k] + o).join('|'));
+    check('and the check waits for every item', await pg.isDisabled('[data-testid=zh-ex-submit]'));
+    for (const [i, it] of pickEx.items.entries()) await pg.click(`[data-testid=zh-pick-${i}] [data-testid=zh-pick-option] >> nth=${i === n - 1 ? (it.key + 1) % it.options.length : it.key}`);
+    await pg.click('[data-testid=zh-ex-submit]'); await pg.waitForSelector('[data-testid=zh-ex-result]');
+    const missText = await pg.textContent('[data-testid=zh-ex-miss]').catch(() => '');
+    check('选一选 marks itself, and the one chosen wrong is told why', new RegExp(`${n - 1} / ${n}`).test(await pg.textContent('[data-testid=zh-ex-result]')) && (missText.includes(last.explanation.zh) || missText.includes(last.explanation.en)), `${pickEx.id}: ${missText.slice(0, 80)}`);
+  }
   await pg.evaluate(() => { location.hash = '#/chinese/ex/zx:L05-D1-01s'; }); await pg.waitForSelector('[data-testid=zh-ex]');
   await both('结构 (sort)', EX);
   // Blocks she moves: a tile is dragged into the box for its structure. Pointer

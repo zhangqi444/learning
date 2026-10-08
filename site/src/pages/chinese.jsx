@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { BookOpen, Check, CheckCircle2, Eraser, Eye, ListChecks, Mic, PenLine, Play, RotateCcw, Square, Trophy, Volume2, X } from "lucide-react"
-import { D, ZH, exItems, setId, zhBlock, zhDay, zhExercises, zhHomework, zhLessonLabel, zhLessonOf, zhLessons, zhSets, zhSubName, zhWorkbook } from "@/lib/content"
+import { D, LTR, ZH, exItems, setId, zhBlock, zhDay, zhExercises, zhHomework, zhLessonLabel, zhLessonOf, zhLessons, zhSets, zhSubName, zhWorkbook } from "@/lib/content"
 import { findItem, recordAttempts, reviewQueue } from "@/lib/engine"
 import { t, tf, useLang } from "@/lib/lang"
 import { go } from "@/lib/router"
@@ -739,6 +739,19 @@ function OrderWidget({ ex, ans, set1, done }) {
     )
   })
 }
+/** One of the book's own two to four options per item — circle the right word, colour the
+ *  right answer, choose A or B from the text, or from what a parent reads aloud. The options
+ *  keep the book's letters, so the page and the workbook in her hand agree. */
+function PickWidget({ ex, ans, set1, done }) {
+  return ex.items.map((it, i) => (
+    <div key={it.id} className="flex flex-col gap-3 rounded-lg border p-3" data-testid={`zh-pick-${i}`}>
+      <p className="text-lg leading-8">{it.text}</p>
+      <div className="flex flex-wrap gap-2">
+        {it.options.map((o, k) => <Button key={k} variant={ans[it.id] === k ? "default" : "outline"} className="h-auto justify-start whitespace-normal px-3 py-2 text-left text-base" disabled={!!done} onClick={() => set1(it.id, k)} data-testid="zh-pick-option"><span className="text-muted-foreground mr-1 font-medium">{LTR[k]}</span>{o}</Button>)}
+      </div>
+    </div>
+  ))
+}
 /** A dialogue with lines missing: the line before, the speaker whose line it
  *  is, and the lines to choose from — at reading size, with room between them.
  *  The first version was three cramped rows; the owner's "why so compact". */
@@ -1138,7 +1151,7 @@ function ReadWidget({ ex, set, exId }) {
     </div>
   )
 }
-const WIDGET = { tf: TfWidget, order: OrderWidget, slots: SlotsWidget, match: MatchWidget, sort: SortWidget, write: WriteWidget, free: FreeWidget }
+const WIDGET = { tf: TfWidget, order: OrderWidget, slots: SlotsWidget, pick: PickWidget, match: MatchWidget, sort: SortWidget, write: WriteWidget, free: FreeWidget }
 const itemLabel = (ex, it) => it.text || it.left || it.slot || it.key || (it.pieces ? it.pieces.join(" / ") : it.id)
 export function Exercise({ set, exId }) {
   useStore(); useLang()

@@ -2,7 +2,7 @@
  "lesson": "L11",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册A 第十一课《大自然的语言》",
- "file_note": "The workbook's exercises for 第十一课, typed from 练习册A pp. 68–81 (PDF index = printed + 4, verified on p. 68). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill (where a free item has one right answer, its exercise carries a key_note for the reviewer); read and speak are recorded; the four-choice exercises are `blocks` naming zh-word items. The 第11课 listening script is in the appendix on pp. 83–84 (it runs over the page, not only 82–83). Left out because no type fits, with their keys so a type can be added: 星期五 练习1 (p. 79, listen and answer, two options each — script pp. 83–84: (1) B 去公园玩儿 (2) B 明天不会下雨 (3) A 因为白云高高地飘在蓝天上 (4) B 因为方方刚学了《大自然的语言》, the script's 老师今天刚刚讲了《大自然的语言》); 星期五 练习2 (p. 80, 读一读, a dialogue of the workbook's own between 妈妈, 朵朵 and 小燕子 — a passage, held back as L03 held back 《故宫》; she reads it from the workbook); 星期五 练习3 (pp. 80–81, choose the answer about that dialogue, three options for (1)–(3) and two for (4): (1) B 小燕子低飞 (3) A 捉虫子 (4) B 小燕子低飞是要下雨了; (2) 妈妈让朵朵怎么做？ is not settled by the page — 妈妈 says both 快回家吧 (A 快点回家) and 你去问问他们吧 (C 问问小燕子) — so it would stay out even with a type). A `pick` type with the book's own options per item would take 星期五 练习1 and 练习3. 星期三 练习5 (p. 76, read the 课文 to a parent, who grades it and signs) is a `speak` exercise, as L12 has it; its shape_note says why it is not `read`. Two characters are also left out of the structure sort in 星期一 练习1 (言, 伞), though not out of the writing; that exercise's scope_note says why, and why 考 is keyed 半包围.",
+ "file_note": "The workbook's exercises for 第十一课, typed from 练习册A pp. 68–81 (PDF index = printed + 4, verified on p. 68). Same shapes as L03–L05: tf/order/slots/match/sort are marked by rule; write is judged stroke by stroke; free is grid writing for the chinese-review skill (where a free item has one right answer, its exercise carries a key_note for the reviewer); read and speak are recorded; the four-choice exercises are `blocks` naming zh-word items. The 第11课 listening script is in the appendix on pp. 83–84 (it runs over the page, not only 82–83). Left out: 星期五 练习2 (p. 80, 读一读, a dialogue of the workbook's own between 妈妈, 朵朵 and 小燕子 — a passage, held back as L03 held back 《故宫》; she reads it from the workbook). 星期五 练习1 (listening) and 练习3 are `pick` exercises; 练习3's item (2) is still out because the page does not settle its key (see that exercise's scope_note). 星期三 练习5 (p. 76, read the 课文 to a parent, who grades it and signs) is a `speak` exercise, as L12 has it; its shape_note says why it is not `read`. Two characters are also left out of the structure sort in 星期一 练习1 (言, 伞), though not out of the writing; that exercise's scope_note says why, and why 考 is keyed 半包围.",
  "blocks": [
   {
    "id": "zb:L11-D1",
@@ -1160,6 +1160,131 @@
      "explanation": {
       "zh": "朵朵三个问题都答对了，最后妈妈鼓励她：你也要多看多思考，说不定也能成为一个发明家。",
       "en": "Duoduo has answered all three questions, so the last line is Mother's encouragement: look and think more, and you may become an inventor too."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L11-D5-01",
+   "day": "星期五",
+   "page": 79,
+   "ex": 1,
+   "type": "pick",
+   "title": "根据录音回答问题",
+   "title_en": "Listen and answer the questions",
+   "note": {
+    "zh": "先请爸爸妈妈读一读练习册第83–84页附录里第11课的听力文本（或放录音），听完再选。",
+    "en": "First ask a parent to read the Lesson 11 listening script in the workbook appendix, pp. 83–84, aloud (or play the recording), then choose."
+   },
+   "items": [
+    {
+     "id": "zx:L11-D5-01-1",
+     "text": "（1）方方明天想去干什么？",
+     "options": [
+      "在家做作业",
+      "去公园玩儿"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "方方一开口就说想明天去公园玩儿。",
+      "en": "Fangfang starts by saying she wants to go and play in the park tomorrow."
+     }
+    },
+    {
+     "id": "zx:L11-D5-01-2",
+     "text": "（2）明天会下雨吗？",
+     "options": [
+      "明天会下雨",
+      "明天不会下雨"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "妈妈问要是下雨怎么办，方方说：不会的。",
+      "en": "Mother asks what if it rains, and Fangfang answers that it won't."
+     }
+    },
+    {
+     "id": "zx:L11-D5-01-3",
+     "text": "（3）为什么明天不会下雨？",
+     "options": [
+      "因为白云高高地飘在蓝天上",
+      "因为蚂蚁没有搬家"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "方方让妈妈看：白云高高地飘在蓝天上。录音里没有说到蚂蚁。课文也说，白云飘在高高的蓝天上，明天一定是个晴天。",
+      "en": "Fangfang points to the white clouds floating high in the blue sky; the recording never mentions ants. The text says the same: white clouds high in the blue sky mean a sunny day tomorrow."
+     }
+    },
+    {
+     "id": "zx:L11-D5-01-4",
+     "text": "（4）方方是怎么知道这个知识的呢？",
+     "options": [
+      "因为方方爱看书",
+      "因为方方刚学了《大自然的语言》"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "方方说，老师今天刚刚讲了《大自然的语言》。录音里没有说她爱看书。",
+      "en": "Fangfang says her teacher taught 大自然的语言 just today; the recording says nothing about her loving books."
+     }
+    }
+   ]
+  },
+  {
+   "id": "zx:L11-D5-03",
+   "day": "星期五",
+   "page": 80,
+   "ex": 3,
+   "type": "pick",
+   "title": "根据上文选择正确的答案",
+   "title_en": "Choose the correct answers according to the dialogue above",
+   "note": {
+    "zh": "先读练习册第80页的对话（练习2），再选。",
+    "en": "First read the dialogue on workbook p. 80 (exercise 2), then choose."
+   },
+   "scope_note": "The book's item (2), 妈妈让朵朵怎么做？ (A 快点回家 B 上网查找 C 问问小燕子), is left out: in the dialogue 妈妈 says both 快回家吧 and 你去问问他们吧, and the page does not say which the question means. The dialogue itself (练习2, p. 80) is a passage of the workbook's own and is not typed; she reads it in her book.",
+   "page_break_note": "items (1)–(2) are at the foot of p. 80, (3)–(4) at the top of p. 81",
+   "items": [
+    {
+     "id": "zx:L11-D5-03-1",
+     "text": "（1）朵朵看见了什么？",
+     "options": [
+      "小蝴蝶飞舞",
+      "小燕子低飞",
+      "花朵盛开"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "对话里括号中写着：朵朵正准备回家，看到一群飞得很低的燕子。对话里没有蝴蝶，也没有花。",
+      "en": "The stage note after Mom's first line says Duoduo, about to go home, sees a flock of swallows flying very low; there are no butterflies or flowers in it."
+     }
+    },
+    {
+     "id": "zx:L11-D5-03-3",
+     "text": "（3）小燕子为什么飞得很低？",
+     "options": [
+      "捉虫子",
+      "找朋友",
+      "休息"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "小燕子说：我们在捉虫子啊！虫子的翅膀沾了水汽飞不高，燕子要吃虫子，就得飞得低一些。",
+      "en": "The swallow says they are catching insects: damp air weighs the insects' wings down, so the swallows fly low to eat them."
+     }
+    },
+    {
+     "id": "zx:L11-D5-03-4",
+     "text": "（4）我们知道了什么小知识？",
+     "options": [
+      "蛇没有脚也会走路",
+      "小燕子低飞是要下雨了"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "对话讲的是下雨前空气很湿，虫子飞不高，所以小燕子低飞就是要下雨了。对话里没有说到蛇。",
+      "en": "The dialogue explains that before rain the air is damp and insects fly low, so low-flying swallows mean rain is coming. It says nothing about snakes."
      }
     }
    ]

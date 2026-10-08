@@ -2,7 +2,7 @@
  "lesson": "L10",
  "edition": "2023年第三版",
  "source": "中文（小学）第四册（2023年第三版） 练习册B 第十课《地球清洁工》",
- "file_note": "The workbook's exercises for 第十课, typed from 练习册B pp. 59–70 (PDF index = printed + 4, verified on p. 59: 第十课 runs pp. 59–70, p. 58 ends 第八课 and 第十二课 starts p. 71). Same shapes as L04. Left out because no type fits, with their keys so a type can be added: 星期三 练习1 (pp. 63–64, tick one of two words in each sentence; the book ticks the example 我们生活在（地球）上: (1) 我帮妈妈倒（垃圾） (2) 我最喜欢的（食物）是饺子 (3) 考试的时候不要（说话） (4) 地面变得真（干净） — 真 cannot stand before the reduplicated 干干净净); 星期四 练习3 (p. 67, choose A or B according to the text: (1) B 在招清洁工 (2) A 清道夫鱼 (3) B 蚯蚓 (4) A 变得更好); 星期五 练习1 (p. 68, listen and choose, two options each — the script is in the appendix on p. 83: (1) 现在是北京时间上午十点十分 → A 上午十点十分 (2) 萤火虫是一种会发光的动物 → B 萤火虫 (3) 我最喜欢的食物是豆沙包 → B 豆沙包 (4) 在我眼里，科学家是了不起的人 → A 科学家). A two-choice `pick` type with the book's own options per item would take all three. 星期三 练习2 is 连一连，读一读: the matching is zx:L10-D3-02, and the reading half is asked for in its note rather than recorded, because the lines she would read are only the matched pairs. 星期一 练习4's five pictures are named by position (no letters are printed): globe and rubbish bags on p. 60, clocks, animals and food on p. 61.",
+ "file_note": "The workbook's exercises for 第十课, typed from 练习册B pp. 59–70 (PDF index = printed + 4, verified on p. 59: 第十课 runs pp. 59–70, p. 58 ends 第八课 and 第十二课 starts p. 71). Same shapes as L04. Every exercise on pp. 59–70 is here; the three two-option exercises (星期三 练习1, 星期四 练习3, 星期五 练习1) are `pick`, with nothing left out. Still not on the site: the reading half of 星期三 练习2 (连一连，读一读), asked for in zx:L10-D3-02's note and not recorded, because the lines she would read are only the matched pairs. 星期一 练习4's five pictures are named by position (no letters are printed): globe and rubbish bags on p. 60, clocks, animals and food on p. 61.",
  "blocks": [
   {
    "id": "zb:L10-D2",
@@ -852,6 +852,73 @@
    ]
   },
   {
+   "id": "zx:L10-D3-01",
+   "day": "星期三",
+   "page": 63,
+   "ex": 1,
+   "type": "pick",
+   "title": "选择正确的词语完成句子",
+   "title_en": "Choose the correct words to complete the sentences",
+   "note": {
+    "zh": "每句从两个词里选一个。练习册上的例子：我们生活在（月球　地球）上——选\"地球\"。",
+    "en": "Choose one of the two words for each sentence. The book's example: 我们生活在（月球　地球）上 — the answer is 地球."
+   },
+   "items": [
+    {
+     "id": "zx:L10-D3-01-1",
+     "text": "（1）我帮妈妈倒（　）。",
+     "options": [
+      "垃圾",
+      "环境"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "倒垃圾：把垃圾倒掉。环境是我们周围的地方，不能\"倒\"。",
+      "en": "倒垃圾 is taking out the rubbish. 环境 is the world around us; nobody can tip it out."
+     }
+    },
+    {
+     "id": "zx:L10-D3-01-2",
+     "text": "（2）我最喜欢的（　）是饺子。",
+     "options": [
+      "食物",
+      "动物"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "饺子是吃的东西，是食物，不是动物。",
+      "en": "Dumplings are something you eat: 食物, food, not 动物, an animal."
+     }
+    },
+    {
+     "id": "zx:L10-D3-01-3",
+     "text": "（3）考试的时候不要（　）。",
+     "options": [
+      "写字",
+      "说话"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "考试的时候要写答案，可是不能说话。",
+      "en": "In a test you have to write your answers, but you must not talk: 不要说话."
+     }
+    },
+    {
+     "id": "zx:L10-D3-01-4",
+     "text": "（4）经过我的打扫，地面变得真（　）！",
+     "options": [
+      "干净",
+      "干干净净"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "\"真\"后面只能用\"干净\"：真干净。\"干干净净\"已经是\"很干净\"的意思，前面不能再加\"真\"。",
+      "en": "After 真 only 干净 fits: 真干净. The doubled 干干净净 already means very clean, so 真 cannot go in front of it."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L10-D3-02",
    "day": "星期三",
    "page": 64,
@@ -1093,6 +1160,69 @@
    ]
   },
   {
+   "id": "zx:L10-D4-03",
+   "day": "星期四",
+   "page": 67,
+   "ex": 3,
+   "type": "pick",
+   "title": "根据课文选择正确的选项",
+   "title_en": "Choose the correct options according to the text",
+   "items": [
+    {
+     "id": "zx:L10-D4-03-1",
+     "text": "（1）地球公公在做什么？",
+     "options": [
+      "在打扫屋子",
+      "在招清洁工"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "地球公公挂了一块\"地球清洁工报名处\"的牌子：他在招清洁工。",
+      "en": "Earth Grandpa hung up a sign saying 地球清洁工报名处: he is looking for cleaners, 在招清洁工."
+     }
+    },
+    {
+     "id": "zx:L10-D4-03-2",
+     "text": "（2）谁能把河水打扫得干干净净？",
+     "options": [
+      "清道夫鱼",
+      "海鸥"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "清道夫鱼说：河水被我打扫得干干净净。海鸥打扫的是海面。",
+      "en": "The cleaner fish says 河水被我打扫得干干净净; the seagull cleans the sea's surface."
+     }
+    },
+    {
+     "id": "zx:L10-D4-03-3",
+     "text": "（3）谁能把地下的垃圾变成肥料？",
+     "options": [
+      "乌鸦",
+      "蚯蚓"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "蚯蚓说：我在地下吃的是垃圾，经过我的消化后，垃圾就变成了肥料。乌鸦打扫的是地面。",
+      "en": "The earthworm eats rubbish underground and digests it into fertilizer; the crow cleans the ground's surface."
+     }
+    },
+    {
+     "id": "zx:L10-D4-03-4",
+     "text": "（4）地球清洁工们一起努力，地球环境才能怎么样？",
+     "options": [
+      "变得更好",
+      "变得不好"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "地球公公说：大家一起努力，地球环境才能变得更好。",
+      "en": "Earth Grandpa says that when everyone works together, the Earth's environment 才能变得更好, can get better."
+     }
+    }
+   ]
+  },
+  {
    "id": "zx:L10-D4-04",
    "day": "星期四",
    "page": 67,
@@ -1139,6 +1269,74 @@
      "prompt_en": "How you felt",
      "blanks": 1,
      "cells": 12
+    }
+   ]
+  },
+  {
+   "id": "zx:L10-D5-01",
+   "day": "星期五",
+   "page": 68,
+   "ex": 1,
+   "type": "pick",
+   "title": "听句子选择正确的答案",
+   "title_en": "Listen to the sentences and choose the correct answers",
+   "note": {
+    "zh": "请爸爸妈妈读一读练习册第83页第10课的听力文本（或放录音），听完再选。",
+    "en": "Ask a parent to read the Lesson 10 listening script on workbook p. 83 (or play the recording), then choose."
+   },
+   "script_note": "The four sentences are in the appendix 听力文本 for 第10课 on 练习册B p. 83, for a parent to read aloud; they are not typed here, under the same hold as every text of the book. The publisher's recording is a download from jnupress.com.",
+   "items": [
+    {
+     "id": "zx:L10-D5-01-1",
+     "text": "（1）现在几点？",
+     "options": [
+      "上午十点十分",
+      "下午十点十分"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "录音里说的是北京时间上午十点十分。",
+      "en": "The recording says it is 10:10 in the morning, Beijing time: 上午十点十分."
+     }
+    },
+    {
+     "id": "zx:L10-D5-01-2",
+     "text": "（2）谁是会发光的动物？",
+     "options": [
+      "乌鸦",
+      "萤火虫"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "录音里说萤火虫是会发光的动物，阅读《会发光的动物》里也讲了萤火虫。",
+      "en": "The recording names the firefly as the animal that glows, as the reading 会发光的动物 does too."
+     }
+    },
+    {
+     "id": "zx:L10-D5-01-3",
+     "text": "（3）“我”最喜欢的食物是什么？",
+     "options": [
+      "饺子",
+      "豆沙包"
+     ],
+     "key": 1,
+     "explanation": {
+      "zh": "录音里\"我\"最喜欢的食物是豆沙包，不是饺子。",
+      "en": "In the recording the speaker's favourite food is 豆沙包, red-bean buns, not dumplings."
+     }
+    },
+    {
+     "id": "zx:L10-D5-01-4",
+     "text": "（4）在“我”眼里谁是了不起的人？",
+     "options": [
+      "科学家",
+      "动物学家"
+     ],
+     "key": 0,
+     "explanation": {
+      "zh": "录音里说：在我眼里，科学家是了不起的人。",
+      "en": "The recording says that in the speaker's eyes the scientist is the remarkable person: 科学家."
+     }
     }
    ]
   },
