@@ -714,26 +714,36 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     await p2.addInitScript(INIT);
     await p2.goto('http://localhost:8149/learning/', { waitUntil: 'networkidle' }); await signIn(p2);
     // last week's homework stays in reach once a newer note lands (the owner, 8 October:
-    // "where is last week's homework?"): the home page names the earlier week with what is
-    // left, and the checklist has a tab for every week
+    // "where is last week's homework?"), and the checklist goes by lesson, not by week ("instead
+    // of using week, let's use lesson to group the content for checklist"): the home page names
+    // the earlier lesson the teacher set with what is left, and its checklist opens on it
     const prevNote = Object.values(real.zh.homework).sort((a, b) => (a.set < b.set ? 1 : -1))[1];
-    if (prevNote) {
+    const lessonIds = Object.values(real.zh.lessons).sort((a, b) => a.no - b.no).map((l) => l.id);
+    if (prevNote && prevNote.lesson !== newest.lesson) {
       await p2.evaluate(() => { location.hash = '#/chinese'; }); await p2.waitForSelector('[data-testid=zh-home]');
-      check('the home page names the earlier week that still has work, and opens it', !!(await p2.$(`[data-testid=zh-earlier-week][data-set="${prevNote.set}"]`)), await p2.textContent('[data-testid=zh-earlier]').catch(() => 'no earlier-weeks card'));
-      await p2.click(`[data-testid=zh-earlier-week][data-set="${prevNote.set}"] [data-testid=zh-earlier-open]`); await p2.waitForSelector('[data-testid=zh-checklist]');
+      check('the home page names the earlier lesson that still has work, and opens it', !!(await p2.$(`[data-testid=zh-earlier-lesson][data-lesson="${prevNote.lesson}"]`)), await p2.textContent('[data-testid=zh-earlier]').catch(() => 'no earlier-lessons card'));
+      await p2.click(`[data-testid=zh-earlier-lesson][data-lesson="${prevNote.lesson}"] [data-testid=zh-earlier-open]`); await p2.waitForSelector('[data-testid=zh-checklist]');
       const prevIds = await p2.$$eval('[data-testid=zh-ck-item]', (els) => els.map((e) => e.dataset.id));
-      check('and the checklist shows that week\'s own work, in the ISEE checklist\'s shape: the week card, no 本周 on an earlier week, a way back', prevIds.some((id) => id.startsWith(`zx:${prevNote.lesson}-`)) && (await p2.getAttribute('[data-testid=zh-week-recap]', 'data-set')) === prevNote.set && !(await p2.$('[data-testid=zh-span-now]')) && !!(await p2.$('[data-testid=zh-back-to-week]')) && !!(await p2.$('[data-testid=ck-add]')), `${prevIds.length} rows`);
-      await p2.click('[data-testid=zh-week-next]'); await p2.waitForSelector(`[data-testid=zh-week-recap][data-set="${newest.set}"]`);
-      check('and › steps to the next week, which is this week, where › stops', !!(await p2.$('[data-testid=zh-span-now]')) && await p2.isDisabled('[data-testid=zh-week-next]') && !(await p2.isDisabled('[data-testid=zh-week-prev]')));
+      check('and the checklist shows that lesson\'s own work, in the ISEE checklist\'s shape: the lesson card, no 本课 on an earlier lesson, a way back', prevIds.some((id) => id.startsWith(`zx:${prevNote.lesson}-`)) && (await p2.getAttribute('[data-testid=zh-lesson-recap]', 'data-lesson')) === prevNote.lesson && !(await p2.$('[data-testid=zh-lesson-now]')) && !!(await p2.$('[data-testid=zh-back-to-lesson]')) && !!(await p2.$('[data-testid=ck-add]')), `${prevIds.length} rows`);
+      const nextId = lessonIds[lessonIds.indexOf(prevNote.lesson) + 1];
+      await p2.click('[data-testid=zh-lesson-next]'); await p2.waitForSelector(`[data-testid=zh-lesson-recap][data-lesson="${nextId}"]`);
+      check('and › steps to the next lesson in the book', (await p2.getAttribute('[data-testid=zh-lesson-recap]', 'data-lesson')) === nextId && !(await p2.isDisabled('[data-testid=zh-lesson-prev]')));
     }
     await p2.evaluate(() => { location.hash = '#/chinese/checklist'; }); await p2.waitForSelector('[data-testid=zh-checklist]');
+    check('the checklist opens on the lesson the class is on, marked 本课', (await p2.getAttribute('[data-testid=zh-lesson-recap]', 'data-lesson')) === newest.lesson && !!(await p2.$('[data-testid=zh-lesson-now]')));
     const row = async (id) => (await p2.textContent(`[data-testid=zh-ck-item][data-id="${id}"]`).catch(() => '')).replace(/\s+/g, ' ');
     const fmt = (s) => (Math.floor(s / 60) ? `${Math.floor(s / 60)}分${s % 60 ? (s % 60) + '秒' : ''}` : `${s}秒`);
-    check('the week lists the text test with its target', new RegExp(fmt(ra.target_s)).test(await row('read')), await row('read'));
+    check('the lesson lists the text test with its target', new RegExp(fmt(ra.target_s)).test(await row('read')), await row('read'));
     check('and the words to read against the clock', new RegExp(fmt(rw.target_s)).test(await row(rw.id)), await row(rw.id));
     const lid = newest.lesson, wbIds = await p2.$$eval('[data-testid=zh-ck-item]', (els, lid) => els.map((e) => e.dataset.id).filter((id) => new RegExp(`^z[xb]:${lid}-`).test(id)), lid);
-    const days = real.zh.exercises[lid], want = [...days.blocks, ...days.exercises].filter((x) => wb.days.includes(x.day)).map((x) => x.id).sort();
-    check('and only the workbook days the note names', JSON.stringify(wbIds.slice().sort()) === JSON.stringify(want), `${wbIds.length} rows, ${want.length} wanted`);
+    const days = real.zh.exercises[lid], everyRow = [...days.blocks, ...days.exercises].map((x) => x.id).sort();
+    const marked = await p2.$$eval('[data-testid=zh-ck-group]:has([data-testid=zh-ck-assigned])', (els) => els.map((e) => e.dataset.day));
+    check('a lesson\'s checklist holds its whole workbook, and marks the days the teacher set', JSON.stringify(wbIds.slice().sort()) === JSON.stringify(everyRow) && JSON.stringify(marked) === JSON.stringify(wb.days), `${wbIds.length} rows · marked ${marked.join(',')}`);
+    // the week stays the week on the home page: 今天 counts only the days the note names
+    const want = [...days.blocks, ...days.exercises].filter((x) => wb.days.includes(x.day));
+    const weekCount = newest.tasks.filter((x) => x.kind !== 'workbook').length + want.length;
+    await p2.evaluate(() => { location.hash = '#/chinese'; }); await p2.waitForSelector('[data-testid=zh-today]');
+    check('and 今天 keeps to the week: only the workbook days the note names', new RegExp(`/ ${weekCount} 项`).test(await p2.textContent('[data-testid=zh-today]')), (await p2.textContent('[data-testid=zh-today] [data-slot=card-description]')).slice(0, 60));
     await p2.evaluate((l) => { location.hash = '#/chinese/read/' + l; }, lid); await p2.waitForSelector('[data-testid=zh-read-page]');
     check('the text test shows its target before she reads', new RegExp(fmt(ra.target_s)).test(await p2.textContent('[data-testid=zh-target]').catch(() => '')));
     await p2.evaluate((l) => { location.hash = '#/chinese/words/' + l; }, lid); await p2.waitForSelector('[data-testid=zh-words-page]');

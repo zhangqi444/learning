@@ -311,7 +311,7 @@ export function ChineseHome() {
           ) : <div className="text-success flex items-center gap-2 rounded-md border px-3 py-2.5 text-sm font-medium"><CheckCircle2 className="size-4" /> {t("今天没有欠着的了。", "Nothing hanging over today.")}</div>}
         </CardContent>
       </Card>
-      <EarlierWeeks />
+      <EarlierLessons />
       <Card>
         <CardHeader>
           <CardTitle>{t(`第${lesson.no}课`, `Lesson ${lesson.no}`)} · {t(lesson.title, lesson.title_en)}</CardTitle>
@@ -393,76 +393,87 @@ export function WorkbookPage({ lesson: lessonId }) {
  *  itself from her work; nothing here is ticked by hand. */
 /** A note's date the way a week is named: 9月30日 · Sep 30. */
 const weekName = (set) => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(set || ""); if (!m) return set; const d = new Date(+m[1], +m[2] - 1, +m[3]); return t(`${+m[2]}月${+m[3]}日`, d.toLocaleDateString("en-US", { month: "short", day: "numeric" })) }
-/** Earlier weeks that still have something left. A new note made the newest week the only one
- *  the home page and the checklist showed, and last week's went out of sight with its work
+/** Earlier lessons the teacher set that still have something left. A new note made the newest
+ *  lesson the only one the home page showed, and the last one went out of sight with its work
  *  still undone (the owner, 8 October: "where is last week's homework?"). Said once, plainly:
  *  what is left and a way to it — not a debt, and never in red. */
-function EarlierWeeks() {
-  const notes = zhHomework().slice(1).map((n) => { const items = zhWeekItems(n); return { n, items, left: items.filter((i) => !i.done).length } }).filter((x) => x.left)
-  if (!notes.length) return null
+function EarlierLessons() {
+  const cur = currentZhLesson(), seen = new Set(cur ? [cur.id] : [])
+  const rows = []
+  for (const n of zhHomework()) {
+    if (seen.has(n.lesson)) continue
+    seen.add(n.lesson)
+    const l = D.zh.lessons[n.lesson]; if (!l) continue
+    const items = zhWeekItems(n, { allDays: true }), left = items.filter((i) => !i.done).length
+    if (left) rows.push({ n, l, items, left })
+  }
+  if (!rows.length) return null
   return (
     <Card className="gap-2 py-4" data-testid="zh-earlier">
-      <CardHeader className="px-5"><CardTitle className="text-base">{t("以前几周的作业", "Earlier weeks")}</CardTitle></CardHeader>
-      <CardContent className="px-2"><ul className="divide-y">{notes.map(({ n, items, left }) => (
-        <li key={n.set} className="flex items-center justify-between gap-3 px-3 py-2 text-sm" data-testid="zh-earlier-week" data-set={n.set}>
-          <span>{weekName(n.set)} · {t(`第${(D.zh.lessons[n.lesson] || {}).no}课`, `Lesson ${(D.zh.lessons[n.lesson] || {}).no}`)} · <span className="text-muted-foreground tabular-nums">{t(`还有 ${left} / ${items.length} 项`, `${left} of ${items.length} left`)}</span></span>
-          <Button size="sm" variant="outline" onClick={() => go(`/chinese/checklist/${n.set}`)} data-testid="zh-earlier-open">{t("看看", "Open")}</Button>
+      <CardHeader className="px-5"><CardTitle className="text-base">{t("以前几课的作业", "Earlier lessons")}</CardTitle></CardHeader>
+      <CardContent className="px-2"><ul className="divide-y">{rows.map(({ n, l, items, left }) => (
+        <li key={l.id} className="flex items-center justify-between gap-3 px-3 py-2 text-sm" data-testid="zh-earlier-lesson" data-lesson={l.id}>
+          <span>{t(`第${l.no}课 ${l.title}`, `Lesson ${l.no} · ${l.title_en}`)} · <span className="text-muted-foreground">{t(`${weekName(n.set)}布置`, `set ${weekName(n.set)}`)} · </span><span className="text-muted-foreground tabular-nums">{t(`还有 ${left} / ${items.length} 项`, `${left} of ${items.length} left`)}</span></span>
+          <Button size="sm" variant="outline" onClick={() => go(`/chinese/checklist/${l.id}`)} data-testid="zh-earlier-open">{t("看看", "Open")}</Button>
         </li>))}</ul></CardContent>
     </Card>
   )
 }
-/** The week's checklist, built the way the ISEE checklist is (pages/checklist.jsx) — the owner,
- *  8 October: "why the checklist page layout not the same as isee". The same header with Print;
- *  the same period card — ‹ › between weeks (a Chinese week is a teacher's note), its name, a
- *  本周 badge on the newest, the share done and its bar; the work grouped by kind; and the same
- *  card of her own to-dos, kept per week. */
-export function ZhChecklist({ set }) {
+/** A lesson's checklist, built the way the ISEE checklist is (pages/checklist.jsx — the owner,
+ *  8 October: "why the checklist page layout not the same as isee") and grouped by lesson, not
+ *  by week ("instead of using week, let's use lesson to group the content for checklist"): ‹ ›
+ *  between 第1课 and 第12课, 本课 on the lesson the class is on, and everything the lesson asks —
+ *  the reading, the whole workbook day by day, the dictation — whichever week the teacher set
+ *  it in. The days her newest note for the lesson assigned are marked 老师布置; the home page's
+ *  今天 keeps to the week. Her own to-dos are kept per lesson. */
+export function ZhChecklist({ lesson: param }) {
   useStore(); useLang()
-  const all = zhHomework().slice().reverse()   // oldest first, as ISEE's weeks run
-  const picked = set ? all.find((n) => n.set === set) : null
-  const lesson = picked ? D.zh.lessons[picked.lesson] : currentZhLesson(), note = picked || (lesson ? noteFor(lesson.id) : null)
+  const all = zhLessons(), cur = currentZhLesson()
+  // an older link named a week by its date: open that week's lesson
+  const byDate = param && /^\d{4}-\d{2}-\d{2}$/.test(param) ? zhHomework().find((n) => n.set === param) : null
+  const lesson = (byDate && D.zh.lessons[byDate.lesson]) || (param && D.zh.lessons[param]) || cur
+  const note = lesson ? noteFor(lesson.id) : null
   if (!lesson || !note) return <ChineseHome />
-  const items = zhWeekItems(note), done = items.filter((i) => i.done).length
+  const items = zhWeekItems(note, { allDays: true }), done = items.filter((i) => i.done).length
   const pct = items.length ? Math.round((done / items.length) * 100) : 0
-  const idx = all.findIndex((n) => n.set === note.set), newest = all[all.length - 1]
-  const isNow = !!newest && newest.set === note.set
+  const idx = all.findIndex((l) => l.id === lesson.id), isNow = !!cur && cur.id === lesson.id
+  const assigned = ((note.tasks || []).find((x) => x.kind === "workbook") || {}).days || null
   const groups = []
-  for (const it of items) { let g = groups.find((x) => x.name === it.group); if (!g) { g = { name: it.group, items: [] }; groups.push(g) } g.items.push(it) }
-  const weekTitle = note.synthetic ? t(`第${lesson.no}课 · 自己练`, `Lesson ${lesson.no} · practice`) : `${weekName(note.set)} · ${t(`第${lesson.no}课`, `Lesson ${lesson.no}`)} ${t(lesson.title, lesson.title_en)}`
+  for (const it of items) { let g = groups.find((x) => x.name === it.group); if (!g) { g = { name: it.group, day: it.day, items: [] }; groups.push(g) } g.items.push(it) }
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:gap-6" data-testid="zh-checklist">
       <Card className="from-primary/5 to-card bg-gradient-to-t gap-3 print:hidden">
         <CardHeader>
           <CardDescription className="flex items-center gap-2"><ListChecks className="size-4" /> {t("清单", "Checklist")}</CardDescription>
-          <CardTitle className="text-2xl font-semibold tracking-tight">{t("老师布置的，做完自动打勾", "Everything the teacher set, ticked off as it happens")}</CardTitle>
+          <CardTitle className="text-2xl font-semibold tracking-tight">{t("每一课要做的，做完自动打勾", "Everything each lesson asks, ticked off as it happens")}</CardTitle>
           <CardDescription>{t("朗读、练习册、听写做完会自动打勾。别的事可以加在最下面自己的清单里。", "The reading, the workbook and the dictation tick themselves when finished. Add anything else to her own list at the bottom.")}</CardDescription>
           <CardAction><Button variant="outline" size="sm" onClick={() => window.print()}><Printer /> {t("打印", "Print")}</Button></CardAction>
         </CardHeader>
       </Card>
-      <Card className="gap-4" data-testid="zh-week-recap" data-set={note.set}>
+      <Card className="gap-4" data-testid="zh-lesson-recap" data-lesson={lesson.id}>
         <CardHeader>
           <div className="flex items-center gap-2 print:hidden">
-            <Button size="icon-sm" variant="ghost" disabled={idx <= 0} onClick={() => go(`/chinese/checklist/${all[idx - 1].set}`)} aria-label={t("上一周", "Previous week")} data-testid="zh-week-prev"><ChevronLeft /></Button>
-            <Button size="icon-sm" variant="ghost" disabled={idx < 0 || idx >= all.length - 1} onClick={() => go(`/chinese/checklist/${all[idx + 1].set}`)} aria-label={t("下一周", "Next week")} data-testid="zh-week-next"><ChevronRight /></Button>
-            {!isNow && newest ? <Button size="sm" variant="ghost" onClick={() => go("/chinese/checklist")} data-testid="zh-back-to-week">{t("回到本周", "Back to this week")}</Button> : null}
+            <Button size="icon-sm" variant="ghost" disabled={idx <= 0} onClick={() => go(`/chinese/checklist/${all[idx - 1].id}`)} aria-label={t("上一课", "Previous lesson")} data-testid="zh-lesson-prev"><ChevronLeft /></Button>
+            <Button size="icon-sm" variant="ghost" disabled={idx < 0 || idx >= all.length - 1} onClick={() => go(`/chinese/checklist/${all[idx + 1].id}`)} aria-label={t("下一课", "Next lesson")} data-testid="zh-lesson-next"><ChevronRight /></Button>
+            {!isNow && cur ? <Button size="sm" variant="ghost" onClick={() => go("/chinese/checklist")} data-testid="zh-back-to-lesson">{t("回到本课", "Back to this lesson")}</Button> : null}
           </div>
-          <CardTitle className="text-xl">{weekTitle} {isNow ? <Badge data-testid="zh-span-now">{t("本周", "This week")}</Badge> : null}</CardTitle>
-          <CardDescription>{note.synthetic ? "" : t(`${note.set} 老师布置的 · `, `Set by the teacher on ${note.set} · `)}{t(`已完成 ${done} / ${items.length} 项`, `${done} of ${items.length} done`)}</CardDescription>
+          <CardTitle className="text-xl">{t(`第${lesson.no}课`, `Lesson ${lesson.no}`)} · {t(lesson.title, lesson.title_en)} {isNow ? <Badge data-testid="zh-lesson-now">{t("本课", "This lesson")}</Badge> : null}</CardTitle>
+          <CardDescription>{note.synthetic ? t("老师还没有布置这一课 · ", "Not set by the teacher yet · ") : t(`${weekName(note.set)}老师布置 · `, `Set by the teacher on ${weekName(note.set)} · `)}{t(`已完成 ${done} / ${items.length} 项`, `${done} of ${items.length} done`)}</CardDescription>
           <CardAction><span className="text-2xl font-semibold tabular-nums">{pct}%</span></CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
           <Progress value={pct} className="h-1.5" />
-          {items.length && done === items.length ? <div className="text-success flex items-center gap-2 rounded-md border px-3 py-3 text-sm font-medium" data-testid="zh-span-clear"><CheckCircle2 className="size-4" /> {t("这一周的作业都做完了。", "Everything this week asked for is done.")}</div> : null}
+          {items.length && done === items.length ? <div className="text-success flex items-center gap-2 rounded-md border px-3 py-3 text-sm font-medium" data-testid="zh-lesson-clear"><CheckCircle2 className="size-4" /> {t("这一课的都做完了。", "Everything this lesson asks is done.")}</div> : null}
         </CardContent>
       </Card>
-      <ReviewCards set={note.set} />
+      {note.synthetic ? null : <ReviewCards set={note.set} />}
       {groups.map((g) => (
-        <Card key={g.name} className="gap-2 py-4" data-testid="zh-ck-group">
-          <CardHeader className="px-5"><CardTitle className="text-base">{g.name}</CardTitle></CardHeader>
+        <Card key={g.name} className="gap-2 py-4" data-testid="zh-ck-group" data-day={g.day || undefined}>
+          <CardHeader className="px-5"><CardTitle className="text-base">{g.name}{g.day && assigned && assigned.includes(g.day) ? <span className="text-muted-foreground ml-2 text-sm font-normal" data-testid="zh-ck-assigned">{t("· 老师布置", "· set by the teacher")}</span> : null}</CardTitle></CardHeader>
           <CardContent className="px-2"><ul className="divide-y">{g.items.map((it) => <Row key={it.id} item={it} testId="zh-ck-item" labels={rowLabels()} attrs={{ "data-id": it.id }} />)}</ul></CardContent>
         </Card>
       ))}
-      <CustomItems listKey={`zh:${note.set}`} labels={{ title: t("自己的清单", "Her own items"), desc: t("这一周别的事——比如读一本书、给奶奶打电话。会保存，也会同步。", "Anything else for this week — a book to read, a call to Grandma. Saved and synced."), placeholder: t("写一项，按回车", "Add an item and press Enter"), add: t("加上", "Add"), done: t("完成", "Done"), notDone: t("未完成", "Not done"), remove: t("删掉", "Remove") }} />
+      <CustomItems listKey={`zh:${lesson.id}`} labels={{ title: t("自己的清单", "Her own items"), desc: t("这一课别的事——比如读一本书、给奶奶打电话。会保存，也会同步。", "Anything else for this lesson — a book to read, a call to Grandma. Saved and synced."), placeholder: t("写一项，按回车", "Add an item and press Enter"), add: t("加上", "Add"), done: t("完成", "Done"), notDone: t("未完成", "Not done"), remove: t("删掉", "Remove") }} />
     </div>
   )
 }
@@ -1520,7 +1531,7 @@ export function ChineseScreen({ rest }) {
   if (top === "block" && n && (b || a)) return <ZhBlockRun key={n.set + (b || a)} set={n.set} id={b || a} />
   if (top === "review") return <ZhReview />
   if (top === "write") return <WriteReview />
-  if (top === "checklist") return <ZhChecklist key={a || "now"} set={a} />
+  if (top === "checklist") return <ZhChecklist key={a || "now"} lesson={a} />
   if (top === "score") return <ZhScore />
   if (top === "workbook" && n) return <WorkbookPage key={n.lesson} lesson={n.lesson} />
   return <ChineseHome />
@@ -1539,7 +1550,7 @@ export function zhCrumbs(rest) {
   else if (top === "block" && a) { const id = b || a, n = noteFor(a), bl = n && zhBlock(n.lesson, id); out.push({ label: bl ? `${t(bl.title, bl.title_en)} · ${zhDay(bl.day)}` : t("练习", "Exercise"), path: `/chinese/block/${id}` }) }
   else if (top === "review") out.push({ label: t("复习", "Review"), path: "/chinese/review" })
   else if (top === "write") out.push({ label: t("写字复习", "Writing review"), path: "/chinese/write" })
-  else if (top === "checklist") { out.push({ label: t("清单", "Checklist"), path: "/chinese/checklist" }); if (a) out.push({ label: weekName(a), path: `/chinese/checklist/${a}` }) }
+  else if (top === "checklist") { out.push({ label: t("清单", "Checklist"), path: "/chinese/checklist" }); if (a && l(a)) out.push({ label: zhLessonLabel(l(a)), path: `/chinese/checklist/${a}` }) }
   else if (top === "score") out.push({ label: t("成绩", "Score"), path: "/chinese/score" })
   else if (top === "workbook" && a) out.push({ label: t("练习册", "Workbook"), path: `/chinese/workbook/${a}` })
   return out
