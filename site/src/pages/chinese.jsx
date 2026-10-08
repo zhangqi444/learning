@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils"
 import { atLeast } from "@/lib/world"
 import { sfx } from "@/lib/sfx"
 import { charStatus, isGlimChar, lessonChars, recordWrite, writtenCount } from "@/lib/zi"
+import { hanOf, writeReview } from "@/lib/writereview"
 import { Glim, hearProps } from "@/components/glim"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
@@ -161,6 +162,8 @@ export function zhWeekItems(note) {
 export function zhNextUp(note) {
   const q = reviewQueue(null, "chinese")
   if (q.due.length) return { label: t(`复习 · ${q.due.length} 题`, `Review · ${q.due.length} due`), path: "/chinese/review", kind: "review" }
+  const w = writeReview()
+  if (w.length) return { label: t(`写字复习 · ${w.length} 个`, `Writing review · ${w.length} due`), path: "/chinese/write", kind: "write" }
   const order = (it) => (it.kind === "workbook" ? 0 : it.kind === "dictation" ? 1 : 2)
   return zhWeekItems(note).filter((it) => !it.done).sort((a, b) => order(a) - order(b))[0] || null
 }
@@ -204,7 +207,7 @@ export function ChineseHome() {
   useStore(); useLang()
   const lesson = currentZhLesson()
   const note = lesson ? noteFor(lesson.id) : null
-  const q = reviewQueue(null, "chinese")
+  const q = reviewQueue(null, "chinese"), wr = writeReview()
   if (!lesson || !note) return <div className="text-muted-foreground p-6">{t("还没有中文课文。", "No Chinese lesson is in the bundle yet.")}</div>
   const chars = lessonChars(lesson.id), can = writtenCount(lesson.id)
   const items = zhWeekItems(note), left = items.filter((i) => !i.done), next = zhNextUp(note)
@@ -257,6 +260,7 @@ export function ChineseHome() {
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
             <span className="tabular-nums" data-testid="zh-can-write">{t(`能默写 ${can.written} / ${can.total} 个生字`, `${can.written} of ${can.total} characters written from memory`)}</span>
             {q.due.length ? <Button size="sm" variant="outline" onClick={() => go("/chinese/review")} data-testid="zh-review-due"><RotateCcw /> {t("复习", "Review")} <Badge variant="destructive" className="rounded-full tabular-nums">{q.due.length}</Badge></Button> : null}
+            {wr.length ? <Button size="sm" variant="outline" onClick={() => go("/chinese/write")} data-testid="zh-write-due"><PenLine /> {t("写字复习", "Writing review")} <Badge variant="destructive" className="rounded-full tabular-nums">{wr.length}</Badge></Button> : null}
           </div>
         </CardContent>
       </Card>
@@ -483,6 +487,70 @@ export function Lesson({ id }) {
           </CardContent>
         </Card>
       ))}
+    </div>
+  )
+}
+
+/* ---------- 写字复习: what she could not write, back on later days ---------- */
+/** The characters and 听写 words due on the writing ladder (lib/writereview.js), each written
+ *  again from memory and judged stroke by stroke. A 生字 is cued by its pinyin and meaning, as on
+ *  the lesson page; a 听写 word only by its sound, as in 听写. */
+export function WriteReview() {
+  useStore(); useLang()
+  // Today's list is taken once, when the page opens: an item written right leaves today's ladder
+  // at once, and would vanish with its verdict still on the screen if the list were re-read live.
+  const [items] = useState(() => writeReview())
+  const [open, setOpen] = useState(null)
+  const [done, setDone] = useState({})
+  const boxes = useRef({})
+  const finishChar = (it, r) => { const ok = recordWrite(it.ch, r); setDone((d) => ({ ...d, [it.id]: { ok } })) }
+  const boxDone = (it, i, r) => {
+    boxes.current[i] = r
+    const chars = hanOf(it.word)
+    if (Object.keys(boxes.current).length < chars.length) return
+    const mistakes = chars.reduce((n, _, k) => n + boxes.current[k].mistakes, 0)
+    const nStrokes = chars.reduce((n, c) => n + ((strokeData(c) || { strokes: [] }).strokes.length), 0)
+    const ok = writtenWell(mistakes, nStrokes)
+    // each character is evidence of its own (a 生字's cat, its own ladder); the word is one answer
+    chars.forEach((c, k) => recordWrite(c, boxes.current[k]))
+    recordAttempts([{ id: it.id, ok, ms: 0, pick: String(mistakes) }], "exercise")
+    setDone((d) => ({ ...d, [it.id]: { ok } }))
+  }
+  const left = items.filter((it) => !done[it.id]).length
+  return (
+    <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-write-review" data-n={items.length}>
+      <Card>
+        <CardHeader>
+          <CardTitle>{t("写字复习", "Writing review")}</CardTitle>
+          <CardDescription data-testid="zh-wr-count">{items.length ? t(`今天 ${items.length} 个 · 还剩 ${left} 个`, `${items.length} today · ${left} left`) : t("今天没有要再写的。", "Nothing to write again today.")}</CardDescription>
+        </CardHeader>
+        <CardContent className="text-muted-foreground text-sm">{t("没写对的生字和听写词语，第二天会回来；写对了，过三天、七天、二十一天再写一次。", "A character or a dictation word that went wrong comes back the next day; once it is written right, it comes back after three days, a week and three weeks.")}</CardContent>
+      </Card>
+      {items.map((it) => {
+        const r = done[it.id], isOpen = open === it.id
+        return (
+          <Card key={it.id} className="gap-3 py-4" data-testid="zh-wr-item" data-id={it.id} data-kind={it.kind} data-result={r ? (r.ok ? "ok" : "again") : ""}>
+            <CardHeader className="px-4">
+              <CardTitle className="flex flex-wrap items-center gap-2 text-base font-normal">
+                {it.kind === "char"
+                  ? <>{it.entry ? <span className="flex flex-wrap items-baseline gap-2" data-testid="zh-wr-cue"><span className="font-medium">{it.entry.py}</span><span className="text-muted-foreground text-sm">{tf(it.entry.gloss)}</span></span> : null}<Speak text={it.ch} /></>
+                  : <><Speak text={it.word} /><span className="text-muted-foreground text-sm">{t(`听写 · ${hanOf(it.word).length} 个字`, `Dictation · ${hanOf(it.word).length} characters`)}</span></>}
+              </CardTitle>
+              <CardAction>
+                {r ? <Badge variant="outline" data-testid="zh-wr-result">{r.ok ? t("写对了", "Written") : t("明天再写", "Again tomorrow")}</Badge>
+                  : !isOpen ? <Button size="sm" onClick={() => { boxes.current = {}; setOpen(it.id); if (it.kind === "word") speak(it.word) }} data-testid="zh-wr-write"><PenLine /> {t("写", "Write")}</Button> : null}
+              </CardAction>
+            </CardHeader>
+            {isOpen || r ? (
+              <CardContent className="flex flex-wrap gap-2 px-4">
+                {it.kind === "char"
+                  ? <HanziBox key={it.id} ch={it.ch} size={160} onDone={(res) => finishChar(it, res)} />
+                  : hanOf(it.word).map((ch, i) => <HanziBox key={it.id + i} ch={ch} label={`${i + 1}`} onDone={(res) => boxDone(it, i, res)} />)}
+              </CardContent>
+            ) : null}
+          </Card>
+        )
+      })}
     </div>
   )
 }
@@ -1307,6 +1375,7 @@ export function ChineseScreen({ rest }) {
   if (top === "ex" && n && (b || a)) return <Exercise key={n.set + (b || a)} set={n.set} exId={b || a} />
   if (top === "block" && n && (b || a)) return <ZhBlockRun key={n.set + (b || a)} set={n.set} id={b || a} />
   if (top === "review") return <ZhReview />
+  if (top === "write") return <WriteReview />
   if (top === "checklist") return <ZhChecklist />
   if (top === "score") return <ZhScore />
   if (top === "workbook" && n) return <WorkbookPage key={n.lesson} lesson={n.lesson} />
@@ -1325,6 +1394,7 @@ export function zhCrumbs(rest) {
   else if (top === "ex" && a) { const id = b || a, n = noteFor(a), e = n && zhExercises(n.lesson).find((x) => x.id === id); out.push({ label: e ? t(e.title, e.title_en) : t("练习", "Exercise"), path: `/chinese/ex/${id}` }) }
   else if (top === "block" && a) { const id = b || a, n = noteFor(a), bl = n && zhBlock(n.lesson, id); out.push({ label: bl ? `${t(bl.title, bl.title_en)} · ${zhDay(bl.day)}` : t("练习", "Exercise"), path: `/chinese/block/${id}` }) }
   else if (top === "review") out.push({ label: t("复习", "Review"), path: "/chinese/review" })
+  else if (top === "write") out.push({ label: t("写字复习", "Writing review"), path: "/chinese/write" })
   else if (top === "checklist") out.push({ label: t("清单", "Checklist"), path: "/chinese/checklist" })
   else if (top === "score") out.push({ label: t("成绩", "Score"), path: "/chinese/score" })
   else if (top === "workbook" && a) out.push({ label: t("练习册", "Workbook"), path: `/chinese/workbook/${a}` })

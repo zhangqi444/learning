@@ -137,7 +137,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   // element that carries them is left out by test id. Names stay names in
   // either language (Drive, Google, ISEE, Sheila), as the toggle itself says 中
   // and EN; the signed-in account's own name and address are not chrome either.
-  const SKIP = ['lang-toggle', 'english-toggle', 'english', 'badges-won', 'set-came', 'hear-glim', 'glim', 'essay-review', 'zh-speak', 'zh-piece', 'zh-option', 'zh-pick-option', 'zh-left', 'zh-right', 'zh-fill-option', 'zh-sort-item', 'zh-order-answer', 'zh-tell-question', 'zh-pattern', 'zh-compare', 'zh-marked', 'zh-transcript', 'zh-tell-transcript', 'zh-passage', 'zh-home-passage', 'zh-rd-text', 'zh-zi-cue', 'zh-zi-char', 'gate-wanted', 'choice', 'question']
+  const SKIP = ['lang-toggle', 'english-toggle', 'english', 'badges-won', 'set-came', 'hear-glim', 'glim', 'essay-review', 'zh-speak', 'zh-piece', 'zh-option', 'zh-pick-option', 'zh-left', 'zh-right', 'zh-fill-option', 'zh-sort-item', 'zh-order-answer', 'zh-tell-question', 'zh-pattern', 'zh-compare', 'zh-marked', 'zh-transcript', 'zh-tell-transcript', 'zh-passage', 'zh-home-passage', 'zh-rd-text', 'zh-zi-cue', 'zh-wr-cue', 'zh-zi-char', 'gate-wanted', 'choice', 'question']
     .map((x) => `[data-testid=${x}]`).concat(['[data-sidebar=trigger]', '[data-sidebar=rail]']).join(', ');
   // Two accessible names come from @zhangqi444/ui and are not this repo's to
   // change: the sidebar trigger's "Toggle Sidebar" (skipped above, with the
@@ -611,6 +611,39 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   await pg.evaluate(() => { location.hash = '#/chinese/score'; }); await pg.waitForSelector('[data-testid=zh-score]');
   check('成绩 says each number on its own: characters from memory, the workbook, dictation, reading, review', /\d+ \/ 10/.test(await pg.textContent('[data-testid=zh-score-write]')) && /\d+ \/ 21/.test(await pg.textContent('[data-testid=zh-score-workbook]')) && /\d+ \/ 23/.test(await pg.textContent('[data-testid=zh-score-dictation]')) && !!(await pg.$('[data-testid=zh-score-read]')) && !!(await pg.$('[data-testid=zh-score-review]')) && !/%/.test(await pg.textContent('[data-testid=zh-score]')));
   await both('成绩', SC);
+  // -- 写字复习: a character she could not write, and a 听写 word she got wrong, come back the
+  // next day and are written again from memory (lib/writereview.js; the owner, 8 October: the
+  // writing and the 听写 are what the site can do that the book cannot). Yesterday's misses are
+  // put in by hand, held past the flush; 浅 and 老鼠 are written nowhere else in this suite.
+  const seeded = await setLs(() => {
+    const s = JSON.parse(localStorage.getItem('isee.v1')), y = new Date(Date.now() - 864e5).toISOString();
+    s.items['zi:浅'] = { hist: [{ at: y, ok: false, ms: 0, pick: '4', ctx: 'exercise' }], at: y };
+    const hw = s.zh['hw:2026-09-30'] = s.zh['hw:2026-09-30'] || {};
+    hw.dictation = { ...(hw.dictation || {}), '老鼠': { ok: false, at: y } };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, () => { const s = JSON.parse(localStorage.getItem('isee.v1')); return !!s.items['zi:浅'] && ((s.zh['hw:2026-09-30'] || {}).dictation || {})['老鼠'] && s.zh['hw:2026-09-30'].dictation['老鼠'].ok === false; });
+  check('a missed character and a missed 听写 word were put in yesterday, and held', seeded === true);
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.evaluate(() => { location.hash = '#/chinese'; }); await pg.waitForSelector('[data-testid=zh-home]');
+  check('the lesson card offers 写字复习 with the count of what is due', /2/.test(await pg.textContent('[data-testid=zh-write-due]').catch(() => '')), await pg.textContent('[data-testid=zh-write-due]').catch(() => 'no button'));
+  await pg.click('[data-testid=zh-write-due]'); await pg.waitForSelector('[data-testid=zh-write-review]');
+  const wrIds = await pg.$$eval('[data-testid=zh-wr-item]', (els) => els.map((e) => e.dataset.id));
+  check('写字复习 brings back yesterday\'s miss and yesterday\'s wrong 听写 word, a 生字 first', JSON.stringify(wrIds) === JSON.stringify(['浅', 'zw:老鼠']), JSON.stringify(wrIds));
+  await both('写字复习', ['[data-testid=zh-write-review]']);
+  check('the 生字 is cued by its pinyin and meaning, never shown', /qiǎn/.test(await pg.textContent('[data-testid=zh-wr-item][data-id="浅"]')) && !/浅/.test((await pg.textContent('[data-testid=zh-wr-item][data-id="浅"]')).replace(/[“"]浅[”"]/g, '')));
+  await pg.click('[data-testid=zh-wr-item][data-id="浅"] [data-testid=zh-wr-write]');
+  await trace('[data-testid=zh-wr-item][data-id="浅"] [data-testid=zh-hanzi]', '浅');
+  await pg.waitForSelector('[data-testid=zh-wr-item][data-id="浅"][data-result=ok]', { timeout: 8000 }).catch(() => {});
+  check('written right, it says so', (await pg.getAttribute('[data-testid=zh-wr-item][data-id="浅"]', 'data-result')) === 'ok');
+  await pg.evaluate(() => { window.__spoken = []; });
+  await pg.click('[data-testid=zh-wr-item][data-id="zw:老鼠"] [data-testid=zh-wr-write]');
+  check('a 听写 word is said aloud when it opens, as in 听写', (await pg.evaluate(() => window.__spoken)).some((u) => u.text === '老鼠'));
+  for (const [i, ch] of ['老', '鼠'].entries()) await trace(`[data-testid=zh-wr-item][data-id="zw:老鼠"] [data-testid=zh-hanzi] >> nth=${i}`, ch);
+  await pg.waitForSelector('[data-testid=zh-wr-item][data-id="zw:老鼠"][data-result=ok]', { timeout: 8000 }).catch(() => {});
+  st = await ls(pg);
+  check('the word is kept as one answer, and each character as evidence of its own', (((st.items['zw:老鼠'] || {}).hist || []).some((h) => h.ok && h.ctx === 'exercise')) && (((st.items['zi:鼠'] || {}).hist || []).some((h) => h.ok)) && !(st.items['zw:老鼠'] || {}).due, JSON.stringify(st.items['zw:老鼠'] || null).slice(0, 120));
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.evaluate(() => { location.hash = '#/chinese/write'; }); await pg.waitForSelector('[data-testid=zh-write-review]');
+  check('written right today, both leave today\'s list: the next time is three days on', (await pg.$$('[data-testid=zh-wr-item]')).length === 0 && /今天没有/.test(await pg.textContent('[data-testid=zh-wr-count]')));
+
   // -- something due: the lesson card grows a way into 复习, and only then. A
   // miss schedules its question for tomorrow, so today the pile is empty by
   // design; the record is moved to yesterday by hand, held past the flush.

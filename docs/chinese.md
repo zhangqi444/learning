@@ -489,6 +489,16 @@ A `workbook` task may name `days` ("练习册周二"), and the week then lists t
 owner, 8 October: the site's real help is the reading, the writing and the 听写 — what the
 book cannot cover well.
 
+**What she could not write comes back (写字复习, 8 October).** A character written wrong —
+on the lesson page, in the workbook, in a Pencil 听写 — and a 听写 word rated wrong come back
+the next day, and after each later day written right they come back after three days, a week
+and three weeks; a fourth such day retires them (`lib/writereview.js`, the review's own
+INTERVALS). A character written right the first time rides the same ladder from its first
+rung, because writing it from memory days later is what 默写 is. Nothing is stored for the
+schedule: it is read off the judged attempts already kept, plus `zw:<word>` records for a word
+written again on the page, so two devices cannot disagree about it. 继续 offers it after the
+four-choice 复习, and the lesson card shows it with its count.
+
 **This answers the open question the first draft could not.** It asked whether
 Chinese wanted a weekly cadence or only a lesson pointer. It has one already: the
 homework note carries its own date and its own lesson, so a Chinese "week" is a
