@@ -39,10 +39,18 @@ export function wordResult(v) {
 
 /** The ways the word bank can be narrowed, in the order its buttons show them. "Tested" first:
  *  a word that is only ever a wrong answer ("above", "absorbs") is in a question without being
- *  taught by it, and 537 of them ahead of the real list buried it. `r` is `wordResult(v)`. */
+ *  taught by it, and 537 of them ahead of the real list buried it. `r` is `wordResult(v)`.
+ *
+ *  `tested` is also the SCOPE — the vocabulary this page is accountable for. A word is in it when
+ *  the plan teaches it (on a weekly list, so the word quiz asks it) or a question examines it: a
+ *  synonym stem, a reading question asking what a word means, or the right answer to a sentence
+ *  completion, which she cannot choose without knowing it. Everything else is a foil, and
+ *  `inScope` is what the page counts against. See the note on `foilsNote` for why. */
+export const inScope = (v, r) => r.tests > 0
 export const WORD_SHOWS = [
-  { id: "tested", label: "Tested", keep: (v, r) => r.tests > 0 },
+  { id: "tested", label: "Tested", keep: inScope },
   { id: "lists", label: "On her lists", keep: (v) => v.lists.length > 0 },
+  { id: "untaught", label: "Tested, not on a list", keep: (v, r) => r.tests > 0 && v.lists.length === 0 },
   { id: "missed", label: "Missed", keep: (v, r) => r.wrong > 0 || r.chose > 0 },
   { id: "untried", label: "Not tried yet", keep: (v, r) => r.tests > 0 && r.done === 0 },
   { id: "choice", label: "Only a wrong answer", keep: (v, r) => r.tests === 0 },

@@ -1788,6 +1788,29 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   });
   await pg.goto('http://localhost:8143/learning/#/vocab', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=vocab-page]');
   await pg.click('[data-testid=vocab-show-lists]');
+  /* The number the page is accountable for is the vocabulary, not every word that appears.
+   *
+   * It used to headline `rows.length` — 1,107 — which counts the single-word foils of all 573
+   * sentence completions. A completion needs three wrong answers for the word it is really
+   * asking about, so "toast", "maps", "streets" and "beside" entered the bank without anyone
+   * choosing them as vocabulary; counting them as uncovered reported a 913-word gap and buried
+   * the real one. The scope is the words the plan teaches or a question examines, and the foils
+   * are reported separately, where how often she picked one is the thing worth knowing. */
+  await pg.evaluate(() => { location.hash = '#/vocab'; }); await pg.waitForSelector('[data-testid=vocab-page]');
+  const scope = await pg.$eval('[data-testid=vocab-page]', (e) => ({ n: +e.dataset.n, scope: +e.dataset.scope, foils: +e.dataset.foils }));
+  check('the word bank counts the vocabulary, not every word that appears',
+    scope.scope > 0 && scope.foils > 0 && scope.scope + scope.foils === scope.n && scope.scope < scope.n,
+    `${scope.scope} tracked + ${scope.foils} foils = ${scope.n}`);
+  const headline = (await pg.textContent('[data-testid=vocab-summary]')).replace(/\s+/g, ' ');
+  check('and says so: the headline is the tracked count, never the row count',
+    headline.includes(`${scope.scope} words tracked`) && !headline.includes(String(scope.n)),
+    headline.trim().slice(0, 96));
+  const chipScope = await pg.$eval('[data-testid=vocab-show-tested]', (e) => +e.dataset.n);
+  const chipUntaught = await pg.$eval('[data-testid=vocab-show-untaught]', (e) => +e.dataset.n);
+  const chipLists = await pg.$eval('[data-testid=vocab-show-lists]', (e) => +e.dataset.n);
+  check('the tracked count is the button that lists those words, and splits into taught + not',
+    chipScope === scope.scope && chipLists + chipUntaught === chipScope,
+    `${chipLists} on a list + ${chipUntaught} examined only = ${chipScope}`);
   const onLists = Number(await pg.$eval('[data-testid=vocab-page]', (e) => e.dataset.shown));
   check('the word bank holds every word on her weekly lists', onLists === vw.lists, `${onLists} of ${vw.lists}`);
   check('the suite has an answered synonym to read the word bank against', !!vw.word, JSON.stringify(vw));

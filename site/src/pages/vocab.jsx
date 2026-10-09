@@ -56,17 +56,21 @@ export function VocabPage() {
   if (show === "missed") shown = [...shown].sort((a, b) => (b.r.wrong + b.r.chose) - (a.r.wrong + a.r.chose) || a.v.key.localeCompare(b.v.key))
   if (want) shown = [...shown].sort((a, b) => (b.v.key.startsWith(want) - a.v.key.startsWith(want)) || a.v.key.localeCompare(b.v.key))
   const onLists = count("lists"), tested = rows.filter(({ r }) => r.tests).length, answered = rows.filter(({ r }) => r.done).length
+  const foils = rows.length - tested
   return (
-    <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 md:gap-6" data-testid="vocab-page" data-n={rows.length} data-shown={shown.length}>
+    <div className="mx-auto flex w-full max-w-5xl flex-col gap-4 md:gap-6" data-testid="vocab-page" data-n={rows.length} data-scope={tested} data-foils={foils} data-shown={shown.length}>
       <Card className="from-primary/5 to-card bg-gradient-to-t gap-3">
         <CardHeader>
           <CardDescription>Verbal Reasoning · vocabulary</CardDescription>
           <CardTitle className="text-2xl font-semibold tracking-tight">Every word</CardTitle>
           <CardDescription data-testid="vocab-summary">
-            {plural(rows.length, "word")} from the questions and her weekly lists: {onLists} on the lists, {tested} tested by at least one question, {rows.length - tested} only ever a wrong answer. She has answered questions on {answered} of them.
+            {plural(tested, "word")} tracked — the plan teaches {onLists} of them on her weekly lists, and {tested - onLists} more are examined by a question without ever being on one. She has answered questions on {answered} of them.
           </CardDescription>
           <CardDescription className="text-xs">
             A word counts as tested where a synonym or a reading question asks what it means, where it is the right answer to a sentence completion or the word a phrase completion turns on, and by the word quiz built from her list. Her answers count once each, from sets, reviews, mocks, the word quiz and the Wordwood; a corrections pass, where she has just seen the answer, does not.
+          </CardDescription>
+          <CardDescription className="text-xs" data-testid="vocab-foils" data-n={foils}>
+            A further {foils} words are in the bank only as a wrong answer, and are not counted above. Every sentence completion needs three foils for the word it is really asking about, so those arrived without anyone choosing them as vocabulary — “toast”, “maps”, “streets”, “beside”. Counting them as uncovered put the gap at {rows.length - onLists} words and made the real one, the {tested - onLists} examined but never taught, impossible to see. They are listed under <span className="font-medium">Only a wrong answer</span>, where how often she picked one is worth knowing.
           </CardDescription>
         </CardHeader>
       </Card>
