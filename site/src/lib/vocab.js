@@ -9,7 +9,7 @@
  * corrections pass re-asks a question whose answer she has just been shown, and an answer
  * written onto a question by the stand-in that asked in its place (`via`) was given to a
  * different question, with different words in it — neither is counted. */
-import { LTR, keyOf } from "@/lib/content"
+import { D, LTR, keyOf } from "@/lib/content"
 import { wordStatus } from "@/lib/engine"
 import { Store } from "@/lib/store"
 import { answersOn, questionResult, tally } from "@/lib/tally"
@@ -91,12 +91,25 @@ export function vocabStanding() {
     missed: rows.filter(({ v, r }) => wordShow("missed")(v, r)).length,
   }
 }
-/** What a word means, as far as the site says: its list entry, or the answer of the first
- *  synonym question that asks it. */
+/** What a word means, as far as the site says: its list entry, the answer of the first synonym
+ *  question that asks it, or `content/glossary.json`.
+ *
+ *  The glossary exists because 210 of the 530 words this page is accountable for had no meaning
+ *  anywhere. A word that is only ever the right answer to a sentence completion is examined
+ *  without being defined — "abolish", "acclaim", "meager" — so the page listed the word, said
+ *  nothing about it, and left the one row she might have learned from blank. The plan weeks are
+ *  the other way to fix that, and they only reach the weeks still ahead of her; a meaning reaches
+ *  her the moment she meets the word, whichever week it came from. */
 export function meaningOf(v) {
   if (v.entry) return v.entry.meaning || ""
   const syn = v.refs.find((r) => r.role === "asked" && r.sub === "vr" && r.it && (SYN.test(r.it.q) || CTX.test(r.it.q)))
-  if (!syn) return ""
-  const k = LTR.indexOf(keyOf(syn.it))
-  return k >= 0 ? syn.it.c[k] : ""
+  if (syn) { const k = LTR.indexOf(keyOf(syn.it)); if (k >= 0) return syn.it.c[k] }
+  const g = (D.glossary || {})[v.key]
+  return g ? g.meaning || "" : ""
+}
+/** Part of speech, where the site knows it: a list entry's, or the glossary's. */
+export function posOf(v) {
+  if (v.entry) return v.entry.pos || ""
+  const g = (D.glossary || {})[v.key]
+  return g ? g.pos || "" : ""
 }

@@ -1811,6 +1811,35 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   check('the tracked count is the button that lists those words, and splits into taught + not',
     chipScope === scope.scope && chipLists + chipUntaught === chipScope,
     `${chipLists} on a list + ${chipUntaught} examined only = ${chipScope}`);
+  /* Every word the page is accountable for says what it means.
+   *
+   * 210 of the 530 did not. A word that is only ever the right answer to a sentence completion
+   * is examined without ever being defined — "abolish", "acclaim", "meager" — so the row carried
+   * the word, her score on it, and nothing she could learn from. The weekly lists are the other
+   * way to fix that and they only reach the weeks still ahead of her, which on 8 October is four
+   * of eight; a meaning reaches her whichever week the word came from. Read the title attribute,
+   * which is where TallyRow puts the meaning, rather than the row text — a text heuristic flagged
+   * "abruptly" and "absurd", which plainly do show one. */
+  await pg.evaluate(() => { location.hash = '#/vocab'; }); await pg.waitForSelector('[data-testid=vocab-page]');
+  await pg.click('[data-testid=vocab-show-tested]'); await pg.waitForTimeout(250);
+  for (let k = 0; k < 40; k++) { const m = await pg.$('[data-testid=vocab-more]'); if (!m) break; await m.click(); await pg.waitForTimeout(70); }
+  const meanings = await pg.$$eval('[data-testid=vocab-row]', (ns) => ns.map((n) => ({
+    w: n.dataset.word, m: ((n.querySelector('span[title]') || {}).title || '').trim(),
+  })));
+  const mute = meanings.filter((r) => !r.m);
+  check('every word the bank tracks says what it means',
+    meanings.length > 0 && mute.length === 0,
+    `${meanings.length} tracked · ${mute.length} silent${mute.length ? ': ' + mute.slice(0, 6).map((r) => r.w).join(', ') : ''}`);
+  /* And a vocabulary entry is a word. Completions offer a phrase in a choice slot — "give up on",
+     "her heart sank" — and those were landing in the bank as words, where they can be neither
+     defined nor taught. */
+  // A cluster her list actually carries — "imply / infer", "consent / consensus" — is one entry
+  // with a slash in its key and is not what this is looking for.
+  const phrases = meanings.filter((r) => r.w.includes(' ') && !r.w.includes('/'));
+  check('and a phrase from a choice slot is not filed as a word', phrases.length === 0,
+    phrases.slice(0, 4).map((r) => r.w).join(' | ') || 'none');
+  // put the filter back: the check below reads the list count off data-shown
+  await pg.click('[data-testid=vocab-show-lists]'); await pg.waitForTimeout(200);
   const onLists = Number(await pg.$eval('[data-testid=vocab-page]', (e) => e.dataset.shown));
   check('the word bank holds every word on her weekly lists', onLists === vw.lists, `${onLists} of ${vw.lists}`);
   check('the suite has an answered synonym to read the word bank against', !!vw.word, JSON.stringify(vw));

@@ -65,7 +65,14 @@ export function vocabIndex() {
   const raw = []
   const add = (surface, ref) => {
     const s = String(surface || "").toLowerCase().replace(/\s+/g, " ").trim()
-    if (/[a-z]/.test(s)) raw.push([s, ref])
+    if (!/[a-z]/.test(s)) return
+    /* A vocabulary entry is a word. Some completions offer a phrase in a choice slot —
+       "give up on", "her heart sank", "stand for" — and those were landing in the word bank
+       as words, where they can be neither defined nor taught: the page listed "already very
+       fast" with no meaning beside it. A phrase her list actually carries still gets in,
+       which is how a cluster like "imply/infer" survives this. */
+    if (s.includes(" ") && !partOf[s]) return
+    raw.push([s, ref])
   }
   const pools = [["vr", D.subjects.vr || [], "set"], ["rc", D.subjects.rc || [], "set"]]
   for (const form of Object.keys(D.mockItems || {})) {

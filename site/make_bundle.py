@@ -114,6 +114,9 @@ out['books']=json.load(open('content/books.json'))
 out['aops']=json.load(open('content/aops.json'))
 out['catcare']=json.load(open('content/catcare.json'))
 out['learn']=json.load(open('content/learn.json'))
+# A short meaning for a word the questions examine but no list teaches and no synonym
+# item defines. Without it the vocabulary page shows the word and nothing else.
+out['glossary']=json.load(open('content/glossary.json'))
 # ---- Chinese: a sibling key, and ISEE's keys do not move (docs/chinese.md § 4) ----
 # `zh` sits next to `subjects` rather than inside it. readiness() walks ORDER and
 # ORDER indexes `subjects`, so a fifth subject there would score Chinese homework

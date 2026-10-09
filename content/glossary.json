@@ -1,0 +1,818 @@
+{
+ "abolish": {
+  "pos": "verb",
+  "meaning": "to put an end to a law or practice for good"
+ },
+ "acclaim": {
+  "pos": "noun",
+  "meaning": "loud public praise"
+ },
+ "accommodate": {
+  "pos": "verb",
+  "meaning": "to have room for, or to make room for"
+ },
+ "adopted": {
+  "pos": "verb",
+  "meaning": "took on and began to use"
+ },
+ "affectionate": {
+  "pos": "adjective",
+  "meaning": "showing fondness; warm and loving"
+ },
+ "agreement": {
+  "pos": "noun",
+  "meaning": "an arrangement everyone has accepted"
+ },
+ "amend": {
+  "pos": "verb",
+  "meaning": "to change something slightly to improve it"
+ },
+ "amphibians": {
+  "pos": "noun",
+  "meaning": "animals such as frogs that live both in water and on land"
+ },
+ "amplify": {
+  "pos": "verb",
+  "meaning": "to make a sound louder, or a signal stronger"
+ },
+ "anguish": {
+  "pos": "noun",
+  "meaning": "very great pain of mind; deep distress"
+ },
+ "anonymous": {
+  "pos": "adjective",
+  "meaning": "with the name not given or not known"
+ },
+ "anxious": {
+  "pos": "adjective",
+  "meaning": "worried about what might happen"
+ },
+ "applause": {
+  "pos": "noun",
+  "meaning": "clapping to show approval"
+ },
+ "aqueduct": {
+  "pos": "noun",
+  "meaning": "a bridge or channel built to carry water across a valley"
+ },
+ "artifacts": {
+  "pos": "noun",
+  "meaning": "objects made by people long ago, dug up and studied"
+ },
+ "assert": {
+  "pos": "verb",
+  "meaning": "to say firmly that something is true"
+ },
+ "assess": {
+  "pos": "verb",
+  "meaning": "to judge how big, how good or how bad something is"
+ },
+ "astronomers": {
+  "pos": "noun",
+  "meaning": "scientists who study the stars and planets"
+ },
+ "banish": {
+  "pos": "verb",
+  "meaning": "to send someone away and forbid them to return"
+ },
+ "barren": {
+  "pos": "adjective",
+  "meaning": "bare; where nothing grows"
+ },
+ "bestow": {
+  "pos": "verb",
+  "meaning": "to give something as an honor or a gift"
+ },
+ "bilingual": {
+  "pos": "adjective",
+  "meaning": "able to speak two languages"
+ },
+ "bland": {
+  "pos": "adjective",
+  "meaning": "mild and without strong flavor"
+ },
+ "boast": {
+  "pos": "verb",
+  "meaning": "to talk proudly about yourself"
+ },
+ "boycott": {
+  "pos": "verb",
+  "meaning": "to refuse to use or buy something, as a protest"
+ },
+ "brisk": {
+  "pos": "adjective",
+  "meaning": "quick and lively"
+ },
+ "buoyant": {
+  "pos": "adjective",
+  "meaning": "able to float"
+ },
+ "busy": {
+  "pos": "adjective",
+  "meaning": "with a great deal to do"
+ },
+ "campaign": {
+  "pos": "noun",
+  "meaning": "a planned set of actions working toward one goal"
+ },
+ "catastrophe": {
+  "pos": "noun",
+  "meaning": "a disaster; something terrible on a huge scale"
+ },
+ "check": {
+  "pos": "verb",
+  "meaning": "to look at something to make sure it is right"
+ },
+ "clarify": {
+  "pos": "verb",
+  "meaning": "to make something easier to understand"
+ },
+ "climb": {
+  "pos": "verb",
+  "meaning": "to go up something using your hands and feet"
+ },
+ "coarse": {
+  "pos": "adjective",
+  "meaning": "rough and gritty, made of large pieces"
+ },
+ "collaborate": {
+  "pos": "verb",
+  "meaning": "to work together on one thing"
+ },
+ "commence": {
+  "pos": "verb",
+  "meaning": "to begin"
+ },
+ "commotion": {
+  "pos": "noun",
+  "meaning": "noisy confusion; an uproar"
+ },
+ "constructive": {
+  "pos": "adjective",
+  "meaning": "meant to help you improve rather than to criticise"
+ },
+ "cover": {
+  "pos": "verb",
+  "meaning": "to put something over a thing to hide or protect it"
+ },
+ "crack": {
+  "pos": "noun",
+  "meaning": "a narrow split in a surface"
+ },
+ "critical": {
+  "pos": "adjective",
+  "meaning": "pointing out faults; finding fault"
+ },
+ "cunning": {
+  "pos": "adjective",
+  "meaning": "clever in a sly, tricky way"
+ },
+ "currents": {
+  "pos": "noun",
+  "meaning": "bodies of water or air moving steadily in one direction"
+ },
+ "debris": {
+  "pos": "noun",
+  "meaning": "scattered broken pieces left after something is destroyed"
+ },
+ "decipher": {
+  "pos": "verb",
+  "meaning": "to work out something hard to read or understand"
+ },
+ "deduce": {
+  "pos": "verb",
+  "meaning": "to work something out from the evidence you have"
+ },
+ "defense": {
+  "pos": "noun",
+  "meaning": "protection against attack"
+ },
+ "demolishing": {
+  "pos": "verb",
+  "meaning": "knocking a building down on purpose"
+ },
+ "desolate": {
+  "pos": "adjective",
+  "meaning": "empty and deserted; bleak"
+ },
+ "deter": {
+  "pos": "verb",
+  "meaning": "to put someone off doing something"
+ },
+ "disaster": {
+  "pos": "noun",
+  "meaning": "something that goes terribly wrong and causes great harm"
+ },
+ "discord": {
+  "pos": "noun",
+  "meaning": "disagreement; people not getting on"
+ },
+ "dismantle": {
+  "pos": "verb",
+  "meaning": "to take something apart piece by piece"
+ },
+ "distort": {
+  "pos": "verb",
+  "meaning": "to twist the facts out of their true shape"
+ },
+ "disturb": {
+  "pos": "verb",
+  "meaning": "to interrupt somebody or break their calm"
+ },
+ "dormant": {
+  "pos": "adjective",
+  "meaning": "resting and not active for a time, but not dead"
+ },
+ "drab": {
+  "pos": "adjective",
+  "meaning": "dull and colorless"
+ },
+ "drive": {
+  "pos": "verb",
+  "meaning": "to make something move by pushing it along"
+ },
+ "economy": {
+  "pos": "noun",
+  "meaning": "careful use of money, using no more than you need"
+ },
+ "edict": {
+  "pos": "noun",
+  "meaning": "an official order from a ruler that must be obeyed"
+ },
+ "elastic": {
+  "pos": "adjective",
+  "meaning": "able to stretch and spring back"
+ },
+ "elected": {
+  "pos": "verb",
+  "meaning": "chose by voting"
+ },
+ "elusive": {
+  "pos": "adjective",
+  "meaning": "hard to find or catch"
+ },
+ "eminent": {
+  "pos": "adjective",
+  "meaning": "famous and highly respected in your field"
+ },
+ "encounters": {
+  "pos": "noun",
+  "meaning": "meetings, often unexpected ones"
+ },
+ "endure": {
+  "pos": "verb",
+  "meaning": "to go on through something hard without giving way"
+ },
+ "ensure": {
+  "pos": "verb",
+  "meaning": "to make certain that something happens"
+ },
+ "essential": {
+  "pos": "adjective",
+  "meaning": "absolutely necessary"
+ },
+ "evaluate": {
+  "pos": "verb",
+  "meaning": "to weigh something up and judge its worth"
+ },
+ "exaggerate": {
+  "pos": "verb",
+  "meaning": "to make something sound bigger than it really was"
+ },
+ "examine": {
+  "pos": "verb",
+  "meaning": "to look at something closely"
+ },
+ "excerpt": {
+  "pos": "noun",
+  "meaning": "a short piece taken out of a longer work"
+ },
+ "expel": {
+  "pos": "verb",
+  "meaning": "to force something out"
+ },
+ "extract": {
+  "pos": "verb",
+  "meaning": "to pull something out"
+ },
+ "fable": {
+  "pos": "noun",
+  "meaning": "a short story, often with animals, that teaches a lesson"
+ },
+ "faint": {
+  "pos": "adjective",
+  "meaning": "weak and hard to see or hear"
+ },
+ "filed": {
+  "pos": "verb",
+  "meaning": "put a document away in its proper place"
+ },
+ "fixed": {
+  "pos": "adjective",
+  "meaning": "set and not changing"
+ },
+ "flawless": {
+  "pos": "adjective",
+  "meaning": "without a single mistake"
+ },
+ "flimsy": {
+  "pos": "adjective",
+  "meaning": "weak and easily broken or torn apart"
+ },
+ "flourish": {
+  "pos": "verb",
+  "meaning": "to grow strongly and do well"
+ },
+ "followed": {
+  "pos": "verb",
+  "meaning": "came after, or went along behind"
+ },
+ "foolish": {
+  "pos": "adjective",
+  "meaning": "unwise; silly"
+ },
+ "forbid": {
+  "pos": "verb",
+  "meaning": "to order that something must not be done"
+ },
+ "fortunate": {
+  "pos": "adjective",
+  "meaning": "lucky"
+ },
+ "fragment": {
+  "pos": "noun",
+  "meaning": "a small broken piece of something larger"
+ },
+ "fray": {
+  "pos": "verb",
+  "meaning": "to wear into loose threads at the edge"
+ },
+ "friendly": {
+  "pos": "adjective",
+  "meaning": "kind and welcoming"
+ },
+ "futile": {
+  "pos": "adjective",
+  "meaning": "useless; certain to have no effect"
+ },
+ "genuine": {
+  "pos": "adjective",
+  "meaning": "real, not a copy or a pretence"
+ },
+ "give": {
+  "pos": "verb",
+  "meaning": "to hand something over to somebody"
+ },
+ "grade": {
+  "pos": "noun",
+  "meaning": "a mark showing how good a piece of work is"
+ },
+ "grievance": {
+  "pos": "noun",
+  "meaning": "a complaint about something you think is unfair"
+ },
+ "grumble": {
+  "pos": "verb",
+  "meaning": "to complain in a low, muttering voice"
+ },
+ "gullible": {
+  "pos": "adjective",
+  "meaning": "too ready to believe whatever you are told"
+ },
+ "hollow": {
+  "pos": "adjective",
+  "meaning": "empty inside"
+ },
+ "honest": {
+  "pos": "adjective",
+  "meaning": "truthful"
+ },
+ "horizon": {
+  "pos": "noun",
+  "meaning": "the line far away where the land or sea seems to meet the sky"
+ },
+ "hostile": {
+  "pos": "adjective",
+  "meaning": "unfriendly and ready to attack"
+ },
+ "hue": {
+  "pos": "noun",
+  "meaning": "a color, or a shade of one"
+ },
+ "humble": {
+  "pos": "adjective",
+  "meaning": "not boastful; not thinking too highly of yourself"
+ },
+ "illuminate": {
+  "pos": "verb",
+  "meaning": "to light something up"
+ },
+ "impressions": {
+  "pos": "noun",
+  "meaning": "the ideas or feelings something leaves you with"
+ },
+ "inept": {
+  "pos": "adjective",
+  "meaning": "clumsy and hopeless at doing something"
+ },
+ "inspect": {
+  "pos": "verb",
+  "meaning": "to look over carefully, checking for faults"
+ },
+ "interpreter": {
+  "pos": "noun",
+  "meaning": "someone who turns one language into another as people speak"
+ },
+ "interrupt": {
+  "pos": "verb",
+  "meaning": "to break in while something is going on"
+ },
+ "inundate": {
+  "pos": "verb",
+  "meaning": "to flood, or to overwhelm with far too much"
+ },
+ "isolated": {
+  "pos": "adjective",
+  "meaning": "far away from everything else; cut off"
+ },
+ "jeopardize": {
+  "pos": "verb",
+  "meaning": "to put something good at risk"
+ },
+ "jest": {
+  "pos": "noun",
+  "meaning": "a joke; something said in fun and not meant seriously"
+ },
+ "leeway": {
+  "pos": "noun",
+  "meaning": "freedom to choose how you do something"
+ },
+ "loom": {
+  "pos": "verb",
+  "meaning": "to rise up large and close, often threateningly"
+ },
+ "lore": {
+  "pos": "noun",
+  "meaning": "stories and knowledge handed down over generations"
+ },
+ "makeshift": {
+  "pos": "adjective",
+  "meaning": "put together from whatever was to hand"
+ },
+ "manageable": {
+  "pos": "adjective",
+  "meaning": "able to be handled or coped with"
+ },
+ "meager": {
+  "pos": "adjective",
+  "meaning": "far too small in amount"
+ },
+ "mild": {
+  "pos": "adjective",
+  "meaning": "gentle, not harsh or severe"
+ },
+ "mimic": {
+  "pos": "verb",
+  "meaning": "to copy the way something sounds or behaves"
+ },
+ "mind": {
+  "pos": "verb",
+  "meaning": "to object to something"
+ },
+ "mischievous": {
+  "pos": "adjective",
+  "meaning": "playfully naughty"
+ },
+ "mounted": {
+  "pos": "verb",
+  "meaning": "fixed something firmly in place, or climbed onto it"
+ },
+ "mundane": {
+  "pos": "adjective",
+  "meaning": "ordinary and dull; everyday"
+ },
+ "nocturnal": {
+  "pos": "adjective",
+  "meaning": "active at night and resting by day"
+ },
+ "nomads": {
+  "pos": "noun",
+  "meaning": "people who move from place to place rather than settling"
+ },
+ "nudged": {
+  "pos": "verb",
+  "meaning": "pushed gently"
+ },
+ "optimistic": {
+  "pos": "adjective",
+  "meaning": "expecting things to turn out well"
+ },
+ "outskirts": {
+  "pos": "noun",
+  "meaning": "the outer edges of a town, away from the center"
+ },
+ "overflow": {
+  "pos": "verb",
+  "meaning": "to spill over the top because there is too much"
+ },
+ "parcels": {
+  "pos": "noun",
+  "meaning": "things wrapped up for carrying or posting"
+ },
+ "pattern": {
+  "pos": "noun",
+  "meaning": "a design or a sequence that repeats"
+ },
+ "pedestrian": {
+  "pos": "noun",
+  "meaning": "a person walking, rather than driving or riding"
+ },
+ "penetrate": {
+  "pos": "verb",
+  "meaning": "to get through or into something"
+ },
+ "percussion": {
+  "pos": "noun",
+  "meaning": "the instruments in a band that are struck, such as drums"
+ },
+ "peril": {
+  "pos": "noun",
+  "meaning": "serious danger"
+ },
+ "permanent": {
+  "pos": "adjective",
+  "meaning": "meant to last for good"
+ },
+ "pinnacle": {
+  "pos": "noun",
+  "meaning": "the highest point of something"
+ },
+ "plight": {
+  "pos": "noun",
+  "meaning": "a bad situation somebody is stuck in"
+ },
+ "plot": {
+  "pos": "noun",
+  "meaning": "the story of what happens in a book or play"
+ },
+ "pocket": {
+  "pos": "noun",
+  "meaning": "a small bag sewn into clothing"
+ },
+ "pompous": {
+  "pos": "adjective",
+  "meaning": "self-important; showing off how grand you think you are"
+ },
+ "postage": {
+  "pos": "noun",
+  "meaning": "what it costs to send something by post"
+ },
+ "postscript": {
+  "pos": "noun",
+  "meaning": "an extra note added after a letter is signed"
+ },
+ "precise": {
+  "pos": "adjective",
+  "meaning": "exact, with no room for doubt"
+ },
+ "prevail": {
+  "pos": "verb",
+  "meaning": "to win out in the end"
+ },
+ "projection": {
+  "pos": "noun",
+  "meaning": "an estimate of what will happen later"
+ },
+ "radiant": {
+  "pos": "adjective",
+  "meaning": "glowing with light or with happiness"
+ },
+ "ration": {
+  "pos": "verb",
+  "meaning": "to share out a limited supply in small fixed amounts"
+ },
+ "record": {
+  "pos": "verb",
+  "meaning": "to save a sound or a fact so it can be used later"
+ },
+ "reflects": {
+  "pos": "verb",
+  "meaning": "throws light or an image back"
+ },
+ "relieved": {
+  "pos": "adjective",
+  "meaning": "glad that a worry has passed"
+ },
+ "replenish": {
+  "pos": "verb",
+  "meaning": "to fill something up again"
+ },
+ "reserve": {
+  "pos": "verb",
+  "meaning": "to keep something back for later"
+ },
+ "residue": {
+  "pos": "noun",
+  "meaning": "what is left behind after the rest is gone"
+ },
+ "resilient": {
+  "pos": "adjective",
+  "meaning": "able to recover quickly after a setback"
+ },
+ "reveal": {
+  "pos": "verb",
+  "meaning": "to show something that was hidden"
+ },
+ "revere": {
+  "pos": "verb",
+  "meaning": "to respect and admire someone deeply"
+ },
+ "ruse": {
+  "pos": "noun",
+  "meaning": "a trick meant to fool somebody"
+ },
+ "scour": {
+  "pos": "verb",
+  "meaning": "to search a place thoroughly"
+ },
+ "seating": {
+  "pos": "noun",
+  "meaning": "the seats in a place, taken together"
+ },
+ "seeps": {
+  "pos": "verb",
+  "meaning": "flows slowly through small gaps"
+ },
+ "shrewd": {
+  "pos": "adjective",
+  "meaning": "sharp and careful in judgement"
+ },
+ "skirt": {
+  "pos": "verb",
+  "meaning": "to go around the edge of something"
+ },
+ "slowly": {
+  "pos": "adverb",
+  "meaning": "at a low speed"
+ },
+ "slumber": {
+  "pos": "noun",
+  "meaning": "sleep"
+ },
+ "smug": {
+  "pos": "adjective",
+  "meaning": "pleased with yourself and showing it"
+ },
+ "socializing": {
+  "pos": "verb",
+  "meaning": "spending time with other people for pleasure"
+ },
+ "solution": {
+  "pos": "noun",
+  "meaning": "the answer to a problem"
+ },
+ "soothe": {
+  "pos": "verb",
+  "meaning": "to calm somebody down"
+ },
+ "sound": {
+  "pos": "adjective",
+  "meaning": "in good condition; to be relied on"
+ },
+ "source": {
+  "pos": "noun",
+  "meaning": "the place something comes from"
+ },
+ "spines": {
+  "pos": "noun",
+  "meaning": "sharp stiff points growing on a plant or animal"
+ },
+ "stalled": {
+  "pos": "verb",
+  "meaning": "stopped and would not start again"
+ },
+ "standing": {
+  "pos": "noun",
+  "meaning": "the position or rank somebody holds"
+ },
+ "stretch": {
+  "pos": "verb",
+  "meaning": "to pull something out longer"
+ },
+ "struck": {
+  "pos": "verb",
+  "meaning": "hit, or suddenly came into the mind"
+ },
+ "studies": {
+  "pos": "noun",
+  "meaning": "careful pieces of research"
+ },
+ "sturdy": {
+  "pos": "adjective",
+  "meaning": "strongly built and not easily broken"
+ },
+ "summit": {
+  "pos": "noun",
+  "meaning": "the top of a mountain"
+ },
+ "surpass": {
+  "pos": "verb",
+  "meaning": "to go beyond; to do better than"
+ },
+ "swallow": {
+  "pos": "verb",
+  "meaning": "to make food or drink go down your throat"
+ },
+ "tactful": {
+  "pos": "adjective",
+  "meaning": "careful not to hurt people's feelings"
+ },
+ "tenacious": {
+  "pos": "adjective",
+  "meaning": "holding on and refusing to let go"
+ },
+ "through": {
+  "pos": "preposition",
+  "meaning": "in one side and out the other"
+ },
+ "thwarted": {
+  "pos": "verb",
+  "meaning": "stopped a plan from succeeding"
+ },
+ "torrent": {
+  "pos": "noun",
+  "meaning": "a rushing stream of water"
+ },
+ "tradeoff": {
+  "pos": "noun",
+  "meaning": "giving up one thing to gain another"
+ },
+ "tranquil": {
+  "pos": "adjective",
+  "meaning": "calm and peaceful"
+ },
+ "transmit": {
+  "pos": "verb",
+  "meaning": "to send a signal or message out"
+ },
+ "trips": {
+  "pos": "noun",
+  "meaning": "journeys to a place and back"
+ },
+ "uncertain": {
+  "pos": "adjective",
+  "meaning": "not known for sure yet"
+ },
+ "underlying": {
+  "pos": "adjective",
+  "meaning": "lying beneath the surface; the real one underneath"
+ },
+ "unharmed": {
+  "pos": "adjective",
+  "meaning": "not hurt or damaged at all"
+ },
+ "uniform": {
+  "pos": "adjective",
+  "meaning": "the same all the way through"
+ },
+ "universal": {
+  "pos": "adjective",
+  "meaning": "true of everyone or everywhere"
+ },
+ "useful": {
+  "pos": "adjective",
+  "meaning": "able to help you do something"
+ },
+ "utensils": {
+  "pos": "noun",
+  "meaning": "tools used for cooking or eating"
+ },
+ "vague": {
+  "pos": "adjective",
+  "meaning": "not clear or exact; leaving out the details"
+ },
+ "valid": {
+  "pos": "adjective",
+  "meaning": "soundly based; good enough to be accepted"
+ },
+ "wager": {
+  "pos": "noun",
+  "meaning": "a bet"
+ },
+ "wander": {
+  "pos": "verb",
+  "meaning": "to go about with no fixed direction"
+ },
+ "wary": {
+  "pos": "adjective",
+  "meaning": "cautious, on the lookout for trouble"
+ },
+ "witty": {
+  "pos": "adjective",
+  "meaning": "cleverly funny"
+ },
+ "worthy": {
+  "pos": "adjective",
+  "meaning": "deserving something good"
+ }
+}
