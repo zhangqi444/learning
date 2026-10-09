@@ -1226,6 +1226,106 @@
     "example": "Mia's eloquent speech about the shelter dogs moved the audience so much that six families adopted a dog that day.",
     "usage": "Root: loqu = speak. Noun: eloquence. Opposite: tongue-tied, inarticulate.",
     "connotation": "positive"
+   },
+   {
+    "n": 41,
+    "word": "abolish",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to put an end to a law or practice for good",
+    "example": "It took years of campaigning to abolish the old law.",
+    "usage": "You abolish a rule, a law or a custom — never a person. Opposite: establish.",
+    "connotation": "a rule you think is wrong"
+   },
+   {
+    "n": 42,
+    "word": "acclaim",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "noun",
+    "meaning": "loud public praise",
+    "example": "Her first novel met with such acclaim that it sold out in a week.",
+    "usage": "Usually public and from many people at once. Related: acclaimed.",
+    "connotation": "positive"
+   },
+   {
+    "n": 43,
+    "word": "anguish",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "noun",
+    "meaning": "very great pain of mind; deep distress",
+    "example": "He waited in anguish for news from the hospital.",
+    "usage": "Stronger than worry or sadness. Of the mind, not the body.",
+    "connotation": "strongly negative"
+   },
+   {
+    "n": 44,
+    "word": "assert",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to say firmly that something is true",
+    "example": "She continued to assert that the answer was right, even when no one agreed.",
+    "usage": "You assert a claim and stand behind it. Related: assertion, assertive.",
+    "connotation": "a time you stood your ground"
+   },
+   {
+    "n": 45,
+    "word": "assess",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to judge how big, how good or how bad something is",
+    "example": "An expert came to assess the damage after the storm.",
+    "usage": "Close to evaluate. Related: assessment.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 46,
+    "word": "banish",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to send someone away and forbid them to return",
+    "example": "The king chose to banish the knight from the kingdom forever.",
+    "usage": "Stronger than send away: it means for good. Also figurative — banish a thought.",
+    "connotation": "negative"
+   },
+   {
+    "n": 47,
+    "word": "barren",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "bare; where nothing grows",
+    "example": "Nothing grew on the barren slope but black rock.",
+    "usage": "Of land, soil or a landscape. Opposite: fertile, lush.",
+    "connotation": "negative"
+   },
+   {
+    "n": 48,
+    "word": "bland",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "mild and without strong flavor",
+    "example": "The soup was bland, with no pepper in it at all.",
+    "usage": "Of food most often; can also describe a dull film or speech.",
+    "connotation": "mildly negative"
+   },
+   {
+    "n": 49,
+    "word": "brisk",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "quick and lively",
+    "example": "They set off at a brisk pace and were home within the hour.",
+    "usage": "A brisk walk, a brisk wind, brisk business. Opposite: sluggish.",
+    "connotation": "positive"
+   },
+   {
+    "n": 50,
+    "word": "catastrophe",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "noun",
+    "meaning": "a disaster; something terrible on a huge scale",
+    "example": "The earthquake was a catastrophe the city took years to recover from.",
+    "usage": "Bigger than an accident or a setback. Related: catastrophic.",
+    "connotation": "strongly negative"
    }
   ]
  },
@@ -1632,6 +1732,106 @@
     "example": "The queen threw a lavish party with a chocolate fountain, fireworks, and a cake as tall as the ceiling.",
     "usage": "Also a verb: lavish praise on someone (give lots of it). Opposite: plain, modest, stingy.",
     "connotation": ""
+   },
+   {
+    "n": 41,
+    "word": "clarify",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to make something easier to understand",
+    "example": "One good example was enough to clarify the whole idea.",
+    "usage": "You clarify an idea, a rule or a point — not an object. Related: clarity.",
+    "connotation": "positive"
+   },
+   {
+    "n": 42,
+    "word": "coarse",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "rough and gritty, made of large pieces",
+    "example": "The sand by the creek was coarse, full of gritty bits of shell.",
+    "usage": "Opposite: fine, smooth. Do not confuse with course, a path or a class.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 43,
+    "word": "commence",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to begin",
+    "example": "The race could not commence until every runner was behind the line.",
+    "usage": "A formal word for begin. Related: commencement.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 44,
+    "word": "cunning",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "clever in a sly, tricky way",
+    "example": "The cunning fox flattered the crow until she opened her beak.",
+    "usage": "Clever, but with a hint of trickery. Compare: shrewd, which is fairer.",
+    "connotation": "negative"
+   },
+   {
+    "n": 45,
+    "word": "deduce",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to work something out from the evidence you have",
+    "example": "From the fossils near the summit they could deduce that it had once been seabed.",
+    "usage": "You deduce a conclusion from facts. Related: deduction.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 46,
+    "word": "desolate",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "empty and deserted; bleak",
+    "example": "The beach was desolate in the rain, with not a soul on it.",
+    "usage": "Of a place, and of a feeling: a desolate look. Opposite: bustling.",
+    "connotation": "negative"
+   },
+   {
+    "n": 47,
+    "word": "deter",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to put someone off doing something",
+    "example": "A tall fence was built to deter the deer from the lettuce.",
+    "usage": "You deter a person or an animal from doing a thing. Related: deterrent.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 48,
+    "word": "discord",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "noun",
+    "meaning": "disagreement; people not getting on",
+    "example": "The concert was in harmony, but the rehearsals were full of discord.",
+    "usage": "Opposite: harmony, accord. Also used of clashing musical notes.",
+    "connotation": "negative"
+   },
+   {
+    "n": 49,
+    "word": "distort",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to twist the facts out of their true shape",
+    "example": "The report seemed to distort what had really happened.",
+    "usage": "You distort facts, a picture or a sound. Related: distortion.",
+    "connotation": "negative"
+   },
+   {
+    "n": 50,
+    "word": "dormant",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "resting and not active for a time, but not dead",
+    "example": "The seed lay dormant beneath the dry soil until the rains came.",
+    "usage": "Of seeds, volcanoes and habits. Opposite: active.",
+    "connotation": "neutral"
    }
   ]
  },
@@ -2038,6 +2238,106 @@
     "example": "Far across the dark lake, the lost campers spotted a glimmer of light from the ranger's cabin and paddled toward it.",
     "usage": "Often “a glimmer of hope” (a tiny bit of hope). Also a verb: the stars glimmered. Opposite: blaze, glare.",
     "connotation": ""
+   },
+   {
+    "n": 41,
+    "word": "elusive",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "hard to find or catch",
+    "example": "The snow leopard is so elusive that people who live in its mountains rarely see one.",
+    "usage": "Of animals, people and also ideas: an elusive answer. Related: elude.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 42,
+    "word": "eminent",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "famous and highly respected in your field",
+    "example": "Marie Curie was one of the most eminent scientists of her time.",
+    "usage": "Of people, for their standing. Do not confuse with imminent, about to happen.",
+    "connotation": "positive"
+   },
+   {
+    "n": 43,
+    "word": "endure",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to go on through something hard without giving way",
+    "example": "A cactus can endure many months without rain.",
+    "usage": "Two senses: to last, and to put up with. Related: endurance.",
+    "connotation": "positive"
+   },
+   {
+    "n": 44,
+    "word": "exaggerate",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to make something sound bigger than it really was",
+    "example": "He tends to exaggerate, so the fish grows a foot every time he tells it.",
+    "usage": "Opposite: understate. Related: exaggeration.",
+    "connotation": "negative"
+   },
+   {
+    "n": 45,
+    "word": "flourish",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to grow strongly and do well",
+    "example": "Without enough sunlight the tomato plants could never flourish.",
+    "usage": "Of plants, people and businesses. Opposite: wither, languish.",
+    "connotation": "positive"
+   },
+   {
+    "n": 46,
+    "word": "futile",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "useless; certain to have no effect",
+    "example": "The truck had already turned the corner, so her shouting was futile.",
+    "usage": "The effort is real; the result is nothing. Related: futility.",
+    "connotation": "negative"
+   },
+   {
+    "n": 47,
+    "word": "gullible",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "too ready to believe whatever you are told",
+    "example": "He was gullible enough to ask whether spaghetti really grew on trees.",
+    "usage": "Of a person. Opposite: skeptical, wary.",
+    "connotation": "negative"
+   },
+   {
+    "n": 48,
+    "word": "hostile",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "unfriendly and ready to attack",
+    "example": "The crowd turned hostile after the referee's call.",
+    "usage": "Of people, crowds and conditions: a hostile climate. Opposite: friendly.",
+    "connotation": "negative"
+   },
+   {
+    "n": 49,
+    "word": "humble",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "not boastful; not thinking too highly of yourself",
+    "example": "Though the whole town praised her, Maya stayed humble.",
+    "usage": "Of a person, and of a thing that is plain: a humble cottage.",
+    "connotation": "positive"
+   },
+   {
+    "n": 50,
+    "word": "inept",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "clumsy and hopeless at doing something",
+    "example": "He was so inept at mending the bicycle that he made it worse.",
+    "usage": "Opposite: adept, skillful. Of a person at a task.",
+    "connotation": "negative"
    }
   ]
  },
@@ -2444,6 +2744,106 @@
     "example": "As the baker's apprentice, Lena spent her first month measuring flour and washing bowls while she learned how to shape the bread.",
     "usage": "A trade is a skilled job such as baking or carpentry. Noun: apprenticeship (the time spent learning). Also a verb: she was apprenticed to a carpenter. Opposite: master, expert.",
     "connotation": ""
+   },
+   {
+    "n": 41,
+    "word": "meager",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "far too small in amount",
+    "example": "The hikers lived on a meager supply of food until help came.",
+    "usage": "Of an amount, a meal or a wage. Opposite: ample, plentiful.",
+    "connotation": "negative"
+   },
+   {
+    "n": 42,
+    "word": "mimic",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to copy the way something sounds or behaves",
+    "example": "A mockingbird can mimic the songs of many other birds.",
+    "usage": "You mimic a sound, a voice or a manner. Related: mimicry.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 43,
+    "word": "mundane",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "ordinary and dull; everyday",
+    "example": "She had hoped for excitement, but most days were mundane.",
+    "usage": "Opposite: extraordinary, thrilling.",
+    "connotation": "mildly negative"
+   },
+   {
+    "n": 44,
+    "word": "nocturnal",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "active at night and resting by day",
+    "example": "Bats and owls are nocturnal, waking only after dark.",
+    "usage": "Of animals. Opposite: diurnal.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 45,
+    "word": "peril",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "noun",
+    "meaning": "serious danger",
+    "example": "The sailors knew they were in great peril once the mast cracked.",
+    "usage": "Stronger than danger. Related: perilous.",
+    "connotation": "negative"
+   },
+   {
+    "n": 46,
+    "word": "plight",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "noun",
+    "meaning": "a bad situation somebody is stuck in",
+    "example": "News of the stranded whales' plight brought volunteers to the beach.",
+    "usage": "Always a hard situation, and usually one that calls for help.",
+    "connotation": "negative"
+   },
+   {
+    "n": 47,
+    "word": "prevail",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to win out in the end",
+    "example": "His theory was doubted for years before it began to prevail.",
+    "usage": "Two senses: to win, and to be widespread. Related: prevailing.",
+    "connotation": "positive"
+   },
+   {
+    "n": 48,
+    "word": "resilient",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "able to recover quickly after a setback",
+    "example": "Her resilient attitude had her practicing again the next morning.",
+    "usage": "Of people and of materials that spring back. Related: resilience.",
+    "connotation": "positive"
+   },
+   {
+    "n": 49,
+    "word": "shrewd",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "sharp and careful in judgment",
+    "example": "The shrewd shopper compared prices at three stores first.",
+    "usage": "Clever in a fair way. Compare: cunning, which hints at trickery.",
+    "connotation": "positive"
+   },
+   {
+    "n": 50,
+    "word": "tenacious",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "holding on and refusing to let go",
+    "example": "A barnacle is tenacious: once it cements itself it stays stuck for life.",
+    "usage": "Of a grip, and of a person who will not quit. Related: tenacity.",
+    "connotation": "positive"
    }
   ]
  }
