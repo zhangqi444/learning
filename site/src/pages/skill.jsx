@@ -54,13 +54,20 @@ export function QuestionRow({ sub, it, at, where, testid = "skill-question", rol
   const [passage, setPassage] = React.useState(false)
   const k = keyOf(it)
   const x = note ? null : questionResult(it.id)
-  const counts = x ? { "data-done": x.done, "data-right": x.right, "data-wrong": x.wrong } : {}
+  /* How many separate times this question has been missed, which the record has counted
+   * since the beginning and nothing has ever shown. One wrong answer is an accident; the
+   * same question missed three times is the thing that is not sticking, and until now it
+   * looked exactly like the accident. Shown from the second miss, because "missed 1x" is
+   * what the wrong count beside it already says. */
+  const again = note ? 0 : ((rec(it.id) || {}).misses || 0)
+  const counts = x ? { "data-done": x.done, "data-right": x.right, "data-wrong": x.wrong, "data-misses": again } : {}
   return (
     <li className="flex flex-col gap-2 py-3" data-testid={testid} data-qid={it.id} data-role={role} data-added={it.x ? "1" : undefined} {...counts} {...(data || {})}>
       <div className="text-muted-foreground flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
         <span className="text-foreground font-medium tabular-nums">{where || (at ? `${at.w} · sitting ${at.n + 1}` : it.w)}</span>
         {it.d ? <Badge variant="outline" className="text-[11px]">{DIFF[it.d] || it.d}</Badge> : null}
         {note || <TallyLine x={x} testid={testid + "-result"} />}
+        {again >= 2 ? <Badge variant="warning" className="text-[11px]" data-testid="question-misses">missed {again}×</Badge> : null}
       </div>
       {sub === "rc" && it.p && D.passages[it.p] ? (
         <div className="flex flex-col gap-2">

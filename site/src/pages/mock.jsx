@@ -1,5 +1,5 @@
 import * as React from "react"
-import { AlertTriangle, Camera, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, ExternalLink, FilePlus, FileText, Flag, ImageIcon, Link2, PenLine, Play, RotateCcw, Save, Send, Swords, Timer, Trash2, Upload } from "lucide-react"
+import { AlertTriangle, Camera, CheckCircle2, ChevronDown, ChevronLeft, ChevronRight, Clock, ExternalLink, Eye, FilePlus, FileText, Flag, ImageIcon, Link2, PenLine, Play, RotateCcw, Save, Send, Swords, Timer, Trash2, Upload } from "lucide-react"
 
 import { D, LTR, keyOf } from "@/lib/content"
 import { W } from "@/lib/world"
@@ -855,6 +855,40 @@ function MockResults({ form }) {
 }
 
 
+/** The key, what her own wrong choice was, and the explanation — behind a tap.
+ *
+ *  They used to be printed on every miss row. A report of ninety-four misses that opens
+ *  with every answer already given is a reading exercise: she scrolls, the answers go past,
+ *  and nothing is re-thought. The skill page had this right from the start — one "Show the
+ *  answer" button per question — and this card is where she spends the twenty-four hours
+ *  after a paper, so it is the page where it matters most.
+ *
+ *  Her own answer stays in the open above this: it is hers, she already knows what she put,
+ *  and hiding it would only make her hunt for what she is being asked about. */
+function MissAnswer({ q, pick }) {
+  const [open, setOpen] = React.useState(false)
+  if (!open) {
+    return (
+      <div>
+        <Button size="sm" variant="outline" className="h-7" onClick={() => setOpen(true)} data-testid="miss-show-answer">
+          <Eye /> Show the answer
+        </Button>
+      </div>
+    )
+  }
+  return (
+    <div className="flex flex-col gap-2" data-testid="miss-answer">
+      <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
+      {/* What the choice she actually made really was, above the general explanation and in
+          that order because the explanation can only ever describe the correct route:
+          "perimeter = 2(10+3) = 26" never tells her the 30 she picked was the area. */}
+      {pick && q.y && q.y[pick] ? <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{q.y[pick]}</div> : null}
+      {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
+      <div><Button size="sm" variant="ghost" className="h-7" onClick={() => setOpen(false)} data-testid="miss-hide-answer">Hide the answer</Button></div>
+    </div>
+  )
+}
+
 /** The paper's misses, gathered by skill rather than laid out in paper order.
  *
  *  Measured before it was changed: a real diagnostic leaves ninety-four of these,
@@ -932,7 +966,7 @@ function MissedBySkill({ misses, form }) {
                       <p className="text-[15px] leading-snug font-medium">{q.q}</p>
                       {q.f ? <Figure f={q.f} /> : null}
                       <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{pick ? `${pick}. ${q.c[LTR.indexOf(pick)]}` : "—"}</span></div>
-                      <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
+                      <MissAnswer q={q} pick={pick} />
                       {/* What the choice she actually made really was, above the
                           general explanation and in that order because the
                           explanation can only ever describe the correct route:
@@ -941,8 +975,6 @@ function MissedBySkill({ misses, form }) {
                           knows which wrong choice she made — it is recorded right
                           there in `pick` — and it was showing her the same
                           paragraph as everyone who missed it differently. */}
-                      {pick && q.y && q.y[pick] ? <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{q.y[pick]}</div> : null}
-                      {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
                       {/* Classifying stays per question: each miss has its own
                           reason, and "I misread it" about twelve questions at
                           once would be a guess rather than a record. */}

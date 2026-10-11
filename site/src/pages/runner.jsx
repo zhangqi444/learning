@@ -1,5 +1,5 @@
 import * as React from "react"
-import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, XCircle, Zap } from "lucide-react"
+import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Eye, Gauge, Home, RotateCcw, Timer, Undo2, XCircle, Zap } from "lucide-react"
 
 import { D, LTR, isZh, keyOf, zhSkillName } from "@/lib/content"
 import { getLang, useLang } from "@/lib/lang"
@@ -325,6 +325,13 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   const [done, setDone] = useState(() => (back ? null : prior ? { right: prior.right, at: prior.at, attempts: prior.attempts || 1, reopened: true, times: prior.times || null } : null))
   const [won, setWon] = useState([])           // badges earned by finishing this set
   const [shown, setShown] = useState(() => (back ? { ...(back.shown || {}) } : {}))       // question index -> revealed, instant mode only
+  /* Questions she said she had mis-tapped. Instant mode reveals on the first touch and does
+   * not let that touch be taken back, so on a phone a thumb landing on C is scored as an
+   * answer she never meant to give. A slip is not an answer: it is set aside here, left out
+   * of the score, and sent to the review pile by recordAttempts so it comes back on a day
+   * when she has not just seen the key. She cannot answer it again in this sitting, which is
+   * what stops "I tapped the wrong one" from being a second guess. */
+  const [slips, setSlips] = useState(() => (back ? { ...(back.slips || {}) } : {}))
   // question index -> she marked it "I'm guessing" as she answered (kept in the draft)
   const [guesses, setGuesses] = useState(() => (back && Array.isArray(back.guesses) ? back.guesses.slice() : []))
   const spent = useRef(back ? { ...(back.spent || {}) } : {})                    // question index -> ms
@@ -351,7 +358,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   const counted = useCountUp(done ? done.right : 0)
 
   function leave() { spent.current[i] = (spent.current[i] || 0) + (Date.now() - entered.current); entered.current = Date.now() }
-  function retry() { Store.dropDraft(draftKey); finished.current = false; setPicks([]); setGuesses([]); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
+  function retry() { Store.dropDraft(draftKey); finished.current = false; setPicks([]); setGuesses([]); setSlips({}); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
 
   /* One tap reaches here twice: the choice's own onClick and the radio group's
    * onValueChange both fire for a single click, and the second call lands
@@ -386,8 +393,13 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     const word = ok && kind !== "corr" ? (isGate(sub, items[i]) && gateName(sub, name) ? name : items[i].sk ? sub + ":" + items[i].sk : null) : null
     sfx(word ? "call" : ok ? "right" : "wrong", word || undefined)
   }
+  function slip() {
+    const np = picks.slice(); np[i] = null; setPicks(np)
+    const ns = { ...shown }; delete ns[i]; setShown(ns)
+    setSlips({ ...slips, [i]: true })
+  }
   function step(d) {
-    if (d > 0 && picks[i] == null) return
+    if (d > 0 && picks[i] == null && !slips[i]) return
     if (d > 0 && i === total - 1) return finish()
     leave()
     setI(Math.max(0, i + d)); window.scrollTo(0, 0)
@@ -396,11 +408,15 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     leave()
     let right = 0
     const wrong = [], entries = [], times = {}, bySub = {}
+    let aside = 0
     items.forEach((q, j) => {
-      const ok = LTR[picks[j]] === keyOf(q)
-      if (ok) right++; else wrong.push(q.id)
       const ms = spent.current[j] || 0
       times[q.id] = ms
+      // A mis-tap is left out of the score entirely — not right, not wrong, not counted in
+      // the denominator — and recorded as a slip, which schedules it without judging it.
+      if (slips[j]) { aside++; entries.push({ id: q.id, slip: true, ms }); return }
+      const ok = LTR[picks[j]] === keyOf(q)
+      if (ok) right++; else wrong.push(q.id)
       // `for` is set when the pile served this question in place of one she
       // missed, so the answer advances that item too — see recordAttempts.
       entries.push({ id: q.id, ok, ms, pick: picks[j] == null ? null : LTR[picks[j]], for: q.standsFor || null })
@@ -410,7 +426,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     if (!custom) {
       const picksById = {}
       items.forEach((q, j) => { if (picks[j] != null) picksById[q.id] = LTR[picks[j]] })
-      const res = { n: items.length, right, at, wrong, picks: picksById, times }
+      const res = { n: items.length - aside, right, at, wrong, picks: picksById, times }
+      if (aside) res.aside = aside
       if (prior) {                                   // keep the first attempt on record
         res.attempts = (prior.attempts || 1) + 1
         res.first = prior.first || { right: prior.right, at: prior.at }
@@ -462,8 +479,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   const answered = picks.filter((p) => p != null).length
   React.useEffect(() => {
     if (!draftKey || done || !answered) return
-    Store.saveDraft(draftKey, { sig, picks, guesses, i, shown, spent: spent.current, n: items.length, answered, title: title || null, path: exitPath || null })
-  }, [answered, picks, guesses, i, shown, done])
+    Store.saveDraft(draftKey, { sig, picks, guesses, i, shown, slips, spent: spent.current, n: items.length, answered, title: title || null, path: exitPath || null })
+  }, [answered, picks, guesses, i, shown, slips, done])
 
   /* Leaving the page mid-set. The per-answer save above already has her
    * answers; what it cannot have is the time spent on the question she was
@@ -478,7 +495,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     if (!draftKey || !l || l.done || finished.current || !l.answered) return
     const sp = { ...spent.current }
     sp[l.i] = (sp[l.i] || 0) + (Date.now() - entered.current)
-    Store.saveDraft(draftKey, { sig, picks: l.picks, guesses: l.guesses, i: l.i, shown: l.shown, spent: sp, n: items.length, answered: l.answered, title: title || null, path: exitPath || null })
+    Store.saveDraft(draftKey, { sig, picks: l.picks, guesses: l.guesses, i: l.i, shown: l.shown, slips: l.slips, spent: sp, n: items.length, answered: l.answered, title: title || null, path: exitPath || null })
   }, [])
 
   /* ABOVE the finished-state return on purpose. A hook after that `return` is a
@@ -804,6 +821,12 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
               <Eye className="size-3.5" /> {zh ? `先把题目读完——${Math.ceil(held / 1000)} 秒后可以选` : `Read the ${firstOfPassage(items, i) ? "passage and the question" : "whole question"} first — the choices unlock in ${Math.ceil(held / 1000)}s`}
             </p>
           ) : null}
+          {slips[i] ? (
+            <div className="border-muted-foreground/30 text-muted-foreground flex flex-col gap-1 rounded-xl border-2 border-dashed p-4 text-sm" data-testid="slipped">
+              <span className="text-foreground font-medium">{zh ? "这题先放一边" : "Set aside"}</span>
+              <span>{zh ? "按错不算答案。这题这次不计分，之后会在复习里再出现。" : "A mis-tap is not an answer. This one is not scored today, and it will come back in your review."}</span>
+            </div>
+          ) : (
           <div className={cn(holding && "pointer-events-none opacity-40 transition-opacity")} aria-hidden={holding ? "true" : undefined}>
           <RadioGroup value={picks[i] == null ? "" : LTR[picks[i]]} onValueChange={(v) => choose(LTR.indexOf(v))} className="gap-2.5" aria-label={zh ? "选项" : "Answer choices"}>
             {it.c.map((c, k) => (
@@ -817,17 +840,27 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             ))}
           </RadioGroup>
           </div>
+          )}
           {/* Flag it the way she would flag a question on the paper. Before or after she picks,
               and on the reveal too: a guess that lands still counts as right, and comes back
               tomorrow as two others on its skill; a guess that misses is a miss she was not
               sure of. Nothing else changes — no score, no Hum, no cat. */}
-          {record && kind !== "corr" ? (
+          {record && kind !== "corr" && !slips[i] ? (
             <div className="-mt-1 flex items-center gap-2">
               <Button size="sm" variant={guesses[i] ? "default" : "ghost"} className="h-7 px-2.5 text-xs" aria-pressed={!!guesses[i]}
                 onClick={() => { const g = guesses.slice(); g[i] = !g[i]; setGuesses(g) }} data-testid="guess-toggle">
                 {zh ? "我是猜的" : "I'm guessing"}
               </Button>
               {guesses[i] ? <span className="text-muted-foreground text-xs">{zh ? "做完后会再练同类的题。" : "Marked — it will come back for practice."}</span> : null}
+              {/* Only once an answer has been revealed, because before that she can simply
+                  tap the choice she meant — picks[i] is overwritten and nothing is recorded
+                  until the set is finished. It is instant mode that takes the first touch as
+                  final, and this is the way back out of it. */}
+              {revealed ? (
+                <Button size="sm" variant="ghost" className="h-7 px-2.5 text-xs" onClick={slip} data-testid="slip-toggle">
+                  <Undo2 /> {zh ? "我按错了" : "I tapped the wrong one"}
+                </Button>
+              ) : null}
             </div>
           ) : null}
           {revealed ? (
@@ -916,9 +949,9 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
       </Card>
       <ActionBar>
         <Button variant="outline" onClick={() => step(-1)} disabled={i === 0}><ArrowLeft /> {zh ? "上一题" : "Back"}</Button>
-        <span className="text-muted-foreground hidden flex-1 text-sm sm:block" data-testid="run-hint">{picks[i] == null ? (zh ? "选一个答案（或按 A–D）" : "Pick an answer (or press A–D)") : (zh ? "按回车继续" : "Press Enter to continue")}</span>
+        <span className="text-muted-foreground hidden flex-1 text-sm sm:block" data-testid="run-hint">{slips[i] ? (zh ? "按回车继续" : "Press Enter to continue") : picks[i] == null ? (zh ? "选一个答案（或按 A–D）" : "Pick an answer (or press A–D)") : (zh ? "按回车继续" : "Press Enter to continue")}</span>
         <span className="flex-1 sm:hidden" />
-        <Button onClick={() => step(1)} disabled={picks[i] == null} data-testid="next">
+        <Button onClick={() => step(1)} disabled={picks[i] == null && !slips[i]} data-testid="next">
           {/* "Finish set" is wrong for a set of one: a single question run from
               a miss is not a set she is finishing, it is one more go. */}
           {last ? (items.length === 1 ? <>{zh ? "完成" : "Done"} <Check /></> : <>{zh ? "完成这一组" : "Finish set"} <Check /></>) : <>{zh ? "下一题" : "Next"} <ArrowRight /></>}

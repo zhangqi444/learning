@@ -947,11 +947,32 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     await pg.waitForTimeout(60);
     whyRow = await pg.$('[data-testid=miss-row][data-qid="DGN-MA-023"]');
   }
+  /* The answer is hidden until she asks for it. A report of ninety-four misses that opens
+     with every answer already given is a reading exercise: she scrolls, the answers go past,
+     and nothing is re-thought. Her own answer stays in the open — it is hers, and hiding it
+     would only make her hunt for what she is being asked about. */
+  const shut = await pg.evaluate(() => {
+    const rows = [...document.querySelectorAll('[data-testid=miss-row]')];
+    return {
+      rows: rows.length,
+      open: rows.filter((r) => r.querySelector('[data-testid=miss-answer]')).length,
+      askable: rows.filter((r) => r.querySelector('[data-testid=miss-show-answer]')).length,
+      mine: rows.filter((r) => /Your answer:/.test(r.textContent)).length,
+    };
+  });
+  check('a missed question keeps its answer until she asks for it',
+    shut.rows > 0 && shut.open === 0 && shut.askable === shut.rows && shut.mine === shut.rows,
+    `${shut.rows} rows · ${shut.open} already open · ${shut.askable} askable · ${shut.mine} show her own answer`);
+  // The answer is behind a tap now — a report that opens with every answer already given is
+  // a reading exercise, not a correction. Open this one row before reading its why.
+  if (whyRow) await whyRow.$eval('[data-testid=miss-show-answer]', (b) => b.click()).catch(() => {});
   const rowWhy = whyRow ? await whyRow.$eval('[data-testid=why]', (e) => e.textContent.trim()).catch(() => '') : '';
   check('and the score card says it against the choice she actually made',
     !!wantWhy && rowWhy === wantWhy.trim(), rowWhy.slice(0, 90) || 'no why block in the miss row');
   /* Every rendered why must be the one belonging to that row's pick. A block
      keyed to the wrong choice would still look right on the page. */
+  await pg.$$eval('[data-testid=miss-show-answer]', (bs) => bs.forEach((b) => b.click()));
+  await pg.waitForTimeout(200);
   const whyAudit = await pg.evaluate(async () => {
     const b = await (await fetch('./content/bundle.json')).json();
     const by = {};
@@ -1470,6 +1491,99 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
    * migrated records on every load and is documented as doing so. The pile's own
    * output is the honest fixture — whatever is due, the question served for it
    * must not be the question itself. */
+  /* A mis-tap is not an answer.
+   *
+   * Instant mode is on by default and reveals on the first touch, with no way to take that
+   * touch back — so on a phone a thumb landing on C was scored as an answer she never meant
+   * to give. "I tapped the wrong one" sets the question aside: out of the score, out of the
+   * denominator, and into the review pile so it comes back on a day when she has not just
+   * seen the key. What keeps it honest is that she cannot answer it again in this sitting —
+   * claiming a mis-tap gets her the question back, never a right answer, so there is nothing
+   * to be gained by pressing it on a question she simply got wrong.
+   */
+  /* Every question she got wrong that week, in one place.
+   *
+   * The card named the skills — "Fractions x3" — and stopped there, so the only route to the
+   * three questions was the subject page, opening set after set. At four sets a week that is
+   * tedious; at thirty it does not get done. Each row keeps its answer behind its own tap,
+   * the way the skill page and the mock report do. */
+  await pg.evaluate(() => { location.hash = '#/checklist/W1'; });
+  await pg.waitForSelector('[data-testid=week-recap]');
+  await pg.waitForTimeout(400);
+  const weekRoll = await pg.$('[data-testid=week-wrong-toggle]');
+  check('a plan week can show the questions behind its slipped skills', !!weekRoll,
+    weekRoll ? (await weekRoll.textContent()).trim() : 'no roll-up offered');
+  if (weekRoll) {
+    await weekRoll.click();
+    await pg.waitForSelector('[data-testid=week-wrong-list]');
+    const got = await pg.evaluate(() => {
+      const rows = [...document.querySelectorAll('[data-testid=week-wrong-row]')];
+      return {
+        rows: rows.length,
+        claimed: +document.querySelector('[data-testid=week-wrong]').dataset.n,
+        shut: rows.filter((r) => r.querySelector('[data-testid=skill-question-answer]')).length,
+      };
+    });
+    check('it lists every one of them, each with its answer still hidden',
+      got.rows > 0 && got.rows === got.claimed && got.shut === got.rows,
+      `${got.rows} questions · ${got.shut} with the answer hidden`);
+  }
+
+  console.log('== a mis-tap is not an answer');
+  /* Start the set from nothing. A set that already has a result or a half-finished draft
+     opens on its score card or part-way in, and the first version of this check waited
+     thirty seconds for choices that were never going to appear. Clearing both is cheaper
+     than depending on no earlier check having touched this set. */
+  await setLs(pg,
+    () => {
+      const st = JSON.parse(localStorage.getItem('isee.v1'));
+      delete st.results['vr:W5:0'];
+      if (st.drafts) delete st.drafts['vr:W5:0'];
+      localStorage.setItem('isee.v1', JSON.stringify(st));
+    },
+    () => { const st = JSON.parse(localStorage.getItem('isee.v1')); return !st.results['vr:W5:0'] && !(st.drafts || {})['vr:W5:0']; });
+  await pg.evaluate(() => { location.hash = '#/run/vr/W5/0'; });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForSelector('[data-testid=question]', { timeout: 20000 });
+  // the Careful hold keeps the choices behind a countdown; wait it out if it is on
+  await pg.waitForSelector('[data-testid=choice]', { timeout: 20000 });
+  const slipQ = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
+  await pg.click('[data-testid=choice] >> nth=0');
+  await pg.waitForSelector('[data-testid=reveal]');
+  check('instant mode reveals on the first touch, and offers a way back out of it',
+    !!(await pg.$('[data-testid=slip-toggle]')), 'slip control present on the reveal');
+  await pg.click('[data-testid=slip-toggle]');
+  await pg.waitForSelector('[data-testid=slipped]');
+  const aside = await pg.evaluate(() => ({
+    choices: document.querySelectorAll('[data-testid=choice]').length,
+    next: !document.querySelector('[data-testid=next]').disabled,
+    guess: !!document.querySelector('[data-testid=guess-toggle]'),
+  }));
+  check('setting it aside takes the choices away and still lets her move on',
+    aside.choices === 0 && aside.next && !aside.guess, JSON.stringify(aside));
+  // finish the set: a question set aside must be scored out of nothing and scheduled
+  for (let k = 0; k < 30; k++) {
+    if (!(await pg.$('[data-testid=question]'))) break;
+    const c = await pg.textContent('[data-testid=counter]').catch(() => null);
+    if (c === null) break;
+    if (await pg.$('[data-testid=choice]')) await pg.click('[data-testid=choice] >> nth=1');
+    await pg.click('[data-testid=next]');
+    await pg.waitForFunction((b) => { const e = document.querySelector('[data-testid=counter]'); return !e || e.textContent !== b || !!document.querySelector('[data-testid=score]'); }, c, { timeout: 12000 }).catch(() => {});
+  }
+  await pg.waitForSelector('[data-testid=score]', { timeout: 15000 }).catch(() => {});
+  await pg.waitForTimeout(1000);
+  const slipRec = await pg.evaluate((id) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const r = s.items[id] || {}, h = (r.hist || []).slice(-1)[0] || {};
+    const set = Object.values(s.results).find((v) => v && v.aside);
+    return { ctx: h.ctx, due: !!r.due, misses: r.misses || 0, n: set ? set.n : null, aside: set ? set.aside : null };
+  }, slipQ);
+  check('it is recorded as a slip, counted as no miss, and put in the review pile',
+    slipRec.ctx === 'slip' && slipRec.due && slipRec.misses === 0,
+    `ctx ${slipRec.ctx} · due ${slipRec.due} · misses ${slipRec.misses}`);
+  check('and the set is scored out of what she actually answered',
+    slipRec.aside === 1 && slipRec.n === 9, `${slipRec.n} scored, ${slipRec.aside} set aside`);
+
   console.log('== a missed question comes back as a different question on its skill');
   await pg.evaluate(() => { location.hash = '#/review/qr'; });
   const servedEl = await pg.waitForSelector('[data-testid=question]').catch(() => null);

@@ -128,6 +128,18 @@ export function recordAttempts(entries, ctx) {
   function write(id, entry, kctx) {
     const prev = take(id)
     const r = { ...prev, hist: [...(prev.hist || []), entry].slice(-40) }
+    /* A mis-tap is not an answer, and must not be scored as one. `slip` is deliberately not
+     * in LEARN_CTX, so no tally, no level and no accuracy moves on it — a thumb landing on C
+     * says nothing about what she knows. But she has seen the key by the time she can say so,
+     * and we no longer know what she would have picked, so the question comes back: into the
+     * pile at the first interval if it is not already waiting, with nothing counted as a miss.
+     * That is what keeps the control honest. Saying "I tapped the wrong one" gets her the
+     * question again on another day; it can never turn a wrong answer into a right one. */
+    if (kctx === "slip") {
+      if (!prev.due) { r.due = plusDays(now, INTERVALS[0]); r.step = 0; r.cleared = null }
+      map[id] = r
+      return
+    }
     if (LEARN_CTX[kctx]) {
       const last = (prev.hist || [])[prev.hist.length - 1]
       const sameDay = last && dayKey(last.at) === dayKey(now)
@@ -151,6 +163,7 @@ export function recordAttempts(entries, ctx) {
   }
   for (const e of entries) {
     if (!e || !e.id) continue
+    if (e.slip) { write(e.id, { at: now, ms: Math.round(e.ms || 0), pick: e.pick || null, ctx: "slip" }, "slip"); continue }
     const base = { at: now, ok: !!e.ok, ms: Math.round(e.ms || 0), pick: e.pick || null }
     write(e.id, { ...base, ctx }, ctx)
     if (e.for && e.for !== e.id) write(e.for, { ...base, ctx: "again", via: e.id }, "again")
@@ -1384,6 +1397,11 @@ export function weekRecap(wk) {
   // because a miss during review is the pile doing its job, not a new problem
   let reviewed = 0, reviewedOk = 0, vocab = 0
   const slipped = {}
+  /* The questions themselves, not just which skills they belonged to. The card could say
+   * "Sentence completion x3" and there was no way from there to the three questions; the
+   * only route was the subject page, set by set. Deduped, because a question missed twice
+   * in one week is one question to look at. */
+  const wrongIds = []
   for (const id of Object.keys(Store.s.items || {})) {
     for (const h of (Store.s.items[id].hist || [])) {
       if (!inWeek(h.at)) continue
@@ -1392,6 +1410,7 @@ export function weekRecap(wk) {
       else if (h.ctx === "set" && !h.ok) {
         const f = findItem(id)
         if (f && f.it && f.it.sk) { const k = f.sub + "\u0000" + f.it.sk; slipped[k] = (slipped[k] || 0) + 1 }
+        if (f && f.it && !wrongIds.includes(id)) wrongIds.push(id)
       }
     }
   }
@@ -1439,6 +1458,7 @@ export function weekRecap(wk) {
     slipped: Object.keys(slipped)
       .map((k) => ({ sub: k.split("\u0000")[0], sk: k.split("\u0000")[1], n: slipped[k] }))
       .sort((a, b) => b.n - a.n),
+    wrongIds,
   }
 }
 

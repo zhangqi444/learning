@@ -2,9 +2,10 @@ import * as React from "react"
 import { CalendarDays, CheckCircle2, ChevronLeft, ChevronRight, Circle, ListChecks, Plus, Printer, Trash2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, currentWeek, setId, setsFor, spanById, spanNow, spanOpen, spans, weekLabel } from "@/lib/content"
-import { CAUSE_CHIP, dayKey, mockNextSteps, rec, reviewQueue, tagTally, weekRecap } from "@/lib/engine"
+import { CAUSE_CHIP, dayKey, findItem, mockNextSteps, rec, reviewQueue, tagTally, weekRecap } from "@/lib/engine"
 import { actionsForWeek, reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
+import { QuestionRow } from "@/pages/skill"
 import { mixedThisWeek } from "@/pages/mixed"
 import { go } from "@/lib/router"
 import { HAND, catsByWeek } from "@/lib/quest"
@@ -365,9 +366,34 @@ export function WeekRecap({ span, here, all, idx }) {
               </Badge>
             ))}
           </div>
+          {/* And the questions behind those badges. The card named the skills and stopped
+              there, so the only way to the questions themselves was the subject page, one
+              set at a time — at four sets a week that is tedious and at thirty it is not
+              done at all. Each row keeps its answer behind its own tap, the way the skill
+              page and the mock report do. */}
+          <WeekWrong ids={r.wrongIds} />
         </CardFooter>
       ) : null}
     </Card>
+  )
+}
+
+/** Every question she got wrong on new work this week, behind one tap. */
+function WeekWrong({ ids }) {
+  const [open, setOpen] = React.useState(false)
+  const rows = (ids || []).map((id) => findItem(id)).filter((f) => f && f.it)
+  if (!rows.length) return null
+  return (
+    <div className="w-full" data-testid="week-wrong" data-n={rows.length}>
+      <Button size="sm" variant="outline" className="h-7" onClick={() => setOpen((v) => !v)} data-testid="week-wrong-toggle">
+        {open ? "Hide the questions" : `Show the ${rows.length} question${rows.length === 1 ? "" : "s"}`}
+      </Button>
+      {open ? (
+        <ul className="mt-2 divide-y rounded-lg border px-3" data-testid="week-wrong-list">
+          {rows.map((f) => <QuestionRow key={f.it.id} sub={f.sub} it={f.it} testid="week-wrong-row" />)}
+        </ul>
+      ) : null}
+    </div>
   )
 }
 
