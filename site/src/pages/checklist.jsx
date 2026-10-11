@@ -347,7 +347,7 @@ export function WeekRecap({ span, here, all, idx }) {
       {/* `weekRecap` is a plan-week summary and answers null for a between-week,
           which has no sets to have slipped on. Guarded on the recap itself, not
           on `started`, because the crash that taught this was a null read. */}
-      {isWeek && started && r && (r.slipped.length || r.rushed) ? (
+      {isWeek && started && r && (r.slipped.length || r.rushed || r.reviewWrongIds.length) ? (
         <CardFooter className="flex-col items-start gap-2">
           {/* One rushed answer is an accident; a week of them is a habit, and
               only a count in one place makes that visible. */}
@@ -372,6 +372,15 @@ export function WeekRecap({ span, here, all, idx }) {
               done at all. Each row keeps its answer behind its own tap, the way the skill
               page and the mock report do. */}
           <WeekWrong ids={r.wrongIds} />
+          {/* Kept apart from the list above, and labelled for what it is. A question that
+              came back and went wrong again is not the same news as one missed first time:
+              the first is how the week went, the second is what is not sticking. */}
+          {r.reviewWrongIds.length ? (
+            <>
+              <span className="text-muted-foreground text-xs">What came back and went wrong again</span>
+              <WeekWrong ids={r.reviewWrongIds} testid="week-review-wrong" />
+            </>
+          ) : null}
         </CardFooter>
       ) : null}
     </Card>
@@ -379,18 +388,18 @@ export function WeekRecap({ span, here, all, idx }) {
 }
 
 /** Every question she got wrong on new work this week, behind one tap. */
-function WeekWrong({ ids }) {
+function WeekWrong({ ids, testid = "week-wrong" }) {
   const [open, setOpen] = React.useState(false)
   const rows = (ids || []).map((id) => findItem(id)).filter((f) => f && f.it)
   if (!rows.length) return null
   return (
-    <div className="w-full" data-testid="week-wrong" data-n={rows.length}>
-      <Button size="sm" variant="outline" className="h-7" onClick={() => setOpen((v) => !v)} data-testid="week-wrong-toggle">
+    <div className="w-full" data-testid={testid} data-n={rows.length}>
+      <Button size="sm" variant="outline" className="h-7" onClick={() => setOpen((v) => !v)} data-testid={testid + "-toggle"}>
         {open ? "Hide the questions" : `Show the ${rows.length} question${rows.length === 1 ? "" : "s"}`}
       </Button>
       {open ? (
-        <ul className="mt-2 divide-y rounded-lg border px-3" data-testid="week-wrong-list">
-          {rows.map((f) => <QuestionRow key={f.it.id} sub={f.sub} it={f.it} testid="week-wrong-row" />)}
+        <ul className="mt-2 divide-y rounded-lg border px-3" data-testid={testid + "-list"}>
+          {rows.map((f) => <QuestionRow key={f.it.id} sub={f.sub} it={f.it} testid={testid + "-row"} />)}
         </ul>
       ) : null}
     </div>

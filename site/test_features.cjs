@@ -1658,6 +1658,51 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const atCheckin = await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null }));
   check('the check-in asks a different question too, never the one she missed',
     checkinSeeded && !!atCheckin.standsFor && atCheckin.standsFor !== atCheckin.qid, `${atCheckin.qid} (seeded ${checkinId}) standsFor=${atCheckin.standsFor}`);
+
+  /* And the ones that came back and went wrong again.
+   *
+   * weekRecap's `slipped` list is new work only, on the reasoning that a miss during review
+   * is the pile doing its job rather than a fresh problem. Fair for a count — and it left the
+   * questions unreachable, which is the opposite of what a parent needs: a question missed
+   * twice is exactly the thing that is not sticking. The two lists are kept apart and
+   * labelled, so the week still reads honestly.
+   *
+   * Only what she actually answered is listed. A review serves a different question on the
+   * skill and writes `review` on that one, while the miss it stood in for gets `again` with
+   * `via` naming the question she really saw; listing the `via` rows would show her a
+   * question she was never asked. */
+  const curWk = await pg.evaluate(async () => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const t = new Date(); t.setHours(0, 0, 0, 0);
+    let c = 'W1';
+    for (const w of b.weeks) if (new Date(b.starts[w.w] + 'T00:00:00') <= t) c = w.w;
+    return c;
+  });
+  await pg.evaluate((w) => { location.hash = '#/checklist/' + w; }, curWk);
+  await pg.waitForSelector('[data-testid=week-recap]');
+  await pg.waitForTimeout(400);
+  const revRoll = await pg.$('[data-testid=week-review-wrong-toggle]');
+  check('a review answered wrong is reachable from the week it happened in', !!revRoll,
+    revRoll ? `${curWk}: ${(await revRoll.textContent()).trim()}` : `${curWk}: no review-miss roll-up`);
+  if (revRoll) {
+    await revRoll.click();
+    await pg.waitForSelector('[data-testid=week-review-wrong-list]');
+    const split = await pg.evaluate(() => {
+      const r = document.querySelector('[data-testid=week-review-wrong]');
+      const n = document.querySelector('[data-testid=week-wrong]');
+      return {
+        review: r ? +r.dataset.n : 0,
+        rows: document.querySelectorAll('[data-testid=week-review-wrong-row]').length,
+        shut: [...document.querySelectorAll('[data-testid=week-review-wrong-row]')].filter((x) => x.querySelector('[data-testid=skill-question-answer]')).length,
+        newWork: n ? +n.dataset.n : 0,
+        labelled: /What came back and went wrong again/.test(document.body.textContent),
+      };
+    });
+    check('and is kept apart from what she missed on new work, each answer still hidden',
+      split.rows === split.review && split.rows > 0 && split.shut === split.rows && split.labelled,
+      `${split.review} came back wrong · ${split.newWork} wrong on new work · ${split.shut} hidden`);
+  }
+
   // mixed set
   await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=mixed-start]');
   check('mixed set previews all four subjects', /Verbal · \d/.test(await body(pg)) && /Reading · \d/.test(await body(pg)));

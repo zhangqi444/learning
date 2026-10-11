@@ -1402,9 +1402,24 @@ export function weekRecap(wk) {
    * only route was the subject page, set by set. Deduped, because a question missed twice
    * in one week is one question to look at. */
   const wrongIds = []
+  /* And the ones that came back and went wrong again, kept apart from the list above.
+   * `slipped` is new work only, on the reasoning that a miss during review is the pile
+   * doing its job rather than a fresh problem — which is fair for a COUNT, and was never a
+   * reason to leave the questions unreachable. A question missed twice is the thing that is
+   * not sticking, and until now there was no page in the site that would name it.
+   *
+   * Only what she actually answered. A review serves a different question on the skill and
+   * writes `review` on that one; the miss it stood in for gets `again` with `via` naming the
+   * question she really saw. Listing the `via` rows would show her a question she was never
+   * asked this week. "Try another" writes `again` with no `via`, and that one she did see. */
+  const reviewWrongIds = []
   for (const id of Object.keys(Store.s.items || {})) {
     for (const h of (Store.s.items[id].hist || [])) {
       if (!inWeek(h.at)) continue
+      if (!h.ok && ((h.ctx === "review") || (h.ctx === "again" && !h.via))) {
+        const f = findItem(id)
+        if (f && f.it && !reviewWrongIds.includes(id)) reviewWrongIds.push(id)
+      }
       if (h.ctx === "review") { reviewed++; if (h.ok) reviewedOk++ }
       else if (h.ctx === "vocab") vocab++
       else if (h.ctx === "set" && !h.ok) {
@@ -1455,6 +1470,7 @@ export function weekRecap(wk) {
     pct: answered ? Math.round((right / answered) * 100) : null,
     subs, reviewed, reviewedOk, vocab, dueNow: q.due.length, rushed,
     words, essay, reading, activeDays: days.size,
+    reviewWrongIds,
     slipped: Object.keys(slipped)
       .map((k) => ({ sub: k.split("\u0000")[0], sk: k.split("\u0000")[1], n: slipped[k] }))
       .sort((a, b) => b.n - a.n),
