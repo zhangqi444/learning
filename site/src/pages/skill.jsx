@@ -49,7 +49,12 @@ function lastTry(id) { const r = rec(id); const h = (r && r.hist) || []; return 
  *  `questionResult`, the same on a skill's page as on a word's. `where` names its place when it
  *  is not a sitting (a mock, the word quiz); `note` and `data` replace the answers line for a
  *  row that counts something else (a word offered as a wrong choice). */
-export function QuestionRow({ sub, it, at, where, testid = "skill-question", role, note, data }) {
+export function QuestionRow({ it, at, where, testid = "skill-question", role, note, data, head, pick, why, foot }) {
+  /* `className` is pulled out of the caller's attributes rather than spread with them: a
+     spread lands after the attribute it repeats, so the mock's border would have replaced
+     the layout classes instead of joining them, and worked only because that one caller
+     happened to restate the layout. */
+  const { className: cls, ...attrs } = data || {}
   const [answer, setAnswer] = React.useState(false)
   const [passage, setPassage] = React.useState(false)
   const k = keyOf(it)
@@ -62,33 +67,60 @@ export function QuestionRow({ sub, it, at, where, testid = "skill-question", rol
   const again = note ? 0 : ((rec(it.id) || {}).misses || 0)
   const counts = x ? { "data-done": x.done, "data-right": x.right, "data-wrong": x.wrong, "data-misses": again } : {}
   return (
-    <li className="flex flex-col gap-2 py-3" data-testid={testid} data-qid={it.id} data-role={role} data-added={it.x ? "1" : undefined} {...counts} {...(data || {})}>
-      <div className="text-muted-foreground flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
-        <span className="text-foreground font-medium tabular-nums">{where || (at ? `${at.w} · sitting ${at.n + 1}` : it.w)}</span>
-        {it.d ? <Badge variant="outline" className="text-[11px]">{DIFF[it.d] || it.d}</Badge> : null}
-        {note || <TallyLine x={x} testid={testid + "-result"} />}
-        {again >= 2 ? <Badge variant="warning" className="text-[11px]" data-testid="question-misses">missed {again}×</Badge> : null}
-      </div>
-      {sub === "rc" && it.p && D.passages[it.p] ? (
+    <li className={cn("flex flex-col gap-2 py-3", cls)} data-testid={testid} data-qid={it.id} data-role={role} data-added={it.x ? "1" : undefined} {...counts} {...attrs}>
+      {/* The mock's missed-questions report brings its own heading — the Missed badge, the
+          section and number, how far the miss has been worked — so it passes `head` and this
+          line steps aside rather than printing a second one beside it. */}
+      {head || (
+        <div className="text-muted-foreground flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
+          <span className="text-foreground font-medium tabular-nums">{where || (at ? `${at.w} · sitting ${at.n + 1}` : it.w)}</span>
+          {it.d ? <Badge variant="outline" className="text-[11px]">{DIFF[it.d] || it.d}</Badge> : null}
+          {note || <TallyLine x={x} testid={testid + "-result"} />}
+          {again >= 2 ? <Badge variant="warning" className="text-[11px]" data-testid="question-misses">missed {again}×</Badge> : null}
+        </div>
+      )}
+      {/* A passage is a passage wherever the question came from. This was gated on the
+          subject being Reading, which is true of the practice bank and not of a mock, whose
+          items carry their section separately. */}
+      {it.p && D.passages[it.p] ? (
         <div className="flex flex-col gap-2">
           <div className="flex flex-wrap items-center gap-2 text-sm">
             <span className="text-muted-foreground">Passage:</span><span className="font-medium">{D.passages[it.p].t || it.p}</span>
-            <Button size="sm" variant="ghost" className="h-7" onClick={() => setPassage((v) => !v)}>{passage ? "Hide it" : "Show it"}</Button>
+            <Button size="sm" variant="ghost" className="h-7" onClick={() => setPassage((v) => !v)} data-testid={testid + "-passage"}>{passage ? "Hide it" : "Show it"}</Button>
           </div>
           {passage ? <Passage id={it.p} /> : null}
         </div>
       ) : null}
       <p className="leading-snug font-medium">{it.q}</p>
       {it.f ? <Figure f={it.f} /> : null}
-      <ol className="grid gap-1.5 text-sm @md/main:grid-cols-2">
-        {it.c.map((c, i) => (
-          <li key={i} className={cn("rounded-md border px-2.5 py-1.5", answer && LTR[i] === k && "border-success bg-success-soft font-medium")} data-key={answer && LTR[i] === k ? "1" : undefined}>
-            <span className="text-muted-foreground mr-2 font-medium">{LTR[i]}</span>{c}
-          </li>
-        ))}
+      <ol className="grid gap-1.5 text-sm @md/main:grid-cols-2" data-testid={testid + "-choices"}>
+        {it.c.map((c, i) => {
+          /* Her own pick is marked from the start where the caller knows it — she already
+             knows what she put — and the key only once she has asked for the answer. */
+          const mine = pick && LTR[i] === pick
+          const isKey = answer && LTR[i] === k
+          return (
+            <li key={i} data-choice={LTR[i]} data-mine={mine ? "1" : undefined} data-key={isKey ? "1" : undefined}
+              className={cn("rounded-md border px-2.5 py-1.5",
+                isKey && "border-success bg-success-soft font-medium",
+                mine && !isKey && "border-destructive bg-destructive/5")}>
+              <span className="text-muted-foreground mr-2 font-medium">{LTR[i]}</span>{c}
+              {mine ? <span className="text-destructive ml-2 text-xs font-medium">your answer</span> : null}
+            </li>
+          )
+        })}
       </ol>
-      <div><Button size="sm" variant="ghost" className="h-7" onClick={() => setAnswer((v) => !v)} data-testid="skill-question-answer">{answer ? "Hide the answer" : "Show the answer"}</Button></div>
-      {answer ? <p className="text-sm" data-testid="skill-question-why"><span className="font-semibold">{k}.</span> {it.e}</p> : null}
+      <div><Button size="sm" variant="ghost" className="h-7" onClick={() => setAnswer((v) => !v)} data-testid={testid + "-answer"}>{answer ? "Hide the answer" : "Show the answer"}</Button></div>
+      {answer ? (
+        <>
+          {/* What the choice she actually made really was, above the general explanation and
+              in that order: the explanation can only ever describe the correct route, so
+              "perimeter = 2(10+3) = 26" never tells her the 30 she picked was the area. */}
+          {why ? <p className="border-destructive/40 bg-destructive/5 rounded-md border p-3 text-sm leading-relaxed" data-testid="why">{why}</p> : null}
+          <p className="text-sm" data-testid={testid + "-why"}><span className="font-semibold">{k}.</span> {it.e}</p>
+        </>
+      ) : null}
+      {foot || null}
     </li>
   )
 }
@@ -115,7 +147,7 @@ function SubskillGroup({ sub, name, items, shown, filtered, places, open, onTogg
       </button>
       {open ? (
         <ul className="divide-y border-t px-3">
-          {shown.map((it) => <QuestionRow key={it.id} sub={sub} it={it} at={places[it.id]} />)}
+          {shown.map((it) => <QuestionRow key={it.id} it={it} at={places[it.id]} />)}
         </ul>
       ) : null}
     </div>

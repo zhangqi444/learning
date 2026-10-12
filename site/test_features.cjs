@@ -71,6 +71,15 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const drive = await stubGoogle(ctx);
   const pg = await ctx.newPage(); const errs = [];
   pg.on('pageerror', (e) => errs.push('PAGEERR ' + e.message));
+  /* Console errors too, not only uncaught ones. App.jsx wraps every screen in an
+     ErrorBoundary whose componentDidCatch does `console.error(err)`, so a component that
+     throws mid-render is caught, logged there, and never reaches `pageerror` — the page
+     goes blank, this listener stays empty, and "no page errors" below reports green.
+     That is exactly how `QuestionRow is not defined` got past a successful build and a
+     suite that only noticed because a selector further down stopped matching: a missing
+     import of a component is valid JavaScript until it is rendered. Blocked requests are
+     the Google stub doing its job and are not errors. */
+  pg.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource/.test(m.text())) errs.push('CONSOLE ' + m.text().split('\n')[0].slice(0, 200)); });
   pg.on('dialog', (d) => d.accept());
   await pg.goto('http://localhost:8143/learning/', { waitUntil: 'networkidle' });
   await signIn(pg);   // the site is gated: get through the door first
@@ -955,8 +964,8 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     const rows = [...document.querySelectorAll('[data-testid=miss-row]')];
     return {
       rows: rows.length,
-      open: rows.filter((r) => r.querySelector('[data-testid=miss-answer]')).length,
-      askable: rows.filter((r) => r.querySelector('[data-testid=miss-show-answer]')).length,
+      open: rows.filter((r) => r.querySelector('[data-testid=miss-row-why]')).length,
+      askable: rows.filter((r) => r.querySelector('[data-testid=miss-row-answer]')).length,
       // her own pick is marked on the choice itself now, not printed as a "Your answer:" line
       mine: rows.filter((r) => r.querySelector('[data-choice][data-mine]')).length,
     };
@@ -977,11 +986,9 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     const rows = [...document.querySelectorAll('[data-testid=miss-row]')];
     return {
       rows: rows.length,
-      fourChoices: rows.filter((r) => r.querySelectorAll('[data-testid=miss-choices] li').length === 4).length,
+      fourChoices: rows.filter((r) => r.querySelectorAll('[data-testid=miss-row-choices] li').length === 4).length,
       mineMarked: rows.filter((r) => r.querySelector('[data-choice][data-mine]')).length,
       keyShown: rows.filter((r) => r.querySelector('[data-choice][data-key]')).length,
-      rc: rows.filter((r) => /^RC/.test((r.dataset.qid || ''))).length,
-      withPassage: rows.filter((r) => r.querySelector('[data-testid=miss-passage-toggle]')).length,
     };
   });
   check('a missed question shows all four choices, with her own marked',
@@ -991,30 +998,73 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     `${whole.keyShown} rows gave the key away`);
   // The answer is behind a tap now — a report that opens with every answer already given is
   // a reading exercise, not a correction. Open this one row before reading its why.
-  if (whyRow) await whyRow.$eval('[data-testid=miss-show-answer]', (b) => b.click()).catch(() => {});
+  if (whyRow) await whyRow.$eval('[data-testid=miss-row-answer]', (b) => b.click()).catch(() => {});
   const rowWhy = whyRow ? await whyRow.$eval('[data-testid=why]', (e) => e.textContent.trim()).catch(() => '') : '';
   check('and the score card says it against the choice she actually made',
     !!wantWhy && rowWhy === wantWhy.trim(), rowWhy.slice(0, 90) || 'no why block in the miss row');
-  /* Every rendered why must be the one belonging to that row's pick. A block
-     keyed to the wrong choice would still look right on the page. */
-  await pg.$$eval('[data-testid=miss-show-answer]', (bs) => bs.forEach((b) => b.click()));
-  await pg.waitForTimeout(200);
-  const whyAudit = await pg.evaluate(async () => {
+  /* Now the whole report rather than the one group that happens to be open.
+   *
+   * Only one skill opens at a time, so every check above has seen a single skill's worth of
+   * rows — one row, as it happens — and said nothing about the other hundred and twenty-four.
+   * That is how the owner's two findings survived a green suite: "the image/graph all
+   * missing, only see the text part. and the options only remains 2". A reading stem with no
+   * passage and a geometry stem with no figure are not harder questions, they are
+   * unanswerable ones, and 25 of the 127 questions on every paper are reading.
+   *
+   * Each group is opened in turn and every row in it read: all four choices present, the
+   * passage offered where the item has one, the figure drawn where the item has one, and
+   * every revealed why the one belonging to the choice she actually made. The component
+   * unmounts when its group closes, so each group's rows open with their answers hidden and
+   * one click apiece reveals them — no toggle lands twice. */
+  const want = await pg.evaluate(async () => {
     const b = await (await fetch('./content/bundle.json')).json();
-    const by = {};
-    for (const f of Object.keys(b.mockItems)) for (const sec of Object.keys(b.mockItems[f])) for (const q of b.mockItems[f][sec]) by[q.id] = q;
-    const bad = [];
-    for (const row of document.querySelectorAll('[data-testid=miss-row]')) {
-      const q = by[row.dataset.qid]; if (!q) continue;
-      const picked = row.querySelector('[data-choice][data-mine]');
-      const letter = picked ? picked.dataset.choice : null;
-      const want = letter && q.y && q.y[letter] ? q.y[letter].trim() : null;
-      const el = row.querySelector('[data-testid=why]');
-      const got = el ? el.textContent.trim() : null;
-      if (want !== got) bad.push(`${q.id}: wanted ${want ? 'the why for ' + letter : 'none'}, got ${got ? 'other text' : 'none'}`);
+    const out = { passage: [], figure: [], why: {} };
+    for (const f of Object.keys(b.mockItems)) for (const sec of Object.keys(b.mockItems[f])) for (const q of b.mockItems[f][sec]) {
+      if (q.p && b.passages[q.p]) out.passage.push(q.id);
+      if (q.f) out.figure.push(q.id);
+      if (q.y) out.why[q.id] = q.y;
     }
-    return bad;
+    return out;
   });
+  const sweep = { rows: 0, four: 0, rc: 0, rcPassage: 0, figWant: 0, figGot: 0, bad: [] };
+  const nGroups = (await pg.$$('[data-testid=miss-group-open]')).length;
+  for (let k = 0; k < nGroups; k++) {
+    await pg.click(`[data-testid=miss-group-open] >> nth=${k}`);
+    await pg.waitForSelector('[data-testid=miss-row]');
+    await pg.$$eval('[data-testid=miss-row-answer]', (bs) => bs.forEach((b) => b.click()));
+    const got = await pg.evaluate((w) => {
+      const out = { rows: 0, four: 0, rc: 0, rcPassage: 0, figWant: 0, figGot: 0, bad: [] };
+      for (const row of document.querySelectorAll('[data-testid=miss-row]')) {
+        const id = row.dataset.qid;
+        out.rows++;
+        if (row.querySelectorAll('[data-testid=miss-row-choices] li').length === 4) out.four++;
+        if (w.passage.includes(id)) { out.rc++; if (row.querySelector('[data-testid=miss-row-passage]')) out.rcPassage++; }
+        if (w.figure.includes(id)) { out.figWant++; if (row.querySelector('[data-testid=figure]')) out.figGot++; }
+        const picked = row.querySelector('[data-choice][data-mine]');
+        const letter = picked ? picked.dataset.choice : null;
+        const wantWhy = letter && w.why[id] && w.why[id][letter] ? w.why[id][letter].trim() : null;
+        const el = row.querySelector('[data-testid=why]');
+        const gotWhy = el ? el.textContent.trim() : null;
+        if (wantWhy !== gotWhy) out.bad.push(`${id}: wanted ${wantWhy ? 'the why for ' + letter : 'none'}, got ${gotWhy ? 'other text' : 'none'}`);
+      }
+      return out;
+    }, want);
+    for (const key of ['rows', 'four', 'rc', 'rcPassage', 'figWant', 'figGot']) sweep[key] += got[key];
+    sweep.bad.push(...got.bad);
+  }
+  check('every miss in the report shows all four choices',
+    sweep.rows > 0 && sweep.four === sweep.rows,
+    `${sweep.rows} rows across ${nGroups} skills · ${sweep.four} with four choices`);
+  check('and a reading miss can show the passage it was asked about',
+    sweep.rc > 0 && sweep.rcPassage === sweep.rc,
+    `${sweep.rc} reading rows · ${sweep.rcPassage} offering their passage`);
+  /* The diagnostic is the one form with no figures — they were added on 4 October and DGN
+     predates them (115 across M01–M03, 0 here) — so this says nothing today and starts
+     saying something the day DGN gains one. The claim itself is made where figures exist,
+     against the same renderer, under "a bank question with a figure draws it" below. */
+  check('and a miss with a figure draws it', sweep.figGot === sweep.figWant,
+    `${sweep.figWant} rows whose item has a figure · ${sweep.figGot} drew one`);
+  const whyAudit = sweep.bad;
   check('and never one belonging to a choice she did not pick', whyAudit.length === 0, whyAudit.slice(0, 2).join(' | ') || 'every row matches its own pick');
   await pg.evaluate(() => { location.hash = '#/mock/DGN'; }); await pg.waitForSelector('[data-testid=mock-corrections]');
   await pg.click('[data-testid=mock-corrections]');
@@ -1548,7 +1598,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
       return {
         rows: rows.length,
         claimed: +document.querySelector('[data-testid=week-wrong]').dataset.n,
-        shut: rows.filter((r) => r.querySelector('[data-testid=skill-question-answer]')).length,
+        shut: rows.filter((r) => r.querySelector('[data-testid=week-wrong-row-answer]')).length,
       };
     });
     check('it lists every one of them, each with its answer still hidden',
@@ -1720,7 +1770,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
       return {
         review: r ? +r.dataset.n : 0,
         rows: document.querySelectorAll('[data-testid=week-review-wrong-row]').length,
-        shut: [...document.querySelectorAll('[data-testid=week-review-wrong-row]')].filter((x) => x.querySelector('[data-testid=skill-question-answer]')).length,
+        shut: [...document.querySelectorAll('[data-testid=week-review-wrong-row]')].filter((x) => x.querySelector('[data-testid=week-review-wrong-row-answer]')).length,
         newWork: n ? +n.dataset.n : 0,
         labelled: /What came back and went wrong again/.test(document.body.textContent),
       };
@@ -1927,6 +1977,41 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const shownQ = await pg.$eval('[data-testid=skill-question] >> nth=0', (e) => ({ id: e.dataset.qid, key: [...e.querySelectorAll('li')].findIndex((li) => li.dataset.key === '1'), why: !!e.querySelector('[data-testid=skill-question-why]') }));
   const wantKey = await pg.evaluate(async (id) => { const b = await (await fetch('./content/bundle.json')).json(); const it = b.subjects.ma.find((q) => q.id === id); return 'ABCD'.indexOf(it.k); }, shownQ.id);
   check('a question\'s answer is a tap away, and it is the bank\'s key', shownQ.why && shownQ.key === wantKey, JSON.stringify(shownQ));
+  /* A figure is part of the question, not decoration: a geometry item whose diagram is
+     missing is unanswerable, not merely harder. Asserted here because this is where figures
+     are — 181 bank items carry one, and QuestionRow is the single renderer behind this page,
+     the vocabulary page, the week roll-up and the mock's missed-question report, so the row
+     that draws one here draws one there. The skill is looked up rather than named: which
+     skills own figures is a content decision, and a hard-coded name would go stale quietly. */
+  const figSkill = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    for (const sub of ['ma', 'qr']) {
+      const withFig = b.subjects[sub].filter((q) => q.f && q.sk);
+      const by = {};
+      for (const q of withFig) (by[q.sk] = by[q.sk] || []).push(q.id);
+      const best = Object.keys(by).sort((a, c) => by[c].length - by[a].length)[0];
+      if (best) return { sub, sk: best, ids: b.subjects[sub].filter((q) => q.sk === best && q.f).map((q) => q.id) };
+    }
+    return null;
+  });
+  check('some bank skill owns questions with figures', !!figSkill && figSkill.ids.length > 0,
+    figSkill ? `${figSkill.sub} · ${figSkill.sk} · ${figSkill.ids.length}` : 'no bank skill has a figure');
+  if (figSkill) {
+    await pg.evaluate(({ sub, sk }) => { location.hash = `#/skill/${sub}/` + encodeURIComponent(sk); }, figSkill);
+    await pg.waitForSelector('[data-testid=skill-page]');
+    await pg.click('[data-testid=skill-open-all]');
+    await pg.waitForSelector('[data-testid=skill-question]');
+    const drew = await pg.evaluate((ids) => {
+      let want = 0, got = 0;
+      for (const row of document.querySelectorAll('[data-testid=skill-question]')) {
+        if (!ids.includes(row.dataset.qid)) continue;
+        want++; if (row.querySelector('[data-testid=figure]')) got++;
+      }
+      return { want, got };
+    }, figSkill.ids);
+    check('and a bank question with a figure draws it', drew.want > 0 && drew.got === drew.want,
+      `${drew.want} listed questions have a figure · ${drew.got} drew one`);
+  }
   await pg.evaluate(() => { location.hash = '#/skill/rc/' + encodeURIComponent('Organization/logic'); }); await pg.waitForSelector('[data-testid=skill-page]');
   check('a skill whose name has a slash in it opens too', Number(await pg.$eval('[data-testid=skill-page]', (e) => e.dataset.n)) === await bankCount('rc', 'Organization/logic'));
   await pg.click('[data-testid=skill-practice]'); await pg.waitForSelector('[data-testid=question]');

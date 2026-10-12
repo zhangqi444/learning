@@ -17,6 +17,7 @@ import { Textarea } from "@zhangqi444/ui/ui/textarea"
 import { Input } from "@zhangqi444/ui/ui/input"
 import { Label } from "@zhangqi444/ui/ui/label"
 import { ActionBar, CauseTags, Choice, Passage, Runner } from "@/pages/runner"
+import { QuestionRow } from "@/pages/skill"
 import { Figure } from "@/components/figure"
 import { reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
@@ -855,90 +856,6 @@ function MockResults({ form }) {
 }
 
 
-/** A missed question as it was actually asked: its passage, its figure, and all four choices.
- *
- *  The row used to print the stem, then "Your answer: C" and "Correct: B" — so two of the four
- *  options, no passage, and the question could not be attempted again from the page that exists
- *  to attempt it again. A reading stem without its passage says nothing at all, and 25 of the
- *  127 questions on every paper are reading. The owner found this by trying to use it.
- *
- *  Her own pick is marked from the start, because she already knows what she put. The key stays
- *  unmarked until she asks for the answer, which is the whole point of the tap. */
-function MissQuestion({ q, pick }) {
-  const [passage, setPassage] = React.useState(false)
-  const [answer, setAnswer] = React.useState(false)
-  const k = keyOf(q)
-  const hasPassage = q.p && D.passages[q.p]
-  return (
-    <>
-      {hasPassage ? (
-        <div className="flex flex-col gap-2">
-          <div className="flex flex-wrap items-center gap-2 text-sm">
-            <span className="text-muted-foreground">Passage:</span>
-            <span className="font-medium">{D.passages[q.p].t || q.p}</span>
-            <Button size="sm" variant="ghost" className="h-7" onClick={() => setPassage((v) => !v)} data-testid="miss-passage-toggle">
-              {passage ? "Hide it" : "Show it"}
-            </Button>
-          </div>
-          {passage ? <Passage id={q.p} /> : null}
-        </div>
-      ) : null}
-      <p className="text-[15px] leading-snug font-medium">{q.q}</p>
-      {q.f ? <Figure f={q.f} /> : null}
-      <ol className="grid gap-1.5 text-sm @md/main:grid-cols-2" data-testid="miss-choices">
-        {q.c.map((c, j) => {
-          const mine = pick === LTR[j]
-          const key = answer && LTR[j] === k
-          return (
-            <li key={j} data-choice={LTR[j]} data-mine={mine ? "1" : undefined} data-key={key ? "1" : undefined}
-              className={cn("rounded-md border px-2.5 py-1.5",
-                key && "border-success bg-success-soft font-medium",
-                mine && !key && "border-destructive bg-destructive/5")}>
-              <span className="text-muted-foreground mr-2 font-medium">{LTR[j]}</span>{c}
-              {mine ? <span className="text-destructive ml-2 text-xs font-medium">your answer</span> : null}
-            </li>
-          )
-        })}
-      </ol>
-      <MissAnswer q={q} pick={pick} open={answer} onOpen={setAnswer} />
-    </>
-  )
-}
-
-/** The key, what her own wrong choice was, and the explanation — behind a tap.
- *
- *  They used to be printed on every miss row. A report of ninety-four misses that opens
- *  with every answer already given is a reading exercise: she scrolls, the answers go past,
- *  and nothing is re-thought. The skill page had this right from the start — one "Show the
- *  answer" button per question — and this card is where she spends the twenty-four hours
- *  after a paper, so it is the page where it matters most.
- *
- *  Her own answer stays in the open above this: it is hers, she already knows what she put,
- *  and hiding it would only make her hunt for what she is being asked about. */
-function MissAnswer({ q, pick, open, onOpen }) {
-  if (!open) {
-    return (
-      <div>
-        <Button size="sm" variant="outline" className="h-7" onClick={() => onOpen(true)} data-testid="miss-show-answer">
-          <Eye /> Show the answer
-        </Button>
-      </div>
-    )
-  }
-  return (
-    <div className="flex flex-col gap-2" data-testid="miss-answer">
-      {/* The key is marked on the choice itself above; repeating it here said the same
-          thing twice and pushed the reason she actually needs further down the card. */}
-      {/* What the choice she actually made really was, above the general explanation and in
-          that order because the explanation can only ever describe the correct route:
-          "perimeter = 2(10+3) = 26" never tells her the 30 she picked was the area. */}
-      {pick && q.y && q.y[pick] ? <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{q.y[pick]}</div> : null}
-      {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
-      <div><Button size="sm" variant="ghost" className="h-7" onClick={() => onOpen(false)} data-testid="miss-hide-answer">Hide the answer</Button></div>
-    </div>
-  )
-}
-
 /** The paper's misses, gathered by skill rather than laid out in paper order.
  *
  *  Measured before it was changed: a real diagnostic leaves ninety-four of these,
@@ -1006,27 +923,30 @@ function MissedBySkill({ misses, form }) {
                       <RotateCcw /> Try another {g.lesson} question
                     </Button>
                   </div>
+                  {/* The questions themselves, drawn by the same component the skill page,
+                      the vocabulary page and the week roll-up use. There were three renderers
+                      before this, and the mock's own was the thin one: it printed the stem,
+                      her pick and the key, so a reading miss arrived with no passage and a
+                      geometry miss with no figure. Classifying stays per question — each miss
+                      has its own reason, and "I misread it" about twelve at once would be a
+                      guess rather than a record — so `foot` carries the tags into each row. */}
                   {g.rows.map(({ sec, q, i, pick }) => (
-                    <div key={q.id} className="border-destructive/40 flex flex-col gap-2 rounded-lg border-2 p-4" data-testid="miss-row" data-qid={q.id}>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="destructive">{pick ? "Missed" : "Blank"}</Badge>
-                        <span className="text-muted-foreground text-xs">{sec.id} · Q{i + 1}{q.sk ? " · " + q.sk : ""}</span>
-                        <MissStage id={q.id} />
-                      </div>
-                      <MissQuestion q={q} pick={pick} />
-                      {/* What the choice she actually made really was, above the
-                          general explanation and in that order because the
-                          explanation can only ever describe the correct route:
-                          "perimeter = 2(10+3) = 26" never tells her the 30 she
-                          picked was the area. This card is the one surface that
-                          knows which wrong choice she made — it is recorded right
-                          there in `pick` — and it was showing her the same
-                          paragraph as everyone who missed it differently. */}
-                      {/* Classifying stays per question: each miss has its own
-                          reason, and "I misread it" about twelve questions at
-                          once would be a guess rather than a record. */}
-                      <CauseTags id={q.id} compact />
-                    </div>
+                    <QuestionRow
+                      key={q.id}
+                      it={q}
+                      testid="miss-row"
+                      pick={pick}
+                      why={pick && q.y ? q.y[pick] : null}
+                      data={{ className: "border-destructive/40 flex flex-col gap-2 rounded-lg border-2 p-4" }}
+                      head={(
+                        <div className="flex items-center gap-2">
+                          <Badge variant="destructive">{pick ? "Missed" : "Blank"}</Badge>
+                          <span className="text-muted-foreground text-xs">{sec.id} · Q{i + 1}{q.sk ? " · " + q.sk : ""}</span>
+                          <MissStage id={q.id} />
+                        </div>
+                      )}
+                      foot={<CauseTags id={q.id} compact />}
+                    />
                   ))}
                 </CardContent>
               ) : null}

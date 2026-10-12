@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils"
  *
  * Every type is drawn from numbers, never from an image file, so the same
  * figure is crisp at phone width and in dark mode, and a test can read the
- * values back out of the DOM (`data-figure`, `data-type`). */
+ * values back out of the DOM (`data-testid="figure"`, `data-type`). */
 
 const FONT = 13
 const INK = "currentColor"

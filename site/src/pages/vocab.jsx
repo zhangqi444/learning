@@ -151,7 +151,7 @@ export function WordPage({ name }) {
         </li>
       )
     }
-    return <QuestionRow key={ref.id + ref.role} sub={ref.sub} it={it} at={places[ref.sub] ? places[ref.sub][ref.id] : null} where={whereOf(ref, v)} testid="vocab-question" role={ref.role} note={note} data={data} />
+    return <QuestionRow key={ref.id + ref.role} it={it} at={places[ref.sub] ? places[ref.sub][ref.id] : null} where={whereOf(ref, v)} testid="vocab-question" role={ref.role} note={note} data={data} />
   }
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:gap-6" data-testid="word-page" data-word={v.key} data-tests={r.tests} data-done={r.done} data-right={r.right} data-wrong={r.wrong} data-chose={r.chose}>

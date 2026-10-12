@@ -399,7 +399,7 @@ function WeekWrong({ ids, testid = "week-wrong" }) {
       </Button>
       {open ? (
         <ul className="mt-2 divide-y rounded-lg border px-3" data-testid={testid + "-list"}>
-          {rows.map((f) => <QuestionRow key={f.it.id} sub={f.sub} it={f.it} testid={testid + "-row"} />)}
+          {rows.map((f) => <QuestionRow key={f.it.id} it={f.it} testid={testid + "-row"} />)}
         </ul>
       ) : null}
     </div>
