@@ -191,6 +191,25 @@ npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63
   not the page broken. Read the load, wait it out, and rerun. A suite that passes
   three gates and then fails at a line the change did not touch is the machine
   until shown otherwise.
+- **A component that throws is invisible to the suite, because the ErrorBoundary
+  catches it.** `App.jsx` wraps every screen in one, and its `componentDidCatch` does
+  `console.error(err)` — which Playwright's `pageerror` listener does not receive. So a
+  render that throws blanks the screen while `errs` stays empty and the final "no page
+  errors" check reports green. It took a blank page and a selector timeout three hundred
+  lines later to find a `QuestionRow` used in `mock.jsx` without being imported, which the
+  build does not catch either: an undefined component is valid JavaScript until it renders.
+  `test_features.cjs` listens for console errors now, filtering the blocked requests the
+  Google stub makes on purpose. A suite that cannot see a crash is worse than no suite.
+- **Only one group of the mock's missed-question report is open at a time.** Every check
+  on that page reads the rows of the one open skill — one row, in practice — so an
+  assertion written there says nothing about the other hundred and twenty-four. Two of the
+  owner's findings survived a green suite that way. Walk the groups (`miss-group-open`,
+  clicked by index) and accumulate; the component unmounts when its group closes, so each
+  group's rows open with their answers hidden and one click apiece reveals them.
+- **The diagnostic has no figures.** They arrived on 4 October and DGN predates them: 115
+  across M01–M03, 0 in DGN. A check about figures written against the seeded DGN paper
+  passes while asserting nothing. Make the claim where figures are — 181 bank items carry
+  one — or look the set up from the content rather than naming it.
 - **A check that reads the real calendar will fail on a date nobody chose.**
   `test_features.cjs` clicked the dashboard's "Show N done" fold as soon as the
   page loaded. That fold only exists once something on the open week is
