@@ -855,6 +855,56 @@ function MockResults({ form }) {
 }
 
 
+/** A missed question as it was actually asked: its passage, its figure, and all four choices.
+ *
+ *  The row used to print the stem, then "Your answer: C" and "Correct: B" — so two of the four
+ *  options, no passage, and the question could not be attempted again from the page that exists
+ *  to attempt it again. A reading stem without its passage says nothing at all, and 25 of the
+ *  127 questions on every paper are reading. The owner found this by trying to use it.
+ *
+ *  Her own pick is marked from the start, because she already knows what she put. The key stays
+ *  unmarked until she asks for the answer, which is the whole point of the tap. */
+function MissQuestion({ q, pick }) {
+  const [passage, setPassage] = React.useState(false)
+  const [answer, setAnswer] = React.useState(false)
+  const k = keyOf(q)
+  const hasPassage = q.p && D.passages[q.p]
+  return (
+    <>
+      {hasPassage ? (
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-wrap items-center gap-2 text-sm">
+            <span className="text-muted-foreground">Passage:</span>
+            <span className="font-medium">{D.passages[q.p].t || q.p}</span>
+            <Button size="sm" variant="ghost" className="h-7" onClick={() => setPassage((v) => !v)} data-testid="miss-passage-toggle">
+              {passage ? "Hide it" : "Show it"}
+            </Button>
+          </div>
+          {passage ? <Passage id={q.p} /> : null}
+        </div>
+      ) : null}
+      <p className="text-[15px] leading-snug font-medium">{q.q}</p>
+      {q.f ? <Figure f={q.f} /> : null}
+      <ol className="grid gap-1.5 text-sm @md/main:grid-cols-2" data-testid="miss-choices">
+        {q.c.map((c, j) => {
+          const mine = pick === LTR[j]
+          const key = answer && LTR[j] === k
+          return (
+            <li key={j} data-choice={LTR[j]} data-mine={mine ? "1" : undefined} data-key={key ? "1" : undefined}
+              className={cn("rounded-md border px-2.5 py-1.5",
+                key && "border-success bg-success-soft font-medium",
+                mine && !key && "border-destructive bg-destructive/5")}>
+              <span className="text-muted-foreground mr-2 font-medium">{LTR[j]}</span>{c}
+              {mine ? <span className="text-destructive ml-2 text-xs font-medium">your answer</span> : null}
+            </li>
+          )
+        })}
+      </ol>
+      <MissAnswer q={q} pick={pick} open={answer} onOpen={setAnswer} />
+    </>
+  )
+}
+
 /** The key, what her own wrong choice was, and the explanation — behind a tap.
  *
  *  They used to be printed on every miss row. A report of ninety-four misses that opens
@@ -865,12 +915,11 @@ function MockResults({ form }) {
  *
  *  Her own answer stays in the open above this: it is hers, she already knows what she put,
  *  and hiding it would only make her hunt for what she is being asked about. */
-function MissAnswer({ q, pick }) {
-  const [open, setOpen] = React.useState(false)
+function MissAnswer({ q, pick, open, onOpen }) {
   if (!open) {
     return (
       <div>
-        <Button size="sm" variant="outline" className="h-7" onClick={() => setOpen(true)} data-testid="miss-show-answer">
+        <Button size="sm" variant="outline" className="h-7" onClick={() => onOpen(true)} data-testid="miss-show-answer">
           <Eye /> Show the answer
         </Button>
       </div>
@@ -878,13 +927,14 @@ function MissAnswer({ q, pick }) {
   }
   return (
     <div className="flex flex-col gap-2" data-testid="miss-answer">
-      <div className="text-muted-foreground">Correct: <span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
+      {/* The key is marked on the choice itself above; repeating it here said the same
+          thing twice and pushed the reason she actually needs further down the card. */}
       {/* What the choice she actually made really was, above the general explanation and in
           that order because the explanation can only ever describe the correct route:
           "perimeter = 2(10+3) = 26" never tells her the 30 she picked was the area. */}
       {pick && q.y && q.y[pick] ? <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{q.y[pick]}</div> : null}
       {q.e ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{q.e}</div> : null}
-      <div><Button size="sm" variant="ghost" className="h-7" onClick={() => setOpen(false)} data-testid="miss-hide-answer">Hide the answer</Button></div>
+      <div><Button size="sm" variant="ghost" className="h-7" onClick={() => onOpen(false)} data-testid="miss-hide-answer">Hide the answer</Button></div>
     </div>
   )
 }
@@ -963,10 +1013,7 @@ function MissedBySkill({ misses, form }) {
                         <span className="text-muted-foreground text-xs">{sec.id} · Q{i + 1}{q.sk ? " · " + q.sk : ""}</span>
                         <MissStage id={q.id} />
                       </div>
-                      <p className="text-[15px] leading-snug font-medium">{q.q}</p>
-                      {q.f ? <Figure f={q.f} /> : null}
-                      <div className="text-muted-foreground">Your answer: <span className="text-foreground font-medium">{pick ? `${pick}. ${q.c[LTR.indexOf(pick)]}` : "—"}</span></div>
-                      <MissAnswer q={q} pick={pick} />
+                      <MissQuestion q={q} pick={pick} />
                       {/* What the choice she actually made really was, above the
                           general explanation and in that order because the
                           explanation can only ever describe the correct route:

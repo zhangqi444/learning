@@ -957,12 +957,38 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
       rows: rows.length,
       open: rows.filter((r) => r.querySelector('[data-testid=miss-answer]')).length,
       askable: rows.filter((r) => r.querySelector('[data-testid=miss-show-answer]')).length,
-      mine: rows.filter((r) => /Your answer:/.test(r.textContent)).length,
+      // her own pick is marked on the choice itself now, not printed as a "Your answer:" line
+      mine: rows.filter((r) => r.querySelector('[data-choice][data-mine]')).length,
     };
   });
   check('a missed question keeps its answer until she asks for it',
     shut.rows > 0 && shut.open === 0 && shut.askable === shut.rows && shut.mine === shut.rows,
-    `${shut.rows} rows · ${shut.open} already open · ${shut.askable} askable · ${shut.mine} show her own answer`);
+    `${shut.rows} rows · ${shut.open} already open · ${shut.askable} askable · ${shut.mine} marking her own answer`);
+  /* And the whole question, as it was actually asked.
+   *
+   * The row printed the stem, then "Your answer: C" and "Correct: B" — two of the four
+   * options, no passage, and no way to attempt the question again on the page that exists to
+   * attempt it again. A reading stem without its passage says nothing at all, and 25 of the
+   * 127 questions on every paper are reading. The owner found this by trying to use it.
+   *
+   * Her own pick is marked from the start, because she already knows what she put; the key
+   * stays unmarked until she asks for the answer, which is the point of the tap. */
+  const whole = await pg.evaluate(() => {
+    const rows = [...document.querySelectorAll('[data-testid=miss-row]')];
+    return {
+      rows: rows.length,
+      fourChoices: rows.filter((r) => r.querySelectorAll('[data-testid=miss-choices] li').length === 4).length,
+      mineMarked: rows.filter((r) => r.querySelector('[data-choice][data-mine]')).length,
+      keyShown: rows.filter((r) => r.querySelector('[data-choice][data-key]')).length,
+      rc: rows.filter((r) => /^RC/.test((r.dataset.qid || ''))).length,
+      withPassage: rows.filter((r) => r.querySelector('[data-testid=miss-passage-toggle]')).length,
+    };
+  });
+  check('a missed question shows all four choices, with her own marked',
+    whole.rows > 0 && whole.fourChoices === whole.rows && whole.mineMarked === whole.rows,
+    `${whole.rows} rows · ${whole.fourChoices} with four choices · ${whole.mineMarked} marking her answer`);
+  check('and the right one is not marked until she asks', whole.keyShown === 0,
+    `${whole.keyShown} rows gave the key away`);
   // The answer is behind a tap now — a report that opens with every answer already given is
   // a reading exercise, not a correction. Open this one row before reading its why.
   if (whyRow) await whyRow.$eval('[data-testid=miss-show-answer]', (b) => b.click()).catch(() => {});
@@ -980,11 +1006,12 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     const bad = [];
     for (const row of document.querySelectorAll('[data-testid=miss-row]')) {
       const q = by[row.dataset.qid]; if (!q) continue;
-      const m = row.textContent.match(/Your answer:\s*([ABCD])\./);
-      const want = m && q.y && q.y[m[1]] ? q.y[m[1]].trim() : null;
+      const picked = row.querySelector('[data-choice][data-mine]');
+      const letter = picked ? picked.dataset.choice : null;
+      const want = letter && q.y && q.y[letter] ? q.y[letter].trim() : null;
       const el = row.querySelector('[data-testid=why]');
       const got = el ? el.textContent.trim() : null;
-      if (want !== got) bad.push(`${q.id}: wanted ${want ? 'the why for ' + m[1] : 'none'}, got ${got ? 'other text' : 'none'}`);
+      if (want !== got) bad.push(`${q.id}: wanted ${want ? 'the why for ' + letter : 'none'}, got ${got ? 'other text' : 'none'}`);
     }
     return bad;
   });
