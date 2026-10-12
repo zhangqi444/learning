@@ -114,6 +114,60 @@ export function Passage({ id }) {
   )
 }
 
+/** The question as it was asked: its passage, its stem, its figure, and all four choices —
+ *  her own answer marked, the key marked once the caller is showing it.
+ *
+ *  There were four renderers of this and the owner found the gap by using the site: "you are
+ *  not using the same component for all missed questions?" They disagreed, so a question
+ *  looked different depending on which page had got it wrong, and the thin ones showed her
+ *  the stem, the option she picked and the option she should have picked — two of four, no
+ *  passage, no figure. A reading stem with no passage is not a harder question, it is an
+ *  unanswerable one, and a geometry stem with no diagram is the same.
+ *
+ *  The passage toggle's labels are English because the toggle only exists for an item that
+ *  carries a passage, and none of the 154 Chinese questions does; `zh` is here for the stem
+ *  and nothing else so far. */
+export function AskedAs({ it, pick, showKey, testid, stem, zh }) {
+  const [shown, setShown] = useState(false)
+  const k = keyOf(it)
+  return (
+    <>
+      {it.p && D.passages[it.p] ? (
+        <div className="flex flex-col gap-2">
+          <div className="flex flex-wrap items-center gap-2 text-sm">
+            <span className="text-muted-foreground">Passage:</span>
+            <span className="font-medium">{D.passages[it.p].t || it.p}</span>
+            <Button size="sm" variant="ghost" className="h-7" onClick={() => setShown((v) => !v)} data-testid={testid + "-passage"}>{shown ? "Hide it" : "Show it"}</Button>
+          </div>
+          {shown ? <Passage id={it.p} /> : null}
+        </div>
+      ) : null}
+      <p className="leading-snug font-medium">{stem || it.q}</p>
+      {it.f ? <Figure f={it.f} /> : null}
+      <ol className="grid gap-1.5 text-sm @md/main:grid-cols-2" data-testid={testid + "-choices"}>
+        {it.c.map((c, i) => {
+          /* Her own pick is marked from the start wherever the caller knows it — she already
+             knows what she put, and hiding it would only make her hunt for the thing she is
+             being asked about. The key waits until the caller says to show it. */
+          const mine = pick && LTR[i] === pick
+          const isKey = showKey && LTR[i] === k
+          return (
+            <li key={i} data-choice={LTR[i]} data-mine={mine ? "1" : undefined} data-key={isKey ? "1" : undefined}
+              className={cn("rounded-md border px-2.5 py-1.5",
+                isKey && "border-success bg-success-soft font-medium",
+                mine && !isKey && "border-destructive bg-destructive/5")}>
+              <span className="text-muted-foreground mr-2 font-medium">{LTR[i]}</span>{c}
+              {/* Red says "this is the one that went wrong", so it is wrong on a card where
+                  she got it right: on the score card the label lands on correct answers too. */}
+              {mine ? <span className={cn("ml-2 text-xs font-medium", isKey ? "text-success" : "text-destructive")}>{zh ? "你选的" : "your answer"}</span> : null}
+            </li>
+          )
+        })}
+      </ol>
+    </>
+  )
+}
+
 /** One choice, rendered as a card-sized radio so the whole row is the target.
  *  `mark` is set only once an answer has been revealed in instant mode:
  *  "right" on the key, "wrong" on what she picked instead. */
@@ -619,7 +673,6 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
         <div className="flex flex-col gap-3">
           {items.map((q, j) => {
             const ok = LTR[picks[j]] === keyOf(q)
-            const yours = picks[j] == null ? "—" : `${LTR[picks[j]]}. ${q.c[picks[j]]}`
             const ms = done.times ? done.times[q.id] : 0
             const flag = paceFlag(subOf(q, subHint), ms, ok)
             return (
@@ -632,13 +685,18 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                     {flag ? <Badge variant={flag.tone} className="text-xs">{flag.label}</Badge> : null}
                     {!ok ? <MissStage id={q.id} zh={zh} /> : null}
                   </div>
-                  <CardTitle className="text-[15px] leading-snug font-medium">{qOf(q)}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-2 px-5 text-sm">
-                  <div className="text-muted-foreground">{zh ? "你的答案：" : "Your answer: "}<span className="text-foreground font-medium">{yours}</span></div>
-                  {!ok && (
-                    <div className="text-muted-foreground">{zh ? "正确答案：" : "Correct: "}<span className="text-foreground font-medium">{keyOf(q)}. {q.c[LTR.indexOf(keyOf(q))]}</span></div>
-                  )}
+                  {/* The question as it was asked, not a summary of it. This card used to
+                      print "Your answer: C. …" and "Correct: B. …" and stop — two of the four
+                      options, no passage, no figure — which is the same thing the mock's
+                      missed-question report did until the owner found it there. Her pick and
+                      the key are marked on the options themselves now, so the two lines that
+                      repeated them are gone: the information did not go away, it moved onto
+                      the option it belongs to. The key is shown outright here, unlike the
+                      reports, because she has just this moment finished the set. */}
+                  <AskedAs it={q} pick={picks[j] == null ? null : LTR[picks[j]]} showKey testid="every-question" stem={qOf(q)} zh={zh} />
+                  {picks[j] == null ? <div className="text-muted-foreground">{zh ? "没有作答。" : "Left blank."}</div> : null}
                   {/* the same naming of her own mistake as on the reveal — this
                       is where it lands after a timed set, when nothing was
                       revealed as she went */}

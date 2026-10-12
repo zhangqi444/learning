@@ -1,7 +1,7 @@
 import * as React from "react"
 import { ChevronDown, ChevronRight, Play } from "lucide-react"
 
-import { D, LTR, SUBJ, keyOf, setsFor } from "@/lib/content"
+import { D, SUBJ, keyOf, setsFor } from "@/lib/content"
 import { hash, rec, skillLevel, skillOf } from "@/lib/engine"
 import { useStore } from "@/lib/store"
 import { go } from "@/lib/router"
@@ -10,9 +10,8 @@ import { cn } from "@/lib/utils"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
-import { Figure } from "@/components/figure"
 import { ShowFilter, TallyLine, TallyStats } from "@/components/tally"
-import { Passage, Runner } from "@/pages/runner"
+import { AskedAs, Runner } from "@/pages/runner"
 import { LevelBadge } from "@/pages/score"
 
 /* One skill, every question that practises it — the owner, 5 October 2026, after
@@ -56,7 +55,6 @@ export function QuestionRow({ it, at, where, testid = "skill-question", role, no
      happened to restate the layout. */
   const { className: cls, ...attrs } = data || {}
   const [answer, setAnswer] = React.useState(false)
-  const [passage, setPassage] = React.useState(false)
   const k = keyOf(it)
   const x = note ? null : questionResult(it.id)
   /* How many separate times this question has been missed, which the record has counted
@@ -79,37 +77,7 @@ export function QuestionRow({ it, at, where, testid = "skill-question", role, no
           {again >= 2 ? <Badge variant="warning" className="text-[11px]" data-testid="question-misses">missed {again}×</Badge> : null}
         </div>
       )}
-      {/* A passage is a passage wherever the question came from. This was gated on the
-          subject being Reading, which is true of the practice bank and not of a mock, whose
-          items carry their section separately. */}
-      {it.p && D.passages[it.p] ? (
-        <div className="flex flex-col gap-2">
-          <div className="flex flex-wrap items-center gap-2 text-sm">
-            <span className="text-muted-foreground">Passage:</span><span className="font-medium">{D.passages[it.p].t || it.p}</span>
-            <Button size="sm" variant="ghost" className="h-7" onClick={() => setPassage((v) => !v)} data-testid={testid + "-passage"}>{passage ? "Hide it" : "Show it"}</Button>
-          </div>
-          {passage ? <Passage id={it.p} /> : null}
-        </div>
-      ) : null}
-      <p className="leading-snug font-medium">{it.q}</p>
-      {it.f ? <Figure f={it.f} /> : null}
-      <ol className="grid gap-1.5 text-sm @md/main:grid-cols-2" data-testid={testid + "-choices"}>
-        {it.c.map((c, i) => {
-          /* Her own pick is marked from the start where the caller knows it — she already
-             knows what she put — and the key only once she has asked for the answer. */
-          const mine = pick && LTR[i] === pick
-          const isKey = answer && LTR[i] === k
-          return (
-            <li key={i} data-choice={LTR[i]} data-mine={mine ? "1" : undefined} data-key={isKey ? "1" : undefined}
-              className={cn("rounded-md border px-2.5 py-1.5",
-                isKey && "border-success bg-success-soft font-medium",
-                mine && !isKey && "border-destructive bg-destructive/5")}>
-              <span className="text-muted-foreground mr-2 font-medium">{LTR[i]}</span>{c}
-              {mine ? <span className="text-destructive ml-2 text-xs font-medium">your answer</span> : null}
-            </li>
-          )
-        })}
-      </ol>
+      <AskedAs it={it} pick={pick} showKey={answer} testid={testid} />
       <div><Button size="sm" variant="ghost" className="h-7" onClick={() => setAnswer((v) => !v)} data-testid={testid + "-answer"}>{answer ? "Hide the answer" : "Show the answer"}</Button></div>
       {answer ? (
         <>

@@ -1506,6 +1506,29 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await runThrough(pg, 0);
   await pg.waitForSelector('[data-testid=score]');
   check('per-question pacing summary after a set', (await pg.$('[data-testid=pace-summary]')) !== null && /real-test budget 60 s/.test(await body(pg)));
+  /* The score card shows the question as it was asked, not a summary of it. It used to print
+     "Your answer: C. …" and "Correct: B. …" and stop — two of the four options, and for a
+     Reading set no passage at all, so the card that exists to go back over a miss could not
+     be used to attempt the question again. This is the same defect the mock's missed-question
+     report had; the owner found it in both, from a run page: "you are not using the same
+     component for all missed questions?" One component draws it everywhere now, so this is
+     the check that keeps that true on the runner's side. */
+  const asked = await pg.evaluate(() => {
+    const ols = [...document.querySelectorAll('[data-testid=every-question-choices]')];
+    return {
+      cards: ols.length,
+      four: ols.filter((o) => o.querySelectorAll('li').length === 4).length,
+      mine: ols.filter((o) => o.querySelector('[data-choice][data-mine]')).length,
+      key: ols.filter((o) => o.querySelector('[data-choice][data-key]')).length,
+      passage: document.querySelectorAll('[data-testid=every-question-passage]').length,
+      stems: document.querySelectorAll('[data-slot=card-title]').length,
+    };
+  });
+  check('a finished set shows every question as it was asked, all four choices',
+    asked.cards > 0 && asked.four === asked.cards && asked.mine === asked.cards && asked.key === asked.cards,
+    `${asked.cards} cards · ${asked.four} with four choices · ${asked.mine} marking her answer · ${asked.key} marking the key`);
+  check('and a reading question brings its passage with it', asked.passage === asked.cards,
+    `${asked.passage} of ${asked.cards} offer their passage`);
   const missTags = await pg.$$('[data-testid=cause-tags]');
   check('every miss gets cause + confidence tags', missTags.length >= 1 && /of \d+ miss/.test(await body(pg)));
   await pg.click('[data-testid=cause-tags] >> nth=0 >> [data-testid=tag-careless]');
@@ -3628,6 +3651,50 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     await pg.waitForTimeout(300); await pg.screenshot({ path: 'shot-figure-phone-dark.png', fullPage: false });
     if (spec.passage) { await openAt(spec.passage); await pg.waitForSelector('[data-testid=passage][data-lines]'); await pg.screenshot({ path: 'shot-passage-phone-dark.png', fullPage: false }); }
     await pg.emulateMedia({ colorScheme: 'light' }); await pg.setViewportSize({ width: 1280, height: 900 });
+  }
+
+  /* The figure, on the same card. Sat last, after every check that counts her work, because
+     finishing a set writes evidence and a check that reads a week's totals should not have a
+     set appear underneath it. The set is looked up rather than named: which sets hold figures
+     follows from the content, and a hard-coded W5/6 would go stale the next time a week is
+     added to. */
+  const figSet = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const SET = 12;
+    for (const sub of ['qr', 'ma']) {
+      const weeks = [...new Set(b.subjects[sub].map((q) => q.w).filter(Boolean))].sort();
+      for (const w of weeks) {
+        const items = b.subjects[sub].filter((q) => q.w === w);
+        const layers = [...new Set(items.map((q) => q.x || 0))].sort((a, c) => a - c);
+        let at = 0;
+        for (const x of layers) {
+          const qs = items.filter((q) => (q.x || 0) === x);
+          const k = Math.max(1, Math.ceil(qs.length / SET)), size = Math.ceil(qs.length / k);
+          for (let i = 0; i < k; i++) {
+            const chunk = qs.slice(i * size, (i + 1) * size);
+            const f = chunk.filter((q) => q.f).length;
+            if (f === chunk.length && chunk.length) return { sub, w, at, n: chunk.length };
+            at++;
+          }
+        }
+      }
+    }
+    return null;
+  });
+  check('some plan set is entirely questions with figures', !!figSet,
+    figSet ? `${figSet.sub} ${figSet.w} set ${figSet.at} · ${figSet.n} questions` : 'none found');
+  if (figSet) {
+    await pg.goto(`http://localhost:8143/learning/#/run/${figSet.sub}/${figSet.w}/${figSet.at}`, { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=question]');
+    await runThrough(pg, 1);
+    await pg.waitForSelector('[data-testid=score]');
+    const drew = await pg.evaluate(() => {
+      const cards = [...document.querySelectorAll('[data-testid=every-question-choices]')].map((o) => o.closest('[data-slot=card]'));
+      return { cards: cards.length, figs: cards.filter((c) => c.querySelector('[data-testid=figure]')).length };
+    });
+    check('and a finished question with a figure draws it on the score card',
+      drew.cards === figSet.n && drew.figs === drew.cards,
+      `${drew.cards} cards · ${drew.figs} drew their figure`);
   }
 
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));

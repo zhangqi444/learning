@@ -131,13 +131,23 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
     await pg.waitForSelector('text=tap to see your answers');
     await pg.evaluate(() => { location.hash = '#/run/rc/W2/0'; });
     await pg.waitForSelector('[data-testid=score]');
-    const yours = await pg.$$eval('[data-slot=card-content] >> text=/Your answer:/', (n) => n.map((x) => x.textContent));
-    check('reopened set shows her recorded answers', yours.length === expected && yours.every((t) => /Your answer: A\./.test(t)), yours[0]);
+    /* The score card prints the whole question now rather than "Your answer: A. …" and
+       "Correct: B. …", so her answer is read off the option it is marked on. The letter did
+       not go away, it moved onto the choice it belongs to — and the other three choices, the
+       passage and the figure arrived with it. */
+    const yours = await pg.$$eval('[data-testid=every-question-choices] [data-choice][data-mine]', (n) => n.map((x) => x.dataset.choice));
+    check('reopened set shows her recorded answers', yours.length === expected && yours.every((L) => L === 'A'), yours.join(''));
+    const asked = await pg.evaluate(() => {
+      const ols = [...document.querySelectorAll('[data-testid=every-question-choices]')];
+      return { rows: ols.length, four: ols.filter((o) => o.querySelectorAll('li').length === 4).length };
+    });
+    check('and every one of them with all four choices, not two',
+      asked.rows === expected && asked.four === asked.rows, `${asked.rows} questions · ${asked.four} with four choices`);
     check('reopened set shows completed date + Try again', /completed/.test(await pg.textContent('[data-testid=score]')) && (await pg.$('[data-testid=retry]')) !== null, (await pg.textContent('[data-testid=score]')).replace(/\s+/g, ' ').slice(0, 120));
     // Migrated Week-1 sets carry her letters from the Sheets
     await pg.evaluate(() => { location.hash = '#/run/vr/W1/1'; });
     await pg.waitForSelector('[data-testid=score]');
-    check('migrated W1 set shows Sheets answers (6/9)', /6\s*\/\s*9/.test((await pg.textContent('[data-testid=score]')).replace(/\s+/g, ' ')) && (await pg.$$eval('text=/Your answer: [A-D]\./', (n) => n.length)) === 9);
+    check('migrated W1 set shows Sheets answers (6/9)', /6\s*\/\s*9/.test((await pg.textContent('[data-testid=score]')).replace(/\s+/g, ' ')) && (await pg.$$eval('[data-testid=every-question-choices] [data-choice][data-mine]', (n) => n.length)) === 9);
     await pg.click('[data-testid=retry]');
     await pg.waitForSelector('[data-testid=choice]');
     check('Try again starts a clean attempt', (await pg.$$eval('[data-testid=choice][data-state=checked]', (n) => n.length)) === 0);
