@@ -1514,21 +1514,43 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      component for all missed questions?" One component draws it everywhere now, so this is
      the check that keeps that true on the runner's side. */
   const asked = await pg.evaluate(() => {
-    const ols = [...document.querySelectorAll('[data-testid=every-question-choices]')];
+    const cards = [...document.querySelectorAll('[data-testid=every-question-choices]')].map((o) => o.closest('[data-slot=card]'));
+    const missed = cards.filter((c) => c.querySelector('[data-testid=every-question-answer]'));
     return {
-      cards: ols.length,
-      four: ols.filter((o) => o.querySelectorAll('li').length === 4).length,
-      mine: ols.filter((o) => o.querySelector('[data-choice][data-mine]')).length,
-      key: ols.filter((o) => o.querySelector('[data-choice][data-key]')).length,
+      cards: cards.length,
+      missed: missed.length,
+      four: cards.filter((c) => c.querySelectorAll('[data-testid=every-question-choices] li').length === 4).length,
+      mine: cards.filter((c) => c.querySelector('[data-choice][data-mine]')).length,
+      key: cards.filter((c) => c.querySelector('[data-choice][data-key]')).length,
+      why: cards.filter((c) => c.querySelector('[data-testid=every-question-why]')).length,
       passage: document.querySelectorAll('[data-testid=every-question-passage]').length,
-      stems: document.querySelectorAll('[data-slot=card-title]').length,
     };
   });
   check('a finished set shows every question as it was asked, all four choices',
-    asked.cards > 0 && asked.four === asked.cards && asked.mine === asked.cards && asked.key === asked.cards,
-    `${asked.cards} cards · ${asked.four} with four choices · ${asked.mine} marking her answer · ${asked.key} marking the key`);
+    asked.cards > 0 && asked.four === asked.cards && asked.mine === asked.cards,
+    `${asked.cards} cards · ${asked.four} with four choices · ${asked.mine} marking her answer`);
   check('and a reading question brings its passage with it', asked.passage === asked.cards,
     `${asked.passage} of ${asked.cards} offer their passage`);
+  /* The answer waits to be asked for, on the cards that have one worth waiting for. She has
+     the question, the four choices and her own marked wrong, so there are three left and a
+     reason to think again before she is told. A card she got right keeps its explanation
+     open: her answer is the key, so there is no suspense to hold back. */
+  check('and a missed question keeps its answer until she asks',
+    asked.missed > 0 && asked.key === asked.cards - asked.missed && asked.why === asked.cards - asked.missed,
+    `${asked.cards} cards · ${asked.missed} missed · ${asked.key} marking the key · ${asked.why} showing an explanation`);
+  await pg.$$eval('[data-testid=every-question-answer]', (bs) => bs.forEach((b) => b.click()));
+  await pg.waitForTimeout(150);
+  const revealed = await pg.evaluate(() => {
+    const cards = [...document.querySelectorAll('[data-testid=every-question-choices]')].map((o) => o.closest('[data-slot=card]'));
+    return {
+      key: cards.filter((c) => c.querySelector('[data-choice][data-key]')).length,
+      why: cards.filter((c) => c.querySelector('[data-testid=every-question-why]')).length,
+      ownWhy: cards.filter((c) => c.querySelector('[data-testid=why]')).length,
+    };
+  });
+  check('and gives it when she does — the key, and why her own choice was wrong',
+    revealed.key === asked.cards && revealed.why === asked.cards && revealed.ownWhy > 0,
+    `${revealed.key} marking the key · ${revealed.why} explaining · ${revealed.ownWhy} naming her own mistake`);
   const missTags = await pg.$$('[data-testid=cause-tags]');
   check('every miss gets cause + confidence tags', missTags.length >= 1 && /of \d+ miss/.test(await body(pg)));
   await pg.click('[data-testid=cause-tags] >> nth=0 >> [data-testid=tag-careless]');
@@ -3182,15 +3204,29 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   // Hard rule 4 in the place it matters most: a week with nothing answered
   // reports no accuracy at all rather than a discouraging nought per cent.
   check('a week with nothing answered reports no percentage, not 0%', /Accuracy\s*—\s*no answers yet/.test(recap), recap.slice(0, 120));
-  // Honest numbers, hard rule 4: a week that has not begun reports nothing at
-  // all rather than a discouraging row of noughts. W6 is in the future, so this
-  // needs no fixture — and must not build one, because rewriting `results` here
-  // emptied every check that came after it.
-  await pg.evaluate(() => { location.hash = '#/checklist/W6'; });
-  await pg.waitForSelector('[data-testid=week-recap]');
-  await pg.waitForTimeout(300);
-  const w6 = (await pg.textContent('[data-testid=week-recap]')).replace(/\s+/g, ' ');
-  check('a week that has not started yet says nothing at all', /has not started yet/.test(w6) && !/Accuracy/.test(w6), w6.slice(0, 90));
+  /* Honest numbers, hard rule 4: a week that has not begun reports nothing at all rather
+     than a discouraging row of noughts. It needs no fixture — and must not build one,
+     because rewriting `results` here emptied every check that came after it.
+     This named W6, which was in the future on the day it was written and opened on
+     12 October 2026, so the check went red on a date nobody chose with nothing in the diff
+     to explain it — the second time this file has been caught that way. The week is looked
+     up from the plan's own start dates now. If every week has started the check fails
+     saying so, which is true and worth knowing: the plan has run out, not the page. */
+  const laterWk = await pg.evaluate(async () => {
+    const b = await (await fetch('./content/bundle.json')).json();
+    const today = new Date().toISOString().slice(0, 10);
+    return Object.keys(b.starts).sort().find((w) => b.starts[w] > today) || null;
+  });
+  check('the plan still has a week that has not started', !!laterWk,
+    laterWk || 'every week in the plan has begun — extend the plan, or this check needs a clock');
+  if (laterWk) {
+    await pg.evaluate((w) => { location.hash = '#/checklist/' + w; }, laterWk);
+    await pg.waitForSelector('[data-testid=week-recap]');
+    await pg.waitForTimeout(300);
+    const later = (await pg.textContent('[data-testid=week-recap]')).replace(/\s+/g, ' ');
+    check('a week that has not started yet says nothing at all',
+      /has not started yet/.test(later) && !/Accuracy/.test(later), `${laterWk}: ${later.slice(0, 80)}`);
+  }
 
   /* Sheila answers before she has finished reading. paceFlag's "fast and wrong"
    * fires at half the section budget — seventeen seconds on Verbal — which is

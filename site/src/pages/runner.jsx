@@ -137,7 +137,7 @@ export function AskedAs({ it, pick, showKey, testid, stem, zh }) {
           <div className="flex flex-wrap items-center gap-2 text-sm">
             <span className="text-muted-foreground">Passage:</span>
             <span className="font-medium">{D.passages[it.p].t || it.p}</span>
-            <Button size="sm" variant="ghost" className="h-7" onClick={() => setShown((v) => !v)} data-testid={testid + "-passage"}>{shown ? "Hide it" : "Show it"}</Button>
+            <Button size="sm" variant="outline" className="h-7" onClick={() => setShown((v) => !v)} data-testid={testid + "-passage"}>{shown ? "Hide it" : "Show it"}</Button>
           </div>
           {shown ? <Passage id={it.p} /> : null}
         </div>
@@ -386,6 +386,11 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
    * when she has not just seen the key. She cannot answer it again in this sitting, which is
    * what stops "I tapped the wrong one" from being a second guess. */
   const [slips, setSlips] = useState(() => (back ? { ...(back.slips || {}) } : {}))
+  /* Which missed questions on the score card have been asked for the answer. Separate from
+     `shown` above, which is the in-run reveal and is saved into the draft; this one is a look
+     at a finished set and is deliberately not remembered, so coming back to the card gives
+     her the second attempt again rather than the answer she was shown last time. */
+  const [told, setTold] = useState(() => ({}))
   // question index -> she marked it "I'm guessing" as she answered (kept in the draft)
   const [guesses, setGuesses] = useState(() => (back && Array.isArray(back.guesses) ? back.guesses.slice() : []))
   const spent = useRef(back ? { ...(back.spent || {}) } : {})                    // question index -> ms
@@ -675,6 +680,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             const ok = LTR[picks[j]] === keyOf(q)
             const ms = done.times ? done.times[q.id] : 0
             const flag = paceFlag(subOf(q, subHint), ms, ok)
+            // a correct card is always telling: the choice she made is the key
+            const telling = ok || !!told[j]
             return (
               <Card key={j} className={cn("gap-3 py-5", !ok && "border-destructive/40")}>
                 <CardHeader className="px-5">
@@ -693,14 +700,23 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                       missed-question report did until the owner found it there. Her pick and
                       the key are marked on the options themselves now, so the two lines that
                       repeated them are gone: the information did not go away, it moved onto
-                      the option it belongs to. The key is shown outright here, unlike the
-                      reports, because she has just this moment finished the set. */}
-                  <AskedAs it={q} pick={picks[j] == null ? null : LTR[picks[j]]} showKey testid="every-question" stem={qOf(q)} zh={zh} />
+                      the option it belongs to. */}
+                  <AskedAs it={q} pick={picks[j] == null ? null : LTR[picks[j]]} showKey={telling} testid="every-question" stem={qOf(q)} zh={zh} />
                   {picks[j] == null ? <div className="text-muted-foreground">{zh ? "没有作答。" : "Left blank."}</div> : null}
+                  {/* On a miss the answer waits to be asked for. Everything needed to have
+                      another go is already here — the question, the figure, all four choices,
+                      and the one she picked marked wrong — so until she taps there are three
+                      left and a reason to think again. Reading "C, because the angles add to
+                      180" is not the same as working out that it is C, and a twelve-card score
+                      card with every explanation already open is a page she scrolls past.
+                      A card she got right has no suspense to keep: her answer is the key. */}
+                  {!ok ? (
+                    <div><Button size="sm" variant="outline" className="h-7" onClick={() => setTold((t) => ({ ...t, [j]: !t[j] }))} data-testid="every-question-answer">{telling ? (zh ? "收起答案" : "Hide the answer") : (zh ? "看答案" : "Show the answer")}</Button></div>
+                  ) : null}
                   {/* the same naming of her own mistake as on the reveal — this
                       is where it lands after a timed set, when nothing was
                       revealed as she went */}
-                  {!ok && picks[j] != null && yOf(q, LTR[picks[j]]) ? (
+                  {!ok && telling && picks[j] != null && yOf(q, LTR[picks[j]]) ? (
                     <div className="border-destructive/40 bg-destructive/5 rounded-md border p-3 leading-relaxed" data-testid="why">{yOf(q, LTR[picks[j]])}</div>
                   ) : null}
                   {!ok && tooFast(q, ms, firstOfPassage(items, j)) ? (
@@ -708,7 +724,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                       {fmtSec(ms)} on {rushedPhrase(items, j, q)} — answered before it was read.
                     </div>
                   ) : null}
-                  {eOf(q) ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed">{eOf(q)}</div> : null}
+                  {eOf(q) && telling ? <div className="bg-muted/60 text-muted-foreground rounded-md p-3 leading-relaxed" data-testid="every-question-why">{eOf(q)}</div> : null}
                   {!ok && canTag ? <CauseTags id={q.id} /> : null}
                   {ok && canTag ? <GuessMark id={q.id} standsFor={q.standsFor} /> : null}
                   {/* Open where she missed it, folded where she did not. A

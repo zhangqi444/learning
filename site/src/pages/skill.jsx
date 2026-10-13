@@ -78,7 +78,7 @@ export function QuestionRow({ it, at, where, testid = "skill-question", role, no
         </div>
       )}
       <AskedAs it={it} pick={pick} showKey={answer} testid={testid} />
-      <div><Button size="sm" variant="ghost" className="h-7" onClick={() => setAnswer((v) => !v)} data-testid={testid + "-answer"}>{answer ? "Hide the answer" : "Show the answer"}</Button></div>
+      <div><Button size="sm" variant="outline" className="h-7" onClick={() => setAnswer((v) => !v)} data-testid={testid + "-answer"}>{answer ? "Hide the answer" : "Show the answer"}</Button></div>
       {answer ? (
         <>
           {/* What the choice she actually made really was, above the general explanation and
