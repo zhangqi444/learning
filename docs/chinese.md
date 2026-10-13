@@ -716,6 +716,16 @@ which characters); the zh-char bank's four-choice items (they ask about tone and
 stroke count, not for the character). The count on the home card is therefore
 exactly "characters the judge has accepted, from memory, on the device".
 
+A dictation word written with the Pencil keeps its strokes, and the row draws
+them back (`KeptChar`): her strokes over the standard form, a stroke the judge
+did not accept in amber. The owner, 13 October: "I can't even see what she
+wrote". Until then the page kept only a badge with the count of wrong strokes.
+A ✓ or ✗ tapped on such a word changes only the verdict (`by: "hand"`) and keeps
+the strokes. It used to replace the whole record, so one stray tap lost the only
+copy of what she wrote. A word marked by hand after 对答案 (it was 显示, which
+read as a peek) can be taken back with 撤销, and a word shown by mistake hides
+again unmarked.
+
 **Records.** A lesson-page write records under `zi:<character>` (§ 4), ctx
 `exercise`, which `LEARN_CTX` does not admit: it never schedules, never reaches
 any ISEE number, pays no Hum (`eachTimestamp` counts only review and vocab

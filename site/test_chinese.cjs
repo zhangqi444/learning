@@ -322,9 +322,19 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('the dictation lists the words on p.52 by section', rows.length === 23, String(rows.length));
   check('a word is hidden until shown', !(await pg.$('[data-testid=zh-dict-row] [data-testid=zh-ok]')));
   await pg.click('[data-testid=zh-dict-row] >> nth=0 >> [data-testid=zh-speak]');
+  check('the paper route reads as checking an answer, not as peeking', /对答案|Check answer/.test(await pg.textContent('[data-testid=zh-reveal] >> nth=0')));
+  // A word shown by mistake can be hidden again, unmarked; nothing was recorded.
+  await pg.click('[data-testid=zh-dict-row] >> nth=1 >> [data-testid=zh-reveal]');
+  await pg.click('[data-testid=zh-dict-row] >> nth=1 >> [data-testid=zh-hide]');
+  check('a word shown by mistake hides again, with no mark asked for or kept', !(await pg.$('[data-testid=zh-dict-row] >> nth=1 >> [data-testid=zh-ok]')) && !!(await pg.$('[data-testid=zh-dict-row] >> nth=1 >> [data-testid=zh-reveal]')) && (await pg.textContent('[data-testid=zh-rated]')) === '0');
   await pg.click('[data-testid=zh-reveal] >> nth=0');
   await pg.click('[data-testid=zh-dict-row] >> nth=0 >> [data-testid=zh-ok]');
   check('rating a word counts it', (await pg.textContent('[data-testid=zh-rated]')) === '1');
+  // A mark given by hand by mistake is taken back whole: hidden and unmarked again.
+  await pg.click('[data-testid=zh-dict-row] >> nth=0 >> [data-testid=zh-undo]');
+  check('撤销 takes a hand-given mark back and hides the word', (await pg.textContent('[data-testid=zh-rated]')) === '0' && !!(await pg.$('[data-testid=zh-dict-row] >> nth=0 >> [data-testid=zh-reveal]')));
+  await pg.click('[data-testid=zh-reveal] >> nth=0');
+  await pg.click('[data-testid=zh-dict-row] >> nth=0 >> [data-testid=zh-ok]');
   st = await ls(pg);
   const hw = ((st.zh || {})['hw:2026-09-30'] || {});
   check('the rating is in the zh slice, keyed by the note', hw.dictation && Object.keys(hw.dictation).length === 1 && hw.dictation['松树'] && hw.dictation['松树'].ok === true, JSON.stringify(hw.dictation));
@@ -513,6 +523,17 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   const d2 = ((st.zh['hw:2026-09-30'] || {}).dictation || {})['田鼠'] || {};
   check('a word written with the Pencil is rated by rule and its strokes kept', d2.ok === true && d2.mode === 'pencil' && Array.isArray(d2.strokes) && d2.strokes.length === 2, JSON.stringify({ ok: d2.ok, mode: d2.mode, mistakes: d2.mistakes, chars: (d2.strokes || []).length }));
   check('and the row says so', /笔/.test(await pg.textContent('[data-testid=zh-dict-row][data-word="田鼠"]')));
+  // What she wrote stays on the row, drawn from the kept strokes: one box per
+  // character, every stroke she made, so a parent can see it after the boxes close.
+  const keptBoxes = await pg.$$eval(`${DICT_ROW} [data-testid=zh-kept]`, (n) => n.map((e) => ({ ch: e.dataset.char, n: +e.dataset.strokes, lines: e.querySelectorAll('polyline').length, ref: e.querySelectorAll('path').length })));
+  check('the row shows what she wrote, character by character, every stroke drawn over the standard form', keptBoxes.length === 2 && keptBoxes.map((b) => b.ch).join('') === '田鼠' && keptBoxes.every((b, i) => b.n === d2.strokes[i].strokes.length && b.lines === b.n && b.ref > 0), JSON.stringify(keptBoxes));
+  // A stray tap on ✗ after the pen corrects the verdict and keeps her strokes;
+  // it used to replace the record and lose them.
+  await pg.click(`${DICT_ROW} [data-testid=zh-miss]`);
+  st = await ls(pg);
+  const d3 = ((st.zh['hw:2026-09-30'] || {}).dictation || {})['田鼠'] || {};
+  check('a tap after the pen changes the verdict and keeps what she wrote', d3.ok === false && d3.mode === 'pencil' && Array.isArray(d3.strokes) && d3.strokes.length === 2 && (await pg.$$(`${DICT_ROW} [data-testid=zh-kept]`)).length === 2 && !(await pg.$(`${DICT_ROW} [data-testid=zh-undo]`)), JSON.stringify({ ok: d3.ok, mode: d3.mode, chars: (d3.strokes || []).length }));
+  await pg.click(`${DICT_ROW} [data-testid=zh-ok]`);
   // -- the Glimbook's third shelf: every character she has met, at its brightness,
   // and none she has not. Met so far: 喝 on the lesson page, the six of 写一写,
   // 鼠 in the dictation — seven. 浅 正 淹 she has never written, and are not drawn.

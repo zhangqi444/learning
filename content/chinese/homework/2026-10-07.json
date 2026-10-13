@@ -66,8 +66,8 @@
    "what": "课本第52页的词语和老师加的词语",
    "what_en": "The words on textbook p. 52 and the teacher's extra words",
    "rule": {
-    "zh": "先听，再用笔在格子里写——点\"写好了\"会显示标准写法，按笔顺判；也可以在纸上写，显示对照，自己或家长打分。",
-    "en": "Listen, then write it with the Pencil in the box — the standard form appears when you tap Done and the strokes are judged by rule; or write it on paper, show it, and rate it yourself or with a parent."
+    "zh": "先听，再用笔在格子里写——点\"写好了\"会显示标准写法，按笔顺判；也可以在纸上写，再点\"对答案\"对照，自己或家长打分；点错了可以撤销。",
+    "en": "Listen, then write it with the Pencil in the box — the standard form appears when you tap Done and the strokes are judged by rule; or write it on paper, then tap Check answer and rate it yourself or with a parent; a mark given by mistake can be undone."
    },
    "words": {
     "读一读（第52页）": [

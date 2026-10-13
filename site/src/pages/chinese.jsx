@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useEffect, useMemo, useRef, useState } from "react"
-import { BookOpen, Camera, Check, CheckCircle2, ChevronLeft, ChevronRight, Eraser, Eye, FileText, ImageIcon, ListChecks, Mic, PenLine, Play, Printer, RotateCcw, Square, Trash2, Trophy, Upload, Volume2, X } from "lucide-react"
+import { BookOpen, Camera, Check, CheckCircle2, ChevronLeft, ChevronRight, Eraser, Eye, EyeOff, FileText, ImageIcon, ListChecks, Mic, PenLine, Play, Printer, RotateCcw, Square, Trash2, Trophy, Undo2, Upload, Volume2, X } from "lucide-react"
 import { D, LTR, ZH, exItems, setId, zhBlock, zhDay, zhExercises, zhHomework, zhLessonLabel, zhLessonOf, zhLessons, zhSets, zhSubName, zhWorkbook } from "@/lib/content"
 import { findItem, recordAttempts, reviewQueue } from "@/lib/engine"
 import { t, tf, useLang } from "@/lib/lang"
@@ -764,7 +764,21 @@ export function Dictation({ set }) {
     // character's verdict, the layer swap, and now the cat that came.
     setJudged(w)
   }
-  const rate = (w, ok) => Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, dictation: { ...(cur.dictation || {}), [w]: { ok, at: new Date().toISOString() } } }))
+  // A tap on ✓ or ✗ used to replace the whole record, so on a word written with the
+  // pen one stray tap threw away her strokes — the only copy of what she wrote, and
+  // the evidence lib/zi.js reads each character's attempt from. Now the tap changes
+  // the verdict only, as a correction of the judge, and the strokes stay.
+  const rate = (w, ok) => Store.setSlice("zh", hwKey(set), (cur) => {
+    const prev = (cur.dictation || {})[w]
+    const next = prev && prev.mode === "pencil" ? { ...prev, ok, by: "hand" } : { ok, at: new Date().toISOString() }
+    return { ...cur, dictation: { ...(cur.dictation || {}), [w]: next } }
+  })
+  // A mark given by hand can be taken back: a word shown by mistake, or ticked
+  // before it was written, goes back to hidden and unmarked.
+  const unrate = (w) => {
+    Store.setSlice("zh", hwKey(set), (cur) => { const d = { ...(cur.dictation || {}) }; delete d[w]; return { ...cur, dictation: d } })
+    setShown((s) => ({ ...s, [w]: false }))
+  }
   const total = Object.values(task.words).reduce((n, a) => n + a.length, 0)
   const rated = Object.keys(st).length, right = Object.values(st).filter((x) => x.ok).length
   return (
@@ -789,23 +803,34 @@ export function Dictation({ set }) {
                   <div className="flex flex-wrap gap-2">{[...w].filter((c) => /\p{Script=Han}/u.test(c)).map((ch, i) => <HanziBox key={w + i} ch={ch} label={`${i + 1}`} onDone={(res) => boxDone(w, ch, i, res)} />)}</div>
                 </div>
               )
+              const pen = !!(r && r.mode === "pencil")
+              const kept = pen && Array.isArray(r.strokes) ? r.strokes.filter((b) => b && b.ch && Array.isArray(b.strokes)) : []
               return (
-                <div key={w} className="flex items-center justify-between gap-2 rounded-lg border px-3 py-2" data-testid="zh-dict-row" data-word={w}>
-                  <span className="flex items-center gap-2">
-                    <Speak text={w} />
-                    <span className={cn("text-lg tabular-nums", !open && !r && "select-none blur-sm")} aria-hidden={!open && !r}>{open || r ? w : "〇〇"}</span>
-                    {r && r.mode === "pencil" ? <Badge variant="outline" className="text-xs">{r.mistakes ? t(`笔 · 错 ${r.mistakes} 笔`, `pen · ${r.mistakes} wrong strokes`) : t("笔 · 一笔没错", "pen · every stroke right")}</Badge> : null}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    {!open && !r && writing !== w && writable(w) ? <Button size="sm" variant="default" onClick={() => startWrite(w)} data-testid="zh-write"><PenLine /> {t("写", "Write")}</Button> : null}
-                    {!open && !r && writing !== w ? <Button size="sm" variant="ghost" onClick={() => setShown((s) => ({ ...s, [w]: true }))} data-testid="zh-reveal"><Eye /> {t("显示", "Show")}</Button> : null}
-                    {open || r ? (
-                      <>
-                        <Button size="sm" variant={r && r.ok ? "default" : "outline"} onClick={() => rate(w, true)} data-testid="zh-ok" aria-label={t("对了", "right")}><Check /></Button>
-                        <Button size="sm" variant={r && r.ok === false ? "destructive" : "outline"} onClick={() => rate(w, false)} data-testid="zh-miss" aria-label={t("还没有", "not yet")}><X /></Button>
-                      </>
-                    ) : null}
-                  </span>
+                <div key={w} className="flex flex-col gap-2 rounded-lg border px-3 py-2" data-testid="zh-dict-row" data-word={w}>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="flex items-center gap-2">
+                      <Speak text={w} />
+                      <span className={cn("text-lg tabular-nums", !open && !r && "select-none blur-sm")} aria-hidden={!open && !r}>{open || r ? w : "〇〇"}</span>
+                      {pen ? <Badge variant="outline" className="text-xs">{r.mistakes ? t(`笔 · 错 ${r.mistakes} 笔`, `pen · ${r.mistakes} wrong strokes`) : t("笔 · 一笔没错", "pen · every stroke right")}</Badge> : null}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      {!open && !r && writing !== w && writable(w) ? <Button size="sm" variant="default" onClick={() => startWrite(w)} data-testid="zh-write"><PenLine /> {t("写", "Write")}</Button> : null}
+                      {!open && !r && writing !== w ? <Button size="sm" variant="ghost" onClick={() => setShown((s) => ({ ...s, [w]: true }))} data-testid="zh-reveal"><Eye /> {t("对答案", "Check answer")}</Button> : null}
+                      {open || r ? (
+                        <>
+                          <Button size="sm" variant={r && r.ok ? "default" : "outline"} onClick={() => rate(w, true)} data-testid="zh-ok" aria-label={t("对了", "right")}><Check /></Button>
+                          <Button size="sm" variant={r && r.ok === false ? "destructive" : "outline"} onClick={() => rate(w, false)} data-testid="zh-miss" aria-label={t("还没有", "not yet")}><X /></Button>
+                        </>
+                      ) : null}
+                      {open && !r ? <Button size="sm" variant="ghost" onClick={() => setShown((s) => ({ ...s, [w]: false }))} data-testid="zh-hide" aria-label={t("藏起来", "Hide")} title={t("藏起来", "Hide")}><EyeOff /></Button> : null}
+                      {r && !pen ? <Button size="sm" variant="ghost" onClick={() => unrate(w)} data-testid="zh-undo" aria-label={t("撤销", "Undo")} title={t("撤销", "Undo")}><Undo2 /></Button> : null}
+                    </span>
+                  </div>
+                  {kept.length ? (
+                    <div className="flex flex-wrap gap-2 pl-10" data-testid="zh-dict-kept">
+                      {kept.map((b, i) => <KeptChar key={i} ch={b.ch} strokes={b.strokes} />)}
+                    </div>
+                  ) : null}
                 </div>
               )
             })}
@@ -1125,6 +1150,33 @@ function MiGrid({ size }) {
       <rect x="0.5" y="0.5" width={s - 1} height={s - 1} fill="none" stroke="#c9c7e8" strokeWidth="1" />
       {[[0, h, s, h], [h, 0, h, s], [0, 0, s, s], [s, 0, 0, s]].map(([x1, y1, x2, y2], i) => <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#d4d2ee" strokeWidth="1" strokeDasharray="3 4" />)}
     </svg>
+  )
+}
+/** A character she wrote, drawn again from the strokes kept with it: a 米字格, the
+ *  standard form faint beneath, hers on top, and a stroke the judge did not accept
+ *  in amber — never red (docs/cats.md). The live box shows her writing only until it
+ *  closes; this is what lets a parent see afterwards, on any device, what she wrote.
+ *  The points are in hanzi-writer's character space (boxToChar), y pointing up, which
+ *  is what the transform below undoes; the margin matches drawReference's padding. */
+function KeptChar({ ch, strokes, size = 64 }) {
+  const ref = (strokeData(ch) || { strokes: [] }).strokes
+  const P = 96, wrong = strokes.filter((s) => !s.ok).length
+  return (
+    <div className="relative shrink-0 rounded-lg bg-white" style={{ width: size, height: size }} data-testid="zh-kept" data-char={ch} data-strokes={strokes.length} data-wrong={wrong}
+      role="img" aria-label={wrong ? t(`她写的“${ch}”，${wrong} 笔不对`, `Her “${ch}”, ${wrong} strokes off`) : t(`她写的“${ch}”`, `Her “${ch}”`)}>
+      <MiGrid size={size} />
+      <svg width={size} height={size} viewBox={`${-P} ${-P} ${1024 + 2 * P} ${1024 + 2 * P}`} className="absolute inset-0" aria-hidden="true">
+        <g transform="translate(0, 900) scale(1, -1)">
+          {ref.map((d, i) => <path key={i} d={d} fill="#6b63e6" opacity="0.18" />)}
+          {strokes.map((s, i) => {
+            const pts = Array.isArray(s.pts) ? s.pts : []
+            const line = (pts.length === 1 ? [pts[0], pts[0]] : pts).map((p) => p.join(",")).join(" ")
+            // the ink of the live box; amber for a stroke not accepted — the box is paper-white in both themes
+            return <polyline key={i} points={line} fill="none" stroke={s.ok ? "#2b2a55" : "#b7791f"} strokeWidth="44" strokeLinecap="round" strokeLinejoin="round" data-ok={s.ok ? "1" : "0"} />
+          })}
+        </g>
+      </svg>
+    </div>
   )
 }
 /** One character, written freely into a 米字格 and judged after 写好了: her strokes
