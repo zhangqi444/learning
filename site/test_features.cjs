@@ -3733,6 +3733,54 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
       `${drew.cards} cards · ${drew.figs} drew their figure`);
   }
 
+  /* A half-finished second attempt, which is where the owner's "the site is totally broken"
+     came from. A draft beats a finished result on purpose — she was part-way through, and
+     the score card is not where she was — but it used to say nothing and offer nothing, so
+     one answer given on a Try again and then walked away from turned that set into question
+     1 of 10 for ever, with the recorded result still underneath and unreachable. Two sets
+     side by side behaved differently for a reason nothing on the page disclosed.
+     The set finished just above is reused rather than sitting another one. */
+  if (figSet) {
+    const url = `http://localhost:8143/learning/#/run/${figSet.sub}/${figSet.w}/${figSet.at}`;
+    const look = () => pg.evaluate(() => ({
+      score: !!document.querySelector('[data-testid=score]'),
+      live: !!document.querySelector('[data-testid=question]'),
+      banner: !!document.querySelector('[data-testid=second-attempt]'),
+      carry: !!document.querySelector('[data-testid=carry-on]'),
+    }));
+    await pg.click('[data-testid=retry]');
+    await pg.waitForSelector('[data-testid=question]');
+    await pg.click('[data-testid=choice] >> nth=1');
+    await pg.click('[data-testid=next]');
+    await pg.waitForTimeout(400);
+    await pg.goto('http://localhost:8143/learning/#/checklist/' + figSet.w, { waitUntil: 'networkidle' });
+    await pg.goto(url, { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=question]');
+    const stuck = await look();
+    check('a set with an attempt part-way through reopens on the attempt, and says so',
+      stuck.live && !stuck.score && stuck.banner, JSON.stringify(stuck));
+    await pg.click('[data-testid=see-recorded]');
+    await pg.waitForSelector('[data-testid=score]');
+    const outAgain = await look();
+    check('and the recorded result is one tap away, with the attempt still there',
+      outAgain.score && !outAgain.live && outAgain.carry, JSON.stringify(outAgain));
+    await pg.click('[data-testid=carry-on]');
+    await pg.waitForSelector('[data-testid=question]');
+    const backIn = await look();
+    check('and carrying on returns to it rather than starting over',
+      backIn.live && backIn.banner, JSON.stringify(backIn));
+    /* It must not have cost her the attempt: the draft is still the thing that opens.
+       An escape hatch that quietly dropped the half-done set would be worse than none. */
+    await pg.goto(url, { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=question]');
+    const kept = await pg.evaluate(() => {
+      const c = document.querySelector('[data-testid=counter]');
+      return { counter: c ? c.textContent.trim() : null, banner: !!document.querySelector('[data-testid=second-attempt]') };
+    });
+    check('and the attempt survives the round trip', kept.banner && kept.counter !== '1 / ' + figSet.n,
+      `${kept.counter} · banner ${kept.banner}`);
+  }
+
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });
   await b.close(); srv.close();

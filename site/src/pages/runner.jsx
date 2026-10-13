@@ -587,6 +587,11 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     const skName = (sk) => (zhSet ? zhSkillName(sk) : sk)
     const noLetters = done.reopened && !(prior && prior.picks)
     const canTag = record && kind !== "corr"
+    /* Which questions went wrong, so the whole set's answers can be opened at once. Reviewing
+       a finished set means reading the misses in order, and a tap per card to do it is the
+       thing that turned this page from something read into something operated. */
+    const missIdx = items.map((q, j) => (LTR[picks[j]] === keyOf(q) ? -1 : j)).filter((j) => j >= 0)
+    const allTold = missIdx.length > 0 && missIdx.every((j) => told[j])
     const misses = items.filter((q, j) => LTR[picks[j]] !== keyOf(q))
     const tagged = canTag ? misses.filter((q) => (rec(q.id) || {}).tag).length : 0
     const timed = done.times ? items.map((q) => done.times[q.id] || 0).filter(Boolean) : []
@@ -667,14 +672,30 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
               </div>
             ) : null}
             {!custom && (
-              <div className="mt-2 flex justify-center">
+              <div className="mt-2 flex flex-wrap justify-center gap-2">
+                {/* The other half of the banner above: if an attempt is part-way through,
+                    it is still there and she can go back to it. Without this, "See the
+                    recorded result" would be a one-way door and the only route back would
+                    be Try again, which throws the attempt away. */}
+                {back ? (
+                  <Button variant="secondary" size="sm" onClick={() => { setDone(null); window.scrollTo(0, 0) }} data-testid="carry-on">
+                    {zh ? `继续第二次（已答 ${back.answered || 0} 题）` : `Carry on the attempt · ${back.answered || 0} of ${items.length} answered`}
+                  </Button>
+                ) : null}
                 <Button variant="outline" size="sm" onClick={retry} data-testid="retry"><RotateCcw /> {zh ? "再做一次这一组" : "Try this set again"}</Button>
               </div>
             )}
             {noLetters && <CardDescription className="text-xs">{zh ? "这一组做的时候还没有按字母记答案，所以只显示对错。" : "This set was done before answers were recorded letter by letter, so only right/missed is shown."}</CardDescription>}
           </CardHeader>
         </Card>
-        <h2 className="mt-2 text-xl font-semibold">{zh ? "每一题" : "Every question"}</h2>
+        <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
+          <h2 className="text-xl font-semibold">{zh ? "每一题" : "Every question"}</h2>
+          {missIdx.length ? (
+            <Button size="sm" variant="outline" onClick={() => setTold(allTold ? {} : Object.fromEntries(missIdx.map((j) => [j, true])))} data-testid="every-question-all">
+              {allTold ? (zh ? "收起答案" : "Hide the answers") : (zh ? `看全部 ${missIdx.length} 个答案` : `Show all ${missIdx.length} answer${missIdx.length === 1 ? "" : "s"}`)}
+            </Button>
+          ) : null}
+        </div>
         <div className="flex flex-col gap-3">
           {items.map((q, j) => {
             const ok = LTR[picks[j]] === keyOf(q)
@@ -844,6 +865,29 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
         </div>
         <Progress value={(i / total) * 100} className="h-1.5" aria-label={zh ? "这一组的进度" : "Progress through the set"} />
       </div>
+      {/* A half-finished second attempt used to be invisible and inescapable.
+          A draft beats a finished result on purpose — she was part-way through, and the
+          score card is not where she was — but nothing said so. One answer given on a
+          "Try this set again" and then walked away from, and that set opened as question
+          1 of 10 for ever after, with her recorded result still underneath and no way to
+          reach it. The owner read it as the set having no answers recorded, and then as
+          the site being broken: "if I enter w5 s6, it opens correctly as list view. but
+          w5 s7 is one question by one question. why".
+          Nothing is discarded here. The attempt keeps its place and the result keeps its
+          own; this only says which one is on screen and offers the other. */}
+      {back && prior ? (
+        <div className="border-warning/50 bg-warning-soft flex flex-wrap items-center gap-x-3 gap-y-2 rounded-lg border p-3 text-sm" data-testid="second-attempt">
+          <span>
+            {zh
+              ? `这是第二次做这一组，已经答了 ${back.answered || 0} 题。上次的成绩：${prior.right} / ${prior.n != null ? prior.n : total}。`
+              : `A second attempt at this set, ${back.answered || 0} of ${total} answered. The result on record is ${prior.right} / ${prior.n != null ? prior.n : total}.`}
+          </span>
+          <Button size="sm" variant="outline" className="h-7" data-testid="see-recorded"
+            onClick={() => { setDone({ right: prior.right, at: prior.at, attempts: prior.attempts || 1, reopened: true, times: prior.times || null }); window.scrollTo(0, 0) }}>
+            {zh ? "看上次的成绩" : "See the recorded result"}
+          </Button>
+        </div>
+      ) : null}
       <Card className="gap-5">
         <CardContent className="flex flex-col gap-5">
           {it.p ? <Passage id={it.p} /> : null}
