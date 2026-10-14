@@ -534,6 +534,25 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   const d3 = ((st.zh['hw:2026-09-30'] || {}).dictation || {})['田鼠'] || {};
   check('a tap after the pen changes the verdict and keeps what she wrote', d3.ok === false && d3.mode === 'pencil' && Array.isArray(d3.strokes) && d3.strokes.length === 2 && (await pg.$$(`${DICT_ROW} [data-testid=zh-kept]`)).length === 2 && !(await pg.$(`${DICT_ROW} [data-testid=zh-undo]`)), JSON.stringify({ ok: d3.ok, mode: d3.mode, chars: (d3.strokes || []).length }));
   await pg.click(`${DICT_ROW} [data-testid=zh-ok]`);
+  // Replay: each stroke keeps when it was drawn, and 回放 draws the word again in her
+  // order — 田 stroke by stroke while 鼠 waits blank, then 鼠, then both whole.
+  check('each stroke keeps when it began and ended, in the order she drew them', d2.strokes.every((b) => b.strokes.every((s, i) => Array.isArray(s.ms) && s.ms[1] >= s.ms[0] && (!i || s.ms[0] >= b.strokes[i - 1].ms[0]))), JSON.stringify(d2.strokes[0].strokes.map((s) => s.ms)));
+  const keptState = () => pg.$$eval(`${DICT_ROW} [data-testid=zh-kept]`, (n) => n.map((e) => ({ ch: e.dataset.char, playing: e.dataset.playing || '', blank: e.dataset.blank || '', lines: e.querySelectorAll('polyline').length, step: (e.querySelector('[data-testid=zh-kept-step]') || {}).textContent || '' })));
+  await pg.click(`${DICT_ROW} [data-testid=zh-replay]`);
+  await pg.waitForSelector(`${DICT_ROW} [data-testid=zh-kept][data-char="田"][data-playing="1"]`, { timeout: 5000 }).catch(() => {});
+  let ks = await keptState();
+  check('回放 draws 田 first, stroke by stroke, while 鼠 waits blank', ks[0].playing === '1' && ks[0].lines < 5 && /第\d+笔/.test(ks[0].step) && ks[1].blank === '1' && ks[1].lines === 0, JSON.stringify(ks));
+  await pg.waitForSelector(`${DICT_ROW} [data-testid=zh-kept][data-char="鼠"][data-playing="1"]`, { timeout: 15000 }).catch(() => {});
+  ks = await keptState();
+  check('then 鼠, with 田 whole beside it', ks[1].playing === '1' && ks[0].playing === '' && ks[0].lines === 5, JSON.stringify(ks));
+  await pg.waitForFunction((sel) => !document.querySelector(`${sel} [data-testid=zh-kept][data-playing]`), DICT_ROW, { timeout: 20000 }).catch(() => {});
+  ks = await keptState();
+  check('and the replay ends with the word whole again', ks.every((k) => !k.playing && !k.blank) && ks[0].lines === 5 && ks[1].lines === 13, JSON.stringify(ks));
+  await pg.click(`${DICT_ROW} [data-testid=zh-kept][data-char="鼠"]`);
+  await pg.waitForSelector(`${DICT_ROW} [data-testid=zh-kept][data-char="鼠"][data-playing="1"]`, { timeout: 5000 }).catch(() => {});
+  ks = await keptState();
+  check('a tap on one character replays that character alone', ks[1].playing === '1' && ks[0].playing === '' && !ks[0].blank && ks[0].lines === 5, JSON.stringify(ks));
+  await pg.waitForFunction((sel) => !document.querySelector(`${sel} [data-testid=zh-kept][data-playing]`), DICT_ROW, { timeout: 20000 }).catch(() => {});
   // -- the Glimbook's third shelf: every character she has met, at its brightness,
   // and none she has not. Met so far: 喝 on the lesson page, the six of 写一写,
   // 鼠 in the dictation — seven. 浅 正 淹 she has never written, and are not drawn.

@@ -746,7 +746,8 @@ export function Dictation({ set }) {
   const [shown, setShown] = useState({})
   const [writing, setWriting] = useState(null)      // the word being written with the Pencil
   const [judged, setJudged] = useState(null)        // the word whose boxes have all been judged and are still open to look at
-  const boxes = useRef({})
+  const [replay, setReplay] = useState(null)        // a word being replayed: {w, k: the character being drawn, n: its run token}
+  const boxes = useRef({}), runs = useRef(0)
   if (!task) return <ChineseHome />
   const st = hwState(set).dictation || {}
   const writable = (w) => [...w].every((ch) => !/[\p{Script=Han}]/u.test(ch) || hasStrokes(ch))
@@ -827,8 +828,14 @@ export function Dictation({ set }) {
                     </span>
                   </div>
                   {kept.length ? (
-                    <div className="flex flex-wrap gap-2 pl-10" data-testid="zh-dict-kept">
-                      {kept.map((b, i) => <KeptChar key={i} ch={b.ch} strokes={b.strokes} />)}
+                    <div className="flex flex-wrap items-center gap-2 pl-10" data-testid="zh-dict-kept">
+                      {/* the word replayed character by character: one is drawn, the ones after it wait blank */}
+                      {kept.map((b, i) => {
+                        const mine = replay && replay.w === w
+                        return <KeptChar key={i} ch={b.ch} strokes={b.strokes} run={mine && replay.k === i ? replay.n : 0} blank={!!mine && i > replay.k}
+                          onEnd={() => setReplay((x) => (x && x.w === w && x.k === i ? (i + 1 < kept.length ? { w, k: i + 1, n: ++runs.current } : null) : x))} />
+                      })}
+                      <Button size="sm" variant="ghost" onClick={() => setReplay({ w, k: 0, n: ++runs.current })} data-testid="zh-replay"><Play /> {t("回放", "Replay")}</Button>
                     </div>
                   ) : null}
                 </div>
@@ -1157,25 +1164,87 @@ function MiGrid({ size }) {
  *  in amber — never red (docs/cats.md). The live box shows her writing only until it
  *  closes; this is what lets a parent see afterwards, on any device, what she wrote.
  *  The points are in hanzi-writer's character space (boxToChar), y pointing up, which
- *  is what the transform below undoes; the margin matches drawReference's padding. */
-function KeptChar({ ch, strokes, size = 64 }) {
+ *  is what the transform below undoes; the margin matches drawReference's padding.
+ *
+ *  It replays, too (the owner, 13 October: "allow me to replay the writing sequence"):
+ *  a tap on the box, or `run` changing, draws her strokes again one at a time in the
+ *  order she made them — which is how a stroke-order slip shows, since the judge
+ *  compares her n-th stroke with the book's n-th. Each stroke keeps `ms`, its start
+ *  and end after her first touch, so the replay keeps her pace and her pauses
+ *  (clamped); strokes kept before that was recorded replay at an even pace. A JS
+ *  replay, not a CSS one, because index.css removes every CSS animation under reduced
+ *  motion; there each stroke appears whole in its turn instead of being drawn. */
+const strokeLen = (pts) => pts.reduce((n, p, i) => (i ? n + Math.hypot(p[0] - pts[i - 1][0], p[1] - pts[i - 1][1]) : 0), 0)
+function replayPlan(strokes) {
+  let t = 250
+  const steps = strokes.map((s, i) => {
+    const pts = Array.isArray(s.pts) ? s.pts : [], ms = Array.isArray(s.ms) ? s.ms : null, prev = i && Array.isArray(strokes[i - 1].ms) ? strokes[i - 1].ms : null
+    if (i) t += ms && prev ? Math.min(1200, Math.max(150, ms[0] - prev[1])) : 250
+    const dur = ms ? Math.min(2000, Math.max(150, ms[1] - ms[0])) : Math.min(900, Math.max(250, (strokeLen(pts) / 1024) * 1100))
+    const step = { start: t, dur }
+    t += dur
+    return step
+  })
+  return { steps, total: t + 150 }
+}
+/** The first fraction `f` of a stroke, by length along it. */
+function strokePart(pts, f) {
+  if (f >= 1 || pts.length < 2) return pts
+  let left = strokeLen(pts) * f
+  const out = [pts[0]]
+  for (let i = 1; i < pts.length; i++) {
+    const d = Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1])
+    if (d >= left) { const r = d ? left / d : 0; out.push([pts[i - 1][0] + (pts[i][0] - pts[i - 1][0]) * r, pts[i - 1][1] + (pts[i][1] - pts[i - 1][1]) * r]); return out }
+    left -= d; out.push(pts[i])
+  }
+  return out
+}
+function KeptChar({ ch, strokes, size = 64, run = 0, blank = false, onEnd }) {
   const ref = (strokeData(ch) || { strokes: [] }).strokes
   const P = 96, wrong = strokes.filter((s) => !s.ok).length
+  const [at, setAt] = useState(null)          // while replaying: [stroke index, fraction of it drawn]; null draws all of it
+  const raf = useRef(0), ended = useRef(onEnd)
+  ended.current = onEnd
+  useLang()
+  const play = (fromRun) => {
+    cancelAnimationFrame(raf.current)
+    const plan = replayPlan(strokes), t0 = performance.now()
+    const still = typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches
+    const tick = (now) => {
+      const e = now - t0
+      if (e >= plan.total || !plan.steps.length) { setAt(null); if (fromRun && ended.current) ended.current(); return }
+      let i = plan.steps.findIndex((s) => e < s.start + s.dur)
+      if (i < 0) i = plan.steps.length - 1
+      const s = plan.steps[i]
+      setAt([i, e < s.start ? 0 : still ? 1 : (e - s.start) / s.dur])
+      raf.current = requestAnimationFrame(tick)
+    }
+    setAt([0, 0]); raf.current = requestAnimationFrame(tick)
+  }
+  useEffect(() => { if (run) play(true) }, [run])                  // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => { if (blank) { cancelAnimationFrame(raf.current); setAt(null) } }, [blank])   // a word replay restarted ahead of it
+  useEffect(() => () => cancelAnimationFrame(raf.current), [])
   return (
-    <div className="relative shrink-0 rounded-lg bg-white" style={{ width: size, height: size }} data-testid="zh-kept" data-char={ch} data-strokes={strokes.length} data-wrong={wrong}
-      role="img" aria-label={wrong ? t(`她写的“${ch}”，${wrong} 笔不对`, `Her “${ch}”, ${wrong} strokes off`) : t(`她写的“${ch}”`, `Her “${ch}”`)}>
-      <MiGrid size={size} />
-      <svg width={size} height={size} viewBox={`${-P} ${-P} ${1024 + 2 * P} ${1024 + 2 * P}`} className="absolute inset-0" aria-hidden="true">
-        <g transform="translate(0, 900) scale(1, -1)">
-          {ref.map((d, i) => <path key={i} d={d} fill="#6b63e6" opacity="0.18" />)}
-          {strokes.map((s, i) => {
-            const pts = Array.isArray(s.pts) ? s.pts : []
-            const line = (pts.length === 1 ? [pts[0], pts[0]] : pts).map((p) => p.join(",")).join(" ")
-            // the ink of the live box; amber for a stroke not accepted — the box is paper-white in both themes
-            return <polyline key={i} points={line} fill="none" stroke={s.ok ? "#2b2a55" : "#b7791f"} strokeWidth="44" strokeLinecap="round" strokeLinejoin="round" data-ok={s.ok ? "1" : "0"} />
-          })}
-        </g>
-      </svg>
+    <div className="flex shrink-0 flex-col items-center gap-0.5" data-testid="zh-kept" data-char={ch} data-strokes={strokes.length} data-wrong={wrong} data-playing={at ? "1" : undefined} data-blank={blank && !at ? "1" : undefined}>
+      <button type="button" className="relative cursor-pointer rounded-lg bg-white" style={{ width: size, height: size }} onClick={() => play(false)}
+        aria-label={(wrong ? t(`她写的“${ch}”，${wrong} 笔不对`, `Her “${ch}”, ${wrong} strokes off`) : t(`她写的“${ch}”`, `Her “${ch}”`)) + t("。点一下，看她一笔一笔怎么写的", ". Tap to watch her write it, stroke by stroke")}>
+        <MiGrid size={size} />
+        <svg width={size} height={size} viewBox={`${-P} ${-P} ${1024 + 2 * P} ${1024 + 2 * P}`} className="absolute inset-0" aria-hidden="true">
+          <g transform="translate(0, 900) scale(1, -1)">
+            {ref.map((d, i) => <path key={i} d={d} fill="#6b63e6" opacity="0.18" />)}
+            {blank && !at ? null : strokes.map((s, i) => {
+              if (at && i > at[0]) return null
+              let pts = Array.isArray(s.pts) ? s.pts : []
+              if (at && i === at[0]) { if (!at[1]) return null; pts = strokePart(pts, at[1]) }
+              const line = (pts.length === 1 ? [pts[0], pts[0]] : pts).map((p) => p.join(",")).join(" ")
+              // the ink of the live box; amber for a stroke not accepted — the box is paper-white in both themes
+              return <polyline key={i} points={line} fill="none" stroke={s.ok ? "#2b2a55" : "#b7791f"} strokeWidth="44" strokeLinecap="round" strokeLinejoin="round" data-ok={s.ok ? "1" : "0"} />
+            })}
+          </g>
+        </svg>
+      </button>
+      {/* which stroke is being drawn, under the box rather than on it, where it would cover her strokes */}
+      <span className="text-muted-foreground h-3.5 text-[10px] leading-3.5 tabular-nums" data-testid="zh-kept-step">{at ? t(`第${at[0] + 1}笔`, `${at[0] + 1}/${strokes.length}`) : ""}</span>
     </div>
   )
 }
@@ -1200,6 +1269,8 @@ function KeptChar({ ch, strokes, size = 64 }) {
  * answers in one place only. */
 function HanziBox({ ch, size = 140, onDone, onReset, label, cat = true }) {
   const ref = useRef(null), cv = useRef(null), drawn = useRef([]), cur = useRef(null), writer = useRef(null)
+  // when each stroke began and ended, in ms after her first touch, so KeptChar can replay her pace
+  const times = useRef([]), t0 = useRef(null), began = useRef(0)
   const [n, setN] = useState(0)
   const [res, setRes] = useState(null)
   const [gen, setGen] = useState(0)
@@ -1209,21 +1280,21 @@ function HanziBox({ ch, size = 140, onDone, onReset, label, cat = true }) {
     if (!ref.current) return
     ref.current.innerHTML = ""
     writer.current = drawReference(ref.current, ch, size)
-    drawn.current = []; cur.current = null; setN(0); setRes(null); setFront("ink")
+    drawn.current = []; cur.current = null; times.current = []; t0.current = null; setN(0); setRes(null); setFront("ink")
     const c = cv.current; if (c) c.getContext("2d").clearRect(0, 0, c.width, c.height)
   }, [ch, size, gen])
   const k = () => cv.current.width / size
   const at = (e) => { const r = cv.current.getBoundingClientRect(); return [(e.clientX - r.left) * (size / r.width), (e.clientY - r.top) * (size / r.height)] }
-  const down = (e) => { if (res) return; e.preventDefault(); try { cv.current.setPointerCapture(e.pointerId) } catch { /* no-op */ } const p = at(e); cur.current = [p]; const c = cv.current.getContext("2d"); c.lineCap = "round"; c.lineJoin = "round"; c.strokeStyle = "#2b2a55"; c.lineWidth = 4 * k(); c.beginPath(); c.moveTo(p[0] * k(), p[1] * k()); c.lineTo(p[0] * k() + 0.1, p[1] * k()); c.stroke() }
+  const down = (e) => { if (res) return; e.preventDefault(); try { cv.current.setPointerCapture(e.pointerId) } catch { /* no-op */ } const p = at(e); cur.current = [p]; const now = performance.now(); if (t0.current == null) t0.current = now; began.current = now - t0.current; const c = cv.current.getContext("2d"); c.lineCap = "round"; c.lineJoin = "round"; c.strokeStyle = "#2b2a55"; c.lineWidth = 4 * k(); c.beginPath(); c.moveTo(p[0] * k(), p[1] * k()); c.lineTo(p[0] * k() + 0.1, p[1] * k()); c.stroke() }
   const move = (e) => { if (!cur.current) return; const p = at(e), q = cur.current[cur.current.length - 1]; cur.current.push(p); const c = cv.current.getContext("2d"); c.beginPath(); c.moveTo(q[0] * k(), q[1] * k()); c.lineTo(p[0] * k(), p[1] * k()); c.stroke() }
-  const up = () => { if (!cur.current) return; drawn.current.push(cur.current); cur.current = null; setN(drawn.current.length) }
+  const up = () => { if (!cur.current) return; drawn.current.push(cur.current); times.current.push([Math.round(began.current), Math.round(performance.now() - t0.current)]); cur.current = null; setN(drawn.current.length) }
   const finish = () => {
     const map = boxToChar(ref.current)
     const strokes = drawn.current.map((pts) => pts.map(([x, y]) => map ? map(x, y) : [x, y]))
     const j = judgeStrokes(ch, strokes) || { mistakes: 0, strokes: [], n: 0, missing: 0 }
     // the standard form, beneath hers, drawn once in order
     if (writer.current) { try { writer.current.hideCharacter({ duration: 0 }); writer.current.animateCharacter() } catch { /* already visible */ } }
-    const r = { ch, mistakes: j.mistakes, n: j.n, missing: j.missing, strokes: strokes.map((pts, i) => ({ n: i, ok: !!(j.strokes[i] && j.strokes[i].ok), verdict: (j.strokes[i] || {}).verdict || "extra", pts: pts.map(([x, y]) => [Math.round(x), Math.round(y)]) })) }
+    const r = { ch, mistakes: j.mistakes, n: j.n, missing: j.missing, strokes: strokes.map((pts, i) => ({ n: i, ok: !!(j.strokes[i] && j.strokes[i].ok), verdict: (j.strokes[i] || {}).verdict || "extra", pts: pts.map(([x, y]) => [Math.round(x), Math.round(y)]), ...(times.current[i] ? { ms: times.current[i] } : {}) })) }
     const came = isGlimChar(ch) && writtenWell(j.mistakes, j.n)
     if (came) sfx("call", ch)
     setRes({ ...r, came }); onDone && onDone(r)

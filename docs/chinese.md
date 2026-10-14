@@ -720,6 +720,14 @@ A dictation word written with the Pencil keeps its strokes, and the row draws
 them back (`KeptChar`): her strokes over the standard form, a stroke the judge
 did not accept in amber. The owner, 13 October: "I can't even see what she
 wrote". Until then the page kept only a badge with the count of wrong strokes.
+回放, or a tap on one character, replays the writing stroke by stroke in her
+order ("allow me to replay the writing sequence", the same day). Her order is
+what shows a stroke-order slip, because the judge compares her n-th stroke with
+the book's n-th. Since then each stroke also keeps `ms`, when it began and
+ended after her first touch, so the replay keeps her pace and her pauses
+(clamped). Strokes kept before that replay at an even pace. The replay runs in
+JS: under reduced motion each stroke appears whole in its turn, because CSS
+animation is switched off there.
 A ✓ or ✗ tapped on such a word changes only the verdict (`by: "hand"`) and keeps
 the strokes. It used to replace the whole record, so one stray tap lost the only
 copy of what she wrote. A word marked by hand after 对答案 (it was 显示, which
