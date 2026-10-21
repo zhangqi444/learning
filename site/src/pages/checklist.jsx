@@ -2,7 +2,7 @@ import * as React from "react"
 import { CalendarDays, CheckCircle2, ChevronLeft, ChevronRight, Circle, ListChecks, Plus, Printer, Trash2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, currentWeek, setId, setsFor, spanById, spanNow, spanOpen, spans, weekLabel } from "@/lib/content"
-import { CAUSE_CHIP, dayKey, findItem, mockNextSteps, rec, reviewQueue, tagTally, weekRecap } from "@/lib/engine"
+import { CAUSE_CHIP, dayKey, findItem, mockNextSteps, rangeRecap, rec, reviewQueue, tagTally, weekRecap } from "@/lib/engine"
 import { actionsForWeek, reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { QuestionRow } from "@/pages/skill"
@@ -245,13 +245,16 @@ export function WeekRecap({ span, here, all, idx }) {
   useStore()
   const wk = span.id
   const isWeek = span.kind === "week"
-  const r = isWeek ? weekRecap(wk) : null
   const [a, b] = [span.a, span.b]
+  // A between-week has no sets of its own, but it has days, and she reviews in them:
+  // its recap is what those days held (rangeRecap), without the plan week's set figures.
+  const r = isWeek ? weekRecap(wk) : rangeRecap(a, b)
   const auto = spanItems(span).filter((x) => x.auto)
   const planDone = auto.filter((x) => x.done).length
   const planPct = auto.length ? Math.round((planDone / auto.length) * 100) : 0
   const started = isWeek ? r && r.start <= iso(new Date()) : span.a <= iso(new Date())
   const nothing = isWeek && started && !r.sets.done && !r.reviewed && !r.vocab && !r.words.written && !r.essay.started && !r.reading
+  const held = !isWeek && started && !!(r.reviewed || r.vocab || r.setMisses || r.reading || r.activeDays)
   const weekIdx = isWeek ? D.weeks.findIndex((w) => w.w === wk) : -1
   /* A week she has finished, that she is still in. The plan's weeks are seven
      days whether or not the work takes seven days, so a paper sat on the Sunday
@@ -306,9 +309,21 @@ export function WeekRecap({ span, here, all, idx }) {
           /* No sets, no precision session, no essay — so no grid of figures
              about them. A week for sitting a paper is reported as what it is,
              and the rows below are the whole of it. */
-          <p className="text-muted-foreground text-sm">
-            No new sets this week — it is the week the plan sets aside for {span.title}. The paper, what it turns up and the review pile are below.
-          </p>
+          <>
+            <p className="text-muted-foreground text-sm">
+              No new sets this week — it is the week the plan sets aside for {span.title}. The paper, what it turns up and the review pile are below.
+            </p>
+            {/* What its days held all the same: the review she kept up, the days she
+                came, the reading. No Sets or Accuracy figure, because there are no
+                sets here to have a figure about. */}
+            {held ? (
+              <div className="grid grid-cols-2 gap-4 @md/main:grid-cols-4" data-testid="span-held" data-reviewed={r.reviewed} data-right={r.reviewedOk}>
+                <Stat label="Review" value={r.reviewed || "—"} sub={r.reviewed ? `${r.reviewedOk} right · ${r.dueNow} due now` : `${r.dueNow} due now`} />
+                <Stat label="Active days" value={r.activeDays} sub={`of 7${r.vocab ? ` · ${r.vocab} word calls` : ""}`} />
+                <Stat label="Reading" value={r.reading || "—"} sub={r.reading ? `session${r.reading === 1 ? "" : "s"}` : "none logged"} />
+              </div>
+            ) : null}
+          </>
         ) : nothing ? (
           <p className="text-muted-foreground text-sm">Nothing recorded in this week yet.</p>
         ) : (
@@ -344,16 +359,19 @@ export function WeekRecap({ span, here, all, idx }) {
           </>
         )}
       </CardContent>
-      {/* `weekRecap` is a plan-week summary and answers null for a between-week,
-          which has no sets to have slipped on. Guarded on the recap itself, not
-          on `started`, because the crash that taught this was a null read. */}
-      {isWeek && started && r && (r.slipped.length || r.rushed || r.reviewWrongIds.length) ? (
+      {/* A between-week's recap is rangeRecap's, and its lists are the same lists: a
+          question that came back and went wrong again during Mock 1's week is as much
+          the thing that is not sticking as one in W6, and until 20 October it could be
+          reached from no page. "What slipped on new work" fills only if she did sets
+          in it. Still guarded on the recap itself, not on `started`, because the crash
+          that taught this was a null read. */}
+      {started && r && (r.slipped.length || r.rushed || r.reviewWrongIds.length) ? (
         <CardFooter className="flex-col items-start gap-2">
           {/* One rushed answer is an accident; a week of them is a habit, and
               only a count in one place makes that visible. */}
           {r.rushed ? (
             <span className="text-warning text-xs font-medium" data-testid="recap-rushed">
-              {r.rushed} of the {r.answered - r.right} misses came in faster than the question can be read.
+              {r.rushed} of the {isWeek ? r.answered - r.right : r.setMisses} misses came in faster than the question can be read.
             </span>
           ) : null}
           {/* Misses on NEW work only. A miss during review is the pile doing its

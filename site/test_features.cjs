@@ -1868,6 +1868,61 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
       `${split.review} came back wrong · ${split.newWork} wrong on new work · ${split.shut} hidden`);
   }
 
+  /* And in the plan's own between-weeks — Mock 1, Correction and retest, Mock 2. Those
+   * spans had no recap at all, because weekRecap is keyed by a plan week, so a question
+   * that came back and went wrong again during one of them could be reached from no page:
+   * found on 20 October 2026, the first between-week day this suite ran on. A session of
+   * its own, its clock on the Wednesday of the plan's first between-week, so the check
+   * holds on any date, and seeded records: one review missed, one review right, and one
+   * `again` with `via` — a stand-in she was never shown, which must not be listed. */
+  console.log('== a between-week recaps its own days');
+  const brk = await (async () => {
+    const bun = JSON.parse(fs.readFileSync(path.join(DIST, 'content/bundle.json'), 'utf8'));
+    const MON = { Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5, Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11 };
+    const first = (bun.breaks || []).map((x) => { const m = /^([A-Z][a-z]{2})\s+(\d{1,2})/.exec(x.label || ''); return m ? { what: x.what, a: new Date(2026, MON[m[1]], +m[2]) } : null; }).filter(Boolean).sort((p, q) => p.a - q.a)[0];
+    if (!first) return { err: 'the plan names no between-week' };
+    const pad = (n) => String(n).padStart(2, '0'), key = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const wed = new Date(first.a); wed.setDate(wed.getDate() + 2); wed.setHours(10, 0, 0, 0);
+    const ids = bun.subjects.vr.filter((it) => it.w === 'W1').slice(0, 3).map((it) => it.id);
+    const bc = await b.newContext({ viewport: { width: 1280, height: 900 } });
+    try {
+      await bc.clock.install({ time: wed });
+      await stubGoogle(bc);
+      const bp = await bc.newPage();
+      const bErrs = [];
+      bp.on('pageerror', (e) => bErrs.push(e.message));
+      bp.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource/.test(m.text())) bErrs.push(m.text().split('\n')[0].slice(0, 160)); });
+      await bp.goto('http://localhost:8143/learning/', { waitUntil: 'networkidle' });
+      await signIn(bp);
+      await setLs(bp, ([wrong, right, unseen]) => {
+        const s = JSON.parse(localStorage.getItem('isee.v1')), at = new Date().toISOString();
+        const due = new Date(Date.now() + 86400e3).toISOString();
+        s.items = s.items || {};
+        s.items[wrong] = { hist: [{ at, ok: false, ms: 20000, pick: 'A', ctx: 'review' }], step: 0, streak: 0, due, cleared: null, misses: 1 };
+        s.items[right] = { hist: [{ at, ok: true, ms: 20000, pick: 'B', ctx: 'review' }], step: 1, streak: 1, due, cleared: null };
+        s.items[unseen] = { hist: [{ at, ok: false, ms: 0, ctx: 'again', via: wrong }], step: 0, due, cleared: null };
+        localStorage.setItem('isee.v1', JSON.stringify(s));
+      }, ([wrong, right, unseen]) => { const it = JSON.parse(localStorage.getItem('isee.v1')).items || {}; return !!(it[wrong] && it[right] && it[unseen]); }, 12000, ids);
+      await bp.reload({ waitUntil: 'networkidle' });
+      const spanId = 'B:' + key(first.a);
+      await bp.evaluate((id) => { location.hash = '#/checklist/' + id; }, spanId);
+      await bp.waitForSelector('[data-testid=week-recap][data-kind=break]');
+      await bp.waitForTimeout(300);
+      const held = await bp.$eval('[data-testid=span-held]', (e) => ({ reviewed: +e.dataset.reviewed, right: +e.dataset.right, text: e.textContent.replace(/\s+/g, ' ') })).catch(() => null);
+      const toggle = await bp.$('[data-testid=week-review-wrong-toggle]');
+      let rows = [];
+      if (toggle) { await toggle.click(); await bp.waitForSelector('[data-testid=week-review-wrong-list]'); rows = await bp.$$eval('[data-testid=week-review-wrong-row]', (n) => n.map((e) => ({ qid: e.dataset.qid, shut: !!e.querySelector('[data-testid=week-review-wrong-row-answer]') }))); }
+      const recap = (await bp.textContent('[data-testid=week-recap]')).replace(/\s+/g, ' ');
+      return { what: first.what, spanId, held, toggle: !!toggle, rows, ids, noFigures: !/Accuracy/.test(recap) && !/\bSets\b/.test(recap), errs: bErrs };
+    } catch (e) { return { err: e.message.split('\n')[0] }; }
+    finally { await bc.close(); }
+  })();
+  check('a between-week says what its days held: the reviews, one of two right', !brk.err && !!brk.held && brk.held.reviewed === 2 && brk.held.right === 1 && /1 right/.test(brk.held.text), brk.err || `${brk.spanId} (${brk.what}): ${JSON.stringify(brk.held)}`);
+  check('and a review answered wrong in it is reachable from its own page, answer hidden', !brk.err && brk.toggle && brk.rows.length === 1 && brk.rows[0].qid === brk.ids[0] && brk.rows[0].shut,
+    brk.err || JSON.stringify(brk.rows));
+  check('not the stand-in she was never shown, and no Sets or Accuracy figure for a week with no sets', !brk.err && !brk.rows.some((r) => r.qid === brk.ids[2]) && brk.noFigures, brk.err || `${brk.noFigures}`);
+  check('and the between-week page throws nothing', !brk.err && brk.errs.length === 0, brk.err || brk.errs.join(' | '));
+
   // mixed set
   await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=mixed-start]');
   check('mixed set previews all four subjects', /Verbal · \d/.test(await body(pg)) && /Reading · \d/.test(await body(pg)));

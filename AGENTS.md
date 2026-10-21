@@ -1045,6 +1045,14 @@ subject, review answers, precision, essay, reading, active days, and which skill
 slipped on *new* work — from `Store.s` alone. It renders as the `WeekRecap` card
 at the top of `/checklist/<wk>`, directly above any written digest for that week.
 Nothing in it waits on Drive, on a Routine, on an email, or on an import tap.
+The parts that go by date rather than by the week's own sets are `rangeRecap(start,
+end)`: review answers, word calls, set misses, the rushed count, reading, active days
+and the two question lists. A plan week's recap is built on it, and it is the whole
+recap of one of the plan's between-weeks (Mock 1, Correction and retest, Mock 2).
+Those spans had no recap until 21 October 2026. So a question that came back and
+went wrong again during one of them could be reached from no page. Their card shows
+Review, Active days and Reading, and no Sets or Accuracy figure, because they have no
+sets.
 
 That split is the point. Mailing out numbers the browser already holds, and then
 asking somebody to tap a link to bring them home, was ferrying something across a
