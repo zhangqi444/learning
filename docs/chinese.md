@@ -517,6 +517,26 @@ homework note carries its own date and its own lesson, so a Chinese "week" is a
 homework note, not a span we invent. The lesson stays the spine; the note is what
 makes a week of it.
 
+**One lesson, several notes (21 October).** A lesson can take more than a week. 第六课
+was set on 7 October (the timed 课文, 读一读 in 22秒, Tuesday's workbook, and p.52's
+dictation) and again on 14 October ("听写60页读一读的词语", the whole note). Until then
+"the lesson's note" was its newest. A second note would have hidden everything the
+first had set, and with it every piece of work kept under the first note's date.
+
+Now `lessonNote` reads a lesson's notes together:
+- **Her lesson work stays where it began.** The reading, 读一读 and the workbook are kept
+  under the first note (`hw:2026-10-07`), and the workbook marks go there too
+  (`lessonSet`).
+- **A task a later note sets again replaces the earlier one,** so a new target counts.
+  Workbook days add up.
+- **Each note's dictation stays its own list,** under its own date. The 听写 page shows
+  every list for the lesson, newest first, each with its own count, and the checklist
+  has a 听写 row per list.
+
+The home page, the lesson checklist and the earlier-lessons card name every date the
+lesson was set on. A link carrying either date opens the whole lesson. With one note
+per lesson, which is every lesson but 第六课 so far, nothing changes.
+
 **Every item records the page it came from.** Lesson, edition, and page — because
 the only way to check a key that looks wrong is to go back to the page it was read
 off, and because the free downloads are an earlier edition whose page numbers do
@@ -544,12 +564,12 @@ reproduction is fine. Until that is settled, no lesson text is committed.
    reading went: the section headed 词语 is on p.50, and p.52 carries the last two
    rows of 读一读 and the whole of 用一用 — the owner read the note literally, so
    the dictation is the words on p.52, listed by section in the homework file.
-   That held for 第五课. The 7 October note, for 第六课, said 52页 again, and the
-   owner settled it on 20 October: "听写60页读一读的词语". The week's dictation is
-   the lesson's own 读一读, on p.60, plus the teacher's eight added words. So a
-   page a note names for a dictation is checked against the lesson it is for,
-   not copied blindly. The teacher's line stays verbatim in the note; the
-   correction is in its `scope_note`.
+   The 7 October note, for 第六课, said 52页 again, and that is what it means: the
+   class dictated 第五课's words in 第六课's first week. 第六课's own 读一读 (p.60)
+   came the week after, in the 14 October note. The owner sent that note's one
+   line on 20 October, and it was first misread as a correction of 7 October's.
+   It was put right the next day. A note's dictation is taken as written; a
+   page that seems to belong to another lesson is asked about, not changed.
    The remaining caveat is the one § 8 already states: `old.hwjyw.com` is still
    an earlier edition, so nothing is read from there.
 2. **Which HSK level, and when?** Nothing about mocks, pacing or readiness can be

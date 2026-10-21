@@ -23,6 +23,10 @@ in to the site with** (the test user in `site/oauth.json`). Search
 `title = 'progress.json'`, download it, and read `zh`:
 
 - `zh["hw:<set>"]` is one homework note (`set` is its date, e.g. `2026-09-30`).
+  When one lesson is set by several notes (第六课: 2026-10-07 and 2026-10-14), her
+  work on the lesson (reading, 读一读, workbook) is all under the **first** note's
+  record. Each later note's record holds only its own dictation list. Review the
+  lesson's work under the first note's set.
   - `read.attempts[]` — each reading: `transcript` (what the browser's recogniser
     heard, with no text to align it to — the site holds no passage), `ms`,
     `fileId` (the recording, in the same folder as `progress.json`, named

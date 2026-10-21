@@ -1,7 +1,7 @@
 import * as React from "react"
 import { useEffect, useMemo, useRef, useState } from "react"
 import { BookOpen, Camera, Check, CheckCircle2, ChevronLeft, ChevronRight, Eraser, Eye, EyeOff, FileText, ImageIcon, ListChecks, Mic, PenLine, Play, Printer, RotateCcw, Square, Trash2, Trophy, Undo2, Upload, Volume2, X } from "lucide-react"
-import { D, LTR, ZH, exItems, setId, zhBlock, zhDay, zhExercises, zhHomework, zhLessonLabel, zhLessonOf, zhLessons, zhSets, zhSubName, zhWorkbook } from "@/lib/content"
+import { D, LTR, ZH, ZH_DAYS, exItems, setId, zhBlock, zhDay, zhExercises, zhHomework, zhLessonLabel, zhLessonOf, zhLessons, zhSets, zhSubName, zhWorkbook } from "@/lib/content"
 import { findItem, recordAttempts, reviewQueue } from "@/lib/engine"
 import { t, tf, useLang } from "@/lib/lang"
 import { go } from "@/lib/router"
@@ -56,9 +56,37 @@ function hwState(set) { return (Store.s.zh || {})[hwKey(set)] || {} }
 const DATE = /^\d{4}-\d{2}-\d{2}$/
 export function noteFor(key) {
   if (!key || !D.zh) return null
-  if (DATE.test(key)) return D.zh.homework[key] || null
-  const lesson = zhLessonOf(key)
-  return zhHomework().find((n) => n.lesson === lesson) || syntheticNote(lesson)   // zhHomework() is newest first
+  if (DATE.test(key)) { const n = D.zh.homework[key]; return n ? lessonNote(n.lesson) : null }
+  return lessonNote(zhLessonOf(key))
+}
+/** A lesson as the teacher has set it, over however many weeks. 第六课 was set on 7 October
+ *  (the timed text, 读一读 in 22 seconds, Tuesday's workbook, a dictation) and again on 14
+ *  October (another dictation). This used to take the newest note alone, so the second note
+ *  would have hidden everything the first one set, and every piece of her work kept under it.
+ *
+ *  So the lesson's notes are read together, oldest first:
+ *  - Her work on the lesson — the reading, 读一读, the workbook — stays under the first note,
+ *    where it began: `set` is that note's date, whatever arrives after it. With one note,
+ *    nothing changes.
+ *  - A task a later note sets again replaces the earlier one in place, so its newer target
+ *    counts. Workbook days add up, unless a note sets the whole workbook.
+ *  - Each note's dictation stays a list of its own, under its own date (`task.set`), because
+ *    each week's 听写 is its own assignment, and writereview.js reads it there.
+ *  `newest` is the date of the latest note, which the home page names. */
+function lessonNote(lesson) {
+  const ns = zhHomework().filter((n) => n.lesson === lesson).reverse()   // zhHomework() is newest first
+  if (!ns.length) return syntheticNote(lesson)
+  if (ns.length === 1) return ns[0]
+  const tasks = []
+  for (const n of ns) for (const task of n.tasks || []) {
+    if (task.kind === "dictation") { tasks.push({ ...task, set: n.set }); continue }
+    const i = tasks.findIndex((x) => x.kind === task.kind && (x.id || "") === (task.id || ""))
+    if (i < 0) { tasks.push(task); continue }
+    const prev = tasks[i]
+    tasks[i] = task.kind === "workbook" ? { ...task, days: prev.days && task.days ? ZH_DAYS.filter((d) => prev.days.includes(d) || task.days.includes(d)) : undefined } : task
+  }
+  const last = ns[ns.length - 1]
+  return { ...last, set: ns[0].set, sets: ns.map((n) => n.set), newest: last.set, tasks }
 }
 /** A lesson nobody has assigned this week still has a reading, a workbook and
  *  words to write from hearing, all in the book. For such a lesson the note is
@@ -156,9 +184,11 @@ export function zhWeekItems(note, { allDays = false } = {}) {
           sub: `${t(`练习 ${row.ex}`, `ex. ${row.ex}`)} · p.${row.page}${state ? ` · ${state}` : ""}` })
       }
     } else if (task.kind === "dictation") {
-      const d = st.dictation || {}, words = Object.values(task.words || {}).flat(), rated = words.filter((w) => d[w]).length, right = words.filter((w) => d[w] && d[w].ok).length
-      items.push({ id: "dictation", kind: "dictation", group: t("听写", "Dictation"), label: `${t("听写", "Dictation")} · ${t(task.what, task.what_en)}`, short: t("听写", "Dictation"), path: `/chinese/dictation/${note.lesson}`, done: words.length > 0 && rated === words.length, auto: true,
-        pct: words.length ? rated / words.length : 0, rated, right, total: words.length, sub: t(`已评 ${rated} / ${words.length} · 对 ${right}`, `${rated} of ${words.length} rated · ${right} right`) })
+      // A lesson set over several weeks has a list per week, each under its own note (lessonNote).
+      const many = note.tasks.filter((x) => x.kind === "dictation").length > 1, ls = task.set || note.set
+      const d = hwState(ls).dictation || {}, words = Object.values(task.words || {}).flat(), rated = words.filter((w) => d[w]).length, right = words.filter((w) => d[w] && d[w].ok).length
+      items.push({ id: many ? `dictation:${ls}` : "dictation", kind: "dictation", group: t("听写", "Dictation"), label: `${t("听写", "Dictation")} · ${t(task.what, task.what_en)}`, short: many ? t(`听写 · ${weekName(ls)}`, `Dictation · ${weekName(ls)}`) : t("听写", "Dictation"), path: `/chinese/dictation/${note.lesson}`, done: words.length > 0 && rated === words.length, auto: true,
+        pct: words.length ? rated / words.length : 0, rated, right, total: words.length, sub: t(`${many ? weekName(ls) + "布置 · " : ""}已评 ${rated} / ${words.length} · 对 ${right}`, `${many ? "set " + weekName(ls) + " · " : ""}${rated} of ${words.length} rated · ${right} right`) })
     }
   }
   return items
@@ -182,11 +212,19 @@ function LessonTabs({ lesson, path }) {
     </div>
   )
 }
+/** The lesson's dictation lists as one figure, for the places that show the subject whole:
+ *  the subject row and the score. One list reads exactly as its own row does. */
+function dictSum(items) {
+  const ds = items.filter((i) => i.kind === "dictation")
+  if (!ds.length) return null
+  const total = ds.reduce((n, x) => n + x.total, 0), rated = ds.reduce((n, x) => n + x.rated, 0), right = ds.reduce((n, x) => n + x.right, 0)
+  return { path: ds[0].path, total, rated, right, pct: total ? rated / total : 0, done: ds.every((x) => x.done), sub: t(`已评 ${rated} / ${total} · 对 ${right}`, `${rated} of ${total} rated · ${right} right`) }
+}
 const JOB_ICON = { read: Mic, dictation: Volume2, review: RotateCcw }
 function SubjectRows({ lesson, items }) {
   const can = writtenCount(lesson.id)
   const wb = items.filter((i) => i.kind === "workbook"), wbDone = wb.filter((i) => i.done).length, nextWb = wb.find((i) => !i.done)
-  const d = items.find((i) => i.kind === "dictation"), r = items.find((i) => i.kind === "read")
+  const d = dictSum(items), r = items.find((i) => i.kind === "read")
   const rows = [
     { id: "book", icon: BookOpen, name: t("课本", "Textbook"), path: `/chinese/l/${lesson.id}`, pct: can.total ? can.written / can.total : 0, sub: t(`能默写 ${can.written} / ${can.total}`, `${can.written} of ${can.total} from memory`), done: can.total > 0 && can.written === can.total, action: t("写", "Write"), to: `/chinese/l/${lesson.id}` },
     { id: "workbook", icon: PenLine, name: t("练习册", "Workbook"), path: `/chinese/workbook/${lesson.id}`, pct: wb.length ? wbDone / wb.length : 0, sub: t(`${wbDone} / ${wb.length} 项`, `${wbDone} of ${wb.length}`), done: wb.length > 0 && wbDone === wb.length, action: t("开始", "Start"), to: nextWb ? nextWb.path : `/chinese/workbook/${lesson.id}` },
@@ -333,7 +371,7 @@ export function ChineseHome() {
         <CardHeader>
           <CardDescription className="flex items-center gap-2"><Play className="size-4" /> {t("今天", "Today")}</CardDescription>
           <CardTitle className="text-xl">{next ? next.label : t("这周的作业都做完了", "Everything this week is done")}</CardTitle>
-          <CardDescription>{note.synthetic ? t(`第${lesson.no}课 · 自己练`, `Lesson ${lesson.no} · practice`) : t(`${note.set} 布置的作业`, `Homework set on ${note.set}`)} · {left.length ? t(`还剩 ${left.length} / ${items.length} 项`, `${left.length} of ${items.length} left`) : t("本周已清", "this week is clear")}</CardDescription>
+          <CardDescription>{note.synthetic ? t(`第${lesson.no}课 · 自己练`, `Lesson ${lesson.no} · practice`) : t(`${setOn(note)}布置的作业`, `Homework set on ${setOn(note)}`)} · {left.length ? t(`还剩 ${left.length} / ${items.length} 项`, `${left.length} of ${items.length} left`) : t("本周已清", "this week is clear")}</CardDescription>
           <CardAction>{next ? <Button onClick={() => go(next.path)} data-testid="zh-continue"><Play /> {t("继续", "Continue")}</Button> : null}</CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-3">
@@ -393,7 +431,7 @@ export function ChineseHome() {
         </CardHeader>
         <CardContent className="px-0"><SubjectRows lesson={lesson} items={items} /></CardContent>
       </Card>
-      <ReviewCards set={note.set} />
+      {(note.sets || [note.set]).map((s) => <ReviewCards key={s} set={s} />)}
     </div>
   )
 }
@@ -438,6 +476,8 @@ export function WorkbookPage({ lesson: lessonId }) {
  *  itself from her work; nothing here is ticked by hand. */
 /** A note's date the way a week is named: 9月30日 · Sep 30. */
 const weekName = (set) => { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(set || ""); if (!m) return set; const d = new Date(+m[1], +m[2] - 1, +m[3]); return t(`${+m[2]}月${+m[3]}日`, d.toLocaleDateString("en-US", { month: "short", day: "numeric" })) }
+/** The dates a lesson was set on, as the teacher's notes are named: 10月7日、10月14日 · Oct 7, Oct 14. */
+const setOn = (note) => (note.sets || [note.set]).map(weekName).join(t("、", ", "))
 /** Earlier lessons the teacher set that still have something left. A new note made the newest
  *  lesson the only one the home page showed, and the last one went out of sight with its work
  *  still undone (the owner, 8 October: "where is last week's homework?"). Said once, plainly:
@@ -449,8 +489,9 @@ function EarlierLessons() {
     if (seen.has(n.lesson)) continue
     seen.add(n.lesson)
     const l = D.zh.lessons[n.lesson]; if (!l) continue
-    const items = zhWeekItems(n, { allDays: true }), left = items.filter((i) => !i.done).length
-    if (left) rows.push({ n, l, items, left })
+    // the whole lesson, every note that set it (lessonNote), not only the newest
+    const all = noteFor(n.lesson), items = zhWeekItems(all, { allDays: true }), left = items.filter((i) => !i.done).length
+    if (left) rows.push({ n: all, l, items, left })
   }
   if (!rows.length) return null
   return (
@@ -458,7 +499,7 @@ function EarlierLessons() {
       <CardHeader className="px-5"><CardTitle className="text-base">{t("以前几课的作业", "Earlier lessons")}</CardTitle></CardHeader>
       <CardContent className="px-2"><ul className="divide-y">{rows.map(({ n, l, items, left }) => (
         <li key={l.id} className="flex items-center justify-between gap-3 px-3 py-2 text-sm" data-testid="zh-earlier-lesson" data-lesson={l.id}>
-          <span>{t(`第${l.no}课 ${l.title}`, `Lesson ${l.no} · ${l.title_en}`)} · <span className="text-muted-foreground">{t(`${weekName(n.set)}布置`, `set ${weekName(n.set)}`)} · </span><span className="text-muted-foreground tabular-nums">{t(`还有 ${left} / ${items.length} 项`, `${left} of ${items.length} left`)}</span></span>
+          <span>{t(`第${l.no}课 ${l.title}`, `Lesson ${l.no} · ${l.title_en}`)} · <span className="text-muted-foreground">{t(`${setOn(n)}布置`, `set ${setOn(n)}`)} · </span><span className="text-muted-foreground tabular-nums">{t(`还有 ${left} / ${items.length} 项`, `${left} of ${items.length} left`)}</span></span>
           <Button size="sm" variant="outline" onClick={() => go(`/chinese/checklist/${l.id}`)} data-testid="zh-earlier-open">{t("看看", "Open")}</Button>
         </li>))}</ul></CardContent>
     </Card>
@@ -503,7 +544,7 @@ export function ZhChecklist({ lesson: param }) {
             {!isNow && cur ? <Button size="sm" variant="ghost" onClick={() => go("/chinese/checklist")} data-testid="zh-back-to-lesson">{t("回到本课", "Back to this lesson")}</Button> : null}
           </div>
           <CardTitle className="text-xl">{t(`第${lesson.no}课`, `Lesson ${lesson.no}`)} · {t(lesson.title, lesson.title_en)} {isNow ? <Badge data-testid="zh-lesson-now">{t("本课", "This lesson")}</Badge> : null}</CardTitle>
-          <CardDescription>{note.synthetic ? t("老师还没有布置这一课 · ", "Not set by the teacher yet · ") : t(`${weekName(note.set)}老师布置 · `, `Set by the teacher on ${weekName(note.set)} · `)}{t(`已完成 ${done} / ${items.length} 项`, `${done} of ${items.length} done`)}</CardDescription>
+          <CardDescription>{note.synthetic ? t("老师还没有布置这一课 · ", "Not set by the teacher yet · ") : t(`${setOn(note)}老师布置 · `, `Set by the teacher on ${setOn(note)} · `)}{t(`已完成 ${done} / ${items.length} 项`, `${done} of ${items.length} done`)}</CardDescription>
           <CardAction><span className="text-2xl font-semibold tabular-nums">{pct}%</span></CardAction>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
@@ -511,7 +552,7 @@ export function ZhChecklist({ lesson: param }) {
           {items.length && done === items.length ? <div className="text-success flex items-center gap-2 rounded-md border px-3 py-3 text-sm font-medium" data-testid="zh-lesson-clear"><CheckCircle2 className="size-4" /> {t("这一课的都做完了。", "Everything this lesson asks is done.")}</div> : null}
         </CardContent>
       </Card>
-      {note.synthetic ? null : <ReviewCards set={note.set} />}
+      {note.synthetic ? null : (note.sets || [note.set]).map((s) => <ReviewCards key={s} set={s} />)}
       {groups.map((g) => (
         <Card key={g.name} className="gap-2 py-4" data-testid="zh-ck-group" data-day={g.day || undefined}>
           <CardHeader className="px-5"><CardTitle className="text-base">{g.name}{g.day && assigned && assigned.includes(g.day) ? <span className="text-muted-foreground ml-2 text-sm font-normal" data-testid="zh-ck-assigned">{t("· 老师布置", "· set by the teacher")}</span> : null}</CardTitle>{g.day ? <CardAction><DayPhotos lesson={lesson.id} day={g.day} /></CardAction> : null}</CardHeader>
@@ -539,7 +580,7 @@ export function ZhScore() {
   const items = zhWeekItems(note), can = writtenCount(lesson.id)
   const wb = items.filter((i) => i.kind === "workbook"), wbDone = wb.filter((i) => i.done).length, marked = wb.filter((i) => i.n != null)
   const right = marked.reduce((a, i) => a + i.right, 0), n = marked.reduce((a, i) => a + i.n, 0)
-  const d = items.find((i) => i.kind === "dictation"), r = items.find((i) => i.kind === "read")
+  const d = dictSum(items), r = items.find((i) => i.kind === "read")
   const att = ((hwState(note.set).read || {}).attempts || []), evaluated = !!zhNotes(note.set).read
   const q = reviewQueue(null, "chinese"), learned = Object.keys(Store.s.items || {}).filter((k) => /^zc?:/.test(k)).length
   return (
@@ -558,7 +599,7 @@ export function ZhScore() {
         {r ? <Stat testid="zh-score-read" label={t("阅读", "Reading")} value={String(att.length)} sub={att.length ? (evaluated ? t("读过，已批改。", "Read, and evaluated.") : t("读过，等批改。", "Read, awaiting evaluation.")) : t("还没读。", "Not read yet.")} /> : null}
         <Stat testid="zh-score-review" label={t("复习", "Review")} value={String(q.due.length)} sub={t(`今天该复习的题 · 一共记过 ${learned} 题。`, `due today · ${learned} questions in the record.`)} />
       </div>
-      <ReviewCards set={note.set} />
+      {(note.sets || [note.set]).map((s) => <ReviewCards key={s} set={s} />)}
     </div>
   )
 }
@@ -742,108 +783,130 @@ export function WriteReview() {
 export function Dictation({ set }) {
   useStore(); useLang()
   const note = noteFor(set)
-  const task = note && note.tasks.find((x) => x.kind === "dictation")
+  /* Every list the teacher set for the lesson, the newest first. A lesson can be set over
+     several weeks — 第六课 on 7 October (p.52 and eight words of the teacher's) and again on
+     14 October (p.60) — and each week's 听写 is an assignment of its own, kept under its own
+     note (hw:<that note's date>), so one list's marks never mix with another's. The page's
+     state is keyed by list and word together for the same reason. */
+  const tasks = note ? note.tasks.filter((x) => x.kind === "dictation").slice().sort((p, q) => String(q.set || "").localeCompare(String(p.set || ""))) : []
   const [shown, setShown] = useState({})
   const [writing, setWriting] = useState(null)      // the word being written with the Pencil
   const [judged, setJudged] = useState(null)        // the word whose boxes have all been judged and are still open to look at
-  const [replay, setReplay] = useState(null)        // a word being replayed: {w, k: the character being drawn, n: its run token}
+  const [replay, setReplay] = useState(null)        // a word being replayed: {key, k: the character being drawn, n: its run token}
   const boxes = useRef({}), runs = useRef(0)
-  if (!task) return <ChineseHome />
-  const st = hwState(set).dictation || {}
+  if (!tasks.length) return <ChineseHome />
+  const many = tasks.length > 1
+  const listOf = (task) => task.set || note.set
+  const stOf = (ls) => hwState(ls).dictation || {}
+  const K = (ls, w) => ls + "|" + w
   const writable = (w) => [...w].every((ch) => !/[\p{Script=Han}]/u.test(ch) || hasStrokes(ch))
-  const startWrite = (w) => { boxes.current = {}; setWriting(w); setJudged(null); speak(w) }
+  const startWrite = (ls, w) => { boxes.current = {}; setWriting(K(ls, w)); setJudged(null); speak(w) }
   const close = () => { setWriting(null); setJudged(null) }
-  const boxDone = (w, ch, i, r) => {
+  const boxDone = (ls, w, ch, i, r) => {
     boxes.current[i] = r
     const chars = [...w].filter((c) => /\p{Script=Han}/u.test(c))
     if (Object.keys(boxes.current).length < chars.length) return
     const mistakes = Object.values(boxes.current).reduce((n, x) => n + x.mistakes, 0)
     const nStrokes = chars.reduce((n, c) => n + ((strokeData(c) || { strokes: [] }).strokes.length), 0)
-    Store.setSlice("zh", hwKey(set), (cur) => ({ ...cur, dictation: { ...(cur.dictation || {}), [w]: { ok: writtenWell(mistakes, nStrokes), at: new Date().toISOString(), mode: "pencil", mistakes, strokes: Object.values(boxes.current).map((x) => ({ ch: x.ch, strokes: x.strokes })) } } }))
+    Store.setSlice("zh", hwKey(ls), (cur) => ({ ...cur, dictation: { ...(cur.dictation || {}), [w]: { ok: writtenWell(mistakes, nStrokes), at: new Date().toISOString(), mode: "pencil", mistakes, strokes: Object.values(boxes.current).map((x) => ({ ch: x.ch, strokes: x.strokes })) } } }))
     // The boxes stay open once the last one is judged, until she closes them.
     // They used to vanish the instant the verdict landed, which hid the last
     // character's verdict, the layer swap, and now the cat that came.
-    setJudged(w)
+    setJudged(K(ls, w))
   }
   // A tap on ✓ or ✗ used to replace the whole record, so on a word written with the
   // pen one stray tap threw away her strokes — the only copy of what she wrote, and
   // the evidence lib/zi.js reads each character's attempt from. Now the tap changes
   // the verdict only, as a correction of the judge, and the strokes stay.
-  const rate = (w, ok) => Store.setSlice("zh", hwKey(set), (cur) => {
+  const rate = (ls, w, ok) => Store.setSlice("zh", hwKey(ls), (cur) => {
     const prev = (cur.dictation || {})[w]
     const next = prev && prev.mode === "pencil" ? { ...prev, ok, by: "hand" } : { ok, at: new Date().toISOString() }
     return { ...cur, dictation: { ...(cur.dictation || {}), [w]: next } }
   })
   // A mark given by hand can be taken back: a word shown by mistake, or ticked
   // before it was written, goes back to hidden and unmarked.
-  const unrate = (w) => {
-    Store.setSlice("zh", hwKey(set), (cur) => { const d = { ...(cur.dictation || {}) }; delete d[w]; return { ...cur, dictation: d } })
-    setShown((s) => ({ ...s, [w]: false }))
+  const unrate = (ls, w) => {
+    Store.setSlice("zh", hwKey(ls), (cur) => { const d = { ...(cur.dictation || {}) }; delete d[w]; return { ...cur, dictation: d } })
+    setShown((s) => ({ ...s, [K(ls, w)]: false }))
   }
-  const total = Object.values(task.words).reduce((n, a) => n + a.length, 0)
-  const rated = Object.keys(st).length, right = Object.values(st).filter((x) => x.ok).length
+  // Counted over the words each list names, so a mark left from a list the note no longer has is not counted.
+  const tally = (task) => { const st = stOf(listOf(task)), ws = Object.values(task.words || {}).flat(); return { total: ws.length, rated: ws.filter((w) => st[w]).length, right: ws.filter((w) => st[w] && st[w].ok).length } }
+  const sum = tasks.map(tally).reduce((a, x) => ({ total: a.total + x.total, rated: a.rated + x.rated, right: a.right + x.right }), { total: 0, rated: 0, right: 0 })
+  const row = (ls, w) => {
+    const st = stOf(ls), r = st[w], key = K(ls, w), open = !!shown[key]
+    const han = [...w].filter((c) => /\p{Script=Han}/u.test(c))
+    if (writing === key) return (
+      <div key={key} className="flex flex-col gap-2 rounded-lg border px-3 py-2" data-testid="zh-dict-row" data-word={w} data-set={ls} data-writing="1">
+        <div className="flex items-center gap-2"><Speak text={w} /><span className="text-muted-foreground text-sm">{judged === key && r && r.mode === "pencil" ? (r.mistakes ? t(`错 ${r.mistakes} 笔`, `${r.mistakes} wrong strokes`) : t("一笔没错", "every stroke right")) : t(`听一听，写 ${han.length} 个字`, `Listen, then write ${han.length} characters`)}</span><Button size="sm" variant="ghost" className="ml-auto h-7" onClick={close} data-testid={judged === key ? "zh-dict-close" : undefined}>{judged === key ? t("收起", "Close") : t("取消", "Cancel")}</Button></div>
+        <div className="flex flex-wrap gap-2">{han.map((ch, i) => <HanziBox key={w + i} ch={ch} label={`${i + 1}`} onDone={(res) => boxDone(ls, w, ch, i, res)} />)}</div>
+      </div>
+    )
+    const pen = !!(r && r.mode === "pencil")
+    const kept = pen && Array.isArray(r.strokes) ? r.strokes.filter((b) => b && b.ch && Array.isArray(b.strokes)) : []
+    return (
+      <div key={key} className="flex flex-col gap-2 rounded-lg border px-3 py-2" data-testid="zh-dict-row" data-word={w} data-set={ls}>
+        <div className="flex items-center justify-between gap-2">
+          <span className="flex items-center gap-2">
+            <Speak text={w} />
+            <span className={cn("text-lg tabular-nums", !open && !r && "select-none blur-sm")} aria-hidden={!open && !r}>{open || r ? w : "〇〇"}</span>
+            {pen ? <Badge variant="outline" className="text-xs">{r.mistakes ? t(`笔 · 错 ${r.mistakes} 笔`, `pen · ${r.mistakes} wrong strokes`) : t("笔 · 一笔没错", "pen · every stroke right")}</Badge> : null}
+          </span>
+          <span className="flex items-center gap-1.5">
+            {!open && !r && writing !== key && writable(w) ? <Button size="sm" variant="default" onClick={() => startWrite(ls, w)} data-testid="zh-write"><PenLine /> {t("写", "Write")}</Button> : null}
+            {!open && !r && writing !== key ? <Button size="sm" variant="ghost" onClick={() => setShown((s) => ({ ...s, [key]: true }))} data-testid="zh-reveal"><Eye /> {t("对答案", "Check answer")}</Button> : null}
+            {open || r ? (
+              <>
+                <Button size="sm" variant={r && r.ok ? "default" : "outline"} onClick={() => rate(ls, w, true)} data-testid="zh-ok" aria-label={t("对了", "right")}><Check /></Button>
+                <Button size="sm" variant={r && r.ok === false ? "destructive" : "outline"} onClick={() => rate(ls, w, false)} data-testid="zh-miss" aria-label={t("还没有", "not yet")}><X /></Button>
+              </>
+            ) : null}
+            {open && !r ? <Button size="sm" variant="ghost" onClick={() => setShown((s) => ({ ...s, [key]: false }))} data-testid="zh-hide" aria-label={t("藏起来", "Hide")} title={t("藏起来", "Hide")}><EyeOff /></Button> : null}
+            {r && !pen ? <Button size="sm" variant="ghost" onClick={() => unrate(ls, w)} data-testid="zh-undo" aria-label={t("撤销", "Undo")} title={t("撤销", "Undo")}><Undo2 /></Button> : null}
+          </span>
+        </div>
+        {kept.length ? (
+          <div className="flex flex-wrap items-center gap-2 pl-10" data-testid="zh-dict-kept">
+            {/* the word replayed character by character: one is drawn, the ones after it wait blank */}
+            {kept.map((b, i) => {
+              const mine = replay && replay.key === key
+              return <KeptChar key={i} ch={b.ch} strokes={b.strokes} run={mine && replay.k === i ? replay.n : 0} blank={!!mine && i > replay.k}
+                onEnd={() => setReplay((x) => (x && x.key === key && x.k === i ? (i + 1 < kept.length ? { key, k: i + 1, n: ++runs.current } : null) : x))} />
+            })}
+            <Button size="sm" variant="ghost" onClick={() => setReplay({ key, k: 0, n: ++runs.current })} data-testid="zh-replay"><Play /> {t("回放", "Replay")}</Button>
+          </div>
+        ) : null}
+      </div>
+    )
+  }
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-4" data-testid="zh-dictation">
       <Card>
         <CardHeader>
           <CardTitle>{t("听写", "Dictation")}</CardTitle>
-          <CardDescription>{t(task.what, task.what_en)}</CardDescription>
-          <CardAction><Badge variant="outline" className="tabular-nums"><span data-testid="zh-rated">{rated}</span>/{total}{rated ? ` · ${t("对", "right")} ${right}` : ""}</Badge></CardAction>
+          <CardDescription>{many ? t(`这一课老师布置了 ${tasks.length} 份听写，最新的在上面`, `The teacher has set ${tasks.length} dictations for this lesson, the newest first`) : t(tasks[0].what, tasks[0].what_en)}</CardDescription>
+          <CardAction><Badge variant="outline" className="tabular-nums"><span data-testid="zh-rated">{sum.rated}</span>/{sum.total}{sum.rated ? ` · ${t("对", "right")} ${sum.right}` : ""}</Badge></CardAction>
         </CardHeader>
-        <CardContent className="flex flex-col gap-2 text-sm"><span className="text-muted-foreground">{tf(task.rule)}</span><LessonTabs lesson={note.lesson} path={(x) => `/chinese/dictation/${x}`} /></CardContent>
+        <CardContent className="flex flex-col gap-2 text-sm"><span className="text-muted-foreground">{tf(tasks[0].rule)}</span><LessonTabs lesson={note.lesson} path={(x) => `/chinese/dictation/${x}`} /></CardContent>
       </Card>
-      {Object.keys(task.words).map((section) => (
-        <Card key={section}>
-          <CardHeader><CardTitle>{t(section, (task.sections_en || {})[section] || section)}</CardTitle></CardHeader>
-          <CardContent className="flex flex-col gap-1.5">
-            {task.words[section].map((w) => {
-              const r = st[w], open = !!shown[w]
-              if (writing === w) return (
-                <div key={w} className="flex flex-col gap-2 rounded-lg border px-3 py-2" data-testid="zh-dict-row" data-word={w} data-writing="1">
-                  <div className="flex items-center gap-2"><Speak text={w} /><span className="text-muted-foreground text-sm">{judged === w && r && r.mode === "pencil" ? (r.mistakes ? t(`错 ${r.mistakes} 笔`, `${r.mistakes} wrong strokes`) : t("一笔没错", "every stroke right")) : t(`听一听，写 ${[...w].filter((c) => /\p{Script=Han}/u.test(c)).length} 个字`, `Listen, then write ${[...w].filter((c) => /\p{Script=Han}/u.test(c)).length} characters`)}</span><Button size="sm" variant="ghost" className="ml-auto h-7" onClick={close} data-testid={judged === w ? "zh-dict-close" : undefined}>{judged === w ? t("收起", "Close") : t("取消", "Cancel")}</Button></div>
-                  <div className="flex flex-wrap gap-2">{[...w].filter((c) => /\p{Script=Han}/u.test(c)).map((ch, i) => <HanziBox key={w + i} ch={ch} label={`${i + 1}`} onDone={(res) => boxDone(w, ch, i, res)} />)}</div>
-                </div>
-              )
-              const pen = !!(r && r.mode === "pencil")
-              const kept = pen && Array.isArray(r.strokes) ? r.strokes.filter((b) => b && b.ch && Array.isArray(b.strokes)) : []
-              return (
-                <div key={w} className="flex flex-col gap-2 rounded-lg border px-3 py-2" data-testid="zh-dict-row" data-word={w}>
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="flex items-center gap-2">
-                      <Speak text={w} />
-                      <span className={cn("text-lg tabular-nums", !open && !r && "select-none blur-sm")} aria-hidden={!open && !r}>{open || r ? w : "〇〇"}</span>
-                      {pen ? <Badge variant="outline" className="text-xs">{r.mistakes ? t(`笔 · 错 ${r.mistakes} 笔`, `pen · ${r.mistakes} wrong strokes`) : t("笔 · 一笔没错", "pen · every stroke right")}</Badge> : null}
-                    </span>
-                    <span className="flex items-center gap-1.5">
-                      {!open && !r && writing !== w && writable(w) ? <Button size="sm" variant="default" onClick={() => startWrite(w)} data-testid="zh-write"><PenLine /> {t("写", "Write")}</Button> : null}
-                      {!open && !r && writing !== w ? <Button size="sm" variant="ghost" onClick={() => setShown((s) => ({ ...s, [w]: true }))} data-testid="zh-reveal"><Eye /> {t("对答案", "Check answer")}</Button> : null}
-                      {open || r ? (
-                        <>
-                          <Button size="sm" variant={r && r.ok ? "default" : "outline"} onClick={() => rate(w, true)} data-testid="zh-ok" aria-label={t("对了", "right")}><Check /></Button>
-                          <Button size="sm" variant={r && r.ok === false ? "destructive" : "outline"} onClick={() => rate(w, false)} data-testid="zh-miss" aria-label={t("还没有", "not yet")}><X /></Button>
-                        </>
-                      ) : null}
-                      {open && !r ? <Button size="sm" variant="ghost" onClick={() => setShown((s) => ({ ...s, [w]: false }))} data-testid="zh-hide" aria-label={t("藏起来", "Hide")} title={t("藏起来", "Hide")}><EyeOff /></Button> : null}
-                      {r && !pen ? <Button size="sm" variant="ghost" onClick={() => unrate(w)} data-testid="zh-undo" aria-label={t("撤销", "Undo")} title={t("撤销", "Undo")}><Undo2 /></Button> : null}
-                    </span>
-                  </div>
-                  {kept.length ? (
-                    <div className="flex flex-wrap items-center gap-2 pl-10" data-testid="zh-dict-kept">
-                      {/* the word replayed character by character: one is drawn, the ones after it wait blank */}
-                      {kept.map((b, i) => {
-                        const mine = replay && replay.w === w
-                        return <KeptChar key={i} ch={b.ch} strokes={b.strokes} run={mine && replay.k === i ? replay.n : 0} blank={!!mine && i > replay.k}
-                          onEnd={() => setReplay((x) => (x && x.w === w && x.k === i ? (i + 1 < kept.length ? { w, k: i + 1, n: ++runs.current } : null) : x))} />
-                      })}
-                      <Button size="sm" variant="ghost" onClick={() => setReplay({ w, k: 0, n: ++runs.current })} data-testid="zh-replay"><Play /> {t("回放", "Replay")}</Button>
-                    </div>
-                  ) : null}
-                </div>
-              )
-            })}
-          </CardContent>
-        </Card>
-      ))}
+      {tasks.map((task) => {
+        const ls = listOf(task), x = tally(task)
+        return (
+          <React.Fragment key={ls}>
+            {many ? (
+              <div className="flex items-baseline justify-between gap-3 px-1 pt-2" data-testid="zh-dict-list" data-set={ls}>
+                <h2 className="text-base font-semibold">{t(task.what, task.what_en)}</h2>
+                <span className="text-muted-foreground shrink-0 text-sm tabular-nums">{t(`${weekName(ls)}布置 · ${x.rated}/${x.total}`, `set ${weekName(ls)} · ${x.rated}/${x.total}`)}</span>
+              </div>
+            ) : null}
+            {Object.keys(task.words).map((section) => (
+              <Card key={ls + section}>
+                <CardHeader><CardTitle>{t(section, (task.sections_en || {})[section] || section)}</CardTitle></CardHeader>
+                <CardContent className="flex flex-col gap-1.5">{task.words[section].map((w) => row(ls, w))}</CardContent>
+              </Card>
+            ))}
+          </React.Fragment>
+        )
+      })}
     </div>
   )
 }

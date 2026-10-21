@@ -44,9 +44,12 @@ export function removeWorkbookPhoto(lesson, fid) {
 /** When the photos were last marked, and by whom. A photo added after it is still to be marked. */
 export function photosMarked(lesson) { const r = rec(lesson); return r.markedAt ? { at: r.markedAt, by: r.markedBy || "" } : null }
 
-/** The week a lesson's marks belong to: its newest note's, or the lesson itself when no note
- *  has assigned it (the synthetic note pages/chinese.jsx makes, whose set is the lesson id). */
-export function lessonSet(lesson) { const n = zhHomework().find((x) => x.lesson === lesson); return n ? n.set : lesson }
+/** Where a lesson's work is kept, so where its marks go: under the first note that set it, or
+ *  the lesson itself when no note has (the synthetic note pages/chinese.jsx makes, whose set is
+ *  the lesson id). The first, not the newest: a lesson set again in a later week keeps its work
+ *  where it began (lessonNote in pages/chinese.jsx), and marks filed under the newer note would
+ *  land where no page reads them. */
+export function lessonSet(lesson) { const ns = zhHomework().filter((x) => x.lesson === lesson); return ns.length ? ns[ns.length - 1].set : lesson }
 const blockSetId = (b) => setId("zh-block", b.id.replace(/^zb:/, ""), 0)
 
 /** A marking link's payload, checked against the lesson's own exercises file:

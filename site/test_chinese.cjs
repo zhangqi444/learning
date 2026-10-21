@@ -739,15 +739,22 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
   check('and the same marking opened twice counts nothing twice', ((st.items[blk.items[0]] || {}).hist || []).length === histLen);
   check('no page errors', errs.length === 0, errs.join(' | '));
 
-  // -- the newest week, from the real bundle: the teacher's note of 7 October for 第六课 —
-  // 课文考试 in 1分15, 读一读的词语 in 22秒, the workbook for Tuesday only, and a dictation with
-  // her own words added. The owner, 8 October: what the site can do that the book cannot is the
-  // reading, the writing and the dictation; the clock beside a reading is one of those.
+  // -- the newest lesson, from the real bundle, as every note that set it: 第六课, set on 7 October
+  // (课文考试 in 1分15, 读一读的词语 in 22秒, the workbook for Tuesday only, and a dictation with
+  // the teacher's own words added) and again on 14 October (p.60's 读一读, dictated). The owner,
+  // 8 October: what the site can do that the book cannot is the reading, the writing and the
+  // dictation; the clock beside a reading is one of those. A lesson's notes are read together
+  // (lessonNote): her work on it stays under the first, and each dictation list under its own.
   FIXTURE = null;
   const real = JSON.parse(fs.readFileSync(path.join(DIST, 'content/bundle.json'), 'utf8'));
-  const newest = Object.values(real.zh.homework).sort((a, b) => (a.set < b.set ? 1 : -1))[0];
-  const rw = newest.tasks.find((x) => x.kind === 'read_words'), ra = newest.tasks.find((x) => x.kind === 'read_aloud' && x.target_s), wb = newest.tasks.find((x) => x.kind === 'workbook' && x.days);
-  check('the newest note carries a timed text, timed words and a one-day workbook', !!rw && !!ra && !!wb, newest.set);
+  const byDate = Object.values(real.zh.homework).sort((a, b) => (a.set < b.set ? 1 : -1));
+  const newest = byDate[0], same = byDate.filter((n) => n.lesson === newest.lesson).reverse(), base = same[0].set;
+  const latest = (kind, f = () => true) => same.slice().reverse().map((n) => n.tasks.find((x) => x.kind === kind && f(x))).find(Boolean);
+  const rw = latest('read_words'), ra = latest('read_aloud', (x) => x.target_s);
+  const wbDays = same.flatMap((n) => n.tasks.filter((x) => x.kind === 'workbook' && x.days).flatMap((x) => x.days));
+  const wb = wbDays.length ? { days: ['星期一', '星期二', '星期三', '星期四', '星期五'].filter((d) => wbDays.includes(d)) } : null;
+  const dicts = same.flatMap((n) => n.tasks.filter((x) => x.kind === 'dictation').map((x) => ({ ...x, set: n.set })));
+  check('the newest lesson, over its notes, carries a timed text, timed words and a one-day workbook', !!rw && !!ra && !!wb, same.map((n) => n.set).join(' + '));
   if (rw && ra && wb) {
     const ctx2 = await b.newContext({ viewport: { width: 1280, height: 860 } }); await stubGoogle(ctx2);
     const p2 = await ctx2.newPage(), errs2 = []; p2.on('pageerror', (e) => errs2.push(e.message));
@@ -757,7 +764,7 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     // "where is last week's homework?"), and the checklist goes by lesson, not by week ("instead
     // of using week, let's use lesson to group the content for checklist"): the home page names
     // the earlier lesson the teacher set with what is left, and its checklist opens on it
-    const prevNote = Object.values(real.zh.homework).sort((a, b) => (a.set < b.set ? 1 : -1))[1];
+    const prevNote = byDate.find((n) => n.lesson !== newest.lesson);
     const lessonIds = Object.values(real.zh.lessons).sort((a, b) => a.no - b.no).map((l) => l.id);
     if (prevNote && prevNote.lesson !== newest.lesson) {
       await p2.evaluate(() => { location.hash = '#/chinese'; }); await p2.waitForSelector('[data-testid=zh-home]');
@@ -779,11 +786,17 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     const days = real.zh.exercises[lid], everyRow = [...days.blocks, ...days.exercises].map((x) => x.id).sort();
     const marked = await p2.$$eval('[data-testid=zh-ck-group]:has([data-testid=zh-ck-assigned])', (els) => els.map((e) => e.dataset.day));
     check('a lesson\'s checklist holds its whole workbook, and marks the days the teacher set', JSON.stringify(wbIds.slice().sort()) === JSON.stringify(everyRow) && JSON.stringify(marked) === JSON.stringify(wb.days), `${wbIds.length} rows · marked ${marked.join(',')}`);
-    // the week stays the week on the home page: 今天 counts only the days the note names
+    // 今天 counts what the teacher has set for the lesson: the workbook days the notes name (not the
+    // whole workbook), the reading once though two notes may name it, and every dictation list
     const want = [...days.blocks, ...days.exercises].filter((x) => wb.days.includes(x.day));
-    const weekCount = newest.tasks.filter((x) => x.kind !== 'workbook').length + want.length;
+    const once = new Set(same.flatMap((n) => n.tasks.filter((x) => x.kind !== 'workbook' && x.kind !== 'dictation').map((x) => x.kind + (x.id || ''))));
+    const weekCount = once.size + dicts.length + want.length;
     await p2.evaluate(() => { location.hash = '#/chinese'; }); await p2.waitForSelector('[data-testid=zh-today]');
-    check('and 今天 keeps to the week: only the workbook days the note names', new RegExp(`/ ${weekCount} 项`).test(await p2.textContent('[data-testid=zh-today]')), (await p2.textContent('[data-testid=zh-today] [data-slot=card-description]')).slice(0, 60));
+    check('and 今天 counts what the lesson was set: only the workbook days the notes name, and each dictation list', new RegExp(`/ ${weekCount} 项`).test(await p2.textContent('[data-testid=zh-today]')), (await p2.textContent('[data-testid=zh-today] [data-slot=card-description]')).slice(0, 60));
+    if (same.length > 1) {
+      const said = (await p2.textContent('[data-testid=zh-today]')).replace(/\s+/g, ' ');
+      check('and names every date the lesson was set on', same.every((n) => { const [, m, d] = n.set.split('-'); return said.includes(`${+m}月${+d}日`); }), said.slice(0, 120));
+    }
     // a day of the workbook done in the book is handed in as photos, from 今天 itself (the owner,
     // 8 October: "to each week's workbook homework, allow upload screenshots to track the
     // progress"): the day's rows tick, the week's count moves, and the marking comes later
@@ -805,14 +818,30 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     await p2.click('[data-testid=zh-rd-start]'); await p2.waitForTimeout(400); await p2.click('[data-testid=zh-rd-stop]'); await p2.waitForSelector('[data-testid=zh-rd-done]');
     const tgt = await p2.$eval('[data-testid=zh-target]', (e) => ({ within: e.dataset.within, s: e.dataset.s, text: e.textContent }));
     check('read in time, the page says how long she took beside the target, plainly', tgt.within === '1' && new RegExp(fmt(rw.target_s)).test(tgt.text) && !(await p2.$('[data-testid=zh-target].text-destructive')), JSON.stringify(tgt));
-    const kept = await p2.evaluate(({ set, id }) => ((((JSON.parse(localStorage.getItem('isee.v1')).zh || {})['hw:' + set] || {}).exercises || {})[id] || {}).read || null, { set: newest.set, id: rw.id });
-    check('and the reading is kept where a 读一读 reading is, aligned to the words', !!kept && kept.ms >= 0 && kept.total > 0 && kept.matched === kept.total, JSON.stringify(kept && { ms: kept.ms, matched: kept.matched, total: kept.total }));
+    const kept = await p2.evaluate(({ set, id }) => ((((JSON.parse(localStorage.getItem('isee.v1')).zh || {})['hw:' + set] || {}).exercises || {})[id] || {}).read || null, { set: base, id: rw.id });
+    check('and the reading is kept where a 读一读 reading is, aligned to the words — under the lesson\'s first note', !!kept && kept.ms >= 0 && kept.total > 0 && kept.matched === kept.total, JSON.stringify(kept && { ms: kept.ms, matched: kept.matched, total: kept.total, set: base }));
     await p2.evaluate((l) => { location.hash = '#/chinese/dictation/' + l; }, lid); await p2.waitForSelector('[data-testid=zh-dictation]').catch(() => {});
-    const dict = newest.tasks.find((x) => x.kind === 'dictation'), added = Object.keys(dict.words).pop();
-    const dictWords = await p2.$$eval('[data-testid=zh-dict-row]', (els) => els.map((e) => e.dataset.word));
-    check('the dictation carries the words the teacher added', dict.words[added].every((w) => dictWords.includes(w)) && dictWords.length === Object.values(dict.words).flat().length, `${dictWords.length} rows · ${added}`);
+    const added = dicts.find((x) => x.words['老师加的词语']);
+    const dictRows = await p2.$$eval('[data-testid=zh-dict-row]', (els) => els.map((e) => ({ w: e.dataset.word, set: e.dataset.set })));
+    const dictWords = dictRows.map((x) => x.w), allWords = dicts.flatMap((x) => Object.values(x.words).flat());
+    check('the dictation page holds every list the lesson was set, each word under its own note', dictRows.length === allWords.length && dicts.every((x) => Object.values(x.words).flat().every((w) => dictRows.some((r) => r.w === w && r.set === x.set))), `${dictRows.length} rows · ${dicts.map((x) => x.set).join(' + ')}`);
+    if (added) check('and carries the words the teacher added', added.words['老师加的词语'].every((w) => dictWords.includes(w)));
     const noPen = await p2.$$eval('[data-testid=zh-dict-row]', (els) => els.filter((e) => !e.querySelector('[data-testid=zh-write]')).map((e) => e.dataset.word));
-    check('and every word of it can be written with the pen, none left to paper alone', dictWords.length > 0 && noPen.length === 0, noPen.join(' '));
+    check('and every word of every list can be written with the pen, none left to paper alone', dictWords.length > 0 && noPen.length === 0, noPen.join(' '));
+    if (dicts.length > 1) {
+      const order = await p2.$$eval('[data-testid=zh-dict-list]', (els) => els.map((e) => e.dataset.set));
+      check('each list is named, the newest first', JSON.stringify(order) === JSON.stringify(dicts.map((x) => x.set).sort().reverse()), order.join(' '));
+      // a mark on the newest list lands under the newest note, not the lesson's first
+      const nw = dicts.find((x) => x.set === newest.set), w0 = Object.values(nw.words).flat()[0];
+      await p2.click(`[data-testid=zh-dict-row][data-set="${newest.set}"][data-word="${w0}"] [data-testid=zh-reveal]`);
+      await p2.click(`[data-testid=zh-dict-row][data-set="${newest.set}"][data-word="${w0}"] [data-testid=zh-ok]`);
+      const where = await p2.evaluate(({ a, b, w }) => { const z = JSON.parse(localStorage.getItem('isee.v1')).zh || {}; return { mine: !!(((z['hw:' + a] || {}).dictation || {})[w]), first: !!(((z['hw:' + b] || {}).dictation || {})[w]) }; }, { a: newest.set, b: base, w: w0 });
+      check(`a mark on ${newest.set}'s list is kept under that note`, where.mine && !where.first, JSON.stringify(where));
+      await p2.evaluate(() => { location.hash = '#/chinese/checklist'; }); await p2.waitForSelector('[data-testid=zh-checklist]');
+      const dRows = await p2.$$eval('[data-testid=zh-ck-item]', (els) => els.map((e) => e.dataset.id).filter((id) => /^dictation/.test(id)));
+      check('and the checklist has a 听写 row for each list', JSON.stringify(dRows.slice().sort()) === JSON.stringify(dicts.map((x) => 'dictation:' + x.set).sort()), dRows.join(' '));
+      await p2.evaluate((l) => { location.hash = '#/chinese/dictation/' + l; }, lid); await p2.waitForSelector('[data-testid=zh-dictation]');
+    }
     check('no page errors in the newest week', errs2.length === 0, errs2.join(' | '));
     await ctx2.close();
   }

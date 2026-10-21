@@ -63,40 +63,39 @@
   {
    "line": "听写课本52页的词语和以下词语：喝汤。那样。前面。所以。既然。草原。永远。家乡。",
    "kind": "dictation",
-   "what": "课本第60页读一读的词语和老师加的词语",
-   "what_en": "The Read Aloud words on textbook p. 60 and the teacher's extra words",
+   "what": "课本第52页的词语和老师加的词语",
+   "what_en": "The words on textbook p. 52 and the teacher's extra words",
    "rule": {
     "zh": "先听，再用笔在格子里写——点\"写好了\"会显示标准写法，按笔顺判；也可以在纸上写，再点\"对答案\"对照，自己或家长打分；点错了可以撤销。",
     "en": "Listen, then write it with the Pencil in the box — the standard form appears when you tap Done and the strokes are judged by rule; or write it on paper, then tap Check answer and rate it yourself or with a parent; a mark given by mistake can be undone."
    },
    "words": {
-    "读一读（第60页）": [
-     "猴子",
-     "猴王",
-     "捞上来",
-     "打捞",
-     "晚上",
-     "今晚",
-     "夜晚",
-     "晚会",
-     "晚饭",
-     "一群人",
-     "一群猴子",
-     "人群",
-     "群众",
-     "跟着",
-     "跟从",
-     "快跟上",
-     "好啊",
-     "对啊",
-     "是啊",
-     "接着",
-     "接不上",
-     "连接",
-     "接力",
-     "碰到",
-     "碰碰车",
-     "碰见"
+    "读一读（第52页）": [
+     "松树",
+     "松鼠",
+     "老鼠",
+     "田鼠",
+     "淹死了",
+     "一定",
+     "肯定",
+     "必定"
+    ],
+    "用一用（第52页）": [
+     "很突然",
+     "突然停电了",
+     "突然站了起来",
+     "只好去",
+     "只好请别人帮忙",
+     "那么多",
+     "那么好",
+     "那么大",
+     "一定要来",
+     "一定会去的",
+     "最好不要迟到",
+     "最好别去",
+     "那样大",
+     "那样红",
+     "那样深"
     ],
     "老师加的词语": [
      "喝汤",
@@ -110,12 +109,13 @@
     ]
    },
    "sections_en": {
-    "读一读（第60页）": "Read aloud (p. 60)",
+    "读一读（第52页）": "Read aloud (p. 52)",
+    "用一用（第52页）": "Use it (p. 52)",
     "老师加的词语": "The teacher's extra words"
    },
-   "pages": "课本第60页",
-   "pages_en": "Textbook p. 60",
-   "scope_note": "The note says 52页, which is 第五课's page; the parent, 20 October 2026: \"听写60页读一读的词语\" — the dictation is 第六课's own 读一读 on p. 60, the rows of lessons/L06.json, in the book's order. The eight added words are the teacher's own, in the note's order. The line above stays the teacher's, verbatim."
+   "pages": "课本第52页",
+   "pages_en": "Textbook p. 52",
+   "scope_note": "p. 52 is 第五课's page (读一读 last rows and 用一用), dictated again this week; listed as in the 2026-09-30 note, which read it literally. The eight added words are the teacher's own, in the note's order."
   }
  ]
 }

@@ -1,0 +1,57 @@
+{
+ "set": "2026-10-14",
+ "lesson": "L06",
+ "edition": "2023年第三版",
+ "verbatim_note": [
+  "10月14日作业",
+  "听写60页读一读的词语。"
+ ],
+ "tasks": [
+  {
+   "line": "听写60页读一读的词语。",
+   "kind": "dictation",
+   "what": "课本第60页读一读的词语",
+   "what_en": "The Read Aloud words on textbook p. 60",
+   "rule": {
+    "zh": "先听，再用笔在格子里写——点\"写好了\"会显示标准写法，按笔顺判；也可以在纸上写，再点\"对答案\"对照，自己或家长打分；点错了可以撤销。",
+    "en": "Listen, then write it with the Pencil in the box — the standard form appears when you tap Done and the strokes are judged by rule; or write it on paper, then tap Check answer and rate it yourself or with a parent; a mark given by mistake can be undone."
+   },
+   "words": {
+    "读一读（第60页）": [
+     "猴子",
+     "猴王",
+     "捞上来",
+     "打捞",
+     "晚上",
+     "今晚",
+     "夜晚",
+     "晚会",
+     "晚饭",
+     "一群人",
+     "一群猴子",
+     "人群",
+     "群众",
+     "跟着",
+     "跟从",
+     "快跟上",
+     "好啊",
+     "对啊",
+     "是啊",
+     "接着",
+     "接不上",
+     "连接",
+     "接力",
+     "碰到",
+     "碰碰车",
+     "碰见"
+    ]
+   },
+   "sections_en": {
+    "读一读（第60页）": "Read aloud (p. 60)"
+   },
+   "pages": "课本第60页",
+   "pages_en": "Textbook p. 60",
+   "scope_note": "The whole of the 14 October note. p. 60 is 第六课's own 读一读, the rows of lessons/L06.json in the book's order, so this note sets 第六课 again: the site reads the lesson's two notes together (lessonNote in pages/chinese.jsx), her lesson work stays under 2026-10-07, and this list is kept under its own date."
+  }
+ ]
+}

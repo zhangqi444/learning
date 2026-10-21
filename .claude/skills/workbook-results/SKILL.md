@@ -57,9 +57,11 @@ Write `marks.json` in the scratchpad (never the repo):
             "summary": "…", "items": [{"id": "zx:L06-D2-04-1", "ok": null, "note": {"zh": "…", "en": "…"}}]}}
 ```
 
-`review` is optional and in `docs/review.md`'s shape for a Chinese week; its
-`target.set` is the week the lesson's newest note has (or the lesson id when no
-note assigned it). Then:
+`review` is optional and in `docs/review.md`'s shape for a Chinese week. Its
+`target.set` is the date of the **first** note that set the lesson, or the lesson
+id when no note has. A lesson set again in a later week, as 第六课 was on 10月7日
+and 10月14日, keeps its work under the first note, and the site files the marks
+there too (`lessonSet`). Then:
 
 ```bash
 python3 tools/zh_marks_link.py marks.json     # checks every id and every pick against the key, prints the link
