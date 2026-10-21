@@ -544,6 +544,12 @@ reproduction is fine. Until that is settled, no lesson text is committed.
    reading went: the section headed 词语 is on p.50, and p.52 carries the last two
    rows of 读一读 and the whole of 用一用 — the owner read the note literally, so
    the dictation is the words on p.52, listed by section in the homework file.
+   That held for 第五课. The 7 October note, for 第六课, said 52页 again, and the
+   owner settled it on 20 October: "听写60页读一读的词语". The week's dictation is
+   the lesson's own 读一读, on p.60, plus the teacher's eight added words. So a
+   page a note names for a dictation is checked against the lesson it is for,
+   not copied blindly. The teacher's line stays verbatim in the note; the
+   correction is in its `scope_note`.
    The remaining caveat is the one § 8 already states: `old.hwjyw.com` is still
    an earlier edition, so nothing is read from there.
 2. **Which HSK level, and when?** Nothing about mocks, pacing or readiness can be

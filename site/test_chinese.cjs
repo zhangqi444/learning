@@ -811,6 +811,8 @@ const ls = (pg) => pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1') 
     const dict = newest.tasks.find((x) => x.kind === 'dictation'), added = Object.keys(dict.words).pop();
     const dictWords = await p2.$$eval('[data-testid=zh-dict-row]', (els) => els.map((e) => e.dataset.word));
     check('the dictation carries the words the teacher added', dict.words[added].every((w) => dictWords.includes(w)) && dictWords.length === Object.values(dict.words).flat().length, `${dictWords.length} rows · ${added}`);
+    const noPen = await p2.$$eval('[data-testid=zh-dict-row]', (els) => els.filter((e) => !e.querySelector('[data-testid=zh-write]')).map((e) => e.dataset.word));
+    check('and every word of it can be written with the pen, none left to paper alone', dictWords.length > 0 && noPen.length === 0, noPen.join(' '));
     check('no page errors in the newest week', errs2.length === 0, errs2.join(' | '));
     await ctx2.close();
   }
