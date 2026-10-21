@@ -172,9 +172,9 @@ Nothing is renamed for this and nothing is added to the fiction: it is the same
 verb in a second language, and the whole of it is in § 12.
 
 **Cats at the door.** The review pile. A cat whose name she got wrong does not
-run away and is not lost. It comes and sits outside — after a day, then three,
-then a week — waiting to be called again. Get its name right on two different
-days and it moves in for good, with one look-in three weeks later.
+run away and is not lost. It comes and sits outside — after a day, then three
+— waiting to be called again. Get its name right on two different days and it
+moves in for good, with one look-in three weeks later.
 
 **Missing something is not a debt.** A cat at the door is not a bailiff. This is
 the single most important reframing in the document, because the review pile is

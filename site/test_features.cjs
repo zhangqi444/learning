@@ -1440,7 +1440,10 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     const s = JSON.parse(localStorage.getItem('isee.v1'));
     s.results[`vr:${cur}:0`] = { n: 9, right: 9, at: new Date().toISOString(), wrong: [], picks: {} };
     localStorage.setItem('isee.v1', JSON.stringify(s));
-    return cur;
+    // whether the dashboard opens on a plan week at all: four weeks of the plan it
+    // opens on a between-week (a mock's), where no plan set can be drawn
+    const inWeek = b.weeks.some((w) => { const a = new Date(b.starts[w.w] + 'T00:00:00'), z = new Date(a); z.setDate(z.getDate() + 6); return a <= today && today <= z; });
+    return { cur, inWeek };
   });
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=home-checklist]');
@@ -1456,8 +1459,22 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.click('[data-testid=home-toggle-done]');
   const unfolded = await pg.$$eval('[data-testid=home-checklist] .line-through', (n) => n.map((e) => e.textContent.trim()));
   check('finished work folds open on request', unfolded.includes('Read 20 pages'), unfolded.join(' | ') || 'nothing shown');
-  check('and a finished plan set is drawn there too, not only the custom row',
-    (await pg.$$('[data-testid=home-done]')).length >= 1, `seeded vr:${seededWk}:0`);
+  if (seededWk.inWeek) {
+    check('and a finished plan set is drawn there too, not only the custom row',
+      (await pg.$$('[data-testid=home-done]')).length >= 1, `seeded vr:${seededWk.cur}:0`);
+  } else {
+    /* Today is a between-week — Mock 1's, from 19 October — and the dashboard opens
+       on it, where no plan set is listed to be drawn done. This went red on 21
+       October 2026 for that reason alone (CLAUDE.md, the check that reads the real
+       calendar). The derived path is the same Row from the same stored result, so
+       on those days it is checked on the week's own page instead. */
+    await pg.evaluate((w) => { location.hash = '#/checklist/' + w; }, seededWk.cur);
+    await pg.waitForSelector('[data-testid=ck-item]');
+    const doneAuto = await pg.$$eval('[data-testid=ck-item][data-done="1"][data-auto="1"]', (n) => n.length);
+    check('and a finished plan set is drawn there too, not only the custom row',
+      doneAuto >= 1, `between-week today: checked on ${seededWk.cur}'s own page — ${doneAuto} derived rows done`);
+    await pg.evaluate(() => { location.hash = '#/'; }); await pg.waitForSelector('[data-testid=home-checklist]');
+  }
   check('dashboard points at the month parent to-dos', /parent to-do/.test(await body(pg)));
 
   /* Every noun the world defines has to be said somewhere. docs/cats.md opens
@@ -1563,6 +1580,12 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('[data-testid=cause-bar]');
   const rv = await body(pg);
   check('review page: migrated misses waiting at the door, cause breakdown shown', /\d+ at the door/.test(rv) && /Why misses happen/.test(rv));
+  /* The ladder as the page tells it is the ladder the engine walks: 1 day, then 3,
+     then the 21-day check-in. The page said "then a week" for a month, as README and
+     AGENTS.md did, and the code never walked one — the second right day clears the
+     miss. The numbers are the engine's own constants now, quoted, not retyped. */
+  check('the review page tells the ladder the engine walks: 1 day, then 3, a look-in 21 days later, and no week',
+    /after 1 day, then 3 —/.test(rv) && /look-in 21 days later/.test(rv) && !/then a week/.test(rv));
   const dueVR = +(await pg.textContent('[data-testid=due-vr]').catch(() => '0'));
   check('VR has due items (words rated shaky + misses)', dueVR >= 1, dueVR + ' due');
   // The button says how many questions the run will ask, not only how many are waiting:
@@ -1800,6 +1823,26 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     for (const w of b.weeks) if (new Date(b.starts[w.w] + 'T00:00:00') <= t) c = w.w;
     return c;
   });
+  /* The review misses this suite records are dated today, and today is inside a plan
+     week only five weeks in eight: on a between-week (Mock 1's, from 19 October) the
+     last week begun holds none of them, and the roll-up this looks for is not drawn.
+     Found on 21 October 2026 as "W6: no review-miss roll-up" with nothing in the diff
+     near it — the calendar failure CLAUDE.md names. So the week is given a review miss
+     of its own, dated inside it, on the record the check-in just used: spliced in date
+     order, so the latest answer on that question, and every level read off it, stay as
+     they were. Through setLs, because it is an edit under a live page. */
+  const seedAt = await pg.evaluate(async (w) => { const b = await (await fetch('content/bundle.json')).json(); return b.starts[w] + 'T12:00:00'; }, curWk);
+  await setLs(pg,
+    (at) => {
+      const s = JSON.parse(localStorage.getItem('isee.v1'));
+      const id = sessionStorage.getItem('checkinId'), r = s.items[id];
+      if (!r || (r.hist || []).some((h) => h.at === at)) return;
+      r.hist = [...(r.hist || []), { at, ok: false, ms: 0, pick: 'A', ctx: 'review' }].sort((p, q) => Date.parse(p.at) - Date.parse(q.at));
+      localStorage.setItem('isee.v1', JSON.stringify(s));
+    },
+    (at) => { const id = sessionStorage.getItem('checkinId'); const r = JSON.parse(localStorage.getItem('isee.v1')).items[id]; return !!(r && (r.hist || []).some((h) => h.at === at)); },
+    12000, seedAt);
+  await pg.reload({ waitUntil: 'networkidle' });
   await pg.evaluate((w) => { location.hash = '#/checklist/' + w; }, curWk);
   await pg.waitForSelector('[data-testid=week-recap]');
   await pg.waitForTimeout(400);
@@ -1912,6 +1955,130 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   }, seeded.sk);
   check('and one more promotion is exactly what it took — the engine agrees with the page',
     !!mastered && /Mastered/.test(mastered), String(mastered));
+  /* The other half of the promise. "Two right in a mixed set or a mock" — and the
+     mock half had never been true: a mock question has an id of its own, so no
+     bank record ever carried a mock attempt, and skillLevel, walking bank ids,
+     never saw one (0 of the 508 mock ids are bank ids). A mock question is filed
+     under the bank skill its paper-style tag resolves to now (mockIdsFor), and a
+     right answer on it, on a later day than the skill's first, is a promotion.
+     Seeded like the check above: three of a skill's Week 1 questions right ten
+     days ago — Proficient, nothing banked — and one of a paper's questions on that
+     skill right two days ago, so the page owes her "1 more"; a second one, and the
+     engine says Mastered. A different skill from the one above where there is one,
+     so nothing the stub Drive hands back can bank a promotion for it. */
+  drive.body = JSON.stringify({ schema: 4, results: {} });
+  const mockSeed = await pg.evaluate(async (avoid) => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const S = b.learn.skills, A = b.learn.aliases || {};
+    const learnName = (sk) => { if (S[sk]) return sk; const low = sk.trim().toLowerCase(), head = low.split(/[—–]/)[0].trim(); const hit = A[low] || A[head]; return hit && S[hit] ? hit : null; };
+    const bySk = {};
+    for (const it of b.subjects.ma) if (it.w === 'W1') (bySk[it.sk] = bySk[it.sk] || []).push(it.id);
+    const table = new Set(b.subjects.ma.map((it) => it.sk));
+    const mocks = {};
+    for (const form of Object.keys(b.mockItems)) for (const it of (b.mockItems[form].MA || [])) { const nm = table.has(it.sk) ? it.sk : learnName(it.sk); if (nm && table.has(nm)) (mocks[nm] = mocks[nm] || []).push(it.id); }
+    const fit = Object.keys(bySk).filter((k) => bySk[k].length >= 3 && (mocks[k] || []).length >= 2);
+    const sk = fit.find((k) => k !== avoid) || fit[0];
+    if (!sk) return null;
+    const day = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return d.toISOString(); };
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.items = {}; s.results = {}; s.mocks = {}; s.mixed = {};
+    for (const id of bySk[sk].slice(0, 3)) s.items[id] = { hist: [{ at: day(10), ok: true, ctx: 'set' }], due: null, cleared: day(10) };
+    s.items[mocks[sk][0]] = { hist: [{ at: day(2), ok: true, ctx: 'mock' }] };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    return { sk, mock: mocks[sk].slice(0, 2) };
+  }, seeded.sk);
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=promotion-plan]');
+  const mockPlan = await pg.$$eval('[data-testid=promotion-row]', (n) => n.map((x) => `${x.dataset.sk}:${x.dataset.needs}`));
+  check('a right answer on a mock question of the skill, on a later day, is a promotion the page counts',
+    !!mockSeed && mockPlan.includes(`${mockSeed.sk}:1`), mockSeed ? `seeded ${mockSeed.sk} via ${mockSeed.mock[0]} | plan: ${mockPlan.join(' | ') || 'empty'}` : 'no MA skill with three W1 questions and two mock questions');
+  await pg.evaluate((s0) => {
+    if (!s0) return;
+    const day = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return d.toISOString(); };
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.items[s0.mock[1]] = { hist: [{ at: day(1), ok: true, ctx: 'mock' }] };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, mockSeed);
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  const mockMastered = await pg.evaluate((sk) => { const row = [...document.querySelectorAll('[data-testid=skill-row]')].find((r) => r.dataset.sk === sk); return row ? (row.textContent || '').replace(/\s+/g, ' ').trim() : null; }, mockSeed ? mockSeed.sk : '');
+  check('and a second mock question right finishes it — Mastered through a mock, as the page has always said',
+    !!mockMastered && /Mastered/.test(mockMastered), String(mockMastered));
+
+  /* Coverage pulls the mixed set. An unseen question on a skill she has never met
+     outranks the weak skills (2.5 against 2) and sits under the Proficient ones (3),
+     because the mixed set is the one surface that reaches across the whole bank.
+     Seeded: one Mathematics skill with one question answered and the rest of the
+     subject untouched, so the three Mathematics slots must all come from skills
+     she has never met and none from the one she has. Before this rule every
+     unseen question weighed 1 and the hash decided, which served the touched
+     skill about one run in three. */
+  drive.body = JSON.stringify({ schema: 4, results: {} });
+  const covSeed = await pg.evaluate(async () => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const bySk = {};
+    for (const it of b.subjects.ma) if (it.w === 'W1') (bySk[it.sk] = bySk[it.sk] || []).push(it.id);
+    const sk = Object.keys(bySk).sort((a, c) => bySk[c].length - bySk[a].length)[0];
+    const day = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return d.toISOString(); };
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.items = {}; s.results = {}; s.mocks = {}; s.mixed = {};
+    s.items[bySk[sk][0]] = { hist: [{ at: day(10), ok: true, ctx: 'set' }], due: null, cleared: day(10) };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    return { sk, skOf: Object.fromEntries(b.subjects.ma.map((it) => [it.id, it.sk])) };
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/mixed'; }); await pg.waitForSelector('[data-testid=mixed-start]');
+  await pg.click('[data-testid=mixed-start]'); await pg.waitForSelector('[data-testid=question]');
+  const covQids = [];
+  for (let k = 0; k < 14 && (await pg.$('[data-testid=question]')); k++) {
+    covQids.push(await pg.$eval('[data-testid=question]', (e) => e.dataset.qid));
+    const before = await pg.textContent('[data-testid=counter]');
+    await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]');
+    await pg.waitForFunction((b) => { const c = document.querySelector('[data-testid=counter]'); return !c || c.textContent !== b || !!document.querySelector('[data-testid=score]'); }, before, { timeout: 10000 });
+  }
+  await pg.waitForSelector('[data-testid=score]');
+  const covMa = covQids.filter((id) => covSeed.skOf[id]).map((id) => covSeed.skOf[id]);
+  check('the mixed set reaches for the skills she has never met before the one she has',
+    covMa.length >= 1 && !covMa.includes(covSeed.sk), `${covSeed.sk} touched | Mathematics served: ${covMa.join(', ') || 'none'}`);
+
+  /* Two answers on one day are one piece of evidence — measured against the last
+     answer that WAS evidence. The guard used to read the last line of the history
+     whatever its context, so a corrections pass this morning stopped this
+     afternoon's review from stepping the miss: corrections prove nothing, and were
+     deciding. Seeded: a miss two days ago with a corrections answer today, due
+     yesterday, alone in the pile. The review serves two stand-ins for it; both
+     answered right (the key read off the bundle) must step it from 0 to 1. */
+  drive.body = JSON.stringify({ schema: 4, results: {} });
+  const sameDaySeed = await pg.evaluate(async () => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const bySk = {};
+    for (const it of b.subjects.ma) if (it.w === 'W1') (bySk[it.sk] = bySk[it.sk] || []).push(it.id);
+    const sk = Object.keys(bySk).find((k) => bySk[k].length >= 3);
+    const id = bySk[sk][0];
+    const day = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return d.toISOString(); };
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.items = {}; s.results = {}; s.mocks = {}; s.mixed = {};
+    s.items[id] = { hist: [{ at: day(2), ok: false, ctx: 'set', pick: 'A' }, { at: new Date().toISOString(), ok: true, ctx: 'corr' }], step: 0, due: day(1), lastMiss: day(2), misses: 1 };
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+    return { id, keys: Object.fromEntries(b.subjects.ma.map((it) => [it.id, 'ABCD'.indexOf(it.k)])) };
+  });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('[data-testid=start-review-ma]');
+  await pg.click('[data-testid=start-review-ma]'); await pg.waitForSelector('[data-testid=question]');
+  const sameDayRun = [];
+  for (let k = 0; k < 4 && (await pg.$('[data-testid=question]')); k++) {
+    const q = await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null }));
+    sameDayRun.push(q);
+    const before = await pg.textContent('[data-testid=counter]');
+    await pg.click(`[data-testid=choice] >> nth=${sameDaySeed.keys[q.qid] >= 0 ? sameDaySeed.keys[q.qid] : 0}`); await pg.click('[data-testid=next]');
+    await pg.waitForFunction((b) => { const c = document.querySelector('[data-testid=counter]'); return !c || c.textContent !== b || !!document.querySelector('[data-testid=score]'); }, before, { timeout: 10000 });
+  }
+  await pg.waitForSelector('[data-testid=score]');
+  const sameDayRec = await pg.evaluate((id) => { const r = JSON.parse(localStorage.getItem('isee.v1')).items[id] || {}; return { step: r.step, due: r.due, again: (r.hist || []).filter((h) => h.ctx === 'again' && h.ok).length }; }, sameDaySeed.id);
+  check('a corrections answer today does not stop today\'s review from stepping the miss',
+    sameDayRun.length === 2 && sameDayRun.every((q) => q.standsFor === sameDaySeed.id) && sameDayRec.again === 2 && sameDayRec.step === 1,
+    JSON.stringify({ run: sameDayRun, rec: sameDayRec }));
+
   drive.body = promoRemote;
   await pg.evaluate(() => { const s = sessionStorage.getItem('promo-stash'); if (s) localStorage.setItem('isee.v1', s); });
   await pg.reload({ waitUntil: 'networkidle' });
@@ -2305,6 +2472,32 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     answered: +((/answered questions on (\d+) of them/.exec(document.querySelector('[data-testid=vocab-summary]').textContent) || [])[1]),
   }));
   await pg.evaluate(() => { location.hash = '#/score'; }); await pg.waitForSelector('[data-testid=vocab-standing]');
+  /* Coverage beside the number (the design doc of 11 October 2026, P4). Each count
+     is the skill pages' own: a question is met when she answered it herself in a
+     learning context — never a corrections pass, never a stand-in's answer written
+     onto it — so the card is recomputed here from her record and the bundle, by
+     that rule, and cannot say more than the Not tried yet lists do. */
+  await pg.waitForSelector('[data-testid=coverage-row]');
+  const covCard = await pg.evaluate(async () => {
+    const b = await (await fetch('content/bundle.json')).json();
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    const CTX = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 };
+    const skillOf = (sub, it) => sub !== 'vr' ? (it.sk || 'General') : (it.sk === 'Synonyms' || it.sk === 'Sentence completion') ? it.sk : /most nearly means/i.test(it.q || '') ? 'Synonyms' : /_{3,}/.test(it.q || '') ? 'Sentence completion' : 'Words in context';
+    const met = (id) => (((s.items || {})[id] || {}).hist || []).some((h) => h && CTX[h.ctx] && !h.via);
+    const want = {};
+    for (const sub of ['vr', 'qr', 'ma', 'rc']) {
+      const t = {};
+      for (const it of b.subjects[sub]) (t[skillOf(sub, it)] = t[skillOf(sub, it)] || []).push(it.id);
+      const skills = Object.keys(t), skillsMet = skills.filter((k) => t[k].some(met));
+      want[sub] = `${skillsMet.length}/${skills.length} ${b.subjects[sub].filter((it) => met(it.id)).length}/${b.subjects[sub].length}`;
+    }
+    const got = {};
+    for (const r of document.querySelectorAll('[data-testid=coverage-row]')) got[r.dataset.sub] = `${r.dataset.skillsMet}/${r.dataset.skills} ${r.dataset.questionsMet}/${r.dataset.questions}`;
+    return { want, got, text: (document.querySelector('[data-testid=coverage-standing]') || {}).textContent || '' };
+  });
+  check('the coverage card counts what she has met the way the skill pages count it, per subject',
+    ['vr', 'qr', 'ma', 'rc'].every((sub) => covCard.got[sub] === covCard.want[sub]) && /No part of its own in the readiness number/.test(covCard.text),
+    JSON.stringify({ want: covCard.want, got: covCard.got }));
   const standing = await pg.evaluate(async () => {
     const b = await (await fetch('./content/bundle.json')).json();
     const s = JSON.parse(localStorage.getItem('isee.v1'));

@@ -158,9 +158,10 @@ Pure functions over `Store.s` and the bundle, plus three writers
 - **Evidence**: an attempt counts as learning evidence in contexts `set`,
   `review`, `mixed`, `mock`, `vocab`; `corr` (redoing a question right after
   seeing the answer) does not.
-- **Spaced review**: a miss is due tomorrow; each later correct answer on a
-  *different day* advances through intervals of 1, 3, 7, 21 days; two steps clear
-  it from the pile with one check-in three weeks later. A review never asks the
+- **Spaced review**: a miss is due tomorrow; a correct answer on a *different
+  day* waits 3 days; a second clears it from the pile with one check-in 21 days
+  later (`INTERVALS[0..1]`, `CHECKIN_DAYS`; the ladder's 7 and 21 are the Chinese
+  dictation's rungs). A review never asks the
   missed question itself: it asks two different questions of the same skill
   (`reviewItems`, `reviewStandIns`), whose answers move the miss through `for`. Vocabulary rated 1 or 2
   in the precision review is scheduled the same way.

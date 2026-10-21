@@ -141,6 +141,16 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   // stand-ins each write onto the miss they stand for, with the same time and context and
   // their own `via`. The merge keyed history on time and context alone and kept the first.
   {
+    /* The page is still dirty from the load before this — backfill() writes records
+       on every load and the push is debounced 1200 ms — so an edit to the remote and
+       to localStorage made inside that window is saved over by the page's own flush,
+       and the reload's keepalive PATCH then writes its in-memory copy over the
+       remote too. Seen on 21 October 2026 as a pass, a fail keeping one answer and a
+       fail keeping none, on three runs of one build with nothing in the merge path
+       changed. The same race test_features.cjs holds past with setLs: wait out the
+       window, and make sure the chip has come back to rest, before touching either. */
+    await pg.waitForTimeout(1600);
+    await pg.waitForSelector('button:has-text("Saved to Drive")', { timeout: 8000 });
     const at = new Date(Date.now() - 60000).toISOString();
     const a1 = { at, ok: true, ms: 0, pick: 'A', ctx: 'again', via: 'X-STAND-1' }, a2 = { at, ok: false, ms: 0, pick: 'B', ctx: 'again', via: 'X-STAND-2' };
     const remote = JSON.parse(drive.body); remote.items = remote.items || {};

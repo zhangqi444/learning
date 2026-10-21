@@ -179,7 +179,7 @@ the engine is not ISEE-shaped. `recordAttempts`, `INTERVALS`, `LEARN_CTX`,
 `skillLevel`, `reviewQueue` are keyed on item ids and contexts. Chinese gets all of
 it, unchanged.
 
-**Shared, as-is:** the spaced schedule (1, 3, 7, 21 days, retiring on two correct
+**Shared, as-is:** the spaced schedule (1 day, then 3, retiring on two correct
 answers on different days with a three-week check-in — though not the ISEE rule that a
 review asks two different questions in the miss's place: a 生字 is its own skill, so the
 Chinese review asks for the character again); the mastery ladder, including

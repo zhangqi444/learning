@@ -69,7 +69,11 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
     const body = await pg.textContent('body');
     const SETS = totalSets();
     check(`seed applied + legacy set (11 of ${SETS} sets)`, new RegExp(`11\\s*of\\s*${SETS}\\b`).test(body), body.match(/\d+\s*of\s*\d+/)?.[0]);
-    check('legacy numeric timestamp renders as a date', /Sep 2/.test(body));
+    // The day that timestamp falls on depends on the machine's zone: Sep 2 in the
+    // Pacific, Sep 3 in UTC, where the cloud runners sit. So the expected text is
+    // what the browser itself makes of the same instant, not a day typed here.
+    const legacyDay = await pg.evaluate(() => new Date(1788395637217).toLocaleDateString(undefined, { month: 'short', day: 'numeric' }));
+    check('legacy numeric timestamp renders as a date', body.includes(legacyDay), `expected ${legacyDay} on the page`);
     check('review count 19 on dashboard', /19/.test(body));
     check('recent-sets table present', (await pg.$$('[data-slot=table-row]')).length > 1);
     check('accuracy chart drawn', (await pg.$$('.recharts-bar-rectangle')).length > 0, (await pg.$$('.recharts-bar-rectangle')).length + ' bars');

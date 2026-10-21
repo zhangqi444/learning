@@ -3,7 +3,7 @@ import { CalendarClock, Play, ShieldCheck, Sparkles } from "lucide-react"
 
 import { ORDER, SUBJ, fmtDate } from "@/lib/content"
 import { W } from "@/lib/world"
-import { CAUSES, CAUSE_TONE, INTERVALS, causeBreakdown, missProfile, reviewItems, reviewQueue, skillCat, skillOf, wordStatus } from "@/lib/engine"
+import { CAUSES, CAUSE_TONE, CHECKIN_DAYS, INTERVALS, causeBreakdown, missProfile, reviewItems, reviewQueue, skillCat, skillOf, wordStatus } from "@/lib/engine"
 import { Glim } from "@/components/glim"
 import { WORD_GLOW } from "@/lib/glim"
 import { sfx } from "@/lib/sfx"
@@ -43,7 +43,7 @@ export function Review() {
       <div className="flex flex-col gap-1">
         <h1 className="text-2xl font-semibold tracking-tight">Review</h1>
         <p className="text-muted-foreground max-w-prose text-sm">
-          A {W.cat} whose name you got wrong does not run away. It comes and sits outside — after {INTERVALS[0]} day, then {INTERVALS[1]}, then a week — waiting to be called again. It will not ask you the same question again: each time, it asks two others that need the same thing you missed. Get both right on two different days and it moves in for good, with one look-in three weeks later. Words you rated shaky are out there too. Missing something is not a debt; it is how the world knows who to send back to you.
+          A {W.cat} whose name you got wrong does not run away. It comes and sits outside — after {INTERVALS[0]} day, then {INTERVALS[1]} — waiting to be called again. It will not ask you the same question again: each time, it asks two others that need the same thing you missed. Get both right on two different days and it moves in for good, with one look-in {CHECKIN_DAYS} days later. Words you rated shaky are out there too. Missing something is not a debt; it is how the world knows who to send back to you.
         </p>
       </div>
 

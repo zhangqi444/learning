@@ -112,3 +112,30 @@ print('   Zero, and held there by tools/validate_content.py rather than by this\
       '   re-randomises every option before a bank ships, and three items were\n'
       '   found with their reasons on the wrong choices outright — one of them\n'
       '   explaining the correct answer as a mistake.')
+
+# --- 5. skills the bank is thin on --------------------------------------------
+# Coverage is the goal the engine measures least (the design doc of 11 October
+# 2026, "Learning engine design"): readiness averages mastery over the skills she
+# has PRACTISED, so a skill with four questions and a skill with forty-five weigh
+# the same once touched and nothing at all until then. This lists the practice
+# skills with fewer than THIN questions, per subject, so an author can see where
+# a mock miss has almost nothing to stand in for it. The spec's strands
+# (docs/isee-item-spec.md) are prose, not a list keyed to these names, so mapping
+# a thin skill onto a strand is a person's job — this only says which are thin.
+THIN = 6
+print(f'\n5. practice skills with fewer than {THIN} questions')
+# Verbal's `skill` field is the word a question tests; its three skills are read off
+# the stem the way lib/engine.js's skillOf reads them.
+def skill_of(i):
+    if i.get('subject') != 'VR':
+        return i.get('skill') or 'General'
+    q = i.get('prompt') or ''
+    return 'Synonyms' if re.search('most nearly means', q, re.I) else 'Sentence completion' if re.search('_{3,}', q) else 'Words in context'
+by_sub = collections.defaultdict(collections.Counter)
+for i in practice:
+    by_sub[i.get('subject')][skill_of(i)] += 1
+for s in ('VR', 'QR', 'RC', 'MA'):
+    thin = sorted((n, k) for k, n in by_sub[s].items() if n < THIN)
+    print(f'   {s}  {len(by_sub[s])} skills, {len(thin)} thin' + (': ' + ', '.join(f'{k} ({n})' for n, k in thin) if thin else ''))
+print('   A review asks two different questions on the missed skill; a skill of four\n'
+      '   runs out after two misses, and the mixed set then has nothing fresh to serve.')

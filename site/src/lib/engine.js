@@ -34,8 +34,15 @@ export const CAUSE_CHIP = Object.fromEntries(CAUSES.map((c) => [c.id, c.chip]))
 export const CAUSE_LABEL = Object.fromEntries(CAUSES.map((c) => [c.id, c.label]))
 /** Seconds per question on the real Lower Level: 20 min/34, 35/38, 25/25, 30/30. */
 export const BUDGET = { vr: 35, qr: 55, rc: 60, ma: 60 }
-export const INTERVALS = [1, 3, 7, 21]                  // days: after a miss, then after each spaced correct answer
-const CHECKIN_DAYS = 21, WORD_BRUSHUP_DAYS = 7
+/** Days to the next return: after a miss, then after each right answer given on a
+ *  later day. An ISEE miss clears on the second such day (`recordAttempts`), so it
+ *  walks 1 and 3 and then goes to its check-in at CHECKIN_DAYS; the 7 and the 21
+ *  are the Chinese dictation's rungs (lib/writereview.js), which retires a character
+ *  on the fourth right day. The documents said 1, 3, 7, 21 of the ISEE ladder for a
+ *  month, and the Review page said "then a week"; the code never did that. */
+export const INTERVALS = [1, 3, 7, 21]
+export const CHECKIN_DAYS = 21
+const WORD_BRUSHUP_DAYS = 7
 export const LEARN_CTX = { set: 1, review: 1, mixed: 1, mock: 1, vocab: 1, again: 1 }   // 'corr' (right after seeing the answers) is not evidence
 // 'again' is evidence and 'corr' is not, and the difference is the whole rule:
 // corrections re-ask the question whose answer she has just been shown, while
@@ -141,7 +148,13 @@ export function recordAttempts(entries, ctx) {
       return
     }
     if (LEARN_CTX[kctx]) {
-      const last = (prev.hist || [])[prev.hist.length - 1]
+      // "Two answers on one day are one piece of evidence" is measured against the
+      // last answer that WAS evidence. It used to read the last line whatever its
+      // context, so a corrections pass taken this morning would have stopped this
+      // afternoon's review from stepping the record — corrections prove nothing
+      // either way, and must not be able to block the answers that do.
+      const evid = (prev.hist || []).filter((h) => h && LEARN_CTX[h.ctx])
+      const last = evid[evid.length - 1]
       const sameDay = last && dayKey(last.at) === dayKey(now)
       const inPile = !!(prev.due && !prev.cleared)
       if (!entry.ok) {
@@ -623,6 +636,43 @@ export function skillTable(sub) {
   for (const it of bank) { const sk = skillOf(sub, it); (t[sk] = t[sk] || { sk, ids: [], weeks: new Set() }); t[sk].ids.push(it.id); t[sk].weeks.add(it.w || it.l) }
   return (SK_CACHE[sub] = t)
 }
+/** The bank skill a question counts under, wherever the question lives. A practice
+ *  question names its skill as the bank does. A mock question is tagged the way a
+ *  paper tags it — "whole-number addition", "percent reasoning—reverse discount" —
+ *  and resolves through the lesson aliases, the way `anotherLike` and the review
+ *  stand-ins already resolve it; its own subject's table is tried first, then the
+ *  others', because the papers file exponents under Mathematics and the bank keeps
+ *  them under Quantitative. Null when nothing in the bank answers to the name. */
+export function bankSkill(sub, it) {
+  if (!sub || !it) return null
+  const raw = skillOf(sub, it)
+  const names = [...new Set([skillTable(sub)[raw] ? raw : null, learnName(raw), raw].filter(Boolean))]
+  for (const nm of names) {
+    const where = [sub, ...ORDER.filter((x) => x !== sub)].find((x) => skillTable(x)[nm])
+    if (where) return { sub: where, sk: nm }
+  }
+  return null
+}
+/** The mock questions that count under a bank skill, by subject and skill.
+ *
+ *  The mastery ladder has promised since it was written that Mastered takes two
+ *  right answers "in a mixed set or a mock", and the mock half of that was never
+ *  true: `skillLevel` walked the bank's ids and looked for a `mock` attempt on
+ *  them, and a mock question has an id of its own, so no bank record ever carried
+ *  one. Found on 11 October 2026 by counting — 0 of 508 mock ids are bank ids.
+ *  This index is the missing half: every mock question, filed under the bank
+ *  skill its paper-style tag resolves to. */
+let MOCK_SK = null, MOCK_FOR = null
+function mockIdsFor(sub, sk) {
+  if (!MOCK_SK || MOCK_FOR !== D) {
+    MOCK_SK = {}; MOCK_FOR = D
+    for (const form of Object.keys(D.mockItems || {})) for (const sec of Object.keys(D.mockItems[form])) for (const it of D.mockItems[form][sec]) {
+      const b = bankSkill(SEC2SUB[sec] || "vr", it)
+      if (b) (MOCK_SK[b.sub + "\u0000" + b.sk] = MOCK_SK[b.sub + "\u0000" + b.sk] || []).push(it.id)
+    }
+  }
+  return MOCK_SK[sub + "\u0000" + sk] || []
+}
 function attemptsOf(r, asOf) { return (r && r.hist ? r.hist : []).filter((h) => LEARN_CTX[h.ctx] && (!asOf || ts(h.at) <= asOf)) }
 /** A right answer she did not mark as a guess — the only kind that says she knows it.
  *  A guess that lands is right on the paper and stays right in the set, but it raises
@@ -646,7 +696,7 @@ export function skillCat(sub, sk) {
 export function skillLevel(sub, sk, asOf) {
   const info = skillTable(sub)[sk]
   if (!info) return null
-  let attempted = 0, cur = 0, overdue = 0, promoted = 0
+  let attempted = 0, cur = 0, overdue = 0, promoted = 0, since = null
   const now = asOf || Date.now()
   for (const id of info.ids) {
     const r = rec(id)
@@ -656,16 +706,52 @@ export function skillLevel(sub, sk, asOf) {
     if (known(hs[hs.length - 1])) cur++
     if (r.due && !r.cleared && ts(r.due) <= now) overdue++
     const firstDay = dayKey(hs[0].at)
+    if (!since || firstDay < since) since = firstDay
     if (hs.some((h) => known(h) && (h.ctx === "mixed" || h.ctx === "mock") && dayKey(h.at) !== firstDay)) promoted++
+  }
+  /* A mock question on this skill answered right, on a later day than she first
+     met the skill in practice, is the second kind of promotion — the purest
+     unannounced context the site has. Later than the SKILL's first day, not the
+     question's, because a mock question is met once. Accuracy and the level's
+     other inputs stay on the practice questions: a paper counts toward Mastered
+     and nowhere else here. */
+  if (since) for (const id of mockIdsFor(sub, sk)) {
+    if (attemptsOf(rec(id), asOf).some((h) => known(h) && h.ctx === "mock" && dayKey(h.at) > since)) promoted++
   }
   const acc = attempted ? cur / attempted : null
   let level = "Not started"
   if (attempted && attempted < 3) level = "Started"
   else if (attempted) level = acc < 0.7 ? "Needs work" : acc < 0.85 ? "Familiar" : overdue ? "Familiar" : promoted >= PROMOTE_AT ? "Mastered" : "Proficient"
-  return { sk, level, acc, attempted, total: info.ids.length, overdue, promoted, weeks: [...info.weeks].sort(), score: LEVEL_SCORE[level] }
+  return { sk, level, acc, attempted, total: info.ids.length, overdue, promoted, since, weeks: [...info.weeks].sort(), score: LEVEL_SCORE[level] }
 }
 export function skillsFor(sub, asOf) {
   return Object.keys(skillTable(sub)).map((sk) => skillLevel(sub, sk, asOf)).sort((a, b) => (a.acc == null) - (b.acc == null) || (a.acc || 0) - (b.acc || 0) || b.total - a.total)
+}
+/** How much of the bank she has met, per subject: skills with any answer on them,
+ *  and questions with any answer on them, against what the bank holds.
+ *
+ *  Readiness has no part that reads this, on purpose. `masteryOf` averages over
+ *  the skills she has practised, so a subject with five of thirty-nine skills
+ *  touched and all five Mastered reads as mastered — which is the right thing for
+ *  the number to say about her and the wrong thing for it to say about the plan.
+ *  Putting unreached skills at zero inside it would crater the score in September
+ *  and read as punishment (hard rule 3). So coverage is counted beside the number,
+ *  as essays and vocabulary are, and shown on the Score page (CoverageStanding).
+ *
+ *  "Met" is the skill pages' own rule (lib/tally.js, `answersOn`): an answer she
+ *  gave to this question in a learning context, never one a stand-in wrote onto
+ *  it, so the count here is the length of the Not tried yet list on that page. */
+export function coverageOf(sub, asOf) {
+  const t = skillTable(sub)
+  const met = (id) => ((rec(id) || {}).hist || []).some((h) => h && LEARN_CTX[h.ctx] && !h.via && (!asOf || ts(h.at) <= asOf))
+  let skills = 0, skillsMet = 0, questions = 0, questionsMet = 0
+  for (const sk of Object.keys(t)) {
+    skills++
+    let n = 0
+    for (const id of t[sk].ids) { questions++; if (met(id)) { n++; questionsMet++ } }
+    if (n) skillsMet++
+  }
+  return { sub, skills, skillsMet, questions, questionsMet }
 }
 /** Mastery score of a subject: item-weighted level score over practiced skills. */
 export function masteryOf(sub, asOf) {
@@ -696,7 +782,12 @@ export function buildMixedSet(n = 12, seed = todayKey()) {
       const hs = r && r.hist ? r.hist : []
       if (hs.length && dayKey(hs[hs.length - 1].at) === seed) continue
       const L = levels[skillOf(s, it)] || {}
-      const prio = !hs.length ? 1 : L.level === "Proficient" ? 3 : L.level === "Needs work" || L.level === "Familiar" ? 2 : L.level === "Mastered" ? 0.5 : 1
+      /* An unseen question on a skill she has never met at all outranks the weak
+         skills and sits under the Proficient ones: the mixed set is the one surface
+         that reaches across the whole bank, so it is where the questions she has
+         not met get pulled forward. 39 Quantitative skills, 14 of them with eight
+         questions or fewer, is a lot of bank for the plan weeks alone to cover. */
+      const prio = !hs.length ? (L.attempted ? 1 : 2.5) : L.level === "Proficient" ? 3 : L.level === "Needs work" || L.level === "Familiar" ? 2 : L.level === "Mastered" ? 0.5 : 1
       pool.push({ it, sub: s, prio, rnd: hash(seed + it.id) })
     }
     pool.sort((a, b) => b.prio - a.prio || a.rnd - b.rnd)
@@ -732,12 +823,21 @@ export function promotionsIn(items, asOf) {
     const id = q && q.id ? q.id : q
     const hit = findItem(id)
     if (!hit || !hit.it) continue
-    const sub = hit.sub, sk = skillOf(sub, hit.it)
+    // A mock question is grouped under the bank skill it resolves to, the skill the
+    // ladder counts it under (mockIdsFor); its paper-style tag has no table of its own.
+    const b = bankSkill(hit.sub, hit.it)
+    if (!b) continue
+    const { sub, sk } = b
     const key = sub + "\u0000" + sk
     let g = by.get(key)
-    if (!g) by.set(key, (g = { sub, sk, n: 0, eligible: 0 }))
+    if (!g) by.set(key, (g = { sub, sk, n: 0, eligible: 0, mock: [] }))
     g.n++
     const hs = attemptsOf(rec(id), asOf)
+    if (hit.src === "mock") {
+      // eligible once the skill itself is known from an earlier day: settled below
+      if (!hs.some((h) => known(h) && h.ctx === "mock")) g.mock.push(id)
+      continue
+    }
     if (!hs.length) continue
     const firstDay = dayKey(hs[0].at)
     if (firstDay === todayKey()) continue
@@ -746,6 +846,8 @@ export function promotionsIn(items, asOf) {
   }
   return [...by.values()].map((g) => {
     const L = skillLevel(g.sub, g.sk, asOf) || {}
+    if (g.mock.length && L.since && L.since < todayKey()) g.eligible += g.mock.length
+    delete g.mock
     const promoted = L.promoted || 0
     const needs = Math.max(0, PROMOTE_AT - promoted)
     return { ...g, level: L.level || "Not started", promoted, needs, canReach: L.level === "Proficient" && needs > 0 && g.eligible >= needs }

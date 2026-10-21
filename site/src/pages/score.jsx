@@ -1,11 +1,11 @@
 import * as React from "react"
-import { ArrowRight, Flame, Library, PenLine, Sparkles, Trophy } from "lucide-react"
+import { ArrowRight, Compass, Flame, Library, PenLine, Sparkles, Trophy } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import { ORDER, SUBJ } from "@/lib/content"
 import { W } from "@/lib/world"
 import { essayStanding } from "@/pages/essay"
-import { LEVELS, effortPoints, readiness, readinessHistory, skillsFor, thisWeekRange } from "@/lib/engine"
+import { LEVELS, coverageOf, effortPoints, readiness, readinessHistory, skillsFor, thisWeekRange } from "@/lib/engine"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
@@ -197,6 +197,52 @@ function VocabStanding() {
   )
 }
 
+/** How much of the bank she has met, beside the number and not inside it — the design
+ *  doc of 11 October 2026 ("Learning engine design", P4). Skill mastery averages over the
+ *  skills she has PRACTISED, so a subject with five of thirty-nine skills touched and all
+ *  five Mastered reads as mastered: right about her, silent about the plan. Putting the
+ *  unreached skills at zero inside the number would crater it in September and read as
+ *  punishment (hard rule 3), so coverage is shown the way essays and vocabulary are. Every
+ *  count is the skill pages' own (lib/engine.js, coverageOf, by lib/tally.js's rule), so
+ *  "not tried yet" here is the length of that list on the subject's page. */
+function CoverageStanding() {
+  const rows = ORDER.map((s) => coverageOf(s))
+  const sum = (k) => rows.reduce((n, r) => n + r[k], 0)
+  const skills = sum("skills"), skillsMet = sum("skillsMet"), questions = sum("questions"), questionsMet = sum("questionsMet")
+  return (
+    <Card data-testid="coverage-standing" data-skills={skills} data-skills-met={skillsMet} data-questions={questions} data-questions-met={questionsMet}>
+      <CardHeader>
+        <CardDescription className="flex items-center gap-2"><Compass className="size-4" /> Coverage</CardDescription>
+        <CardTitle className="text-xl tabular-nums">{skillsMet} of {skills} skills met</CardTitle>
+        <CardDescription>
+          <b className="text-foreground font-semibold">No part of its own in the readiness number.</b>{" "}
+          Skill mastery averages the skills she has practised, so it says how she is doing on what she has met and nothing about what she has not. This says the other half: how much of the bank is still ahead of her.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Table>
+          <TableHeader><TableRow><TableHead>Subject</TableHead><TableHead className="text-right">Skills met</TableHead><TableHead className="hidden text-right @md/main:table-cell">Questions met</TableHead><TableHead className="text-right">Not tried yet</TableHead></TableRow></TableHeader>
+          <TableBody>
+            {rows.map((r) => (
+              <TableRow key={r.sub} data-testid="coverage-row" data-sub={r.sub} data-skills={r.skills} data-skills-met={r.skillsMet} data-questions={r.questions} data-questions-met={r.questionsMet}>
+                <TableCell className="font-medium"><span className="flex items-center gap-2"><span className="inline-block size-2.5 rounded-full" style={{ background: SUBJ[r.sub].color }} /> {SUBJ[r.sub].short}</span></TableCell>
+                <TableCell className="text-right tabular-nums">{r.skillsMet} of {r.skills}</TableCell>
+                {/* The questions column gives way on a phone, so the link to the untried list never does. */}
+                <TableCell className="hidden text-right tabular-nums @md/main:table-cell">{r.questionsMet} of {r.questions}</TableCell>
+                <TableCell className="text-right"><Button size="sm" variant="ghost" onClick={() => go("/s/" + r.sub)} data-testid={`coverage-open-${r.sub}`}>{plural(r.skills - r.skillsMet, "skill")} <ArrowRight /></Button></TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </CardContent>
+      <CardFooter className="text-muted-foreground flex-col items-start gap-1 text-xs">
+        <span>Met is the skill pages' own rule: a question she answered in a set, a review, a mixed set, a mock, the word quiz or Try another — never a corrections pass, and never an answer a review stand-in wrote onto the question it stood for. Each subject's page lists the skills not tried yet.</span>
+        <span>The mixed set pulls toward what she has not met: an unseen question on a skill she has never touched is served ahead of the weak skills and behind the ones one set from Mastered.</span>
+      </CardFooter>
+    </Card>
+  )
+}
+
 export function Score() {
   useStore()
   const R = readiness()
@@ -246,6 +292,8 @@ export function Score() {
       </Card>
 
       <VocabStanding />
+
+      <CoverageStanding />
 
       <div className="grid grid-cols-1 gap-4 @3xl/main:grid-cols-[3fr_2fr] md:gap-6">
         <Card>

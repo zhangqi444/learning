@@ -95,8 +95,10 @@ page that long.
 
 ## How practice turns into progress
 
-**Spaced review.** A missed question comes back after **1 day, then 3, then 7, then 21**. Getting
-it right on two *different* days retires it, with one check-in three weeks later. Answers given
+**Spaced review.** A missed question comes back after **1 day, then 3**. Getting it right on two
+*different* days retires it, with one check-in **21 days** later. (This file said "1, 3, 7, 21"
+for a month; the code never walked a 7 — the second right day clears the miss. The 7 and the 21
+in `INTERVALS` are the Chinese dictation's rungs.) Answers given
 in a corrections pass immediately after seeing the key do not count as evidence — but a
 *different* question on the same skill does, because she has not been shown its answer.
 

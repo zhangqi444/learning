@@ -412,8 +412,16 @@ not. The mocks reproduce the exam's true proportions exactly, so shape exposure 
 practice weeks are free to be weighted for teaching. Do not "rebalance" the bank toward the paper
 without the owner asking.
 
-**Spaced review is 1, 3, 7, 21 days** (`INTERVALS`), retiring on two correct answers on
-*different* days with a check-in at three weeks — and the review never re-asks the missed
+**Spaced review is 1 day, then 3, then a check-in at 21** (`INTERVALS[0..1]`, `CHECKIN_DAYS`),
+retiring on two correct answers on *different* days. It was written down as "1, 3, 7, 21" here,
+in README and on the Review page until 21 October 2026, and the code had never walked a 7: the
+second right day clears the miss. `INTERVALS` keeps its four rungs because the Chinese
+dictation (`lib/writereview.js`) climbs all of them; the ISEE ladder stops at the second.
+Mastered's "in a mixed set or a mock" was the other promise the code did not keep: `skillLevel`
+walked bank ids and no bank record ever carries a `mock` attempt, since a mock question has an
+id of its own (0 of 508 overlap). `mockIdsFor` files every mock question under the bank skill its
+paper-style tag resolves to, and a right answer there on a later day than the skill's first is a
+promotion. And the review never re-asks the missed
 question: `reviewItems` serves `REVIEW_PER_MISS = 2` different questions of the same skill in its
 place (`reviewStandIns`), at every return including the check-in, and their answers move the miss
 through the entry's `for` (the owner, 4 October 2026: "the review should not do the same
