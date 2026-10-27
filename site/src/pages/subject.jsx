@@ -11,7 +11,7 @@ import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Progress } from "@zhangqi444/ui/ui/progress"
 import { precisionSummary } from "@/pages/precision"
-import { masteryOf, pacingFor, skillTable, skillsFor } from "@/lib/engine"
+import { answeredSoFar, masteryOf, pacingFor, skillTable, skillsFor } from "@/lib/engine"
 import { SKILL_SHOWS, tally } from "@/lib/tally"
 import { LevelBadge } from "@/pages/score"
 import { AopsHint } from "@/components/aops-hint"
@@ -76,7 +76,12 @@ export function WeekCard({ sub, wk, highlight }) {
             /* Only asked about a set she has not done: a set she HAS done needs
                no account of where it came from. */
             const grew = r ? null : setAddedAfter(sub, wk, n)
-            const part = Store.draftAnswered(setId(sub, wk, n))
+            /* How much of it she has answered. The draft knows only what THIS device
+               began; her records know what she answered anywhere, which is why a set
+               started on the laptop used to read as untouched on the iPad. The larger
+               of the two, because a draft can hold an answer that has not been written
+               yet and a record can hold answers this device never saw. */
+            const part = r ? 0 : Math.max(Store.draftAnswered(setId(sub, wk, n)), (answeredSoFar(set) || {}).answered || 0)
             return (
               <li key={n}>
                 <button
@@ -87,7 +92,7 @@ export function WeekCard({ sub, wk, highlight }) {
                   <span className="bg-muted text-muted-foreground flex size-8 shrink-0 items-center justify-center rounded-md text-xs font-semibold tabular-nums">{n + 1}</span>
                   <span className="flex min-w-0 flex-1 flex-col">
                     <span className="font-medium">Set {n + 1}</span>
-                    <span className="text-muted-foreground text-xs">{set.length} questions{r ? ` · done${r.at ? " " + new Date(r.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : ""} · tap to see your answers` : part ? " · started · tap to carry on where you left off" : ""}</span>
+                    <span className="text-muted-foreground text-xs">{set.length} questions{r ? ` · done${r.at ? " " + new Date(r.at).toLocaleDateString(undefined, { month: "short", day: "numeric" }) : ""} · tap to see your answers` : part ? ` · ${part} of ${set.length} answered · tap to see them and carry on` : ""}</span>
                     {/* Said plainly, because the alternative is her doing the
                         arithmetic herself and getting "the site lost my work". */}
                     {grew ? (

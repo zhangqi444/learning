@@ -95,6 +95,7 @@ async function stubGoogle(ctx) {
         return json({ id });
       }
       drive.file = 'file1'; drive.body = body;
+      drive.modifiedTime = new Date(Date.now() + (drive.writes = (drive.writes || 0) + 1) * 1000).toISOString();
       drive.parent = (meta.parents || [])[0] || drive.folder;
       return json({ id: 'file1' });
     }
@@ -105,9 +106,19 @@ async function stubGoogle(ctx) {
     }
     if (/upload\/drive\/v3\/files\/file1/.test(u) && m === 'PATCH') {
       if (drive.hold) { drive.held++; await drive.hold; }
-      drive.body = r.request().postData(); return json({ id: 'file1' });
+      drive.body = r.request().postData();
+      drive.modifiedTime = new Date(Date.now() + (drive.writes = (drive.writes || 0) + 1) * 1000).toISOString();
+      return json({ id: 'file1', modifiedTime: drive.modifiedTime });
     }
-    if (/drive\/v3\/files\/file1\?alt=media/.test(u)) return json(JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0]));
+    if (/drive\/v3\/files\/file1\?alt=media/.test(u)) { drive.reads = (drive.reads || 0) + 1; return json(JSON.parse(drive.body.split('\r\n\r\n').pop().split('\r\n--')[0])); }
+    /* "Has anything changed?", which is what Store.look() asks on coming back to the tab.
+       A real answer, with a time that moves when the file is written, because a stub that
+       always said the same thing could not tell a device that skipped the download
+       because it was up to date from one that never asked. */
+    if (/drive\/v3\/files\/file1\?/.test(u) && m === 'GET' && /fields=/.test(u) && !/alt=media/.test(u)) {
+      drive.looks = (drive.looks || 0) + 1;
+      return json({ id: 'file1', modifiedTime: drive.modifiedTime || new Date(0).toISOString() });
+    }
     // Changing a file's parents: one call, no re-upload. This is how the record
     // follows a renamed folder instead of being left behind in the old one.
     if (/drive\/v3\/files\/file1\?/.test(u) && m === 'PATCH') {

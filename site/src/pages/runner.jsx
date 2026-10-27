@@ -3,7 +3,7 @@ import { ArrowLeft, ArrowRight, Award, Check, CheckCircle2, Eye, Gauge, Home, Ro
 
 import { D, LTR, isZh, keyOf, zhSkillName } from "@/lib/content"
 import { getLang, useLang } from "@/lib/lang"
-import { BUDGET, CAUSES, LEARN_CTX, findItem, lastRight, markGuess, paceFlag, passageWords, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast, words } from "@/lib/engine"
+import { BUDGET, CAUSES, LEARN_CTX, answeredSoFar, findItem, lastRight, markGuess, paceFlag, passageWords, readFloor, rec, recordAttempts, setTag, skillCat, skillLevel, skillOf, tooFast, words } from "@/lib/engine"
 import { LearnCard } from "@/components/learn-card"
 import { syncBadges } from "@/lib/rewards"
 import { go } from "@/lib/router"
@@ -371,12 +371,50 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     saved.current = d && d.sig === sig && Array.isArray(d.picks) && d.picks.length <= items.length ? d : null
   }
   const back = saved.current
-  const [i, setI] = useState(() => (back ? Math.min(back.i || 0, items.length - 1) : 0))
-  const [picks, setPicks] = useState(() => (back ? back.picks.slice() : prior ? picksFromResult(items, prior) : []))
+  /* A sitting she began and never finished, which is not the same thing as a draft.
+   * The draft is this device holding a pen; these are the answers themselves, off her
+   * own records, and those sync — so a sitting begun on the laptop opens on the iPad
+   * as three answered rather than as a fresh set. Read once, like the draft, and only
+   * where there is no finished result to show instead. */
+  const begun = useRef(undefined)
+  if (begun.current === undefined) {
+    /* Only a real set, never a generated run. A review, a mixed set or a skill practice
+       is built out of questions she has already answered in their own week sets, so
+       asking "what has she answered of these?" there would answer "all of them" and
+       open a review as a finished thing. `setId` with no `custom` is exactly a sitting
+       that is a set — the one case where a question belongs to this run and no other. */
+    const so = !prior && record && setId && !custom && !back ? answeredSoFar(items) : null   // see `isSet` below
+    begun.current = back
+      ? { picks: back.picks.slice(), answered: back.answered || back.picks.filter((p) => p != null).length, at: back.at, times: null, recorded: Array.isArray(back.recorded) ? back.recorded : [], i: back.i || 0 }
+      : so
+      // Everything here came out of her record, so all of it is already written: the
+      // same lock a draft's `recorded` carries, for the same reason.
+      ? { picks: so.picks.map((L) => (L == null ? null : LTR.indexOf(L))), answered: so.answered, at: so.at, times: so.times, recorded: so.picks.map((L, j) => (L == null ? -1 : j)).filter((j) => j >= 0), i: so.picks.findIndex((L) => L == null) }
+      : null
+  }
+  const part = begun.current
+  /* Only a set opens as a list of what she answered. A review, a word quiz or a mixed
+     set is built fresh each time and is not a thing she comes back to look at — it is a
+     thing she is in the middle of — so those resume straight into the question, as they
+     always have. The same line that decides where `so` may be read from. */
+  const isSet = !!(setId && !custom)
+  const [i, setI] = useState(() => (part ? Math.min(Math.max(part.i, 0) || 0, items.length - 1) : 0))
+  const [picks, setPicks] = useState(() => (part ? part.picks.slice() : prior ? picksFromResult(items, prior) : []))
   // A draft beats a finished result on purpose: it can only exist if she
   // reopened the set and started answering again, so the half-done attempt is
   // the more recent truth and the score screen is not where she was.
-  const [done, setDone] = useState(() => (back ? null : prior ? { right: prior.right, at: prior.at, attempts: prior.attempts || 1, reopened: true, times: prior.times || null } : null))
+  //
+  // With no finished result behind it, though, the half-done attempt IS the
+  // record of that sitting, and dropping her into the next unanswered question
+  // showed her nothing of it — the complaint that it "is one by one, and I need
+  // to do it again to pass to the next question". So it opens as a list of what
+  // she answered, with carrying on one tap away.
+  const [done, setDone] = useState(() =>
+    prior
+      ? back ? null : { right: prior.right, at: prior.at, attempts: prior.attempts || 1, reopened: true, times: prior.times || null }
+      : part && isSet
+      ? { right: items.reduce((n, q, j) => n + (part.picks[j] != null && LTR[part.picks[j]] === keyOf(q) ? 1 : 0), 0), at: part.at, reopened: true, partial: part.answered, times: part.times }
+      : null)
   const [won, setWon] = useState([])           // badges earned by finishing this set
   const [shown, setShown] = useState(() => (back ? { ...(back.shown || {}) } : {}))       // question index -> revealed, instant mode only
   /* Questions she said she had mis-tapped. Instant mode reveals on the first touch and does
@@ -398,7 +436,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
      survivable while a run was a dozen questions and fatal once an uncapped review opened
      292 of them. Restored from the draft so a resumed run never writes the same answer
      twice, and the indices in it are locked in `choose` and `slip` below. */
-  const recorded = useRef(new Set(back && Array.isArray(back.recorded) ? back.recorded : []))
+  const recorded = useRef(new Set(part ? part.recorded : []))
   // question index -> she marked it "I'm guessing" as she answered (kept in the draft)
   const [guesses, setGuesses] = useState(() => (back && Array.isArray(back.guesses) ? back.guesses.slice() : []))
   const spent = useRef(back ? { ...(back.spent || {}) } : {})                    // question index -> ms
@@ -425,7 +463,12 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   const counted = useCountUp(done ? done.right : 0)
 
   function leave() { spent.current[i] = (spent.current[i] || 0) + (Date.now() - entered.current); entered.current = Date.now() }
-  function retry() { Store.dropDraft(draftKey); finished.current = false; setPicks([]); setGuesses([]); setSlips({}); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
+  /* Doing the set again means doing all of it. The lock that stops an answer already
+     in her record being unsaid is about one sitting; clearing it here is what makes
+     "try this set again" a whole set rather than one with three questions she is not
+     allowed to touch — which is what it silently became when a part-done sitting
+     started arriving with answers already written. */
+  function retry() { Store.dropDraft(draftKey); recorded.current = new Set(); finished.current = false; setPicks([]); setGuesses([]); setSlips({}); setDone(null); setWon([]); setShown({}); setI(0); spent.current = {}; entered.current = Date.now(); window.scrollTo(0, 0) }
 
   /* One tap reaches here twice: the choice's own onClick and the radio group's
    * onValueChange both fire for a single click, and the second call lands
@@ -598,7 +641,12 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   }, [floor, i])
 
   if (done) {
-    const pct = Math.round((done.right / total) * 100)
+    /* A sitting she has not finished is not scored. There is no percentage to put on
+       three of ten and no verdict to pass on it — "this one was hard" on a set she has
+       barely started would be the page judging her for stopping. It says how far she
+       got and what she answered, and nothing else. */
+    const partial = done.partial || 0
+    const pct = Math.round((done.right / (partial || total)) * 100)
     const msg = zh
       ? (pct >= 85 ? "很好。猜的那几题，看看下面的解释。" : pct >= 60 ? "不错。下面的解释，就是再拿几分的地方。" : "这一组很难。慢慢看下面的解释——分数就是这样一点点上去的。")
       : pct >= 85 ? "Strong set. Read the notes on anything you guessed."
@@ -608,14 +656,19 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     // A Chinese skill is named in the page's language (content/chinese/skills.json);
     // an ISEE skill's id is its name.
     const skName = (sk) => (zhSet ? zhSkillName(sk) : sk)
-    const noLetters = done.reopened && !(prior && prior.picks)
+    const noLetters = done.reopened && !partial && !(prior && prior.picks)
     const canTag = record && kind !== "corr"
     /* Which questions went wrong, so the whole set's answers can be opened at once. Reviewing
        a finished set means reading the misses in order, and a tap per card to do it is the
        thing that turned this page from something read into something operated. */
-    const missIdx = items.map((q, j) => (LTR[picks[j]] === keyOf(q) ? -1 : j)).filter((j) => j >= 0)
+    /* Only the questions this card is actually showing. On a part-done sitting the
+       ones she has not reached are not misses and must not be opened as misses: every
+       card carries a "show the answer", so counting a question she has not seen as
+       wrong would hand her the answers to the rest of the set on her way back into it. */
+    const rows = items.map((_, j) => j).filter((j) => !partial || picks[j] != null)
+    const missIdx = rows.filter((j) => LTR[picks[j]] !== keyOf(items[j]))
     const allTold = missIdx.length > 0 && missIdx.every((j) => told[j])
-    const misses = items.filter((q, j) => LTR[picks[j]] !== keyOf(q))
+    const misses = missIdx.map((j) => items[j])
     const tagged = canTag ? misses.filter((q) => (rec(q.id) || {}).tag).length : 0
     const timed = done.times ? items.map((q) => done.times[q.id] || 0).filter(Boolean) : []
     const avg = timed.length ? timed.reduce((a, b) => a + b, 0) / timed.length : null
@@ -639,11 +692,17 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
           {/* Only for a set just finished — reopening an old result is not an event. */}
           {!done.reopened ? <Burst seed={done.at} /> : null}
           <CardHeader className="w-full">
-            <CardDescription>{title}{done.reopened && when ? (zh ? ` · ${when} 完成` : ` · completed ${when}`) : ""}{done.attempts > 1 ? (zh ? ` · 第 ${done.attempts} 次` : ` · attempt ${done.attempts}`) : ""}</CardDescription>
+            <CardDescription>{title}{partial ? (when ? (zh ? ` · 上次做到 ${when}` : ` · last answered ${when}`) : "") : done.reopened && when ? (zh ? ` · ${when} 完成` : ` · completed ${when}`) : ""}{done.attempts > 1 ? (zh ? ` · 第 ${done.attempts} 次` : ` · attempt ${done.attempts}`) : ""}</CardDescription>
             <CardTitle className="text-5xl font-extrabold tracking-tight tabular-nums">
-              {done.reopened ? done.right : counted}<span className="text-muted-foreground text-xl font-normal"> / {total}</span>
+              {done.reopened ? done.right : counted}<span className="text-muted-foreground text-xl font-normal"> / {partial || total}</span>
             </CardTitle>
-            <CardDescription className="text-base">{pct}% · {msg}</CardDescription>
+            {partial ? (
+              <CardDescription className="text-base" data-testid="partial-so-far" data-answered={partial} data-total={total}>
+                {zh ? `还没做完：已答 ${partial} 题，还剩 ${total - partial} 题。` : `Not finished — ${partial} of ${total} answered, ${total - partial} to go.`}
+              </CardDescription>
+            ) : (
+              <CardDescription className="text-base">{pct}% · {msg}</CardDescription>
+            )}
             {/* Not on a Chinese sitting: it is untimed (docs/chinese.md § 3), so a
                 "real-test budget" there would be a number about a test she is
                 not sitting. paceFlag already says nothing for one; this is the
@@ -700,9 +759,11 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
                     it is still there and she can go back to it. Without this, "See the
                     recorded result" would be a one-way door and the only route back would
                     be Try again, which throws the attempt away. */}
-                {back ? (
-                  <Button variant="secondary" size="sm" onClick={() => { setDone(null); window.scrollTo(0, 0) }} data-testid="carry-on">
-                    {zh ? `继续第二次（已答 ${back.answered || 0} 题）` : `Carry on the attempt · ${back.answered || 0} of ${items.length} answered`}
+                {back || partial ? (
+                  <Button variant={partial ? "default" : "secondary"} size="sm" onClick={() => { setDone(null); window.scrollTo(0, 0) }} data-testid="carry-on">
+                    {partial
+                      ? (zh ? `接着做（还剩 ${total - partial} 题）` : `Carry on · ${total - partial} to go`)
+                      : zh ? `继续第二次（已答 ${back.answered || 0} 题）` : `Carry on the attempt · ${back.answered || 0} of ${items.length} answered`}
                   </Button>
                 ) : null}
                 <Button variant="outline" size="sm" onClick={retry} data-testid="retry"><RotateCcw /> {zh ? "再做一次这一组" : "Try this set again"}</Button>
@@ -712,7 +773,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
           </CardHeader>
         </Card>
         <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
-          <h2 className="text-xl font-semibold">{zh ? "每一题" : "Every question"}</h2>
+          <h2 className="text-xl font-semibold">{partial ? (zh ? "已经答过的题" : "What you answered") : zh ? "每一题" : "Every question"}</h2>
           {missIdx.length ? (
             <Button size="sm" variant="outline" onClick={() => setTold(allTold ? {} : Object.fromEntries(missIdx.map((j) => [j, true])))} data-testid="every-question-all">
               {allTold ? (zh ? "收起答案" : "Hide the answers") : (zh ? `看全部 ${missIdx.length} 个答案` : `Show all ${missIdx.length} answer${missIdx.length === 1 ? "" : "s"}`)}
@@ -720,7 +781,8 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
           ) : null}
         </div>
         <div className="flex flex-col gap-3">
-          {items.map((q, j) => {
+          {rows.map((j) => {
+            const q = items[j]
             const ok = LTR[picks[j]] === keyOf(q)
             const ms = done.times ? done.times[q.id] : 0
             const flag = paceFlag(subOf(q, subHint), ms, ok)

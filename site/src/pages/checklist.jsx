@@ -2,7 +2,7 @@ import * as React from "react"
 import { CalendarDays, CheckCircle2, ChevronLeft, ChevronRight, Circle, ListChecks, Plus, Printer, Trash2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, currentWeek, setId, setsFor, spanById, spanNow, spanOpen, spans, weekLabel } from "@/lib/content"
-import { CAUSE_CHIP, dayKey, findItem, mockNextSteps, rangeRecap, rec, reviewQueue, tagTally, weekRecap } from "@/lib/engine"
+import { CAUSE_CHIP, answeredSoFar, dayKey, findItem, mockNextSteps, rangeRecap, rec, reviewQueue, tagTally, weekRecap } from "@/lib/engine"
 import { actionsForWeek, reviewsFor } from "@/lib/reviews"
 import { ReviewCard } from "@/components/review-card"
 import { QuestionRow } from "@/pages/skill"
@@ -77,7 +77,12 @@ export function weekItems(wk) {
       const r = Store.s.results[setId(s, wk, n)]
       /* `tags` and not a longer `sub`: the compact list renders `sub` as a
          right-hand figure and 6/9 has to stay 6/9 there. */
-      items.push({ id: `set:${s}:${wk}:${n}`, group: SUBJ[s].name, tag: SUBJ[s].short, short: `Set ${n + 1}`, label: `Set ${n + 1} — ${set.length} questions`, sub: r ? `${r.right}/${r.n}` : "one sitting, no notes", tags: r && (r.wrong || []).length ? tagTally(r.wrong) : null, done: !!r, path: `/run/${s}/${wk}/${n}`, auto: true })
+      /* A sitting she began and left is neither done nor untouched, and saying "one
+         sitting, no notes" about a set she has half answered is the line that sent her
+         back in to do it all again. It is not ticked — she has not finished it — but the
+         row says how far she got, and tapping it now opens what she answered. */
+      const part = r ? 0 : (answeredSoFar(set) || {}).answered || 0
+      items.push({ id: `set:${s}:${wk}:${n}`, group: SUBJ[s].name, tag: SUBJ[s].short, short: `Set ${n + 1}`, label: `Set ${n + 1} — ${set.length} questions`, sub: r ? `${r.right}/${r.n}` : part ? `${part}/${set.length} answered` : "one sitting, no notes", tags: r && (r.wrong || []).length ? tagTally(r.wrong) : null, done: !!r, path: `/run/${s}/${wk}/${n}`, auto: true })
     })
   }
   if (D.essay && D.essay.weeks[wk]) {

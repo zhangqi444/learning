@@ -370,6 +370,50 @@ export const Store = {
         .then((remote) => { this.merge(remote); return this.push() })
     })
   },
+  /** Ask what the other device has written, without this one having anything to say.
+   *
+   *  `pull()` is the only thing that reads Drive, and it ran from exactly two places:
+   *  signing in, and `flush()` — which runs only when this device has an edit to push.
+   *  So a tab left open on the laptop read the record once, at sign-in, and then showed
+   *  that morning's work for the rest of the day however many sets were done on the iPad.
+   *  "All the results from my other computer are not synced" is that, and it was never a
+   *  merge bug or a lost save: the record was complete the whole time and nothing ever
+   *  asked for it. It is the same shape as the two devices reporting 41 and 1 reviews due.
+   *
+   *  Asking is nearly free — Drive says when the file last changed in a few hundred
+   *  bytes, so the half-megabyte body is fetched only when it is genuinely newer than
+   *  what this device already merged. Deliberately never pushes: this is the device
+   *  listening, and anything it has to say of its own goes through `flush()`. */
+  look(force = false) {
+    if (!DRIVE_ENABLED || !this.s.driveGranted || this.flushing || this.looking) return Promise.resolve(false)
+    if (!force && this.lastLook && Date.now() - this.lastLook < 4000) return Promise.resolve(false)   // focus and visibilitychange arrive together
+    this.looking = true
+    this.lastLook = Date.now()
+    const found = this.fileId ? Promise.resolve(this.fileId) : this.findFile()
+    return found
+      .then((id) => (id ? this.api(`https://www.googleapis.com/drive/v3/files/${id}?fields=modifiedTime`).then((r) => r.json()) : null))
+      .then((meta) => {
+        if (!meta) return false
+        const stamp = meta.modifiedTime || ""
+        // Nothing has happened elsewhere since the copy this device is already holding.
+        if (!force && stamp && stamp === this.remoteStamp) return false
+        return this.api(`https://www.googleapis.com/drive/v3/files/${this.fileId}?alt=media`)
+          .then((r) => r.json())
+          .then((remote) => { this.remoteStamp = stamp; this.merge(remote); return true })
+      })
+      .then((read) => {
+        if (read) { this.lastSync = new Date(); if (!this.dirty) this.setStatus("live") }
+        return read
+      })
+      .catch((e) => {
+        this.lastError = String((e && e.message) || e)
+        // Said out loud, because this is exactly the state a stale tab is in: the
+        // session lapsed hours ago and the page has been showing her old work since.
+        if (/Not connected|sign-in|popup|Drive 401/i.test(this.lastError)) { this.reconnectNeeded = true; this.setStatus("expired") }
+        return false
+      })
+      .finally(() => { this.looking = false })
+  },
   merge(remote) {
     if (!remote || !remote.results) return
     // keyed slices: last-write-wins per key by `at`. `reviews` are written outside the
@@ -548,8 +592,12 @@ export const Store = {
     if (!this.folderId) return Promise.resolve()
     const body = this.body()
     if (this.fileId) {
-      return this.api(`https://www.googleapis.com/upload/drive/v3/files/${this.fileId}?uploadType=media`,
+      // The new modification time comes back with the write, so `look()` knows this
+      // device is already holding what is up there and skips the download.
+      return this.api(`https://www.googleapis.com/upload/drive/v3/files/${this.fileId}?uploadType=media&fields=modifiedTime`,
         { method: "PATCH", headers: { "Content-Type": "application/json" }, body })
+        .then((r) => r.json().catch(() => null))
+        .then((f) => { this.remoteStamp = (f && f.modifiedTime) || null })
     }
     const meta = { name: FILE, mimeType: "application/json", parents: [this.folderId] }
     const boundary = "learningbnd" + Date.now()
@@ -599,14 +647,25 @@ export const Store = {
 }
 
 if (typeof window !== "undefined") {
-  // Come back online with something unsaved: try again.
-  addEventListener("online", () => { if (Store.dirty) Store.flush() })
+  // Come back online with something unsaved: try again. With nothing to say, listen
+  // instead — the work that happened while this device was off is on Drive.
+  addEventListener("online", () => { if (Store.dirty) Store.flush(); else Store.look() })
   // Switching app or closing the tab inside the debounce window used to fire a blind
   // keepalive PATCH — the one write that skipped the read-and-merge, so it could
   // overwrite a review or another device's work. Now the page going hidden runs the
   // ordinary flush at once (the page is still alive at that point, on iPad too), and
   // anything that still misses the window is pushed, merged, on the next open.
-  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden" && Store.dirty) Store.flush() })
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") { if (Store.dirty) Store.flush(); return }
+    // And coming back to it is the moment to find out what happened elsewhere while
+    // she was away — which is almost always the answer to "why is this one behind?".
+    Store.look()
+  })
+  addEventListener("focus", () => Store.look())
+  // Two devices in use at once — her on the iPad, a parent on the laptop — should not
+  // need a tab switch to agree. A minute apart, and only the few hundred bytes that say
+  // whether anything changed unless something has.
+  setInterval(() => { if (document.visibilityState === "visible") Store.look() }, 60000)
 }
 
 /** Re-render on any store change. Returns the store itself. */

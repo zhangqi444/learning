@@ -256,6 +256,45 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   const days = await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).books['little-women'].sessions.map((s) => s.on));
   check('reading days from both devices survive the merge', days.join(',') === '2026-08-18,2026-08-19,2026-08-21,2026-08-25', days.join(','));
 
+  /* The other computer, while this one is just sitting there.
+   *
+   * Reading Drive only ever happened on the way to writing it: `pull()` ran from signing
+   * in and from `flush()`, and `flush()` runs only when this device has an edit of its
+   * own. So a tab left open read the record once and then showed that morning's work for
+   * the rest of the day — "all the results from my other computer are not synced", with
+   * nothing lost and nothing wrong in the merge, because nothing ever asked. Coming back
+   * to the tab asks now. The seed goes in without touching this device's store, which is
+   * the whole point: it must come up to date having done nothing itself. */
+  /* Quiet first, and the seed written only once this device has nothing of its own to
+     say. A save of its own would pull and merge on the way out, and the check would pass
+     without the thing it is testing ever running. */
+  await pg.waitForSelector('[data-testid=drive-button]:has-text("Saved to Drive")', { timeout: 20000 })
+    .catch(async () => console.log('    (chip said: ' + await pg.textContent('[data-testid=drive-button]').catch(() => '?') + ')'));
+  await pg.waitForTimeout(4500);   // past the window that folds focus and visibilitychange into one look
+  {
+    const remote = remoteBody();
+    remote.results['ma:W3:1'] = { n: 9, right: 7, at: '2026-10-20T19:00:00Z', wrong: ['MA-W3-NOPE'], picks: {} };
+    drive.body = JSON.stringify(remote);
+    drive.modifiedTime = new Date(Date.now() + 9e5).toISOString();
+  }
+  const mine = await pg.evaluate(() => !!JSON.parse(localStorage.getItem('isee.v1')).results['ma:W3:1']);
+  const looks0 = drive.looks || 0, reads0 = drive.reads || 0;
+  await pg.evaluate(() => { document.dispatchEvent(new Event('visibilitychange')); });
+  const came = await pg.waitForFunction(() => !!JSON.parse(localStorage.getItem('isee.v1')).results['ma:W3:1'], null, { timeout: 10000 }).then(() => true).catch(() => false);
+  check('coming back to the tab brings what the other computer did, with no edit on this one',
+    !mine && came && (drive.looks || 0) > looks0 && (drive.reads || 0) > reads0,
+    `had it already: ${mine} · arrived: ${came} · asked ${looks0}->${drive.looks} · read ${reads0}->${drive.reads}`);
+  /* And asking must stay cheap, or a tab open all day downloads half a megabyte a minute
+     for nothing. Drive answers "has it changed?" in a few hundred bytes; the body is
+     fetched only when the answer is yes. */
+  await pg.waitForTimeout(4500);
+  const reads1 = drive.reads || 0;
+  await pg.evaluate(() => { document.dispatchEvent(new Event('visibilitychange')); });
+  await pg.waitForTimeout(1500);
+  check('and when nothing has changed it asks, but does not download the record again',
+    (drive.looks || 0) > looks0 && (drive.reads || 0) === reads1 && reads1 > reads0,
+    `looks ${looks0}->${drive.looks} · body reads ${reads0}->${reads1}->${drive.reads}`);
+
   // hand the page back to the essay: the checks below carry on from there
   await pg.evaluate(() => { location.hash = '#/essay/W2'; });
   await pg.waitForSelector('[data-testid=essay-prompt]');

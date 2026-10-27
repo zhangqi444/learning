@@ -250,6 +250,34 @@ export function lastRight(id, via = null) {
   for (let i = hs.length - 1; i >= 0; i--) { const h = hs[i]; if (h && h.ok && LEARN_CTX[h.ctx] && (via ? h.via === via : !h.via)) return h }
   return null
 }
+/** What she has already answered in a sitting she never finished, read off her own
+ *  records rather than off the set's result — because there is no set result. A
+ *  sitting is only scored when it is finished, so a set put down part-way left
+ *  nothing for any page to show: reopening it dropped her back into question four
+ *  with no sign of the three she had done, and the sets page said "0 of 16" on a
+ *  week she had worked. Her answers are not lost — recordAttempts writes each one
+ *  as she leaves — and `items` syncs, so this reads them back and the sitting can
+ *  open as what it is: three answered, seven to go, on either computer.
+ *
+ *  `ctx:"set"` is the only evidence a week set writes, and a set's question belongs
+ *  to exactly one set, so the last such answer on each question is her answer here.
+ *  Returns null when she has not begun, so callers can just ask. */
+export function answeredSoFar(items) {
+  const picks = [], times = {}
+  let answered = 0, at = null
+  ;(items || []).forEach((q, j) => {
+    picks[j] = null
+    const hs = ((rec(q.id) || {}).hist || [])
+    let h = null
+    for (let i = hs.length - 1; i >= 0; i--) if (hs[i] && hs[i].ctx === "set" && hs[i].pick) { h = hs[i]; break }
+    if (!h) return
+    picks[j] = h.pick
+    times[q.id] = h.ms || 0
+    answered++
+    if (!at || ts(h.at) > ts(at)) at = h.at
+  })
+  return answered ? { picks, times, answered, at: at || nowIso() } : null
+}
 /** A precision word was rated: 1 → review tomorrow, 2 → in three days, 3 → only the quiz. */
 export function scheduleWord(word, conf, when = nowIso()) {
   const id = "w:" + word, prev = rec(id) || { hist: [] }

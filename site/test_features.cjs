@@ -27,6 +27,20 @@ async function runThrough(pg, pick, max = 60) {
   }
 }
 
+/* At question one of a set, whatever state that set is already in.
+ *
+ * A set she has part-answered no longer reopens on the next question: it opens as the
+ * list of what she answered, which is the whole point of that card. A check that wants
+ * to walk the set from the start therefore has to say so — "try this set again" — rather
+ * than assume the runner is what a set URL shows. */
+async function fromTheTop(pg) {
+  await pg.waitForSelector('[data-testid=question], [data-testid=score]', { timeout: 20000 });
+  if (await pg.$('[data-testid=score]')) {
+    await pg.click('[data-testid=retry]');
+    await pg.waitForSelector('[data-testid=question]', { timeout: 20000 });
+  }
+}
+
 /* Editing localStorage underneath a live page.
  *
  * The page holds the whole store in memory and writes it back on its own
@@ -151,7 +165,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   // Render-only checks: these answer nothing, so they write no records and are
   // safe to run here rather than in the runs-last region at the bottom.
   await pg.evaluate(() => { location.hash = '#/run/vr/W2/0'; });
-  await pg.waitForSelector('[data-testid=question]');
+  await fromTheTop(pg);
   check('a Verbal Reasoning set is drawn as a gate', (await pg.$('[data-testid=gate]')) !== null && /Your spells/i.test(await body(pg)));
   check('the item itself is unchanged underneath', (await pg.$$('[data-testid=choice]')).length === 4);
   // The rehearsal must stay a rehearsal: on the day it counts the four choices
@@ -161,7 +175,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     (await pg.$$('[data-testid=choice] [data-testid=glim]')).length === 0);
   check('and nothing is at the gate before she answers', (await pg.$('[data-testid=gate] ~ [data-testid=glim]')) === null);
   await pg.evaluate(() => { location.hash = '#/run/ma/W2/0'; });
-  await pg.waitForSelector('[data-testid=question]');
+  await fromTheTop(pg);
   check('maths is left plain — the frame is not sprayed over everything', (await pg.$('[data-testid=gate]')) === null);
   // The cat reacts AROUND the question, never inside it. Maths, Quantitative and
   // Reading get their skill's own cat on the reveal — the same cat the Glimbook
@@ -1128,7 +1142,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
 
   console.log('== instant marking');
   await pg.evaluate(() => { location.hash = '#/run/vr/W3/0'; });
-  await pg.waitForSelector('[data-testid=question]');
+  await fromTheTop(pg);
   check('instant marking is on by default in practice', /Instant on/.test(await pg.textContent('[data-testid=instant-toggle]')));
   await pg.click('[data-testid=choice] >> nth=0');
   await pg.waitForSelector('[data-testid=reveal]');
@@ -1515,7 +1529,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   // counts in the band once every section is in (the owner's ruling, 4 October 2026).
   check('mock band on the dashboard, counting the paper sat on paper', /Estimated stanine \d(–\d)? from 2 mocks/.test(await body(pg)));
   // a fresh set with timing, pacing mode and cause tags
-  await pg.evaluate(() => { location.hash = '#/run/rc/W3/0'; }); await pg.waitForSelector('[data-testid=choice]');
+  await pg.evaluate(() => { location.hash = '#/run/rc/W3/0'; }); await fromTheTop(pg);
   await pg.click('[data-testid=pacing-toggle]'); await pg.waitForSelector('[data-testid=soft-timer]');
   check('pacing mode shows a soft timer against the budget', /\/ 60/.test(await pg.textContent('[data-testid=soft-timer]')));
   await pg.click('[data-testid=pacing-toggle]'); await pg.waitForTimeout(100);
@@ -1717,7 +1731,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     () => { const st = JSON.parse(localStorage.getItem('isee.v1')); return !st.results['vr:W5:0'] && !(st.drafts || {})['vr:W5:0']; });
   await pg.evaluate(() => { location.hash = '#/run/vr/W5/0'; });
   await pg.reload({ waitUntil: 'networkidle' });
-  await pg.waitForSelector('[data-testid=question]', { timeout: 20000 });
+  await fromTheTop(pg);
   // the Careful hold keeps the choices behind a countdown; wait it out if it is on
   await pg.waitForSelector('[data-testid=choice]', { timeout: 20000 });
   const slipQ = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
@@ -2481,7 +2495,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   // A full load: the practice run above is still open, and a run asks before it is left.
   const firsts = [];
   for (const l of plusPlan) {
-    await pg.goto('http://localhost:8143/learning/#/run/vr/W7/' + l.at, { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=question]');
+    await pg.goto('http://localhost:8143/learning/#/run/vr/W7/' + l.at, { waitUntil: 'networkidle' }); await fromTheTop(pg);
     firsts.push(await pg.$eval('[data-testid=question]', (e) => e.dataset.qid));
   }
   check('a week\'s first sittings keep their questions, and each added layer comes after them in sittings of its own',
@@ -2585,7 +2599,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      kids to mark the right answered question as guess or not"). It stays right in the set, is
      no evidence she knows it, and goes into the review pile for tomorrow; taking the mark back
      on the score card restores the schedule the right answer had earned. */
-  await pg.goto('http://localhost:8143/learning/#/run/qr/W8/0', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=question]');
+  await pg.goto('http://localhost:8143/learning/#/run/qr/W8/0', { waitUntil: 'networkidle' }); await fromTheTop(pg);
   const gq = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
   const gk = await pg.evaluate(async (id) => { const b = await (await fetch('./content/bundle.json')).json(); return 'ABCD'.indexOf(b.subjects.qr.find((q) => q.id === id).k); }, gq);
   await pg.click('[data-testid=guess-toggle]');
@@ -3587,7 +3601,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   });
   check('the bundle carries the per-choice why', target && /area/i.test(target.text), target ? target.text : 'no `y` on MA-SEP-029');
   await pg.evaluate(() => { location.hash = '#/run/ma/W2/0'; });
-  await pg.waitForSelector('[data-testid=question]');
+  await fromTheTop(pg);
   // walk to MA-SEP-029 and pick the area
   for (let k = 0; k < target.idx; k++) { await pg.click('[data-testid=choice] >> nth=0'); await pg.click('[data-testid=next]'); await pg.waitForTimeout(120); }
   const onIt = await pg.textContent('[data-testid=question]');
@@ -3684,7 +3698,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   // Maths: forty-four of forty-five skills already carry the chapter that
   // teaches them, and a named Beast Academy unit beats a web search.
   await pg.goto('http://localhost:8143/learning/#/run/ma/W2/0', { waitUntil: 'networkidle' });
-  await pg.waitForSelector('[data-testid=question]');
+  await fromTheTop(pg);
   let rushedSeen = false;
   for (let k = 0; k < 12; k++) {
     if (!(await pg.$('[data-testid=question]'))) break;
@@ -3859,7 +3873,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      verbatim finds homework-answer sites that teach nothing and hand her the
      key. Verbal is where it matters most: the words are the question. */
   await pg.goto('http://localhost:8143/learning/#/run/vr/W3/0', { waitUntil: 'networkidle' });
-  await pg.waitForSelector('[data-testid=question]');
+  await fromTheTop(pg);
   const stem = (await pg.textContent('[data-testid=question]')).trim();
   for (let k = 0; k < 14; k++) {
     if (!(await pg.$('[data-testid=question]'))) break;
@@ -3890,7 +3904,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      which is not rushing. The passage is named on the question she meets it
      at, and not on the next one. */
   await pg.goto('http://localhost:8143/learning/#/run/rc/W2/0', { waitUntil: 'networkidle' });
-  await pg.waitForSelector('[data-testid=question]');
+  await fromTheTop(pg);
   const passage1 = await pg.textContent('[data-testid=passage]');
   await pg.click('[data-testid=choice] >> nth=0');
   await pg.waitForSelector('[data-testid=reveal]');
@@ -3907,7 +3921,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     rcSecond ? `flagged on the stem alone: ${rcSecond.slice(0, 60)}…` : 'answered above the stem floor, so not flagged at all');
 
   await pg.goto('http://localhost:8143/learning/#/run/ma/W3/0', { waitUntil: 'networkidle' });
-  await pg.waitForSelector('[data-testid=question]');
+  await fromTheTop(pg);
   // Careful mode is opt-in: a timer she did not ask for that stops her
   // answering is a punishment, not a help.
   check('careful mode is off until she turns it on', !(await pg.$('[data-testid=holding]')));
@@ -3968,7 +3982,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     const [, hw, hn] = halfKey.split(':');
     const RUN = `http://localhost:8143/learning/#/run/ma/${hw}/${hn}`;
     await pg.goto(RUN, { waitUntil: 'networkidle' });
-    await pg.waitForSelector('[data-testid=question]');
+    await fromTheTop(pg);
     const firstStem = (await pg.textContent('[data-testid=question]')).trim();
     let firstPick = null;
     for (let k = 0; k < 5; k++) {
@@ -4000,6 +4014,16 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
       (await pg.textContent('[data-testid=set-part]')).trim());
 
     await pg.goto(RUN, { waitUntil: 'networkidle' });
+    /* It opens as the five she answered rather than as question six. Dropping her
+       straight back in showed her nothing of the sitting — the owner's "I need to do
+       it again to pass to the next question" — so the answers come first and carrying
+       on is one tap. What that tap must not cost her is her place. */
+    await pg.waitForSelector('[data-testid=score]', { timeout: 20000 });
+    check('a set put down halfway reopens as what she answered',
+      (await pg.getAttribute('[data-testid=partial-so-far]', 'data-answered')) === '5'
+      && (await pg.$$('[data-testid=every-question-choices]')).length === 5,
+      `${await pg.getAttribute('[data-testid=partial-so-far]', 'data-answered')} on the card · ${(await pg.$$('[data-testid=every-question-choices]')).length} questions listed`);
+    await pg.click('[data-testid=carry-on]');
     await pg.waitForSelector('[data-testid=question]');
     check('coming back lands on the question she had reached', (await pg.textContent('[data-testid=counter]')).trim().startsWith('6'),
       (await pg.textContent('[data-testid=counter]')).trim());
@@ -4153,7 +4177,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     figSet ? `${figSet.sub} ${figSet.w} set ${figSet.at} · ${figSet.n} questions` : 'none found');
   if (figSet) {
     await pg.goto(`http://localhost:8143/learning/#/run/${figSet.sub}/${figSet.w}/${figSet.at}`, { waitUntil: 'networkidle' });
-    await pg.waitForSelector('[data-testid=question]');
+    await fromTheTop(pg);
     await runThrough(pg, 1);
     await pg.waitForSelector('[data-testid=score]');
     const drew = await pg.evaluate(() => {
@@ -4212,6 +4236,88 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     check('and the attempt survives the round trip', kept.banner && kept.counter !== '1 / ' + figSet.n,
       `${kept.counter} · banner ${kept.banner}`);
   }
+
+  /* A set she began and put down. Sat last, like the figure set above, because it leaves
+     answers on three questions behind it.
+
+     A sitting is only scored when it is finished, so a set put down part-way wrote no
+     result — and a page that reads done-ness off the result therefore had nothing to show:
+     the sets page said "0 of 16" on a week she had worked, and reopening the set dropped
+     her into question four with no sign of the three she had done. That is the owner's
+     "still not seeing the past results", and it is the half of "a sitting she walks away
+     from still records what she answered" that recording alone does not fix. Her answers
+     are in her own records and those sync, so both computers can show the sitting; the
+     check below is the proof that they do. */
+  const open = await (async () => {
+    for (const sub of ['vr', 'qr', 'ma', 'rc']) {
+      for (const w of ['W6', 'W7', 'W8', 'W5']) {
+        for (let n = 0; n < 3; n++) {
+          const free = await pg.evaluate((k) => !((JSON.parse(localStorage.getItem('isee.v1')) || {}).results || {})[k], `${sub}:${w}:${n}`);
+          if (!free) continue;
+          await pg.goto(`http://localhost:8143/learning/#/run/${sub}/${w}/${n}`, { waitUntil: 'networkidle' });
+          await pg.waitForTimeout(400);
+          const c = await pg.$('[data-testid=counter]');
+          const total = c ? +(await c.textContent()).split('/')[1].trim() : 0;
+          if (await pg.$('[data-testid=question]') && total >= 5) return { sub, w, n, total };
+        }
+      }
+    }
+    return null;
+  })();
+  check('some plan set is still unsat, to put down part-way', !!open, open ? `${open.sub} ${open.w} set ${open.n + 1} · ${open.total} questions` : 'none found');
+  if (open) {
+    const url = `http://localhost:8143/learning/#/run/${open.sub}/${open.w}/${open.n}`;
+    for (let k = 0; k < 3; k++) {
+      const before = await pg.textContent('[data-testid=counter]');
+      await pg.click('[data-testid=choice] >> nth=0');
+      await pg.click('[data-testid=next]');
+      await pg.waitForFunction((x) => { const c = document.querySelector('[data-testid=counter]'); return !c || c.textContent !== x; }, before, { timeout: 15000 });
+    }
+    await pg.goto(`http://localhost:8143/learning/#/s/${open.sub}/${open.w}`, { waitUntil: 'networkidle' });
+    await pg.waitForTimeout(900);
+    const row = (await body(pg)).match(/\d+ questions · \d+ of \d+ answered[^\n]*/);
+    check('the sets page says how far into it she got', !!row && row[0].includes(`3 of ${open.total} answered`), (row || ['no part-done row'])[0]);
+    await pg.goto(`http://localhost:8143/learning/#/checklist/${open.w}`, { waitUntil: 'networkidle' });
+    await pg.waitForTimeout(700);
+    const chkRow = (await body(pg)).match(/3\/\d+ answered/);
+    check('and so does the checklist, without ticking it off', !!chkRow && chkRow[0] === `3/${open.total} answered`, (chkRow || ['no part-done row'])[0]);
+
+    await pg.goto(url, { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=score]', { timeout: 15000 });
+    const card = await pg.evaluate(() => {
+      const p = document.querySelector('[data-testid=partial-so-far]');
+      return {
+        answered: p && p.dataset.answered, total: p && p.dataset.total,
+        rows: document.querySelectorAll('[data-testid=every-question-choices]').length,
+        asks: document.querySelectorAll('[data-testid=every-question-answer]').length,
+        keys: document.querySelectorAll('[data-testid=every-question-choices] li[data-key]').length,
+        carry: (document.querySelector('[data-testid=carry-on]') || {}).textContent || '',
+        pct: /%/.test(document.querySelector('[data-testid=score]').innerText),
+      };
+    });
+    check('reopening it shows what she answered rather than the next question',
+      card.answered === '3' && card.total === String(open.total) && card.rows === 3,
+      `${card.answered} of ${card.total} answered · ${card.rows} shown`);
+    /* The questions she has not reached are not on the card at all. Every missed card
+       carries a "show the answer", so listing one would hand her the answers to the rest
+       of the set on her way back into it — and a key marked on a row she never saw is the
+       same leak by another route. A key may show only where her own pick was the key. */
+    check('and nothing she has not reached is shown, or its answer given away',
+      card.keys === card.rows - card.asks, `${card.rows} rows · ${card.asks} still to ask · ${card.keys} keys marked`);
+    check('an unfinished sitting is not scored or judged', !card.pct && /to go/.test(card.carry), `${card.carry.trim()} · percentage shown: ${card.pct}`);
+    await pg.click('[data-testid=carry-on]');
+    await pg.waitForSelector('[data-testid=question]');
+    check('and carrying on starts at the first question she has not answered',
+      (await pg.textContent('[data-testid=counter]')).trim() === `4 / ${open.total}`,
+      (await pg.textContent('[data-testid=counter]')).trim());
+  }
+  /* A review, a mixed set and a skill practice are built out of questions she HAS answered
+     in their own week sets. Reading "what has she answered of these?" there would answer
+     "all of them" and open a review she has not started as a sitting already done. */
+  await pg.goto('http://localhost:8143/learning/#/review/vr', { waitUntil: 'networkidle' });
+  await pg.waitForTimeout(1200);
+  const asReview = await pg.evaluate(() => ({ score: !!document.querySelector('[data-testid=score]'), live: !!document.querySelector('[data-testid=question]'), empty: !document.querySelector('[data-testid=question], [data-testid=score]') }));
+  check('a review is never read as a sitting she has already answered', !asReview.score, JSON.stringify(asReview));
 
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });

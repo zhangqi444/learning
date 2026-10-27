@@ -242,6 +242,26 @@ npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63
   child nothing. The shuffle-cycle check is skipped for those forms deliberately:
   an order the alphabet decides cannot be cyclic. Do not "fix" a red gate by taking
   the form off the list; rewrite the items, or leave the form off until they are.
+- **A `#/run/...` url no longer always shows a question.** A set she part-answered
+  opens as the list of what she answered, with "Carry on" one tap away, so a check
+  that navigates to a set and waits for `[data-testid=question]` hangs for thirty
+  seconds and reports a selector, not a cause. It bit three checks in one run, in
+  three different places, none of them near the change. `fromTheTop(pg)` in
+  `test_features.cjs` is the entry to use when a check wants to walk a set from
+  question one; a check that is *about* the resume clicks `carry-on` instead. The
+  list is only for a set (`setId` and not `custom`) — a review, a word quiz and a
+  mixed set are generated fresh and still resume straight into the question.
+- **Reading Drive only ever happened on the way to writing it.** `pull()` ran from
+  signing in and from `flush()`, and `flush()` runs only when this device has an edit
+  to push, so a tab left open read the record once and then showed that morning's work
+  all day — "all the results from my other computer are not synced", with nothing lost
+  and nothing wrong in the merge. `Store.look()` is the device listening: tab visible,
+  window focused, back online, and once a minute while visible. It asks Drive for
+  `modifiedTime` first and fetches the half-megabyte body only when that moved, so
+  leaving a tab open costs a few hundred bytes a minute. The stub models both calls
+  and counts them (`drive.looks`, `drive.reads`); a check that only asserts the data
+  arrived can be satisfied by an ordinary flush pulling on its way out, so assert the
+  read count moved too, and seed the remote only once the chip says "Saved to Drive".
 - **A reading stem that says "line 14" is checked against line 14.** Numbered
   passages are split by `passage_lines()` in the validator and by `NumberedLines`
   in the runner with the same rule — newline ends a line, blank line ends a
