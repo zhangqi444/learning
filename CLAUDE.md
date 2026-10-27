@@ -262,6 +262,15 @@ npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63
   and counts them (`drive.looks`, `drive.reads`); a check that only asserts the data
   arrived can be satisfied by an ordinary flush pulling on its way out, so assert the
   read count moved too, and seed the remote only once the chip says "Saved to Drive".
+- **The review sitting's size is written down twice.** `REVIEW_SITTING` in
+  `src/lib/engine.js` is the cap, and `test_features.cjs` asserts a sitting is no longer
+  than it — as `REVIEW_CAP`, a named number beside the check, because the point of that
+  check is that there *is* a cap and the run equals it. Raise one and the other goes red.
+  The engine is the one that is right; widening the test to clear a red line is how the
+  292-question review comes back. It stopped being `SETSIZE` on 27 October 2026: a week's
+  set is fresh material the plan chunks by, a review is known skills coming round again, and
+  at twelve the door could not drain — October added 303 misses and cleared 54.
+
 - **A reading stem that says "line 14" is checked against line 14.** Numbered
   passages are split by `passage_lines()` in the validator and by `NumberedLines`
   in the runner with the same rule — newline ends a line, blank line ends a

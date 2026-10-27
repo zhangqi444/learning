@@ -2,7 +2,7 @@
  * skill mastery, mixed sets, vocabulary mastery, mock next steps, streaks and
  * the readiness score. Pure functions over Store.s + the bundle, except the
  * few writers at the top. Nothing here ever deletes a result. */
-import { D, ORDER, SUBJ, LTR, SETSIZE, keyOf, setId, setsFor, currentWeek, isZh, exItems } from "./content"
+import { D, ORDER, SUBJ, LTR, keyOf, setId, setsFor, currentWeek, isZh, exItems } from "./content"
 import { Store, ts } from "./store"
 import { aopsFor, learnName } from "./aops"
 import { W, atLeast } from "./world"
@@ -503,13 +503,22 @@ export function reviewStandIn(id, seed = todayKey()) { return reviewStandIns(id,
  *  A paper's miss with nothing to stand in for it is left out rather than shown,
  *  because there is no question of ours behind it to show. Precision words keep
  *  their own rebuilt question, and a Chinese miss is its own page's business. */
-/** One sitting of review. The same SETSIZE the plan chunks a week by, for the same reason:
- *  "each set is one sitting" (AGENTS.md). A review had no cap at all — two questions per miss,
- *  however many were waiting — so a backlog of 146 Verbal misses opened a single run of 292
- *  questions, which is twenty-four sittings and cannot be finished, let alone twice, which is
- *  what a miss needs. The queue is in due order, so a capped sitting is the oldest misses
- *  first and the rest keep their place. */
-export const REVIEW_SITTING = SETSIZE
+/** One sitting of review. A review had no cap at all — two questions per miss, however many
+ *  were waiting — so a backlog of 146 Verbal misses opened a single run of 292 questions,
+ *  which is twenty-four sittings and cannot be finished, let alone twice, which is what a
+ *  miss needs. The queue is in due order, so a capped sitting is the oldest misses first and
+ *  the rest keep their place.
+ *
+ *  It was SETSIZE, on the reasoning that a review is a sitting like any other — "each set is
+ *  one sitting" (AGENTS.md). That reasoning left the door undrainable. A sitting of twelve
+ *  covers six misses at REVIEW_PER_MISS each, and a miss needs two right days before it
+ *  clears, so six is the most one sitting can retire — against the doubling's intake of
+ *  something over seventy a week. October bore it out: 303 misses added, 54 cleared, the pile
+ *  up by roughly 250 to 322 at the door with 144 check-ins behind them. Asked to choose between a longer sitting, lighter weeks, and one
+ *  stand-in per miss instead of two, the owner chose the longer sitting (27 October 2026).
+ *  Deliberately no longer SETSIZE: a week's set is fresh material chunked by the plan, a
+ *  review is known skills coming round again, and the two are not the same decision. */
+export const REVIEW_SITTING = 24
 export function reviewItems(sub, mode, cat = "isee", cap = REVIEW_SITTING) {
   const q = reviewQueue(sub, cat)
   const rows = mode === "checkin" ? q.checkin : mode === "all" ? [...q.due, ...q.scheduled] : q.due

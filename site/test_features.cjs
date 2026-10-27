@@ -1933,6 +1933,11 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.evaluate(() => { location.hash = '#/review'; });
   await pg.waitForSelector('[data-testid=review-vr]');
   await pg.waitForTimeout(400);
+  /* REVIEW_SITTING in src/lib/engine.js. Kept as a named number here because the point of
+     the check is that there IS a cap and the run equals it — raised from 12 to 24 on 27
+     October 2026 so the door can actually drain. If this and the engine disagree, the engine
+     is right and this is stale; do not widen it to make a red line go away. */
+  const REVIEW_CAP = 24;
   const sitting = await pg.evaluate(() => {
     const out = [];
     for (const card of document.querySelectorAll('[data-testid^=review-]')) {
@@ -1944,14 +1949,14 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     return out;
   });
   check('a review sitting is capped at one sitting, so it can be finished',
-    sitting.length > 0 && sitting.every((x) => x.qs <= 12 && x.qs > 0),
+    sitting.length > 0 && sitting.every((x) => x.qs <= REVIEW_CAP && x.qs > 0),
     sitting.map((x) => `${x.sub}: let ${x.lets} in · ${x.qs} questions`).join(' | '));
   const biggest = sitting.slice().sort((a, c) => c.qs - a.qs)[0];
   await pg.click(`[data-testid=start-review-${biggest.sub}]`);
   await pg.waitForSelector('[data-testid=question]');
   const runTotalCap = +(await pg.textContent('[data-testid=counter]')).split('/')[1].trim();
   check('and the run it opens is that long, not the whole backlog',
-    runTotalCap === biggest.qs && runTotalCap <= 12, `${runTotalCap} questions`);
+    runTotalCap === biggest.qs && runTotalCap <= REVIEW_CAP, `${runTotalCap} questions`);
   const dueBefore = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); const now = new Date().toISOString(); return Object.values(s.items || {}).filter((r) => r && r.due && !r.cleared && r.due <= now).length; });
   await runThrough(pg, 0);
   await pg.waitForSelector('[data-testid=score]');
