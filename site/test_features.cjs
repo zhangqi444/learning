@@ -1599,21 +1599,49 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   /* Since 4 October 2026 a review asks two other questions in a miss's place
      (lib/engine.js, reviewItems), so most of what is answered here was never in
      the pile: a stand-in answered right has nothing to step — the miss it stood
-     in for is what moves, through `for`. What must hold: every wrong answer is a
-     miss of its own, every precision word answered right steps forward (a word
-     is asked as itself), and the misses were credited through their stand-ins. */
+     in for is what moves, through `for`. What must hold: a question answered as
+     ITSELF and got wrong is a miss of its own, every precision word answered
+     right steps forward (a word is asked as itself), and the misses were
+     credited through their stand-ins. A wrong stand-in is the exception, and the
+     check below it is where that is held. */
   const afterRv = await pg.evaluate(() => {
     const s = JSON.parse(localStorage.getItem('isee.v1'));
     const lastOf = (r, ctx) => { const h = (r.hist || []).filter((x) => x.ctx === ctx); return h[h.length - 1]; };
+    // A stand-in is named by the `via` on the `again` entry it wrote onto the miss it stood for.
+    const via = new Set();
+    for (const r of Object.values(s.items)) for (const h of r.hist || []) if (h.ctx === 'again' && h.via) via.add(h.via);
     const answered = Object.entries(s.items).filter(([, r]) => lastOf(r, 'review'));
     const wrong = answered.filter(([, r]) => !lastOf(r, 'review').ok);
+    const wrongStandIns = wrong.filter(([k]) => via.has(k));
+    const wrongOwn = wrong.filter(([k]) => !via.has(k));
     const words = answered.filter(([k, r]) => k.startsWith('w:') && lastOf(r, 'review').ok);
     const credited = Object.values(s.items).filter((r) => { const a = lastOf(r, 'again'); return a && a.via; });
-    return { n: answered.length, wrong: wrong.length, wrongReset: wrong.filter(([, r]) => r.step === 0 && r.due).length,
-      words: words.length, wordsStepped: words.filter(([, r]) => r.step >= 1 || (r.cleared && r.due)).length, credited: credited.length };
+    return {
+      n: answered.length,
+      standInsWrong: wrongStandIns.length,
+      standInsScheduled: wrongStandIns.filter(([, r]) => r.due && !r.cleared).length,
+      standInsCounted: wrongStandIns.filter(([, r]) => (r.misses || 0) >= 1).length,
+      ownWrong: wrongOwn.length,
+      ownReset: wrongOwn.filter(([, r]) => r.step === 0 && r.due).length,
+      words: words.length, wordsStepped: words.filter(([, r]) => r.step >= 1 || (r.cleared && r.due)).length,
+      credited: credited.length,
+    };
   });
-  check('review answers recorded: a wrong answer is a miss of its own, a right word steps forward, the misses are credited through their stand-ins',
-    afterRv.n >= 1 && afterRv.wrongReset === afterRv.wrong && afterRv.wordsStepped === afterRv.words && afterRv.credited >= 1, JSON.stringify(afterRv));
+  check('review answers recorded: a question answered as itself is a miss of its own, a right word steps forward, the misses are credited through their stand-ins',
+    afterRv.n >= 1 && afterRv.ownReset === afterRv.ownWrong && afterRv.wordsStepped === afterRv.words && afterRv.credited >= 1, JSON.stringify(afterRv));
+  /* A wrong stand-in is evidence, not a debt of its own.
+   *
+   * It used to go into the pile as a miss in its own right, needing its own two stand-ins on
+   * two separate days. Since nothing can LEAVE the pile on the day it is worked — a miss
+   * clears at step 2, and two answers on one day are one piece of evidence — the pile grew
+   * after every session: from 19, one session of 38 questions left 22 at 92% right, 26 at 82%
+   * and 31 at 68%, so below about 87% it grew without bound however much she worked. That is
+   * what the owner saw as "the review number never goes down".
+   * The answer still counts everywhere else, and still resets the miss it stood in for; only
+   * the scheduling stops. Asserted on the miss count so the evidence half cannot be lost. */
+  check('and a wrong stand-in does not become a miss of its own, so the pile cannot compound',
+    afterRv.standInsWrong === 0 || (afterRv.standInsScheduled === 0 && afterRv.standInsCounted === afterRv.standInsWrong),
+    `${afterRv.standInsWrong} stand-ins wrong · ${afterRv.standInsScheduled} put in the pile · ${afterRv.standInsCounted} counted as a miss on the question`);
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('text=Review');
   check('review page shows scheduled items after a pass', /scheduled/.test(await body(pg)));
 
@@ -1868,6 +1896,151 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
       `${split.review} came back wrong · ${split.newWork} wrong on new work · ${split.shut} hidden`);
   }
 
+  /* Working the pile really does empty it, so these checks put it back when they are done.
+     Without that they are not checks of their own but a change to every check after them:
+     the focus-topic card below needs a maths skill with two misses still waiting, and it
+     went red the first time this ran — not because anything was broken, because this had
+     eaten its evidence. The drafts go too, so no later run resumes a half-done sitting. */
+  const pileSnap = await pg.evaluate(() => JSON.stringify((JSON.parse(localStorage.getItem('isee.v1')) || {}).items || {}));
+  const draftSnap = await pg.evaluate(() => JSON.stringify((JSON.parse(localStorage.getItem('isee.v1')) || {}).drafts || {}));
+  /* A review sitting has to be finishable, because nothing is recorded until it is.
+   *
+   * `recordAttempts` runs once, inside the runner's finish(), which is reachable only from
+   * the last question — there is no way to end a run early. A review was uncapped, two
+   * questions for every miss however many were waiting, so a backlog of 146 Verbal misses
+   * opened a run of 292. She answered some, left, and NOTHING was written: no reschedule, no
+   * clear, the number unmoved. That is what the owner reported — "we didn't see the review
+   * questions number go down even after finish some" — and then, from a second machine,
+   * "review vr shows 41/292, but from this computer it is 1/292": the position is a draft,
+   * and drafts are deliberately device-local (store.js saveDraft), so the work was not even
+   * where she had left it. The stand-ins are re-seeded daily from todayKey(), so sigOf drops
+   * that draft the next morning too.
+   * The cap is the fix, and this is the check that keeps a sitting something she can finish. */
+  await pg.evaluate(() => { location.hash = '#/review'; });
+  await pg.waitForSelector('[data-testid=review-vr]');
+  await pg.waitForTimeout(400);
+  const sitting = await pg.evaluate(() => {
+    const out = [];
+    for (const card of document.querySelectorAll('[data-testid^=review-]')) {
+      const btn = card.querySelector('[data-testid^=start-review-]');
+      if (!btn) continue;
+      const m = /Let (\d+) in · (\d+) question/.exec(btn.textContent.replace(/\s+/g, ' '));
+      if (m) out.push({ sub: card.dataset.testid.slice(7), lets: +m[1], qs: +m[2] });
+    }
+    return out;
+  });
+  check('a review sitting is capped at one sitting, so it can be finished',
+    sitting.length > 0 && sitting.every((x) => x.qs <= 12 && x.qs > 0),
+    sitting.map((x) => `${x.sub}: let ${x.lets} in · ${x.qs} questions`).join(' | '));
+  const biggest = sitting.slice().sort((a, c) => c.qs - a.qs)[0];
+  await pg.click(`[data-testid=start-review-${biggest.sub}]`);
+  await pg.waitForSelector('[data-testid=question]');
+  const runTotalCap = +(await pg.textContent('[data-testid=counter]')).split('/')[1].trim();
+  check('and the run it opens is that long, not the whole backlog',
+    runTotalCap === biggest.qs && runTotalCap <= 12, `${runTotalCap} questions`);
+  const dueBefore = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); const now = new Date().toISOString(); return Object.values(s.items || {}).filter((r) => r && r.due && !r.cleared && r.due <= now).length; });
+  await runThrough(pg, 0);
+  await pg.waitForSelector('[data-testid=score]');
+  const dueAfter = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); const now = new Date().toISOString(); return Object.values(s.items || {}).filter((r) => r && r.due && !r.cleared && r.due <= now).length; });
+  check('and finishing it moves the number she is watching',
+    dueAfter < dueBefore, `${dueBefore} due before the sitting -> ${dueAfter} after`);
+  /* And a sitting she does not finish still counts.
+   *
+   * recordAttempts ran once, inside finish(), reachable only from the last question, so
+   * walking away from a part-done sitting wrote NOTHING — the answers lived in a draft, and
+   * drafts are device-local by design (store.js saveDraft), which is why the owner saw
+   * "41/292" on one machine and "1/292" on another with neither number ever moving. The
+   * answers are written when she leaves now, and the indices written are kept in the draft
+   * so finishing later cannot write them a second time. The second half of this check is the
+   * one that matters: a doubled answer would be a wrong record, not a missing one. */
+  await pg.evaluate(() => { location.hash = '#/review'; });
+  await pg.waitForSelector('[data-testid=review-vr]');
+  await pg.waitForTimeout(400);
+  const longest = await pg.evaluate(() => {
+    let best = null;
+    for (const card of document.querySelectorAll('[data-testid^=review-]')) {
+      const btn = card.querySelector('[data-testid^=start-review-]');
+      if (!btn) continue;
+      const m = /Let \d+ in · (\d+) question/.exec(btn.textContent.replace(/\s+/g, ' '));
+      if (m && (!best || +m[1] > best.qs)) best = { sub: card.dataset.testid.slice(7), qs: +m[1] };
+    }
+    return best;
+  });
+  // Needs a sitting long enough to leave part-done; two questions would finish themselves.
+  if (longest && longest.qs >= 3) {
+    await pg.click(`[data-testid=start-review-${longest.sub}]`);
+    await pg.waitForSelector('[data-testid=question]');
+    const part = [];
+    const stopAt = Math.min(3, longest.qs - 1);
+    for (let k = 0; k < stopAt; k++) {
+      if (!(await pg.$('[data-testid=question]'))) break;
+      part.push(await pg.$eval('[data-testid=question]', (e) => e.dataset.qid));
+      const before = await pg.textContent('[data-testid=counter]');
+      await pg.click('[data-testid=choice] >> nth=0');
+      await pg.click('[data-testid=next]');
+      await pg.waitForFunction((x) => { const c = document.querySelector('[data-testid=counter]'); return !c || c.textContent !== x || !!document.querySelector('[data-testid=score]'); }, before, { timeout: 15000 });
+    }
+    // walk away without finishing
+    await pg.evaluate(() => { location.hash = '#/'; });
+    await pg.waitForTimeout(900);
+    const kept = await pg.evaluate(({ ids, key }) => {
+      const s = JSON.parse(localStorage.getItem('isee.v1')) || {};
+      const n = (id) => (((s.items || {})[id] || {}).hist || []).filter((h) => h.ctx === 'review').length;
+      const draft = (s.drafts || {})[key];
+      return { written: ids.filter((id) => n(id) >= 1).length, counts: ids.map(n), marked: draft && Array.isArray(draft.recorded) ? draft.recorded.length : 0 };
+    }, { ids: part, key: `review:${longest.sub}:due` });
+    check('a sitting she walks away from still records what she answered',
+      part.length > 0 && kept.written === part.length && kept.marked >= part.length,
+      `${part.length} answered · ${kept.written} written · ${kept.marked} marked in the draft`);
+    // back in, finish the rest, and nothing may be written twice
+    await pg.evaluate(() => { location.hash = '#/review'; });
+    await pg.waitForTimeout(400);
+    const back2 = await pg.$(`[data-testid=start-review-${longest.sub}]`);
+    if (back2) {
+      await back2.click();
+      await pg.waitForSelector('[data-testid=question], [data-testid=score]');
+      await runThrough(pg, 0);
+      await pg.waitForTimeout(600);
+      const dbl = await pg.evaluate((ids) => {
+        const s = JSON.parse(localStorage.getItem('isee.v1')) || {};
+        return ids.map((id) => (((s.items || {})[id] || {}).hist || []).filter((h) => h.ctx === 'review').length);
+      }, part);
+      check('and finishing it later does not write those answers a second time',
+        dbl.every((n) => n === 1), `review entries per question: ${dbl.join(', ')}`);
+    }
+  }
+  /* Drafts go back exactly as they were, rather than being cleared: wiping them took out a
+     vocabulary draft a later check builds on, and that check then resumed a run it was
+     supposed to refuse. Putting a thing back means putting it back, not tidying up. */
+  const pilePut = await setLs(pg, (snap) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    s.items = JSON.parse(snap.items); s.drafts = JSON.parse(snap.drafts);
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, (snap) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1'));
+    return JSON.stringify(s.items || {}) === snap.items && JSON.stringify(s.drafts || {}) === snap.drafts;
+  }, 12000, { items: pileSnap, drafts: draftSnap });
+  /* The page still holds the worked pile in memory and would save it back over the restore
+     at its next flush, and renders from memory besides — so the restore only becomes real
+     once the page has read it again. A reload alone is not enough: the app merges the Drive
+     document on load, and the stub is holding the copy this sitting pushed, which comes
+     straight back over the restore. The day has to be put back in BOTH stores, which is the
+     same lesson the drive-rewind in the pile simulations taught. */
+  const putBack = await pg.evaluate(() => localStorage.getItem('isee.v1'));
+  drive.body = JSON.stringify({ ...JSON.parse(putBack), schema: 7, savedAt: new Date().toISOString() });
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.evaluate(() => { location.hash = '#/review'; });
+  await pg.waitForTimeout(1600);
+  const pileBack = await pg.evaluate((snap) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1')) || {};
+    const want = JSON.parse(snap), now = new Date().toISOString();
+    const dueIn = (o) => Object.values(o).filter((r) => r && r.due && !r.cleared && r.due <= now).length;
+    return { want: dueIn(want), got: dueIn(s.items || {}) };
+  }, pileSnap);
+  check('and the pile these checks worked is put back for the ones after them',
+    pilePut === true && pileBack.got === pileBack.want,
+    `${pileBack.got} due of ${pileBack.want} expected`);
+
   /* And in the plan's own between-weeks — Mock 1, Correction and retest, Mock 2. Those
    * spans had no recap at all, because weekRecap is keyed by a plan week, so a question
    * that came back and went wrong again during one of them could be reached from no page:
@@ -1894,7 +2067,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
       bp.on('console', (m) => { if (m.type() === 'error' && !/Failed to load resource/.test(m.text())) bErrs.push(m.text().split('\n')[0].slice(0, 160)); });
       await bp.goto('http://localhost:8143/learning/', { waitUntil: 'networkidle' });
       await signIn(bp);
-      await setLs(bp, ([wrong, right, unseen]) => {
+      const seeded = await setLs(bp, ([wrong, right, unseen]) => {
         const s = JSON.parse(localStorage.getItem('isee.v1')), at = new Date().toISOString();
         const due = new Date(Date.now() + 86400e3).toISOString();
         s.items = s.items || {};
@@ -1902,7 +2075,18 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
         s.items[right] = { hist: [{ at, ok: true, ms: 20000, pick: 'B', ctx: 'review' }], step: 1, streak: 1, due, cleared: null };
         s.items[unseen] = { hist: [{ at, ok: false, ms: 0, ctx: 'again', via: wrong }], step: 0, due, cleared: null };
         localStorage.setItem('isee.v1', JSON.stringify(s));
-      }, ([wrong, right, unseen]) => { const it = JSON.parse(localStorage.getItem('isee.v1')).items || {}; return !!(it[wrong] && it[right] && it[unseen]); }, 12000, ids);
+      }, ([wrong, right, unseen]) => {
+        /* The CONTENT, not just the keys. This asked only whether the three records existed,
+           and they always do: backfill() builds one for every migrated answer the moment the
+           page loads. So setLs was satisfied by records it had not written, the page's own
+           flush put its copy straight back over the seed — measurably, within a few hundred
+           milliseconds — and the recap below then found no review answers in the span and
+           rendered nothing. The check had been reporting on a seed that never landed. */
+        const it = (JSON.parse(localStorage.getItem('isee.v1')) || {}).items || {};
+        const first = (id) => (((it[id] || {}).hist || [])[0] || {});
+        return first(wrong).ctx === 'review' && first(right).ok === true && first(unseen).via === wrong;
+      }, 12000, ids);
+      if (seeded !== true) return { err: 'the seeded review answers would not hold past the page flush' };
       await bp.reload({ waitUntil: 'networkidle' });
       const spanId = 'B:' + key(first.a);
       await bp.evaluate((id) => { location.hash = '#/checklist/' + id; }, spanId);

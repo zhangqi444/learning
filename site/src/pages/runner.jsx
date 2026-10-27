@@ -391,6 +391,14 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
      at a finished set and is deliberately not remembered, so coming back to the card gives
      her the second attempt again rather than the answer she was shown last time. */
   const [told, setTold] = useState(() => ({}))
+  /* Which answers have already been written to her record. Nothing was written until a run
+     FINISHED — recordAttempts runs once, inside finish(), which is reachable only from the
+     last question — so a sitting left part-way through counted for nothing at all: no
+     reschedule, no clear, the review number unmoved however much she had done. That was
+     survivable while a run was a dozen questions and fatal once an uncapped review opened
+     292 of them. Restored from the draft so a resumed run never writes the same answer
+     twice, and the indices in it are locked in `choose` and `slip` below. */
+  const recorded = useRef(new Set(back && Array.isArray(back.recorded) ? back.recorded : []))
   // question index -> she marked it "I'm guessing" as she answered (kept in the draft)
   const [guesses, setGuesses] = useState(() => (back && Array.isArray(back.guesses) ? back.guesses.slice() : []))
   const spent = useRef(back ? { ...(back.spent || {}) } : {})                    // question index -> ms
@@ -428,6 +436,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
    * again can pick the same answer again. */
   const lastPick = useRef(null)
   function choose(k) {
+    if (recorded.current.has(i)) return      // already in her record; it cannot be re-answered
     if (instant && shown[i]) return          // an answered question stays answered
     const now = Date.now()
     if (lastPick.current && lastPick.current.i === i && lastPick.current.k === k && now - lastPick.current.at < 80) return
@@ -453,6 +462,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
     sfx(word ? "call" : ok ? "right" : "wrong", word || undefined)
   }
   function slip() {
+    if (recorded.current.has(i)) return      // the answer already counted; a slip cannot unsay it
     const np = picks.slice(); np[i] = null; setPicks(np)
     const ns = { ...shown }; delete ns[i]; setShown(ns)
     setSlips({ ...slips, [i]: true })
@@ -478,7 +488,9 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
       if (ok) right++; else wrong.push(q.id)
       // `for` is set when the pile served this question in place of one she
       // missed, so the answer advances that item too — see recordAttempts.
-      entries.push({ id: q.id, ok, ms, pick: picks[j] == null ? null : LTR[picks[j]], for: q.standsFor || null })
+      // Already written when she left the sitting part-way through; the score below still
+      // counts it, because the set result is about the whole sitting.
+      if (!recorded.current.has(j)) entries.push({ id: q.id, ok, ms, pick: picks[j] == null ? null : LTR[picks[j]], for: q.standsFor || null })
       const s = subOf(q, subHint); bySub[s] = bySub[s] || { right: 0, n: 0 }; bySub[s].n++; if (ok) bySub[s].right++
     })
     const at = new Date().toISOString()
@@ -548,13 +560,24 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
    * gap in the pacing figures — it is a wrong number in them, and it is the
    * kind that makes a median look better than the truth. */
   const latest = useRef(null)
-  latest.current = { picks, guesses, i, shown, answered, done }
+  latest.current = { picks, guesses, i, shown, slips, answered, done }
   React.useEffect(() => () => {
     const l = latest.current
     if (!draftKey || !l || l.done || finished.current || !l.answered) return
     const sp = { ...spent.current }
     sp[l.i] = (sp[l.i] || 0) + (Date.now() - entered.current)
-    Store.saveDraft(draftKey, { sig, picks: l.picks, guesses: l.guesses, i: l.i, shown: l.shown, slips: l.slips, spent: sp, n: items.length, answered: l.answered, title: title || null, path: exitPath || null })
+    /* And her answers, which used to be thrown away. A mis-tap set aside is left for finish()
+       — it is not an answer, and nothing should be written about it until she says so. */
+    if (record) {
+      const es = []
+      items.forEach((q, j) => {
+        if (recorded.current.has(j) || l.picks[j] == null || (l.slips || {})[j]) return
+        es.push({ id: q.id, ok: LTR[l.picks[j]] === keyOf(q), ms: Math.round(sp[j] || 0), pick: LTR[l.picks[j]], for: q.standsFor || null })
+        recorded.current.add(j)
+      })
+      if (es.length) recordAttempts(es, kind)
+    }
+    Store.saveDraft(draftKey, { sig, picks: l.picks, guesses: l.guesses, i: l.i, shown: l.shown, slips: l.slips, spent: sp, n: items.length, answered: l.answered, recorded: [...recorded.current], title: title || null, path: exitPath || null })
   }, [])
 
   /* ABOVE the finished-state return on purpose. A hook after that `return` is a

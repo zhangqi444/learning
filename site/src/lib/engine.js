@@ -2,7 +2,7 @@
  * skill mastery, mixed sets, vocabulary mastery, mock next steps, streaks and
  * the readiness score. Pure functions over Store.s + the bundle, except the
  * few writers at the top. Nothing here ever deletes a result. */
-import { D, ORDER, SUBJ, LTR, keyOf, setId, setsFor, currentWeek, isZh, exItems } from "./content"
+import { D, ORDER, SUBJ, LTR, SETSIZE, keyOf, setId, setsFor, currentWeek, isZh, exItems } from "./content"
 import { Store, ts } from "./store"
 import { aopsFor, learnName } from "./aops"
 import { W, atLeast } from "./world"
@@ -132,7 +132,7 @@ export function findItem(id) {
 export function recordAttempts(entries, ctx) {
   const now = nowIso(), map = {}
   const take = (id) => map[id] || rec(id) || { hist: [] }   // one batch may touch an id twice
-  function write(id, entry, kctx) {
+  function write(id, entry, kctx, standIn) {
     const prev = take(id)
     const r = { ...prev, hist: [...(prev.hist || []), entry].slice(-40) }
     /* A mis-tap is not an answer, and must not be scored as one. `slip` is deliberately not
@@ -158,8 +158,26 @@ export function recordAttempts(entries, ctx) {
       const sameDay = last && dayKey(last.at) === dayKey(now)
       const inPile = !!(prev.due && !prev.cleared)
       if (!entry.ok) {
-        r.step = 0; r.streak = 0; r.due = plusDays(now, INTERVALS[0]); r.cleared = null; r.lastMiss = now
+        r.lastMiss = now
         r.misses = (prev.misses || 0) + 1
+        /* A wrong stand-in is evidence about the skill, not a debt of its own.
+         *
+         * It used to become a miss in its own right, with its own two stand-ins to answer on
+         * two separate days — so one review session put one new question into the pile for
+         * every wrong answer, while nothing could leave it that day (a miss clears at step 2,
+         * and two answers on one day are one piece of evidence). The pile therefore grew after
+         * every session: measured on a pile of 19, one session of 38 questions left 22 at 92%
+         * right, 26 at 82% and 31 at 68%. Below about 87% it grew without bound however much
+         * she worked, which is what "the review number never goes down" was.
+         *
+         * The answer still counts for everything else — accuracy, the skill's level, the miss
+         * count on the question — and it still resets the miss this question stood in for, in
+         * the `for` write below. Only the scheduling stops: the pile stays bounded by the
+         * questions she actually missed rather than compounding. A stand-in already waiting in
+         * the pile is scheduled as normal; `reviewStandIns` never borrows one, so this only
+         * ever declines to create a NEW entry, never skips updating an existing one. */
+        if (standIn && !inPile) { map[id] = r; return }
+        r.step = 0; r.streak = 0; r.due = plusDays(now, INTERVALS[0]); r.cleared = null
       } else if (inPile) {
         if (!sameDay) {                                  // two answers on one day are one piece of evidence
           r.step = (prev.step || 0) + 1; r.streak = (prev.streak || 0) + 1
@@ -178,7 +196,7 @@ export function recordAttempts(entries, ctx) {
     if (!e || !e.id) continue
     if (e.slip) { write(e.id, { at: now, ms: Math.round(e.ms || 0), pick: e.pick || null, ctx: "slip" }, "slip"); continue }
     const base = { at: now, ok: !!e.ok, ms: Math.round(e.ms || 0), pick: e.pick || null }
-    write(e.id, { ...base, ctx }, ctx)
+    write(e.id, { ...base, ctx }, ctx, !!(e.for && e.for !== e.id))
     if (e.for && e.for !== e.id) write(e.for, { ...base, ctx: "again", via: e.id }, "again")
   }
   if (Object.keys(map).length) Store.setMany("items", map)
@@ -457,12 +475,22 @@ export function reviewStandIn(id, seed = todayKey()) { return reviewStandIns(id,
  *  A paper's miss with nothing to stand in for it is left out rather than shown,
  *  because there is no question of ours behind it to show. Precision words keep
  *  their own rebuilt question, and a Chinese miss is its own page's business. */
-export function reviewItems(sub, mode, cat = "isee") {
+/** One sitting of review. The same SETSIZE the plan chunks a week by, for the same reason:
+ *  "each set is one sitting" (AGENTS.md). A review had no cap at all — two questions per miss,
+ *  however many were waiting — so a backlog of 146 Verbal misses opened a single run of 292
+ *  questions, which is twenty-four sittings and cannot be finished, let alone twice, which is
+ *  what a miss needs. The queue is in due order, so a capped sitting is the oldest misses
+ *  first and the rest keep their place. */
+export const REVIEW_SITTING = SETSIZE
+export function reviewItems(sub, mode, cat = "isee", cap = REVIEW_SITTING) {
   const q = reviewQueue(sub, cat)
   const rows = mode === "checkin" ? q.checkin : mode === "all" ? [...q.due, ...q.scheduled] : q.due
   const inQueue = [...q.due, ...q.scheduled, ...q.checkin].map((x) => x.id)
   const out = [], used = new Set()
   for (const row of rows) {
+    /* Checked before the row rather than after it, so a miss is never served with one of its
+       two questions cut off the end of the sitting. */
+    if (cap && out.length >= cap) break
     if (row.src === "word" || isZh(row.sub)) { out.push(row.it); continue }
     const sibs = reviewStandIns(row.id, REVIEW_PER_MISS, [...inQueue, ...used])
     if (!sibs.length) { if (row.src !== "offline") out.push(row.it); continue }

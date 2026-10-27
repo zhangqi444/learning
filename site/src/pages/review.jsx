@@ -88,9 +88,16 @@ export function Review() {
                run of 49 and nothing on the card said why (the owner, 6 October
                2026: "see let 27 in, but see 49 questions"). The cats at the door
                are still counted as cats; the work is counted as questions. */
-            const qs = (mode) => reviewItems(s, mode).length
-            const nDue = due.length ? qs() : 0, nAll = sched.length ? qs("all") : 0, nChk = chk.length ? qs("checkin") : 0
+            /* A sitting, not the whole backlog. `reviewItems` caps at REVIEW_SITTING, so the
+               button has to say what THIS run covers — how many misses, how many questions —
+               and the backlog is named separately rather than hidden behind a number that no
+               longer matches it. "Let 146 in · 12 questions" would be a lie about both. */
+            const qs = (mode) => (due.length || mode ? reviewItems(s, mode) : [])
+            const sitDue = due.length ? qs() : [], sitAll = sched.length ? qs("all") : [], sitChk = chk.length ? qs("checkin") : []
+            const covers = (run) => new Set(run.map((it) => it.standsFor || it.id)).size
+            const nDue = sitDue.length, nAll = sitAll.length, nChk = sitChk.length
             const nq = (n) => `${n} question${n === 1 ? "" : "s"}`
+            const queued = due.length - covers(sitDue)
             return (
               <Card key={s} className="gap-4" data-testid={`review-${s}`}>
                 <CardHeader>
@@ -149,7 +156,8 @@ export function Review() {
                   )
                 })()}
                 <CardFooter className="flex-wrap gap-2">
-                  {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Let {due.length} in · {nq(nDue)}</Button> : null}
+                  {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Let {covers(sitDue)} in · {nq(nDue)}</Button> : null}
+                  {queued > 0 ? <span className="text-muted-foreground self-center text-xs" data-testid={`queued-${s}`} data-n={queued}>{queued} more waiting their turn — oldest first</span> : null}
                   {sched.length ? <Button size="sm" variant={due.length ? "ghost" : "outline"} onClick={() => go(`/review/${s}/all`)}>Everything · {nq(nAll)}</Button> : null}
                   {chk.length ? <Button size="sm" variant="outline" onClick={() => go(`/review/${s}/checkin`)}><ShieldCheck /> Check-in · {nq(nChk)}</Button> : null}
                 </CardFooter>
