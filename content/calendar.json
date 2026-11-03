@@ -1,5 +1,5 @@
 {
- "researched_at": "2026-09-04",
+ "researched_at": "2026-11-02",
  "note": "Researched from official E3n (formerly ERB) pages and Seattle-area school admissions pages. Plan weeks and mocks are added by the app from the study plan. Day-level season boundaries are inferred from the official month ranges.",
  "level": {
   "name": "ISEE Lower Level",
@@ -66,20 +66,12 @@
    "source": "https://www.bush.edu/admissions/applying-to-bush"
   },
   {
-   "id": "ec-reg",
-   "kind": "deadline",
-   "date": "2026-11-20",
-   "title": "Registration deadline — Eastside Catholic ISEE (Dec 5)",
-   "detail": "Closed on-campus session, grades 6–12. Registration code 447JKHUW.",
-   "source": "https://www.eastsidecatholic.org/admissions/entrance-exam"
-  },
-  {
-   "id": "ec-isee",
-   "kind": "school-test",
-   "date": "2026-12-05",
-   "title": "ISEE at Eastside Catholic (Sammamish)",
-   "detail": "Saturday sitting, grades 6–12 applicants.",
-   "source": "https://www.eastsidecatholic.org/admissions/entrance-exam"
+   "id": "basis-qa",
+   "kind": "reminder",
+   "date": "2026-11-03",
+   "title": "BASIS Bellevue virtual admissions Q&A, 9:00 am — ask for the on-campus ISEE date",
+   "detail": "This is the planned sitting for Sheila. BASIS Bellevue hosts the ISEE on its own campus for applicants to grades 2–9, but has not published the 2026–27 dates yet (last cycle: Sun Dec 7, 2025 and Sun Feb 1, 2026). At the sister campus in Bothell, the on-campus sitting is open only to applicants, through an event code shown in the application portal after applying — ask whether Bellevue works the same way. BASIS considers one set of ISEE scores, taken Aug–Feb of the admissions year. Paper sittings need registration 21 days ahead (late fee 14–20 days).",
+   "source": "https://www.niche.com/k12/basis-independent-bellevue-bellevue-wa/"
   },
   {
    "id": "book-reminder",
@@ -189,13 +181,14 @@
     "path": "/mock/M02"
    },
    {
-    "id": "ec",
-    "text": "If using the Eastside Catholic sitting (Sat Dec 5), register by Fri Nov 20 with code 447JKHUW",
+    "id": "basis",
+    "text": "BASIS Bellevue sitting: get the on-campus ISEE date at the Nov 3 Q&A, submit the BASIS application to unlock the sitting's registration code, then register on the ISEE site at least 3 weeks before the date",
+    "why": "Lower Level is welcome there (grades 2–9); the Eastside Catholic sitting is grades 6–12 only.",
     "path": "/calendar"
    },
    {
     "id": "book",
-    "text": "If not using a school sitting, book Prometric or ISEE at Home now — Lakeside asks families to register by December",
+    "text": "Backup if the BASIS date doesn't work: book ISEE at Home or Prometric — Lakeside asks families to register by December",
     "why": "Slots fill in December; scores take 3–5 days after an online test.",
     "path": "/calendar"
    },
