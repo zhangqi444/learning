@@ -66,12 +66,12 @@
    "source": "https://www.bush.edu/admissions/applying-to-bush"
   },
   {
-   "id": "basis-qa",
-   "kind": "reminder",
-   "date": "2026-11-03",
-   "title": "BASIS Bellevue virtual admissions Q&A, 9:00 am — ask for the on-campus ISEE date",
-   "detail": "This is the planned sitting for Sheila. BASIS Bellevue hosts the ISEE on its own campus for applicants to grades 2–9, but has not published the 2026–27 dates yet (last cycle: Sun Dec 7, 2025 and Sun Feb 1, 2026). At the sister campus in Bothell, the on-campus sitting is open only to applicants, through an event code shown in the application portal after applying — ask whether Bellevue works the same way. BASIS considers one set of ISEE scores, taken Aug–Feb of the admissions year. Paper sittings need registration 21 days ahead (late fee 14–20 days).",
-   "source": "https://www.niche.com/k12/basis-independent-bellevue-bellevue-wa/"
+   "id": "basis-reg",
+   "kind": "deadline",
+   "date": "2026-11-27",
+   "title": "Registration closes — ISEE at BASIS Bothell (Dec 12), 4:00 pm PT",
+   "detail": "Event code UWFJAAS9. Paper exam, $170. The portal closes registration at 12:00 AM UTC on Nov 28, which is 4:00 pm Pacific on Fri Nov 27.",
+   "source": "https://iseeonline.erblearn.org/Workflows/Public"
   },
   {
    "id": "book-reminder",
@@ -80,6 +80,14 @@
    "title": "Book the real ISEE by early December",
    "detail": "Lakeside asks families to register no later than December 2026 so scores arrive before deadlines. Scores from online sittings take 3–5 days.",
    "source": "https://www.lakesideschool.org/admissions/faq"
+  },
+  {
+   "id": "basis-isee",
+   "kind": "school-test",
+   "date": "2026-12-12",
+   "title": "ISEE at BASIS Independent Bothell — 10:00 am",
+   "detail": "Sheila's planned sitting. Saturday; check in 9:30 am, exam starts 10:00 am PT. At-school paper exam, $170, event code UWFJAAS9. 21540 30th Drive SE, Bothell, WA 98021 · (425) 659-1953. Winter season sitting. Paper scores take 5–10 days, so they land before the Jan 14–15 application deadlines.",
+   "source": "https://iseeonline.erblearn.org/Workflows/Public"
   },
   {
    "id": "apps-jan14",
@@ -182,13 +190,13 @@
    },
    {
     "id": "basis",
-    "text": "BASIS Bellevue sitting: get the on-campus ISEE date at the Nov 3 Q&A, submit the BASIS application to unlock the sitting's registration code, then register on the ISEE site at least 3 weeks before the date",
-    "why": "Lower Level is welcome there (grades 2–9); the Eastside Catholic sitting is grades 6–12 only.",
+    "text": "Register Sheila for the ISEE at BASIS Bothell (Sat Dec 12, 10:00 am) with event code UWFJAAS9 — registration closes Fri Nov 27 at 4:00 pm",
+    "why": "Paper, $170, Lower Level welcome. Closing time is 12:00 AM UTC Nov 28 in the portal.",
     "path": "/calendar"
    },
    {
     "id": "book",
-    "text": "Backup if the BASIS date doesn't work: book ISEE at Home or Prometric — Lakeside asks families to register by December",
+    "text": "Backup only if the BASIS Bothell sitting falls through: ISEE at Home or Prometric",
     "why": "Slots fill in December; scores take 3–5 days after an online test.",
     "path": "/calendar"
    },
@@ -205,11 +213,11 @@
   "2026-12": [
    {
     "id": "testday",
-    "text": "Test day: parent brings photo ID and stays at the center (Prometric) / two charged camera devices ready (at home); arrive or check in 30 minutes early"
+    "text": "Test day Sat Dec 12 at BASIS Bothell: check in by 9:30 am (exam 10:00). Bring the ISEE verification letter, and check with BASIS which student ID they accept"
    },
    {
     "id": "scores",
-    "text": "Scores arrive in 3–5 days (online) — choose which schools receive them; adding schools is free"
+    "text": "Scores arrive in 5–10 days (paper) — choose which schools receive them; adding schools is free"
    },
    {
     "id": "send",
