@@ -2,7 +2,7 @@ import * as React from "react"
 import { ChevronRight, Play } from "lucide-react"
 
 import { D, SETSIZE, SUBJ, currentWeek, itemsFor, nextSet, setAddedAfter, setId, setsFor, subjProgress, weekLabel } from "@/lib/content"
-import { go, href } from "@/lib/router"
+import { go, href, routeQuery, setRouteQuery } from "@/lib/router"
 import { Store, useStore } from "@/lib/store"
 import { PLACE } from "@/lib/world"
 import { cn } from "@/lib/utils"
@@ -10,6 +10,8 @@ import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Progress } from "@zhangqi444/ui/ui/progress"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@zhangqi444/ui/ui/tabs"
+import { QuestionBrowser } from "@/components/question-browser"
 import { precisionSummary } from "@/pages/precision"
 import { answeredSoFar, masteryOf, pacingFor, skillTable, skillsFor } from "@/lib/engine"
 import { SKILL_SHOWS, tally } from "@/lib/tally"
@@ -160,7 +162,7 @@ export function SkillsCard({ sub }) {
           {pace.n >= 8 ? ` · median ${Math.round(pace.median)} s a question against a ${pace.budget} s budget` : ""}
         </CardDescription>
         <CardDescription className="text-xs">
-          Each skill opens its questions. Done, right and wrong count her answers on them the way the word bank counts a word's — sets, reviews, mixed sets and practice, never a corrections pass, where she has just seen the answer. Level is where its questions stand now.
+          Each skill opens its questions. Done, right and wrong count her answers on them the way the word bank counts a word's — sets, reviews, mixed sets and practice, never a corrections pass, where she has just seen the answer. Level is where its questions stand now. The buttons below narrow this list of skills; to narrow the questions themselves, use the Questions tab.
         </CardDescription>
         {sub === "vr" ? (
           <CardDescription className="text-xs">
@@ -191,12 +193,22 @@ export function SkillsCard({ sub }) {
   )
 }
 
+/* A subject page is three views of one subject (the owner, 4 November 2026: "we should build
+ * this page as a long list, and allow me to use skill or status practiced/missed/not yet or any
+ * other dimension to filter the result"). Questions is that list and opens first. Skills is the
+ * card the page used to lead with, whose buttons narrow the SKILLS, not the questions — which is
+ * what "what's the filter chip for" was asking. Weeks is the sets, sitting by sitting. The tab is
+ * kept in the address, so Back from a question's skill returns to the tab it was opened from. */
+const TABS = ["questions", "skills", "weeks"]
+
 export function Subject({ sub, wk }) {
   useStore()
   const p = subjProgress(sub)
   const nx = nextSet(sub)
   const cur = currentWeek()
   const weeks = wk ? D.weeks.filter((w) => w.w === wk) : D.weeks
+  const [tab, setTab] = React.useState(() => { const t = routeQuery().tab; return TABS.includes(t) ? t : "questions" })
+  const pickTab = (t) => { setTab(t); setRouteQuery({ ...routeQuery(), tab: t }) }
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:gap-6">
       <Card className="from-primary/5 to-card bg-gradient-to-t gap-4">
@@ -222,10 +234,38 @@ export function Subject({ sub, wk }) {
           </div>
         </CardContent>
       </Card>
-      {!wk && <SkillsCard sub={sub} />}
-      {weeks.map((w) => (
+      {wk ? weeks.map((w) => (
         <WeekCard key={w.w} sub={sub} wk={w.w} highlight={w.w === cur} />
-      ))}
+      )) : (
+        <Tabs value={tab} onValueChange={pickTab} data-testid="subject-tabs" data-tab={tab}>
+          <TabsList>
+            <TabsTrigger value="questions" data-testid="subject-tab-questions">Questions</TabsTrigger>
+            <TabsTrigger value="skills" data-testid="subject-tab-skills">Skills</TabsTrigger>
+            <TabsTrigger value="weeks" data-testid="subject-tab-weeks">Weeks</TabsTrigger>
+          </TabsList>
+          <TabsContent value="questions" className="flex flex-col gap-4">
+            <Card className="gap-3 py-5">
+              <CardHeader className="px-5">
+                <CardTitle>Every question</CardTitle>
+                <CardDescription>
+                  All {SUBJ[sub].short} questions in the plan, and the ones she answered on a paper sat here. Narrow by how she did, by skill, or by week; each keeps its answer behind its own tap. Redo asks the wrong ones again as themselves.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="px-5">
+                <QuestionBrowser sub={sub} defaults={{ status: "all" }} />
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="skills" className="flex flex-col gap-4">
+            <SkillsCard sub={sub} />
+          </TabsContent>
+          <TabsContent value="weeks" className="flex flex-col gap-4">
+            {weeks.map((w) => (
+              <WeekCard key={w.w} sub={sub} wk={w.w} highlight={w.w === cur} />
+            ))}
+          </TabsContent>
+        </Tabs>
+      )}
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { CalendarClock, Play, ShieldCheck, Sparkles } from "lucide-react"
+import { CalendarClock, Play, RotateCcw, ShieldCheck, Sparkles } from "lucide-react"
 
 import { ORDER, SUBJ, fmtDate } from "@/lib/content"
 import { W } from "@/lib/world"
@@ -9,6 +9,7 @@ import { WORD_GLOW } from "@/lib/glim"
 import { sfx } from "@/lib/sfx"
 import { go } from "@/lib/router"
 import { useStore } from "@/lib/store"
+import { redoOf, redoneToday } from "@/lib/questions"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
 import { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
@@ -44,6 +45,9 @@ export function Review() {
         <h1 className="text-2xl font-semibold tracking-tight">Review</h1>
         <p className="text-muted-foreground max-w-prose text-sm">
           A {W.cat} whose name you got wrong does not run away. It comes and sits outside — after {INTERVALS[0]} day, then {INTERVALS[1]} — waiting to be called again. It will not ask you the same question again: each time, it asks two others that need the same thing you missed. Get both right on two different days and it moves in for good, with one look-in {CHECKIN_DAYS} days later. Words you rated shaky are out there too. Missing something is not a debt; it is how the world knows who to send back to you.
+        </p>
+        <p className="text-muted-foreground max-w-prose text-sm">
+          Before you let them in, <span className="text-foreground font-medium">Redo them first</span> asks the very questions you missed, as they were, so you can see whether they make sense now. Then the others like them come in. Every wrong question, in every subject, is also on <a href="#/questions" className="hover:text-primary underline decoration-dotted underline-offset-4">one list</a>.
         </p>
       </div>
 
@@ -98,6 +102,10 @@ export function Review() {
             const nDue = sitDue.length, nAll = sitAll.length, nChk = sitChk.length
             const nq = (n) => `${n} question${n === 1 ? "" : "s"}`
             const queued = due.length - covers(sitDue)
+            /* The wrong questions themselves, before the similar ones (the owner, 4 November 2026:
+               "I need to redo the wrong questions, first, then is the similar questions"). Read off
+               the sitting the next button opens, so it is exactly the misses that sitting covers. */
+            const firsts = redoOf(sitDue), redone = redoneToday(firsts)
             return (
               <Card key={s} className="gap-4" data-testid={`review-${s}`}>
                 <CardHeader>
@@ -156,6 +164,11 @@ export function Review() {
                   )
                 })()}
                 <CardFooter className="flex-wrap gap-2">
+                  {firsts.length ? (
+                    <Button size="sm" variant={redone ? "ghost" : "outline"} onClick={() => go("/redo?door=" + s)} data-testid={`redo-first-${s}`} data-n={firsts.length} data-done={redone ? "1" : "0"}>
+                      <RotateCcw /> {redone ? `Redone today · ${firsts.length}` : `Redo them first · ${firsts.length}`}
+                    </Button>
+                  ) : null}
                   {due.length ? <Button size="sm" onClick={() => go("/review/" + s)} data-testid={`start-review-${s}`}><Play /> Let {covers(sitDue)} in · {nq(nDue)}</Button> : null}
                   {queued > 0 ? <span className="text-muted-foreground self-center text-xs" data-testid={`queued-${s}`} data-n={queued}>{queued} more waiting their turn — oldest first</span> : null}
                   {sched.length ? <Button size="sm" variant={due.length ? "ghost" : "outline"} onClick={() => go(`/review/${s}/all`)}>Everything · {nq(nAll)}</Button> : null}

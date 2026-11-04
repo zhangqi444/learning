@@ -142,9 +142,12 @@ answers twice. Whether it should have one is the owner's decision.
 | route | what it is for |
 |---|---|
 | `/` | today — the next set, what is due, the week's checklist |
-| `/s/<subject>/<week>` | a subject's sittings for one plan week, and its skills as one list in the word bank's shape — questions, done, right, wrong, last and level, narrowed to practised, missed or not tried yet — each one opening its page |
+| `/s/<subject>` | a subject in three tabs. **Questions** (first): every question in it, narrowed at once by how she did (missed, to redo, missed twice, guessed, tried, not tried yet), by skill, by week or paper, and sorted three ways, with Redo for the wrong ones. **Skills**: its skills as one list in the word bank's shape — questions, done, right, wrong, last and level — whose buttons narrow the skills. **Weeks**: the sittings, week by week. The tab and the filters are kept in the address (`?tab=skills`, `?status=missed&sk=Fractions`) |
+| `/s/<subject>/<week>` | a subject's sittings for one plan week |
+| `/questions` | every question in all four subjects, the same list and filters as a subject's Questions tab, opening on the ones she missed |
+| `/redo?…` | the wrong questions asked again as themselves: from a list's filters, or `?door=<subject>` for the misses the next review sitting lets in |
 | `/skill/<subject>/<skill>` | every question of one skill, grouped by sub-skill, with its week, sitting and her answers on it, under the same numbers a word's page opens with; narrowed to tried, missed or not tried yet; the answer behind a tap; Practice this skill |
-| `/review` | everything a miss has scheduled, by subject, with the cause breakdown |
+| `/review` | everything a miss has scheduled, by subject, with the cause breakdown; Redo them first, then Let N in |
 | `/mixed` | twelve questions, all four subjects, shuffled — where Proficient becomes Mastered |
 | `/precision/<week>` | the week's words (20, or 40 in a doubled week), then a quiz on them |
 | `/vocab` | every word the questions teach or test: the questions that cover it, and how many times she answered them, right and wrong, and when last — counted as a skill's are |
@@ -153,7 +156,7 @@ answers twice. Whether it should have one is the owner's decision.
 | `/mock`, `/mock/<form>` | the four papers, timed by section, then corrections by skill |
 | `/mock/TPR` | a paper sat offline: its sections and source, and the scores a parent enters once it is marked |
 | `/mock/add`, `/mock/P…` | a paper a parent adds: its PDF (kept in her own Drive folder) or a link, her scores, the questions she missed filed under skills, and what she has redone from the booklet |
-| `/score` | readiness, its six parts, and the trend across weeks; beside the number, her essays and how her words stand |
+| `/score` | readiness, its six parts, and the trend across weeks; her wrong questions by subject, each count opening the list of them; beside the number, her essays and how her words stand |
 | `/calendar` | the real exam dates, registration cutoffs and application deadlines |
 | `/books` | the independent-reading log — titles chosen for the skills the ISEE tests, but kept out of the readiness score |
 

@@ -48,7 +48,7 @@ function lastTry(id) { const r = rec(id); const h = (r && r.hist) || []; return 
  *  `questionResult`, the same on a skill's page as on a word's. `where` names its place when it
  *  is not a sitting (a mock, the word quiz); `note` and `data` replace the answers line for a
  *  row that counts something else (a word offered as a wrong choice). */
-export function QuestionRow({ it, at, where, testid = "skill-question", role, note, data, head, pick, why, foot }) {
+export function QuestionRow({ it, at, where, testid = "skill-question", role, note, data, head, pick, why, foot, extra }) {
   /* `className` is pulled out of the caller's attributes rather than spread with them: a
      spread lands after the attribute it repeats, so the mock's border would have replaced
      the layout classes instead of joining them, and worked only because that one caller
@@ -75,6 +75,9 @@ export function QuestionRow({ it, at, where, testid = "skill-question", role, no
           {it.d ? <Badge variant="outline" className="text-[11px]">{DIFF[it.d] || it.d}</Badge> : null}
           {note || <TallyLine x={x} testid={testid + "-result"} />}
           {again >= 2 ? <Badge variant="warning" className="text-[11px]" data-testid="question-misses">missed {again}×</Badge> : null}
+          {/* What a list that spans skills has to say on the row itself: which skill, and how
+              the question stands on redo (components/question-browser.jsx). */}
+          {extra || null}
         </div>
       )}
       <AskedAs it={it} pick={pick} showKey={answer} testid={testid} />

@@ -334,7 +334,7 @@ questions … each skill should be openable and see list of questions". `/skill/
 (`pages/skill.jsx`) lists every bank question whose `skillOf` is that skill, grouped by
 sub-skill, with its week and sitting, her answers on it, and the key behind a tap; Practice
 this skill runs up to twelve of them as `again`, which counts as evidence for the reason
-`again` always has. The skills card on a subject page links each name there.
+`again` always has. The Skills tab of a subject page links each name there.
 
 **A skill and a word are counted one way.** The owner, 6 October 2026: "to the skills, should
 follow the vocabulary list, to see more statistic data? or can you make the two features more
@@ -435,6 +435,43 @@ count as evidence: `LEARN_CTX` admits `set`, `review`, `mixed`, `mock`, `vocab` 
 excludes `corr`. A corrections pass re-asks the question whose answer she has just been shown, so
 it proves nothing; `again` asks a *different* question on the same skill, so it proves something.
 Adding a new context means deciding which of those two it is.
+
+**A redo asks the wrong question itself, and is not evidence.** The owner, 4 November 2026:
+"review, it serves the different purposes. I need to redo the wrong questions, first, then is the
+similar questions." The review is untouched by this and still never re-asks a miss; the redo is a
+step of its own beside it. It is the context `redo`, which `LEARN_CTX` does not admit, so
+`recordAttempts` writes the answer into the question's history and schedules nothing: no level,
+no accuracy, no pacing, no points, no review date moves on it, in either direction. That is the
+decision the paragraph above asks for, made the `corr` way: by the time she redoes a question she
+has usually seen its key — on the score card, in instant mode, on the list it was redone from — so
+a right redo proves little, and the stand-ins go on deciding when a skill is known. What a redo
+does decide is whether the question still needs one. A question is **to redo** when she answered
+it wrong and has not answered *it* right since — on a redo, a second attempt at its set, a mixed
+set, a mock; never a stand-in's answer (`via`), which was given to a different question
+(`redoState` in `lib/questions.js`). It comes from two places: Redo them first on the Review page,
+which asks the misses the next sitting is about to let in as themselves (`doorRedo`, read off
+`reviewItems` so it covers exactly that sitting's misses), and Redo on any question list, which
+asks the ones still to redo under its filters, `REDO_SITTING = 24` at a time. Making a wrong redo
+put a cleared miss back in the pile, or a right one count, would change the review's drain, which
+the owner tuned on 27 October; neither is done, and either is the owner's call.
+
+**Every question is one list.** The owner, the same day: "I need a centralized or easier way to
+double check the wrong questions … filter at the skill page not work because e.g. to ma it has 10s
+of skills", and of the subject page, "build this page as a long list, and allow me to use skill or
+status practiced/missed/not yet or any other dimension to filter". `/questions` (all four subjects)
+and the Questions tab of `/s/<subject>` are `components/question-browser.jsx` over
+`lib/questions.js`: every plan question, plus a paper's questions once she has answered them — a
+paper she has not sat is not a list to read through beforehand — narrowed at once by how she did
+(Missed · To redo · Missed 2+ times · Guessed · Tried · Not tried yet · All), by skill, by week or
+paper, and sorted by plan order, latest answer or most missed. A paper's question is filed under
+the bank skill `bankSkill` resolves its tag to, so one skill filter finds both. Her answers are
+counted by `lib/tally.js` as everywhere else. The filters are kept in the address after a `?`
+(`routeQuery`, `setRouteQuery` in `lib/router.js`; `replaceState`, so a tap neither scrolls nor
+adds history), and the page is keyed by `navHash()`, the address as last navigated to, so a link to
+the same page with other filters starts it afresh while its own writes never remount it. The Score
+page's Wrong questions card counts by the list's own rules, and each of its numbers opens exactly
+those questions. A subject page is three tabs now — Questions, Skills, Weeks — and the Skills tab's
+buttons narrow the skills, not the questions; that was what the owner asked them to be for.
 
 **A guess that lands is right, and not known.** The owner, 6 October 2026: "need to allow the kids
 to mark the right answered question as guess or not". She can flag "I'm guessing" on a question as

@@ -2,7 +2,7 @@ import * as React from "react"
 
 import { D, SUBJ, parseSetId, setId, setsFor } from "@/lib/content"
 import { anotherLike, offlinePaper, reviewItems, wordQuizItems } from "@/lib/engine"
-import { go, lastCat, rememberCat, splitCat, useRoute } from "@/lib/router"
+import { go, lastCat, navHash, rememberCat, splitCat, useRoute } from "@/lib/router"
 import { ChineseScreen } from "@/pages/chinese"
 import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
 import { Button } from "@zhangqi444/ui/ui/button"
@@ -29,6 +29,7 @@ import { Import } from "@/pages/import"
 import { SkillPage, SkillRun } from "@/pages/skill"
 import { VocabPage, WordPage } from "@/pages/vocab"
 import { DriveSettings } from "@/pages/drive"
+import { QuestionsPage, RedoRun } from "@/pages/questions"
 
 /** The queue is read once on mount, so finishing the run (which reschedules every item) keeps the score screen up. */
 function ReviewRun({ sub, mode }) {
@@ -91,7 +92,10 @@ function Screen({ route }) {
   const { cat, rest } = splitCat(route)
   if (cat === "chinese") return <ChineseScreen rest={rest} />
   const [top, a, b, c] = rest
-  if (top === "s" && SUBJ[a]) return <Subject sub={a} wk={b} />
+  // Keyed by the address she navigated to (navHash), so moving to another subject, or following
+  // a link to this one with another tab or filter, starts it from that address rather than
+  // carrying the last one's skill across; the filters it writes itself do not remount it.
+  if (top === "s" && SUBJ[a]) return <Subject key={navHash()} sub={a} wk={b} />
   if (top === "run" && SUBJ[a]) {
     const n = +c
     const set = setsFor(a, b)[n]
@@ -124,6 +128,10 @@ function Screen({ route }) {
     try { w = decodeURIComponent(a) } catch { /* as typed */ }
     return <WordPage key={"word:" + w} name={w} />
   }
+  if (top === "questions") return <QuestionsPage key={navHash()} />
+  // Read on mount from the address's query; keyed by it, so a second redo from a different list
+  // is a fresh run rather than the first one's finished screen.
+  if (top === "redo") return <RedoRun key={navHash()} />
   if (top === "review" && SUBJ[a]) return <ReviewRun key={`rev:${a}:${b || ""}`} sub={a} mode={b} />
   if (top === "review") return <Review />
   if (top === "precision" && a && D.precision[a] && b === "quiz") return <VocabRun key={"vocab:" + a} wk={a} />

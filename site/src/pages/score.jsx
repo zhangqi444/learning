@@ -1,15 +1,16 @@
 import * as React from "react"
-import { ArrowRight, Compass, Flame, Library, PenLine, Sparkles, Trophy } from "lucide-react"
+import { ArrowRight, Compass, Flame, Library, PenLine, RotateCcw, Sparkles, Trophy } from "lucide-react"
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import { ORDER, SUBJ } from "@/lib/content"
 import { W } from "@/lib/world"
 import { essayStanding } from "@/pages/essay"
 import { LEVELS, coverageOf, effortPoints, readiness, readinessHistory, skillsFor, thisWeekRange } from "@/lib/engine"
-import { go } from "@/lib/router"
+import { go, href, queryString } from "@/lib/router"
 import { useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { vocabStanding } from "@/lib/vocab"
+import { questionRows, withResults } from "@/lib/questions"
 import { Stat } from "@/components/tally"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
@@ -243,6 +244,53 @@ function CoverageStanding() {
   )
 }
 
+/** Her wrong questions, every subject on one card, each number a door into the list of exactly
+ *  those questions (pages/questions.jsx). The owner, 4 November 2026: "I need a centralized or
+ *  easier way to double check the wrong questions at score page. similar to how I can find out
+ *  them at the weekly practise page." Counted by the list's own rules (lib/questions.js), so a
+ *  number here is the length of the list it opens. */
+function WrongStanding() {
+  const rows = withResults(questionRows())
+  const by = ORDER.map((s) => {
+    const mine = rows.filter((r) => r.sub === s)
+    return { s, missed: mine.filter((r) => r.res.wrong > 0).length, redo: mine.filter((r) => r.redo.need).length, twice: mine.filter((r) => r.res.wrong >= 2).length }
+  })
+  const total = by.reduce((n, x) => n + x.missed, 0), redo = by.reduce((n, x) => n + x.redo, 0)
+  const link = (q) => href("/questions" + queryString(q))
+  const cell = (n, q, testid) => n
+    ? <a href={link(q)} className="hover:text-primary underline decoration-dotted underline-offset-4" data-testid={testid}>{n}</a>
+    : <span className="text-muted-foreground">—</span>
+  return (
+    <Card data-testid="wrong-standing" data-missed={total} data-redo={redo}>
+      <CardHeader>
+        <CardDescription className="flex items-center gap-2"><RotateCcw className="size-4" /> Wrong questions</CardDescription>
+        <CardTitle className="text-xl tabular-nums">{total ? `${total} missed · ${redo} still to redo` : "Nothing missed yet"}</CardTitle>
+        <CardDescription>
+          Every question she has got wrong, in every subject, in one list. Each number opens exactly those questions, answers hidden until tapped; the list narrows further by skill and week. To redo is a wrong one not yet redone right.
+        </CardDescription>
+        {total ? <CardAction><Button size="sm" variant="ghost" onClick={() => go("/questions")} data-testid="wrong-open">The list <ArrowRight /></Button></CardAction> : null}
+      </CardHeader>
+      {total ? (
+        <CardContent>
+          <Table>
+            <TableHeader><TableRow><TableHead>Subject</TableHead><TableHead className="text-right">Missed</TableHead><TableHead className="text-right">To redo</TableHead><TableHead className="text-right">Missed 2+</TableHead></TableRow></TableHeader>
+            <TableBody>
+              {by.map((x) => (
+                <TableRow key={x.s} data-testid="wrong-row" data-sub={x.s} data-missed={x.missed} data-redo={x.redo}>
+                  <TableCell className="font-medium"><span className="flex items-center gap-2"><span className="inline-block size-2 rounded-full" style={{ background: SUBJ[x.s].color }} />{SUBJ[x.s].short}</span></TableCell>
+                  <TableCell className="text-right tabular-nums">{cell(x.missed, { sub: x.s, status: "missed" }, "wrong-missed")}</TableCell>
+                  <TableCell className="text-right tabular-nums">{cell(x.redo, { sub: x.s, status: "redo" }, "wrong-redo")}</TableCell>
+                  <TableCell className="text-right tabular-nums">{cell(x.twice, { sub: x.s, status: "twice" }, "wrong-twice")}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </CardContent>
+      ) : null}
+    </Card>
+  )
+}
+
 export function Score() {
   useStore()
   const R = readiness()
@@ -252,6 +300,8 @@ export function Score() {
   return (
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-4 md:gap-6">
       <ReadinessCard full />
+
+      <WrongStanding />
 
       {/* The one part of the ISEE that a person reads, and the one part this
           page cannot score. Shown beside the number instead of folded into it —

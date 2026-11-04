@@ -3,7 +3,7 @@ import { Moon, Sun, Volume2, VolumeX } from "lucide-react"
 
 import { D, SUBJ, spanById } from "@/lib/content"
 import { W } from "@/lib/world"
-import { go, splitCat } from "@/lib/router"
+import { go, queryString, routeQuery, splitCat } from "@/lib/router"
 import { zhCrumbs } from "@/pages/chinese"
 import { setLang, t, useLang } from "@/lib/lang"
 import { importIsZh, parsePaperImport } from "@/lib/reviews"
@@ -45,6 +45,16 @@ function crumbs(route, zhImport) {
     if (a === "run") out.push({ label: "Mixed set", path: "/mixed/run" })
   } else if (top === "score") {
     out.push({ label: "Score", path: "/score" })
+  } else if (top === "questions") {
+    out.push({ label: "Score", path: "/score" })
+    out.push({ label: "Questions", path: "/questions" })
+  } else if (top === "redo") {
+    // Back to where the redo came from. "/redo" bare is a redo of every wrong question there is,
+    // which is not what a breadcrumb should start.
+    const q = routeQuery()
+    if (q.door) out.push({ label: "Review", path: "/review" })
+    else out.push({ label: "Questions", path: q.from || "/questions" })
+    out.push({ label: "Redo", path: "/redo" + queryString(q) })
   } else if (top === "quest") {
     out.push({ label: W.woodTitle, path: "/quest" })
     if (a) out.push({ label: a, path: "/quest/" + a })

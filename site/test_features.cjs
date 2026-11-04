@@ -2205,7 +2205,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     localStorage.setItem('isee.v1', JSON.stringify(s));
   }, seeded);
   await pg.reload({ waitUntil: 'networkidle' });
-  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
   // The skills card is the word bank's list now (components/tally.jsx), one row per skill.
   const mastered = await pg.evaluate((sk) => {
     const row = [...document.querySelectorAll('[data-testid=skill-row]')].find((r) => r.dataset.sk === sk);
@@ -2258,7 +2258,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     localStorage.setItem('isee.v1', JSON.stringify(s));
   }, mockSeed);
   await pg.reload({ waitUntil: 'networkidle' });
-  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
   const mockMastered = await pg.evaluate((sk) => { const row = [...document.querySelectorAll('[data-testid=skill-row]')].find((r) => r.dataset.sk === sk); return row ? (row.textContent || '').replace(/\s+/g, ' ').trim() : null; }, mockSeed ? mockSeed.sk : '');
   check('and a second mock question right finishes it — Mastered through a mock, as the page has always said',
     !!mockMastered && /Mastered/.test(mockMastered), String(mockMastered));
@@ -2371,7 +2371,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const wordRecs = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return Object.keys(s.items).filter((k) => k.startsWith('w:') && s.items[k].hist.some((h) => h.ctx === 'vocab')).length; });
   check('word answers recorded on the word records', wordRecs === 20, wordRecs + ' words');
   // skills + mastery on the subject page, and the score page
-  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
   /* A week she had finished grew a second set. Reading was one set of twelve a
      week until the 15th of September; it doubled that day and again on the 19th,
      so W1 and W2 went from 2/2 sets to 1/2 overnight with a new "Not started"
@@ -2398,8 +2398,9 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.waitForTimeout(900);
   drive.body = await pg.evaluate(() => localStorage.getItem('isee.v1'));
   await pg.reload({ waitUntil: 'networkidle' });
-  await pg.evaluate(() => { location.hash = '#/s/rc'; });
-  await pg.waitForSelector('[data-testid=skills]');
+  // The sets are the Weeks tab of a subject page since the question list took the first one.
+  await pg.evaluate(() => { location.hash = '#/s/rc?tab=weeks'; });
+  await pg.waitForSelector('[data-testid=subject-tabs][data-tab=weeks]');
   await pg.waitForTimeout(600);
   const notes = await pg.$$eval('[data-testid=set-added]', (n) => n.map((e) => e.dataset.added));
   check('a set added after she finished the week says so, with the date it arrived',
@@ -2408,12 +2409,12 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      account of itself, and a set that was there before she ever started is not
      something that "arrived" — every Verbal set predates her first answer. */
   const vrNotes = await pg.evaluate(async () => {
-    location.hash = '#/s/vr';
+    location.hash = '#/s/vr?tab=weeks';
     await new Promise((r) => setTimeout(r, 900));
     return [...document.querySelectorAll('[data-testid=set-added]')].length;
   });
   check('and a subject whose questions were all there from the start says nothing', vrNotes === 0, String(vrNotes));
-  await pg.evaluate(() => { location.hash = '#/s/rc'; });
+  await pg.evaluate(() => { location.hash = '#/s/rc?tab=weeks'; });
   await pg.waitForTimeout(700);
   const onDone = await pg.evaluate(() => {
     const rows = [...document.querySelectorAll('li')].filter((li) => /tap to see your answers/.test(li.innerText || ''));
@@ -2422,6 +2423,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   check('and a set she has finished never carries the note', onDone === 0, String(onDone));
   drive.body = grewRemote;
 
+  await pg.evaluate(() => { location.hash = '#/s/rc?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
   check('subject page lists skill levels', (await pg.$$('[data-testid=skills] [data-level]')).length >= 3 && /Proficient|Familiar|Needs work/.test(await body(pg)));
   /* Every skill opens a page of every question in it (the owner, 5 October 2026: "to
      each skill, add link to all the covered questions … each skill should be openable
@@ -2434,7 +2436,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     const kind = (it) => sub !== 'vr' ? (it.sk || 'General') : /most nearly means/i.test(it.q) ? 'Synonyms' : /_{3,}/.test(it.q) ? 'Sentence completion' : 'Words in context';
     return b.subjects[sub].filter((it) => kind(it) === sk).length;
   }, [sub, sk]);
-  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
   await pg.click('[data-testid=skills-show-all]');
   const skLinks = await pg.$$eval('[data-testid=skill-link]', (els) => els.map((e) => ({ t: e.textContent.trim(), h: e.getAttribute('href') })));
   check('every skill on the subject page links to its own page', skLinks.length >= 15 && skLinks.every((l) => l.h === '#/skill/ma/' + encodeURIComponent(l.t)), JSON.stringify(skLinks.slice(0, 3)));
@@ -2632,7 +2634,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      record and the page are read in one synchronous turn, after the bundle has arrived, so a
      Drive merge cannot land between the two. Only reads: nothing here writes history. */
   console.log('== a skill and a word count her answers the same way');
-  await pg.goto('http://localhost:8143/learning/#/s/ma', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.goto('http://localhost:8143/learning/#/s/ma?tab=skills', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=skills]');
   await pg.click('[data-testid=skills-show-all]'); await pg.waitForSelector('[data-testid=skills-show-all][aria-pressed=true]');
   const skList = await pg.evaluate(async () => {
     const b = await (await fetch('./content/bundle.json')).json();
@@ -2864,7 +2866,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     `quiz=${/Word quiz/.test(ck2)} mixed=${/mixed set/.test(ck2)}`);
 
   console.log('== AoPS pointers');
-  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
   const hints = await pg.$$eval('[data-testid=aops-hint]', (n) => n.map((x) => x.dataset.skill));
   check('weak maths skills carry the AoPS chapter that teaches them', hints.includes('Percent') && hints.includes('Fractions'), hints.join(', '));
   // The badge says what it opens — Alcumus, and the focus topic to set there,
@@ -2873,7 +2875,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   // named in the tooltip as the book it is.
   check('the pointer names the Alcumus focus topic to set', /Alcumus · Percents/.test(await pg.textContent('[data-testid=skills]')));
   check('and still carries the Beast Academy unit, whole', /5D · Percents/.test((await pg.$$eval('[data-testid=aops-hint]', (n) => n.map((x) => x.dataset.ba || ''))).join(' | ')));
-  await pg.evaluate(() => { location.hash = '#/s/vr'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/vr?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
   check('verbal gets no AoPS pointer, because there is no honest one', (await pg.$$('[data-testid=aops-hint]')).length === 0);
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('[data-testid=review-ma]');
   /* The chapter used to be a second block below the lesson, printing "Alcumus"
@@ -3138,13 +3140,15 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const spendLine = await pg.textContent('[data-testid=base-spend]');
   check('the same room recorded twice is still paid for once', /· 60 spent on things they need/.test(spendLine), spendLine.trim());
   // a purchase the other device had already made unaffordable
-  await pg.evaluate(() => {
+  // Held through setLs: written bare and reloaded at once, this lost to a save the page already
+  // had queued once in three runs on 4 November, and the rewards page then had no claim to show.
+  await setLs(pg, () => {
     const s = JSON.parse(localStorage.getItem('isee.v1'));
     s.rewards['item:day-out'] = { name: 'A day out', cost: 900, at: '2026-09-02T09:00:00Z' };
     s.rewards['claim:day-out'] = { rewardId: 'day-out', name: 'A day out', cost: 900, status: 'claimed', claimedAt: '2026-09-03T10:00:00Z', at: '2026-09-03T10:00:00Z' };
     localStorage.setItem('isee.v1', JSON.stringify(s));
-    location.hash = '#/rewards';
-  });
+  }, () => !!(JSON.parse(localStorage.getItem('isee.v1')).rewards || {})['claim:day-out']);
+  await pg.evaluate(() => { location.hash = '#/rewards'; });
   await pg.reload({ waitUntil: 'networkidle' });
   await pg.waitForSelector('[data-testid=wallet-balance]');
   const over = await walletOf();
@@ -4077,12 +4081,13 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      localStorage from memory — so an edit made the moment the page looked idle
      was simply undone a second later, and the check passed a resume it was
      meant to be refusing. Written, read back, and only believed once it holds. */
-  let stale = false;
-  for (let k = 0; k < 25 && !stale; k++) {
-    await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.drafts['vocab:W1'].sig = 'stale:20'; localStorage.setItem('isee.v1', JSON.stringify(s)); });
-    await pg.waitForTimeout(400);
-    stale = (await pg.evaluate(() => (JSON.parse(localStorage.getItem('isee.v1')).drafts['vocab:W1'] || {}).sig)) === 'stale:20';
-  }
+  /* Through setLs, which holds the edit past the store's save window. This loop believed one
+     read 400 ms after the write, and the quiz it had just left still had a save queued: replayed
+     on its own, the stale mark read back at 400 and 800 ms and was saved over by 1.6 s, on main
+     as on any branch. The check passed whenever the reload below happened to beat that save. */
+  const stale = await setLs(pg,
+    () => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.drafts['vocab:W1'].sig = 'stale:20'; localStorage.setItem('isee.v1', JSON.stringify(s)); },
+    () => (JSON.parse(localStorage.getItem('isee.v1')).drafts['vocab:W1'] || {}).sig === 'stale:20');
   check('the draft can be made to look like one taken against other questions', stale);
   // and read back from disk rather than from the copy the page is still holding
   await pg.reload({ waitUntil: 'networkidle' });
@@ -4375,6 +4380,119 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.waitForTimeout(1200);
   const asReview = await pg.evaluate(() => ({ score: !!document.querySelector('[data-testid=score]'), live: !!document.querySelector('[data-testid=question]'), empty: !document.querySelector('[data-testid=question], [data-testid=score]') }));
   check('a review is never read as a sitting she has already answered', !asReview.score, JSON.stringify(asReview));
+  console.log('== every question in one list, and a redo of the wrong ones');
+  /* The owner, 4 November 2026: "I need to redo the wrong questions, first, then is the similar
+     questions", "a centralized or easier way to double check the wrong questions", and a subject
+     page that is "a long list" filtered by skill, status "or any other dimension". Two questions
+     on one Maths skill are seeded: one missed in its set, one missed and then answered right on
+     a second attempt. Only the first still needs a redo, and a redo must leave the review pile
+     exactly where it was — it is the question she has seen the answer to, so it is not evidence. */
+  {
+    const bun = JSON.parse(fs.readFileSync(path.join(DIST, 'content/bundle.json'), 'utf8'));
+    const w6 = bun.subjects.ma.filter((it) => it.w === 'W6');
+    const sk = w6[0].sk, same = w6.filter((it) => it.sk === sk);
+    const [miss, fixed] = same, keyIdx = (it) => 'ABCD'.indexOf(it.k);
+    const t1 = new Date(Date.now() - 3 * 86400e3).toISOString(), t2 = new Date(Date.now() - 2 * 86400e3).toISOString();
+    const due = new Date(Date.now() + 86400e3).toISOString();
+    const wrongOf = (it) => 'ABCD'[(keyIdx(it) + 1) % 4];
+    const seeded = await setLs(pg, ([a, b, ka, kb, wa, wb, t1, t2, due]) => {
+      const s = JSON.parse(localStorage.getItem('isee.v1'));
+      s.items[a] = { hist: [{ at: t1, ok: false, ms: 30000, pick: wa, ctx: 'set' }], step: 0, streak: 0, due, cleared: null, misses: 1, lastMiss: t1 };
+      s.items[b] = { hist: [{ at: t1, ok: false, ms: 30000, pick: wb, ctx: 'set' }, { at: t2, ok: true, ms: 30000, pick: kb, ctx: 'set' }], step: 1, streak: 1, due, cleared: null, misses: 1, lastMiss: t1 };
+      localStorage.setItem('isee.v1', JSON.stringify(s));
+    }, ([a, b]) => { const it = JSON.parse(localStorage.getItem('isee.v1')).items || {}; return ((it[a] || {}).hist || []).length === 1 && ((it[b] || {}).hist || []).length === 2 && it[a].hist[0].ctx === 'set'; },
+      12000, [miss.id, fixed.id, miss.k, fixed.k, wrongOf(miss), wrongOf(fixed), t1, t2, due]);
+    check('the redo fixture holds past the page flush', seeded === true);
+
+    // A reload, not only a new address: setLs holds what is on disk, and the page reads the copy
+    // it loaded until it loads again.
+    await pg.goto('http://localhost:8143/learning/#/s/ma', { waitUntil: 'networkidle' });
+    await pg.reload({ waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=qlist]');
+    check('a subject page opens on its question list', await pg.$eval('[data-testid=subject-tabs]', (e) => e.dataset.tab) === 'questions');
+    const allN = await pg.$eval('[data-testid=qlist]', (e) => +e.dataset.n);
+    check('which starts on every question in the subject, the plan\'s and any paper she sat here', allN >= bun.subjects.ma.length, `${allN} rows, ${bun.subjects.ma.length} in the bank`);
+    await pg.selectOption('[data-testid=qlist-skill]', sk);
+    await pg.click('[data-testid=qlist-show-missed]');
+    await pg.selectOption('[data-testid=qlist-week]', 'W6');
+    const rows = await pg.$$eval('[data-testid=qlist-row]', (n) => n.map((e) => ({ id: e.dataset.qid, sk: e.dataset.sk, wk: e.dataset.wk, redo: e.dataset.toRedo })));
+    check('three filters at once: a skill, the missed ones, one week', rows.length >= 2 && rows.every((r) => r.sk === sk && r.wk === 'W6'), `${rows.length} rows · ${JSON.stringify(rows.slice(0, 3))}`);
+    const rowOf = (id) => rows.find((r) => r.id === id) || {};
+    check('a question missed and since answered right is not waiting to redo; one only missed is', rowOf(miss.id).redo === '1' && rowOf(fixed.id).redo === '0', JSON.stringify([rowOf(miss.id), rowOf(fixed.id)]));
+    check('and every answer on the list is hidden until tapped', (await pg.$$('[data-testid=qlist-row-why]')).length === 0);
+    const hash = await pg.evaluate(() => location.hash);
+    const hq = new URLSearchParams(hash.split('?')[1] || '');
+    check('the filters are kept in the address', hq.get('status') === 'missed' && hq.get('sk') === sk && hq.get('wk') === 'W6', hash);
+    await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=qlist]');
+    const kept = await pg.$eval('[data-testid=qlist]', (e) => ({ ...e.dataset }));
+    check('so going back to the page finds them as they were', kept.status === 'missed' && kept.sk === sk && kept.wk === 'W6', JSON.stringify(kept));
+
+    const toRedo = +kept.toRedo;
+    const before = await pg.evaluate((id) => { const r = JSON.parse(localStorage.getItem('isee.v1')).items[id]; return { due: r.due, step: r.step, cleared: r.cleared, misses: r.misses }; }, miss.id);
+    await pg.click('[data-testid=qlist-redo]');
+    await pg.waitForSelector('[data-testid=question]');
+    const counter = (await pg.textContent('[data-testid=counter]')).trim();
+    check('Redo asks only the ones still waiting to redo under those filters', counter === `1 / ${toRedo}`, `${counter} · ${toRedo} waiting`);
+    const asked = [];
+    for (let k = 0; k < toRedo; k++) {
+      const qid = await pg.$eval('[data-testid=question]', (e) => e.dataset.qid);
+      asked.push(qid);
+      const it = bun.subjects.ma.find((x) => x.id === qid);
+      const c = await pg.textContent('[data-testid=counter]');
+      await pg.click(`[data-testid=choice] >> nth=${it ? keyIdx(it) : 0}`);
+      await pg.click('[data-testid=next]');
+      await pg.waitForFunction((b) => { const x = document.querySelector('[data-testid=counter]'); return !x || x.textContent !== b || !!document.querySelector('[data-testid=score]'); }, c, { timeout: 10000 });
+    }
+    await pg.waitForSelector('[data-testid=score]');
+    check('it asks the question she got wrong itself, and not the one she has since got right', asked.includes(miss.id) && !asked.includes(fixed.id), asked.join(', '));
+    const after = await pg.evaluate((id) => { const r = JSON.parse(localStorage.getItem('isee.v1')).items[id]; return { due: r.due, step: r.step, cleared: r.cleared, misses: r.misses, last: r.hist[r.hist.length - 1] }; }, miss.id);
+    check('a redo is written to her record as a redo', after.last.ctx === 'redo' && after.last.ok === true, JSON.stringify(after.last));
+    check('and leaves the review pile exactly where it was', after.due === before.due && after.step === before.step && after.cleared === before.cleared && after.misses === before.misses, JSON.stringify([before, after]));
+
+    await pg.goto('http://localhost:8143/learning/#/s/ma?status=missed&wk=W6&sk=' + encodeURIComponent(sk), { waitUntil: 'networkidle' });
+    await pg.waitForSelector(`[data-testid=qlist-row][data-qid="${miss.id}"]`);
+    const row = await pg.$eval(`[data-testid=qlist-row][data-qid="${miss.id}"]`, (e) => ({ redo: e.dataset.toRedo, done: e.dataset.done, note: (e.querySelector('[data-testid=qlist-redone]') || {}).dataset }));
+    check('once redone right it is off "to redo", and the row says when and how', row.redo === '0' && row.note && row.note.ok === '1', JSON.stringify(row));
+    check('and a redo is not counted as an answer on the question: it proves nothing she has seen answered', row.done === '1', JSON.stringify(row));
+
+    await pg.goto('http://localhost:8143/learning/#/questions', { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=qlist]');
+    const unsat = await pg.evaluate(async () => {
+      const b = await (await fetch('content/bundle.json')).json();
+      const s = JSON.parse(localStorage.getItem('isee.v1'));
+      return Object.keys(b.mockItems || {}).filter((f) => !(s.mocks || {})[f]);
+    });
+    await pg.click('[data-testid=qlist-show-all]');
+    const mockWks = await pg.$$eval('[data-testid=qlist-week] option', (n) => n.map((o) => o.value));
+    check('a paper she has not sat is not a list to read through beforehand', unsat.every((f) => !mockWks.includes(f)), `unsat ${unsat.join(',')} · places ${mockWks.join(',')}`);
+    const listMissed = async (sub) => {
+      await pg.goto(`http://localhost:8143/learning/#/questions?sub=${sub}&status=missed`, { waitUntil: 'networkidle' });
+      await pg.waitForSelector('[data-testid=qlist]');
+      return pg.$eval('[data-testid=qlist]', (e) => ({ n: +e.dataset.n, redo: +e.dataset.toRedo }));
+    };
+    const maList = await listMissed('ma');
+    await pg.goto('http://localhost:8143/learning/#/score', { waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=wrong-standing]');
+    const maCard = await pg.$eval('[data-testid=wrong-row][data-sub=ma]', (e) => ({ n: +e.dataset.missed, redo: +e.dataset.redo }));
+    check('the Score page counts the wrong questions by the list\'s own rules', maCard.n === maList.n && maCard.redo === maList.redo, `card ${JSON.stringify(maCard)} · list ${JSON.stringify(maList)}`);
+    await pg.click('[data-testid=wrong-row][data-sub=ma] [data-testid=wrong-missed]');
+    await pg.waitForSelector('[data-testid=qlist]');
+    const opened = await pg.$eval('[data-testid=qlist]', (e) => ({ ...e.dataset }));
+    check('and each number opens exactly those questions', opened.sub === 'ma' && opened.status === 'missed' && +opened.n === maCard.n, JSON.stringify(opened));
+
+    await pg.goto('http://localhost:8143/learning/#/review', { waitUntil: 'networkidle' });
+    await pg.waitForTimeout(800);
+    const door = await pg.$$eval('[data-testid^=redo-first-]', (n) => n.map((e) => ({ t: e.dataset.testid, n: +e.dataset.n })));
+    check('the review offers the wrong questions themselves before the similar ones', door.length > 0, JSON.stringify(door));
+    if (door.length) {
+      const sub = door[0].t.replace('redo-first-', '');
+      await pg.click(`[data-testid=redo-first-${sub}]`);
+      await pg.waitForSelector('[data-testid=question]');
+      const c = (await pg.textContent('[data-testid=counter]')).trim();
+      const q0 = await pg.$eval('[data-testid=question]', (e) => ({ qid: e.dataset.qid, standsFor: e.dataset.standsFor || null }));
+      check('and it asks them as themselves, one per miss the next sitting lets in', c === `1 / ${door[0].n}` && !q0.standsFor, `${c} · ${JSON.stringify(q0)}`);
+    }
+  }
   console.log('== the day after the test');
   /* The countdown kept counting past zero: on 26 October, two days after the
      ISEE, the dashboard read "-2 days until Sheila's ISEE." A date that has
