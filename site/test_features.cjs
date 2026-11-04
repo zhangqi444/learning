@@ -4375,6 +4375,29 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.waitForTimeout(1200);
   const asReview = await pg.evaluate(() => ({ score: !!document.querySelector('[data-testid=score]'), live: !!document.querySelector('[data-testid=question]'), empty: !document.querySelector('[data-testid=question], [data-testid=score]') }));
   check('a review is never read as a sitting she has already answered', !asReview.score, JSON.stringify(asReview));
+  console.log('== the day after the test');
+  /* The countdown kept counting past zero: on 26 October, two days after the
+     ISEE, the dashboard read "-2 days until Sheila's ISEE." A date that has
+     passed is a date that happened, and the line should say so. */
+  // Dates come from the page's own clock, which is the one the dashboard
+  // reads; and the store is edited through setLs, because a bare write under a
+  // live page is saved over by its next flush (see setLs).
+  const setTestDate = async (daysAgo) => setLs(pg, (n) => {
+    const s = JSON.parse(localStorage.getItem('isee.v1')), d = new Date(); d.setDate(d.getDate() - n);
+    s.testDate = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    localStorage.setItem('isee.v1', JSON.stringify(s));
+  }, (n) => {
+    const d = new Date(); d.setDate(d.getDate() - n);
+    return JSON.parse(localStorage.getItem('isee.v1')).testDate === `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  }, 12000, daysAgo);
+  await setTestDate(2);
+  await pg.evaluate(() => { location.hash = '#/'; });
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=countdown]');
+  const cd = await pg.textContent('[data-testid=countdown]');
+  check('a test date two days ago is said to have happened, not counted to minus two', /was 2 days ago/.test(cd) && !/-2 days/.test(cd), cd);
+  await setTestDate(0);
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=countdown]');
+  check('and on the day itself it says today', /is today/.test(await pg.textContent('[data-testid=countdown]')));
 
   check('no page errors', !errs.length, errs.slice(0, 3).join(' | '));
   await pg.screenshot({ path: 'shot-calendar.png', fullPage: false });

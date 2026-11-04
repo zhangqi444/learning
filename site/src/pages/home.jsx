@@ -259,7 +259,17 @@ export function Breaks() {
     <Card>
       <CardHeader>
         <CardTitle>Coming up</CardTitle>
-        <CardDescription>{test ? `${days} days until Sheila's ISEE.` : "Mocks, ISEE windows and deadlines. Set her real test date on the calendar for a countdown."}</CardDescription>
+        {/* The day after the test this read "-2 days until Sheila's ISEE" — a
+            countdown that kept counting past zero. A date in the past is a date
+            that has happened, and the honest line says so, until a new one is
+            set on the calendar. */}
+        <CardDescription data-testid="countdown">{test
+          ? days > 1 ? `${days} days until Sheila's ISEE.`
+            : days === 1 ? "Sheila's ISEE is tomorrow."
+            : days === 0 ? "Sheila's ISEE is today."
+            : days === -1 ? "Sheila's ISEE was yesterday. Set the next date on the calendar when there is one."
+            : `Sheila's ISEE was ${-days} days ago. Set the next date on the calendar when there is one.`
+          : "Mocks, ISEE windows and deadlines. Set her real test date on the calendar for a countdown."}</CardDescription>
         <CardAction><Button size="sm" variant="ghost" onClick={() => go("/calendar")}>Calendar <ArrowRight /></Button></CardAction>
       </CardHeader>
       <CardContent className="flex flex-col divide-y">
