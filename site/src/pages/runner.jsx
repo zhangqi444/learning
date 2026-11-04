@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils"
 import { W, atLeast } from "@/lib/world"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
+import { ScratchPad, ScratchToggle } from "@/components/scratch-pad"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Progress } from "@zhangqi444/ui/ui/progress"
 import { RadioGroup, RadioGroupPrimitive } from "@zhangqi444/ui/ui/radio-group"
@@ -444,6 +445,11 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
   const finished = useRef(false)
   const it = items[i], total = items.length
   const pacing = !!store.s.pacing && !isZh(subHint)   // Chinese practice is untimed (docs/chinese.md § 3)
+  /* Scratch paper: open by default on the two maths subjects, where the working
+     goes on paper in the real test; off elsewhere until she turns it on. A device
+     preference, deliberately — see components/scratch-pad.jsx. */
+  const mathsy = /^(QR|MA)-/i.test(String((items[0] || {}).id || ""))
+  const scratch = store.s.scratch == null ? mathsy : !!store.s.scratch
   /* Careful mode: the choices stay out of reach until the question has been on
    * screen long enough to have been read. Opt-in, and off by default — a child
    * uses this, and a timer she did not ask for that stops her answering is a
@@ -915,7 +921,12 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
       <div className="flex flex-col gap-2">
         <div className="text-muted-foreground flex items-center justify-between gap-2 text-sm">
           <span className="truncate font-medium" data-testid="run-title">{title}</span>
-          <span className="flex shrink-0 items-center gap-2">
+          {/* The switches wrap on a phone. This row refused to shrink, and with the
+              instant, pacing and careful switches in it already measured 392px on a
+              390px screen — a two-pixel sideways scroll that nothing had noticed until
+              a fourth switch made it forty-six. The title truncates on the left; the
+              controls take a second line when they need one. */}
+          <span className="flex flex-wrap items-center justify-end gap-2">
             {pacing ? <SoftTimer key={i} since={entered.current} budget={budget} /> : null}
             {kind !== "corr" ? (
               <Tooltip>
@@ -927,6 +938,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
             ) : null}
             {/* Chinese practice is untimed (docs/chinese.md § 3): `pacing` is forced
                 off above, so a switch that turns it on would turn on nothing. */}
+            <ScratchToggle on={scratch} onToggle={() => Store.setPref("scratch", !scratch)} zh={zh} />
             {zhSet ? null : (
             <Tooltip>
               <TooltipTrigger asChild>
@@ -1044,6 +1056,7 @@ export function Runner({ items, title, setId, resume, custom, ctx, exitPath, exi
           </RadioGroup>
           </div>
           )}
+          {scratch ? <ScratchPad pageKey={`${setId || ctx || title || "run"}:${i}`} zh={zh} /> : null}
           {/* Flag it the way she would flag a question on the paper. Before or after she picks,
               and on the reveal too: a guess that lands still counts as right, and comes back
               tomorrow as two others on its skill; a guess that misses is a miss she was not

@@ -153,12 +153,25 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
     await pg.waitForSelector('button:has-text("Saved to Drive")', { timeout: 8000 });
     const at = new Date(Date.now() - 60000).toISOString();
     const a1 = { at, ok: true, ms: 0, pick: 'A', ctx: 'again', via: 'X-STAND-1' }, a2 = { at, ok: false, ms: 0, pick: 'B', ctx: 'again', via: 'X-STAND-2' };
+    /* Order matters, and it is the race CLAUDE.md names for localStorage wearing
+       the remote's coat. Every push overwrites the fake file (test_google.cjs),
+       and an edit made under a live page is flushed up to 1200ms later — so a
+       remote fixture written *before* that edit was pushed over by the page's
+       own state, and the merge then had one answer, or none, to keep: two reds
+       in three runs on unchanged code. Edit the device first, let its flush
+       pass, then write the remote and reload into it. */
+    await pg.evaluate((e) => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.items = s.items || {}; s.items['MA-SEP-004'] = { hist: [e], at: e.at }; localStorage.setItem('isee.v1', JSON.stringify(s)); }, a1);
+    await pg.waitForTimeout(1500);
     const remote = JSON.parse(drive.body); remote.items = remote.items || {};
     remote.items['MA-SEP-004'] = { hist: [a1, a2], at };
     drive.body = JSON.stringify(remote);
-    await pg.evaluate((e) => { const s = JSON.parse(localStorage.getItem('isee.v1')); s.items = s.items || {}; s.items['MA-SEP-004'] = { hist: [e], at: e.at }; localStorage.setItem('isee.v1', JSON.stringify(s)); }, a1);
     await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('button:has-text("Saved to Drive")', { timeout: 8000 });
-    await pg.waitForTimeout(300);
+    /* Wait for the merge to have landed, not for 300ms to have passed. The chip
+       says Saved to Drive once the push resolves, and the merged history is
+       written a beat later; on a slow run that beat was longer than the sleep,
+       the read saw one answer, and the check reported a merge bug that was not
+       there — twice green, once red, on the same code. */
+    await pg.waitForFunction(() => { const h = ((JSON.parse(localStorage.getItem('isee.v1')).items['MA-SEP-004'] || {}).hist || []).filter((x) => x.ctx === 'again').map((x) => x.via); return h.includes('X-STAND-1') && h.includes('X-STAND-2'); }, null, { timeout: 8000 }).catch(() => {});
     const kept = await pg.evaluate(() => ((JSON.parse(localStorage.getItem('isee.v1')).items['MA-SEP-004'] || {}).hist || []).filter((h) => h.ctx === 'again').map((h) => h.via));
     check('a merge keeps both answers a review wrote onto one question at once', kept.includes('X-STAND-1') && kept.includes('X-STAND-2'), JSON.stringify(kept));
   }

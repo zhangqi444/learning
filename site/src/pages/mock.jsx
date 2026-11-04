@@ -8,6 +8,7 @@ import { DRIVE_ENABLED, Store, useStore } from "@/lib/store"
 import { cn } from "@/lib/utils"
 import { Badge } from "@zhangqi444/ui/ui/badge"
 import { Button } from "@zhangqi444/ui/ui/button"
+import { ScratchPad, ScratchToggle } from "@/components/scratch-pad"
 import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from "@zhangqi444/ui/ui/card"
 import { Progress } from "@zhangqi444/ui/ui/progress"
 import { MissProgress, MissStage } from "@/components/miss-status"
@@ -1017,6 +1018,7 @@ export function MockSection({ form, sec }) {
   const answered = Object.keys(r.picks || {}).length
   const nextTodo = (() => { const rows = m.sections.filter((s) => !s.id.startsWith("BREAK")); const k = rows.findIndex((s) => s.id === sec); return rows[k + 1] })()
 
+  const scratch = Store.s.scratch == null ? (sec === "QR" || sec === "MA") : !!Store.s.scratch
   // not started yet
   if (!r.started) {
     return (
@@ -1077,7 +1079,10 @@ export function MockSection({ form, sec }) {
         <CardContent className="flex flex-col gap-5">
           <div className="flex items-center justify-between">
             <span className="text-muted-foreground text-xs tabular-nums">Question {i + 1} of {items.length}{q.sk ? ` · ${q.sk}` : ""}</span>
-            <Button size="sm" variant={(r.flags || {})[i] ? "secondary" : "ghost"} onClick={flag}><Flag className={cn((r.flags || {})[i] && "fill-current")} /> {(r.flags || {})[i] ? "Flagged" : "Flag"}</Button>
+            <span className="flex items-center gap-1">
+              <ScratchToggle on={scratch} onToggle={() => Store.setPref("scratch", !scratch)} />
+              <Button size="sm" variant={(r.flags || {})[i] ? "secondary" : "ghost"} onClick={flag}><Flag className={cn((r.flags || {})[i] && "fill-current")} /> {(r.flags || {})[i] ? "Flagged" : "Flag"}</Button>
+            </span>
           </div>
           {q.p ? <Passage id={q.p} /> : null}
           <p className="text-lg leading-snug font-medium" data-testid="question">{q.q}</p>
@@ -1085,6 +1090,7 @@ export function MockSection({ form, sec }) {
           <RadioGroup value={(r.picks || {})[i] || ""} onValueChange={pick} className="gap-2.5" aria-label="Answer choices">
             {q.c.map((c, k) => <Choice key={k} k={k} text={c} onSelect={(kk) => pick(LTR[kk])} />)}
           </RadioGroup>
+          {scratch ? <ScratchPad pageKey={`mock:${form}:${sec}:${i}`} /> : null}
         </CardContent>
       </Card>
 

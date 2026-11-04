@@ -4241,6 +4241,58 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     check('and the attempt survives the round trip', kept.banner && kept.counter !== '1 / ' + figSet.n,
       `${kept.counter} · banner ${kept.banner}`);
   }
+  console.log('== scratch paper');
+  /* The real test hands her blank paper for the maths sections and nothing here
+     did. The pad is paper, not a record: per question while the page is open,
+     never saved, and the only thing remembered is whether she wants it open.
+     Sets W7 is used because nothing above reaches it; a set the suite has
+     already finished opens on its score card, not on a question. */
+  const inked = () => pg.$eval('[data-testid=scratch-canvas]', (c) => { const x = c.getContext('2d'); const d = x.getImageData(0, 0, c.width, c.height).data; let n = 0; for (let i = 3; i < d.length; i += 4) if (d[i]) n++; return n; });
+  const strokes = () => pg.getAttribute('[data-testid=scratch-canvas]', 'data-strokes');
+  const draw = async (x0, y0, x1, y1) => { const b = await pg.$eval('[data-testid=scratch-canvas]', (c) => { const r = c.getBoundingClientRect(); return { x: r.x, y: r.y }; }); await pg.mouse.move(b.x + x0, b.y + y0); await pg.mouse.down(); await pg.mouse.move(b.x + x1, b.y + y1, { steps: 8 }); await pg.mouse.up(); };
+  await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); delete s.scratch; localStorage.setItem('isee.v1', JSON.stringify(s)); location.hash = '#/run/ma/W7/0'; });
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=choice]');
+  check('a maths set opens with scratch paper under the choices', !!(await pg.$('[data-testid=scratch-canvas]')) && /Scratch on/.test(await pg.textContent('[data-testid=scratch-toggle]')));
+  check('it starts blank', (await inked()) === 0 && (await strokes()) === '0');
+  await draw(20, 20, 160, 120);
+  const inkAfterOne = await inked();
+  check('a stroke leaves ink and is counted', inkAfterOne > 50 && (await strokes()) === '1', `${inkAfterOne} px`);
+  await pg.click('[data-testid=scratch-undo]');
+  check('undo takes the stroke back', (await inked()) === 0 && (await strokes()) === '0');
+  await draw(20, 20, 160, 120); await draw(30, 100, 180, 30);
+  const inkTwo = await inked();
+  await pg.click('[data-testid=scratch-eraser]'); await draw(10, 10, 190, 130);
+  check('the rubber removes ink without emptying the sheet', (await inked()) < inkTwo && (await inked()) > 0 && (await strokes()) === '3', `${inkTwo} → ${await inked()} px`);
+  await pg.click('[data-testid=scratch-clear]');
+  check('clear empties the sheet', (await inked()) === 0 && (await strokes()) === '0');
+  await pg.click('[data-testid=scratch-pen]'); await draw(20, 20, 160, 120);
+  await pg.click('[data-testid=choice] >> nth=0');
+  await pg.click('[data-testid=next]'); await pg.waitForFunction(() => /^2 /.test(document.querySelector('[data-testid=counter]')?.textContent || ''));
+  check('the next question has a clean sheet', (await inked()) === 0 && (await strokes()) === '0');
+  const backBtn = (await pg.$('[data-testid=back]')) || (await pg.$('button:has-text("Back")'));
+  if (backBtn) {
+    await backBtn.click(); await pg.waitForFunction(() => /^1 /.test(document.querySelector('[data-testid=counter]')?.textContent || ''));
+    check('going back brings that question\'s working back', (await inked()) > 50 && (await strokes()) === '1');
+  } else check('going back brings that question\'s working back', false, 'no Back control found in the runner');
+  await pg.evaluate(() => { location.hash = '#/run/vr/W7/0'; }); await pg.waitForSelector('[data-testid=choice]');
+  check('a verbal set opens without it', !(await pg.$('[data-testid=scratch-canvas]')) && /Scratch off/.test(await pg.textContent('[data-testid=scratch-toggle]')));
+  await pg.click('[data-testid=scratch-toggle]'); await pg.waitForSelector('[data-testid=scratch-canvas]');
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=choice]');
+  check('turned on, it stays on after a reload', !!(await pg.$('[data-testid=scratch-canvas]')));
+  check('but nothing drawn is kept — a reload is a fresh pad', (await strokes()) === '0');
+  // a source check, like the nouns one: what body() sends cannot be seen from inside the page
+  check('and the preference is not part of what goes to Drive', await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).scratch === true) && !/scratch/.test(fs.readFileSync(path.join(__dirname, 'src/lib/store.js'), 'utf8').match(/body\(\) \{[\s\S]*?\n  \},/)[0]));
+  // back to "never chosen": clear the stored choice and reload so memory agrees
+  await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); delete s.scratch; localStorage.setItem('isee.v1', JSON.stringify(s)); });
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=choice]');
+  await pg.evaluate(() => { location.hash = '#/mock/M03/MA'; }); await pg.waitForSelector('[data-testid=mock-start]'); await pg.click('[data-testid=mock-start]');
+  await pg.waitForSelector('[data-testid=question]');
+  check('a mock maths section has the paper too', !!(await pg.$('[data-testid=scratch-canvas]')));
+  const ctxP = await b.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true }); await stubGoogle(ctxP);
+  const pp = await ctxP.newPage(); await pp.goto('http://localhost:8143/learning/', { waitUntil: 'networkidle' }); await signIn(pp);
+  await pp.evaluate(() => { location.hash = '#/run/ma/W7/0'; }); await pp.waitForSelector('[data-testid=scratch-canvas]');
+  check('on a phone the sheet fits without sideways scroll', await pp.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth && document.querySelector('[data-testid=scratch-canvas]').clientWidth <= 390));
+  await ctxP.close();
 
   /* A set she began and put down. Sat last, like the figure set above, because it leaves
      answers on three questions behind it.
