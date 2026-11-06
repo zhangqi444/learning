@@ -2205,7 +2205,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     localStorage.setItem('isee.v1', JSON.stringify(s));
   }, seeded);
   await pg.reload({ waitUntil: 'networkidle' });
-  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
   // The skills card is the word bank's list now (components/tally.jsx), one row per skill.
   const mastered = await pg.evaluate((sk) => {
     const row = [...document.querySelectorAll('[data-testid=skill-row]')].find((r) => r.dataset.sk === sk);
@@ -2258,7 +2258,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     localStorage.setItem('isee.v1', JSON.stringify(s));
   }, mockSeed);
   await pg.reload({ waitUntil: 'networkidle' });
-  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
   const mockMastered = await pg.evaluate((sk) => { const row = [...document.querySelectorAll('[data-testid=skill-row]')].find((r) => r.dataset.sk === sk); return row ? (row.textContent || '').replace(/\s+/g, ' ').trim() : null; }, mockSeed ? mockSeed.sk : '');
   check('and a second mock question right finishes it — Mastered through a mock, as the page has always said',
     !!mockMastered && /Mastered/.test(mockMastered), String(mockMastered));
@@ -2371,7 +2371,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   const wordRecs = await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); return Object.keys(s.items).filter((k) => k.startsWith('w:') && s.items[k].hist.some((h) => h.ctx === 'vocab')).length; });
   check('word answers recorded on the word records', wordRecs === 20, wordRecs + ' words');
   // skills + mastery on the subject page, and the score page
-  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
   /* A week she had finished grew a second set. Reading was one set of twelve a
      week until the 15th of September; it doubled that day and again on the 19th,
      so W1 and W2 went from 2/2 sets to 1/2 overnight with a new "Not started"
@@ -2398,9 +2398,8 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.waitForTimeout(900);
   drive.body = await pg.evaluate(() => localStorage.getItem('isee.v1'));
   await pg.reload({ waitUntil: 'networkidle' });
-  // The sets are the Weeks tab of a subject page since the question list took the first one.
-  await pg.evaluate(() => { location.hash = '#/s/rc?tab=weeks'; });
-  await pg.waitForSelector('[data-testid=subject-tabs][data-tab=weeks]');
+  await pg.evaluate(() => { location.hash = '#/s/rc'; });
+  await pg.waitForSelector('[data-testid=skills]');
   await pg.waitForTimeout(600);
   const notes = await pg.$$eval('[data-testid=set-added]', (n) => n.map((e) => e.dataset.added));
   check('a set added after she finished the week says so, with the date it arrived',
@@ -2409,12 +2408,12 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      account of itself, and a set that was there before she ever started is not
      something that "arrived" — every Verbal set predates her first answer. */
   const vrNotes = await pg.evaluate(async () => {
-    location.hash = '#/s/vr?tab=weeks';
+    location.hash = '#/s/vr';
     await new Promise((r) => setTimeout(r, 900));
     return [...document.querySelectorAll('[data-testid=set-added]')].length;
   });
   check('and a subject whose questions were all there from the start says nothing', vrNotes === 0, String(vrNotes));
-  await pg.evaluate(() => { location.hash = '#/s/rc?tab=weeks'; });
+  await pg.evaluate(() => { location.hash = '#/s/rc'; });
   await pg.waitForTimeout(700);
   const onDone = await pg.evaluate(() => {
     const rows = [...document.querySelectorAll('li')].filter((li) => /tap to see your answers/.test(li.innerText || ''));
@@ -2423,7 +2422,6 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   check('and a set she has finished never carries the note', onDone === 0, String(onDone));
   drive.body = grewRemote;
 
-  await pg.evaluate(() => { location.hash = '#/s/rc?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
   check('subject page lists skill levels', (await pg.$$('[data-testid=skills] [data-level]')).length >= 3 && /Proficient|Familiar|Needs work/.test(await body(pg)));
   /* Every skill opens a page of every question in it (the owner, 5 October 2026: "to
      each skill, add link to all the covered questions … each skill should be openable
@@ -2436,7 +2434,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     const kind = (it) => sub !== 'vr' ? (it.sk || 'General') : /most nearly means/i.test(it.q) ? 'Synonyms' : /_{3,}/.test(it.q) ? 'Sentence completion' : 'Words in context';
     return b.subjects[sub].filter((it) => kind(it) === sk).length;
   }, [sub, sk]);
-  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
   await pg.click('[data-testid=skills-show-all]');
   const skLinks = await pg.$$eval('[data-testid=skill-link]', (els) => els.map((e) => ({ t: e.textContent.trim(), h: e.getAttribute('href') })));
   check('every skill on the subject page links to its own page', skLinks.length >= 15 && skLinks.every((l) => l.h === '#/skill/ma/' + encodeURIComponent(l.t)), JSON.stringify(skLinks.slice(0, 3)));
@@ -2634,7 +2632,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
      record and the page are read in one synchronous turn, after the bundle has arrived, so a
      Drive merge cannot land between the two. Only reads: nothing here writes history. */
   console.log('== a skill and a word count her answers the same way');
-  await pg.goto('http://localhost:8143/learning/#/s/ma?tab=skills', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.goto('http://localhost:8143/learning/#/s/ma', { waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=skills]');
   await pg.click('[data-testid=skills-show-all]'); await pg.waitForSelector('[data-testid=skills-show-all][aria-pressed=true]');
   const skList = await pg.evaluate(async () => {
     const b = await (await fetch('./content/bundle.json')).json();
@@ -2866,7 +2864,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     `quiz=${/Word quiz/.test(ck2)} mixed=${/mixed set/.test(ck2)}`);
 
   console.log('== AoPS pointers');
-  await pg.evaluate(() => { location.hash = '#/s/ma?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/ma'; }); await pg.waitForSelector('[data-testid=skills]');
   const hints = await pg.$$eval('[data-testid=aops-hint]', (n) => n.map((x) => x.dataset.skill));
   check('weak maths skills carry the AoPS chapter that teaches them', hints.includes('Percent') && hints.includes('Fractions'), hints.join(', '));
   // The badge says what it opens — Alcumus, and the focus topic to set there,
@@ -2875,7 +2873,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   // named in the tooltip as the book it is.
   check('the pointer names the Alcumus focus topic to set', /Alcumus · Percents/.test(await pg.textContent('[data-testid=skills]')));
   check('and still carries the Beast Academy unit, whole', /5D · Percents/.test((await pg.$$eval('[data-testid=aops-hint]', (n) => n.map((x) => x.dataset.ba || ''))).join(' | ')));
-  await pg.evaluate(() => { location.hash = '#/s/vr?tab=skills'; }); await pg.waitForSelector('[data-testid=skills]');
+  await pg.evaluate(() => { location.hash = '#/s/vr'; }); await pg.waitForSelector('[data-testid=skills]');
   check('verbal gets no AoPS pointer, because there is no honest one', (await pg.$$('[data-testid=aops-hint]')).length === 0);
   await pg.evaluate(() => { location.hash = '#/review'; }); await pg.waitForSelector('[data-testid=review-ma]');
   /* The chapter used to be a second block below the lesson, printing "Alcumus"
@@ -4408,8 +4406,15 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     // it loaded until it loads again.
     await pg.goto('http://localhost:8143/learning/#/s/ma', { waitUntil: 'networkidle' });
     await pg.reload({ waitUntil: 'networkidle' });
+    await pg.waitForSelector('[data-testid=subject-questions]');
+    /* One list, not two (the owner, 6 November 2026: "it should be merged into #/questions with
+       subject preselected"): the subject page keeps no list of its own and opens that one. */
+    check('a subject page has no question list of its own', (await pg.$('[data-testid=qlist]')) === null);
+    await pg.click('[data-testid=subject-questions]');
     await pg.waitForSelector('[data-testid=qlist]');
-    check('a subject page opens on its question list', await pg.$eval('[data-testid=subject-tabs]', (e) => e.dataset.tab) === 'questions');
+    const opened0 = await pg.$eval('[data-testid=qlist]', (e) => ({ ...e.dataset }));
+    check('and opens the one list with its subject already chosen', opened0.sub === 'ma' && (await pg.$eval('[data-testid=qlist-sub]', (e) => e.value)) === 'ma', JSON.stringify(opened0));
+    await pg.click('[data-testid=qlist-show-all]');
     const allN = await pg.$eval('[data-testid=qlist]', (e) => +e.dataset.n);
     check('which starts on every question in the subject, the plan\'s and any paper she sat here', allN >= bun.subjects.ma.length, `${allN} rows, ${bun.subjects.ma.length} in the bank`);
     await pg.selectOption('[data-testid=qlist-skill]', sk);
@@ -4422,10 +4427,11 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     check('and every answer on the list is hidden until tapped', (await pg.$$('[data-testid=qlist-row-why]')).length === 0);
     const hash = await pg.evaluate(() => location.hash);
     const hq = new URLSearchParams(hash.split('?')[1] || '');
-    check('the filters are kept in the address', hq.get('status') === 'missed' && hq.get('sk') === sk && hq.get('wk') === 'W6', hash);
+    // Missed is the list's default, and a default is left out of the address, so no status there is Missed.
+    check('the filters are kept in the address', hq.get('sub') === 'ma' && (hq.get('status') || 'missed') === 'missed' && hq.get('sk') === sk && hq.get('wk') === 'W6', hash);
     await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=qlist]');
     const kept = await pg.$eval('[data-testid=qlist]', (e) => ({ ...e.dataset }));
-    check('so going back to the page finds them as they were', kept.status === 'missed' && kept.sk === sk && kept.wk === 'W6', JSON.stringify(kept));
+    check('so going back to the page finds them as they were', kept.sub === 'ma' && kept.status === 'missed' && kept.sk === sk && kept.wk === 'W6', JSON.stringify(kept));
 
     const toRedo = +kept.toRedo;
     const before = await pg.evaluate((id) => { const r = JSON.parse(localStorage.getItem('isee.v1')).items[id]; return { due: r.due, step: r.step, cleared: r.cleared, misses: r.misses }; }, miss.id);
@@ -4449,7 +4455,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     check('a redo is written to her record as a redo', after.last.ctx === 'redo' && after.last.ok === true, JSON.stringify(after.last));
     check('and leaves the review pile exactly where it was', after.due === before.due && after.step === before.step && after.cleared === before.cleared && after.misses === before.misses, JSON.stringify([before, after]));
 
-    await pg.goto('http://localhost:8143/learning/#/s/ma?status=missed&wk=W6&sk=' + encodeURIComponent(sk), { waitUntil: 'networkidle' });
+    await pg.goto('http://localhost:8143/learning/#/questions?sub=ma&status=missed&wk=W6&sk=' + encodeURIComponent(sk), { waitUntil: 'networkidle' });
     await pg.waitForSelector(`[data-testid=qlist-row][data-qid="${miss.id}"]`);
     const row = await pg.$eval(`[data-testid=qlist-row][data-qid="${miss.id}"]`, (e) => ({ redo: e.dataset.toRedo, done: e.dataset.done, note: (e.querySelector('[data-testid=qlist-redone]') || {}).dataset }));
     check('once redone right it is off "to redo", and the row says when and how', row.redo === '0' && row.note && row.note.ok === '1', JSON.stringify(row));

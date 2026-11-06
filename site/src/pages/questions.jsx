@@ -12,7 +12,8 @@ import { Runner } from "@/pages/runner"
 
 /** Every question in all four subjects, narrowed any way at once — the one place to check the
  *  wrong ones (the owner, 4 November 2026: "I need a centralized or easier way to double check
- *  the wrong questions"). The Score page links here; a subject page has the same list for itself. */
+ *  the wrong questions"). The Score page and each subject page open it with their subject chosen
+ *  (`?sub=ma`); there is no second list on the subject page (the owner, 6 November 2026). */
 export function QuestionsPage() {
   useStore()
   return (
@@ -29,8 +30,10 @@ export function QuestionsPage() {
           </CardDescription>
         </CardHeader>
       </Card>
-      <Card className="gap-3 py-5">
-        <CardContent className="px-5">
+      {/* The card's own padding, the same as the header card above it, so the two line up on both
+          sides. */}
+      <Card>
+        <CardContent>
           <QuestionBrowser />
         </CardContent>
       </Card>

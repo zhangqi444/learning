@@ -334,7 +334,7 @@ questions … each skill should be openable and see list of questions". `/skill/
 (`pages/skill.jsx`) lists every bank question whose `skillOf` is that skill, grouped by
 sub-skill, with its week and sitting, her answers on it, and the key behind a tap; Practice
 this skill runs up to twelve of them as `again`, which counts as evidence for the reason
-`again` always has. The Skills tab of a subject page links each name there.
+`again` always has. The skills card on a subject page links each name there.
 
 **A skill and a word are counted one way.** The owner, 6 October 2026: "to the skills, should
 follow the vocabulary list, to see more statistic data? or can you make the two features more
@@ -458,20 +458,23 @@ the owner tuned on 27 October; neither is done, and either is the owner's call.
 **Every question is one list.** The owner, the same day: "I need a centralized or easier way to
 double check the wrong questions … filter at the skill page not work because e.g. to ma it has 10s
 of skills", and of the subject page, "build this page as a long list, and allow me to use skill or
-status practiced/missed/not yet or any other dimension to filter". `/questions` (all four subjects)
-and the Questions tab of `/s/<subject>` are `components/question-browser.jsx` over
-`lib/questions.js`: every plan question, plus a paper's questions once she has answered them — a
+status practiced/missed/not yet or any other dimension to filter". `/questions` is
+`components/question-browser.jsx` over `lib/questions.js`: every plan question, plus a paper's questions once she has answered them — a
 paper she has not sat is not a list to read through beforehand — narrowed at once by how she did
-(Missed · To redo · Missed 2+ times · Guessed · Tried · Not tried yet · All), by skill, by week or
-paper, and sorted by plan order, latest answer or most missed. A paper's question is filed under
+(Missed · To redo · Missed 2+ times · Guessed · Tried · Not tried yet · All), by subject, by skill,
+by week or paper, and sorted by plan order, latest answer or most missed. A paper's question is filed under
 the bank skill `bankSkill` resolves its tag to, so one skill filter finds both. Her answers are
 counted by `lib/tally.js` as everywhere else. The filters are kept in the address after a `?`
 (`routeQuery`, `setRouteQuery` in `lib/router.js`; `replaceState`, so a tap neither scrolls nor
 adds history), and the page is keyed by `navHash()`, the address as last navigated to, so a link to
 the same page with other filters starts it afresh while its own writes never remount it. The Score
 page's Wrong questions card counts by the list's own rules, and each of its numbers opens exactly
-those questions. A subject page is three tabs now — Questions, Skills, Weeks — and the Skills tab's
-buttons narrow the skills, not the questions; that was what the owner asked them to be for.
+those questions. There is one list, not one per subject. For a day a subject page carried its own
+copy as a Questions tab, and the owner, 6 November 2026: "we don't need this page even. it should
+be merged into #/questions with subject preselected". So a subject page keeps its skills card and
+its weeks, says how many of its questions she missed, and opens `/questions?sub=<subject>`. The
+skills card's buttons narrow the skills, not the questions, and the card says so and links to the
+list; that was what the owner had asked them to be for.
 
 **A guess that lands is right, and not known.** The owner, 6 October 2026: "need to allow the kids
 to mark the right answered question as guess or not". She can flag "I'm guessing" on a question as

@@ -142,9 +142,9 @@ answers twice. Whether it should have one is the owner's decision.
 | route | what it is for |
 |---|---|
 | `/` | today — the next set, what is due, the week's checklist |
-| `/s/<subject>` | a subject in three tabs. **Questions** (first): every question in it, narrowed at once by how she did (missed, to redo, missed twice, guessed, tried, not tried yet), by skill, by week or paper, and sorted three ways, with Redo for the wrong ones. **Skills**: its skills as one list in the word bank's shape — questions, done, right, wrong, last and level — whose buttons narrow the skills. **Weeks**: the sittings, week by week. The tab and the filters are kept in the address (`?tab=skills`, `?status=missed&sk=Fractions`) |
+| `/s/<subject>` | a subject: its skills as one list in the word bank's shape — questions, done, right, wrong, last and level — whose buttons narrow the skills, then its sittings week by week; and how many of its questions she missed, which opens the question list with the subject chosen |
 | `/s/<subject>/<week>` | a subject's sittings for one plan week |
-| `/questions` | every question in all four subjects, the same list and filters as a subject's Questions tab, opening on the ones she missed |
+| `/questions` | every question in all four subjects, opening on the ones she missed, narrowed at once by subject, by how she did (missed, to redo, missed twice, guessed, tried, not tried yet), by skill and by week or paper, sorted three ways, with Redo for the wrong ones. The filters are kept in the address (`?sub=ma&status=missed&sk=Fractions`) |
 | `/redo?…` | the wrong questions asked again as themselves: from a list's filters, or `?door=<subject>` for the misses the next review sitting lets in |
 | `/skill/<subject>/<skill>` | every question of one skill, grouped by sub-skill, with its week, sitting and her answers on it, under the same numbers a word's page opens with; narrowed to tried, missed or not tried yet; the answer behind a tap; Practice this skill |
 | `/review` | everything a miss has scheduled, by subject, with the cause breakdown; Redo them first, then Let N in |

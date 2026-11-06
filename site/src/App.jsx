@@ -92,9 +92,8 @@ function Screen({ route }) {
   const { cat, rest } = splitCat(route)
   if (cat === "chinese") return <ChineseScreen rest={rest} />
   const [top, a, b, c] = rest
-  // Keyed by the address she navigated to (navHash), so moving to another subject, or following
-  // a link to this one with another tab or filter, starts it from that address rather than
-  // carrying the last one's skill across; the filters it writes itself do not remount it.
+  // Keyed by the address she navigated to (navHash), so moving to another subject starts its page
+  // afresh rather than carrying the last one's state across.
   if (top === "s" && SUBJ[a]) return <Subject key={navHash()} sub={a} wk={b} />
   if (top === "run" && SUBJ[a]) {
     const n = +c
