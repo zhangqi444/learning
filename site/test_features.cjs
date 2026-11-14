@@ -4277,17 +4277,20 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     await backBtn.click(); await pg.waitForFunction(() => /^1 /.test(document.querySelector('[data-testid=counter]')?.textContent || ''));
     check('going back brings that question\'s working back', (await inked()) > 50 && (await strokes()) === '1');
   } else check('going back brings that question\'s working back', false, 'no Back control found in the runner');
-  await pg.evaluate(() => { location.hash = '#/run/vr/W7/0'; }); await pg.waitForSelector('[data-testid=choice]');
+  // Not a bare wait for a choice: by the time this runs, an earlier check may have answered part
+  // of this set (it is the open week's first Verbal set from 9 November), and then the url opens
+  // as the list of what she answered — the trap named in CLAUDE.md. fromTheTop gets to question one.
+  await pg.evaluate(() => { location.hash = '#/run/vr/W7/0'; }); await fromTheTop(pg);
   check('a verbal set opens without it', !(await pg.$('[data-testid=scratch-canvas]')) && /Scratch off/.test(await pg.textContent('[data-testid=scratch-toggle]')));
   await pg.click('[data-testid=scratch-toggle]'); await pg.waitForSelector('[data-testid=scratch-canvas]');
-  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=choice]');
+  await pg.reload({ waitUntil: 'networkidle' }); await fromTheTop(pg);
   check('turned on, it stays on after a reload', !!(await pg.$('[data-testid=scratch-canvas]')));
   check('but nothing drawn is kept — a reload is a fresh pad', (await strokes()) === '0');
   // a source check, like the nouns one: what body() sends cannot be seen from inside the page
   check('and the preference is not part of what goes to Drive', await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).scratch === true) && !/scratch/.test(fs.readFileSync(path.join(__dirname, 'src/lib/store.js'), 'utf8').match(/body\(\) \{[\s\S]*?\n  \},/)[0]));
   // back to "never chosen": clear the stored choice and reload so memory agrees
   await pg.evaluate(() => { const s = JSON.parse(localStorage.getItem('isee.v1')); delete s.scratch; localStorage.setItem('isee.v1', JSON.stringify(s)); });
-  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=choice]');
+  await pg.reload({ waitUntil: 'networkidle' }); await fromTheTop(pg);
   await pg.evaluate(() => { location.hash = '#/mock/M03/MA'; }); await pg.waitForSelector('[data-testid=mock-start]'); await pg.click('[data-testid=mock-start]');
   await pg.waitForSelector('[data-testid=question]');
   check('a mock maths section has the paper too', !!(await pg.$('[data-testid=scratch-canvas]')));

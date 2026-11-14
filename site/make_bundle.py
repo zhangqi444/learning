@@ -12,7 +12,10 @@ BANKS={'vr':['vr-september.json','vr-weeks5-8.json'],'qr':['qr-september.json','
 # it: the doubling (`-weeks5-8-plus`), then the questions written on 6 October 2026 so every
 # word on her lists is asked three ways — a synonym, a completion and a phrase completion
 # (`-words-plus`, Verbal only).
-ADDED={sub:[f'{sub}-weeks5-8-plus.json', f'{sub}-words-plus.json'] for sub in BANKS}
+# The third, `-figures-plus` (14 November 2026, MA and QR only), is W8 questions read off a
+# table, graph, number line, grid or drawing: on Mock 1 every one of her eight MA misses was
+# a figure question, and she answered all thirteen without one (tools/author_figures_w8.py).
+ADDED={sub:[f'{sub}-weeks5-8-plus.json', f'{sub}-words-plus.json', f'{sub}-figures-plus.json'] for sub in BANKS}
 # The sub-skill of each question written before sub-skills were named, kept beside the
 # banks rather than in them so those questions (and their content hashes) are untouched.
 SUBSKILLS=json.load(open('content/subskills.json'))['items'] if os.path.exists('content/subskills.json') else {}

@@ -64,8 +64,10 @@ will meet on the day.
   nouns and 2 adverbs in 15; the Princeton Review paper 8 nouns, 4 verbs, 4
   adjectives and 1 adverb in 17. No part of speech above half a form.
 - **Sentence completion (Part Two, about 17).** One blank; the answer is "a word
-  or phrase". **About a quarter to a third are phrase completions** (ERB 5 of
-  15, Princeton Review 4 of 17), placed at the end of Part Two, where the whole
+  or phrase". **6 of the 17 are phrase completions** — ERB, *What to Expect*
+  (© 2018), Appendix A, counts the real section as 17 synonyms, 11 single-word
+  completions and 6 phrase completions (its practice test has 5 of 15, the
+  Princeton Review 4 of 17) — placed at the end of Part Two, where the whole
   phrase is the logical conclusion of the sentence. Clue types: contrast is
   emphasized (*although, but, unlike, rather*), then cause (*because, since,
   so*), definition and example. Contexts are cross-curricular — science, history,
@@ -91,7 +93,10 @@ will meet on the day.
 
 ## Reading Comprehension
 
-- Five passages of five questions each. **Length about 190–340 words** (ERB's four
+- Five passages of five questions each. **Length 300–600 words** — ERB, *What to
+  Expect* (© 2018), Appendix A: "For the Lower Level test, passage length varies from
+  300 to 600 words." Until 14 November 2026 this file said 190–340, measured from the
+  guide's practice passages, which are shorter than the test's own (ERB's four
   practice passages run about 190 to 335; the Princeton Review's five about 170 to
   370). A form's passages stay inside that band so one form is not easier because
   it is shorter.
@@ -142,8 +147,8 @@ the authoring script prints them so a writer sees them before the gate does:
 | Synonym headwords, `wordfreq` Zipf | median 3.3–3.4, range about 2.8–4.2, at most three above 4.0 | ERB's practice test 3.37, the Princeton Review 3.30; M01 was 3.79 and M03 3.24 |
 | Key against headword | key plainer (higher Zipf) on nearly every item | both references |
 | Parts of speech in synonyms | about 6 verbs, 5 adjectives, 4 nouns, 2 adverbs in 17 | ERB 6/4/3/2; the site had 57 adjectives in 68 |
-| Phrase completions | 5 of 17, last in Part Two | ERB 5 of 15, Princeton Review 4 of 17 |
-| Passage length | 190–340 words, every one | ERB 190–335 |
+| Phrase completions | 6 of 17, last in Part Two | ERB Appendix A 6 of 17 (practice test 5 of 15), Princeton Review 4 of 17 |
+| Passage length | 300–600 words, every one; at least two a form past 400 | ERB Appendix A, 300–600 (practice passages 190–335) |
 | Passage readability | Flesch–Kincaid 5.5–7.5, 11–17 words a sentence | three of ERB's four at 5.5–7.1; the site had four passages at grade 10–11 |
 | Question order within a set | varies from set to set | ERB; the site had one fixed order in 20 of 20 sets |
 | Stems citing a line | about a third | ERB 8 of 20, Princeton Review 9 of 25 |

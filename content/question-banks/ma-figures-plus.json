@@ -1,0 +1,1218 @@
+{
+ "bank": "ma-figures-plus",
+ "schema_version": "1.0",
+ "content_version": "2026.11.14",
+ "items": [
+  {
+   "id": "MA-W8-F-01",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Whole-number operations",
+   "subskill": "adding numbers read from a table",
+   "difficulty": "E",
+   "prompt": "The table shows how many cans each class collected for the food drive. How many cans did the three classes collect in all?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Class",
+     "Cans collected"
+    ],
+    "rows": [
+     [
+      "Room 4",
+      "148"
+     ],
+     [
+      "Room 7",
+      "265"
+     ],
+     [
+      "Room 9",
+      "197"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "410",
+    "B": "413",
+    "C": "590",
+    "D": "610"
+   },
+   "correct": "D",
+   "explanation": "Add all three rows: 148 + 265 + 197. Ones: 8 + 5 + 7 = 20, write 0 and carry 2. Tens: 4 + 6 + 9 + 2 = 21, write 1 and carry 2. Hundreds: 1 + 2 + 1 + 2 = 6. The total is 610.",
+   "misconceptions": "adds only two rows; drops a carried digit",
+   "why": {
+    "A": "410 drops the 2 hundreds carried from the tens column (4 + 6 + 9 + 2 = 21 tens): carry it into the hundreds.",
+    "B": "413 adds only Room 4 and Room 7 (148 + 265); the question asks for all three classes.",
+    "C": "590 forgets the 2 tens carried from the ones column (8 + 5 + 7 = 20 ones)."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "3b9dc6804d4e9ec2"
+  },
+  {
+   "id": "MA-W8-F-02",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "difference between the greatest and least value in a table",
+   "difficulty": "E",
+   "prompt": "The table shows the heights of four trees in a park. How much taller is the tallest tree than the shortest tree?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Tree",
+     "Height (feet)"
+    ],
+    "rows": [
+     [
+      "Maple",
+      "23"
+     ],
+     [
+      "Oak",
+      "31"
+     ],
+     [
+      "Pine",
+      "18"
+     ],
+     [
+      "Elm",
+      "26"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "5 feet",
+    "B": "8 feet",
+    "C": "13 feet",
+    "D": "49 feet"
+   },
+   "correct": "C",
+   "explanation": "The tallest tree is the Oak, 31 feet, and the shortest is the Pine, 18 feet. 31 − 18 = 13 feet.",
+   "misconceptions": "picks the wrong pair of rows; adds instead of subtracting",
+   "why": {
+    "A": "5 feet compares the tallest tree with the next tallest (31 − 26), not with the shortest.",
+    "B": "8 feet compares the Elm with the Pine (26 − 18); the tallest tree is the Oak, 31 feet.",
+    "D": "49 feet adds the two heights (31 + 18); \"how much taller\" asks for the difference."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "1252a46ba40bfd8c"
+  },
+  {
+   "id": "MA-W8-F-03",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "reading a mixed number on a number line",
+   "difficulty": "M",
+   "prompt": "Use the number line to answer the question. What number does point P show?",
+   "figure": {
+    "type": "numberline",
+    "min": 2,
+    "max": 3,
+    "step": 0.25,
+    "labelEvery": 4,
+    "points": [
+     {
+      "at": 2.75,
+      "label": "P"
+     }
+    ]
+   },
+   "choices": {
+    "A": "2 1/4",
+    "B": "2 1/3",
+    "C": "2 3/4",
+    "D": "3 3/4"
+   },
+   "correct": "C",
+   "explanation": "Between 2 and 3 the line is cut into 4 equal spaces, so each space is 1/4. P is 3 spaces past 2, so P is 2 3/4. Count the spaces, not the tick marks.",
+   "misconceptions": "counts tick marks instead of spaces; counts from the wrong end",
+   "why": {
+    "A": "2 1/4 counts the spaces back from 3 instead of forward from 2: P is three spaces past 2.",
+    "B": "2 1/3 sees three tick marks between 2 and 3 and calls them thirds; there are four equal spaces, so each is a fourth.",
+    "D": "3 3/4 has the right fraction on the wrong whole number: P is between 2 and 3, so it is 2 and some fourths."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "08323480cd451e0b"
+  },
+  {
+   "id": "MA-W8-F-04",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Decimals",
+   "subskill": "distance between two points on a decimal number line",
+   "difficulty": "H",
+   "prompt": "Use the number line to answer the question. What is the distance between point K and point L?",
+   "figure": {
+    "type": "numberline",
+    "min": 1,
+    "max": 2,
+    "step": 0.1,
+    "labelEvery": 5,
+    "points": [
+     {
+      "at": 1.2,
+      "label": "K"
+     },
+     {
+      "at": 1.7,
+      "label": "L"
+     }
+    ]
+   },
+   "choices": {
+    "A": "0.4",
+    "B": "0.5",
+    "C": "2.9",
+    "D": "5"
+   },
+   "correct": "B",
+   "explanation": "Each small space is 0.1, because 1 to 1.5 is cut into 5 spaces. K is at 1.2 and L is at 1.7. 1.7 − 1.2 = 0.5, which is 5 spaces of one tenth each.",
+   "misconceptions": "counts tick marks instead of spaces; forgets each space is a tenth",
+   "why": {
+    "A": "0.4 counts the tick marks between K and L (there are 4); the distance is the spaces between them, and there are 5.",
+    "C": "2.9 adds the two numbers (1.2 + 1.7); a distance is how far apart they are, so subtract.",
+    "D": "5 counts the spaces correctly but forgets that each space is one tenth: 5 tenths is 0.5."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "18f0d97a46d68667"
+  },
+  {
+   "id": "MA-W8-F-05",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Geometry",
+   "subskill": "lines of symmetry of a rectangle",
+   "difficulty": "M",
+   "prompt": "The figure shows a rectangle that is not a square. How many lines of symmetry does it have?",
+   "figure": {
+    "type": "polygon",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      8,
+      0
+     ],
+     [
+      8,
+      4
+     ],
+     [
+      0,
+      4
+     ]
+    ],
+    "right": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "choices": {
+    "A": "0",
+    "B": "1",
+    "C": "2",
+    "D": "4"
+   },
+   "correct": "C",
+   "explanation": "A line of symmetry is a fold where the two halves match exactly. This rectangle folds down the middle and across the middle: 2 lines. Its diagonals do not work, because it is longer than it is wide; only a square has 4.",
+   "misconceptions": "counts the diagonals of a non-square rectangle",
+   "why": {
+    "A": "0: a rectangle folds onto itself both across the middle and down the middle, so it has lines of symmetry.",
+    "B": "1 finds only one of the two folds; the up-and-down fold and the side-to-side fold both work.",
+    "D": "4 counts the diagonals too. Fold this rectangle along a diagonal and the corners do not meet: only a square has diagonal lines of symmetry."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "afa1856f444ed101"
+  },
+  {
+   "id": "MA-W8-F-06",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Geometry",
+   "subskill": "lines of symmetry of an equilateral triangle",
+   "difficulty": "M",
+   "prompt": "The figure shows a triangle with all three sides the same length. How many lines of symmetry does it have?",
+   "figure": {
+    "type": "polygon",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      6,
+      0
+     ],
+     [
+      3,
+      5.2
+     ]
+    ]
+   },
+   "choices": {
+    "A": "1",
+    "B": "2",
+    "C": "3",
+    "D": "6"
+   },
+   "correct": "C",
+   "explanation": "Fold from any corner to the middle of the side across from it and the halves match. There are 3 corners, so there are 3 lines of symmetry.",
+   "misconceptions": "finds only the vertical fold; counts corners and sides separately",
+   "why": {
+    "A": "1 finds only the fold straight up the middle; because every side is equal, the same fold works from each of the three corners.",
+    "B": "2 misses one corner: there is a fold from every corner to the middle of the opposite side, and there are three corners.",
+    "D": "6 counts the 3 corners and the 3 sides as separate folds, but each fold runs from a corner to the middle of the side across from it, so they are the same 3 lines."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "66bb9bc291e0e736"
+  },
+  {
+   "id": "MA-W8-F-07",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Geometry",
+   "subskill": "classifying a quadrilateral on a grid",
+   "difficulty": "M",
+   "prompt": "The figure shows quadrilateral WXYZ on a coordinate grid. Which name best describes WXYZ?",
+   "figure": {
+    "type": "grid",
+    "xmax": 8,
+    "ymax": 6,
+    "polygon": [
+     [
+      1,
+      1
+     ],
+     [
+      5,
+      1
+     ],
+     [
+      6,
+      4
+     ],
+     [
+      2,
+      4
+     ]
+    ],
+    "points": [
+     {
+      "x": 1,
+      "y": 1,
+      "label": "W"
+     },
+     {
+      "x": 5,
+      "y": 1,
+      "label": "X"
+     },
+     {
+      "x": 6,
+      "y": 4,
+      "label": "Y"
+     },
+     {
+      "x": 2,
+      "y": 4,
+      "label": "Z"
+     }
+    ]
+   },
+   "choices": {
+    "A": "parallelogram",
+    "B": "rectangle",
+    "C": "rhombus",
+    "D": "trapezoid"
+   },
+   "correct": "A",
+   "explanation": "The top and bottom are both flat and 4 units long, and the two slanted sides lean the same way (over 1, up 3). Two pairs of parallel sides, with no right angles and not all sides equal, make a parallelogram.",
+   "misconceptions": "calls any slanted four-sided shape a trapezoid or rhombus",
+   "why": {
+    "B": "A rectangle has four right angles; the slanted sides here meet the top and bottom at a tilt, not at a square corner.",
+    "C": "A rhombus has four equal sides. The top and bottom are 4 units long, but the slanted sides are shorter, so this is not a rhombus.",
+    "D": "A trapezoid has only one pair of parallel sides. Here both pairs are parallel: the top and bottom run flat, and the two slanted sides lean the same way."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "5ae55f6b1d016684"
+  },
+  {
+   "id": "MA-W8-F-08",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Geometry",
+   "subskill": "classifying a quadrilateral on a grid",
+   "difficulty": "M",
+   "prompt": "The figure shows quadrilateral ABCD on a coordinate grid. Which name best describes ABCD?",
+   "figure": {
+    "type": "grid",
+    "xmax": 8,
+    "ymax": 6,
+    "polygon": [
+     [
+      1,
+      1
+     ],
+     [
+      7,
+      1
+     ],
+     [
+      5,
+      4
+     ],
+     [
+      3,
+      4
+     ]
+    ],
+    "points": [
+     {
+      "x": 1,
+      "y": 1,
+      "label": "A"
+     },
+     {
+      "x": 7,
+      "y": 1,
+      "label": "B"
+     },
+     {
+      "x": 5,
+      "y": 4,
+      "label": "C"
+     },
+     {
+      "x": 3,
+      "y": 4,
+      "label": "D"
+     }
+    ]
+   },
+   "choices": {
+    "A": "parallelogram",
+    "B": "rectangle",
+    "C": "square",
+    "D": "trapezoid"
+   },
+   "correct": "D",
+   "explanation": "Only the top (2 units) and the bottom (6 units) are parallel; the two slanted sides lean in toward each other. A quadrilateral with exactly one pair of parallel sides is a trapezoid.",
+   "misconceptions": "expects slanted sides to mean parallelogram",
+   "why": {
+    "A": "A parallelogram has two pairs of parallel sides. The slanted sides here lean toward each other, so only the top and bottom are parallel.",
+    "B": "A rectangle has four right angles; the slanted sides here are not square corners.",
+    "C": "A square has four equal sides and four right angles. The bottom is 6 units and the top is only 2."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "b24eac228abb72b8"
+  },
+  {
+   "id": "MA-W8-F-09",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Volume",
+   "subskill": "volume by counting cubes",
+   "difficulty": "M",
+   "prompt": "The figure shows a block built from small cubes. Each small cube has edges 1 centimeter long. What is the volume of the block?",
+   "figure": {
+    "type": "cubes",
+    "w": 4,
+    "d": 2,
+    "h": 3
+   },
+   "choices": {
+    "A": "8 cubic centimeters",
+    "B": "9 cubic centimeters",
+    "C": "12 cubic centimeters",
+    "D": "24 cubic centimeters"
+   },
+   "correct": "D",
+   "explanation": "The block is 4 cubes long, 2 cubes deep and 3 cubes tall. One layer has 4 × 2 = 8 cubes, and 3 layers make 8 × 3 = 24 cubes, so the volume is 24 cubic centimeters. Count the hidden cubes too.",
+   "misconceptions": "counts only what is visible; adds the edges",
+   "why": {
+    "A": "8 counts only the top layer (4 × 2); there are 3 layers like it.",
+    "B": "9 adds the edges (4 + 2 + 3); volume multiplies them: 4 × 2 × 3.",
+    "C": "12 counts only the front face (4 × 3); the block is 2 cubes deep, so there are two such slices."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "9ab39a9ef4ce392a"
+  },
+  {
+   "id": "MA-W8-F-10",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Volume",
+   "subskill": "cubes needed to complete a larger cube",
+   "difficulty": "H",
+   "prompt": "The figure shows a block built from small cubes. How many more small cubes are needed to make it into a large cube that is 3 cubes long, 3 cubes wide and 3 cubes tall?",
+   "figure": {
+    "type": "cubes",
+    "w": 3,
+    "d": 3,
+    "h": 2
+   },
+   "choices": {
+    "A": "3",
+    "B": "9",
+    "C": "18",
+    "D": "27"
+   },
+   "correct": "B",
+   "explanation": "The large cube needs 3 × 3 × 3 = 27 cubes. The block has 3 × 3 × 2 = 18. 27 − 18 = 9 more — exactly one more layer of 3 × 3.",
+   "misconceptions": "gives the cubes already there; adds only one row",
+   "why": {
+    "A": "3 adds one row of cubes; the missing part is a whole layer, 3 cubes by 3 cubes.",
+    "C": "18 is the number of cubes already in the block (3 × 3 × 2), not the number still needed.",
+    "D": "27 is the whole large cube (3 × 3 × 3); take away the 18 already there."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "b47ac99f6194f586"
+  },
+  {
+   "id": "MA-W8-F-11",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "reading a pictograph with a half symbol",
+   "difficulty": "M",
+   "prompt": "The pictograph shows how many books four students read in March. How many books did Ben read?",
+   "figure": {
+    "type": "pictograph",
+    "title": "Books read in March",
+    "unit": "= 4 books",
+    "rows": [
+     {
+      "label": "Ana",
+      "count": 4
+     },
+     {
+      "label": "Ben",
+      "count": 2.5
+     },
+     {
+      "label": "Cole",
+      "count": 3
+     },
+     {
+      "label": "Dee",
+      "count": 5
+     }
+    ]
+   },
+   "choices": {
+    "A": "2 1/2",
+    "B": "9",
+    "C": "10",
+    "D": "12"
+   },
+   "correct": "C",
+   "explanation": "Ben has 2 whole symbols and half of one. Each whole symbol is 4 books, so 2 × 4 = 8, and half a symbol is 2 more. 8 + 2 = 10 books.",
+   "misconceptions": "ignores the key; treats a half symbol as 1 or as a whole",
+   "why": {
+    "A": "2 1/2 counts the symbols but does not use the key: each whole symbol stands for 4 books.",
+    "B": "9 counts the half symbol as 1 book; half of a symbol is half of 4, which is 2.",
+    "D": "12 rounds the half symbol up to a whole one (3 × 4); a half symbol is only 2 books."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "82e239bb5e0bd45c"
+  },
+  {
+   "id": "MA-W8-F-12",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "comparing totals in a pictograph",
+   "difficulty": "H",
+   "prompt": "Use the pictograph of books read in March. How many more books did Ana and Dee read together than Ben and Cole read together?",
+   "figure": {
+    "type": "pictograph",
+    "title": "Books read in March",
+    "unit": "= 4 books",
+    "rows": [
+     {
+      "label": "Ana",
+      "count": 4
+     },
+     {
+      "label": "Ben",
+      "count": 2.5
+     },
+     {
+      "label": "Cole",
+      "count": 3
+     },
+     {
+      "label": "Dee",
+      "count": 5
+     }
+    ]
+   },
+   "choices": {
+    "A": "3 1/2",
+    "B": "14",
+    "C": "16",
+    "D": "58"
+   },
+   "correct": "B",
+   "explanation": "Ana and Dee: 4 + 5 = 9 symbols = 36 books. Ben and Cole: 2 1/2 + 3 = 5 1/2 symbols = 22 books. 36 − 22 = 14.",
+   "misconceptions": "forgets the key; drops a half symbol",
+   "why": {
+    "A": "3 1/2 is the difference in symbols (9 − 5 1/2); each symbol stands for 4 books.",
+    "C": "16 leaves out Ben's half symbol: Ben and Cole read 10 + 12 = 22 books, not 20.",
+    "D": "58 adds all four students; the question compares two pairs, so subtract."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "e3dd7edf8ef400e6"
+  },
+  {
+   "id": "MA-W8-F-13",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "median from a table",
+   "difficulty": "M",
+   "prompt": "The table shows Ravi's scores on five spelling tests. What is the median of his scores?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Test",
+     "Score"
+    ],
+    "rows": [
+     [
+      "1",
+      "84"
+     ],
+     [
+      "2",
+      "91"
+     ],
+     [
+      "3",
+      "78"
+     ],
+     [
+      "4",
+      "95"
+     ],
+     [
+      "5",
+      "88"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "17",
+    "B": "78",
+    "C": "87.2",
+    "D": "88"
+   },
+   "correct": "D",
+   "explanation": "Put the scores in order: 78, 84, 88, 91, 95. The middle one of the five is 88, the median.",
+   "misconceptions": "takes the middle row without ordering; finds the mean or range instead",
+   "why": {
+    "A": "17 is the range (95 − 78), how spread out the scores are, not the middle score.",
+    "B": "78 is the middle row of the table, but the scores must be put in order first.",
+    "C": "87.2 is the mean (436 ÷ 5); the median is the middle score once they are in order."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "8d979fb8d29409f0"
+  },
+  {
+   "id": "MA-W8-F-14",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "median of an even number of values",
+   "difficulty": "H",
+   "prompt": "The table shows how many minutes Jo read each day for six days. What is the median number of minutes?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Day",
+     "Minutes"
+    ],
+    "rows": [
+     [
+      "Mon",
+      "12"
+     ],
+     [
+      "Tue",
+      "15"
+     ],
+     [
+      "Wed",
+      "9"
+     ],
+     [
+      "Thu",
+      "20"
+     ],
+     [
+      "Fri",
+      "15"
+     ],
+     [
+      "Sat",
+      "11"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "11",
+    "B": "12",
+    "C": "13.5",
+    "D": "15"
+   },
+   "correct": "C",
+   "explanation": "In order: 9, 11, 12, 15, 15, 20. With six numbers there are two in the middle, 12 and 15. The median is halfway between them: (12 + 15) ÷ 2 = 13.5.",
+   "misconceptions": "picks one middle value of an even list; confuses median with mode or range",
+   "why": {
+    "A": "11 is the range (20 − 9), not the middle.",
+    "B": "12 is only the lower of the two middle numbers; with six values the median is halfway between 12 and 15.",
+    "D": "15 is the mode, the number that appears most often, not the median."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "0369ef3497c33415"
+  },
+  {
+   "id": "MA-W8-F-15",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "range from a bar graph",
+   "difficulty": "M",
+   "prompt": "The graph shows how many goals each team scored this season. What is the range of the numbers of goals?",
+   "figure": {
+    "type": "bar",
+    "title": "Goals this season",
+    "y": "Goals",
+    "step": 2,
+    "max": 18,
+    "bars": [
+     {
+      "label": "Lions",
+      "value": 14
+     },
+     {
+      "label": "Tigers",
+      "value": 9
+     },
+     {
+      "label": "Bears",
+      "value": 17
+     },
+     {
+      "label": "Hawks",
+      "value": 6
+     }
+    ]
+   },
+   "choices": {
+    "A": "8",
+    "B": "11",
+    "C": "17",
+    "D": "46"
+   },
+   "correct": "B",
+   "explanation": "The highest bar is the Bears at 17 and the lowest is the Hawks at 6. Range = 17 − 6 = 11. The Tigers' bar (9) and the Bears' (17) stop between grid lines, so read them carefully.",
+   "misconceptions": "misreads a bar between grid lines; gives the maximum or the total",
+   "why": {
+    "A": "8 subtracts the Tigers (17 − 9), but the lowest bar is the Hawks at 6.",
+    "C": "17 is the highest bar alone; the range is highest minus lowest.",
+    "D": "46 adds all four bars; the range is the difference between the highest and the lowest."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "96681c08483774ce"
+  },
+  {
+   "id": "MA-W8-F-16",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "finding two bars with a given total",
+   "difficulty": "M",
+   "prompt": "The graph shows how many students chose each fruit as their favorite. Which two fruits were chosen by 20 students altogether?",
+   "figure": {
+    "type": "bar",
+    "title": "Favorite fruit",
+    "y": "Students",
+    "step": 2,
+    "max": 14,
+    "bars": [
+     {
+      "label": "Apples",
+      "value": 6
+     },
+     {
+      "label": "Bananas",
+      "value": 12
+     },
+     {
+      "label": "Grapes",
+      "value": 8
+     },
+     {
+      "label": "Pears",
+      "value": 10
+     }
+    ]
+   },
+   "choices": {
+    "A": "apples and pears",
+    "B": "grapes and pears",
+    "C": "bananas and grapes",
+    "D": "apples and bananas"
+   },
+   "correct": "C",
+   "explanation": "Read each bar against the grid lines, which go up by 2: apples 6, bananas 12, grapes 8, pears 10. Bananas and grapes make 12 + 8 = 20.",
+   "misconceptions": "adds the wrong pair of bars",
+   "why": {
+    "A": "Apples and pears are 6 + 10 = 16 students, not 20.",
+    "B": "Grapes and pears are 8 + 10 = 18 students, not 20.",
+    "D": "Apples and bananas are 6 + 12 = 18 students, not 20."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "312b22102718dd7f"
+  },
+  {
+   "id": "MA-W8-F-17",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "mode from a two-row table",
+   "difficulty": "E",
+   "prompt": "The table shows how many minutes Sam practiced the violin on four days of each week for two weeks. What is the mode of this set of data?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Week",
+     "Mon",
+     "Tue",
+     "Wed",
+     "Thu"
+    ],
+    "rows": [
+     [
+      "1",
+      "20",
+      "15",
+      "25",
+      "20"
+     ],
+     [
+      "2",
+      "30",
+      "20",
+      "15",
+      "25"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "15",
+    "B": "20",
+    "C": "21.25",
+    "D": "30"
+   },
+   "correct": "B",
+   "explanation": "Count each number in both rows: 20 appears 3 times, 15 twice, 25 twice and 30 once. The mode is the number that appears most often: 20.",
+   "misconceptions": "reads only one row; confuses mode with mean or maximum",
+   "why": {
+    "A": "15 appears twice; 20 appears three times, more than any other number.",
+    "C": "21.25 is the mean (170 ÷ 8); the mode is the number that appears most often.",
+    "D": "30 is the largest number and appears only once."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "a1be03f8fdcb17c4"
+  },
+  {
+   "id": "MA-W8-F-18",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "greatest increase on a line graph",
+   "difficulty": "M",
+   "prompt": "The graph shows how many visitors came to a museum each day. Between which two days did the number of visitors increase the most?",
+   "figure": {
+    "type": "line",
+    "title": "Museum visitors",
+    "y": "Visitors (hundreds)",
+    "step": 3,
+    "max": 27,
+    "points": [
+     {
+      "label": "Mon",
+      "value": 12
+     },
+     {
+      "label": "Tue",
+      "value": 18
+     },
+     {
+      "label": "Wed",
+      "value": 15
+     },
+     {
+      "label": "Thu",
+      "value": 24
+     },
+     {
+      "label": "Fri",
+      "value": 21
+     }
+    ]
+   },
+   "choices": {
+    "A": "Monday to Tuesday",
+    "B": "Thursday to Friday",
+    "C": "Tuesday to Wednesday",
+    "D": "Wednesday to Thursday"
+   },
+   "correct": "D",
+   "explanation": "Find the change between each pair of days: Mon→Tue +6, Tue→Wed −3, Wed→Thu +9, Thu→Fri −3. The steepest climb is Wednesday to Thursday.",
+   "misconceptions": "picks the highest point instead of the biggest climb",
+   "why": {
+    "A": "Monday to Tuesday goes up 6 (12 to 18), but Wednesday to Thursday goes up 9.",
+    "B": "Thursday has the most visitors, but from Thursday to Friday the line goes down.",
+    "C": "From Tuesday to Wednesday the line goes down, from 18 to 15."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "962b9a720b76945a"
+  },
+  {
+   "id": "MA-W8-F-19",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Measurement",
+   "subskill": "elapsed time from a clock",
+   "difficulty": "M",
+   "prompt": "The clock shows the time a movie began. The movie lasted 1 hour 35 minutes. What time did it end?",
+   "figure": {
+    "type": "clock",
+    "h": 3,
+    "m": 40
+   },
+   "choices": {
+    "A": "4:15",
+    "B": "5:05",
+    "C": "5:15",
+    "D": "6:15"
+   },
+   "correct": "C",
+   "explanation": "The clock shows 3:40: the minute hand is on the 8 and the hour hand has not yet reached the 4. Add 1 hour: 4:40. Add 35 minutes: 4:40 + 20 minutes = 5:00, plus 15 more = 5:15.",
+   "misconceptions": "reads the hour from the number the hour hand is nearest; forgets an hour",
+   "why": {
+    "A": "4:15 adds the 35 minutes but forgets the 1 hour.",
+    "B": "5:05 subtracts the minutes (40 − 35) instead of adding them.",
+    "D": "6:15 reads the clock as 4:40 because the hour hand is close to the 4; it has not reached 4 yet, so the movie began at 3:40."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "9a94e2a49da1481d"
+  },
+  {
+   "id": "MA-W8-F-20",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Perimeter",
+   "subskill": "perimeter of a shape with unlabeled sides",
+   "difficulty": "M",
+   "prompt": "The figure shows the floor of a room, seen from above. Every side meets the next at a right angle. What is the perimeter of the floor?",
+   "figure": {
+    "type": "polygon",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      8,
+      0
+     ],
+     [
+      8,
+      3
+     ],
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      6
+     ],
+     [
+      0,
+      6
+     ]
+    ],
+    "right": [
+     0,
+     1,
+     2,
+     4,
+     5
+    ],
+    "labels": [
+     {
+      "side": 0,
+      "text": "8 m"
+     },
+     {
+      "side": 1,
+      "text": "3 m"
+     },
+     {
+      "side": 4,
+      "text": "3 m"
+     },
+     {
+      "side": 5,
+      "text": "6 m"
+     }
+    ]
+   },
+   "choices": {
+    "A": "20 m",
+    "B": "25 m",
+    "C": "28 m",
+    "D": "33 m"
+   },
+   "correct": "C",
+   "explanation": "Find the two unlabeled sides. The top step is 8 − 3 = 5 m across, and the short upright side is 6 − 3 = 3 m. Add all six: 8 + 3 + 5 + 3 + 3 + 6 = 28 m.",
+   "misconceptions": "adds only the labeled sides; finds area instead",
+   "why": {
+    "A": "20 m adds only the four labeled sides; the two unlabeled sides (5 m and 3 m) count too.",
+    "B": "25 m finds the 5 m side but leaves out the other unlabeled side, which is 6 − 3 = 3 m.",
+    "D": "33 is the area in square meters (8 × 3 + 3 × 3), not the distance around."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "28c53f4edcab3d29"
+  },
+  {
+   "id": "MA-W8-F-21",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "fraction of a shaded grid",
+   "difficulty": "E",
+   "prompt": "What fraction of the grid is shaded?",
+   "figure": {
+    "type": "shaded",
+    "shape": "grid",
+    "parts": 20,
+    "shaded": 8,
+    "cols": 5
+   },
+   "choices": {
+    "A": "2/5",
+    "B": "3/5",
+    "C": "2/3",
+    "D": "3/2"
+   },
+   "correct": "A",
+   "explanation": "8 of the 20 squares are shaded: 8/20. Divide both by 4 to get 2/5.",
+   "misconceptions": "compares shaded to unshaded instead of to the whole",
+   "why": {
+    "B": "3/5 is the unshaded part (12 of 20).",
+    "C": "2/3 compares shaded to unshaded (8 to 12); a fraction of the grid compares shaded to all 20 squares.",
+    "D": "3/2 compares unshaded to shaded (12 to 8), and is more than a whole grid."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "ae5ffe972f83839b"
+  },
+  {
+   "id": "MA-W8-F-22",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Coordinates",
+   "subskill": "moving a point on a grid",
+   "difficulty": "M",
+   "prompt": "Point K is on the coordinate grid. Kofi moves point K 2 units to the left and 3 units up. What are the new coordinates of point K?",
+   "figure": {
+    "type": "grid",
+    "xmax": 8,
+    "ymax": 8,
+    "points": [
+     {
+      "x": 5,
+      "y": 3,
+      "label": "K"
+     }
+    ]
+   },
+   "choices": {
+    "A": "(2, 5)",
+    "B": "(3, 6)",
+    "C": "(6, 3)",
+    "D": "(7, 6)"
+   },
+   "correct": "B",
+   "explanation": "K starts at (5, 3). Left 2 changes the across number: 5 − 2 = 3. Up 3 changes the up number: 3 + 3 = 6. The new point is (3, 6).",
+   "misconceptions": "moves the wrong way; swaps the coordinates",
+   "why": {
+    "A": "(2, 5) mixes up the two moves: it goes 3 left and 2 up.",
+    "C": "(6, 3) has the right numbers in the wrong order; the first number is how far across.",
+    "D": "(7, 6) moves 2 to the right; left makes the first number smaller."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "d2c1e75195016f6c"
+  },
+  {
+   "id": "MA-W8-F-23",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Decimals",
+   "subskill": "making change from a price table",
+   "difficulty": "H",
+   "prompt": "The table shows prices at the school store. Lena buys 3 pencils and 2 erasers and pays with a $5 bill. How much change should she get?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Item",
+     "Price"
+    ],
+    "rows": [
+     [
+      "Pencil",
+      "$0.45"
+     ],
+     [
+      "Eraser",
+      "$0.60"
+     ],
+     [
+      "Notebook",
+      "$1.25"
+     ],
+     [
+      "Ruler",
+      "$0.89"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "$2.45",
+    "B": "$2.55",
+    "C": "$3.55",
+    "D": "$3.95"
+   },
+   "correct": "A",
+   "explanation": "3 pencils: 3 × $0.45 = $1.35. 2 erasers: 2 × $0.60 = $1.20. Together $2.55. Change: $5.00 − $2.55 = $2.45.",
+   "misconceptions": "stops at the cost; uses one of each item; regrouping error",
+   "why": {
+    "B": "$2.55 is what she spends (3 × $0.45 + 2 × $0.60); the question asks for her change from $5.",
+    "C": "$3.55 subtracts the smaller digit from the larger in each place; $5.00 − $2.55 needs regrouping and is $2.45.",
+    "D": "$3.95 buys only one pencil and one eraser ($1.05); she buys 3 pencils and 2 erasers."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "ee6ee18bb6dcbcf1"
+  },
+  {
+   "id": "MA-W8-F-24",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Data",
+   "subskill": "reading bars that stop between grid lines",
+   "difficulty": "M",
+   "prompt": "The graph shows how many students signed up for each club. How many students signed up for soccer and art altogether?",
+   "figure": {
+    "type": "bar",
+    "title": "Club sign-ups",
+    "y": "Students",
+    "step": 10,
+    "max": 40,
+    "bars": [
+     {
+      "label": "Soccer",
+      "value": 35
+     },
+     {
+      "label": "Swim",
+      "value": 20
+     },
+     {
+      "label": "Art",
+      "value": 25
+     },
+     {
+      "label": "Chess",
+      "value": 15
+     }
+    ]
+   },
+   "choices": {
+    "A": "50",
+    "B": "60",
+    "C": "70",
+    "D": "95"
+   },
+   "correct": "B",
+   "explanation": "The grid lines go by 10, so a bar that stops halfway between two lines is 5 more than the lower one. Soccer is 35 and art is 25. 35 + 25 = 60.",
+   "misconceptions": "rounds a between-lines bar down or up to the nearest grid line",
+   "why": {
+    "A": "50 reads the soccer and art bars down to the grid line below them (30 + 20); each stops halfway to the next line.",
+    "C": "70 reads both bars up to the grid line above them (40 + 30).",
+    "D": "95 adds all four clubs; the question asks only for soccer and art."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "2ed49da9d0977bac"
+  }
+ ]
+}

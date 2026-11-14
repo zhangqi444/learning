@@ -236,7 +236,7 @@ npm i --no-save "git+https://github.com/zhangqi444/ui.git#<sha>" playwright@1.63
 
 - **Adding a form to `OFFICIAL_FORMS` turns the gate red until the whole form
   complies, and that is the point.** `tools/itemspec.py` holds the forms the
-  validator holds to the official choice order, the 190–340-word band and
+  validator holds to the official choice order, the 300–600-word band and
   line-numbered passages. It is a per-form list, not a per-item flag, because a
   balanced-letter form was shuffled on purpose and a half-converted one teaches a
   child nothing. The shuffle-cycle check is skipped for those forms deliberately:

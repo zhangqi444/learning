@@ -1,0 +1,1166 @@
+{
+ "bank": "qr-figures-plus",
+ "schema_version": "1.0",
+ "content_version": "2026.11.14",
+ "items": [
+  {
+   "id": "QR-W8-F-01",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Probability",
+   "subskill": "probability on a spinner with unequal sections",
+   "difficulty": "E",
+   "prompt": "The spinner is divided into the three sections shown. If the arrow is spun once, what is the probability that it lands on green?",
+   "figure": {
+    "type": "spinner",
+    "sectors": [
+     {
+      "label": "Red",
+      "size": 1
+     },
+     {
+      "label": "Blue",
+      "size": 1
+     },
+     {
+      "label": "Green",
+      "size": 2
+     }
+    ]
+   },
+   "choices": {
+    "A": "1 out of 4",
+    "B": "1 out of 3",
+    "C": "1 out of 2",
+    "D": "3 out of 4"
+   },
+   "correct": "C",
+   "explanation": "The green section takes up half of the spinner, the same space as red and blue together. So the arrow lands on green 1 out of 2 times.",
+   "misconceptions": "treats unequal sections as equally likely",
+   "why": {
+    "A": "1 out of 4 is the chance of landing on red (or on blue); green is twice as big as each of them.",
+    "B": "1 out of 3 treats the three sections as the same size; green covers half of the spinner.",
+    "D": "3 out of 4 is the chance of NOT landing on red — a different question."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "f91b26c8ca3bc2e2"
+  },
+  {
+   "id": "QR-W8-F-02",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Probability",
+   "subskill": "probability of a factor on a numbered spinner",
+   "difficulty": "M",
+   "prompt": "The spinner has eight equal sections numbered 1 to 8. If the arrow is spun once, what is the probability that it lands on a number that is a factor of 6?",
+   "figure": {
+    "type": "spinner",
+    "sectors": [
+     {
+      "label": "1"
+     },
+     {
+      "label": "2"
+     },
+     {
+      "label": "3"
+     },
+     {
+      "label": "4"
+     },
+     {
+      "label": "5"
+     },
+     {
+      "label": "6"
+     },
+     {
+      "label": "7"
+     },
+     {
+      "label": "8"
+     }
+    ]
+   },
+   "choices": {
+    "A": "1 out of 8",
+    "B": "1 out of 4",
+    "C": "3 out of 8",
+    "D": "1 out of 2"
+   },
+   "correct": "D",
+   "explanation": "The factors of 6 are 1, 2, 3 and 6, and all four are on the spinner. That is 4 out of 8 equal sections, which is the same chance as 1 out of 2.",
+   "misconceptions": "forgets 1 and the number itself are factors",
+   "why": {
+    "B": "1 out of 4 counts only 2 and 3; 1 and 6 are factors of 6 as well.",
+    "C": "3 out of 8 forgets that 1 is a factor of every number: 1 × 6 = 6.",
+    "A": "1 out of 8 counts only the 6 itself; 1, 2 and 3 are factors of 6 too."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "4ef62a5c04bd190a"
+  },
+  {
+   "id": "QR-W8-F-03",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Data reasoning",
+   "subskill": "reading one circle of a Venn diagram",
+   "difficulty": "M",
+   "prompt": "Ms. Lee asked the 19 students in her class whether they play soccer or the piano. The Venn diagram shows the results. How many students play soccer?",
+   "figure": {
+    "type": "venn",
+    "left": "Soccer",
+    "right": "Piano",
+    "counts": {
+     "left": 7,
+     "both": 4,
+     "right": 5,
+     "outside": 3
+    }
+   },
+   "choices": {
+    "A": "3",
+    "B": "4",
+    "C": "7",
+    "D": "11"
+   },
+   "correct": "D",
+   "explanation": "Everyone inside the soccer circle plays soccer, including the overlap. 7 + 4 = 11. The 19 in the question is the whole class, which this question does not need.",
+   "misconceptions": "reads only the outer part of a circle",
+   "why": {
+    "B": "4 is only the students who do both; the soccer players who do not play piano count too.",
+    "C": "7 is only the part of the soccer circle outside the piano circle; the 4 in the middle play soccer as well.",
+    "A": "3 is the students outside both circles, who play neither soccer nor the piano."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "a995a31c186442f3"
+  },
+  {
+   "id": "QR-W8-F-04",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Data reasoning",
+   "subskill": "total from a Venn diagram",
+   "difficulty": "H",
+   "prompt": "The Venn diagram shows how many students in a club have a dog, a cat, both or neither. How many students are in the club?",
+   "figure": {
+    "type": "venn",
+    "left": "Has a dog",
+    "right": "Has a cat",
+    "counts": {
+     "left": 9,
+     "both": 3,
+     "right": 6,
+     "outside": 2
+    }
+   },
+   "choices": {
+    "A": "15",
+    "B": "18",
+    "C": "20",
+    "D": "23"
+   },
+   "correct": "C",
+   "explanation": "Each student is in exactly one region. 9 + 3 + 6 + 2 = 20.",
+   "misconceptions": "counts the overlap twice; forgets the outside region",
+   "why": {
+    "A": "15 adds only the dog-only and cat-only parts (9 + 6), missing the 3 with both and the 2 with neither.",
+    "B": "18 leaves out the 2 students outside both circles; they are in the club too.",
+    "D": "23 counts the 3 students with both pets twice; each student is in only one region."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "af22cf8999a3a568"
+  },
+  {
+   "id": "QR-W8-F-05",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Data reasoning",
+   "subskill": "regions of a three-circle Venn diagram",
+   "difficulty": "H",
+   "prompt": "The Venn diagram shows which sports students in a club play. How many students play exactly two of the three sports?",
+   "figure": {
+    "type": "venn3",
+    "a": "Soccer",
+    "b": "Swimming",
+    "c": "Tennis",
+    "counts": {
+     "a": 4,
+     "b": 3,
+     "c": 5,
+     "ab": 2,
+     "ac": 1,
+     "bc": 3,
+     "abc": 1,
+     "outside": 2
+    }
+   },
+   "choices": {
+    "A": "1",
+    "B": "6",
+    "C": "7",
+    "D": "19"
+   },
+   "correct": "B",
+   "explanation": "The regions inside exactly two circles are soccer-and-swimming (2), soccer-and-tennis (1) and swimming-and-tennis (3). 2 + 1 + 3 = 6. The center (1) is three sports, so it is left out.",
+   "misconceptions": "includes the center in \"exactly two\"",
+   "why": {
+    "A": "1 is the center, the student who plays all three sports, not exactly two.",
+    "C": "7 adds the center too; exactly two means inside two circles and outside the third.",
+    "D": "19 is everyone who plays at least one sport."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "ad70a04f5549ebfa"
+  },
+  {
+   "id": "QR-W8-F-06",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Measurement",
+   "subskill": "elapsed time from a clock",
+   "difficulty": "M",
+   "prompt": "The clock shows the time the bus left school. The trip to the zoo took 25 minutes. What time did the bus reach the zoo?",
+   "figure": {
+    "type": "clock",
+    "h": 10,
+    "m": 50
+   },
+   "choices": {
+    "A": "10:15",
+    "B": "10:35",
+    "C": "11:15",
+    "D": "11:25"
+   },
+   "correct": "C",
+   "explanation": "The clock shows 10:50. Ten more minutes is 11:00, and 15 more is 11:15.",
+   "misconceptions": "reads the minute hand's number as minutes; reads the nearest hour",
+   "why": {
+    "A": "10:15 adds 25 minutes but does not move to the next hour after 60 minutes.",
+    "B": "10:35 reads the minute hand's number as the minutes (10:10); the minute hand on the 10 means 50 minutes.",
+    "D": "11:25 reads the hour as 11 because the hour hand is close to it; the bus left at 10:50, not 11:00."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "acbb72193ffa6f66"
+  },
+  {
+   "id": "QR-W8-F-07",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Volume",
+   "subskill": "adding a layer of cubes",
+   "difficulty": "M",
+   "prompt": "The block is built from small cubes, each with a volume of 1 cubic inch. Maya adds one more layer on top, exactly like the top layer. What will the volume of the block be then?",
+   "figure": {
+    "type": "cubes",
+    "w": 3,
+    "d": 2,
+    "h": 2
+   },
+   "choices": {
+    "A": "15 cubic inches",
+    "B": "18 cubic inches",
+    "C": "24 cubic inches",
+    "D": "36 cubic inches"
+   },
+   "correct": "B",
+   "explanation": "The block has 2 layers of 3 × 2 = 6 cubes, so 12 now. One more layer adds 6: 12 + 6 = 18 cubic inches.",
+   "misconceptions": "adds a row instead of a layer; doubles the block",
+   "why": {
+    "D": "36 triples the block (12 × 3); only one layer of 3 × 2 = 6 cubes is added.",
+    "A": "15 adds only one row of 3; a whole layer is 2 rows deep.",
+    "C": "24 doubles the whole block; one layer is added, not two."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "0ad72e418fc35b85"
+  },
+  {
+   "id": "QR-W8-F-08",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Geometry",
+   "subskill": "unfolding a shape along a fold",
+   "difficulty": "M",
+   "prompt": "The figure is half of a paper shape. The dashed side is the fold. When the paper is unfolded, what shape will it be?",
+   "figure": {
+    "type": "polygon",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      4,
+      0
+     ],
+     [
+      0,
+      3
+     ]
+    ],
+    "right": [
+     0
+    ],
+    "dashed": [
+     2
+    ]
+   },
+   "choices": {
+    "A": "kite",
+    "B": "rectangle",
+    "C": "square",
+    "D": "triangle"
+   },
+   "correct": "D",
+   "explanation": "Reflect the triangle across the dashed side, like opening a folded paper. The bottom side doubles to 8 and the two slanted sides match, making one larger triangle with two equal sides.",
+   "misconceptions": "reflects across the wrong side",
+   "why": {
+    "A": "A kite would come from reflecting across the long slanted side; the fold here is the upright dashed side.",
+    "B": "A rectangle needs four right angles; the mirror image across the dashed side makes a shape with three corners.",
+    "C": "A square needs four equal sides and four corners; the unfolded shape has three corners."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "9c4aef4179fa7287"
+  },
+  {
+   "id": "QR-W8-F-09",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Pattern",
+   "subskill": "using an input/output rule",
+   "difficulty": "M",
+   "prompt": "Use the table to answer the question. If the same rule is used, what is the output when the input is 10?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Input",
+     "Output"
+    ],
+    "rows": [
+     [
+      "2",
+      "7"
+     ],
+     [
+      "4",
+      "11"
+     ],
+     [
+      "5",
+      "13"
+     ],
+     [
+      "8",
+      "19"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "13",
+    "B": "20",
+    "C": "21",
+    "D": "23"
+   },
+   "correct": "D",
+   "explanation": "Each output is double the input plus 3: 2 → 7, 4 → 11, 5 → 13, 8 → 19. For 10: 10 × 2 + 3 = 23.",
+   "misconceptions": "continues the output column instead of using the rule",
+   "why": {
+    "A": "13 only adds 3 (10 + 3); the rule also doubles the input first.",
+    "B": "20 only doubles (10 × 2); every output is 3 more than double the input.",
+    "C": "21 adds 2 to the last output; the input went up by 2, so the output goes up by 2 × 2 = 4."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "c51cb9d9af6a8d6d"
+  },
+  {
+   "id": "QR-W8-F-10",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Pattern",
+   "subskill": "finding the rule that fits every row",
+   "difficulty": "H",
+   "prompt": "Use the table to answer the question. Which rule gives each output from its input?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Input",
+     "Output"
+    ],
+    "rows": [
+     [
+      "1",
+      "4"
+     ],
+     [
+      "3",
+      "10"
+     ],
+     [
+      "6",
+      "19"
+     ],
+     [
+      "7",
+      "22"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "add 3",
+    "B": "multiply by 4",
+    "C": "multiply by 2, then add 2",
+    "D": "multiply by 3, then add 1"
+   },
+   "correct": "D",
+   "explanation": "Check every row: 1 × 3 + 1 = 4, 3 × 3 + 1 = 10, 6 × 3 + 1 = 19, 7 × 3 + 1 = 22. The other rules only fit the first row.",
+   "misconceptions": "checks only the first row",
+   "why": {
+    "A": "Add 3 works for the first row (1 → 4) but gives 6 for 3, not 10.",
+    "B": "Multiply by 4 works for the first row but gives 12 for 3, not 10.",
+    "C": "Doubling and adding 2 works for the first row but gives 8 for 3, not 10. A rule has to work for every row."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "b995c1b99d2364ce"
+  },
+  {
+   "id": "QR-W8-F-11",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Data reasoning",
+   "subskill": "fraction of a total from a bar graph",
+   "difficulty": "M",
+   "prompt": "Forty students voted for their favorite season. The graph shows the results. What fraction of the students chose summer or winter?",
+   "figure": {
+    "type": "bar",
+    "title": "Favorite season",
+    "y": "Students",
+    "step": 5,
+    "max": 20,
+    "bars": [
+     {
+      "label": "Summer",
+      "value": 15
+     },
+     {
+      "label": "Winter",
+      "value": 5
+     },
+     {
+      "label": "Spring",
+      "value": 12
+     },
+     {
+      "label": "Fall",
+      "value": 8
+     }
+    ]
+   },
+   "choices": {
+    "A": "1/8",
+    "B": "1/5",
+    "C": "3/8",
+    "D": "1/2"
+   },
+   "correct": "D",
+   "explanation": "Summer 15 plus winter 5 is 20 students. 20 of 40 is 1/2.",
+   "misconceptions": "uses only one of the two bars",
+   "why": {
+    "A": "1/8 is winter alone (5 of 40).",
+    "B": "1/5 is the fall bar (8 of 40), the wrong season.",
+    "C": "3/8 is summer alone (15 of 40); the question asks for summer or winter."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "941b82bc6e72dd45"
+  },
+  {
+   "id": "QR-W8-F-12",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Data reasoning",
+   "subskill": "comparing rows of a pictograph",
+   "difficulty": "M",
+   "prompt": "The pictograph shows how many cups of lemonade a stand sold each day. How many more cups were sold on Tuesday than on Wednesday?",
+   "figure": {
+    "type": "pictograph",
+    "title": "Lemonade sold",
+    "unit": "= 6 cups",
+    "rows": [
+     {
+      "label": "Monday",
+      "count": 3
+     },
+     {
+      "label": "Tuesday",
+      "count": 4.5
+     },
+     {
+      "label": "Wednesday",
+      "count": 2
+     },
+     {
+      "label": "Thursday",
+      "count": 3.5
+     }
+    ]
+   },
+   "choices": {
+    "A": "12",
+    "B": "15",
+    "C": "18",
+    "D": "27"
+   },
+   "correct": "B",
+   "explanation": "Tuesday has 4 1/2 symbols and Wednesday 2, a difference of 2 1/2 symbols. Each is 6 cups: 2 × 6 = 12, and half a symbol is 3. 12 + 3 = 15 cups.",
+   "misconceptions": "forgets the key; mishandles the half symbol",
+   "why": {
+    "D": "27 is all of Tuesday's cups (4 1/2 × 6); the question asks how many more than Wednesday.",
+    "A": "12 leaves out Tuesday's half symbol (4 − 2 = 2 symbols); half a symbol is 3 cups.",
+    "C": "18 counts the half symbol as a whole one; it stands for only 3 cups."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "e788692e65cadc36"
+  },
+  {
+   "id": "QR-W8-F-13",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Number sense",
+   "subskill": "halfway point on a number line",
+   "difficulty": "M",
+   "prompt": "Use the number line to answer the question. Point M is halfway between point P and point R. What number is at point M?",
+   "figure": {
+    "type": "numberline",
+    "min": 0,
+    "max": 60,
+    "step": 5,
+    "labelEvery": 2,
+    "points": [
+     {
+      "at": 15,
+      "label": "P"
+     },
+     {
+      "at": 45,
+      "label": "R"
+     }
+    ]
+   },
+   "choices": {
+    "A": "15",
+    "B": "30",
+    "C": "45",
+    "D": "60"
+   },
+   "correct": "B",
+   "explanation": "P is at 15 and R is at 45, 30 apart. Half of 30 is 15, so M is 15 past P: 15 + 15 = 30.",
+   "misconceptions": "gives the half-distance instead of the point",
+   "why": {
+    "A": "15 is how far M is from P (half of 30), not where M is on the line.",
+    "C": "45 is where R is; M is between P and R.",
+    "D": "60 adds P and R (15 + 45); halfway is that sum divided by 2."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "d4fa5e6899d2b023"
+  },
+  {
+   "id": "QR-W8-F-14",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Geometry",
+   "subskill": "completing a rectangle on a grid",
+   "difficulty": "M",
+   "prompt": "Points J, K and L are three corners of a rectangle. Where should point M go to make rectangle JKLM?",
+   "figure": {
+    "type": "grid",
+    "xmax": 9,
+    "ymax": 9,
+    "points": [
+     {
+      "x": 2,
+      "y": 3,
+      "label": "J"
+     },
+     {
+      "x": 2,
+      "y": 8,
+      "label": "K"
+     },
+     {
+      "x": 7,
+      "y": 8,
+      "label": "L"
+     }
+    ]
+   },
+   "choices": {
+    "A": "(3, 7)",
+    "B": "(5, 5)",
+    "C": "(7, 3)",
+    "D": "(7, 8)"
+   },
+   "correct": "C",
+   "explanation": "M must be straight below L (same across number, 7) and straight across from J (same up number, 3). So M is at (7, 3).",
+   "misconceptions": "swaps the coordinates",
+   "why": {
+    "A": "(3, 7) has the right numbers in the wrong order: M is 7 across and 3 up.",
+    "B": "(5, 5) is near the middle of the rectangle, not a corner.",
+    "D": "(7, 8) is where L already is."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "8b5eba28cc5cb6f8"
+  },
+  {
+   "id": "QR-W8-F-15",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Perimeter",
+   "subskill": "missing width from the perimeter",
+   "difficulty": "H",
+   "prompt": "The rectangle in the figure has a perimeter of 30 centimeters. What is its width?",
+   "figure": {
+    "type": "polygon",
+    "points": [
+     [
+      0,
+      0
+     ],
+     [
+      9,
+      0
+     ],
+     [
+      9,
+      6
+     ],
+     [
+      0,
+      6
+     ]
+    ],
+    "right": [
+     0,
+     1,
+     2,
+     3
+    ],
+    "labels": [
+     {
+      "side": 0,
+      "text": "9 cm"
+     },
+     {
+      "side": 1,
+      "text": "?"
+     }
+    ]
+   },
+   "choices": {
+    "A": "6 cm",
+    "B": "12 cm",
+    "C": "15 cm",
+    "D": "21 cm"
+   },
+   "correct": "A",
+   "explanation": "Half the perimeter is one length plus one width: 30 ÷ 2 = 15. Take away the length: 15 − 9 = 6 cm.",
+   "misconceptions": "forgets there are two widths",
+   "why": {
+    "B": "12 cm takes away both lengths (30 − 9 − 9) but forgets that the 12 is two widths together.",
+    "C": "15 cm is half the perimeter, one length and one width together; take away the 9.",
+    "D": "21 cm takes away only one length; the rectangle has two lengths and two widths."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "af189fc3c2e1a9ea"
+  },
+  {
+   "id": "QR-W8-F-16",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "comparing a fraction to a shaded part",
+   "difficulty": "M",
+   "prompt": "Use the figure to answer the question. Which fraction is greater than the part of the circle that is shaded?",
+   "figure": {
+    "type": "shaded",
+    "shape": "circle",
+    "parts": 8,
+    "shaded": 3
+   },
+   "choices": {
+    "A": "1/4",
+    "B": "3/10",
+    "C": "1/3",
+    "D": "1/2"
+   },
+   "correct": "D",
+   "explanation": "3 of 8 parts are shaded, which is less than half (4 of 8). So 1/2 is greater. 1/4 is 2/8, 1/3 is less than 3/8, and 3/10 uses smaller pieces.",
+   "misconceptions": "compares only the top numbers",
+   "why": {
+    "A": "1/4 is 2 of 8 parts, less than the 3 of 8 shaded.",
+    "B": "3/10 has the same 3 on top, but tenths are smaller pieces than eighths, so it is less.",
+    "C": "1/3 is a little less than 3/8 (one third of 8 parts is under 3 parts)."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "cc4e32fe50b8c875"
+  },
+  {
+   "id": "QR-W8-F-17",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Data reasoning",
+   "subskill": "which statement a line graph supports",
+   "difficulty": "H",
+   "prompt": "The graph shows how many birds came to a feeder each week. Which statement is true?",
+   "figure": {
+    "type": "line",
+    "title": "Birds at the feeder",
+    "y": "Birds",
+    "step": 5,
+    "max": 25,
+    "points": [
+     {
+      "label": "Wk 1",
+      "value": 10
+     },
+     {
+      "label": "Wk 2",
+      "value": 14
+     },
+     {
+      "label": "Wk 3",
+      "value": 14
+     },
+     {
+      "label": "Wk 4",
+      "value": 20
+     },
+     {
+      "label": "Wk 5",
+      "value": 18
+     }
+    ]
+   },
+   "choices": {
+    "A": "The most birds came in Week 5.",
+    "B": "The number of birds went up every week.",
+    "C": "The same number came in Week 2 and Week 3.",
+    "D": "Twice as many came in Week 4 as in Week 2."
+   },
+   "correct": "C",
+   "explanation": "Weeks 2 and 3 are both at 14, so the line is flat there. Check each statement against the points, not the shape at a glance.",
+   "misconceptions": "reads the last point as the highest; compares with the wrong week",
+   "why": {
+    "A": "Week 5 is the last point but not the highest: Week 4 (20) is higher than Week 5 (18).",
+    "B": "It stayed the same from Week 2 to Week 3 and went down from Week 4 to Week 5.",
+    "D": "Week 4 (20) is twice Week 1 (10), not Week 2 (14)."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "e591a450aa85ba6c"
+  },
+  {
+   "id": "QR-W8-F-18",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Data reasoning",
+   "subskill": "choosing the needed column of a table",
+   "difficulty": "M",
+   "prompt": "The table shows fruit sold at a farm stand. Rosa buys 2 bags of apples and 1 bag of pears. How much does she spend?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Fruit",
+     "Price per bag",
+     "Pounds per bag"
+    ],
+    "rows": [
+     [
+      "Apples",
+      "$4",
+      "3"
+     ],
+     [
+      "Oranges",
+      "$5",
+      "4"
+     ],
+     [
+      "Pears",
+      "$6",
+      "2"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "$10",
+    "B": "$14",
+    "C": "$16",
+    "D": "$20"
+   },
+   "correct": "B",
+   "explanation": "Use the price column only: 2 bags of apples are 2 × $4 = $8, and a bag of pears is $6. $8 + $6 = $14. The pounds column is extra information.",
+   "misconceptions": "uses the wrong column or row",
+   "why": {
+    "D": "$20 buys 2 bags of pears as well (2 × 4 + 2 × 6); she buys only 1 bag of pears.",
+    "A": "$10 buys one bag of each (4 + 6); she buys 2 bags of apples.",
+    "C": "$16 reads the oranges row for the second fruit (2 × 5 + 6)."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "650d5f7d5348e2ad"
+  },
+  {
+   "id": "QR-W8-F-19",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Data reasoning",
+   "subskill": "missing value for a target mean",
+   "difficulty": "H",
+   "prompt": "The graph shows how many laps Theo swam from Monday to Thursday. How many laps must he swim on Friday so that he swims an average of 8 laps a day over the five days?",
+   "figure": {
+    "type": "bar",
+    "title": "Laps swum",
+    "y": "Laps",
+    "step": 1,
+    "max": 10,
+    "bars": [
+     {
+      "label": "Mon",
+      "value": 6
+     },
+     {
+      "label": "Tue",
+      "value": 9
+     },
+     {
+      "label": "Wed",
+      "value": 5
+     },
+     {
+      "label": "Thu",
+      "value": 8
+     }
+    ]
+   },
+   "choices": {
+    "A": "7",
+    "B": "8",
+    "C": "12",
+    "D": "40"
+   },
+   "correct": "C",
+   "explanation": "An average of 8 over 5 days is 5 × 8 = 40 laps in all. He has 6 + 9 + 5 + 8 = 28. 40 − 28 = 12 laps on Friday.",
+   "misconceptions": "gives the average instead of the missing value",
+   "why": {
+    "A": "7 is his average so far (28 ÷ 4); Friday has to pull the average up to 8.",
+    "B": "8 is the average he wants; he is behind, so Friday must be more than 8.",
+    "D": "40 is the total for all five days (5 × 8); take away the 28 he has already swum."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "3068521eee92c92b"
+  },
+  {
+   "id": "QR-W8-F-20",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Perimeter",
+   "subskill": "side of a shape with equal sides",
+   "difficulty": "M",
+   "prompt": "Every side of the figure is the same length. Its perimeter is 42 inches. How long is one side?",
+   "figure": {
+    "type": "polygon",
+    "points": [
+     [
+      2,
+      0
+     ],
+     [
+      6,
+      0
+     ],
+     [
+      8,
+      3.5
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      2,
+      7
+     ],
+     [
+      0,
+      3.5
+     ]
+    ]
+   },
+   "choices": {
+    "A": "6 inches",
+    "B": "7 inches",
+    "C": "10.5 inches",
+    "D": "36 inches"
+   },
+   "correct": "B",
+   "explanation": "The figure has 6 equal sides, so each is 42 ÷ 6 = 7 inches.",
+   "misconceptions": "miscounts the sides; subtracts instead of dividing",
+   "why": {
+    "A": "6 inches divides by 7; the figure has 6 sides.",
+    "C": "10.5 inches divides by 4 as if it were a square; count the sides — there are 6.",
+    "D": "36 inches subtracts the number of sides (42 − 6); share the perimeter among the sides by dividing."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "e5b5b47606bd2e55"
+  },
+  {
+   "id": "QR-W8-F-21",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Pattern",
+   "subskill": "growing pattern in a table",
+   "difficulty": "M",
+   "prompt": "The table shows how many tiles are in each figure of a pattern. If the pattern continues, how many tiles will Figure 6 have?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Figure",
+     "Tiles"
+    ],
+    "rows": [
+     [
+      "1",
+      "4"
+     ],
+     [
+      "2",
+      "7"
+     ],
+     [
+      "3",
+      "10"
+     ],
+     [
+      "4",
+      "13"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "16",
+    "B": "18",
+    "C": "19",
+    "D": "24"
+   },
+   "correct": "C",
+   "explanation": "Each figure adds 3 tiles: 4, 7, 10, 13, then 16 for Figure 5 and 19 for Figure 6.",
+   "misconceptions": "stops one figure early; uses only the first row",
+   "why": {
+    "A": "16 is Figure 5; Figure 6 is one more step of 3.",
+    "B": "18 multiplies 6 × 3 but forgets that each figure is 1 more than 3 times its number.",
+    "D": "24 multiplies 6 × 4, using only the first row (1 → 4)."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "050c80a41b39bc4b"
+  },
+  {
+   "id": "QR-W8-F-22",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Probability",
+   "subskill": "probability from a table of counts",
+   "difficulty": "M",
+   "prompt": "The table shows the marbles in a bag. If one marble is picked without looking, which color has a 1 out of 5 chance of being picked?",
+   "figure": {
+    "type": "table",
+    "head": [
+     "Color",
+     "Marbles"
+    ],
+    "rows": [
+     [
+      "Red",
+      "6"
+     ],
+     [
+      "Blue",
+      "4"
+     ],
+     [
+      "Green",
+      "2"
+     ],
+     [
+      "Yellow",
+      "8"
+     ]
+    ]
+   },
+   "choices": {
+    "A": "blue",
+    "B": "green",
+    "C": "red",
+    "D": "yellow"
+   },
+   "correct": "A",
+   "explanation": "There are 6 + 4 + 2 + 8 = 20 marbles. 1 out of 5 is the same as 4 out of 20, and there are 4 blue marbles.",
+   "misconceptions": "forgets to find the total first",
+   "why": {
+    "B": "Green is 2 of 20 marbles, a 1 out of 10 chance.",
+    "C": "Red is 6 of 20 marbles, a 3 out of 10 chance.",
+    "D": "Yellow is 8 of 20 marbles, a 2 out of 5 chance, not 1 out of 5."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "a60d5e5d071bbf9a"
+  },
+  {
+   "id": "QR-W8-F-23",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Number sense",
+   "subskill": "placing a number in a Venn diagram",
+   "difficulty": "M",
+   "prompt": "The Venn diagram sorts some numbers. In which part of the diagram does the number 18 belong?",
+   "figure": {
+    "type": "venn",
+    "left": "Multiples of 3",
+    "right": "Even numbers",
+    "items": {
+     "left": [
+      "9",
+      "15"
+     ],
+     "both": [
+      "6",
+      "12"
+     ],
+     "right": [
+      "4",
+      "8",
+      "10"
+     ],
+     "outside": [
+      "5",
+      "7"
+     ]
+    }
+   },
+   "choices": {
+    "A": "in both circles",
+    "B": "outside both circles",
+    "C": "only in \"Even numbers\"",
+    "D": "only in \"Multiples of 3\""
+   },
+   "correct": "A",
+   "explanation": "18 is even (18 = 2 × 9) and a multiple of 3 (18 = 3 × 6). A number that fits both labels goes where the circles overlap.",
+   "misconceptions": "checks only one label",
+   "why": {
+    "B": "Eighteen is even and a multiple of 3, so it belongs inside both circles, not outside them.",
+    "C": "Eighteen is also 3 × 6, a multiple of 3, so it goes in the overlap.",
+    "D": "Eighteen is also even, so it goes in the overlap."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "d44cca988d1dd1e1"
+  },
+  {
+   "id": "QR-W8-F-24",
+   "subject": "QR",
+   "form": "W8",
+   "skill": "Geometry",
+   "subskill": "reflecting a point across a line on a grid",
+   "difficulty": "H",
+   "prompt": "The triangle on the grid is flipped over the dashed line. Where does the corner at (2, 6) land?",
+   "figure": {
+    "type": "grid",
+    "xmax": 10,
+    "ymax": 8,
+    "polygon": [
+     [
+      2,
+      2
+     ],
+     [
+      4,
+      2
+     ],
+     [
+      2,
+      6
+     ]
+    ],
+    "lines": [
+     [
+      [
+       5,
+       0
+      ],
+      [
+       5,
+       8
+      ]
+     ]
+    ]
+   },
+   "choices": {
+    "A": "(6, 2)",
+    "B": "(7, 6)",
+    "C": "(8, 2)",
+    "D": "(8, 6)"
+   },
+   "correct": "D",
+   "explanation": "The dashed line is at 5. The corner at (2, 6) is 3 units left of it, so it lands 3 units right: 5 + 3 = 8. A flip over an upright line does not change the up number. The image is (8, 6).",
+   "misconceptions": "miscounts the distance to the line; flips the wrong corner",
+   "why": {
+    "A": "(6, 2) swaps the numbers of the corner's position; a flip over an upright line keeps the up number, 6.",
+    "B": "(7, 6) lands 2 past the line; the corner is 3 units left of the line, so it lands 3 units right of it.",
+    "C": "(8, 2) is where the corner at (2, 2) lands; the question asks about (2, 6)."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.14",
+   "content_hash": "74e2c5a95631b242"
+  }
+ ]
+}

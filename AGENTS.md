@@ -256,7 +256,7 @@ change, so assertions key on numbers and surrounding sentences, not on the nouns
   paper as a cross-check: the section blueprint, answer choices in the official
   order (alphabetical words, phrases by length, ascending numbers), phrase
   completions and a mix of parts of speech in Verbal, about half the math read
-  off a figure, table or graph, passages of 190–340 words with line numbers, and
+  off a figure, table or graph, passages of 300–600 words with line numbers, and
   the topics that are out of scope. Until 4 October 2026 there was no such spec;
   the banks were written to a general idea of the test, and
   docs/mock-review-2026-10-04.md measures where that drifted. A rule in the spec

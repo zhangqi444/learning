@@ -286,7 +286,10 @@ def figure_errors(it):
 # names the same words on the screen as in this check.
 MARKUP = re.compile(r'\[(?:¶|S)\d+\]')
 LINE_MAX, LINE_MIN = 72, 18
-WORDS_LO, WORDS_HI = 190, 340
+# ERB, What to Expect on the ISEE — Lower Level (© 2018), Appendix A: "For the Lower Level
+# test, passage length varies from 300 to 600 words." Until 14 November 2026 this was
+# 190–340, measured from that guide's practice passages, which are shorter than the test's.
+WORDS_LO, WORDS_HI = 300, 600
 
 def passage_lines(text):
     """[(line_no, text, paragraph_no)] for a numbered passage."""
