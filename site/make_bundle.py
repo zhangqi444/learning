@@ -15,7 +15,10 @@ BANKS={'vr':['vr-september.json','vr-weeks5-8.json'],'qr':['qr-september.json','
 # The third, `-figures-plus` (14 November 2026, MA and QR only), is W8 questions read off a
 # table, graph, number line, grid or drawing: on Mock 1 every one of her eight MA misses was
 # a figure question, and she answered all thirteen without one (tools/author_figures_w8.py).
-ADDED={sub:[f'{sub}-weeks5-8-plus.json', f'{sub}-words-plus.json', f'{sub}-figures-plus.json'] for sub in BANKS}
+# The fourth, `-numbers-plus` (15 November 2026, MA only), is W8 number sense: the real ISEE
+# report for 24 October put MA lowest (stanine 6), with five of her seven scored misses in
+# Whole Numbers and Decimals/Percents/Fractions, not in figures (tools/author_numbers_w8.py).
+ADDED={sub:[f'{sub}-weeks5-8-plus.json', f'{sub}-words-plus.json', f'{sub}-figures-plus.json', f'{sub}-numbers-plus.json'] for sub in BANKS}
 # The sub-skill of each question written before sub-skills were named, kept beside the
 # banks rather than in them so those questions (and their content hashes) are untouched.
 SUBSKILLS=json.load(open('content/subskills.json'))['items'] if os.path.exists('content/subskills.json') else {}

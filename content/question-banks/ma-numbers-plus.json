@@ -1,0 +1,655 @@
+{
+ "bank": "ma-numbers-plus",
+ "schema_version": "1.0",
+ "content_version": "2026.11.15",
+ "items": [
+  {
+   "id": "MA-W8-N-01",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "comparing fractions one piece short of 1",
+   "difficulty": "M",
+   "prompt": "Which fraction is the smallest?",
+   "choices": {
+    "A": "4/5",
+    "B": "5/6",
+    "C": "7/8",
+    "D": "9/10"
+   },
+   "correct": "A",
+   "explanation": "Each fraction is one piece short of 1 whole: 4/5 is missing 1/5, 5/6 is missing 1/6, 7/8 is missing 1/8 and 9/10 is missing 1/10. Fifths are the biggest pieces, so 4/5 is missing the most and is the smallest.",
+   "misconceptions": "thinks bigger numbers on top and bottom make a bigger fraction, or the reverse",
+   "why": {
+    "B": "5/6 is 1/6 short of a whole, and 1/6 is a smaller piece than 1/5, so 5/6 is closer to 1 than 4/5 is.",
+    "C": "7/8 is only 1/8 short of a whole, so it is closer to 1, and bigger, than 4/5.",
+    "D": "9/10 has the biggest numbers, but it is just 1/10 short of a whole: it is the largest of the four, not the smallest."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "621cb3b795e2146c"
+  },
+  {
+   "id": "MA-W8-N-02",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "comparing a fraction with one half",
+   "difficulty": "E",
+   "prompt": "Which fraction is less than 1/2?",
+   "choices": {
+    "A": "3/8",
+    "B": "6/11",
+    "C": "5/9",
+    "D": "4/7"
+   },
+   "correct": "A",
+   "explanation": "A fraction is less than 1/2 when its top number is less than half of its bottom number. Half of 8 is 4, and 3 is less than 4, so 3/8 is less than 1/2.",
+   "misconceptions": "compares only the top numbers or only the bottom numbers",
+   "why": {
+    "B": "6/11 is more than 1/2: half of 11 is 5 1/2, and 6 is more than that.",
+    "C": "5/9 is more than 1/2: half of 9 is 4 1/2, and 5 is more than that.",
+    "D": "4/7 is more than 1/2: half of 7 is 3 1/2, and 4 is more than that."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "da8409562fda327a"
+  },
+  {
+   "id": "MA-W8-N-03",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "a fraction between two benchmarks",
+   "difficulty": "M",
+   "prompt": "Which fraction is greater than 1/3 but less than 1/2?",
+   "choices": {
+    "A": "1/4",
+    "B": "2/5",
+    "C": "3/5",
+    "D": "5/8"
+   },
+   "correct": "B",
+   "explanation": "Check each side. Less than 1/2: half of 5 is 2 1/2, and 2 is less, so 2/5 is under 1/2. More than 1/3: with the same bottom number, 2/5 = 6/15 and 1/3 = 5/15, and 6/15 is more.",
+   "misconceptions": "checks only one side of \"between\"",
+   "why": {
+    "A": "Fourths are smaller pieces than thirds, so 1/4 is less than 1/3.",
+    "C": "3/5 is more than 1/2: half of 5 is 2 1/2, and 3 is more than that.",
+    "D": "5/8 is more than 1/2: half of 8 is 4, and 5 is more than 4."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "c1e3710df42902b0"
+  },
+  {
+   "id": "MA-W8-N-04",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "comparing fractions with different denominators in a story",
+   "difficulty": "M",
+   "prompt": "Four friends each had a pizza of the same size. Ana ate 2/3 of hers, Leo ate 5/8 of his, Mia ate 3/4 of hers, and Sam ate 7/12 of his. Who ate the most pizza?",
+   "choices": {
+    "A": "Ana",
+    "B": "Leo",
+    "C": "Mia",
+    "D": "Sam"
+   },
+   "correct": "C",
+   "explanation": "Change each amount to a decimal (or to 24ths): 2/3 is about 0.67, 5/8 is 0.625, 3/4 is 0.75 and 7/12 is about 0.58. 3/4 is the largest, so Mia ate the most.",
+   "misconceptions": "picks the fraction with the biggest numbers instead of the biggest value",
+   "why": {
+    "A": "Ana ate 2/3, which is 8/12. Mia ate 3/4, which is 9/12, so Mia ate more.",
+    "B": "Leo ate 5/8, which is 0.625. Mia ate 3/4, which is 0.75, so Mia ate more.",
+    "D": "Sam ate 7/12. Mia ate 3/4, which is 9/12, so Mia ate more."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "84b0dbd6011c1b95"
+  },
+  {
+   "id": "MA-W8-N-05",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Decimals",
+   "subskill": "writing a decimal as a fraction",
+   "difficulty": "M",
+   "prompt": "Which fraction is equal to 0.45?",
+   "choices": {
+    "A": "45/1000",
+    "B": "9/20",
+    "C": "4/5",
+    "D": "9/2"
+   },
+   "correct": "B",
+   "explanation": "0.45 is 45 hundredths, or 45/100. Divide the top and bottom by 5: 45 ÷ 5 = 9 and 100 ÷ 5 = 20, so 0.45 = 9/20.",
+   "misconceptions": "uses the wrong place value; reads the digits as a fraction",
+   "why": {
+    "A": "45/1000 is 0.045. The 5 in 0.45 is in the hundredths place, so 0.45 is 45/100.",
+    "C": "4/5 is 0.8. It reads the 4 and the 5 of 0.45 as a top and a bottom number.",
+    "D": "9/2 is 4 1/2, which is 4.5, ten times too big: 0.45 is 9/20, not 9/2."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "b4a47d4e5928e740"
+  },
+  {
+   "id": "MA-W8-N-06",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Decimals",
+   "subskill": "writing a three-place decimal as a fraction",
+   "difficulty": "H",
+   "prompt": "Which fraction is equal to 0.375?",
+   "choices": {
+    "A": "3/8",
+    "B": "3/5",
+    "C": "3/4",
+    "D": "375/100"
+   },
+   "correct": "A",
+   "explanation": "Know that 1/8 = 0.125 (half of 1/4, which is 0.25). Then 3/8 = 3 × 0.125 = 0.375. Another way: 0.375 is 375/1000, and dividing the top and bottom by 125 gives 3/8.",
+   "misconceptions": "counts the decimal places wrong",
+   "why": {
+    "B": "3/5 is 0.6. It uses only the first digit, 3, and guesses the bottom number.",
+    "C": "3/4 is 0.75, twice as much as 0.375. 0.375 is half of 0.75, so it is half of 3/4.",
+    "D": "375/100 is 3.75. 0.375 has three digits after the point, so it is thousandths: 375/1000."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "a9cf5e69a4655166"
+  },
+  {
+   "id": "MA-W8-N-07",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Decimals",
+   "subskill": "writing a fraction as a decimal",
+   "difficulty": "E",
+   "prompt": "Which decimal is equal to 3/5?",
+   "choices": {
+    "A": "0.06",
+    "B": "0.35",
+    "C": "0.53",
+    "D": "0.6"
+   },
+   "correct": "D",
+   "explanation": "Make the bottom number 10: 3/5 = 6/10, and 6 tenths is 0.6.",
+   "misconceptions": "writes the top and bottom digits as a decimal",
+   "why": {
+    "A": "0.06 is 6 hundredths. 3/5 is 6 tenths: 0.6.",
+    "B": "0.35 writes the 3 and the 5 side by side. A fraction bar means divide, not \"put the digits together\".",
+    "C": "0.53 writes the digits backwards. 3/5 means 3 ÷ 5."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "fe79c632e8298b71"
+  },
+  {
+   "id": "MA-W8-N-08",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Decimals",
+   "subskill": "writing a fraction as a decimal by making 100",
+   "difficulty": "M",
+   "prompt": "Which decimal is equal to 7/25?",
+   "choices": {
+    "A": "0.07",
+    "B": "0.28",
+    "C": "0.725",
+    "D": "3.57"
+   },
+   "correct": "B",
+   "explanation": "Multiply the top and bottom by 4 to make hundredths: 7 × 4 = 28 and 25 × 4 = 100, so 7/25 = 28/100 = 0.28.",
+   "misconceptions": "writes the digits side by side; divides the wrong way",
+   "why": {
+    "A": "0.07 uses only the top number, 7. The bottom number is 25, not 100.",
+    "C": "0.725 writes the 7 and the 25 side by side. A fraction bar means divide.",
+    "D": "3.57 is about 25 ÷ 7, the division the wrong way round. 7/25 is less than 1."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "1224f425bc647024"
+  },
+  {
+   "id": "MA-W8-N-09",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Decimals",
+   "subskill": "a decimal between two tenths",
+   "difficulty": "M",
+   "prompt": "Which number is greater than 0.6 and less than 0.7?",
+   "choices": {
+    "A": "0.65",
+    "B": "0.705",
+    "C": "0.76",
+    "D": "6.5"
+   },
+   "correct": "A",
+   "explanation": "Write all the numbers with the same number of places: 0.60, 0.65, 0.70. 0.65 is between 0.60 and 0.70.",
+   "misconceptions": "thinks more digits means a smaller number",
+   "why": {
+    "B": "0.705 is a little more than 0.7, because 0.7 is the same as 0.700.",
+    "C": "0.76 is more than 0.7, because 0.7 is the same as 0.70.",
+    "D": "6.5 is six and a half, far more than 0.7. The point is in the wrong place."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "b80adca49738358e"
+  },
+  {
+   "id": "MA-W8-N-10",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Decimals",
+   "subskill": "comparing decimals with different numbers of places",
+   "difficulty": "M",
+   "prompt": "Which number is the least?",
+   "choices": {
+    "A": "0.209",
+    "B": "0.25",
+    "C": "0.3",
+    "D": "0.31"
+   },
+   "correct": "A",
+   "explanation": "Give every number three places, smallest first: 0.209, 0.250, 0.300, 0.310. Compare the tenths first: 0.250 and 0.209 have 2 tenths, the others 3. Then the hundredths: 0 is less than 5, so 0.209 is the least.",
+   "misconceptions": "thinks the number with fewer digits is smaller",
+   "why": {
+    "B": "0.25 is 0.250, which is more than 0.209: compare the tenths first, then the hundredths.",
+    "C": "0.3 is 0.300. It has the fewest digits, but 3 tenths is more than 2 tenths.",
+    "D": "0.31 is 0.310, more than 0.209 and more than 0.3."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "ac143f17ac146b23"
+  },
+  {
+   "id": "MA-W8-N-11",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Percent",
+   "subskill": "writing a percent as a fraction",
+   "difficulty": "E",
+   "prompt": "Which fraction is equal to 40%?",
+   "choices": {
+    "A": "1/40",
+    "B": "4/100",
+    "C": "2/5",
+    "D": "4/5"
+   },
+   "correct": "C",
+   "explanation": "Percent means \"out of 100\", so 40% = 40/100. Divide the top and bottom by 20: 40/100 = 2/5.",
+   "misconceptions": "misreads \"percent\" as a place value",
+   "why": {
+    "A": "1/40 is 2.5%. It puts the 40 on the bottom.",
+    "B": "4/100 is 4%. 40% means 40 out of 100: 40/100.",
+    "D": "4/5 is 80%, twice as much as 40%."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "8755eab166f7c718"
+  },
+  {
+   "id": "MA-W8-N-12",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Percent",
+   "subskill": "percent of a number",
+   "difficulty": "E",
+   "prompt": "What is 25% of 36?",
+   "choices": {
+    "A": "9",
+    "B": "11",
+    "C": "12",
+    "D": "25"
+   },
+   "correct": "A",
+   "explanation": "25% is one quarter. 36 ÷ 4 = 9.",
+   "misconceptions": "subtracts the percent; uses the wrong fraction",
+   "why": {
+    "B": "11 takes 25 away from 36. 25% means one quarter of 36, not 25 less.",
+    "C": "12 comes from 36 ÷ 3, which finds a third. 25% is a quarter, so divide by 4.",
+    "D": "25 copies the percent. 25% of 36 is a part of 36, found by dividing 36 into 4 equal parts."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "71831a96d5492653"
+  },
+  {
+   "id": "MA-W8-N-13",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Percent",
+   "subskill": "price after a percent discount",
+   "difficulty": "M",
+   "prompt": "A jacket costs $40. It is on sale for 25% off. What is the sale price?",
+   "choices": {
+    "A": "$10",
+    "B": "$15",
+    "C": "$30",
+    "D": "$50"
+   },
+   "correct": "C",
+   "explanation": "25% is one quarter. A quarter of $40 is $40 ÷ 4 = $10. The sale price is $40 − $10 = $30.",
+   "misconceptions": "stops at the discount; takes off dollars instead of a percent",
+   "why": {
+    "A": "$10 is the amount taken off (25% of $40). The question asks what the jacket costs after that.",
+    "B": "$15 takes 25 dollars off. 25% off means a quarter of the price comes off, and a quarter of $40 is $10.",
+    "D": "$50 adds the $10. \"Off\" means take it away."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "484f04b5ed4ca3b2"
+  },
+  {
+   "id": "MA-W8-N-14",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Percent",
+   "subskill": "writing a part of a group as a percent",
+   "difficulty": "M",
+   "prompt": "There are 20 students in a class, and 12 of them have a pet. What percent of the students have a pet?",
+   "choices": {
+    "A": "12%",
+    "B": "20%",
+    "C": "40%",
+    "D": "60%"
+   },
+   "correct": "D",
+   "explanation": "12 out of 20 is 12/20. Multiply the top and bottom by 5 to get hundredths: 60/100 = 60%.",
+   "misconceptions": "uses a count as a percent; finds the other part",
+   "why": {
+    "A": "12% uses the count of students, 12, as if the class had 100 students. It has 20.",
+    "B": "20% uses the size of the class. The question asks what part of the 20 have a pet.",
+    "C": "40% is the part without a pet (8 of 20). The question asks about the students who have one."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "0d8ec766f1f19e15"
+  },
+  {
+   "id": "MA-W8-N-15",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Whole-number operations",
+   "subskill": "value of a digit",
+   "difficulty": "E",
+   "prompt": "What is the value of the digit 4 in 7,482,036?",
+   "choices": {
+    "A": "4",
+    "B": "4,000",
+    "C": "40,000",
+    "D": "400,000"
+   },
+   "correct": "D",
+   "explanation": "In 7,482,036 the 7 is in the millions place and the 4 is in the hundred thousands place, so the 4 is worth 400,000.",
+   "misconceptions": "gives the digit, not its value; miscounts the places",
+   "why": {
+    "A": "4 is the digit itself. The question asks what it is worth where it sits.",
+    "B": "4,000 is two places too small. Count the places from the right: ones, tens, hundreds, thousands, ten thousands, hundred thousands.",
+    "C": "40,000 is one place too small. The 4 is in the hundred thousands place."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "c9ee770c915aee49"
+  },
+  {
+   "id": "MA-W8-N-16",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Whole-number operations",
+   "subskill": "rounding to the nearest thousand",
+   "difficulty": "E",
+   "prompt": "What is 46,751 rounded to the nearest thousand?",
+   "choices": {
+    "A": "46,000",
+    "B": "46,700",
+    "C": "46,800",
+    "D": "47,000"
+   },
+   "correct": "D",
+   "explanation": "Look at the digit one place to the right of the thousands: the hundreds digit, 7. It is 5 or more, so the 6 thousands goes up to 7: 47,000.",
+   "misconceptions": "rounds to the wrong place; rounds down when it should round up",
+   "why": {
+    "A": "46,000 rounds down, but the hundreds digit is 7, which is 5 or more, so round up.",
+    "B": "46,700 cuts off the last two digits; it is not rounded to a thousand at all.",
+    "C": "46,800 is 46,751 rounded to the nearest hundred, not the nearest thousand."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "6e95d5ce93ba658f"
+  },
+  {
+   "id": "MA-W8-N-17",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Whole-number operations",
+   "subskill": "multi-step problem with regrouping",
+   "difficulty": "M",
+   "prompt": "A school bought 6 boxes of pencils with 144 pencils in each box. It gave out 395 pencils. How many pencils are left?",
+   "choices": {
+    "A": "325",
+    "B": "469",
+    "C": "579",
+    "D": "1,259"
+   },
+   "correct": "B",
+   "explanation": "6 × 144 = 864 pencils. Then 864 − 395: 14 − 5 = 9 ones, 15 − 9 = 6 tens after regrouping, and 7 − 3 = 4 hundreds. 469 pencils are left.",
+   "misconceptions": "loses a regrouped digit; adds instead of subtracting",
+   "why": {
+    "A": "325 uses 5 boxes (5 × 144 = 720). The school bought 6 boxes, 864 pencils.",
+    "C": "579 regroups but never takes away what it borrowed: after lending, the 6 tens become 5 and the 8 hundreds become 7.",
+    "D": "1,259 adds the 395 pencils. They were given out, so take them away."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "5e5a9e04be8c1d52"
+  },
+  {
+   "id": "MA-W8-N-18",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Division",
+   "subskill": "what a remainder means in a story",
+   "difficulty": "M",
+   "prompt": "Ninety-two students are going on a trip. Each van holds 8 students. What is the least number of vans needed?",
+   "choices": {
+    "A": "4",
+    "B": "11",
+    "C": "12",
+    "D": "100"
+   },
+   "correct": "C",
+   "explanation": "92 ÷ 8 = 11 with 4 left over. Eleven vans hold 88 students, and the other 4 need a twelfth van, so 12 vans.",
+   "misconceptions": "drops the remainder instead of adding one more group",
+   "why": {
+    "A": "4 is the remainder: 92 = 11 × 8 + 4. Those 4 students still need a van.",
+    "B": "11 vans hold 88 students, so 4 students would be left behind. They need one more van.",
+    "D": "100 adds 92 and 8. Sharing students into vans is division."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "00ae5763f38f51cf"
+  },
+  {
+   "id": "MA-W8-N-19",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Number properties",
+   "subskill": "common multiples",
+   "difficulty": "M",
+   "prompt": "Which number is a multiple of both 6 and 8?",
+   "choices": {
+    "A": "14",
+    "B": "32",
+    "C": "36",
+    "D": "48"
+   },
+   "correct": "D",
+   "explanation": "Count by 8s and check each for 6: 8, 16, 24 — 24 is 6 × 4. The multiples of both are 24, 48, 72 … and 48 = 6 × 8.",
+   "misconceptions": "adds the numbers; checks only one of them",
+   "why": {
+    "A": "14 is 6 + 8. A multiple of 6 is in the 6 times table, and 14 is not.",
+    "B": "32 is a multiple of 8 (4 × 8) but not of 6.",
+    "C": "36 is a multiple of 6 (6 × 6) but not of 8."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "512ec5ff856192c3"
+  },
+  {
+   "id": "MA-W8-N-20",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Whole-number operations",
+   "subskill": "estimating a product",
+   "difficulty": "M",
+   "prompt": "Which is the best estimate of 412 × 49?",
+   "choices": {
+    "A": "2,000",
+    "B": "20,000",
+    "C": "25,000",
+    "D": "200,000"
+   },
+   "correct": "B",
+   "explanation": "Round each number to one it is close to: 412 is about 400 and 49 is about 50. 400 × 50 = 20,000.",
+   "misconceptions": "loses or adds a zero; rounds to a far number",
+   "why": {
+    "A": "2,000 drops a zero: 400 × 50 has three zeros in all.",
+    "C": "25,000 rounds 412 up to 500, but 412 is much closer to 400.",
+    "D": "200,000 adds an extra zero: 4 × 5 = 20, then 400 × 50 = 20 with three zeros."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "b080cd0f9d0bb447"
+  },
+  {
+   "id": "MA-W8-N-21",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "fraction of a whole number",
+   "difficulty": "E",
+   "prompt": "What is 3/4 of 28?",
+   "choices": {
+    "A": "7",
+    "B": "14",
+    "C": "21",
+    "D": "112"
+   },
+   "correct": "C",
+   "explanation": "Split 28 into 4 equal parts: 28 ÷ 4 = 7. Three of those parts are 3 × 7 = 21.",
+   "misconceptions": "stops at one part; multiplies by the bottom number",
+   "why": {
+    "A": "7 comes from 28 ÷ 4, just one quarter. 3/4 is three of those quarters: 3 × 7.",
+    "B": "14 comes from 28 ÷ 2, a half. 3/4 is more than a half.",
+    "D": "112 is 28 × 4. Finding 3/4 of a number makes it smaller."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "02c1e8ab7a00cc12"
+  },
+  {
+   "id": "MA-W8-N-22",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "adding fractions with different denominators",
+   "difficulty": "M",
+   "prompt": "What is 2/3 + 1/6?",
+   "choices": {
+    "A": "3/18",
+    "B": "3/9",
+    "C": "1/2",
+    "D": "5/6"
+   },
+   "correct": "D",
+   "explanation": "Make sixths: 2/3 = 4/6. Then 4/6 + 1/6 = 5/6.",
+   "misconceptions": "adds tops and bottoms; subtracts",
+   "why": {
+    "A": "3/18 adds the top numbers and multiplies the bottom ones. Make the bottom numbers the same first.",
+    "B": "3/9 adds the top numbers and the bottom numbers. Only the top numbers are added, once the bottoms match.",
+    "C": "1/2 is 2/3 − 1/6, a subtraction. The question adds."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "93f720ede02ab783"
+  },
+  {
+   "id": "MA-W8-N-23",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Fractions",
+   "subskill": "mixed number to improper fraction",
+   "difficulty": "M",
+   "prompt": "Which fraction is equal to 2 3/5?",
+   "choices": {
+    "A": "11/5",
+    "B": "13/5",
+    "C": "23/5",
+    "D": "30/5"
+   },
+   "correct": "B",
+   "explanation": "Each whole is 5 fifths, so 2 wholes are 10 fifths. Add the 3 fifths: 10 + 3 = 13. 2 3/5 = 13/5.",
+   "misconceptions": "multiplies the wrong numbers; writes digits side by side",
+   "why": {
+    "A": "11/5 multiplies 2 × 3 and adds 5. Multiply the whole number by the bottom number: 2 × 5 = 10, then add 3.",
+    "C": "23/5 writes the 2 and 3 side by side. 2 wholes are 10 fifths, not 20.",
+    "D": "30/5 multiplies all three numbers. 30/5 is 6, much more than 2 3/5."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "d67d999b6b71d757"
+  },
+  {
+   "id": "MA-W8-N-24",
+   "subject": "MA",
+   "form": "W8",
+   "skill": "Decimals",
+   "subskill": "adding decimals by lining up the points",
+   "difficulty": "M",
+   "prompt": "What is 3.6 + 0.45?",
+   "choices": {
+    "A": "0.81",
+    "B": "3.65",
+    "C": "4.05",
+    "D": "8.1"
+   },
+   "correct": "C",
+   "explanation": "Line up the decimal points and write 3.6 as 3.60. Then 3.60 + 0.45 = 4.05.",
+   "misconceptions": "lines up digits instead of decimal points",
+   "why": {
+    "A": "0.81 lines up the last digits (36 + 45) instead of the decimal points.",
+    "B": "3.65 adds only the 5 hundredths and forgets the 4 tenths.",
+    "D": "8.1 lines up the first digits (3.6 + 4.5). The 4 in 0.45 is 4 tenths, so it goes under the 6."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "649b2baaabec88d6"
+  }
+ ]
+}
