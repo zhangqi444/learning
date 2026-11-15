@@ -343,6 +343,49 @@
     "Details/reasons are specific and relevant",
     "Words and sentences are clear"
    ]
+  },
+  "W9": {
+   "prompt": "Describe something that was hard for you at first but became easier with practice. What helped you keep going?",
+   "focus": "Full timed rehearsal • a clear ending • checking the draft against the prompt",
+   "alternate": "PR-2 — Personal reflection",
+   "target": "5 minutes plan • 20 minutes draft • 5 minutes revise/edit. Keep the first draft intact; write the final copy separately.",
+   "plan_fields": [
+    [
+     "Prompt type / action word",
+     "WRITE HERE"
+    ],
+    [
+     "Plain-language restatement",
+     "The prompt is asking me to ________________________________."
+    ],
+    [
+     "Three possible ideas or claims",
+     "1. __________  2. __________  3. __________"
+    ],
+    [
+     "Chosen focus",
+     "I will show / explain / argue that ________________________________."
+    ],
+    [
+     "Three-part map",
+     "Opening/setup __________ → evidence/event/reason __________ → insight/result __________"
+    ],
+    [
+     "Details to include",
+     "Person/place/action/words/thought: ________________________________"
+    ]
+   ],
+   "draft_fields": [
+    "Opening and focus",
+    "Middle",
+    "Ending"
+   ],
+   "feedback_checks": [
+    "Focus answers the actual prompt",
+    "Organization has a clear path",
+    "Details/reasons are specific and relevant",
+    "Words and sentences are clear"
+   ]
   }
  },
  "guide": {

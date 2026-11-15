@@ -1,0 +1,27 @@
+{
+ "bank": "rc-w9-passages",
+ "schema_version": "1.0",
+ "content_version": "2026.11.15",
+ "items": [
+  {
+   "id": "RC-W9-P1",
+   "title": "Nadia's Map",
+   "text": "When Nadia's family moved to Larkspur, the first thing\nshe wanted to find was the public library. Her mother drew\na map on the back of an envelope: left at the bakery,\nstraight past the park, right at the fire station. \"It is\nonly ten minutes,\" her mother said. \"You can't miss it.\"\n\nNadia missed it. She turned left at the first bakery she\nsaw, not knowing that Larkspur had two. Twenty minutes\nlater she was standing at the edge of a field with a creek\nrunning through it, holding an envelope that no longer made\nany sense.\n\nAn older man was kneeling beside the creek with a net.\n\"Lost?\" he asked, without looking up. Nadia showed him the\nmap. He studied it, then laughed. \"Wrong bakery,\" he said.\n\"Everyone does that the first week.\" He pointed with his\nnet toward a row of roofs. \"The library is that way. But if\nyou wait five minutes, I'll walk you there. I'm going anyway.\"\n\nWhile she waited, he showed her what he was catching: tiny\ninsects that clung to the undersides of stones. He explained\nthat they could live only in clean, cold water, so finding\nthem meant the creek was healthy. Every Saturday he wrote\nthe number he found in a notebook, and he had done it for\neleven years.\n\nAt the library, he walked straight to the front desk and\nhanded the librarian his notebook. She copied the numbers\ninto a binder labeled \"Larkspur Creek Watch.\" Then she\nturned to Nadia. \"Are you new? We are looking for\nvolunteers to help count on Saturdays.\"\n\nNadia looked down at the envelope map, still crumpled in\nher hand. She thought about the creek, the cold stones and\nthe man who had not minded waiting for her. \"Do I need to\nknow how to get there?\" she asked. \"Because I think I know\nthe way now.\"\n",
+   "lines": true,
+   "form": "W9",
+   "source": "Original fiction authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15"
+  },
+  {
+   "id": "RC-W9-P2",
+   "title": "A Seed That Hitched a Ride",
+   "text": "In the summer of 1941, a Swiss engineer named George de\nMestral came home from a hunting trip in the mountains with\nhis dog. Both of them were covered in burrs, the prickly\nseed cases of the burdock plant. His trousers were full of\nthem, and they were tangled deep in the dog's fur.\n\nMost people would have picked the burrs off and thrown them\naway. De Mestral wanted to know why they held on so well. He\nput one under a microscope and saw that it was covered with\ntiny hooks, each far too small to see without help. The\nhooks caught on anything with a loop in it, such as the\nthreads of his trousers or the hairs of his dog.\n\nThe burr was not using glue. It was using its shape. And the\nshape had a purpose. A burdock plant cannot walk, so its\nseeds need a way to travel to new ground where they have room\nto grow. By hooking onto a passing animal, a burr can ride a\nlong way before it falls off, carrying its seeds with it.\n\nBurdock is not the only plant that sends its seeds traveling.\nThe seeds of a dandelion float away on the wind under tiny\nfluffy tops. The winged seeds of a maple tree spin as they\nfall, so the wind can carry them away from the parent tree.\nEach plant has its own way of getting its seeds somewhere new.\n\nDe Mestral decided to copy the burr. He imagined a fastener\nmade of two strips of cloth: one covered with thousands of\ntiny hooks, and the other covered with thousands of tiny\nloops. Making the hooks was the hard part, and it took him\nyears of experiments. In 1955 he received a United States\npatent for his invention. Today we call it Velcro.\n",
+   "lines": true,
+   "form": "W9",
+   "source": "Facts checked against the World Intellectual Property Organization, \"From a Mountain Walk to 2,100 Patents: The Velcro IP Story\" (wipo.int, IP Advantage), for 1941, the hunting trip in the mountains with his dog, burdock burrs on his trousers and the dog's fur, burrs as seeds that cling to animals to reach new ground, and the two strips of hooks and loops; Velcro's own history page (velcro.com) for the microscope and the tiny hooks catching loops in fabric and fur; and US patent 2,717,437, granted 13 September 1955 to George de Mestral. Dandelion and maple seed travel is general botany (seed dispersal by wind).",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15"
+  }
+ ]
+}

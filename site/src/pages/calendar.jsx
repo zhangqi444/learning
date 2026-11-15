@@ -32,6 +32,7 @@ const KIND = {
   week: { label: `${W.reach} · plan week`, cls: "bg-secondary text-secondary-foreground" },
   mock: { label: `${W.longNight} · mock exam`, cls: "bg-primary text-primary-foreground" },
   correction: { label: "Correction week", cls: "bg-warning-soft text-warning" },
+  testweek: { label: "Test week", cls: "bg-chart-2/15 text-chart-2" },
   season: { label: "ISEE season", cls: "border-primary/50 text-primary" },
   "school-test": { label: "ISEE sitting", cls: "bg-chart-2/15 text-chart-2" },
   deadline: { label: "Deadline", cls: "bg-destructive/10 text-destructive" },
@@ -75,7 +76,9 @@ export function allEvents() {
   for (const b of D.breaks || []) {
     if (/mock/i.test(b.what)) continue                       // mocks come from D.mocks with real dates
     const d = parseLabelStart(b.label)
-    if (d) ev.push({ id: "brk-" + d, kind: "correction", date: d, title: b.what, detail: `${b.label} · reteach each miss, redo, then a fresh delayed-retest item.` })
+    /* A break can say what it is (the test week, since 15 November 2026); one that
+       does not is the correction week it always was. */
+    if (d) ev.push({ id: "brk-" + d, kind: b.kind || "correction", date: d, title: b.what, detail: `${b.label} · ${b.detail || "reteach each miss, redo, then a fresh delayed-retest item."}` })
   }
   for (const e of D.calendar.events) ev.push({ ...e })
   if (Store.s.testDate) ev.push({ id: "test", kind: "test", date: Store.s.testDate, title: "Sheila's ISEE — test day", detail: Store.s.testFormat || "" })

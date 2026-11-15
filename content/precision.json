@@ -2846,5 +2846,211 @@
     "connotation": "positive"
    }
   ]
+ },
+ "W9": {
+  "title": "SESSION 1 — PRECISION REVIEW • 20–25 min",
+  "minutes": "20–25 min",
+  "words": [
+   {
+    "n": 1,
+    "word": "arduous",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "very hard; needing a lot of effort",
+    "example": "The climb to the top of the dune was so arduous that we stopped every few minutes.",
+    "usage": "Used for tasks, journeys and work. Not for people.",
+    "connotation": "negative"
+   },
+   {
+    "n": 2,
+    "word": "bewildered",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "confused and puzzled",
+    "example": "The new student looked bewildered by the long hallways and the bells.",
+    "usage": "Often \"bewildered by\" something. Related: bewilder.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 3,
+    "word": "dispel",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to drive away; to make a feeling or an idea go away",
+    "example": "The bright kitchen light dispelled her fear of the dark house.",
+    "usage": "You dispel a fear, a doubt, a rumor or a myth.",
+    "connotation": "positive"
+   },
+   {
+    "n": 4,
+    "word": "elated",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "extremely happy and excited",
+    "example": "Jamal was elated when his name was called as the winner.",
+    "usage": "Stronger than happy. Related: elation.",
+    "connotation": "positive"
+   },
+   {
+    "n": 5,
+    "word": "emerge",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to come out or come into view",
+    "example": "A chick emerged from the cracked egg.",
+    "usage": "Often \"emerge from\" a place. Related: emergence.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 6,
+    "word": "feasible",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "possible to do; able to be done",
+    "example": "Building a tree house in one afternoon was not feasible, so they planned for two weekends.",
+    "usage": "Used for plans and ideas.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 7,
+    "word": "feeble",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "very weak",
+    "example": "The sick puppy gave a feeble wag of its tail.",
+    "usage": "Can be weak in body, or a weak effort or excuse: a feeble excuse.",
+    "connotation": "negative"
+   },
+   {
+    "n": 8,
+    "word": "forlorn",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "lonely and sad; left alone",
+    "example": "A forlorn umbrella lay in the empty playground after the rain.",
+    "usage": "Often used for a person, animal or place that seems abandoned.",
+    "connotation": "negative"
+   },
+   {
+    "n": 9,
+    "word": "haughty",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "proud in a way that looks down on others",
+    "example": "The haughty cat would not even look at the dog.",
+    "usage": "Not the same as naughty, which means badly behaved.",
+    "connotation": "negative"
+   },
+   {
+    "n": 10,
+    "word": "immense",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "extremely large; huge",
+    "example": "An immense whale swam under the boat.",
+    "usage": "Stronger than big or large.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 11,
+    "word": "lethargic",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "slow and tired; without energy",
+    "example": "The heat made everyone lethargic, and no one wanted to play tag.",
+    "usage": "Related: lethargy.",
+    "connotation": "negative"
+   },
+   {
+    "n": 12,
+    "word": "obsolete",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "no longer used because something newer has replaced it",
+    "example": "Once phones had cameras, many small cameras became obsolete.",
+    "usage": "Used for tools, machines and ideas.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 13,
+    "word": "obstinate",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "stubborn; refusing to change your mind",
+    "example": "The obstinate goat would not move off the path.",
+    "usage": "Close to stubborn. Not the same as obedient.",
+    "connotation": "negative"
+   },
+   {
+    "n": 14,
+    "word": "perilous",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "full of danger",
+    "example": "Crossing the frozen river was perilous because the ice was thin.",
+    "usage": "Related: peril, which means danger.",
+    "connotation": "negative"
+   },
+   {
+    "n": 15,
+    "word": "persevere",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to keep trying even when it is hard",
+    "example": "She persevered with the puzzle until the last piece fit.",
+    "usage": "Related: perseverance.",
+    "connotation": "positive"
+   },
+   {
+    "n": 16,
+    "word": "placid",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "calm and peaceful; not easily upset",
+    "example": "The placid lake looked like a mirror.",
+    "usage": "Used for water, animals and people.",
+    "connotation": "positive"
+   },
+   {
+    "n": 17,
+    "word": "ravenous",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "extremely hungry",
+    "example": "After soccer practice, Leo was ravenous and ate three sandwiches.",
+    "usage": "Stronger than hungry.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 18,
+    "word": "recede",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "verb",
+    "meaning": "to move back or away",
+    "example": "After the storm, the floodwater slowly receded from the streets.",
+    "usage": "Water, a sound or a hairline can recede. The opposite of advance.",
+    "connotation": "neutral"
+   },
+   {
+    "n": 19,
+    "word": "robust",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "strong and healthy; hard to break",
+    "example": "The robust little plant survived the frost.",
+    "usage": "Used for people, plants, things and plans.",
+    "connotation": "positive"
+   },
+   {
+    "n": 20,
+    "word": "spontaneous",
+    "task": "Explain in your own words + use it in a sentence of your own.",
+    "pos": "adjective",
+    "meaning": "done suddenly, without planning",
+    "example": "The class broke into spontaneous applause when the shy boy finished his song.",
+    "usage": "Related: spontaneously.",
+    "connotation": "neutral"
+   }
+  ]
  }
 }

@@ -120,7 +120,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
     !world.items.some((t) => /wood/i.test(t)) && groups[0].items.some((t) => /wood/i.test(t)), groups[0].items.join(','));
   check('nothing calls it "Games", which would mean "the fun after the work"',
     !/game/i.test(await pg.textContent('[data-slot=sidebar]')), world.label);
-  check('Essay sits in the Subjects card as its own row', /Essay/.test(await pg.textContent('[data-testid=subjects]')) && /0 of 8 weeks/.test(await pg.textContent('[data-testid=subjects]')));
+  check('Essay sits in the Subjects card as its own row', /Essay/.test(await pg.textContent('[data-testid=subjects]')) && /0 of 9 weeks/.test(await pg.textContent('[data-testid=subjects]')));   // nine plan weeks since W9 was added on 15 November 2026
   /* Not "a mock is listed", which was only ever true on the days the suite
      happened to run. A mock is labelled as a seven-day window and has to stay in
      Coming up for the whole of it: it dropped out the morning after its window
@@ -266,7 +266,7 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   console.log('== essay');
   await pg.evaluate(() => { location.hash = '#/essay'; });
   await pg.waitForSelector('[data-testid=essay-open-W1]');
-  check('8 essay weeks listed with prompts', (await pg.$$('[data-testid^=essay-open-]')).length === 8 && /small responsibility/.test(await body(pg)));
+  check('9 essay weeks listed with prompts', (await pg.$$('[data-testid^=essay-open-]')).length === 9 && /small responsibility/.test(await body(pg)));
   await pg.click('[data-testid=essay-open-W2]');
   await pg.waitForSelector('[data-testid=essay-prompt]');
   // The page she writes on names the Reach it is telling. world.md gives the

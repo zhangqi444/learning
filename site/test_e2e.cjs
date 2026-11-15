@@ -448,8 +448,12 @@ function check(name, ok, extra) { console.log((ok ? '  ok   ' : '  FAIL ') + nam
           const n = document.querySelector('[data-testid=span-next]');
           return { banner: !!document.querySelector('[data-testid=span-clear]'), next: n ? n.textContent.replace(/\s+/g, ' ').trim() : null, ticked: rows.filter((r) => r.dataset.done === '1').length, rows: rows.length };
         });
+        /* The plan's last span (the test week before 12 December, since W9 was added on
+           15 November 2026) has nothing after it to offer, and its forward arrow is
+           disabled. Everywhere else, a finished span must hand her the next one. */
+        const last = await pg.evaluate(() => { const b = document.querySelector('[aria-label="Next week"]'); return !b || b.disabled; });
         check(`with nothing outstanding on ${when}, the week says it is done and offers the next one`,
-          done.banner && !!done.next && done.ticked === done.rows, `banner=${done.banner} next=${done.next} ${done.ticked}/${done.rows}`);
+          done.banner && (!!done.next || last) && done.ticked === done.rows, `banner=${done.banner} next=${done.next} last=${last} ${done.ticked}/${done.rows}`);
       }
 
       /* Forward goes forward IN TIME, whichever kind of span comes next. The

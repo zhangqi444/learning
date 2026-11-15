@@ -54,15 +54,22 @@ near-equal groups of at most `SETSIZE = 12` — so 37 Verbal questions become fo
 10/9/9/9, deliberately never 12/12/12/1, because a set of one is a demoralising way to finish a
 subject. The app says so on the page: *"Each set is one sitting."*
 
-| | W1 | W2 | W3 | W4 | W5 | W6 | W7 | W8 |
-|---|---|---|---|---|---|---|---|---|
-| Verbal | 37 | 37 | 54 | 54 | 37 + 37 + 87 | 37 + 37 + 94 | 37 + 37 + 102 | 37 + 37 + 99 |
-| Quantitative | 27 | 27 | 27 | 40 | 40 + 40 | 40 + 40 | 40 + 40 | 39 + 39 |
-| Reading | 24 | 24 | 24 | 24 | 24 + 24 | 24 + 24 | 24 + 24 | 24 + 24 |
-| Mathematics | 24 | 24 | 32 | 24 | 24 + 24 | 24 + 24 | 24 + 24 | 24 + 24 |
-| **questions** | 112 | 112 | 137 | 142 | 337 | 344 | 352 | 347 |
-| **sittings** | 11 | 11 | 13 | 13 | 32 | 32 | 33 | 33 |
-| **words** | 20 | 20 | 20 | 20 | 40 | 40 | 40 | 40 |
+| | W1 | W2 | W3 | W4 | W5 | W6 | W7 | W8 | W9 |
+|---|---|---|---|---|---|---|---|---|---|
+| Verbal | 37 | 37 | 54 | 54 | 37 + 37 + 87 | 37 + 37 + 94 | 37 + 37 + 102 | 37 + 37 + 99 | 36 |
+| Quantitative | 27 | 27 | 27 | 40 | 40 + 40 | 40 + 40 | 40 + 40 | 39 + 39 + 24 | 24 |
+| Reading | 24 | 24 | 24 | 24 | 24 + 24 | 24 + 24 | 24 + 24 | 24 + 24 | 16 |
+| Mathematics | 24 | 24 | 32 | 24 | 24 + 24 | 24 + 24 | 24 + 24 | 24 + 24 + 24 + 24 | 48 |
+| **questions** | 112 | 112 | 137 | 142 | 337 | 344 | 352 | 419 | 124 |
+| **sittings** | 11 | 11 | 13 | 13 | 32 | 32 | 33 | 39 | 11 |
+| **words** | 20 | 20 | 20 | 20 | 40 | 40 | 40 | 40 | 20 |
+
+W8's last layers came after Mock 2: 24 MA and 24 QR read off figures (14 November 2026), then
+24 MA on number sense (15 November), once the real ISEE report for 24 October put Math
+Achievement lowest, with most misses in Whole Numbers and Decimals/Percents/Fractions. W9
+(Nov 30 – Dec 6, added the same day) fills the gap between Mock 3 and the real sitting on
+12 December with those strands, Verbal synonyms and Reading's supporting-detail questions
+(`tools/author_w9.py`).
 
 Verbal is deliberately the largest share — 46% of the practice bank against 27% of the real
 paper since every list word was given three questions of its own (32% after the doubling, 33%
@@ -82,6 +89,8 @@ W4–W6   Sep 28 – Oct 18   three plan weeks
         Nov 2 – 8         Mock 2 — full length
 W7–W8   Nov 9 – 22        two plan weeks
         Nov 23 – 29       Mock 3 — final readiness rehearsal
+W9      Nov 30 – Dec 6    last plan week, aimed at the real test's short strands
+        Dec 7 – 13        Test week — review only, one timed MA run; ISEE Sat Dec 12
 ```
 
 The diagnostic is **split across two sittings** on purpose. It is the first full-length thing

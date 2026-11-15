@@ -1,0 +1,1015 @@
+{
+ "bank": "vr-w9",
+ "schema_version": "1.0",
+ "content_version": "2026.11.15",
+ "items": [
+  {
+   "id": "VR-W9-S-01",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "ARDUOUS most nearly means:",
+   "choices": {
+    "A": "boring",
+    "B": "difficult",
+    "C": "eager",
+    "D": "easy"
+   },
+   "correct": "B",
+   "explanation": "Arduous means very hard; needing a lot of effort, so \"difficult\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "C": "Eager means wanting very much to do something. Arduous describes the task, not how keen you are; it is easy to mix up with ardent.",
+    "D": "Easy is the opposite: an arduous job takes a lot of effort.",
+    "A": "Boring means dull. An arduous task can be exciting and still very hard."
+   },
+   "word": "arduous",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "3f2453fdc59bc3c1"
+  },
+  {
+   "id": "VR-W9-S-02",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "BEWILDERED most nearly means:",
+   "choices": {
+    "A": "confused",
+    "B": "delighted",
+    "C": "frightened",
+    "D": "wild"
+   },
+   "correct": "A",
+   "explanation": "Bewildered means confused and puzzled, so \"confused\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "B": "Delighted means very pleased. A bewildered person is puzzled, not pleased.",
+    "C": "Frightened means scared. You can be bewildered without being afraid.",
+    "D": "Wild is hidden inside bewildered, but it means untamed or out of control, not confused."
+   },
+   "word": "bewildered",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "35fc4a364eab3917"
+  },
+  {
+   "id": "VR-W9-S-03",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — verb",
+   "difficulty": "M",
+   "prompt": "DISPEL most nearly means:",
+   "choices": {
+    "A": "gather",
+    "B": "invite",
+    "C": "drive away",
+    "D": "spell out loud"
+   },
+   "correct": "C",
+   "explanation": "Dispel means to drive away; to make a feeling or an idea go away, so \"drive away\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "A": "Gather means bring together, nearly the opposite of driving away.",
+    "D": "Spell out loud uses the letters of dispel, but it means say each letter of a word.",
+    "B": "Invite means ask someone to come, the opposite of driving them away."
+   },
+   "word": "dispel",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "c3823d04394c230b"
+  },
+  {
+   "id": "VR-W9-S-04",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "ELATED most nearly means:",
+   "choices": {
+    "A": "delayed",
+    "B": "lonely",
+    "C": "nervous",
+    "D": "overjoyed"
+   },
+   "correct": "D",
+   "explanation": "Elated means extremely happy and excited, so \"overjoyed\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "A": "Delayed looks like late, which is hidden in elated, but elated is about joy, not time.",
+    "C": "Nervous means worried. Elated is a strong, happy feeling.",
+    "B": "Lonely means sad from being alone. Elated means bursting with happiness."
+   },
+   "word": "elated",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "7f86ba8f9e8e37b0"
+  },
+  {
+   "id": "VR-W9-S-05",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — verb",
+   "difficulty": "M",
+   "prompt": "EMERGE most nearly means:",
+   "choices": {
+    "A": "sink",
+    "B": "hurry",
+    "C": "come out",
+    "D": "join together"
+   },
+   "correct": "C",
+   "explanation": "Emerge means to come out or come into view, so \"come out\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "A": "Sink means go down out of sight, the opposite of emerging into view.",
+    "B": "Hurry means move fast. Something can emerge slowly.",
+    "D": "Join together is what merge means. Emerge has merge inside it, but it means come out."
+   },
+   "word": "emerge",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "5c30ce59d6ad4a33"
+  },
+  {
+   "id": "VR-W9-S-06",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "FEASIBLE most nearly means:",
+   "choices": {
+    "A": "delicious",
+    "B": "impossible",
+    "C": "possible",
+    "D": "unlikely"
+   },
+   "correct": "C",
+   "explanation": "Feasible means possible to do; able to be done, so \"possible\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "A": "Delicious means tasty. Feasible may look like feast, but it is about whether a plan can be done.",
+    "D": "Unlikely means probably will not happen. A feasible plan is one that can be done.",
+    "B": "Impossible is the opposite of feasible."
+   },
+   "word": "feasible",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "6211994a933aaffb"
+  },
+  {
+   "id": "VR-W9-S-07",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "FEEBLE most nearly means:",
+   "choices": {
+    "A": "angry",
+    "B": "fearful",
+    "C": "weak",
+    "D": "wild"
+   },
+   "correct": "C",
+   "explanation": "Feeble means very weak, so \"weak\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "B": "Fearful means afraid. A feeble person may be brave but has little strength.",
+    "D": "Wild means untamed and rough. Feeble is about having little strength.",
+    "A": "Angry is a feeling of being cross; feeble is about lacking strength."
+   },
+   "word": "feeble",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "0dad7e1e77c5c400"
+  },
+  {
+   "id": "VR-W9-S-08",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "FORLORN most nearly means:",
+   "choices": {
+    "A": "angry",
+    "B": "cheerful",
+    "C": "forgetful",
+    "D": "lonely"
+   },
+   "correct": "D",
+   "explanation": "Forlorn means lonely and sad; left alone, so \"lonely\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "B": "Cheerful is the opposite: a forlorn person is sad and alone.",
+    "C": "Forgetful starts like forlorn, but it means often forgetting things.",
+    "A": "Angry means cross. Forlorn is sad and alone, not angry."
+   },
+   "word": "forlorn",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "797a6caf2a1d5a00"
+  },
+  {
+   "id": "VR-W9-S-09",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "HAUGHTY most nearly means:",
+   "choices": {
+    "A": "arrogant",
+    "B": "humble",
+    "C": "hungry",
+    "D": "naughty"
+   },
+   "correct": "A",
+   "explanation": "Haughty means proud in a way that looks down on others, so \"arrogant\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "C": "Hungry means wanting food; haughty is about acting above others.",
+    "B": "Humble is the opposite: a humble person does not look down on anyone.",
+    "D": "Naughty rhymes with haughty, but it means badly behaved, not proud."
+   },
+   "word": "haughty",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "9fe4b9b3ef7e6659"
+  },
+  {
+   "id": "VR-W9-S-10",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "IMMENSE most nearly means:",
+   "choices": {
+    "A": "heavy",
+    "B": "huge",
+    "C": "immediate",
+    "D": "tiny"
+   },
+   "correct": "B",
+   "explanation": "Immense means extremely large; huge, so \"huge\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "A": "Heavy is about weight. Immense is about size.",
+    "C": "Immediate begins the same way, but it means happening right now.",
+    "D": "Tiny is the opposite of immense."
+   },
+   "word": "immense",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "97e87649af19c414"
+  },
+  {
+   "id": "VR-W9-S-11",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "LETHARGIC most nearly means:",
+   "choices": {
+    "A": "curious",
+    "B": "energetic",
+    "C": "nervous",
+    "D": "sluggish"
+   },
+   "correct": "D",
+   "explanation": "Lethargic means slow and tired; without energy, so \"sluggish\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "A": "Curious means wanting to know things. Lethargic is about having no energy.",
+    "B": "Energetic is the opposite of lethargic.",
+    "C": "Nervous means worried and jumpy; a lethargic person is slow and tired."
+   },
+   "word": "lethargic",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "aadf84120e0e423b"
+  },
+  {
+   "id": "VR-W9-S-12",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "OBSOLETE most nearly means:",
+   "choices": {
+    "A": "stubborn",
+    "B": "hard to see",
+    "C": "out of date",
+    "D": "brand-new and shiny"
+   },
+   "correct": "C",
+   "explanation": "Obsolete means no longer used because something newer has replaced it, so \"out of date\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "A": "Stubborn means obstinate, another word that starts with ob-. Obsolete is about things that are no longer used.",
+    "D": "Brand-new and shiny is the opposite: an obsolete thing has been replaced by something newer.",
+    "B": "Hard to see is what obscure means. Obsolete means out of date."
+   },
+   "word": "obsolete",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "ba837ce927bb0fcd"
+  },
+  {
+   "id": "VR-W9-S-13",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "OBSTINATE most nearly means:",
+   "choices": {
+    "A": "obedient",
+    "B": "obvious",
+    "C": "stubborn",
+    "D": "thoughtful"
+   },
+   "correct": "C",
+   "explanation": "Obstinate means stubborn; refusing to change your mind, so \"stubborn\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "D": "Thoughtful means kind and considerate. Obstinate is about refusing to change your mind.",
+    "A": "Obedient starts with ob- too, but it means doing what you are told: nearly the opposite.",
+    "B": "Obvious means easy to see. It only looks like obstinate."
+   },
+   "word": "obstinate",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "99ea2d2c679685b7"
+  },
+  {
+   "id": "VR-W9-S-14",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "PERILOUS most nearly means:",
+   "choices": {
+    "A": "dangerous",
+    "B": "peaceful",
+    "C": "perfect",
+    "D": "precious"
+   },
+   "correct": "A",
+   "explanation": "Perilous means full of danger, so \"dangerous\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "B": "Peaceful is calm and safe, the opposite of perilous.",
+    "C": "Perfect starts with per- too, but it means without any faults.",
+    "D": "Precious means very valuable. It has nothing to do with danger."
+   },
+   "word": "perilous",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "60fc30851c3d9e35"
+  },
+  {
+   "id": "VR-W9-S-15",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — verb",
+   "difficulty": "M",
+   "prompt": "PERSEVERE most nearly means:",
+   "choices": {
+    "A": "rest",
+    "B": "give up",
+    "C": "keep trying",
+    "D": "complain loudly"
+   },
+   "correct": "C",
+   "explanation": "Persevere means to keep trying even when it is hard, so \"keep trying\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "D": "Complain loudly means say you are unhappy. You can persevere without complaining.",
+    "B": "Give up is the opposite of persevere.",
+    "A": "Rest means stop for a while; persevering means keep going."
+   },
+   "word": "persevere",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "794ac6688e79ab16"
+  },
+  {
+   "id": "VR-W9-S-16",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "PLACID most nearly means:",
+   "choices": {
+    "A": "angry",
+    "B": "calm",
+    "C": "plain",
+    "D": "playful"
+   },
+   "correct": "B",
+   "explanation": "Placid means calm and peaceful; not easily upset, so \"calm\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "A": "Angry is the opposite: a placid person is not easily upset.",
+    "C": "Plain means simple. It starts the same way, but placid means calm.",
+    "D": "Playful means full of fun. Placid is quiet and peaceful."
+   },
+   "word": "placid",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "3ea74efec7ef6edd"
+  },
+  {
+   "id": "VR-W9-S-17",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "RAVENOUS most nearly means:",
+   "choices": {
+    "A": "angry",
+    "B": "dark",
+    "C": "sleepy",
+    "D": "starving"
+   },
+   "correct": "D",
+   "explanation": "Ravenous means extremely hungry, so \"starving\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "B": "Dark fits a raven, a black bird, but ravenous means very hungry.",
+    "C": "Sleepy means needing to sleep, not to eat.",
+    "A": "Angry is about temper. Ravenous is about hunger."
+   },
+   "word": "ravenous",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "cd37bc2573b073d4"
+  },
+  {
+   "id": "VR-W9-S-18",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — verb",
+   "difficulty": "M",
+   "prompt": "RECEDE most nearly means:",
+   "choices": {
+    "A": "grow",
+    "B": "repeat",
+    "C": "move back",
+    "D": "come closer"
+   },
+   "correct": "C",
+   "explanation": "Recede means to move back or away, so \"move back\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "D": "Come closer is the opposite of recede.",
+    "A": "Grow means get bigger. Receding water gets farther away.",
+    "B": "Repeat means do again. It starts with re- too, but recede means move back."
+   },
+   "word": "recede",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "a0d2489d9f875ff4"
+  },
+  {
+   "id": "VR-W9-S-19",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "ROBUST most nearly means:",
+   "choices": {
+    "A": "fragile",
+    "B": "loud",
+    "C": "rusty",
+    "D": "strong"
+   },
+   "correct": "D",
+   "explanation": "Robust means strong and healthy; hard to break, so \"strong\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "A": "Fragile is the opposite: easy to break.",
+    "B": "Loud is about sound, not strength.",
+    "C": "Rusty means covered in rust, which a strong thing can be, but robust means strong and healthy."
+   },
+   "word": "robust",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "c770af4166927966"
+  },
+  {
+   "id": "VR-W9-S-20",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "synonym — adjective",
+   "difficulty": "M",
+   "prompt": "SPONTANEOUS most nearly means:",
+   "choices": {
+    "A": "slow",
+    "B": "polite",
+    "C": "unplanned",
+    "D": "carefully planned"
+   },
+   "correct": "C",
+   "explanation": "Spontaneous means done suddenly, without planning, so \"unplanned\" is the closest match.",
+   "misconceptions": "picks a word that looks or sounds like the headword",
+   "why": {
+    "B": "Polite means having good manners. Spontaneous is about acting without planning.",
+    "A": "Slow is about speed. Spontaneous things often happen quickly, without thought ahead.",
+    "D": "Carefully planned is the opposite of spontaneous."
+   },
+   "word": "spontaneous",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "2f313f17993166b6"
+  },
+  {
+   "id": "VR-W9-C-01",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — cause clue",
+   "difficulty": "M",
+   "prompt": "The kitten was so ____ after its illness that it could barely lift its head.",
+   "choices": {
+    "A": "feeble",
+    "B": "fierce",
+    "C": "playful",
+    "D": "sturdy"
+   },
+   "correct": "A",
+   "explanation": "\"Barely lift its head\" shows the kitten has almost no strength, so it is feeble, very weak.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "B": "Fierce means wild and strong, but the kitten can barely lift its head.",
+    "C": "Playful means full of fun; a kitten that cannot lift its head is not playing.",
+    "D": "Sturdy means strong, the opposite of what \"barely lift its head\" shows."
+   },
+   "word": "feeble",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "3b00e81b2fbc8171"
+  },
+  {
+   "id": "VR-W9-C-02",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — contrast clue",
+   "difficulty": "M",
+   "prompt": "Next to the tiny rowboat, the ocean liner looked ____.",
+   "choices": {
+    "A": "immense",
+    "B": "narrow",
+    "C": "shallow",
+    "D": "tiny"
+   },
+   "correct": "A",
+   "explanation": "The sentence contrasts the liner with a tiny boat, so the liner looks immense, extremely large.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "B": "Narrow means thin. The sentence compares size, and a liner beside a rowboat looks huge.",
+    "C": "Shallow means not deep; the sentence is comparing size.",
+    "D": "Tiny describes the rowboat. \"Next to\" sets up a contrast."
+   },
+   "word": "immense",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "b142e1d914eafa39"
+  },
+  {
+   "id": "VR-W9-C-03",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — contrast clue",
+   "difficulty": "M",
+   "prompt": "Although the river had been wild during the storm, by morning it was ____ enough to reflect the trees.",
+   "choices": {
+    "A": "placid",
+    "B": "rapid",
+    "C": "roaring",
+    "D": "violent"
+   },
+   "correct": "A",
+   "explanation": "Although signals a change from wild. Water calm enough to reflect trees is placid.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "B": "Rapid means fast-moving. Although signals a change from wild, and fast water cannot reflect like a mirror.",
+    "C": "Roaring means loud and wild, which is how the river was before; although says it changed.",
+    "D": "Violent means wild and destructive, which describes the storm, not the calm morning."
+   },
+   "word": "placid",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "9c41534389a66482"
+  },
+  {
+   "id": "VR-W9-C-04",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — cause clue",
+   "difficulty": "M",
+   "prompt": "Mira was ____ when she learned she had won the art contest, and she hugged everyone in the room.",
+   "choices": {
+    "A": "bored",
+    "B": "elated",
+    "C": "jealous",
+    "D": "weary"
+   },
+   "correct": "B",
+   "explanation": "Winning the contest and hugging everyone show she was elated, extremely happy.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "A": "Bored means uninterested; nobody hugs everyone because they are bored.",
+    "C": "Jealous means wanting what someone else has, but Mira is the one who won.",
+    "D": "Weary means very tired, and hugging everyone shows excitement."
+   },
+   "word": "elated",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "dbfe050243a2126f"
+  },
+  {
+   "id": "VR-W9-C-05",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — time-order clue",
+   "difficulty": "M",
+   "prompt": "After hiding in its shell all morning, the turtle began to ____ once the noise stopped.",
+   "choices": {
+    "A": "emerge",
+    "B": "retreat",
+    "C": "shrink",
+    "D": "vanish"
+   },
+   "correct": "A",
+   "explanation": "It had been hiding, and the danger is over, so the turtle begins to emerge, to come out.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "B": "Retreat means pull back, which is what it did while hiding; the noise stopping lets it come out.",
+    "C": "Shrink means get smaller. The turtle is coming out, not shrinking.",
+    "D": "Vanish means disappear, the opposite of coming out of the shell."
+   },
+   "word": "emerge",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "3ff06ddb7991e9a0"
+  },
+  {
+   "id": "VR-W9-C-06",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — cause clue",
+   "difficulty": "M",
+   "prompt": "Now that almost everyone takes pictures with a phone, the old film camera seems ____.",
+   "choices": {
+    "A": "modern",
+    "B": "obsolete",
+    "C": "popular",
+    "D": "recent"
+   },
+   "correct": "B",
+   "explanation": "Something newer has replaced it, so the film camera seems obsolete, out of date.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "A": "Modern means new and up to date, the opposite of what the phone has done to the camera.",
+    "C": "Popular means liked by many people, but almost everyone uses a phone instead.",
+    "D": "Recent means new, and the film camera is old."
+   },
+   "word": "obsolete",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "cfee249b9fc00ff1"
+  },
+  {
+   "id": "VR-W9-C-07",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — contrast clue",
+   "difficulty": "M",
+   "prompt": "Even though her first ten tries failed, Dana chose to ____ until the bridge she built could hold the weight.",
+   "choices": {
+    "A": "give up",
+    "B": "complain",
+    "C": "hesitate",
+    "D": "persevere"
+   },
+   "correct": "D",
+   "explanation": "Even though ten tries failed, she kept going until it worked: she chose to persevere.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "B": "Complain means say she is unhappy, which would not make the bridge hold the weight.",
+    "C": "Hesitate means pause before acting. Dana kept building \"until\" it worked.",
+    "A": "Give up is the opposite; \"until the bridge could hold\" shows she kept going."
+   },
+   "word": "persevere",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "7d442b1d01e1836e"
+  },
+  {
+   "id": "VR-W9-C-08",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — contrast clue",
+   "difficulty": "M",
+   "prompt": "Unlike the thin paper cups, these ____ mugs survived being dropped on the floor.",
+   "choices": {
+    "A": "delicate",
+    "B": "flimsy",
+    "C": "robust",
+    "D": "shallow"
+   },
+   "correct": "C",
+   "explanation": "Unlike the thin cups, these mugs did not break, so they are robust, strong.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "A": "Delicate means easy to break, like the paper cups; unlike sets up the opposite.",
+    "B": "Flimsy means thin and weak, which describes the paper cups.",
+    "D": "Shallow means not deep, which says nothing about surviving a fall."
+   },
+   "word": "robust",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "94fc9666693cb807"
+  },
+  {
+   "id": "VR-W9-C-09",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — cause clue",
+   "difficulty": "M",
+   "prompt": "The climb was so ____ that the hikers had to stop and rest every few minutes.",
+   "choices": {
+    "A": "arduous",
+    "B": "brief",
+    "C": "effortless",
+    "D": "gentle"
+   },
+   "correct": "A",
+   "explanation": "Resting every few minutes shows the climb was arduous, very hard.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "B": "Brief means short. A short climb would not need rest every few minutes.",
+    "C": "Effortless means easy, the opposite of needing rest.",
+    "D": "Gentle means mild and easy; the hikers needed rest every few minutes."
+   },
+   "word": "arduous",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "786cd4bc768d5768"
+  },
+  {
+   "id": "VR-W9-C-10",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — cause clue",
+   "difficulty": "M",
+   "prompt": "The new student looked ____ as she stared at the map, unable to find her classroom.",
+   "choices": {
+    "A": "bewildered",
+    "B": "confident",
+    "C": "delighted",
+    "D": "relaxed"
+   },
+   "correct": "A",
+   "explanation": "She cannot find her classroom, so she looks bewildered, confused.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "B": "Confident means sure of yourself, but she cannot find her room.",
+    "C": "Delighted means very pleased; being lost is not pleasing.",
+    "D": "Relaxed means calm and easy; staring at a map unable to find the room is not."
+   },
+   "word": "bewildered",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "11ae635586040e27"
+  },
+  {
+   "id": "VR-W9-C-11",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — cause clue",
+   "difficulty": "M",
+   "prompt": "The teacher's calm explanation helped ____ the rumor that school would be canceled.",
+   "choices": {
+    "A": "dispel",
+    "B": "invent",
+    "C": "repeat",
+    "D": "spread"
+   },
+   "correct": "A",
+   "explanation": "A calm explanation makes a false rumor go away: it helps dispel it.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "B": "Invent means make up. The rumor already existed; the explanation answered it.",
+    "C": "Repeat means say again, which would spread the rumor, not stop it.",
+    "D": "Spread means send to more people, the opposite of what a calm explanation does."
+   },
+   "word": "dispel",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "c8552f7a62ffd5b3"
+  },
+  {
+   "id": "VR-W9-C-12",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — definition clue",
+   "difficulty": "M",
+   "prompt": "The ____ queen refused to speak to anyone she thought was beneath her.",
+   "choices": {
+    "A": "generous",
+    "B": "haughty",
+    "C": "humble",
+    "D": "timid"
+   },
+   "correct": "B",
+   "explanation": "Treating others as \"beneath her\" is what haughty means.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "A": "Generous means giving and kind, not someone who ignores people.",
+    "C": "Humble means not proud, the opposite of looking down on people.",
+    "D": "Timid means shy. She refused to speak because she looked down on them, not out of shyness."
+   },
+   "word": "haughty",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "68df254aa7c593d3"
+  },
+  {
+   "id": "VR-W9-C-13",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — cause clue",
+   "difficulty": "M",
+   "prompt": "After staying up too late, Owen felt ____ and wanted to lie on the couch all day.",
+   "choices": {
+    "A": "eager",
+    "B": "energetic",
+    "C": "lethargic",
+    "D": "restless"
+   },
+   "correct": "C",
+   "explanation": "Too little sleep and wanting to lie down all day show Owen felt lethargic, slow and tired.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "A": "Eager means keen to do something, but Owen wants to do nothing.",
+    "B": "Energetic is the opposite of wanting to lie on the couch all day.",
+    "D": "Restless means unable to keep still, but Owen wants to lie still all day."
+   },
+   "word": "lethargic",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "430caa06636b22af"
+  },
+  {
+   "id": "VR-W9-C-14",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — definition clue",
+   "difficulty": "M",
+   "prompt": "No matter how many reasons his sister gave, the ____ boy would not change his mind.",
+   "choices": {
+    "A": "cooperative",
+    "B": "flexible",
+    "C": "obstinate",
+    "D": "willing"
+   },
+   "correct": "C",
+   "explanation": "Refusing to change his mind no matter what is what obstinate means.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "D": "Willing means ready to go along, the opposite of not changing his mind.",
+    "A": "Cooperative means willing to work together and go along with others.",
+    "B": "Flexible means willing to change, the opposite of what the boy does."
+   },
+   "word": "obstinate",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "80a34b1a2f20a3ec"
+  },
+  {
+   "id": "VR-W9-C-15",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — cause clue",
+   "difficulty": "M",
+   "prompt": "Sailors feared the ____ waters near the rocks, where many ships had sunk.",
+   "choices": {
+    "A": "calm",
+    "B": "harmless",
+    "C": "peaceful",
+    "D": "perilous"
+   },
+   "correct": "D",
+   "explanation": "Ships had sunk there and sailors feared it, so the waters were perilous, dangerous.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "A": "Calm water would not be feared; many ships had sunk there.",
+    "B": "Harmless means safe, but ships sank there.",
+    "C": "Peaceful means quiet and safe, not water that sinks ships."
+   },
+   "word": "perilous",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "fdf081f01cafabd2"
+  },
+  {
+   "id": "VR-W9-C-16",
+   "subject": "VR",
+   "form": "W9",
+   "skill": "vocabulary",
+   "subskill": "sentence completion — cause clue",
+   "difficulty": "M",
+   "prompt": "After the long hike with no lunch, the children were ____ and ate every bite of dinner.",
+   "choices": {
+    "A": "content",
+    "B": "full",
+    "C": "picky",
+    "D": "ravenous"
+   },
+   "correct": "D",
+   "explanation": "No lunch and eating every bite show they were ravenous, extremely hungry.",
+   "misconceptions": "ignores the clue words in the sentence",
+   "why": {
+    "B": "Full means not hungry, but they had missed lunch and ate every bite.",
+    "C": "Picky eaters leave food; these children ate every bite.",
+    "A": "Content means satisfied, but children who missed lunch and ate every bite were hungry, not already satisfied."
+   },
+   "word": "ravenous",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "c46676a270e50192"
+  }
+ ]
+}

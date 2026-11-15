@@ -1,0 +1,455 @@
+{
+ "bank": "rc-w9",
+ "schema_version": "1.0",
+ "content_version": "2026.11.15",
+ "items": [
+  {
+   "id": "RC-W9-01",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Supporting detail/evidence",
+   "subskill": "supporting detail — cause of an event",
+   "difficulty": "E",
+   "prompt": "Why did Nadia end up at the creek instead of the library?",
+   "choices": {
+    "A": "She turned at the wrong bakery.",
+    "B": "She was following the man with the net.",
+    "C": "Her mother's map left out the fire station.",
+    "D": "She stopped to look at the insects under the stones."
+   },
+   "correct": "A",
+   "explanation": "Lines 6–7: \"She turned left at the first bakery she saw, not knowing that Larkspur had two.\" The man confirms it in line 13: \"Wrong bakery.\"",
+   "misconceptions": "picks an event that happens later in the story",
+   "why": {
+    "B": "She met the man only after she reached the creek (line 11).",
+    "C": "The map names the fire station (line 4).",
+    "D": "She sees the insects only later, while she waits for the man (lines 17–18)."
+   },
+   "passage_id": "RC-W9-P1",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "739085455264708f"
+  },
+  {
+   "id": "RC-W9-02",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Supporting detail/evidence",
+   "subskill": "supporting detail — what a fact shows",
+   "difficulty": "M",
+   "prompt": "According to the passage, finding the tiny insects under the stones shows that the creek",
+   "choices": {
+    "A": "is too cold for fish",
+    "B": "has clean, healthy water",
+    "C": "is about to flood the field",
+    "D": "is a good place to catch insects for pets"
+   },
+   "correct": "B",
+   "explanation": "Lines 18–20: the insects \"could live only in clean, cold water, so finding them meant the creek was healthy.\"",
+   "misconceptions": "answers from outside knowledge instead of the passage",
+   "why": {
+    "A": "The passage never mentions fish. Lines 18–20 say the insects live only in clean, cold water.",
+    "C": "Nothing in the passage says the creek will flood.",
+    "D": "The man counts the insects; nothing says they are kept as pets."
+   },
+   "passage_id": "RC-W9-P1",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "12ff31c6adeb9824"
+  },
+  {
+   "id": "RC-W9-03",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Supporting detail/evidence",
+   "subskill": "supporting detail — a number in the text",
+   "difficulty": "E",
+   "prompt": "For how long had the man been counting the insects every Saturday?",
+   "choices": {
+    "A": "ten minutes",
+    "B": "eleven years",
+    "C": "five minutes",
+    "D": "twenty minutes"
+   },
+   "correct": "B",
+   "explanation": "Lines 21–22: \"he had done it for eleven years.\"",
+   "misconceptions": "picks a different number from the passage",
+   "why": {
+    "C": "Five minutes is how long he asks Nadia to wait (line 16).",
+    "A": "Ten minutes is how long Nadia's mother said the walk would take (line 5).",
+    "D": "Twenty minutes is how long Nadia walked before reaching the creek (lines 7–8)."
+   },
+   "passage_id": "RC-W9-P1",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "bdde58bb45dbec4f"
+  },
+  {
+   "id": "RC-W9-04",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Supporting detail/evidence",
+   "subskill": "supporting detail — what a character does",
+   "difficulty": "E",
+   "prompt": "What does the librarian do with the man's notebook?",
+   "choices": {
+    "A": "She gives it to Nadia to read.",
+    "B": "She puts it on a shelf to lend.",
+    "C": "She sends it to the town newspaper.",
+    "D": "She copies its numbers into a binder."
+   },
+   "correct": "D",
+   "explanation": "Lines 24–25: \"She copied the numbers into a binder labeled 'Larkspur Creek Watch.'\"",
+   "misconceptions": "adds something the passage never says",
+   "why": {
+    "B": "Nothing in lines 23–27 says the notebook goes on a shelf.",
+    "A": "She hands Nadia nothing; she asks whether Nadia is new.",
+    "C": "The passage never mentions a newspaper."
+   },
+   "passage_id": "RC-W9-P1",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "cd33c23662b4cdab"
+  },
+  {
+   "id": "RC-W9-05",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Inference",
+   "subskill": "inference — what a remark shows",
+   "difficulty": "M",
+   "prompt": "When the man says \"Everyone does that the first week\" (line 14), he is mainly showing that",
+   "choices": {
+    "A": "Nadia's mistake is a common one",
+    "B": "new people should never use maps",
+    "C": "he gets lost on the way to the library too",
+    "D": "the town should take down one of its bakeries"
+   },
+   "correct": "A",
+   "explanation": "He laughs and says \"Everyone does that,\" which tells Nadia that lots of newcomers make the same mistake, so she should not feel bad.",
+   "misconceptions": "takes a friendly remark as a complaint or a rule",
+   "why": {
+    "C": "He knows exactly where the library is and offers to walk her there (lines 15–16).",
+    "D": "He laughs at the mix-up; he does not ask for anything to change.",
+    "B": "He studies her map; he is not against maps. He says the mistake is the usual one."
+   },
+   "passage_id": "RC-W9-P1",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "3b9f99608343545b"
+  },
+  {
+   "id": "RC-W9-06",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Main idea",
+   "subskill": "main idea — the whole passage",
+   "difficulty": "M",
+   "prompt": "Which sentence best states the main idea of the passage?",
+   "choices": {
+    "A": "Larkspur's library is hard to find.",
+    "B": "Some insects can live only in cold water.",
+    "C": "Getting lost helps Nadia find a place in her new town.",
+    "D": "A map drawn on an envelope can never be trusted in a new town."
+   },
+   "correct": "C",
+   "explanation": "Nadia gets lost, meets the man, learns about the creek count and is invited to volunteer. By the end she \"knows the way\" to a place in her new town.",
+   "misconceptions": "picks one detail instead of the whole story",
+   "why": {
+    "D": "The map was right; the town just had two bakeries. And the story is about more than the map.",
+    "A": "This is one detail at the start. The story goes on to the creek, the man and the volunteers.",
+    "B": "This is a detail from the fourth paragraph, not what the whole story is about."
+   },
+   "passage_id": "RC-W9-P1",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "007b904a9cf5202f"
+  },
+  {
+   "id": "RC-W9-07",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Organization/logic",
+   "subskill": "organization — the job of a paragraph",
+   "difficulty": "M",
+   "prompt": "The fourth paragraph (lines 17–22) mainly",
+   "choices": {
+    "A": "tells why Nadia's family moved",
+    "B": "describes the walk to the library",
+    "C": "explains what the man is doing at the creek",
+    "D": "shows that Nadia is angry at her mother for drawing a bad map"
+   },
+   "correct": "C",
+   "explanation": "Lines 17–22 tell what the man is catching, why it matters, and how long he has done it.",
+   "misconceptions": "mixes up which paragraph says what",
+   "why": {
+    "B": "The walk to the library is not described; the next paragraph begins at the library.",
+    "A": "The passage never says why the family moved.",
+    "D": "Nadia is never described as angry, and the map was not wrong."
+   },
+   "passage_id": "RC-W9-P1",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "a89ff66d8c8260c1"
+  },
+  {
+   "id": "RC-W9-08",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Inference",
+   "subskill": "inference — the meaning of an ending",
+   "difficulty": "H",
+   "prompt": "At the end of the passage, when Nadia says \"I think I know the way now,\" she most likely means that she",
+   "choices": {
+    "A": "wants to go home right away",
+    "B": "has learned where both bakeries are",
+    "C": "will never use her mother's map again",
+    "D": "can find the creek again to help with the count"
+   },
+   "correct": "D",
+   "explanation": "The librarian asks for volunteers to count on Saturdays. Nadia asks whether she needs to know how to get there and says she already knows the way, which shows she wants to help at the creek.",
+   "misconceptions": "takes the words too literally",
+   "why": {
+    "C": "She is not giving up maps. She means she knows the way to the creek.",
+    "A": "She is answering the librarian's question about volunteering, not asking to leave.",
+    "B": "She does not mention the bakeries; she has just been asked about counting at the creek."
+   },
+   "passage_id": "RC-W9-P1",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "6f0f0bd3a29adebf"
+  },
+  {
+   "id": "RC-W9-09",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Supporting detail/evidence",
+   "subskill": "supporting detail — what was observed",
+   "difficulty": "E",
+   "prompt": "What did de Mestral see when he looked at a burr under a microscope?",
+   "choices": {
+    "A": "soft loops",
+    "B": "tiny hooks",
+    "C": "a sticky glue",
+    "D": "tiny seeds with wings"
+   },
+   "correct": "B",
+   "explanation": "Lines 8–9: he \"saw that it was covered with tiny hooks.\"",
+   "misconceptions": "mixes up the hooks with the loops they catch",
+   "why": {
+    "C": "Line 12 says the burr was not using glue.",
+    "A": "Loops are what the hooks caught on, such as the threads of his trousers (lines 10–11).",
+    "D": "Winged seeds belong to the maple tree (lines 19–20), not the burr."
+   },
+   "passage_id": "RC-W9-P2",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "f7449775b0164ee8"
+  },
+  {
+   "id": "RC-W9-10",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Supporting detail/evidence",
+   "subskill": "supporting detail — a reason",
+   "difficulty": "M",
+   "prompt": "According to the third paragraph, why does a burr hook onto animals?",
+   "choices": {
+    "A": "to spread its seeds",
+    "B": "to keep the animal warm",
+    "C": "to get food from the animal",
+    "D": "to protect itself from the wind"
+   },
+   "correct": "A",
+   "explanation": "Lines 13–16: the plant cannot walk, so its seeds need a way to travel to new ground, and riding on an animal carries them there.",
+   "misconceptions": "answers from guesswork instead of the paragraph",
+   "why": {
+    "B": "Nothing in the passage says burrs keep animals warm.",
+    "D": "The wind is how dandelion and maple seeds travel (lines 18–20), not a danger to the burr.",
+    "C": "The passage never says burrs feed on animals."
+   },
+   "passage_id": "RC-W9-P2",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "e9224fcc5a4d4b01"
+  },
+  {
+   "id": "RC-W9-11",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Supporting detail/evidence",
+   "subskill": "supporting detail — comparing examples",
+   "difficulty": "M",
+   "prompt": "How are dandelion seeds and maple seeds alike, according to the passage?",
+   "choices": {
+    "A": "Both travel by wind.",
+    "B": "Both have tiny hooks.",
+    "C": "Both cling to animal fur.",
+    "D": "Both grow only near water."
+   },
+   "correct": "A",
+   "explanation": "Lines 18–20: dandelion seeds \"float away on the wind,\" and maple seeds spin \"so the wind can carry them away.\"",
+   "misconceptions": "applies a detail about one plant to another",
+   "why": {
+    "B": "Hooks belong to the burdock burr (line 9), not to the dandelion or the maple.",
+    "C": "Clinging to fur is how the burr travels (lines 15–16).",
+    "D": "The passage never says where they grow."
+   },
+   "passage_id": "RC-W9-P2",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "2ba6002f58e2ef80"
+  },
+  {
+   "id": "RC-W9-12",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Supporting detail/evidence",
+   "subskill": "supporting detail — a date",
+   "difficulty": "E",
+   "prompt": "In what year did de Mestral receive a United States patent for his invention?",
+   "choices": {
+    "A": "1941",
+    "B": "1948",
+    "C": "1955",
+    "D": "2001"
+   },
+   "correct": "C",
+   "explanation": "Lines 26–27: \"In 1955 he received a United States patent for his invention.\"",
+   "misconceptions": "picks the other date in the passage",
+   "why": {
+    "A": "1941 is the year of the hunting trip (line 1), when the idea began.",
+    "B": "The passage gives no event in 1948.",
+    "D": "The passage gives no event in 2001."
+   },
+   "passage_id": "RC-W9-P2",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "8682cd8632a5b935"
+  },
+  {
+   "id": "RC-W9-13",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Main idea",
+   "subskill": "main idea — the whole passage",
+   "difficulty": "M",
+   "prompt": "Which sentence best states the main idea of the passage?",
+   "choices": {
+    "A": "A traveling seed gave an engineer an idea.",
+    "B": "Dandelions and maples spread their seeds by wind.",
+    "C": "Dogs often come home covered in burrs after a walk.",
+    "D": "Inventors always need many years to make a product."
+   },
+   "correct": "A",
+   "explanation": "The passage moves from the burrs on the dog, to how a burr works and why, to the fastener de Mestral copied from it.",
+   "misconceptions": "picks an opening detail or a side example",
+   "why": {
+    "B": "That is one paragraph, an example beside the main story about the burr.",
+    "C": "This is how the story starts, not what it is mainly about.",
+    "D": "The passage says the hooks took years, but it does not say this is always true."
+   },
+   "passage_id": "RC-W9-P2",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "66e556ae7acaa653"
+  },
+  {
+   "id": "RC-W9-14",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Organization/logic",
+   "subskill": "organization — why a paragraph is included",
+   "difficulty": "H",
+   "prompt": "Why does the author include the fourth paragraph (lines 17–21)?",
+   "choices": {
+    "A": "to explain how Velcro is made",
+    "B": "to tell how de Mestral got his patent",
+    "C": "to give more examples of traveling seeds",
+    "D": "to describe what de Mestral saw under the microscope"
+   },
+   "correct": "C",
+   "explanation": "The paragraph begins \"Burdock is not the only plant that sends its seeds traveling\" and gives two more examples.",
+   "misconceptions": "mixes up which paragraph does which job",
+   "why": {
+    "A": "How Velcro is made comes in the last paragraph.",
+    "D": "That is in the second paragraph (lines 6–11).",
+    "B": "The patent is in the last paragraph (lines 26–27)."
+   },
+   "passage_id": "RC-W9-P2",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "b4a074839abb6072"
+  },
+  {
+   "id": "RC-W9-15",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Supporting detail/evidence",
+   "subskill": "supporting detail — what was hard",
+   "difficulty": "M",
+   "prompt": "According to the passage, what was the hardest part of making the fastener?",
+   "choices": {
+    "A": "finding a dog",
+    "B": "making the hooks",
+    "C": "making the loops",
+    "D": "naming the product"
+   },
+   "correct": "B",
+   "explanation": "Lines 25–26: \"Making the hooks was the hard part, and it took him years of experiments.\"",
+   "misconceptions": "swaps the hooks and the loops",
+   "why": {
+    "A": "The dog is part of how the idea started, not part of making the fastener.",
+    "C": "The passage says the hooks were the hard part (line 25), not the loops.",
+    "D": "The passage never says naming it was hard."
+   },
+   "passage_id": "RC-W9-P2",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "ecc58096fb85643b"
+  },
+  {
+   "id": "RC-W9-16",
+   "subject": "RC",
+   "form": "W9",
+   "skill": "Inference",
+   "subskill": "inference — what a detail suggests about a person",
+   "difficulty": "M",
+   "prompt": "The second paragraph suggests that de Mestral was",
+   "choices": {
+    "A": "in a hurry",
+    "B": "annoyed by his dog",
+    "C": "careless with his clothes",
+    "D": "curious about how things work"
+   },
+   "correct": "D",
+   "explanation": "Lines 6–7: \"Most people would have picked the burrs off and thrown them away. De Mestral wanted to know why they held on so well.\"",
+   "misconceptions": "picks what most people did instead of what he did",
+   "why": {
+    "B": "He does not blame the dog; he studies the burrs instead.",
+    "C": "The burrs got on him on a hunting trip; nothing suggests carelessness.",
+    "A": "He takes the time to study a burr under a microscope (lines 7–9)."
+   },
+   "passage_id": "RC-W9-P2",
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "16f24912c17ec1fb"
+  }
+ ]
+}

@@ -316,7 +316,7 @@ export function WeekRecap({ span, here, all, idx }) {
              and the rows below are the whole of it. */
           <>
             <p className="text-muted-foreground text-sm">
-              No new sets this week — it is the week the plan sets aside for {span.title}. The paper, what it turns up and the review pile are below.
+              {span.detail ? `No new sets this week. ${span.detail}` : `No new sets this week — it is the week the plan sets aside for ${span.title}. The paper, what it turns up and the review pile are below.`}
             </p>
             {/* What its days held all the same: the review she kept up, the days she
                 came, the reading. No Sets or Accuracy figure, because there are no

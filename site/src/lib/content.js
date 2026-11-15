@@ -179,7 +179,7 @@ export function spans() {
     const a = parseLabelStart(brk.label)
     if (!a || out.some((s) => a >= s.a && a <= s.b)) continue
     const b = addDays(a, 6)
-    out.push({ id: "B:" + a, kind: "break", a, b, title: brk.what, heading: `${brk.what} · ${shortDay(a)} – ${shortDay(b)}`, name: brk.what })
+    out.push({ id: "B:" + a, kind: "break", a, b, title: brk.what, heading: `${brk.what} · ${shortDay(a)} – ${shortDay(b)}`, name: brk.what, detail: brk.detail || null })
   }
   return out.sort((x, y) => x.a.localeCompare(y.a))
 }

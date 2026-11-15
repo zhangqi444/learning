@@ -3,6 +3,11 @@
 import glob, json, re, os
 BANKS={'vr':['vr-september.json','vr-weeks5-8.json'],'qr':['qr-september.json','qr-weeks5-8.json'],
        'ma':['ma-september.json','ma-weeks5-8.json'],'rc':['rc-september.json','rc-weeks5-8.json']}
+# W9 (Nov 30 – Dec 6) was added on 15 November 2026, after the real ISEE report for the
+# 24 October sitting, to fill the gap between Mock 3 and the 12 December sitting with the
+# strands that report found short (tools/author_w9.py). It is a plan week of its own, so its
+# banks are base banks, not a layer on an older week.
+for _sub in BANKS: BANKS[_sub].append(f'{_sub}-w9.json')
 # A week's work doubled after it was planned (the owner, 5 October 2026: "did you double
 # the volume of each work for me? … you must do it now"): the added questions live in
 # their own `-plus` bank and are marked `x`, so the site gives them sittings of their own
@@ -27,7 +32,7 @@ for sub,files in BANKS.items():
     items=[]
     for f in files+[a for a in ADDED[sub] if os.path.exists(f'content/question-banks/{a}')]:
         for it in json.load(open(f'content/question-banks/{f}'))['items']:
-            m=re.match(r'(W[1-8])', str(it.get('form','')))
+            m=re.match(r'(W[1-9])', str(it.get('form','')))
             q={'id':it['id'],'w':m.group(1) if m else 'W1','sk':it.get('skill',''),
                 'd':it.get('difficulty',''),'q':it['prompt'],
                 'c':[it['choices'][k] for k in 'ABCD'],'k':it['correct'],
@@ -58,18 +63,23 @@ def passage_out(p):
     o={'t':p.get('title',''),'x':p['text']}
     if p.get('lines'): o['l']=True
     return o
-for f in ['rc-september-passages.json','rc-weeks5-8-passages.json']+(['rc-weeks5-8-plus-passages.json'] if os.path.exists('content/passages/rc-weeks5-8-plus-passages.json') else []):
+for f in ['rc-september-passages.json','rc-weeks5-8-passages.json','rc-w9-passages.json']+(['rc-weeks5-8-plus-passages.json'] if os.path.exists('content/passages/rc-weeks5-8-plus-passages.json') else []):
     for p in json.load(open(f'content/passages/{f}'))['items']:
         out['passages'][p['id']]=passage_out(p)
 out['weeks']=[{'w':'W1','label':'Aug 31 – Sep 6'},{'w':'W2','label':'Sep 7 – 13'},
  {'w':'W3','label':'Sep 14 – 20'},{'w':'W4','label':'Sep 28 – Oct 4'},
  {'w':'W5','label':'Oct 5 – 11'},{'w':'W6','label':'Oct 12 – 18'},
- {'w':'W7','label':'Nov 9 – 15'},{'w':'W8','label':'Nov 16 – 22'}]
+ {'w':'W7','label':'Nov 9 – 15'},{'w':'W8','label':'Nov 16 – 22'},{'w':'W9','label':'Nov 30 – Dec 6'}]
 out['starts']={'W1':'2026-08-31','W2':'2026-09-07','W3':'2026-09-14','W4':'2026-09-28',
- 'W5':'2026-10-05','W6':'2026-10-12','W7':'2026-11-09','W8':'2026-11-16'}
+ 'W5':'2026-10-05','W6':'2026-10-12','W7':'2026-11-09','W8':'2026-11-16','W9':'2026-11-30'}
 out['breaks']=[{'label':'Sep 21 – 27','what':'Split baseline mock'},
  {'label':'Oct 19 – 25','what':'Mock 1'},{'label':'Oct 26 – Nov 1','what':'Correction and retest'},
- {'label':'Nov 2 – 8','what':'Mock 2'}]
+ {'label':'Nov 2 – 8','what':'Mock 2'},{'label':'Nov 23 – 29','what':'Mock 3'},
+ # The week before the real sitting (BASIS Bothell, Sat Dec 12). Its own `kind` and
+ # `detail`, because the calendar would otherwise label every non-mock break as a
+ # correction week, and the checklist would call it "the week set aside for" a paper.
+ {'label':'Dec 7 – 13','what':'Test week','kind':'testweek',
+  'detail':'Light review only: clear the review pile, one timed Math Achievement run on paper (30 questions, 30 minutes), normal bedtimes. The ISEE is Saturday, December 12, at BASIS Bothell.'}]
 # ---- Session 1 precision review (VR), essay programme, mocks, calendar ----
 out['precision']=json.load(open('content/precision.json'))
 out['essay']=json.load(open('content/essay.json'))

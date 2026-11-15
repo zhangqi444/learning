@@ -212,6 +212,17 @@
   ],
   "2026-12": [
    {
+    "id": "w9",
+    "text": "W9 (Nov 30 – Dec 6): the last plan week, aimed at the real test's short strands — fractions, decimals and whole numbers in Math, synonyms in Verbal, finding details in Reading",
+    "path": "/"
+   },
+   {
+    "id": "timed-ma",
+    "text": "Test week (Dec 7–11): one timed Math Achievement run (30 questions, 30 minutes, on paper), then review only — no new material",
+    "why": "Paper test, so practise on paper with a clock; the rest of the week is sleep and the review pile.",
+    "path": "/review"
+   },
+   {
     "id": "testday",
     "text": "Test day Sat Dec 12 at BASIS Bothell: check in by 9:30 am (exam 10:00). Bring the ISEE verification letter, and check with BASIS which student ID they accept"
    },

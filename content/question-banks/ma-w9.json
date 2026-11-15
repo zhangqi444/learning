@@ -1,0 +1,1303 @@
+{
+ "bank": "ma-w9",
+ "schema_version": "1.0",
+ "content_version": "2026.11.15",
+ "items": [
+  {
+   "id": "MA-W9-01",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "value of a digit",
+   "difficulty": "E",
+   "prompt": "What is the value of the digit 6 in 3,604,215?",
+   "choices": {
+    "A": "6,000",
+    "B": "60,000",
+    "C": "600,000",
+    "D": "6,000,000"
+   },
+   "correct": "C",
+   "explanation": "In 3,604,215 the 3 is in the millions place and the 6 is in the hundred thousands place, so the 6 is worth 600,000.",
+   "misconceptions": "miscounts the places",
+   "why": {
+    "A": "6,000 is two places too small. Count from the right: ones, tens, hundreds, thousands, ten thousands, hundred thousands.",
+    "B": "60,000 is one place too small. The 6 is in the hundred thousands place.",
+    "D": "6,000,000 is the millions place, where the 3 is. The 6 is one place to its right."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "ce9c836cace1a8f8"
+  },
+  {
+   "id": "MA-W9-02",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "expanded form to standard form",
+   "difficulty": "M",
+   "prompt": "Which number equals 2,000,000 + 40,000 + 300 + 5?",
+   "choices": {
+    "A": "2,040,305",
+    "B": "2,040,350",
+    "C": "2,400,305",
+    "D": "2,403,005"
+   },
+   "correct": "A",
+   "explanation": "Write a 0 for every place that is not named: 2 millions, 0 hundred thousands, 4 ten thousands, 0 thousands, 3 hundreds, 0 tens, 5 ones: 2,040,305.",
+   "misconceptions": "drops or misplaces zero placeholders",
+   "why": {
+    "B": "2,040,350 puts the 5 in the tens place. The 5 is just 5 ones.",
+    "C": "2,400,305 puts the 4 in the hundred thousands place. 40,000 is 4 ten thousands.",
+    "D": "2,403,005 slides the 4 and the 3 one place too far left."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "1127b3b119eefd2c"
+  },
+  {
+   "id": "MA-W9-03",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "rounding to the nearest hundred",
+   "difficulty": "E",
+   "prompt": "What is 7,349 rounded to the nearest hundred?",
+   "choices": {
+    "A": "7,000",
+    "B": "7,300",
+    "C": "7,350",
+    "D": "7,400"
+   },
+   "correct": "B",
+   "explanation": "Look at the tens digit, 4. It is less than 5, so the 3 hundreds stay and everything after becomes 0: 7,300.",
+   "misconceptions": "rounds to the wrong place; rounds up on a 4",
+   "why": {
+    "A": "7,000 rounds to the nearest thousand, not the nearest hundred.",
+    "C": "7,350 rounds to the nearest ten.",
+    "D": "7,400 rounds up, but the tens digit is 4, which is less than 5, so round down."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "74f453c5663afbd9"
+  },
+  {
+   "id": "MA-W9-04",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "rounding to the nearest ten thousand",
+   "difficulty": "M",
+   "prompt": "What is 285,612 rounded to the nearest ten thousand?",
+   "choices": {
+    "A": "280,000",
+    "B": "286,000",
+    "C": "290,000",
+    "D": "300,000"
+   },
+   "correct": "C",
+   "explanation": "The ten thousands digit is 8. Look one place right, at the thousands digit: 5. Five or more rounds up, so 28 ten thousands becomes 29: 290,000.",
+   "misconceptions": "rounds to the wrong place; rounds down on a 5",
+   "why": {
+    "A": "280,000 rounds down, but the thousands digit is 5, so round up.",
+    "B": "286,000 rounds to the nearest thousand.",
+    "D": "300,000 rounds to the nearest hundred thousand."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "f2df3170afb5fa24"
+  },
+  {
+   "id": "MA-W9-05",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "subtracting across zeros",
+   "difficulty": "M",
+   "prompt": "What is 5,003 − 1,867?",
+   "choices": {
+    "A": "3,136",
+    "B": "3,236",
+    "C": "4,864",
+    "D": "6,870"
+   },
+   "correct": "A",
+   "explanation": "Regroup across the zeros: 5,003 becomes 4 thousands, 9 hundreds, 9 tens and 13 ones. Then 13 − 7 = 6, 9 − 6 = 3, 9 − 8 = 1 and 4 − 1 = 3: 3,136.",
+   "misconceptions": "subtracts the smaller digit from the larger; loses a regrouped digit",
+   "why": {
+    "B": "3,236 uses 10 − 8 = 2 in the hundreds. After regrouping, the hundreds digit is 9, so 9 − 8 = 1.",
+    "C": "4,864 takes the smaller digit from the larger in each column (7 − 3, 6 − 0, 8 − 0). Regroup instead.",
+    "D": "6,870 adds the numbers."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "35e39e003aa4319d"
+  },
+  {
+   "id": "MA-W9-06",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "two-digit multiplication",
+   "difficulty": "M",
+   "prompt": "What is 38 × 26?",
+   "choices": {
+    "A": "304",
+    "B": "760",
+    "C": "988",
+    "D": "1,140"
+   },
+   "correct": "C",
+   "explanation": "38 × 6 = 228 and 38 × 20 = 760. 228 + 760 = 988.",
+   "misconceptions": "forgets the zero for the tens line",
+   "why": {
+    "A": "304 adds 38 × 6 = 228 and 38 × 2 = 76, but the 2 in 26 means 20, so the second line is 760.",
+    "B": "760 is only 38 × 20. Add 38 × 6 = 228 as well.",
+    "D": "1,140 is 38 × 30. Rounding 26 up to 30 is an estimate, not the answer."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "b8a1fcb3829f15d0"
+  },
+  {
+   "id": "MA-W9-07",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Division",
+   "subskill": "three-digit quotient",
+   "difficulty": "M",
+   "prompt": "What is 1,452 ÷ 6?",
+   "choices": {
+    "A": "222",
+    "B": "242",
+    "C": "252",
+    "D": "8,712"
+   },
+   "correct": "B",
+   "explanation": "14 ÷ 6 = 2 with 2 left. Bring down 5: 25 ÷ 6 = 4 with 1 left. Bring down 2: 12 ÷ 6 = 2. The answer is 242 (check: 242 × 6 = 1,452).",
+   "misconceptions": "drops a remainder in the middle step",
+   "why": {
+    "A": "222 writes 2 for 25 ÷ 6, but 6 × 4 = 24 still fits in 25, so the middle digit is 4.",
+    "C": "252 gets 5 for 25 ÷ 6, but 6 × 5 = 30, which is more than 25.",
+    "D": "8,712 multiplies 1,452 by 6."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "f193e27d5bf9fae5"
+  },
+  {
+   "id": "MA-W9-08",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Division",
+   "subskill": "what a remainder means in a story",
+   "difficulty": "M",
+   "prompt": "A baker has 150 cookies. She packs them in boxes of 12. How many boxes can she fill completely?",
+   "choices": {
+    "A": "12",
+    "B": "12.5",
+    "C": "13",
+    "D": "138"
+   },
+   "correct": "A",
+   "explanation": "150 ÷ 12 = 12 with 6 left over. Twelve boxes are full, and 6 cookies are left over.",
+   "misconceptions": "rounds up when the question asks for full groups",
+   "why": {
+    "B": "12.5 is the exact quotient, 150 ÷ 12, but half a box is not a full box.",
+    "C": "13 counts the leftover cookies as a box, but the question asks for boxes filled completely.",
+    "D": "138 subtracts 12 from 150."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "8752e021f7e6f332"
+  },
+  {
+   "id": "MA-W9-09",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "two-step multiplication and addition",
+   "difficulty": "M",
+   "prompt": "Ms. Lee buys 4 packs of 18 markers and 3 packs of 24 markers. How many markers does she buy in all?",
+   "choices": {
+    "A": "49",
+    "B": "126",
+    "C": "144",
+    "D": "168"
+   },
+   "correct": "C",
+   "explanation": "4 × 18 = 72 and 3 × 24 = 72. 72 + 72 = 144 markers.",
+   "misconceptions": "adds instead of multiplying; uses one pack size for both",
+   "why": {
+    "A": "49 adds every number in the problem (4 + 18 + 3 + 24). Each pack holds many markers, so multiply.",
+    "B": "126 uses 18 for both kinds (4 × 18 + 3 × 18). The second kind has 24 in a pack.",
+    "D": "168 multiplies all 7 packs by 24. Only 3 of the packs hold 24."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "4b87d5784e81ac42"
+  },
+  {
+   "id": "MA-W9-10",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Order of operations",
+   "subskill": "multiplication before addition and subtraction",
+   "difficulty": "M",
+   "prompt": "What is the value of 18 − 2 × 5 + 4?",
+   "choices": {
+    "A": "0",
+    "B": "4",
+    "C": "12",
+    "D": "84"
+   },
+   "correct": "C",
+   "explanation": "Multiply first: 2 × 5 = 10. Then go left to right: 18 − 10 = 8, and 8 + 4 = 12.",
+   "misconceptions": "works strictly left to right; treats + 4 as part of the subtraction",
+   "why": {
+    "A": "0 adds 5 + 4 first and then multiplies by 2. Add and subtract left to right, after the multiplication.",
+    "B": "4 takes away both 10 and 4. After 18 − 10 = 8, the + 4 is added.",
+    "D": "84 works left to right from the start, (18 − 2) × 5 + 4. Multiply first."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "9f86cc7fe9eeea80"
+  },
+  {
+   "id": "MA-W9-11",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Number properties",
+   "subskill": "factors",
+   "difficulty": "E",
+   "prompt": "Which number is a factor of 84?",
+   "choices": {
+    "A": "7",
+    "B": "8",
+    "C": "9",
+    "D": "10"
+   },
+   "correct": "A",
+   "explanation": "7 × 12 = 84, so 7 divides 84 with nothing left over.",
+   "misconceptions": "guesses from the digits",
+   "why": {
+    "D": "10 does not divide 84: 84 ÷ 10 is 8 with 4 left over. Multiples of 10 end in 0.",
+    "B": "8 does not divide 84: 84 ÷ 8 is 10 with 4 left over.",
+    "C": "9 does not divide 84: 84 ÷ 9 is 9 with 3 left over (8 + 4 = 12, not a multiple of 9)."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "084cd671f393c3ec"
+  },
+  {
+   "id": "MA-W9-12",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Number properties",
+   "subskill": "prime numbers",
+   "difficulty": "E",
+   "prompt": "Which number is prime?",
+   "choices": {
+    "A": "21",
+    "B": "25",
+    "C": "27",
+    "D": "29"
+   },
+   "correct": "D",
+   "explanation": "A prime number has exactly two factors, 1 and itself. 29 cannot be divided evenly by 2, 3 or 5, so it is prime.",
+   "misconceptions": "treats every odd number as prime",
+   "why": {
+    "A": "21 = 3 × 7, so it has factors besides 1 and itself.",
+    "C": "27 = 3 × 9, so it is not prime. Odd is not the same as prime.",
+    "B": "25 = 5 × 5, so it is not prime."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "502cdf5fa7f99306"
+  },
+  {
+   "id": "MA-W9-13",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Number properties",
+   "subskill": "odd and even sums",
+   "difficulty": "E",
+   "prompt": "The sum of two odd numbers is always",
+   "choices": {
+    "A": "odd",
+    "B": "even",
+    "C": "a prime number",
+    "D": "a multiple of 4"
+   },
+   "correct": "B",
+   "explanation": "Each odd number is one more than an even number, so two odd numbers have two extra ones, which make a pair. 3 + 5 = 8, 7 + 9 = 16: always even.",
+   "misconceptions": "guesses odd + odd = odd",
+   "why": {
+    "A": "Try it: 3 + 5 = 8 and 7 + 9 = 16. The sum is never odd.",
+    "C": "3 + 5 = 8, and 8 is not prime.",
+    "D": "A multiple of 4 is not guaranteed: 3 + 7 = 10, and 10 is not a multiple of 4."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "a8f6cfc7e11d2b57"
+  },
+  {
+   "id": "MA-W9-14",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "estimating a quotient",
+   "difficulty": "M",
+   "prompt": "Which is the best estimate of 6,128 ÷ 29?",
+   "choices": {
+    "A": "20",
+    "B": "200",
+    "C": "300",
+    "D": "2,000"
+   },
+   "correct": "B",
+   "explanation": "Round to friendly numbers: 6,128 is about 6,000 and 29 is about 30. 6,000 ÷ 30 = 200.",
+   "misconceptions": "loses or adds a zero; rounds to a far number",
+   "why": {
+    "A": "20 drops a zero. 30 × 20 = 600, not 6,000.",
+    "C": "300 divides 6,000 by 20, but 29 is much closer to 30.",
+    "D": "2,000 adds a zero. 30 × 2,000 = 60,000."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "722d6911982c8e72"
+  },
+  {
+   "id": "MA-W9-15",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "comparing numbers with the same digits",
+   "difficulty": "E",
+   "prompt": "Which number is the greatest?",
+   "choices": {
+    "A": "40,099",
+    "B": "40,900",
+    "C": "40,909",
+    "D": "40,990"
+   },
+   "correct": "D",
+   "explanation": "All four start with 40 thousand. Compare the hundreds next: three have 9 hundreds. Then compare the tens: only 40,990 has 9 tens.",
+   "misconceptions": "compares the last digits first",
+   "why": {
+    "A": "40,099 has 0 hundreds, the fewest of the four.",
+    "B": "40,900 has 9 hundreds, like 40,990, but 0 tens instead of 9 tens.",
+    "C": "40,909 has 9 hundreds but 0 tens; 40,990 has 9 tens."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "f32beb4d74d144cc"
+  },
+  {
+   "id": "MA-W9-16",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Whole-number operations",
+   "subskill": "number words to digits",
+   "difficulty": "E",
+   "prompt": "Which number is fifty thousand six hundred eight?",
+   "choices": {
+    "A": "5,608",
+    "B": "50,068",
+    "C": "50,600",
+    "D": "50,608"
+   },
+   "correct": "D",
+   "explanation": "Fifty thousand is 50,000, six hundred is 600, and eight is 8. 50,000 + 600 + 8 = 50,608. The tens place gets a 0.",
+   "misconceptions": "drops or adds a zero",
+   "why": {
+    "A": "5,608 is five thousand six hundred eight. Fifty thousand needs five digits before the hundreds.",
+    "B": "50,068 is fifty thousand sixty-eight. \"Six hundred\" puts the 6 in the hundreds place.",
+    "C": "50,600 leaves out the eight. Eight goes in the ones place."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "9713cc6a64cf9b5f"
+  },
+  {
+   "id": "MA-W9-17",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "equivalent fractions",
+   "difficulty": "E",
+   "prompt": "Which fraction is equal to 6/8?",
+   "choices": {
+    "A": "5/7",
+    "B": "3/4",
+    "C": "12/14",
+    "D": "8/6"
+   },
+   "correct": "B",
+   "explanation": "Divide the top and the bottom by 2: 6 ÷ 2 = 3 and 8 ÷ 2 = 4. 6/8 = 3/4.",
+   "misconceptions": "adds or subtracts the same number from top and bottom",
+   "why": {
+    "A": "5/7 takes 1 away from the top and the bottom. To keep the same value, divide both by the same number.",
+    "C": "12/14 adds 6 to the top and the bottom. Adding changes the value; multiplying both by 2 would give 12/16.",
+    "D": "8/6 turns the fraction upside down. 8/6 is more than 1, and 6/8 is less than 1."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "512bde912f6198f1"
+  },
+  {
+   "id": "MA-W9-18",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "comparing fractions with different denominators",
+   "difficulty": "H",
+   "prompt": "Which fraction is greater than 3/5?",
+   "choices": {
+    "A": "1/2",
+    "B": "5/9",
+    "C": "4/7",
+    "D": "5/8"
+   },
+   "correct": "D",
+   "explanation": "3/5 = 0.6. 5/8 = 0.625, which is more. Or compare with a common denominator: 3/5 = 24/40 and 5/8 = 25/40.",
+   "misconceptions": "compares only the top numbers",
+   "why": {
+    "A": "1/2 is 0.5, and 3/5 is 0.6, so 1/2 is less.",
+    "C": "4/7 is about 0.57, a little less than 3/5, which is 0.6.",
+    "B": "5/9 is about 0.56, less than 3/5, which is 0.6."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "1cf125adb30f9840"
+  },
+  {
+   "id": "MA-W9-19",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "fraction of a group",
+   "difficulty": "E",
+   "prompt": "There are 32 students in the band. Three-eighths of them play drums. How many play drums?",
+   "choices": {
+    "A": "4",
+    "B": "12",
+    "C": "20",
+    "D": "96"
+   },
+   "correct": "B",
+   "explanation": "32 ÷ 8 = 4, so 1/8 of the band is 4 students. 3/8 is 3 × 4 = 12.",
+   "misconceptions": "stops at one eighth; forgets to divide",
+   "why": {
+    "A": "4 comes from 32 ÷ 8, just one eighth. Three-eighths is three of those groups.",
+    "C": "20 is the students who do not play drums (5/8 of 32).",
+    "D": "96 multiplies 32 by 3 without dividing by 8."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "7400c457c7b5a2b9"
+  },
+  {
+   "id": "MA-W9-20",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "mixed number to improper fraction",
+   "difficulty": "M",
+   "prompt": "Which fraction is equal to 3 2/7?",
+   "choices": {
+    "A": "6/7",
+    "B": "13/7",
+    "C": "23/7",
+    "D": "32/7"
+   },
+   "correct": "C",
+   "explanation": "Each whole is 7 sevenths, so 3 wholes are 21 sevenths. Add the 2 sevenths: 21 + 2 = 23. 3 2/7 = 23/7.",
+   "misconceptions": "multiplies the wrong pair of numbers",
+   "why": {
+    "A": "6/7 multiplies 3 × 2 and keeps the 7. That is less than 1, and 3 2/7 is more than 3.",
+    "B": "13/7 multiplies 3 × 2 and adds 7. Multiply the whole number by the bottom number: 3 × 7 = 21, then add 2.",
+    "D": "32/7 writes the 3 and 2 side by side. 3 wholes are 21 sevenths, not 30."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "4a1beb0ce8b24f44"
+  },
+  {
+   "id": "MA-W9-21",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "improper fraction to mixed number",
+   "difficulty": "M",
+   "prompt": "Which mixed number is equal to 29/4?",
+   "choices": {
+    "A": "6 1/4",
+    "B": "7 1/4",
+    "C": "7 3/4",
+    "D": "8 1/4"
+   },
+   "correct": "B",
+   "explanation": "29 ÷ 4 = 7 with 1 left over. So 29/4 is 7 wholes and 1 fourth: 7 1/4.",
+   "misconceptions": "gets the remainder wrong",
+   "why": {
+    "A": "6 1/4 is 25/4. Four sixes are 24, which leaves 5 fourths, enough for another whole.",
+    "C": "7 3/4 is 31/4. 29 ÷ 4 is 7 with 1 left over, not 3.",
+    "D": "8 1/4 is 33/4. Eight fours are 32, which is more than 29."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "48bb974973fe3516"
+  },
+  {
+   "id": "MA-W9-22",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "subtracting fractions with different denominators",
+   "difficulty": "M",
+   "prompt": "What is 5/6 − 1/3?",
+   "choices": {
+    "A": "1/2",
+    "B": "4/6",
+    "C": "7/6",
+    "D": "4/3"
+   },
+   "correct": "A",
+   "explanation": "Make sixths: 1/3 = 2/6. Then 5/6 − 2/6 = 3/6, which is 1/2.",
+   "misconceptions": "subtracts tops and bottoms; does not convert to a common denominator",
+   "why": {
+    "B": "4/6 subtracts 1 from 5 but leaves 1/3 as it is. 1/3 is 2/6, so take away 2 sixths, not 1.",
+    "C": "7/6 adds the fractions (5/6 + 2/6). The question subtracts.",
+    "D": "4/3 subtracts the tops and the bottoms (5 − 1 over 6 − 3). Make the bottoms match first."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "27554712d0747f0c"
+  },
+  {
+   "id": "MA-W9-23",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "adding mixed numbers with regrouping",
+   "difficulty": "H",
+   "prompt": "What is 2 1/2 + 1 3/4?",
+   "choices": {
+    "A": "3 1/4",
+    "B": "3 4/6",
+    "C": "4 1/4",
+    "D": "5 1/4"
+   },
+   "correct": "C",
+   "explanation": "Add the wholes: 2 + 1 = 3. Add the fractions: 1/2 = 2/4, and 2/4 + 3/4 = 5/4, which is 1 1/4. 3 + 1 1/4 = 4 1/4.",
+   "misconceptions": "forgets to carry the extra whole; adds tops and bottoms",
+   "why": {
+    "A": "3 1/4 adds the wholes (2 + 1 = 3) and keeps only the 1/4 left over from 5/4. The extra whole in 5/4 goes onto the 3.",
+    "B": "3 4/6 adds the tops and the bottoms of the fractions (1 + 3 over 2 + 4). Make fourths first: 1/2 = 2/4.",
+    "D": "5 1/4 counts the extra whole from 5/4 twice."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "07bb6621e22f9828"
+  },
+  {
+   "id": "MA-W9-24",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "fraction times a whole number",
+   "difficulty": "E",
+   "prompt": "What is 2/5 × 15?",
+   "choices": {
+    "A": "6",
+    "B": "7 1/2",
+    "C": "10",
+    "D": "37 1/2"
+   },
+   "correct": "A",
+   "explanation": "Split 15 into 5 equal parts: 15 ÷ 5 = 3. Two parts are 2 × 3 = 6.",
+   "misconceptions": "stops at one part; flips the fraction",
+   "why": {
+    "B": "7 1/2 is 15 ÷ 2, half of 15. Two-fifths means 2 of 5 equal parts.",
+    "C": "10 takes 5 away from 15. Multiplying by 2/5 finds 2 of the 5 equal parts.",
+    "D": "37 1/2 divides 15 by 2 and multiplies by 5, which is 15 × 5/2: the fraction upside down."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "b7d5df6fce91458c"
+  },
+  {
+   "id": "MA-W9-25",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "subtracting fractions in a story",
+   "difficulty": "M",
+   "prompt": "A ribbon is 3/4 yard long. Lia cuts off 1/8 yard. How long is the ribbon now?",
+   "choices": {
+    "A": "3/32 yard",
+    "B": "1/4 yard",
+    "C": "5/8 yard",
+    "D": "7/8 yard"
+   },
+   "correct": "C",
+   "explanation": "Make eighths: 3/4 = 6/8. Then 6/8 − 1/8 = 5/8 yard.",
+   "misconceptions": "subtracts without a common denominator; adds instead",
+   "why": {
+    "A": "3/32 multiplies 3/4 by 1/8. Cutting off a piece is subtraction.",
+    "B": "1/4 is 2/8: it takes 1 from the 3 in 3/4 but then uses eighths. Change 3/4 to 6/8 first.",
+    "D": "7/8 adds the piece back on. The piece was cut off, so subtract."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "4fdfd0c086947cd2"
+  },
+  {
+   "id": "MA-W9-26",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "which fraction is closest to 1",
+   "difficulty": "M",
+   "prompt": "Which fraction is closest to 1?",
+   "choices": {
+    "A": "5/6",
+    "B": "7/8",
+    "C": "9/10",
+    "D": "11/12"
+   },
+   "correct": "D",
+   "explanation": "Each fraction is one piece short of 1. The smaller the missing piece, the closer to 1. Twelfths are the smallest pieces, so 11/12 is closest.",
+   "misconceptions": "thinks the gaps are all the same because each is \"one less\"",
+   "why": {
+    "A": "5/6 is 1/6 away from 1, the biggest gap of the four.",
+    "B": "7/8 is 1/8 away from 1. 11/12 is only 1/12 away.",
+    "C": "9/10 is 1/10 away from 1. Twelfths are smaller pieces than tenths, so 11/12 is closer."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "035e0742a247e558"
+  },
+  {
+   "id": "MA-W9-27",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "mixed number as an improper fraction",
+   "difficulty": "E",
+   "prompt": "Which fraction is equal to 1 1/2?",
+   "choices": {
+    "A": "1/2",
+    "B": "2/3",
+    "C": "3/2",
+    "D": "11/2"
+   },
+   "correct": "C",
+   "explanation": "One whole is 2 halves. Add the other half: 2 + 1 = 3 halves, so 1 1/2 = 3/2.",
+   "misconceptions": "drops the whole; writes digits side by side",
+   "why": {
+    "A": "1/2 leaves out the whole.",
+    "B": "2/3 turns 3/2 upside down. 2/3 is less than 1.",
+    "D": "11/2 writes the 1 and 1 side by side. That is 5 1/2."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "73e83f38238449a9"
+  },
+  {
+   "id": "MA-W9-28",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "simplest form",
+   "difficulty": "M",
+   "prompt": "What is 18/24 in simplest form?",
+   "choices": {
+    "A": "3/4",
+    "B": "5/6",
+    "C": "7/8",
+    "D": "4/3"
+   },
+   "correct": "A",
+   "explanation": "The largest number that divides both 18 and 24 is 6. 18 ÷ 6 = 3 and 24 ÷ 6 = 4, so 18/24 = 3/4.",
+   "misconceptions": "divides top and bottom by different numbers; flips the fraction",
+   "why": {
+    "B": "5/6 is 20/24, not 18/24. Divide 18 and 24 by the same number.",
+    "C": "7/8 is 21/24, not 18/24.",
+    "D": "4/3 turns 3/4 upside down. 18/24 is less than 1, so its simplest form is too."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "60a661597e7c984b"
+  },
+  {
+   "id": "MA-W9-29",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "fractions greater than 1",
+   "difficulty": "E",
+   "prompt": "Which fraction is greater than 1?",
+   "choices": {
+    "A": "1/9",
+    "B": "7/8",
+    "C": "8/9",
+    "D": "9/8"
+   },
+   "correct": "D",
+   "explanation": "A fraction is greater than 1 when its top number is bigger than its bottom number. 9/8 is 1 whole and 1/8 more.",
+   "misconceptions": "mixes up top and bottom",
+   "why": {
+    "A": "1/9 is one small piece of a whole, much less than 1.",
+    "B": "7/8 is one eighth short of a whole.",
+    "C": "8/9 uses the same digits as 9/8 but the top is smaller than the bottom, so it is less than 1."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "13fe6f1b80931a20"
+  },
+  {
+   "id": "MA-W9-30",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "fraction of a fraction",
+   "difficulty": "H",
+   "prompt": "What is 1/3 of 1/2?",
+   "choices": {
+    "A": "1/6",
+    "B": "1/5",
+    "C": "2/5",
+    "D": "2/3"
+   },
+   "correct": "A",
+   "explanation": "Half of a pizza cut into 3 equal pieces makes pieces that are 1/6 of the whole pizza. 1/3 × 1/2 = 1/6.",
+   "misconceptions": "adds instead of multiplying",
+   "why": {
+    "B": "1/5 adds the bottom numbers (3 + 2). \"Of\" means multiply: 1 × 1 over 3 × 2.",
+    "C": "2/5 adds the tops and the bottoms.",
+    "D": "2/3 divides 1/3 by 1/2. Taking a third of a half makes a smaller piece."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "a807f67ce03f1d22"
+  },
+  {
+   "id": "MA-W9-31",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "decimal to fraction",
+   "difficulty": "E",
+   "prompt": "Which fraction is equal to 0.8?",
+   "choices": {
+    "A": "8/100",
+    "B": "1/8",
+    "C": "4/5",
+    "D": "5/4"
+   },
+   "correct": "C",
+   "explanation": "0.8 is 8 tenths, 8/10. Divide the top and bottom by 2: 4/5.",
+   "misconceptions": "uses the wrong place value; flips the fraction",
+   "why": {
+    "A": "8/100 is 0.08. The 8 in 0.8 is in the tenths place: 8/10.",
+    "B": "1/8 is 0.125. It puts the 8 on the bottom.",
+    "D": "5/4 is 1.25, more than 1. It turns 4/5 upside down."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "8f438db09d1ed520"
+  },
+  {
+   "id": "MA-W9-32",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "hundredths to a fraction",
+   "difficulty": "M",
+   "prompt": "Which fraction is equal to 0.04?",
+   "choices": {
+    "A": "4/1000",
+    "B": "1/25",
+    "C": "1/4",
+    "D": "4/10"
+   },
+   "correct": "B",
+   "explanation": "0.04 is 4 hundredths, 4/100. Divide the top and bottom by 4: 1/25.",
+   "misconceptions": "counts the decimal places wrong",
+   "why": {
+    "A": "4/1000 is 0.004. 0.04 has two digits after the point, so it is hundredths: 4/100.",
+    "C": "1/4 is 0.25. It reads the 4 as the bottom number.",
+    "D": "4/10 is 0.4. The 4 in 0.04 is in the hundredths place."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "7026f108c7566cf4"
+  },
+  {
+   "id": "MA-W9-33",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "fraction to decimal by making hundredths",
+   "difficulty": "M",
+   "prompt": "Which decimal is equal to 7/20?",
+   "choices": {
+    "A": "0.07",
+    "B": "0.35",
+    "C": "0.72",
+    "D": "2.86"
+   },
+   "correct": "B",
+   "explanation": "Multiply the top and bottom by 5: 7/20 = 35/100 = 0.35.",
+   "misconceptions": "writes the digits side by side; divides the wrong way",
+   "why": {
+    "A": "0.07 uses only the top number. The bottom number is 20, not 100.",
+    "C": "0.72 writes 7 and 2 side by side. A fraction bar means divide.",
+    "D": "2.86 is about 20 ÷ 7, the division the wrong way round. 7/20 is less than 1."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "8ae9ef19c82eff0c"
+  },
+  {
+   "id": "MA-W9-34",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "mixed number to decimal",
+   "difficulty": "M",
+   "prompt": "Which decimal is equal to 1 3/4?",
+   "choices": {
+    "A": "0.75",
+    "B": "1.34",
+    "C": "1.43",
+    "D": "1.75"
+   },
+   "correct": "D",
+   "explanation": "3/4 = 75/100 = 0.75. Add the whole: 1 + 0.75 = 1.75.",
+   "misconceptions": "writes the digits of the fraction after the point",
+   "why": {
+    "A": "0.75 leaves out the whole. 1 3/4 is more than 1.",
+    "B": "1.34 writes the 3 and 4 after the point. 3/4 is 75 hundredths, not 34.",
+    "C": "1.43 writes the digits of 3/4 backwards. 3/4 = 0.75."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "104b690866c1791c"
+  },
+  {
+   "id": "MA-W9-35",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "comparing decimals with different numbers of places",
+   "difficulty": "M",
+   "prompt": "Which number is the least?",
+   "choices": {
+    "A": "0.06",
+    "B": "0.509",
+    "C": "0.59",
+    "D": "0.6"
+   },
+   "correct": "A",
+   "explanation": "Compare the tenths first: 0.6 has 6, 0.59 and 0.509 have 5, and 0.06 has 0. So 0.06 is the least.",
+   "misconceptions": "thinks fewer digits means smaller; thinks more digits means bigger",
+   "why": {
+    "B": "0.509 has 5 tenths. 0.06 has 0 tenths, so it is smaller.",
+    "C": "0.59 has 5 tenths; 0.06 has none.",
+    "D": "0.6 has the fewest digits, but it is 6 tenths. 0.06 is only 6 hundredths."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "b5a8a3bb18738ec8"
+  },
+  {
+   "id": "MA-W9-36",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "decimal place names",
+   "difficulty": "E",
+   "prompt": "In the number 4.372, which digit is in the hundredths place?",
+   "choices": {
+    "A": "2",
+    "B": "3",
+    "C": "4",
+    "D": "7"
+   },
+   "correct": "D",
+   "explanation": "After the decimal point the places are tenths, hundredths, thousandths. In 4.372 they hold 3, 7 and 2, so the hundredths digit is 7.",
+   "misconceptions": "counts the hundreds place from the point; starts counting at the ones",
+   "why": {
+    "A": "2 is in the thousandths place, three places after the point.",
+    "B": "3 is in the tenths place, the first place after the point.",
+    "C": "4 is in the ones place, before the point."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "c55d5ec811d0f5aa"
+  },
+  {
+   "id": "MA-W9-37",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "rounding to the nearest tenth",
+   "difficulty": "E",
+   "prompt": "What is 6.48 rounded to the nearest tenth?",
+   "choices": {
+    "A": "6",
+    "B": "6.4",
+    "C": "6.5",
+    "D": "7"
+   },
+   "correct": "C",
+   "explanation": "The tenths digit is 4. Look one place right, at the hundredths digit: 8. Eight is 5 or more, so 4 tenths becomes 5 tenths: 6.5.",
+   "misconceptions": "cuts off digits instead of rounding",
+   "why": {
+    "A": "6 rounds to the nearest whole number.",
+    "B": "6.4 drops the 8 instead of rounding. 8 hundredths is 5 or more, so round the tenths up.",
+    "D": "7 rounds to the nearest whole number, and the wrong way: 6.48 is closer to 6."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "3924918a065de327"
+  },
+  {
+   "id": "MA-W9-38",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "subtracting a decimal from a whole number",
+   "difficulty": "M",
+   "prompt": "What is 5 − 2.36?",
+   "choices": {
+    "A": "2.64",
+    "B": "2.74",
+    "C": "3.36",
+    "D": "7.36"
+   },
+   "correct": "A",
+   "explanation": "Write 5 as 5.00. Regroup: 4 ones, 9 tenths, 10 hundredths. 10 − 6 = 4, 9 − 3 = 6, 4 − 2 = 2: 2.64.",
+   "misconceptions": "forgets to write 5 as 5.00; loses a regrouped digit",
+   "why": {
+    "B": "2.74 forgets that a tenth was lent to the hundredths: after regrouping, 10 tenths become 9.",
+    "C": "3.36 takes away only the 2 and keeps the .36. Write 5 as 5.00 and subtract every place.",
+    "D": "7.36 adds the numbers."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "7dbaaf5f9e84ab4e"
+  },
+  {
+   "id": "MA-W9-39",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "multiplying a decimal by a whole number",
+   "difficulty": "E",
+   "prompt": "What is 0.3 × 4?",
+   "choices": {
+    "A": "0.12",
+    "B": "1.2",
+    "C": "4.3",
+    "D": "12"
+   },
+   "correct": "B",
+   "explanation": "3 tenths four times is 12 tenths, which is 1.2.",
+   "misconceptions": "puts the point in the wrong place",
+   "why": {
+    "A": "0.12 puts two places after the point in 3 × 4 = 12, but 0.3 has only one.",
+    "C": "4.3 adds the 4 to the 0.3.",
+    "D": "12 forgets the decimal point."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "cc2eef49c90109ea"
+  },
+  {
+   "id": "MA-W9-40",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "money times a whole number",
+   "difficulty": "M",
+   "prompt": "Pens cost $1.25 each. How much do 6 pens cost?",
+   "choices": {
+    "A": "$6.25",
+    "B": "$7.50",
+    "C": "$8.75",
+    "D": "$75.00"
+   },
+   "correct": "B",
+   "explanation": "6 × $1 = $6 and 6 × $0.25 = $1.50. $6 + $1.50 = $7.50.",
+   "misconceptions": "loses the decimal point",
+   "why": {
+    "A": "$6.25 multiplies only the dollars (6 × $1 = $6) and adds one $0.25.",
+    "C": "$8.75 is the cost of 7 pens.",
+    "D": "$75.00 loses the decimal point. 6 pens at about $1 each cost about $6, not $75."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "4cc2791340e9f54c"
+  },
+  {
+   "id": "MA-W9-41",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "dividing a decimal by a whole number",
+   "difficulty": "M",
+   "prompt": "What is 4.8 ÷ 6?",
+   "choices": {
+    "A": "0.08",
+    "B": "0.8",
+    "C": "1.25",
+    "D": "8"
+   },
+   "correct": "B",
+   "explanation": "4.8 is 48 tenths. 48 ÷ 6 = 8, so the answer is 8 tenths: 0.8.",
+   "misconceptions": "misplaces the point; divides the wrong way",
+   "why": {
+    "A": "0.08 puts the point one place too far left. 48 tenths ÷ 6 = 8 tenths.",
+    "C": "1.25 is 6 ÷ 4.8, the division the wrong way round.",
+    "D": "8 forgets the decimal point. 4.8 ÷ 6 must be less than 1."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "deae2bd6fac6af8b"
+  },
+  {
+   "id": "MA-W9-42",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Decimals",
+   "subskill": "a decimal between two tenths",
+   "difficulty": "M",
+   "prompt": "Which number is between 1.3 and 1.4?",
+   "choices": {
+    "A": "1.035",
+    "B": "1.35",
+    "C": "1.45",
+    "D": "13.5"
+   },
+   "correct": "B",
+   "explanation": "Write the ends with two places: 1.30 and 1.40. 1.35 sits halfway between them.",
+   "misconceptions": "thinks more digits means a number in between",
+   "why": {
+    "A": "1.035 is less than 1.1. Its tenths digit is 0.",
+    "C": "1.45 is a little more than 1.4.",
+    "D": "13.5 is thirteen and a half. The point is in the wrong place."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "e81c9b43dee3b198"
+  },
+  {
+   "id": "MA-W9-43",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Percent",
+   "subskill": "percent of a number",
+   "difficulty": "E",
+   "prompt": "What is 30% of 60?",
+   "choices": {
+    "A": "2",
+    "B": "18",
+    "C": "30",
+    "D": "42"
+   },
+   "correct": "B",
+   "explanation": "10% of 60 is 6. 30% is 3 times as much: 3 × 6 = 18.",
+   "misconceptions": "divides by the percent; finds the part left",
+   "why": {
+    "A": "2 is 60 ÷ 30. 30% means 30 out of every 100.",
+    "C": "30 copies the percent.",
+    "D": "42 is 60 − 18, the part left over."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "08ea8f638c1ad07d"
+  },
+  {
+   "id": "MA-W9-44",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Percent",
+   "subskill": "percent to decimal",
+   "difficulty": "E",
+   "prompt": "Which decimal is equal to 7%?",
+   "choices": {
+    "A": "0.007",
+    "B": "0.07",
+    "C": "0.7",
+    "D": "7"
+   },
+   "correct": "B",
+   "explanation": "7% means 7 out of 100, which is 7/100 = 0.07.",
+   "misconceptions": "puts the point in the wrong place",
+   "why": {
+    "A": "0.007 is 7 thousandths. Percent means hundredths.",
+    "C": "0.7 is 70%. 7% is 7 hundredths.",
+    "D": "7 is 700%. Percent means out of 100."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "53021eedbb32e947"
+  },
+  {
+   "id": "MA-W9-45",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Percent",
+   "subskill": "fraction to percent",
+   "difficulty": "E",
+   "prompt": "What percent is equal to 3/4?",
+   "choices": {
+    "A": "7.5%",
+    "B": "25%",
+    "C": "34%",
+    "D": "75%"
+   },
+   "correct": "D",
+   "explanation": "Multiply the top and bottom by 25: 3/4 = 75/100 = 75%.",
+   "misconceptions": "writes the digits as a percent",
+   "why": {
+    "A": "7.5% puts a point in 75. 3/4 is 75 out of 100.",
+    "B": "25% is 1/4, the part that is left.",
+    "C": "34% writes the 3 and 4 side by side."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "520fa9bf7cec22e4"
+  },
+  {
+   "id": "MA-W9-46",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Percent",
+   "subskill": "the part that is not counted",
+   "difficulty": "M",
+   "prompt": "There are 40 students in a club, and 25% of them walk to school. How many do NOT walk to school?",
+   "choices": {
+    "A": "10",
+    "B": "15",
+    "C": "25",
+    "D": "30"
+   },
+   "correct": "D",
+   "explanation": "25% is one quarter. 40 ÷ 4 = 10 walk, so 40 − 10 = 30 do not.",
+   "misconceptions": "answers the part that does; subtracts the percent as a number",
+   "why": {
+    "A": "10 is the students who do walk. The question asks about the others.",
+    "B": "15 takes 25 students away from 40. 25% of 40 is 10 students, not 25.",
+    "C": "25 copies the percent."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "a0a47eda2adb7a95"
+  },
+  {
+   "id": "MA-W9-47",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Percent",
+   "subskill": "percent to fraction in simplest form",
+   "difficulty": "M",
+   "prompt": "Which fraction is equal to 35%?",
+   "choices": {
+    "A": "1/35",
+    "B": "35/1000",
+    "C": "7/20",
+    "D": "3/5"
+   },
+   "correct": "C",
+   "explanation": "35% = 35/100. Divide the top and bottom by 5: 7/20.",
+   "misconceptions": "misreads percent as a place value",
+   "why": {
+    "A": "1/35 is less than 3%. It puts the 35 on the bottom.",
+    "B": "35/1000 is 3.5%. Percent means out of 100.",
+    "D": "3/5 is 60%. It uses the digits 3 and 5 as a fraction."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "6c2395e4329a9584"
+  },
+  {
+   "id": "MA-W9-48",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Percent",
+   "subskill": "price after a percent discount",
+   "difficulty": "M",
+   "prompt": "A game costs $60. It is on sale for 20% off. What is the sale price?",
+   "choices": {
+    "A": "$12",
+    "B": "$40",
+    "C": "$48",
+    "D": "$72"
+   },
+   "correct": "C",
+   "explanation": "10% of $60 is $6, so 20% is $12. $60 − $12 = $48.",
+   "misconceptions": "stops at the discount; subtracts the percent as dollars",
+   "why": {
+    "A": "$12 is the amount taken off. The question asks for the new price.",
+    "B": "$40 takes off 20 dollars. 20% of $60 is $12.",
+    "D": "$72 adds the $12. \"Off\" means take it away."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "f2585fbf9266672e"
+  }
+ ]
+}

@@ -1,0 +1,655 @@
+{
+ "bank": "qr-w9",
+ "schema_version": "1.0",
+ "content_version": "2026.11.15",
+ "items": [
+  {
+   "id": "QR-W9-01",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Area",
+   "subskill": "one side doubled",
+   "difficulty": "M",
+   "prompt": "A rectangle is 5 inches long and 3 inches wide. If its width is doubled and its length stays the same, how many times as large is the new area?",
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "6",
+    "D": "8"
+   },
+   "correct": "A",
+   "explanation": "The old area is 5 × 3 = 15. The new area is 5 × 6 = 30. 30 is 2 times 15. Doubling one side doubles the area.",
+   "misconceptions": "doubles both sides; answers a length",
+   "why": {
+    "B": "4 is what happens when BOTH sides are doubled. Here only the width changes.",
+    "C": "6 is the new width. The question asks how many times the area grows.",
+    "D": "8 adds the two sides of the original rectangle (5 + 3) and does not compare areas."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "1ae87ad88093b370"
+  },
+  {
+   "id": "QR-W9-02",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Area",
+   "subskill": "both sides doubled",
+   "difficulty": "M",
+   "prompt": "A square has sides 4 centimeters long. If every side is doubled, how many times as large is the new area?",
+   "choices": {
+    "A": "2",
+    "B": "4",
+    "C": "8",
+    "D": "16"
+   },
+   "correct": "B",
+   "explanation": "The old area is 4 × 4 = 16. The new square has sides of 8, so its area is 8 × 8 = 64. 64 ÷ 16 = 4.",
+   "misconceptions": "treats doubling both sides like doubling one",
+   "why": {
+    "A": "2 would be right if only one side were doubled. Both the length and the width double, so the area doubles twice.",
+    "C": "8 is the new side length, not how many times the area grows.",
+    "D": "16 is the old area (4 × 4), not how many times the area grows."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "1f905ccbaaabb3d4"
+  },
+  {
+   "id": "QR-W9-03",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Perimeter",
+   "subskill": "how perimeter changes",
+   "difficulty": "M",
+   "prompt": "A rectangle is 7 meters long and 2 meters wide. Its length is made 3 meters longer. By how many meters does the perimeter increase?",
+   "choices": {
+    "A": "6",
+    "B": "9",
+    "C": "12",
+    "D": "24"
+   },
+   "correct": "A",
+   "explanation": "The old perimeter is 2 × (7 + 2) = 18. The new one is 2 × (10 + 2) = 24. 24 − 18 = 6, because both long sides grew by 3.",
+   "misconceptions": "adds the change to one side only",
+   "why": {
+    "B": "9 adds 3 three times. Only the two long sides change.",
+    "C": "12 adds 3 to all four sides. The widths stay 2 meters.",
+    "D": "24 is the new perimeter. The question asks how much it grew: 24 − 18."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "08f37c2b5d467c18"
+  },
+  {
+   "id": "QR-W9-04",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "segments on a line",
+   "difficulty": "M",
+   "prompt": "Points A, B, C and D are on a line in that order. AB is 5, BC is 3 and AD is 12. What is the length of CD?",
+   "choices": {
+    "A": "4",
+    "B": "7",
+    "C": "9",
+    "D": "20"
+   },
+   "correct": "A",
+   "explanation": "AD is the whole line: AB + BC + CD = 12. So 5 + 3 + CD = 12, and CD = 4.",
+   "misconceptions": "forgets a piece; adds a length that is already inside another",
+   "why": {
+    "B": "7 is 12 − 5, the length of BD. BC is part of BD, so take it away too.",
+    "C": "9 is 12 − 3. It leaves out AB.",
+    "D": "20 adds all three lengths. AD already includes AB and BC."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "e27f0013d2c03edf"
+  },
+  {
+   "id": "QR-W9-05",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "overlapping segments",
+   "difficulty": "H",
+   "prompt": "Points A, B, C and D are on a line in that order. AC is 10, BD is 9 and BC is 4. What is the length of AD?",
+   "choices": {
+    "A": "5",
+    "B": "6",
+    "C": "13",
+    "D": "15"
+   },
+   "correct": "D",
+   "explanation": "AC and BD overlap on BC. AC + BD = 19 counts BC twice, so take it away once: 19 − 4 = 15. (Or: AB = 10 − 4 = 6, CD = 9 − 4 = 5, and 6 + 4 + 5 = 15.)",
+   "misconceptions": "counts the overlap twice",
+   "why": {
+    "A": "5 is CD alone (9 − 4). AD runs all the way from A to D.",
+    "B": "6 is AB alone (10 − 4). AD runs all the way from A to D.",
+    "C": "13 adds BD and BC (9 + 4), counting BC twice and leaving out AB."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "46e204e66743a43a"
+  },
+  {
+   "id": "QR-W9-06",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Mixed reasoning",
+   "subskill": "counting a group with an overlap",
+   "difficulty": "M",
+   "prompt": "In a class, 18 students like soccer and 12 like basketball. Five of them like both. How many students like at least one of the two sports?",
+   "choices": {
+    "A": "5",
+    "B": "7",
+    "C": "13",
+    "D": "25"
+   },
+   "correct": "D",
+   "explanation": "18 + 12 = 30 counts the 5 who like both twice. Take them away once: 30 − 5 = 25.",
+   "misconceptions": "counts the overlap twice",
+   "why": {
+    "A": "5 is only the students who like both sports.",
+    "B": "7 is the students who like basketball only (12 − 5).",
+    "C": "13 is the students who like soccer only (18 − 5)."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "3ca7d00c6c4e73d6"
+  },
+  {
+   "id": "QR-W9-07",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Mixed reasoning",
+   "subskill": "how many are in neither group",
+   "difficulty": "H",
+   "prompt": "There are 28 students in a class. Fifteen have a dog, 9 have a cat, and 4 have both. How many students have neither a dog nor a cat?",
+   "choices": {
+    "A": "4",
+    "B": "8",
+    "C": "20",
+    "D": "24"
+   },
+   "correct": "B",
+   "explanation": "Students with a pet: 15 + 9 − 4 = 20 (the 4 were counted in both groups). Students without: 28 − 20 = 8.",
+   "misconceptions": "counts the overlap twice; answers the wrong group",
+   "why": {
+    "A": "4 takes 15 + 9 = 24 away from 28, but the 4 with both pets were counted twice in the 24.",
+    "C": "20 is the students who have at least one pet (15 + 9 − 4). The question asks about the others.",
+    "D": "24 adds 15 and 9, counting the 4 with both pets twice, and it is not the number without pets."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "9ddf7a97fcd04cae"
+  },
+  {
+   "id": "QR-W9-08",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Algebraic reasoning",
+   "subskill": "working backwards",
+   "difficulty": "M",
+   "prompt": "If 3 × □ + 4 = 19, what number goes in the box?",
+   "choices": {
+    "A": "5",
+    "B": "15",
+    "C": "23",
+    "D": "57"
+   },
+   "correct": "A",
+   "explanation": "Undo the steps in reverse: 19 − 4 = 15, then 15 ÷ 3 = 5. Check: 3 × 5 + 4 = 19.",
+   "misconceptions": "stops halfway; undoes with the wrong operation",
+   "why": {
+    "B": "15 is 19 − 4, which is 3 × □. Divide by 3 to find □.",
+    "C": "23 adds 4 to 19. Undo + 4 by subtracting.",
+    "D": "57 multiplies 19 by 3. Undo × 3 by dividing."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "7da2ba9473ffbb93"
+  },
+  {
+   "id": "QR-W9-09",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Pattern",
+   "subskill": "a term far along a pattern",
+   "difficulty": "M",
+   "prompt": "The pattern 3, 7, 11, 15, … adds 4 each time. What is the 10th number in the pattern?",
+   "choices": {
+    "A": "31",
+    "B": "35",
+    "C": "36",
+    "D": "39"
+   },
+   "correct": "D",
+   "explanation": "From the 1st number to the 10th there are 9 steps of 4. 3 + 9 × 4 = 3 + 36 = 39.",
+   "misconceptions": "counts one step too many or too few",
+   "why": {
+    "A": "31 is the 8th number. Count the terms: the 10th is two more steps.",
+    "B": "35 is the 9th number. Count the terms: the 10th is one more step.",
+    "C": "36 is 9 × 4, the nine steps without the 3 the pattern starts at."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "56347808c9fc6983"
+  },
+  {
+   "id": "QR-W9-10",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Unit rate",
+   "subskill": "cost of one unit",
+   "difficulty": "E",
+   "prompt": "A 12-ounce bottle of juice costs $3.00. What is the cost per ounce?",
+   "choices": {
+    "A": "$0.25",
+    "B": "$0.36",
+    "C": "$0.40",
+    "D": "$4.00"
+   },
+   "correct": "A",
+   "explanation": "$3.00 ÷ 12 = $0.25. Check: 12 × $0.25 = $3.00.",
+   "misconceptions": "divides the wrong way",
+   "why": {
+    "B": "$0.36 multiplies 3 by 12 instead of dividing. Share $3.00 among 12 ounces.",
+    "C": "$0.40 for 12 ounces would be $4.80.",
+    "D": "$4.00 is 12 ÷ 3, the division the wrong way round. One ounce cannot cost more than the bottle."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "d7057d0b8e584b35"
+  },
+  {
+   "id": "QR-W9-11",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Ratio",
+   "subskill": "sharing in a ratio",
+   "difficulty": "H",
+   "prompt": "A bag has 3 red marbles for every 5 blue marbles. There are 40 marbles in all. How many are red?",
+   "choices": {
+    "A": "8",
+    "B": "15",
+    "C": "24",
+    "D": "25"
+   },
+   "correct": "B",
+   "explanation": "Each group of 3 red and 5 blue holds 8 marbles. 40 ÷ 8 = 5 groups. Red: 5 × 3 = 15.",
+   "misconceptions": "mixes up the size of a group with the number of groups",
+   "why": {
+    "A": "8 is the number of marbles in one group of 3 red and 5 blue.",
+    "C": "24 is 3 × 8. There are 5 groups of 8, so red is 3 × 5.",
+    "D": "25 is the number of blue marbles."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "efff7a09b3bf3ea1"
+  },
+  {
+   "id": "QR-W9-12",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Mean",
+   "subskill": "average of four scores",
+   "difficulty": "E",
+   "prompt": "Ana scored 80, 90, 70 and 100 on four quizzes. What is her average score?",
+   "choices": {
+    "A": "80",
+    "B": "85",
+    "C": "90",
+    "D": "340"
+   },
+   "correct": "B",
+   "explanation": "80 + 90 + 70 + 100 = 340. 340 ÷ 4 = 85.",
+   "misconceptions": "stops at the total",
+   "why": {
+    "A": "80 is the first score. Add all four and share them out.",
+    "C": "90 is one of her scores. The mean is the total divided by 4.",
+    "D": "340 is the total. Divide it by 4 to find the average."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "937f9670e106c3fa"
+  },
+  {
+   "id": "QR-W9-13",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Remainders",
+   "subskill": "which number leaves a given remainder",
+   "difficulty": "M",
+   "prompt": "When a number is divided by 5, the remainder is 3. Which could be the number?",
+   "choices": {
+    "A": "25",
+    "B": "26",
+    "C": "28",
+    "D": "35"
+   },
+   "correct": "C",
+   "explanation": "A number that leaves 3 when divided by 5 ends in 3 or 8. 28 = 5 × 5 + 3.",
+   "misconceptions": "confuses remainder with a digit",
+   "why": {
+    "A": "25 ÷ 5 = 5 with no remainder.",
+    "B": "26 ÷ 5 = 5 with 1 left over.",
+    "D": "35 ÷ 5 = 7 with no remainder. It ends in 5, not 3 or 8."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "1340241fd2882e0d"
+  },
+  {
+   "id": "QR-W9-14",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Parity",
+   "subskill": "odd and even expressions",
+   "difficulty": "M",
+   "prompt": "The letter n stands for an odd number. Which expression must be even?",
+   "choices": {
+    "A": "3n",
+    "B": "n + 1",
+    "C": "n + 2",
+    "D": "2n + 1"
+   },
+   "correct": "B",
+   "explanation": "Try n = 5: n + 1 = 6, which is even. Adding 1 to any odd number reaches the next even number.",
+   "misconceptions": "adds an even amount and expects the parity to change",
+   "why": {
+    "A": "3 times an odd number is odd: 3 × 5 = 15.",
+    "C": "An odd number plus 2 is the next odd number: 5 + 2 = 7.",
+    "D": "2n is even, and one more than an even number is odd."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "db8ffe177a720bf2"
+  },
+  {
+   "id": "QR-W9-15",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Number sense",
+   "subskill": "adding 1,000 across a ten-thousand",
+   "difficulty": "M",
+   "prompt": "What number is 1,000 more than 49,650?",
+   "choices": {
+    "A": "49,750",
+    "B": "50,650",
+    "C": "59,650",
+    "D": "149,650"
+   },
+   "correct": "B",
+   "explanation": "Add 1 to the thousands digit. 49 thousand + 1 thousand = 50 thousand, so the answer is 50,650.",
+   "misconceptions": "adds to the wrong place",
+   "why": {
+    "A": "49,750 adds 100, not 1,000.",
+    "C": "59,650 adds 10,000.",
+    "D": "149,650 adds 100,000."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "7b01358c1b0a0b78"
+  },
+  {
+   "id": "QR-W9-16",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "elapsed time",
+   "difficulty": "M",
+   "prompt": "A movie starts at 6:45 p.m. and lasts 1 hour 50 minutes. When does it end?",
+   "choices": {
+    "A": "7:35 p.m.",
+    "B": "8:25 p.m.",
+    "C": "8:35 p.m.",
+    "D": "8:45 p.m."
+   },
+   "correct": "C",
+   "explanation": "6:45 + 1 hour = 7:45. Then 50 more minutes: 15 minutes reaches 8:00, and 35 more makes 8:35 p.m.",
+   "misconceptions": "adds only the minutes; rounds the time",
+   "why": {
+    "A": "7:35 p.m. adds only the 50 minutes, not the hour.",
+    "B": "8:25 p.m. adds 1 hour 40 minutes.",
+    "D": "8:45 p.m. adds 2 whole hours, 10 minutes too many."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "f2983a1e987ff7a4"
+  },
+  {
+   "id": "QR-W9-17",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "converting yards to feet",
+   "difficulty": "E",
+   "prompt": "A rope 3 yards long is cut into pieces that are each 1 foot long. How many pieces are there?",
+   "choices": {
+    "A": "3",
+    "B": "9",
+    "C": "12",
+    "D": "36"
+   },
+   "correct": "B",
+   "explanation": "One yard is 3 feet, so 3 yards are 3 × 3 = 9 feet. That makes 9 one-foot pieces.",
+   "misconceptions": "uses the wrong conversion",
+   "why": {
+    "A": "3 counts yards, not feet. Each yard is 3 feet.",
+    "C": "12 uses 4 feet in a yard. A yard is 3 feet.",
+    "D": "36 is the number of inches in a yard."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "7bc2bec827ef97c4"
+  },
+  {
+   "id": "QR-W9-18",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Perimeter",
+   "subskill": "perimeter from area and one side",
+   "difficulty": "M",
+   "prompt": "A rectangle has an area of 24 square feet and a length of 6 feet. What is its perimeter?",
+   "choices": {
+    "A": "4 feet",
+    "B": "10 feet",
+    "C": "20 feet",
+    "D": "24 feet"
+   },
+   "correct": "C",
+   "explanation": "Width = 24 ÷ 6 = 4 feet. Perimeter = 6 + 4 + 6 + 4 = 20 feet.",
+   "misconceptions": "stops at the width; mixes up area and perimeter",
+   "why": {
+    "A": "4 feet is the width (24 ÷ 6). The question asks for the perimeter.",
+    "B": "10 feet adds the length and the width once. A rectangle has two of each.",
+    "D": "24 is the area. Perimeter is the distance around."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "11bcad8c8c4cef7a"
+  },
+  {
+   "id": "QR-W9-19",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Fractions",
+   "subskill": "fraction left after two parts",
+   "difficulty": "H",
+   "prompt": "Jon read 2/5 of a book on Monday and 1/3 of it on Tuesday. What fraction of the book does he still have to read?",
+   "choices": {
+    "A": "1/15",
+    "B": "4/15",
+    "C": "5/8",
+    "D": "11/15"
+   },
+   "correct": "B",
+   "explanation": "Use fifteenths: 2/5 = 6/15 and 1/3 = 5/15. He has read 11/15, so 15/15 − 11/15 = 4/15 is left.",
+   "misconceptions": "stops at the part read; adds tops and bottoms",
+   "why": {
+    "A": "1/15 is 2/5 − 1/3, the difference between the two days. The question asks what is left of the whole book.",
+    "C": "5/8 adds the tops and bottoms (2 + 1 over 5 + 3) and takes that from 1.",
+    "D": "11/15 is how much he has read. Take it away from 1."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "f1c42ed62ca82fb1"
+  },
+  {
+   "id": "QR-W9-20",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Mean",
+   "subskill": "missing value for a mean",
+   "difficulty": "H",
+   "prompt": "The mean of five numbers is 6. Four of the numbers are 4, 5, 7 and 8. What is the fifth number?",
+   "choices": {
+    "A": "6",
+    "B": "8",
+    "C": "24",
+    "D": "30"
+   },
+   "correct": "A",
+   "explanation": "A mean of 6 for 5 numbers means a total of 5 × 6 = 30. 4 + 5 + 7 + 8 = 24, so the fifth number is 30 − 24 = 6.",
+   "misconceptions": "stops at a total",
+   "why": {
+    "B": "8 is the largest of the four numbers given, not the missing one.",
+    "C": "24 is the total of the four numbers given. The five numbers must total 30.",
+    "D": "30 is the total of all five. Take away the four you know."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "278f7e9466ca6f2d"
+  },
+  {
+   "id": "QR-W9-21",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Coordinates",
+   "subskill": "moving a point",
+   "difficulty": "M",
+   "prompt": "The point (3, 5) is moved 4 units right and 2 units down. Where is it now?",
+   "choices": {
+    "A": "(1, 7)",
+    "B": "(5, 9)",
+    "C": "(7, 3)",
+    "D": "(7, 7)"
+   },
+   "correct": "C",
+   "explanation": "Right 4 adds 4 to the first number: 3 + 4 = 7. Down 2 takes 2 from the second: 5 − 2 = 3. The point is (7, 3).",
+   "misconceptions": "moves the wrong way; swaps the moves",
+   "why": {
+    "A": "(1, 7) moves left 2 and up 2: the wrong way both times, and only 2 across instead of 4.",
+    "B": "(5, 9) moves the first number by 2 and the second by 4, and goes up: the moves are swapped.",
+    "D": "(7, 7) moves up 2 instead of down 2."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "2d41f173ec235d9c"
+  },
+  {
+   "id": "QR-W9-22",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Probability",
+   "subskill": "chance of not picking a color",
+   "difficulty": "M",
+   "prompt": "A bag holds 3 red, 6 blue and 1 green marble. One marble is picked without looking. What is the chance it is NOT blue?",
+   "choices": {
+    "A": "1 out of 10",
+    "B": "3 out of 10",
+    "C": "4 out of 10",
+    "D": "6 out of 10"
+   },
+   "correct": "C",
+   "explanation": "There are 3 + 6 + 1 = 10 marbles. Not blue means red or green: 3 + 1 = 4. The chance is 4 out of 10.",
+   "misconceptions": "answers the opposite event; counts only one color",
+   "why": {
+    "A": "1 out of 10 is the chance of green only. Red is not blue either.",
+    "B": "3 out of 10 is the chance of red only. Green is not blue either.",
+    "D": "6 out of 10 is the chance it IS blue."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "c07032c5d50971fe"
+  },
+  {
+   "id": "QR-W9-23",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Mixed reasoning",
+   "subskill": "what must be true",
+   "difficulty": "M",
+   "prompt": "Every student in Ms. Ray's class plays an instrument. Ben does not play an instrument. Which statement must be true?",
+   "choices": {
+    "A": "Ben plays a sport.",
+    "B": "Ben is in Ms. Ray's class.",
+    "C": "Ben is not in Ms. Ray's class.",
+    "D": "Some of Ms. Ray's students do not play."
+   },
+   "correct": "C",
+   "explanation": "Everyone in the class plays. Ben does not play. So Ben cannot be in the class.",
+   "misconceptions": "brings in something not stated; contradicts a fact",
+   "why": {
+    "A": "Nothing in the facts mentions sports.",
+    "B": "If he were, he would play an instrument, and he does not.",
+    "D": "The first fact says every student in the class plays."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "646fb93ea84588bf"
+  },
+  {
+   "id": "QR-W9-24",
+   "subject": "QR",
+   "form": "W9",
+   "skill": "Estimation",
+   "subskill": "estimating a product",
+   "difficulty": "E",
+   "prompt": "Which is closest to 49 × 51?",
+   "choices": {
+    "A": "250",
+    "B": "2,000",
+    "C": "2,450",
+    "D": "2,500"
+   },
+   "correct": "D",
+   "explanation": "Both numbers are close to 50, and 50 × 50 = 2,500. (The exact answer is 2,499.)",
+   "misconceptions": "loses or adds a zero",
+   "why": {
+    "A": "250 drops a zero. 50 × 50 = 2,500.",
+    "B": "2,000 rounds 49 and 51 to 40 and 50, but both are close to 50.",
+    "C": "2,450 is 49 × 50. The other number is 51, one more than 50, which adds about 49 more."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.15",
+   "content_hash": "4e7376971eae9a49"
+  }
+ ]
+}
