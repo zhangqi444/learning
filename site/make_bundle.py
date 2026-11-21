@@ -23,7 +23,10 @@ for _sub in BANKS: BANKS[_sub].append(f'{_sub}-w9.json')
 # The fourth, `-numbers-plus` (15 November 2026, MA only), is W8 number sense: the real ISEE
 # report for 24 October put MA lowest (stanine 6), with five of her seven scored misses in
 # Whole Numbers and Decimals/Percents/Fractions, not in figures (tools/author_numbers_w8.py).
-ADDED={sub:[f'{sub}-weeks5-8-plus.json', f'{sub}-words-plus.json', f'{sub}-figures-plus.json', f'{sub}-numbers-plus.json'] for sub in BANKS}
+# The fifth, `-units-plus` (21 November 2026, MA only), is W9 unit conversion: she missed a
+# grams-and-kilograms question on a practice paper and said she did not know the conversion
+# (tools/author_units_w9.py). Its items say form W9, so they sit after W9's own sets.
+ADDED={sub:[f'{sub}-weeks5-8-plus.json', f'{sub}-words-plus.json', f'{sub}-figures-plus.json', f'{sub}-numbers-plus.json', f'{sub}-units-plus.json'] for sub in BANKS}
 # The sub-skill of each question written before sub-skills were named, kept beside the
 # banks rather than in them so those questions (and their content hashes) are untouched.
 SUBSKILLS=json.load(open('content/subskills.json'))['items'] if os.path.exists('content/subskills.json') else {}

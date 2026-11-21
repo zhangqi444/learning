@@ -1,0 +1,655 @@
+{
+ "bank": "ma-units-plus",
+ "schema_version": "1.0",
+ "content_version": "2026.11.21",
+ "items": [
+  {
+   "id": "MA-W9-U-01",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "grams to kilograms",
+   "difficulty": "E",
+   "prompt": "How many kilograms are in 65,000 grams?",
+   "choices": {
+    "A": "6.5 kg",
+    "B": "65 kg",
+    "C": "650 kg",
+    "D": "6,500 kg"
+   },
+   "correct": "B",
+   "explanation": "Kilo means 1,000, so 1 kg = 1,000 g. Going from grams (small) to kilograms (big), the number gets smaller: 65,000 ÷ 1,000 = 65 kg.",
+   "misconceptions": "divides by the wrong power of ten",
+   "why": {
+    "A": "6.5 kg divides by 10,000. A kilogram is 1,000 grams, so divide by 1,000.",
+    "C": "650 kg takes away only two zeros. 1,000 grams make 1 kilogram, so divide by 1,000.",
+    "D": "6,500 kg takes away only one zero. 1 kg = 1,000 g, so divide by 1,000."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "1f066d17ed3de2e4"
+  },
+  {
+   "id": "MA-W9-U-02",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "kilograms to grams",
+   "difficulty": "E",
+   "prompt": "How many grams are in 3 kilograms?",
+   "choices": {
+    "A": "3 g",
+    "B": "30 g",
+    "C": "300 g",
+    "D": "3,000 g"
+   },
+   "correct": "D",
+   "explanation": "1 kg = 1,000 g. Going from a big unit to a small one, the number gets bigger: 3 × 1,000 = 3,000 g.",
+   "misconceptions": "multiplies by the wrong power of ten",
+   "why": {
+    "A": "3 g keeps the same number. A kilogram is much heavier than a gram, so there are many more grams.",
+    "B": "30 g multiplies by 10. 1 kg = 1,000 g.",
+    "C": "300 g multiplies by 100. 1 kg = 1,000 g."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "21b74d641625b3fb"
+  },
+  {
+   "id": "MA-W9-U-03",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "mixed kilograms and grams",
+   "difficulty": "M",
+   "prompt": "How many grams are in 2 kilograms 400 grams?",
+   "choices": {
+    "A": "240 g",
+    "B": "2,040 g",
+    "C": "2,400 g",
+    "D": "24,000 g"
+   },
+   "correct": "C",
+   "explanation": "2 kg = 2,000 g. Add the 400 g: 2,000 + 400 = 2,400 g.",
+   "misconceptions": "writes the numbers side by side",
+   "why": {
+    "A": "240 g treats 2 kg as 200 g. 2 kg is 2,000 g.",
+    "B": "2,040 g adds 40 instead of 400: 2,000 + 400 = 2,400.",
+    "D": "24,000 g writes 2 and 400 side by side and adds a zero."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "74b360a4a35d21e1"
+  },
+  {
+   "id": "MA-W9-U-04",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "adding a mass in grams to one in kilograms",
+   "difficulty": "M",
+   "prompt": "One box weighs 4,500 grams. Another box weighs 3 kilograms. How many kilograms do the two boxes weigh together?",
+   "choices": {
+    "A": "4.8 kg",
+    "B": "7.5 kg",
+    "C": "48 kg",
+    "D": "4,503 kg"
+   },
+   "correct": "B",
+   "explanation": "Put both in kilograms: 4,500 g ÷ 1,000 = 4.5 kg. Then 4.5 + 3 = 7.5 kg.",
+   "misconceptions": "adds numbers in different units",
+   "why": {
+    "A": "4.8 kg treats 3 kilograms as 300 grams. Change 4,500 g to kilograms instead: 4.5 kg.",
+    "C": "48 kg adds 45 and 3. 4,500 grams is 4.5 kilograms, not 45.",
+    "D": "4,503 kg adds 3 to 4,500 without changing the grams into kilograms. Put both in the same unit first."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "639cbd6d3249c6a5"
+  },
+  {
+   "id": "MA-W9-U-05",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "kilometers to meters",
+   "difficulty": "E",
+   "prompt": "How many meters are in 5 kilometers?",
+   "choices": {
+    "A": "5 m",
+    "B": "50 m",
+    "C": "500 m",
+    "D": "5,000 m"
+   },
+   "correct": "D",
+   "explanation": "Kilo means 1,000: 1 km = 1,000 m. 5 × 1,000 = 5,000 m.",
+   "misconceptions": "multiplies by the wrong power of ten",
+   "why": {
+    "A": "5 m keeps the same number. A kilometer is much longer than a meter.",
+    "B": "50 m multiplies by 10. 1 km = 1,000 m.",
+    "C": "500 m multiplies by 100. 1 km = 1,000 m."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "5fba21d49130f07b"
+  },
+  {
+   "id": "MA-W9-U-06",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "meters to kilometers",
+   "difficulty": "M",
+   "prompt": "How many kilometers are in 2,500 meters?",
+   "choices": {
+    "A": "2.5 km",
+    "B": "25 km",
+    "C": "250 km",
+    "D": "2,500,000 km"
+   },
+   "correct": "A",
+   "explanation": "Going from meters (small) to kilometers (big), divide by 1,000: 2,500 ÷ 1,000 = 2.5 km.",
+   "misconceptions": "multiplies when it should divide",
+   "why": {
+    "B": "25 km divides by 100. 1 km = 1,000 m, so divide by 1,000.",
+    "C": "250 km divides by 10. 1 km = 1,000 m, so divide by 1,000.",
+    "D": "2,500,000 km multiplies by 1,000. Meters are smaller than kilometers, so the number should get smaller."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "674a3ad79b8e2399"
+  },
+  {
+   "id": "MA-W9-U-07",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "meters to centimeters",
+   "difficulty": "E",
+   "prompt": "How many centimeters are in 3 meters?",
+   "choices": {
+    "A": "0.03 cm",
+    "B": "30 cm",
+    "C": "300 cm",
+    "D": "3,000 cm"
+   },
+   "correct": "C",
+   "explanation": "Centi means one hundredth, so 1 m = 100 cm. 3 × 100 = 300 cm.",
+   "misconceptions": "uses 1,000 instead of 100",
+   "why": {
+    "A": "0.03 cm divides by 100. A meter is bigger than a centimeter, so multiply.",
+    "B": "30 cm multiplies by 10. 1 m = 100 cm.",
+    "D": "3,000 cm multiplies by 1,000. That would be millimeters: 1 m = 100 cm."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "6456c4aa20349d87"
+  },
+  {
+   "id": "MA-W9-U-08",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "meters and centimeters to centimeters",
+   "difficulty": "M",
+   "prompt": "How many centimeters are in 1 meter 35 centimeters?",
+   "choices": {
+    "A": "36 cm",
+    "B": "135 cm",
+    "C": "1,035 cm",
+    "D": "1,350 cm"
+   },
+   "correct": "B",
+   "explanation": "1 m = 100 cm. Add the 35 cm: 100 + 35 = 135 cm.",
+   "misconceptions": "adds the numbers without converting",
+   "why": {
+    "A": "36 cm adds 1 and 35. The 1 is a whole meter, which is 100 cm.",
+    "C": "1,035 cm treats 1 m as 1,000 cm. 1 m = 100 cm.",
+    "D": "1,350 cm writes 1 and 35 side by side and adds a zero."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "fab966aed3ba6852"
+  },
+  {
+   "id": "MA-W9-U-09",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "millimeters to centimeters",
+   "difficulty": "M",
+   "prompt": "How many centimeters are in 45 millimeters?",
+   "choices": {
+    "A": "4.5 cm",
+    "B": "45 cm",
+    "C": "450 cm",
+    "D": "4,500 cm"
+   },
+   "correct": "A",
+   "explanation": "1 cm = 10 mm. Going from millimeters (small) to centimeters (big), divide: 45 ÷ 10 = 4.5 cm.",
+   "misconceptions": "multiplies when it should divide",
+   "why": {
+    "B": "45 cm keeps the same number. A centimeter is 10 millimeters.",
+    "C": "450 cm multiplies by 10. Millimeters are smaller, so divide.",
+    "D": "4,500 cm multiplies by 100."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "4ce9cc30f579aa46"
+  },
+  {
+   "id": "MA-W9-U-10",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "milliliters to liters",
+   "difficulty": "E",
+   "prompt": "How many liters are in 4,000 milliliters?",
+   "choices": {
+    "A": "4 L",
+    "B": "40 L",
+    "C": "400 L",
+    "D": "4,000,000 L"
+   },
+   "correct": "A",
+   "explanation": "Milli means one thousandth, so 1 L = 1,000 mL. 4,000 ÷ 1,000 = 4 L.",
+   "misconceptions": "multiplies when it should divide",
+   "why": {
+    "B": "40 L divides by 100. 1 L = 1,000 mL.",
+    "C": "400 L divides by 10.",
+    "D": "4,000,000 L multiplies by 1,000. Milliliters are tiny, so the number of liters is smaller."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "d91a66f2a6373196"
+  },
+  {
+   "id": "MA-W9-U-11",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "adding milliliters and liters",
+   "difficulty": "M",
+   "prompt": "A jug holds 1,500 milliliters of juice. Ana adds 2 liters of water. How many milliliters are in the jug now?",
+   "choices": {
+    "A": "1,502 mL",
+    "B": "1,700 mL",
+    "C": "3,500 mL",
+    "D": "21,500 mL"
+   },
+   "correct": "C",
+   "explanation": "Put both in milliliters: 2 L = 2,000 mL. Then 1,500 + 2,000 = 3,500 mL.",
+   "misconceptions": "adds numbers in different units",
+   "why": {
+    "A": "1,502 mL adds 2 to 1,500 without changing liters to milliliters.",
+    "B": "1,700 mL treats 2 L as 200 mL. 1 L = 1,000 mL, so 2 L = 2,000 mL.",
+    "D": "21,500 mL treats 2 L as 20,000 mL."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "dda8dfb49f83d9b6"
+  },
+  {
+   "id": "MA-W9-U-12",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "how many pieces fit, in mixed units",
+   "difficulty": "H",
+   "prompt": "A ribbon 3 meters long is cut into pieces that are each 25 centimeters long. How many pieces are there?",
+   "choices": {
+    "A": "4",
+    "B": "12",
+    "C": "75",
+    "D": "120"
+   },
+   "correct": "B",
+   "explanation": "Change meters to centimeters: 3 m = 300 cm. Then 300 ÷ 25 = 12 pieces.",
+   "misconceptions": "divides without converting; uses the wrong conversion",
+   "why": {
+    "A": "4 is the number of pieces in one meter. The ribbon is 3 meters long.",
+    "C": "75 multiplies 3 by 25. Fitting pieces into a length is division.",
+    "D": "120 uses 3,000 cm for 3 meters. 1 m = 100 cm, so 3 m = 300 cm."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "f5e0e1a803a59dea"
+  },
+  {
+   "id": "MA-W9-U-13",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "feet to inches",
+   "difficulty": "E",
+   "prompt": "How many inches are in 4 feet?",
+   "choices": {
+    "A": "12 in",
+    "B": "16 in",
+    "C": "40 in",
+    "D": "48 in"
+   },
+   "correct": "D",
+   "explanation": "1 ft = 12 in. 4 × 12 = 48 in.",
+   "misconceptions": "adds instead of multiplying; uses 10",
+   "why": {
+    "A": "12 in is one foot. There are 4 feet.",
+    "B": "16 in adds 4 and 12. Each of the 4 feet is 12 inches, so multiply.",
+    "C": "40 in uses 10 inches in a foot. A foot is 12 inches."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "5e8eb866a0c3e793"
+  },
+  {
+   "id": "MA-W9-U-14",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "yards to feet",
+   "difficulty": "E",
+   "prompt": "How many feet are in 5 yards?",
+   "choices": {
+    "A": "8 ft",
+    "B": "15 ft",
+    "C": "60 ft",
+    "D": "180 ft"
+   },
+   "correct": "B",
+   "explanation": "1 yd = 3 ft. 5 × 3 = 15 ft.",
+   "misconceptions": "adds instead of multiplying; mixes up the units",
+   "why": {
+    "A": "8 ft adds 5 and 3. Each yard is 3 feet, so multiply.",
+    "C": "60 ft uses 12 feet in a yard. 12 is inches in a foot; a yard is 3 feet.",
+    "D": "180 ft is the number of inches in 5 yards, not feet."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "b675bc9a8cbd73af"
+  },
+  {
+   "id": "MA-W9-U-15",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "inches to feet",
+   "difficulty": "E",
+   "prompt": "How many feet are in 36 inches?",
+   "choices": {
+    "A": "3 ft",
+    "B": "12 ft",
+    "C": "48 ft",
+    "D": "432 ft"
+   },
+   "correct": "A",
+   "explanation": "1 ft = 12 in. Going from inches (small) to feet (big), divide: 36 ÷ 12 = 3 ft.",
+   "misconceptions": "multiplies when it should divide",
+   "why": {
+    "B": "12 ft is the number of inches in one foot.",
+    "C": "48 ft adds 36 and 12. Inches are smaller than feet, so divide: 36 ÷ 12.",
+    "D": "432 ft multiplies 36 by 12. Going to a bigger unit, divide."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "eb7b1e6a068a0bb6"
+  },
+  {
+   "id": "MA-W9-U-16",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "pounds to ounces",
+   "difficulty": "E",
+   "prompt": "How many ounces are in 3 pounds?",
+   "choices": {
+    "A": "19 oz",
+    "B": "30 oz",
+    "C": "36 oz",
+    "D": "48 oz"
+   },
+   "correct": "D",
+   "explanation": "1 lb = 16 oz. 3 × 16 = 48 oz.",
+   "misconceptions": "uses the wrong number for the unit",
+   "why": {
+    "A": "19 oz adds 3 and 16. Each pound is 16 ounces, so multiply.",
+    "B": "30 oz uses 10 ounces in a pound. A pound is 16 ounces.",
+    "C": "36 oz uses 12 ounces in a pound. 12 is inches in a foot; a pound is 16 ounces."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "4fa184f482e2a8bf"
+  },
+  {
+   "id": "MA-W9-U-17",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "ounces to pounds and ounces",
+   "difficulty": "M",
+   "prompt": "How much is 40 ounces in pounds and ounces?",
+   "choices": {
+    "A": "4 lb",
+    "B": "2 lb 4 oz",
+    "C": "2 lb 8 oz",
+    "D": "3 lb 4 oz"
+   },
+   "correct": "C",
+   "explanation": "1 lb = 16 oz. Two pounds is 32 oz, and 40 − 32 = 8 oz left: 2 lb 8 oz.",
+   "misconceptions": "uses the wrong number for the unit",
+   "why": {
+    "A": "4 lb uses 10 ounces in a pound. A pound is 16 ounces.",
+    "B": "2 lb 4 oz is only 36 ounces (32 + 4). 2 pounds is 32 ounces, and 40 − 32 = 8 left over.",
+    "D": "3 lb 4 oz uses 12 ounces in a pound (3 × 12 = 36, 40 − 36 = 4). A pound is 16 ounces."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "d069a02eb3ce8f33"
+  },
+  {
+   "id": "MA-W9-U-18",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "gallons to quarts",
+   "difficulty": "M",
+   "prompt": "How many quarts are in 3 gallons?",
+   "choices": {
+    "A": "6 qt",
+    "B": "7 qt",
+    "C": "12 qt",
+    "D": "24 qt"
+   },
+   "correct": "C",
+   "explanation": "1 gal = 4 qt. 3 × 4 = 12 qt.",
+   "misconceptions": "uses the wrong number for the unit",
+   "why": {
+    "A": "6 qt uses 2 quarts in a gallon. A gallon is 4 quarts.",
+    "B": "7 qt adds 3 and 4. Each gallon is 4 quarts, so multiply.",
+    "D": "24 qt is the number of pints in 3 gallons, not quarts."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "2c81ed23c59c34d6"
+  },
+  {
+   "id": "MA-W9-U-19",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "quarts to cups",
+   "difficulty": "H",
+   "prompt": "How many cups are in 2 quarts?",
+   "choices": {
+    "A": "4 cups",
+    "B": "8 cups",
+    "C": "16 cups",
+    "D": "32 cups"
+   },
+   "correct": "B",
+   "explanation": "1 qt = 2 pt and 1 pt = 2 cups, so 1 qt = 4 cups. 2 × 4 = 8 cups.",
+   "misconceptions": "stops one step early",
+   "why": {
+    "A": "4 is the number of pints in 2 quarts. Each pint is 2 cups.",
+    "C": "16 cups uses 8 cups in a quart. A quart is 4 cups; 16 cups is a whole gallon.",
+    "D": "32 cups uses 16 cups in a quart. 16 cups is a gallon, not a quart."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "b5d4d0652a59c4c2"
+  },
+  {
+   "id": "MA-W9-U-20",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "hours and minutes to minutes",
+   "difficulty": "E",
+   "prompt": "How many minutes are in 2 hours 15 minutes?",
+   "choices": {
+    "A": "75 min",
+    "B": "120 min",
+    "C": "135 min",
+    "D": "215 min"
+   },
+   "correct": "C",
+   "explanation": "1 hour = 60 minutes. 2 × 60 = 120, and 120 + 15 = 135 minutes.",
+   "misconceptions": "treats an hour as 100 minutes",
+   "why": {
+    "B": "120 min is the 2 hours only. Add the 15 minutes.",
+    "A": "75 min counts only one hour (60 + 15). There are 2 hours: 120 + 15.",
+    "D": "215 min writes 2 and 15 side by side. An hour is 60 minutes, not 100."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "77dbe2a7a58585d1"
+  },
+  {
+   "id": "MA-W9-U-21",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "seconds to minutes and seconds",
+   "difficulty": "M",
+   "prompt": "How long is 200 seconds?",
+   "choices": {
+    "A": "2 minutes",
+    "B": "20 minutes",
+    "C": "3 minutes 2 seconds",
+    "D": "3 minutes 20 seconds"
+   },
+   "correct": "D",
+   "explanation": "1 minute = 60 seconds. 3 minutes = 180 seconds, and 200 − 180 = 20, so 200 seconds = 3 minutes 20 seconds.",
+   "misconceptions": "treats a minute as 100 seconds",
+   "why": {
+    "A": "2 minutes treats a minute as 100 seconds. A minute is 60 seconds.",
+    "B": "20 minutes divides 200 by 10. A minute is 60 seconds.",
+    "C": "3 × 60 = 180, and 200 − 180 = 20 seconds left over, not 2."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "2cf1596b2f18e374"
+  },
+  {
+   "id": "MA-W9-U-22",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "comparing grams with kilograms",
+   "difficulty": "M",
+   "prompt": "Which is heavier than 2 kilograms?",
+   "choices": {
+    "A": "200 g",
+    "B": "1,500 g",
+    "C": "1,999 g",
+    "D": "2,100 g"
+   },
+   "correct": "D",
+   "explanation": "2 kg = 2,000 g. Only 2,100 g is more than 2,000 g.",
+   "misconceptions": "compares the numbers without converting",
+   "why": {
+    "A": "200 g is far less than 2 kg, which is 2,000 g.",
+    "B": "1,500 g is 1.5 kg, less than 2 kg.",
+    "C": "1,999 g is just under 2,000 g, so it is 1 gram lighter than 2 kg."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "4db2751141b3f7c3"
+  },
+  {
+   "id": "MA-W9-U-23",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "perimeter with mixed units",
+   "difficulty": "H",
+   "prompt": "A rectangle is 2 meters long and 50 centimeters wide. What is its perimeter in centimeters?",
+   "choices": {
+    "A": "104 cm",
+    "B": "250 cm",
+    "C": "500 cm",
+    "D": "10,000 cm"
+   },
+   "correct": "C",
+   "explanation": "Change 2 m to 200 cm. Perimeter = 200 + 50 + 200 + 50 = 500 cm.",
+   "misconceptions": "adds without converting; finds the area",
+   "why": {
+    "A": "104 cm adds 2 + 50 + 2 + 50 without changing 2 m to 200 cm.",
+    "B": "250 cm adds the length and the width once. A rectangle has two of each.",
+    "D": "10,000 is the area in square centimeters (200 × 50), not the perimeter."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "829462ea79b88f15"
+  },
+  {
+   "id": "MA-W9-U-24",
+   "subject": "MA",
+   "form": "W9",
+   "skill": "Measurement",
+   "subskill": "how many batches, in mixed units",
+   "difficulty": "M",
+   "prompt": "A muffin recipe uses 250 grams of flour. How many batches can be made from a 2-kilogram bag of flour?",
+   "choices": {
+    "A": "8",
+    "B": "80",
+    "C": "125",
+    "D": "500"
+   },
+   "correct": "A",
+   "explanation": "Change the bag to grams: 2 kg = 2,000 g. Then 2,000 ÷ 250 = 8 batches.",
+   "misconceptions": "divides without converting",
+   "why": {
+    "B": "80 makes a zero slip in 2,000 ÷ 250. Check: 250 × 8 = 2,000.",
+    "C": "125 divides 250 by 2: the wrong way round, and the bag is 2,000 grams. Divide the bag by one batch: 2,000 ÷ 250.",
+    "D": "500 multiplies 250 by 2. Change the bag to grams and divide."
+   },
+   "source": "Original content authored for Sheila ISEE",
+   "schema_version": "1.0",
+   "content_version": "2026.11.21",
+   "content_hash": "a7da32fbbc891527"
+  }
+ ]
+}
