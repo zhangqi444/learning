@@ -233,9 +233,20 @@
    {
     "id": "send",
     "text": "Confirm every target school is on the score-recipient list before the January deadlines"
+   },
+   {
+    "id": "school-essays",
+    "text": "School essays: Sheila drafts the PSIS essay (two prompts, 100–250 words each — sent to Eastside Prep and Overlake) and Overlake's middle-school questions on the site",
+    "why": "Due with the packets in January; December leaves time for a break between drafts and a second look.",
+    "path": "/apply"
    }
   ],
   "2027-01": [
+   {
+    "id": "school-essays-send",
+    "text": "Paste the finished school essays into each portal before the packet goes in (Overlake Jan 14, PSIS essay Jan 15) and tick them as submitted on the site",
+    "path": "/apply"
+   },
    {
     "id": "apps",
     "text": "Applications due Jan 14 at most schools (Lakeside preliminary Jan 14; all materials and scores Jan 28); BASIS Bellevue Jan 15; Annie Wright Jan 23",

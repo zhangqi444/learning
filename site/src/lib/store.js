@@ -462,6 +462,24 @@ export const Store = {
           ls[k] = { ...newer, files, applied: { ...(L.applied || {}), ...(R.applied || {}) } }
           continue
         }
+        // A school application essay (pages/apply.jsx) keeps a list of versions. The newer
+        // copy's text is what she sees, the versions are unioned by id, and if the copy that
+        // loses had text the winner does not, that text is kept as a version too: two devices
+        // writing the same essay must never cost her a paragraph.
+        if (slice === "essays" && k.startsWith("app:") && ls[k]) {
+          const L = ls[k], R = rs[k], newer = ts(R.at) > ts(L.at) ? R : L, older = newer === R ? L : R
+          const byId = {}
+          for (const v of [...(L.versions || []), ...(R.versions || [])]) if (v && v.id) byId[v.id] = v
+          const sameText = (a, b) => JSON.stringify(a || {}) === JSON.stringify(b || {})
+          const kept = Object.values(byId)
+          const olderText = Object.values(older.answers || {}).some((t) => t && String(t).trim())
+          if (olderText && !sameText(older.answers, newer.answers) && !kept.some((v) => sameText(v.answers, older.answers))) {
+            kept.push({ id: "merge-" + ts(older.at).toString(36), at: older.at || new Date().toISOString(), label: "From your other device", auto: true, picks: [...(older.picks || [])], answers: { ...older.answers } })
+          }
+          kept.sort((a, b) => ts(a.at) - ts(b.at))
+          ls[k] = { ...newer, versions: kept }
+          continue
+        }
         if (!ls[k] || ts(rs[k].at) > ts(ls[k].at)) ls[k] = rs[k]
       }
     }

@@ -86,6 +86,9 @@ out['breaks']=[{'label':'Sep 21 – 27','what':'Split baseline mock'},
 # ---- Session 1 precision review (VR), essay programme, mocks, calendar ----
 out['precision']=json.load(open('content/precision.json'))
 out['essay']=json.load(open('content/essay.json'))
+# School application essays (PSIS, shared by Eastside Prep and Overlake; Overlake's own middle-school
+# essay) — the portals' prompts, added 24 November 2026. Written by Sheila, kept on the site (pages/apply.jsx).
+out['applications']={k:v for k,v in json.load(open('content/applications.json')).items() if not k.endswith('_note')}
 # One file per form (the owner's ask, 4 October 2026: a paper is a file, so a rework
 # replaces one file and its diff reads as one paper), and the passages the same way.
 mock_bank=[i for f in sorted(glob.glob('content/question-banks/mock-*.json')) for i in json.load(open(f))['items']]

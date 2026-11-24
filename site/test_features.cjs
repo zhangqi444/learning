@@ -331,6 +331,60 @@ async function setLs(pg, mutate, read, ms = 12000, arg) {
   await pg.click('text=Guide');
   check('guide shows the eight lessons', /Read the prompt precisely/.test(await body(pg)) && /Revise, then edit/.test(await body(pg)));
 
+  console.log('== school application essays');
+  /* The PSIS essay (Eastside Prep and Overlake) and Overlake's own questions,
+     added 24 November 2026. What matters: she picks two prompts and no more,
+     the count is against the school's 100–250, her words survive a reload and
+     an unpick, a version can be brought back without losing what replaced it,
+     and two devices' texts are both kept by the merge. */
+  await pg.evaluate(() => { location.hash = '#/apply'; });
+  await pg.waitForSelector('[data-testid=apply-card-psis]');
+  check('the school essays are in the sidebar', (await pg.$$('[data-testid=nav-apply]')).length === 1);
+  check('both forms are listed, the PSIS one for both schools', /Eastside Prep and Overlake/.test(await pg.textContent('[data-testid=apply-card-psis]')) && !!(await pg.$('[data-testid=apply-card-overlake-ms]')));
+  await pg.click('[data-testid=apply-open-psis]'); await pg.waitForSelector('[data-testid=apply-picker]');
+  check('the portal rule is on the page: she writes it herself', /complete this section themselves/.test(await body(pg)));
+  await pg.click('[data-testid=apply-pick-lesson]'); await pg.click('[data-testid=apply-pick-invention]');
+  check('a third prompt cannot be picked', await pg.$eval('[data-testid=apply-pick-teach]', (b) => b.disabled));
+  const essayA = 'Once I thought being fast mattered most. '.repeat(14).trim();   // 7 words × 14 = 98
+  await pg.fill('[data-testid=apply-input-lesson]', essayA);
+  await pg.waitForTimeout(800);
+  check('the count says how far from 100', /98 words · 100–250 · 2 to go/.test(await pg.textContent('[data-testid=apply-count-lesson]')), await pg.textContent('[data-testid=apply-count-lesson]'));
+  check("and she cannot mark it finished yet", await pg.$eval('[data-testid=apply-ready]', (b) => b.disabled));
+  await pg.click('[data-testid=apply-save-version]');
+  await pg.fill('[data-testid=apply-input-lesson]', essayA + ' Now I know.');
+  await pg.fill('[data-testid=apply-input-invention]', 'My invention is a backpack that tells me what I forgot. '.repeat(12).trim());
+  await pg.waitForTimeout(800);
+  check('in the band, the count turns to done', /101 words/.test(await pg.textContent('[data-testid=apply-count-lesson]')));
+  await pg.reload({ waitUntil: 'networkidle' }); await pg.waitForSelector('[data-testid=apply-input-lesson]');
+  check('her words survive a reload', (await pg.$eval('[data-testid=apply-input-lesson]', (t) => t.value)).endsWith('Now I know.'));
+  await pg.click('[data-testid=apply-pick-invention]');
+  check('unpicking a prompt keeps its words', /words on this one, kept/.test(await pg.textContent('[data-testid=apply-pick-invention]')));
+  await pg.click('[data-testid=apply-pick-invention]');
+  await pg.waitForSelector('[data-testid=apply-input-invention]');
+  check('and picking it again brings them back', (await pg.$eval('[data-testid=apply-input-invention]', (t) => t.value)).startsWith('My invention'));
+  await pg.click('[data-testid=apply-versions-toggle]');
+  await pg.click('[data-testid=apply-restore]');
+  await pg.waitForTimeout(300);
+  check('bringing a version back restores its text', (await pg.$eval('[data-testid=apply-input-lesson]', (t) => t.value)) === essayA);
+  check('and what it replaced is kept as a version', (await pg.$$('[data-testid=apply-version]')).length === 2 && /Before going back/.test(await pg.textContent('[data-testid=apply-version-list]')));
+  await pg.fill('[data-testid=apply-input-lesson]', essayA + ' Now I know.'); await pg.waitForTimeout(800);
+  await pg.click('[data-testid=apply-ready]'); await pg.waitForSelector('[data-testid=apply-unready]');
+  await pg.click('[data-testid=apply-sent-overlake]');
+  await pg.fill('[data-testid=apply-input-lesson]', essayA + ' Now I really know.'); await pg.waitForTimeout(800);
+  check('after it is sent, a later edit is flagged as not in the portal', /Changed since it was sent/.test(await pg.textContent('[data-testid=apply-finish]')));
+  const kept = await pg.evaluate(() => { const e = JSON.parse(localStorage.getItem('isee.v1')).essays['app:psis']; return !!e && e.kind === 'app' && (e.picks || []).length === 2; });
+  check('the record is kept under app:psis in the essays slice, which syncs', kept);
+  await pg.evaluate(() => { location.hash = '#/apply'; }); await pg.waitForSelector('[data-testid=apply-status-psis]');
+  check('the list says it is finished and sent', /finished/.test(await pg.textContent('[data-testid=apply-status-psis]')) && /sent to Overlake/.test(await pg.textContent('[data-testid=apply-card-psis]')));
+  await pg.click('[data-testid=apply-open-overlake-ms]'); await pg.waitForSelector('[data-testid=apply-input-challenge]');
+  check('Overlake asks all eight of its questions', (await pg.$$('[data-testid^=apply-q-]')).length === 8);
+  await pg.fill('[data-testid=apply-input-adjectives]', 'curious, kind, and stubborn');
+  await pg.fill('[data-testid=apply-input-excites]', 'The robotics lab. I want to build things. My friends say I never stop asking how. Also the forest trail. And the library. It is huge.');
+  await pg.waitForTimeout(800);
+  check('three adjectives are counted as three', /3 of 3/.test(await pg.textContent('[data-testid=apply-count-adjectives]')));
+  check('a long answer is counted in sentences and gently flagged', /6 sentences/.test(await pg.textContent('[data-testid=apply-count-excites]')) && /asked for a few/.test(await pg.textContent('[data-testid=apply-count-excites]')));
+  check('the breadcrumb leads back to the list', /School essays/.test(await pg.textContent('header')));
+
   console.log('== mock exam');
   await pg.evaluate(() => { location.hash = '#/mock'; });
   await pg.waitForSelector('[data-testid=mock-open-DGN]');

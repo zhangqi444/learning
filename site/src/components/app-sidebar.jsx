@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Award, Blocks, BookA, Languages, Library, Volume2, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
+import { Award, Blocks, BookA, Languages, Library, Volume2, BookMarked, BookOpen, Calculator, CalendarDays, GraduationCap, LayoutDashboard, ListChecks, NotebookPen, PenLine, Play, RotateCcw, Shuffle, Sigma, Timer, Trophy, Wand2 } from "lucide-react"
 
 import { D, ORDER, SUBJ, subjProgress, zhLessonLabel } from "@/lib/content"
 import { currentZhLesson, noteFor, zhNextUp } from "@/pages/chinese"
@@ -10,6 +10,7 @@ import { baseCounts } from "@/lib/base"
 import { currentBook, finishedBooks } from "@/lib/books"
 import { nextUp, weekLeft } from "@/pages/checklist"
 import { essayStatus } from "@/pages/essay"
+import { appsReady, forms as appForms } from "@/pages/apply"
 import { importIsZh, unseenReviews } from "@/lib/reviews"
 import { go, splitCat } from "@/lib/router"
 import { t, useLang } from "@/lib/lang"
@@ -208,6 +209,15 @@ export function AppSidebar({ route, ...props }) {
                   <CalendarDays />
                   <span>Calendar</span>
                 </SidebarMenuButton>
+              </SidebarMenuItem>
+              {/* The essays the schools asked for. Not a subject, and not ISEE practice:
+                  her own words for the application portals (pages/apply.jsx). */}
+              <SidebarMenuItem>
+                <SidebarMenuButton tooltip="The essays the schools asked for" isActive={top === "apply"} onClick={() => nav("/apply")} data-testid="nav-apply">
+                  <NotebookPen />
+                  <span>School essays</span>
+                </SidebarMenuButton>
+                <SidebarMenuBadge className="text-muted-foreground tabular-nums">{appsReady()}/{appForms().length}</SidebarMenuBadge>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>

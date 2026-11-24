@@ -1,0 +1,44 @@
+{
+ "_note": "School application essays, typed from photos of the school portals the owner sent on 24 November 2026. The prompt wording is the portals' own; do not paraphrase it. Sheila writes these herself — the portals say so — so the site gives her somewhere to write, count and keep versions, and nothing that writes for her.",
+ "forms": [
+  {
+   "id": "psis",
+   "title": "PSIS Student Essay",
+   "schools": ["Eastside Prep", "Overlake"],
+   "due": "2027-01-15",
+   "due_text": "Due with the application packet: Jan 15, 2027",
+   "intro": "This is your opportunity to share more about who you are. We invite you to interpret the prompts in your own way. Perhaps this means sharing something that is more serious or perhaps, instead, a fun or funny experience. It is completely up to you.",
+   "rule": "Students should complete this section themselves, sharing their thoughts in writing.",
+   "choose": 2,
+   "min_words": 100,
+   "max_words": 250,
+   "prompts": [
+    { "id": "better", "text": "What is something you wish you were better at and why?" },
+    { "id": "few-know", "text": "What is something that few people know about you?" },
+    { "id": "teach", "text": "Describe an after-school class you would like to teach and how you would teach it." },
+    { "id": "invention", "text": "Describe an invention (fun or practical) that would positively impact your life." },
+    { "id": "lesson", "text": "Share a life lesson you have learned and how it shaped you." }
+   ]
+  },
+  {
+   "id": "overlake-ms",
+   "title": "Overlake Middle School Student Essay",
+   "schools": ["Overlake"],
+   "due": "2027-01-14",
+   "due_text": "Due with the application packet: Jan 14, 2027",
+   "intro": "This provides an opportunity for us to get to know your student through their own words.",
+   "hint": "Every question is required. Answers are short: no more than a few sentences each.",
+   "questions": [
+    { "id": "adjectives", "text": "List three adjectives that a friend might use to describe you:", "short": true },
+    { "id": "excites", "text": "What excites you about coming to Overlake?" },
+    { "id": "character", "text": "Who is a character from a book/TV show/movie you relate to and why?" },
+    { "id": "like-school", "text": "What do you like the most about school?" },
+    { "id": "change-school", "text": "What would you change about school?" },
+    { "id": "unique", "text": "What is something unique about you and/or your family?" },
+    { "id": "free-time", "text": "What do you like to do when you have time to yourself? Why?" },
+    { "id": "challenge", "text": "Tell us about a time you overcame a challenge. How did you do it, and what have you learned that will help you face challenges in the future?" }
+   ],
+   "few_sentences": 4
+  }
+ ]
+}

@@ -16,6 +16,7 @@ import { Runner } from "@/pages/runner"
 import { Review } from "@/pages/review"
 import { Precision } from "@/pages/precision"
 import { EssayList, EssayWeek } from "@/pages/essay"
+import { ApplyForm, ApplyList } from "@/pages/apply"
 import { AddPaper, MockCorrections, MockEssay, MockList, MockOverview, MockSection, OfflineMock } from "@/pages/mock"
 import { Calendar } from "@/pages/calendar"
 import { Checklist } from "@/pages/checklist"
@@ -145,6 +146,9 @@ function Screen({ route }) {
   if (top === "books") return <Books />
   if (top === "essay" && a && D.essay.weeks[a]) return <EssayWeek key={a} wk={a} />
   if (top === "essay") return <EssayList />
+  // The schools' own essays (content/applications.json), written by her for the portals.
+  if (top === "apply" && a) return <ApplyForm key={a} id={a} />
+  if (top === "apply") return <ApplyList />
   if (top === "mock" && a && D.mocks.some((m) => m.id === a)) {
     if (b === "corrections") return <MockCorrections form={a} />
     if (b === "ESSAY") return <MockEssay key={a} form={a} />

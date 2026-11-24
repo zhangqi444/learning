@@ -234,6 +234,27 @@ let failures = 0; const check = (n, ok, x) => { console.log((ok ? '  ok   ' : ' 
   check('a room built on another device arrives, built', (await pg.$eval('[data-testid=room][data-id=word-lab]', (e) => e.dataset.built)) === '1');
   check('and the Sparks it cost are gone from the balance', (await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).base['spend:otherdevice'].cost)) === 60);
 
+  // A school essay written on two devices: the newer text shows, and the other device's
+  // text is kept as a version rather than lost (pages/apply.jsx, Store.merge).
+  await pg.evaluate(() => { location.hash = '#/apply/psis'; });
+  await pg.waitForSelector('[data-testid=apply-pick-lesson]');
+  await pg.click('[data-testid=apply-pick-lesson]');
+  await pg.fill('[data-testid=apply-input-lesson]', 'Written on the laptop.');
+  await pushed(() => ((remoteBody().essays['app:psis'] || {}).answers || {}).lesson === 'Written on the laptop.');
+  {
+    const remote = remoteBody(), e = remote.essays['app:psis'];
+    e.answers = { lesson: 'Written on the iPad, later.' }; e.at = new Date(Date.now() + 60000).toISOString();
+    e.versions = [...(e.versions || []), { id: 'ipadv', at: new Date().toISOString(), label: 'iPad draft', picks: ['lesson'], answers: { lesson: 'An iPad draft.' } }];
+    drive.body = JSON.stringify(remote);
+  }
+  await pg.reload({ waitUntil: 'networkidle' });
+  await pg.waitForFunction(() => ((JSON.parse(localStorage.getItem('isee.v1')).essays['app:psis'] || {}).answers || {}).lesson === 'Written on the iPad, later.', null, { timeout: 15000 });
+  const appRec = await pg.evaluate(() => JSON.parse(localStorage.getItem('isee.v1')).essays['app:psis']);
+  check('a school essay from another device arrives, with its versions',
+    (appRec.versions || []).some((v) => v.id === 'ipadv'), JSON.stringify(appRec.versions || []).slice(0, 200));
+  check("and this device's own text is kept as a version, not lost",
+    (appRec.versions || []).some((v) => (v.answers || {}).lesson === 'Written on the laptop.'), JSON.stringify(appRec.versions || []).slice(0, 300));
+
   // The reading log. Every load seeds the starter shelf, so the empty placeholder and the
   // real record in Drive meet on every first visit from a new browser. The placeholder must
   // lose: stamped with the current time it won, and the emptied shelf was pushed over three

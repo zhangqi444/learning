@@ -1,4 +1,5 @@
 import * as React from "react"
+import { formById } from "@/pages/apply"
 import { Moon, Sun, Volume2, VolumeX } from "lucide-react"
 
 import { D, SUBJ, spanById } from "@/lib/content"
@@ -67,6 +68,10 @@ function crumbs(route, zhImport) {
   } else if (top === "essay") {
     out.push({ label: "Essay", path: "/essay" })
     if (a) out.push({ label: a, path: "/essay/" + a })
+  } else if (top === "apply") {
+    out.push({ label: "School essays", path: "/apply" })
+    const f = a && formById(a)
+    if (f) out.push({ label: f.title, path: "/apply/" + a })
   } else if (top === "mock") {
     out.push({ label: "Mock exams", path: "/mock" })
     const m = a && D.mocks.find((x) => x.id === a)
